@@ -37,5 +37,4 @@ git commit -m "$COMMIT_MSG" || echo "Nothing to commit."
 git push
 
 echo "Done. Site updated."
-EOF
 
