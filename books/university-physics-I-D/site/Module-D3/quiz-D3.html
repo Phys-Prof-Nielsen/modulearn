@@ -1,0 +1,1186 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>D3.7 Interactive Self-Assessment Quiz &#8212; A Competency Approach to Introductory Physics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/save_cell.css?v=43dd4451" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-D3/quiz-D3';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/save_cell.js?v=d135a7b8"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="D3.8 Assessment - Impulse-Momentum" href="loc-assessment-D3.html" />
+    <link rel="prev" title="D3.6 Problems" href="problemsD3.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-D.png" class="logo__image only-light" alt="A Competency Approach to Introductory Physics - Home"/>
+    <script>document.write(`<img src="../_static/logo-D.png" class="logo__image only-dark" alt="A Competency Approach to Introductory Physics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to University Physics I: A Compendium to the D Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://modulearn.academy/spheres/physics/university-physics-I/university-physics-I.html">University Physics I Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D1 - Introduction to Python for Physics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/LOC-D1.html">D1.0 Learning Outcomes – Introduction to Python for Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/intro-python.html">D1.1 Introduction to Python in Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/why-python.html">D1.2 Why We Use Python in Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/code-cells.html">D1.3 Using Code Cells in This E-Book (Thebe)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/options.html">D1.4 Additional / Optional Online Tools for Students</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/pseudo-code.html">D1.5 Pseudocode: Planning Before Coding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/python-calculator.html">D1.6 Using Python as a Scientific Calculator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/importing.html">D1.7 Importing Functions in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/equations.html">D1.8 Solving Simple Equations with Symbolic Python and Improve Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/problemsD1.html">D1.9 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/quiz-D1.html">D1.10 Interactive Self-Assessment Quiz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/loc-assessment-D1.html">D1.11 Assessment – Introduction to Python in Physics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D2 - Foundation of Scientific Quantification</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/LOC-D2.html">D2.0 Learning Outcomes - Foundations of Scientific Quantification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/Scientific_Method.html">D2.1 The Scientific Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/Unit_Conversion.html">D2.2 Units and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/Scientific_Notation.html">D2.3 Scientific Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/orders-magnitude-calculations.html">D2.4 Orders of Magnitude Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/Significant_Figures.html">D2.5 Significant Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/statistics.html">D2.6 Basic Statistics for Scientific Measurements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/basic-plots.html">D2.7 Basic Scientific Graphing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/problemsD2.html">D2.8 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/quiz-D2.html">D2.9 Interactive Self-Assessment Quiz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/loc-assessment-D2.html">D2.10 Assessment - Foundation of Scientific Quantification</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D3 - Impulse-Momentum Framework</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-D3.html">D3.0 Learning Outcomes - Impulse-Momentum Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="point-particle.html">D3.1 Point Particle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="momentum.html">D3.2 Linear Momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="impulse.html">D3.3 Impulse — Momentum Change as the Fundamental Quantity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="impulse-momentum.html">D3.4 Impulse from Force Acting Through Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conservation-momentum.html">D3.5 Conservation of Momentum</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="problemsD3.html">D3.6 Problems</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">D3.7 Interactive Self-Assessment Quiz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loc-assessment-D3.html">D3.8 Assessment - Impulse-Momentum</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D4 - Work-Energy Framework</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/LOC-D4.html">D4.0 Learning Outcomes — Work–Energy Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/kinetic-energy.html">D4.1 Kinetic Energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/work.html">D4.2 Work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/work-energy.html">D4.3 Work–Energy: Force Acting Through Displacement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/work-energy-graph.html">D4.4 Force–Displacement Graphs and Work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/conservation-kinetic-energy.html">D4.5 Conservation of Kinetic Energy (Two-Particle Systems)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/grav-potential-energy.html">D4.6 Gravitational Potential Energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/mechanical-energy.html">D4.7 Mechanical Energy and the Work–Energy Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/power.html">D4.8 Power: Rate of Energy Transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/problemsD4.html">D4.9 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/quiz-D4.html">D4.10 Interactive Self-Assessment Quiz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/loc-assessment-D4.html">D4.11 Assessment - Work-Energy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D5 - Kinematics and Emergence of Newtons Second Law</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/LOC-D5.html">D5.0 Learning Outcomes — Kinematics and the Emergence of Newton’s Second Law</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/basics-kinematics.html">D5.1 Kinematics in One Dimension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/derived-equations.html">D5.2 Derived Kinematic Equations (Constant Acceleration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/newtons-second-law.html">D5.3 Newton’s Second Law as a Special Case of the Impulse–Momentum Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/problemsD5.html">D5.4 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/quiz-D5.html">D5.5 Interactive Self-Assessment Quiz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/loc-assessment-D5.html">D5.6 Assessment - Kinematics and Newton’s 2nd Law</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D6 - Basic Oscillations and Waves</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/LOC-D6.html"><strong>D6.0 Learning Outcomes — Oscillations and Traveling Waves</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/basic-oscillations.html">D6.1 Basic Oscillations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/basic-waves.html">D6.2 Basic Waves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/problemsD6.html">D6.3 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/quiz-D6.html">D6.4 Interactive Self-Assessment Quiz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/loc-assessment-D6.html">D6.5 Assessment - Oscillations and Traveling Waves</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D7 - Foundations of Thermodynamics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/LOC-D7.html">D7.0 Learning Outcomes — Foundations of Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/temperature.html">D7.1 Temperature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/thermal-expansion.html">D7.2 Thermal Expansion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/heat.html">D7.3 Heat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/heat-transfer.html">D7.4 Methods of Heat Transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/first-law-thermo.html">D7.5 The First Law of Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/problemsD7.html">D7.6 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/quiz-D7.html">D7.7 Interactive Self-Assessment Quiz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/loc-assessment-D7.html">D7.8 Assessment - Foundations of Thermodynamics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D8 - Advanced Topics (Optional)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/taylor-series.html">D8.1 Advanced Topic A — Taylor Expansions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/complex.html">D8.2 Advanced Topic A — Complex Numbers as a Physics Tool</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/university-physics-I-D/Module-D3/quiz-D3.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-D3/quiz-D3.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>D3.7 Interactive Self-Assessment Quiz</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="d3-7-interactive-self-assessment-quiz">
+<h1>D3.7 Interactive Self-Assessment Quiz<a class="headerlink" href="#d3-7-interactive-self-assessment-quiz" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output text_html"><div id="EJBVAWFpMiBN" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>
+:root {
+    --medium-slate-blue: #6f78ffff;
+    --orange-pantone: #f75c03ff;
+    --russian-violet: #392061ff;
+    --maximum-yellow-red: #ffc857ff;
+    --viridian-green: #119da4ff;
+    --incorrect-red: #c80202;
+    --correct-green: #009113;
+}
+
+
+.Quiz {
+     max-width: 600px;
+     margin-top: 15px;
+     margin-left: auto;
+     margin-right: auto;
+     margin-bottom: 15px;
+     padding-bottom: 4px;
+     padding-top: 4px;
+     line-height: 1.1;
+     font-size: 16pt;
+}
+
+.QuizCode {
+    font-size: 14pt;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.QuizCode > pre {
+    padding: 4px;
+}
+.Answer{
+     margin: 10px 0;
+     display: grid;
+     grid-template-columns: auto auto;
+     grid-gap: 10px;
+}
+.Feedback{
+     font-size: 16pt;
+     text-align:center;
+ }
+
+.Input {
+    align:left;
+    font-size: 20pt;
+}
+.Input-text {
+    display: block;
+    margin: 10px;
+    color: inherit;
+    width: 140px;
+    background-color: #c0c0c0;
+    color: #fff;
+    padding: 5px;
+    padding-left: 10px;
+
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: inherit;
+    line-height: 20pt;
+    border: none;
+    border-radius: 0.2rem;
+    transition: box-shadow 0.1s);
+}
+
+ .Input-text:focus {
+     outline: none;
+     background-color: #c0c0c0;
+     box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem #999999;
+ }
+
+ .MCButton{
+     background: #fafafa;
+     border: 1px solid #eee;
+     border-radius: 10px;
+     padding: 10px;
+     font-size: 16px;
+     cursor: pointer;
+     text-align: center;
+ }
+ .MultipleChoiceQn {
+     padding: 10px;
+     background: var(--medium-slate-blue);
+     color: #fafafa;
+     border-radius: 10px;
+ }
+ .ManyChoiceQn {
+     padding: 10px;
+     background: var(--orange-pantone);
+     color: #fafafa;
+     border-radius: 10px;
+ }
+ .NumericQn {
+     padding: 10px;
+     background: var(--russian-violet);
+     color: #fafafa;
+     border-radius: 10px;
+ }
+.InpLabel {
+     line-height: 34px;
+     float:left;
+     margin-right: 10px;
+     color: #101010;
+     font-size: 15pt;
+}
+.incorrect {
+    color: var(--incorrect-red);
+}
+.correct {
+    color: var(--correct-green);
+}
+.correctButton {
+    background: var(--correct-green);
+    color: #fafafa;
+    box-shadow: inset 0px 0px 5px #555555;
+    outline: none;
+}
+.incorrectButton {
+    background: var(--incorrect-red);
+    color: #fafafa;
+    box-shadow: inset 0px 0px 5px #555555;
+    outline: none;
+}
+
+
+</style><script type="text/Javascript">questionsEJBVAWFpMiBN=[{"question": "A point particle model is most appropriate when...\n\nChoose the best statement.", "type": "multiple_choice", "answers": [{"answer": "The object's size and shape do not affect the motion being analyzed.", "correct": true, "feedback": "Correct. If size/shape do not matter for the dynamics of interest, the point-particle model is appropriate."}, {"answer": "The object literally has zero size and occupies no space.", "correct": false, "feedback": "Not correct. 'Point particle' is a modeling assumption, not a literal physical claim."}, {"answer": "The object is microscopic (like an electron).", "correct": false, "feedback": "Not necessarily. Many macroscopic objects can be treated as point particles if size/shape do not matter."}, {"answer": "The object experiences no forces.", "correct": false, "feedback": "Not correct. Point-particle modeling is about ignoring size/shape, not about eliminating forces."}]}, {"question": "In 1D motion, which statement best describes the difference between speed and velocity", "type": "multiple_choice", "answers": [{"answer": "Speed has no direction; velocity includes direction through a sign (+/-).", "correct": true, "feedback": "Correct. In 1D, direction is encoded by the sign of the velocity."}, {"answer": "Speed is always positive; velocity is always negative.", "correct": false, "feedback": "Not correct. Velocity can be positive or negative depending on direction."}, {"answer": "Speed and velocity mean the same thing in physics.", "correct": false, "feedback": "Not correct. Speed is magnitude only; velocity is signed in 1D."}, {"answer": "Velocity is measured in newtons; speed is measured in m/s.", "correct": false, "feedback": "Not correct. Both speed and velocity use units of m/s."}]}, {"question": "In this course\u2019s 1D convention, the subscript in p_x and v_x primarily reminds you that...", "type": "multiple_choice", "answers": [{"answer": "These quantities carry a sense of direction (sign) along the x-axis.", "correct": true, "feedback": "Correct. The x-subscript highlights direction in 1D via +/-."}, {"answer": "These quantities are always positive.", "correct": false, "feedback": "Not correct. They can be positive or negative."}, {"answer": "These quantities are measured in kilograms.", "correct": false, "feedback": "Not correct. Momentum is kg\u00b7m/s and velocity is m/s."}, {"answer": "These quantities do not depend on time.", "correct": false, "feedback": "Not correct. They can change with time due to interactions."}]}, {"question": "Which quantity below is not associated with direction in 1D (so it does not need a subscript x)?", "type": "multiple_choice", "answers": [{"answer": "Mass, m", "correct": true, "feedback": "Correct. Mass is not directional."}, {"answer": "Velocity, v_x", "correct": false, "feedback": "Not correct. Velocity is directional in 1D."}, {"answer": "Momentum, p_x", "correct": false, "feedback": "Not correct. Momentum is directional in 1D."}, {"answer": "Impulse, j_x", "correct": false, "feedback": "Not correct. Impulse is directional in 1D."}]}, {"question": "Which statement best defines impulse for a single point particle in 1D?", "type": "multiple_choice", "answers": [{"answer": "Impulse is the momentum transferred: j_x = \u0394p_x.", "correct": true, "feedback": "Correct. Impulse is defined as the change in momentum."}, {"answer": "Impulse is the momentum itself: j_x = p_x.", "correct": false, "feedback": "Not correct. Impulse is a change in momentum, not momentum itself."}, {"answer": "Impulse is the distance traveled during a push.", "correct": false, "feedback": "Not correct. That relates more to work concepts, not impulse."}, {"answer": "Impulse is always zero if an object is moving.", "correct": false, "feedback": "Not correct. Moving objects can experience impulses that change their momentum."}]}, {"question": "A particle\u2019s momentum changes from p_{x,i} to p_{x,f}. The impulse is...", "type": "multiple_choice", "answers": [{"answer": "j_x = p_{x,f} - p_{x,i}", "correct": true, "feedback": "Correct. Impulse is the change in momentum."}, {"answer": "j_x = p_{x,f} + p_{x,i}", "correct": false, "feedback": "Not correct. That would add momenta, not find the change."}, {"answer": "j_x = p_{x,i} - p_{x,f}", "correct": false, "feedback": "Not correct. Sign is reversed."}, {"answer": "j_x = p_{x,f}/p_{x,i}", "correct": false, "feedback": "Not correct. Impulse is not a ratio of momenta."}]}, {"question": "Which statement is most correct about momentum and momentum change for different observers moving at constant relative speed?", "type": "multiple_choice", "answers": [{"answer": "Different observers can disagree on momentum, but they agree on the momentum change caused by an interaction.", "correct": true, "feedback": "Correct. Momentum depends on the observer, but the change from an interaction is agreed upon in this Newtonian context."}, {"answer": "All observers always measure the same momentum for the same object.", "correct": false, "feedback": "Not correct. Momentum depends on measured velocity, which depends on the observer."}, {"answer": "All observers always measure the same velocity for the same object.", "correct": false, "feedback": "Not correct. Velocity depends on the observer\u2019s motion."}, {"answer": "Momentum change depends on the observer, so it is not useful in physics.", "correct": false, "feedback": "Not correct. Momentum change from an interaction is a central, reliable quantity."}]}, {"question": "If a constant force f_x acts over a time interval \u0394t, the impulse is...", "type": "multiple_choice", "answers": [{"answer": "j_x = f_x \u0394t", "correct": true, "feedback": "Correct. Constant (or average) force times time gives impulse."}, {"answer": "j_x = f_x/\u0394t", "correct": false, "feedback": "Not correct. That would have incorrect units."}, {"answer": "j_x = \u0394t/f_x", "correct": false, "feedback": "Not correct. Units would not match impulse."}, {"answer": "j_x = f_x \u0394x", "correct": false, "feedback": "Not correct. Force times displacement relates to work, not impulse."}]}, {"question": "The SI unit of force is the newton (N). Which is the correct base-unit form?", "type": "multiple_choice", "answers": [{"answer": "N = {kg\u00b7m}/{s^2}", "correct": true, "feedback": "Correct."}, {"answer": "N = kg\u00b7m/s", "correct": false, "feedback": "Not correct. That is the unit of momentum (and impulse), not force."}, {"answer": "N = {kg}/{s^2}", "correct": false, "feedback": "Not correct. Missing meters."}, {"answer": "N = m/s", "correct": false, "feedback": "Not correct. That is the unit of velocity."}]}, {"question": "On a force\u2013time graph (f_x vs. t), the impulse delivered over a time interval equals...", "type": "multiple_choice", "answers": [{"answer": "The signed area under the curve.", "correct": true, "feedback": "Correct. Impulse is the area under the force\u2013time curve (with sign)."}, {"answer": "The slope of the curve.", "correct": false, "feedback": "Not correct. Slope is not impulse."}, {"answer": "The highest force value on the graph.", "correct": false, "feedback": "Not correct. Peak force alone does not determine impulse."}, {"answer": "The time at which the force is maximum.", "correct": false, "feedback": "Not correct. Impulse depends on the whole curve."}]}, {"question": "A force\u2013time graph lies entirely below the time axis (negative f_x). The impulse over that interval is...", "type": "multiple_choice", "answers": [{"answer": "Negative.", "correct": true, "feedback": "Correct. Signed area below the axis is negative."}, {"answer": "Positive.", "correct": false, "feedback": "Not correct. Area below the axis gives negative impulse."}, {"answer": "Zero.", "correct": false, "feedback": "Not correct. Zero impulse would require zero net area."}, {"answer": "Undefined.", "correct": false, "feedback": "Not correct. Impulse is well-defined as area under the curve."}]}, {"question": "Net impulse from multiple forces is best described by which statement?", "type": "multiple_choice", "answers": [{"answer": "Net impulse is the sum of individual impulses: j_{net,x} = sum j_x.", "correct": true, "feedback": "Correct. Always start with summing impulses."}, {"answer": "Net impulse is always sum (f_x \u0394t) even if forces act for different times.", "correct": false, "feedback": "Not correct. You can only factor out one \u0394t if the forces act over the same time interval."}, {"answer": "Net impulse depends only on the largest force.", "correct": false, "feedback": "Not correct. Impulse depends on force and duration (area)."}, {"answer": "Net impulse is the same as net force.", "correct": false, "feedback": "Not correct. Net impulse includes time; net force does not."}]}, {"question": "Which condition is required to use j_{net,x} = f_{net,x} \u0394t directly?", "type": "multiple_choice", "answers": [{"answer": "All contributing forces act over the same time interval \u0394t (or share a common interval).", "correct": true, "feedback": "Correct. Otherwise you must sum impulses over each force\u2019s own duration."}, {"answer": "All forces must be positive.", "correct": false, "feedback": "Not correct. Forces can be positive or negative."}, {"answer": "The object must be at rest initially.", "correct": false, "feedback": "Not correct. Initial motion does not determine whether the formula applies."}, {"answer": "The mass must be 1 kg.", "correct": false, "feedback": "Not correct. Mass does not need to be 1 kg."}]}, {"question": "Why do internal impulses cancel when summing over a two-particle system during an interaction?", "type": "multiple_choice", "answers": [{"answer": "Newton\u2019s Third Law gives equal-and-opposite internal forces acting over the same interaction time.", "correct": true, "feedback": "Correct. Equal-and-opposite forces over the same time give equal-and-opposite impulses."}, {"answer": "Because internal forces are always zero.", "correct": false, "feedback": "Not correct. Internal forces are typically nonzero during interactions."}, {"answer": "Because masses are equal.", "correct": false, "feedback": "Not correct. Cancellation does not require equal masses."}, {"answer": "Because velocity is the same for both particles.", "correct": false, "feedback": "Not correct. Particles can have different velocities."}]}, {"question": "Conservation of momentum for a system is guaranteed when...", "type": "multiple_choice", "answers": [{"answer": "The net external impulse on the system is zero.", "correct": true, "feedback": "Correct. Zero external impulse means total system momentum stays constant."}, {"answer": "The net internal impulse on the system is zero.", "correct": false, "feedback": "Not correct. Internal impulse cancellation happens automatically, but conservation requires zero external impulse."}, {"answer": "The net external force is zero at one instant.", "correct": false, "feedback": "Not correct. Conservation depends on net external impulse over the interaction time, not a single instant."}, {"answer": "Both objects have the same mass.", "correct": false, "feedback": "Not correct. Conservation does not require equal masses."}]}, {"question": "In 1D, if p_x is negative, that most directly means...", "type": "multiple_choice", "answers": [{"answer": "The particle\u2019s motion is in the negative x-direction.", "correct": true, "feedback": "Correct. Sign indicates direction along the chosen axis."}, {"answer": "The particle has negative mass.", "correct": false, "feedback": "Not correct. Mass is positive in this course."}, {"answer": "The particle is slowing down.", "correct": false, "feedback": "Not necessarily. Negative momentum can be speeding up or slowing down depending on the situation."}, {"answer": "The particle\u2019s speed must be zero.", "correct": false, "feedback": "Not correct. Negative momentum can have nonzero speed."}]}, {"question": "Which statement best contrasts impulse\u2013momentum with work\u2013energy?", "type": "multiple_choice", "answers": [{"answer": "Impulse involves force acting through time; work involves force acting through displacement.", "correct": true, "feedback": "Correct. This difference is why momentum conservation behaves differently than energy accounting."}, {"answer": "Impulse and work are the same quantity with different names.", "correct": false, "feedback": "Not correct. They are fundamentally different."}, {"answer": "Impulse depends on displacement; work depends on time.", "correct": false, "feedback": "Not correct. It\u2019s the opposite."}, {"answer": "Impulse has units of joules; work has units of newtons.", "correct": false, "feedback": "Not correct. Impulse has units of kg\u00b7m/s, work has units of joules."}]}, {"question": "A force\u2013time curve is approximated by many small rectangles and their areas are summed. This procedure is most closely related to...", "type": "multiple_choice", "answers": [{"answer": "Riemann sums (numerical integration idea).", "correct": true, "feedback": "Correct. Summing small rectangle areas approximates the total area under a curve."}, {"answer": "Solving quadratic equations.", "correct": false, "feedback": "Not correct."}, {"answer": "Finding a slope using two points.", "correct": false, "feedback": "Not correct."}, {"answer": "Unit conversion using factor\u2013label.", "correct": false, "feedback": "Not correct."}]}, {"question": "Which equation is the standard working form of 1D momentum conservation for two particles?", "type": "multiple_choice", "answers": [{"answer": "m_1 v_{1,x,i} + m_2 v_{2,x,i} = m_1 v_{1,x,f} + m_2 v_{2,x,f}", "correct": true, "feedback": "Correct. This is the plug-in equation used for most two-particle 1D problems."}, {"answer": "m_1 v_{1,x,i} - m_2 v_{2,x,i} = m_1 v_{1,x,f} - m_2 v_{2,x,f}", "correct": false, "feedback": "Not correct. Signs must come from the velocities, not built into the formula."}, {"answer": "m_1 + m_2 = m_1 v_{1,x,f} + m_2 v_{2,x,f}", "correct": false, "feedback": "Not correct. Left side has units of mass, not momentum."}, {"answer": "v_{1,x,i} + v_{2,x,i} = v_{1,x,f} + v_{2,x,f}", "correct": false, "feedback": "Not correct. Conservation involves momentum, not velocity sums."}]}, {"question": "A 2.0 kg cart moves in the +x direction at 3.0 m/s.\n\nWhat is the cart\u2019s momentum p_x?", "type": "multiple_choice", "answers": [{"answer": "+6.0 kg\u00b7m/s", "correct": true, "feedback": "Correct. p_x = m v_x = (2.0)(+3.0) = +6.0 kg\u00b7m/s."}, {"answer": "-6.0 kg\u00b7m/s", "correct": false, "feedback": "Incorrect sign. The cart is moving in the +x direction."}, {"answer": "+1.5 kg\u00b7m/s", "correct": false, "feedback": "Incorrect magnitude. Check the multiplication."}, {"answer": "+5.0 kg\u00b7m/s", "correct": false, "feedback": "Not correct. Recalculate p = m v."}]}, {"question": "A 0.50 kg particle changes velocity from +4.0 m/s to -2.0 m/s.\n\nWhat is the impulse j_x delivered to the particle?", "type": "multiple_choice", "answers": [{"answer": "-3.0 kg\u00b7m/s", "correct": true, "feedback": "Correct. j_x = m(v_f - v_i) = 0.50(-2.0 - 4.0) = -3.0 kg\u00b7m/s."}, {"answer": "+3.0 kg\u00b7m/s", "correct": false, "feedback": "Incorrect sign. The momentum change is negative."}, {"answer": "-1.0 kg\u00b7m/s", "correct": false, "feedback": "Incorrect magnitude. Recheck the velocity change."}, {"answer": "-6.0 kg\u00b7m/s", "correct": false, "feedback": "Incorrect. You likely forgot to multiply by mass."}]}, {"question": "A constant force of -4.0 N acts on a particle for 0.25 s.\n\nWhat impulse is delivered?", "type": "multiple_choice", "answers": [{"answer": "-1.0 kg\u00b7m/s", "correct": true, "feedback": "Correct. j_x = f_x \u0394t = (-4.0)(0.25) = -1.0 kg\u00b7m/s."}, {"answer": "+1.0 kg\u00b7m/s", "correct": false, "feedback": "Incorrect sign. Force is in the negative x-direction."}, {"answer": "-16 kg\u00b7m/s", "correct": false, "feedback": "Incorrect. You multiplied instead of multiplying by time."}, {"answer": "-0.50 kg\u00b7m/s", "correct": false, "feedback": "Not correct. Check the time interval."}]}, {"question": "A triangular force\u2013time pulse has a base of 0.20 s and a height of 300 N.\n\nWhat impulse does it deliver?", "type": "multiple_choice", "answers": [{"answer": "30 kg\u00b7m/s", "correct": true, "feedback": "Correct. j = \u00bd(0.20)(300) = 30 kg\u00b7m/s."}, {"answer": "60 kg\u00b7m/s", "correct": false, "feedback": "Incorrect. You forgot the \u00bd factor."}, {"answer": "15 kg\u00b7m/s", "correct": false, "feedback": "Incorrect. Check the base and height values."}, {"answer": "300 kg\u00b7m/s", "correct": false, "feedback": "Incorrect. That would ignore the time duration."}]}, {"question": "Two carts interact on a frictionless track.\n\nm\u2081 = 1.0 kg with v\u2081,i = +4.0 m/s\nm\u2082 = 2.0 kg initially at rest\nAfter the interaction, v\u2081,f = +1.0 m/s.\n\nWhat is v\u2082,f?", "type": "multiple_choice", "answers": [{"answer": "+1.5 m/s", "correct": true, "feedback": "Correct. Momentum conservation gives v\u2082,f = +1.5 m/s."}, {"answer": "+3.0 m/s", "correct": false, "feedback": "Incorrect. That would violate momentum conservation."}, {"answer": "-1.5 m/s", "correct": false, "feedback": "Incorrect sign. The total momentum is positive."}, {"answer": "+0.75 m/s", "correct": false, "feedback": "Not correct. Recheck the algebra."}]}, {"question": "Compute the momentum p_x.\n\nA 1.5 kg particle moves with velocity v_x = -4.0 m/s.\n\nEnter p_x in kg\u00b7m/s. A 2% tolerance is allowed.", "type": "numeric", "answers": [{"type": "value", "value": -6.0, "correct": true, "feedback": "Correct. p_x = m v_x = (1.5)(-4.0) = -6.0 kg\u00b7m/s."}, {"type": "range", "range": [-6.12, -5.88], "correct": true, "feedback": "Correct. Within 2% tolerance."}, {"type": "range", "range": [-999, -6.12], "correct": false, "feedback": "Too negative. Recheck multiplication and sign."}, {"type": "range", "range": [-5.88, 999], "correct": false, "feedback": "Not correct. Check sign and magnitude."}]}, {"question": "Compute the impulse j_x.\n\nA 0.20 kg particle changes velocity from +10 m/s to 0 m/s.\n\nEnter j_x in kg\u00b7m/s. A 2% tolerance is allowed.", "type": "numeric", "answers": [{"type": "value", "value": -2.0, "correct": true, "feedback": "Correct. j_x = \u0394p_x = m(v_f - v_i) = 0.20(0-10) = -2.0."}, {"type": "range", "range": [-2.04, -1.96], "correct": true, "feedback": "Correct. Within 2% tolerance."}, {"type": "range", "range": [-999, -2.04], "correct": false, "feedback": "Too negative. Check arithmetic."}, {"type": "range", "range": [-1.96, 999], "correct": false, "feedback": "Not correct. Check sign and \u0394v."}]}, {"question": "A constant force f_x = -3.0 N acts for \u0394t = 0.50 s.\n\nCompute the impulse j_x = f_x \u0394t.\n\nEnter j_x in kg\u00b7m/s. A 2% tolerance is allowed.", "type": "numeric", "answers": [{"type": "value", "value": -1.5, "correct": true, "feedback": "Correct. j_x = (-3.0)(0.50) = -1.5 kg\u00b7m/s."}, {"type": "range", "range": [-1.53, -1.47], "correct": true, "feedback": "Correct. Within 2% tolerance."}, {"type": "range", "range": [-999, -1.53], "correct": false, "feedback": "Too negative. Check multiplication."}, {"type": "range", "range": [-1.47, 999], "correct": false, "feedback": "Not correct. Check sign and \u0394t."}]}, {"question": "A force increases linearly from 2 N to 6 N over 1.0 s.\n\nApproximate the impulse using the trapezoid area.\n\nEnter j_x in kg\u00b7m/s. A 2% tolerance is allowed.", "type": "numeric", "answers": [{"type": "value", "value": 4.0, "correct": true, "feedback": "Correct. Average force is (2+6)/2=4 N, so j_x = 4(1.0)=4."}, {"type": "range", "range": [3.92, 4.08], "correct": true, "feedback": "Correct. Within 2% tolerance."}, {"type": "range", "range": [-999, 3.92], "correct": false, "feedback": "Too small. Check trapezoid/average force idea."}, {"type": "range", "range": [4.08, 999], "correct": false, "feedback": "Too large. Check average force and \u0394t."}]}, {"question": "A triangular force\u2013time pulse has base 0.20 s and height 500 N.\n\nCompute the impulse (area).\n\nEnter j_x in kg\u00b7m/s. A 2% tolerance is allowed.", "type": "numeric", "answers": [{"type": "value", "value": 50.0, "correct": true, "feedback": "Correct. j_x = 0.5(0.20)(500)=50 kg\u00b7m/s."}, {"type": "range", "range": [49.0, 51.0], "correct": true, "feedback": "Correct. Within 2% tolerance."}, {"type": "range", "range": [-999, 49.0], "correct": false, "feedback": "Too small. Check triangle area."}, {"type": "range", "range": [51.0, 999], "correct": false, "feedback": "Too large. Check base/height."}]}, {"question": "A 0.50 kg particle has initial velocity v_{x,i}=+2.0 m/s.\n\nAn impulse j_x = -1.0 kg\u00b7m/s acts.\n\nFind the final velocity.\n\nEnter v_{x,f} in m/s. A 2% tolerance is allowed.", "type": "numeric", "answers": [{"type": "value", "value": 0.0, "correct": true, "feedback": "Correct. p_i=0.5*2=1; p_f=1-1=0; v_f=0/0.5=0."}, {"type": "range", "range": [-0.02, 0.02], "correct": true, "feedback": "Correct. Near zero within tolerance."}, {"type": "range", "range": [-999, -0.02], "correct": false, "feedback": "Not correct. Check p_f = p_i + j_x."}, {"type": "range", "range": [0.02, 999], "correct": false, "feedback": "Not correct. Check p_f = p_i + j_x."}]}, {"question": "Two-particle momentum conservation.\n\nm1=1.0 kg, v1_i=+3.0 m/s\nm2=2.0 kg, v2_i=-1.0 m/s\nAfter: v1_f=+0.50 m/s\n\nFind v2_f.\n\nEnter v2_f in m/s. A 2% tolerance is allowed.", "type": "numeric", "answers": [{"type": "value", "value": 0.25, "correct": true, "feedback": "Correct. P_i=3-2=1; 1=0.5+2v2_f => v2_f=0.25."}, {"type": "range", "range": [0.245, 0.255], "correct": true, "feedback": "Correct. Within 2% tolerance."}, {"type": "range", "range": [-999, 0.245], "correct": false, "feedback": "Too small. Check conservation equation."}, {"type": "range", "range": [0.255, 999], "correct": false, "feedback": "Too large. Check algebra."}]}, {"question": "Net impulse from multiple forces over the same time interval.\n\nFor \u0394t = 0.40 s, forces are: +6.0 N, -4.0 N, -1.0 N.\n\nCompute the net impulse j_net,x.\n\nEnter j_net,x in kg\u00b7m/s. A 2% tolerance is allowed.", "type": "numeric", "answers": [{"type": "value", "value": 0.4, "correct": true, "feedback": "Correct. f_net=+1 N, so j_net=1(0.40)=0.40."}, {"type": "range", "range": [0.392, 0.408], "correct": true, "feedback": "Correct. Within 2% tolerance."}, {"type": "range", "range": [-999, 0.392], "correct": false, "feedback": "Too small. Check net force and \u0394t."}, {"type": "range", "range": [0.408, 999], "correct": false, "feedback": "Too large. Check net force and \u0394t."}]}, {"question": "Force unit check.\n\nA net impulse of 6.0 kg\u00b7m/s is delivered over 0.50 s.\n\nCompute the average net force magnitude.\n\nEnter f_net in newtons (N). A 2% tolerance is allowed.", "type": "numeric", "answers": [{"type": "value", "value": 12.0, "correct": true, "feedback": "Correct. f = j/\u0394t = 6.0/0.50 = 12 N."}, {"type": "range", "range": [11.76, 12.24], "correct": true, "feedback": "Correct. Within 2% tolerance."}, {"type": "range", "range": [-999, 11.76], "correct": false, "feedback": "Too small. Check division by \u0394t."}, {"type": "range", "range": [12.24, 999], "correct": false, "feedback": "Too large. Check division by \u0394t."}]}, {"question": "Impulse from a force\u2013time graph (rectangle).\n\nA constant force of 5.0 N acts for 0.40 s.\n\nCompute the impulse (area).\n\nEnter j_x in kg\u00b7m/s. A 2% tolerance is allowed.", "type": "numeric", "answers": [{"type": "value", "value": 2.0, "correct": true, "feedback": "Correct. j = F\u0394t = 5.0(0.40) = 2.0."}, {"type": "range", "range": [1.96, 2.04], "correct": true, "feedback": "Correct. Within 2% tolerance."}, {"type": "range", "range": [-999, 1.96], "correct": false, "feedback": "Too small. Check rectangle area."}, {"type": "range", "range": [2.04, 999], "correct": false, "feedback": "Too large. Check rectangle area."}]}];
+    //var mydiv=document.getElementById("testDIV");//console.log(mydiv);// Make a random ID
+function makeid(length) {
+    var result           = [];
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+        result.push(characters.charAt(Math.floor(Math.random() *  charactersLength)));
+    }
+    return result.join('');
+}
+
+// Choose a random subset of an array. Can also be used to shuffle the array
+function getRandomSubarray(arr, size) {
+    var shuffled = arr.slice(0), i = arr.length, temp, index;
+    while (i--) {
+        index = Math.floor((i + 1) * Math.random());
+        temp = shuffled[index];
+        shuffled[index] = shuffled[i];
+        shuffled[i] = temp;
+    }
+    return shuffled.slice(0, size);
+}
+function check_mc() {
+    var id=this.id.split('-')[0];
+
+    //console.log("In check_mc(), id="+id);
+    //console.log(event.srcElement.id)           
+    //console.log(event.srcElement.dataset.correct)   
+    //console.log(event.srcElement.dataset.feedback)
+
+    var answers= event.srcElement.parentElement.children;
+    //console.log(answers);
+    
+    // Split behavior based on multiple choice vs many choice:
+    var fb = document.getElementById("fb"+id);
+    if (fb.dataset.numcorrect==1) {
+        for (var i = 0; i < answers.length; i++) {
+            var child=answers[i];
+            child.className="MCButton";
+        }
+
+
+
+        fb.textContent=event.srcElement.dataset.feedback;
+        if (event.srcElement.dataset.correct=="true")   {
+            // console.log("Correct action");
+            this.classList.add("correctButton");
+
+            fb.className="Feedback";
+            fb.classList.add("correct");
+
+        } else {
+            //console.log("Error action");
+            this.classList.add("incorrectButton");
+            fb.className="Feedback";
+            fb.classList.add("incorrect");
+        }
+    }
+    else {
+        //console.log("Many choice not implemented yet");
+        var reset = false;
+        if (event.srcElement.dataset.correct=="true" )   {
+            if (event.srcElement.dataset.answered<=0) {
+                if (fb.dataset.answeredcorrect<0) {
+                    fb.dataset.answeredcorrect=1;
+                    reset=true;
+                } else {
+                    fb.dataset.answeredcorrect++;
+                }
+                if (reset) {
+                    for (var i = 0; i < answers.length; i++) {
+                        var child=answers[i];
+                        child.className="MCButton";
+                        child.dataset.answered=0;
+                    }
+                }
+                this.classList.add("correctButton");
+                this.dataset.answered=1;
+                fb.className="Feedback";
+                fb.classList.add("correct");
+
+            }
+        } else {
+            if (fb.dataset.answeredcorrect>0) {
+                fb.dataset.answeredcorrect=-1;
+                reset=true;
+            } else {
+                fb.dataset.answeredcorrect--;
+            }
+
+            if (reset) {
+                for (var i = 0; i < answers.length; i++) {
+                    var child=answers[i];
+                    child.className="MCButton";
+                    child.dataset.answered=0;
+                }
+            }
+            this.classList.add("incorrectButton");
+            fb.className="Feedback";
+            fb.classList.add("incorrect");
+        }
+
+
+        var numcorrect=fb.dataset.numcorrect;
+        var answeredcorrect=fb.dataset.answeredcorrect;
+        if (answeredcorrect>=0) {
+            fb.textContent=event.srcElement.dataset.feedback + " ["  + answeredcorrect + "/" + numcorrect + "]";
+        } else {
+            fb.textContent=event.srcElement.dataset.feedback + "["  + 0 + "/" + numcorrect + "]";
+        }
+
+
+    }
+
+    
+
+}
+
+function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
+    var shuffled;
+    if (shuffle_answers=="True") {
+        //console.log(shuffle_answers+" read as true");
+        shuffled=getRandomSubarray(qa.answers, qa.answers.length);
+    } else {
+        //console.log(shuffle_answers+" read as false");
+        shuffled=qa.answers;
+    }
+    
+
+    var num_correct=0;
+
+
+    
+    shuffled.forEach((item, index, ans_array) => {
+        //console.log(answer);
+        
+        // Make input element
+        var inp = document.createElement("input");
+        inp.type="radio";
+        inp.id="quizo"+id+index;
+        inp.style="display:none;";
+        aDiv.append(inp);
+        
+        //Make label for input element
+        var lab = document.createElement("label");
+        lab.className="MCButton";
+        lab.id=id+ '-' +index;
+        lab.onclick=check_mc;
+        lab.textContent=item.answer;
+        
+        // Set the data attributes for the answer
+        lab.setAttribute('data-correct', item.correct);
+        if (item.correct) {
+            num_correct++;
+        }
+        lab.setAttribute('data-feedback', item.feedback);
+        lab.setAttribute('data-answered', 0);
+
+        aDiv.append(lab);
+
+    });
+
+    if (num_correct>1) {
+        outerqDiv.className="ManyChoiceQn";
+    } else {
+        outerqDiv.className="MultipleChoiceQn";
+    }
+
+    return num_correct;
+
+}
+function check_numeric(ths, event) {
+
+    if (event.keyCode === 13) {
+        ths.blur();
+
+        var id=ths.id.split('-')[0];
+
+        var submission=ths.value;
+				if (submission.indexOf('/') != -1) {
+            sub_parts=submission.split('/');
+            //console.log(sub_parts);
+            submission=sub_parts[0]/sub_parts[1];
+        }
+        console.log("Reader entered", submission);
+
+        if ("precision" in ths.dataset) {
+            precision=ths.dataset.precision;
+            // console.log("1:", submission)
+            submission=Math.round((1*submission + Number.EPSILON)*10**precision)/ 10**precision; 
+            // console.log("Rounded to ", submission, " precision=", precision  );
+        }
+
+
+        //console.log("In check_numeric(), id="+id);
+        //console.log(event.srcElement.id)           
+        //console.log(event.srcElement.dataset.feedback)
+
+        var fb = document.getElementById("fb"+id);
+        fb.style.display="none";
+        fb.textContent="Incorrect -- try again.";
+
+        answers=JSON.parse(ths.dataset.answers);
+        console.log(answers);
+
+        var defaultFB="";
+        var correct;
+        var done=false;
+        answers.every(answer => {
+            console.log(answer.type);
+
+            correct=false;
+            if (answer.type=="value"){
+                if (submission == answer.value) {
+                    fb.textContent=answer.feedback;
+                    correct=answer.correct;
+                    console.log(answer.correct);
+                    done=true;
+                }
+            } else if (answer.type=="range") {
+                console.log(answer.range);
+                if ((submission >= answer.range[0]) && (submission < answer.range[1])) {
+                    fb.textContent=answer.feedback;
+                    correct=answer.correct;
+                    console.log(answer.correct);
+                    done=true;
+                }
+            } else if (answer.type=="default") {
+                defaultFB=answer.feedback;
+            }
+            if (done) {
+                return false; // Break out of loop if this has been marked correct
+            } else {
+                return true; // Keep looking for case that includes this as a correct answer
+            }
+        });
+
+        if ((!done) && (defaultFB != "")) {
+            fb.textContent=defaultFB;
+            console.log("Default feedback", defaultFB);
+        }
+
+        fb.style.display="block";
+        if (correct) {
+            ths.className="Input-text";
+            ths.classList.add("correctButton");
+            fb.className="Feedback";
+            fb.classList.add("correct");
+        } else {
+            ths.className="Input-text";
+            ths.classList.add("incorrectButton");
+            fb.className="Feedback";
+            fb.classList.add("incorrect");
+        }
+
+        return false;
+    }
+
+}
+
+function isValid(el,  charC) {
+		if (charC == 46) {
+				if (el.value.indexOf('.') === -1) {
+					  return true;
+				} else if (el.value.indexOf('/') != -1) {
+            parts=el.value.split('/');
+				    if (parts[1].indexOf('.') === -1) {
+					      return true;
+            }
+        }
+        else{
+					  return false;
+				}
+		} else if (charC == 47) {
+				if (el.value.indexOf('/') === -1) {
+            if ((el.value != "") && (el.value != ".")) {
+					      return true;
+            } else {
+					  return false;
+				    }
+        } else {
+            return false;
+        }
+		} else if (charC == 45) {
+        if (el.value == "" ) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+				if (charC > 31 && (charC < 48 || charC > 57))
+					  return false;
+		}
+		return true;
+}
+
+function numeric_keypress( evnt) {
+		var charC = (evnt.which) ? evnt.which : evnt.keyCode;
+
+    if (charC==13) {
+        check_numeric(this, evnt);
+    } else{
+		    return isValid(this, charC);
+    }
+}
+
+
+
+
+
+function make_numeric(qa, outerqDiv, qDiv, aDiv, id) {
+
+
+
+        //console.log(answer);
+
+    
+    outerqDiv.className="NumericQn";
+    aDiv.style.display='block';
+
+    var lab = document.createElement("label");
+    lab.className="InpLabel";
+    lab.textContent="Type numeric answer here:";
+    aDiv.append(lab);
+
+    var inp = document.createElement("input");
+    inp.type="text";
+    //inp.id="input-"+id;
+    inp.id=id+"-0";
+    inp.className="Input-text";
+    inp.setAttribute('data-answers', JSON.stringify(qa.answers) );
+    if ("precision" in qa) {
+        inp.setAttribute('data-precision', qa.precision);
+    }
+    aDiv.append(inp);
+    console.log(inp);
+
+    //inp.addEventListener("keypress", check_numeric);
+    //inp.addEventListener("keypress", numeric_keypress);
+    /*
+    inp.addEventListener("keypress", function(event) {
+        return numeric_keypress(this, event);
+    }
+                        );
+                        */
+    //inp.onkeypress="return numeric_keypress(this, event)";
+    inp.onkeypress=numeric_keypress;
+    inp.onpaste= event => false;
+
+    inp.addEventListener("focus", function(event) {
+        this.value="";
+        return false;
+    }
+                        );
+
+
+}
+function show_questions (json, mydiv) {
+    //var mydiv=document.getElementById(myid);
+    var shuffle_questions=mydiv.dataset.shufflequestions;
+    var num_questions=mydiv.dataset.numquestions;
+    var shuffle_answers=mydiv.dataset.shuffleanswers;
+    
+    if (num_questions>json.length) {
+        num_questions=json.length;
+    }
+    
+    var questions;
+    if ( (num_questions<json.length) || (shuffle_questions=="True") ) {
+        //console.log(num_questions+","+json.length);
+        questions=getRandomSubarray(json, num_questions);
+    } else {
+        questions=json;
+    }
+    
+    //console.log("SQ: "+shuffle_questions+", NQ: " + num_questions + ", SA: ", shuffle_answers);
+    
+    // Iterate over questions
+    questions.forEach((qa, index, array) => {
+        //console.log(qa.question); 
+
+        var id = makeid(8);
+        //console.log(id);
+
+
+        // Create Div to contain question and answers
+        var iDiv = document.createElement('div');
+        iDiv.id = 'quizWrap'+id+index;
+        iDiv.className='Quiz';
+        mydiv.appendChild(iDiv);
+        // iDiv.innerHTML=qa.question;
+
+        var outerqDiv = document.createElement('div');
+        outerqDiv.id="OuterquizQn"+id+index;
+        //qDiv.textContent=qa.question;
+        iDiv.append(outerqDiv);
+
+        // Create div to contain question part
+        var qDiv = document.createElement('div');
+        qDiv.id="quizQn"+id+index;
+        //qDiv.textContent=qa.question;
+        qDiv.innerHTML=qa.question;
+        outerqDiv.append(qDiv);
+
+        // Create div for code inside question
+        var codeDiv;
+        if ("code" in qa){
+            codeDiv = document.createElement('div');
+            codeDiv.id="code"+id+index;
+            codeDiv.className="QuizCode";
+            var codePre = document.createElement('pre');
+            codeDiv.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML=qa.code;
+            outerqDiv.append(codeDiv);
+            console.log(codeDiv);
+        }
+
+
+        // Create div to contain answer part
+        var aDiv = document.createElement('div');
+        aDiv.id="quizAns"+id+index;
+        aDiv.className='Answer';
+        iDiv.append(aDiv);
+
+        console.log(qa.type);
+
+        var num_correct;
+        if (qa.type=="multiple_choice")  {
+            num_correct=make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+        } else if   (qa.type=="many_choice"){
+            num_correct=make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+        } else if  (qa.type=="numeric") {
+            console.log("numeric");
+            make_numeric(qa, outerqDiv, qDiv, aDiv, id);
+        }
+
+
+        //Make div for feedback
+        var fb = document.createElement("div");
+        fb.id="fb"+id;
+        //fb.style="font-size: 20px;text-align:center;";
+        fb.className="Feedback";
+        fb.setAttribute("data-answeredcorrect", 0);
+        fb.setAttribute("data-numcorrect", num_correct);
+        iDiv.append(fb);
+
+
+    });
+}
+
+        {
+        show_questions(questionsEJBVAWFpMiBN, EJBVAWFpMiBN);
+        }
+        </script>
+        </div></div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Phys-Prof-Nielsen/modulearn",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-D3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="problemsD3.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">D3.6 Problems</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="loc-assessment-D3.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">D3.8 Assessment - Impulse-Momentum</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

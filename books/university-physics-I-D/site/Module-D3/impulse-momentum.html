@@ -1,0 +1,1383 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>D3.4 Impulse from Force Acting Through Time &#8212; A Competency Approach to Introductory Physics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/save_cell.css?v=43dd4451" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-D3/impulse-momentum';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/save_cell.js?v=d135a7b8"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="D3.5 Conservation of Momentum" href="conservation-momentum.html" />
+    <link rel="prev" title="D3.3 Impulse — Momentum Change as the Fundamental Quantity" href="impulse.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-D.png" class="logo__image only-light" alt="A Competency Approach to Introductory Physics - Home"/>
+    <script>document.write(`<img src="../_static/logo-D.png" class="logo__image only-dark" alt="A Competency Approach to Introductory Physics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to University Physics I: A Compendium to the D Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://modulearn.academy/spheres/physics/university-physics-I/university-physics-I.html">University Physics I Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D1 - Introduction to Python for Physics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/LOC-D1.html">D1.0 Learning Outcomes – Introduction to Python for Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/intro-python.html">D1.1 Introduction to Python in Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/why-python.html">D1.2 Why We Use Python in Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/code-cells.html">D1.3 Using Code Cells in This E-Book (Thebe)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/options.html">D1.4 Additional / Optional Online Tools for Students</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/pseudo-code.html">D1.5 Pseudocode: Planning Before Coding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/python-calculator.html">D1.6 Using Python as a Scientific Calculator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/importing.html">D1.7 Importing Functions in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/equations.html">D1.8 Solving Simple Equations with Symbolic Python and Improve Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/problemsD1.html">D1.9 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/quiz-D1.html">D1.10 Interactive Self-Assessment Quiz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/loc-assessment-D1.html">D1.11 Assessment – Introduction to Python in Physics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D2 - Foundation of Scientific Quantification</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/LOC-D2.html">D2.0 Learning Outcomes - Foundations of Scientific Quantification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/Scientific_Method.html">D2.1 The Scientific Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/Unit_Conversion.html">D2.2 Units and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/Scientific_Notation.html">D2.3 Scientific Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/orders-magnitude-calculations.html">D2.4 Orders of Magnitude Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/Significant_Figures.html">D2.5 Significant Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/statistics.html">D2.6 Basic Statistics for Scientific Measurements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/basic-plots.html">D2.7 Basic Scientific Graphing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/problemsD2.html">D2.8 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/quiz-D2.html">D2.9 Interactive Self-Assessment Quiz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/loc-assessment-D2.html">D2.10 Assessment - Foundation of Scientific Quantification</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D3 - Impulse-Momentum Framework</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-D3.html">D3.0 Learning Outcomes - Impulse-Momentum Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="point-particle.html">D3.1 Point Particle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="momentum.html">D3.2 Linear Momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="impulse.html">D3.3 Impulse — Momentum Change as the Fundamental Quantity</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">D3.4 Impulse from Force Acting Through Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conservation-momentum.html">D3.5 Conservation of Momentum</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="problemsD3.html">D3.6 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quiz-D3.html">D3.7 Interactive Self-Assessment Quiz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loc-assessment-D3.html">D3.8 Assessment - Impulse-Momentum</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D4 - Work-Energy Framework</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/LOC-D4.html">D4.0 Learning Outcomes — Work–Energy Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/kinetic-energy.html">D4.1 Kinetic Energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/work.html">D4.2 Work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/work-energy.html">D4.3 Work–Energy: Force Acting Through Displacement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/work-energy-graph.html">D4.4 Force–Displacement Graphs and Work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/conservation-kinetic-energy.html">D4.5 Conservation of Kinetic Energy (Two-Particle Systems)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/grav-potential-energy.html">D4.6 Gravitational Potential Energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/mechanical-energy.html">D4.7 Mechanical Energy and the Work–Energy Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/power.html">D4.8 Power: Rate of Energy Transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/problemsD4.html">D4.9 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/quiz-D4.html">D4.10 Interactive Self-Assessment Quiz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/loc-assessment-D4.html">D4.11 Assessment - Work-Energy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D5 - Kinematics and Emergence of Newtons Second Law</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/LOC-D5.html">D5.0 Learning Outcomes — Kinematics and the Emergence of Newton’s Second Law</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/basics-kinematics.html">D5.1 Kinematics in One Dimension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/derived-equations.html">D5.2 Derived Kinematic Equations (Constant Acceleration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/newtons-second-law.html">D5.3 Newton’s Second Law as a Special Case of the Impulse–Momentum Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/problemsD5.html">D5.4 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/quiz-D5.html">D5.5 Interactive Self-Assessment Quiz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/loc-assessment-D5.html">D5.6 Assessment - Kinematics and Newton’s 2nd Law</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D6 - Basic Oscillations and Waves</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/LOC-D6.html"><strong>D6.0 Learning Outcomes — Oscillations and Traveling Waves</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/basic-oscillations.html">D6.1 Basic Oscillations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/basic-waves.html">D6.2 Basic Waves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/problemsD6.html">D6.3 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/quiz-D6.html">D6.4 Interactive Self-Assessment Quiz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/loc-assessment-D6.html">D6.5 Assessment - Oscillations and Traveling Waves</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D7 - Foundations of Thermodynamics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/LOC-D7.html">D7.0 Learning Outcomes — Foundations of Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/temperature.html">D7.1 Temperature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/thermal-expansion.html">D7.2 Thermal Expansion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/heat.html">D7.3 Heat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/heat-transfer.html">D7.4 Methods of Heat Transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/first-law-thermo.html">D7.5 The First Law of Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/problemsD7.html">D7.6 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/quiz-D7.html">D7.7 Interactive Self-Assessment Quiz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/loc-assessment-D7.html">D7.8 Assessment - Foundations of Thermodynamics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D8 - Advanced Topics (Optional)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/taylor-series.html">D8.1 Advanced Topic A — Taylor Expansions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/complex.html">D8.2 Advanced Topic A — Complex Numbers as a Physics Tool</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/university-physics-I-D/Module-D3/impulse-momentum.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-D3/impulse-momentum.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>D3.4 Impulse from Force Acting Through Time</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation-newtons-first-law-revisited">Motivation — Newton’s First Law Revisited</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-4-1-impulse-due-to-a-single-force">D3.4.1 Impulse Due to a Single Force</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#units-of-force">Units of Force</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-4-2-net-impulse-from-multiple-forces">D3.4.2 Net Impulse from Multiple Forces</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#net-impulse-from-multiple-forces">Net Impulse from Multiple Forces</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#net-impulse-general-statement">Net Impulse — General Statement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#special-case-forces-acting-over-the-same-time-interval">Special Case — Forces Acting Over the Same Time Interval</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-distinction-matters">Why This Distinction Matters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-matters">Why This Matters</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-4-3-illustrative-videos">D3.4.3 Illustrative Videos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-4-4-impulse-and-the-forcetime-graph">D3.4.4 Impulse and the Force–Time Graph</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constant-force-rectangle">Constant Force → Rectangle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-force-sum-of-small-rectangles">Variable Force → Sum of Small Rectangles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connection-to-calculus-optional-insight">Connection to Calculus (Optional Insight)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-matters-even-without-calculus">Why This Matters (Even Without Calculus)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#force-acting-over-time">Force Acting Over Time</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#impulse-from-a-forcetime-graph">Impulse from a Force–Time Graph</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-forcetime-shapes">Common Force–Time Shapes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-interpretation">Physical Interpretation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-forcetime-graphs-matter">Why Force–Time Graphs Matter</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="d3-4-impulse-from-force-acting-through-time">
+<h1>D3.4 Impulse from Force Acting Through Time<a class="headerlink" href="#d3-4-impulse-from-force-acting-through-time" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="motivation-newtons-first-law-revisited">
+<h2>Motivation — Newton’s First Law Revisited<a class="headerlink" href="#motivation-newtons-first-law-revisited" title="Link to this heading">#</a></h2>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0; color:#000000;">Newton’s First Law</h3>
+<p>An object continues in its state of motion unless acted upon by an unbalanced interaction.</p>
+</div>
+<p>This statement already contains the essence of what we now call the <strong>impulse–momentum theorem</strong>.</p>
+<ul class="simple">
+<li><p>If motion changes, something must have happened over <strong>time</strong> to transfer momentum.</p></li>
+<li><p>If motion does not change, then the <strong>net momentum transfer must be zero</strong>.</p></li>
+</ul>
+<p>Seen this way, Newton’s First Law is not fundamentally a statement about force. It is a statement about <strong>momentum change</strong>—or more precisely, about the <em>absence</em> of momentum change.</p>
+<p>This perspective will guide how we now connect force to impulse.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d3-4-1-impulse-due-to-a-single-force">
+<h2>D3.4.1 Impulse Due to a Single Force<a class="headerlink" href="#d3-4-1-impulse-due-to-a-single-force" title="Link to this heading">#</a></h2>
+<p>So far, we have defined impulse purely as momentum transfer:</p>
+<div class="math notranslate nohighlight">
+\[
+j_x = \Delta p_x.
+\]</div>
+<p>We now ask a deeper question: <strong>what physical mechanism causes this transfer?</strong></p>
+<p>When a single force acts on a point particle over a time interval <span class="math notranslate nohighlight">\(\Delta t\)</span>, the momentum transfer depends on:</p>
+<ul class="simple">
+<li><p>how strong the force is, and</p></li>
+<li><p>how long it acts.</p></li>
+</ul>
+<p>For a <strong>constant force</strong>, or when a force can be reasonably replaced by its <strong>average value</strong>, the impulse delivered by that force is</p>
+<div class="math notranslate nohighlight">
+\[
+j_x = f_x\,\Delta t.
+\]</div>
+<p>This expression emphasizes an important idea:<br />
+<strong>a large force acting briefly can produce the same impulse as a smaller force acting over a longer time</strong>.</p>
+<hr class="docutils" />
+<section id="units-of-force">
+<h3>Units of Force<a class="headerlink" href="#units-of-force" title="Link to this heading">#</a></h3>
+<p>From the impulse relation,</p>
+<div class="math notranslate nohighlight">
+\[
+j_x = f_x\,\Delta t,
+\]</div>
+<p>and knowing that impulse has units of momentum, we can identify the unit of force:</p>
+<div class="math notranslate nohighlight">
+\[
+[f_x] = \frac{\text{kg·m/s}}{\text{s}} = \text{kg·m/s}^2.
+\]</div>
+<p>This unit is defined as the <strong>newton (N)</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+1\ \text{N} = 1\ \text{kg·m/s}^2.
+\]</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="d3-4-2-net-impulse-from-multiple-forces">
+<h2>D3.4.2 Net Impulse from Multiple Forces<a class="headerlink" href="#d3-4-2-net-impulse-from-multiple-forces" title="Link to this heading">#</a></h2>
+</section>
+<section id="net-impulse-from-multiple-forces">
+<h2>Net Impulse from Multiple Forces<a class="headerlink" href="#net-impulse-from-multiple-forces" title="Link to this heading">#</a></h2>
+<p>In many physical situations, a point particle experiences <strong>more than one force</strong> during an interaction.<br />
+Each force contributes to the particle’s momentum transfer.</p>
+<p>The most general and physically correct way to describe this is to start with <strong>impulse itself</strong>, not force.</p>
+<section id="net-impulse-general-statement">
+<h3>Net Impulse — General Statement<a class="headerlink" href="#net-impulse-general-statement" title="Link to this heading">#</a></h3>
+<p>The <strong>net impulse</strong> acting on a point particle is the <strong>sum of the impulses</strong> delivered by each individual force:</p>
+<div class="math notranslate nohighlight">
+\[
+j_{\text{net},x} = \sum j_x.
+\]</div>
+<p>Each individual impulse depends on:</p>
+<ul class="simple">
+<li><p>the force involved, and</p></li>
+<li><p>the <strong>time interval during which that force acts</strong>.</p></li>
+</ul>
+<p>For a single force acting over a time interval <span class="math notranslate nohighlight">\(\Delta t\)</span>, the impulse is</p>
+<div class="math notranslate nohighlight">
+\[
+j_x = f_x\,\Delta t \quad \text{(constant or average force)}.
+\]</div>
+<p>Putting this together, the net impulse can be written as</p>
+<div class="math notranslate nohighlight">
+\[
+j_{\text{net},x} = \sum (f_x\,\Delta t)_i,
+\]</div>
+<p>where the subscript <span class="math notranslate nohighlight">\(i\)</span> labels the different forces.</p>
+<div style="background-color:#ffe6e6; border-left:6px solid #990000; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0; color:#000000;">Important Caution</h3>
+<p>The time interval over which each force acts <strong>does not have to be the same</strong>.</p>
+<p>Some forces may act very briefly (such as contact forces during a collision),<br />
+while others may act over much longer times (such as gravity or friction).</p>
+<p>You must therefore <strong>never assume</strong> that forces can be added first and multiplied by a single time interval unless you have explicitly checked that they act over the same duration.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="special-case-forces-acting-over-the-same-time-interval">
+<h3>Special Case — Forces Acting Over the Same Time Interval<a class="headerlink" href="#special-case-forces-acting-over-the-same-time-interval" title="Link to this heading">#</a></h3>
+<p>In many simplified situations, all forces acting on the particle act over the <strong>same time interval</strong> <span class="math notranslate nohighlight">\(\Delta t\)</span>.<br />
+When this is true, the expression for net impulse simplifies significantly.</p>
+<p>Factoring out the common time interval gives:</p>
+<div class="math notranslate nohighlight">
+\[
+j_{\text{net},x} = \left( \sum f_x \right)\Delta t.
+\]</div>
+<p>We then define the <strong>net force</strong> as</p>
+<div class="math notranslate nohighlight">
+\[
+f_{\text{net},x} = \sum f_x,
+\]</div>
+<p>so that the net impulse becomes</p>
+<div class="math notranslate nohighlight">
+\[
+j_{\text{net},x} = f_{\text{net},x}\,\Delta t.
+\]</div>
+<p>This form is convenient and widely used, but it is valid <strong>only</strong> when all contributing forces act over the same time interval.</p>
+</section>
+<hr class="docutils" />
+<section id="why-this-distinction-matters">
+<h3>Why This Distinction Matters<a class="headerlink" href="#why-this-distinction-matters" title="Link to this heading">#</a></h3>
+<p>Failing to account for different force durations can lead to serious conceptual and numerical errors, especially in:</p>
+<ul class="simple">
+<li><p>collisions,</p></li>
+<li><p>propulsion and thrust problems,</p></li>
+<li><p>contact interactions, and</p></li>
+<li><p>problems involving intermittent forces.</p></li>
+</ul>
+<p>By starting from <strong>impulse as momentum transfer</strong>, and only later introducing net force as a special case, we preserve the correct physical logic of Newtonian mechanics.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0; color:#000000;">Impulse–Momentum Theorem (1D)</h3>
+<p>The <strong>net impulse</strong> acting on a point particle equals the <strong>change in its momentum</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+j_{\text{net},x} = \Delta p_x.
+\]</div>
+<p>This relation connects <strong>forces acting over time</strong> to <strong>changes in motion</strong>.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="why-this-matters">
+<h3>Why This Matters<a class="headerlink" href="#why-this-matters" title="Link to this heading">#</a></h3>
+<p>Impulse is fundamentally different from many other quantities you have encountered so far because it explicitly involves <strong>time</strong>.<br />
+When we describe momentum transfer through impulse, we are asking how interactions unfold <em>over a duration</em>.</p>
+<p>By contrast, when we later study <strong>work and energy</strong>, we will see that work involves <strong>force acting through position</strong>, not time. In other words:</p>
+<ul class="simple">
+<li><p><strong>Impulse</strong> connects force to <strong>time</strong></p></li>
+<li><p><strong>Work</strong> connects force to <strong>displacement</strong></p></li>
+</ul>
+<p>This distinction is not just a bookkeeping choice—it reflects a deep structural feature of physics.</p>
+<p>Quantities that depend on time naturally emphasize <strong>how interactions evolve</strong>, while quantities that depend on position emphasize <strong>where interactions occur</strong>. These two perspectives lead to very different—but complementary—ways of understanding motion.</p>
+<p>Far beyond this course, this distinction has profound consequences. For example:</p>
+<ul class="simple">
+<li><p>In signal analysis and physics, time-based and position-based descriptions lead to different mathematical tools, such as <strong>Fourier transforms</strong>, which relate how localized something is in time to how spread out it is in frequency.</p></li>
+<li><p>In quantum mechanics, similar ideas appear in the form of <strong>uncertainty principles</strong>, where pairs of quantities tied to time-like and position-like descriptions cannot both be specified arbitrarily precisely.</p></li>
+</ul>
+<p>Even in classical mechanics, these ideas are already present. Momentum naturally pairs with position, while energy naturally pairs with time. These pairings—called <strong>canonical relationships</strong>—hint at a deeper organizational structure underlying Newton’s laws.</p>
+<p>You do not need to understand any of this for this class. But it is worth knowing that when we choose to describe motion using impulse rather than force alone, we are not just solving problems more efficiently—we are aligning ourselves with a framework that remains meaningful across all of physics.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0; color:#000000;">Example 1 – Constant Force Acting Over Time</h3>
+<p><strong>Problem</strong><br />
+A <span class="math notranslate nohighlight">\(0.50\ \text{kg}\)</span> cart initially moves at <span class="math notranslate nohighlight">\(+2.0\ \text{m/s}\)</span>.<br />
+A constant force of <span class="math notranslate nohighlight">\(f_x = -4.0\ \text{N}\)</span> acts for <span class="math notranslate nohighlight">\(0.50\ \text{s}\)</span>.</p>
+<p>Find the final velocity of the cart.</p>
+<hr class="docutils" />
+<p><strong>Solution</strong></p>
+<p>Impulse:</p>
+<div class="math notranslate nohighlight">
+\[
+j_x = f_x\,\Delta t = (-4.0)(0.50) = -2.0\ \text{kg·m/s}.
+\]</div>
+<p>Initial momentum:</p>
+<div class="math notranslate nohighlight">
+\[
+p_{x,i} = m v_{x,i} = (0.50)(2.0) = +1.0\ \text{kg·m/s}.
+\]</div>
+<p>Final momentum:</p>
+<div class="math notranslate nohighlight">
+\[
+p_{x,f} = p_{x,i} + j_x = 1.0 - 2.0 = -1.0\ \text{kg·m/s}.
+\]</div>
+<p>Final velocity:</p>
+<div class="math notranslate nohighlight">
+\[
+v_{x,f} = \frac{p_{x,f}}{m} = \frac{-1.0}{0.50} = -2.0\ \text{m/s}.
+\]</div>
+<p>The cart reverses direction due to the impulse delivered by the force.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:12px; border-radius:4px;">
+<h3 style="margin-top:0; color:#000000;">Box Activity 1 – Impulse from a Constant Force</h3>
+<p>In this activity, you will apply the impulse–momentum theorem to a simple one-dimensional situation involving a <strong>single constant force</strong>.</p>
+<p><strong>Task:</strong></p>
+<p>A point particle of mass</p>
+<div class="math notranslate nohighlight">
+\[ m = 0.40\ \text{kg} \]</div>
+<p>is initially moving in the <span class="math notranslate nohighlight">\(+x\)</span> direction with speed</p>
+<div class="math notranslate nohighlight">
+\[ v_{x,i} = +5.0\ \text{m/s}. \]</div>
+<p>A constant force</p>
+<div class="math notranslate nohighlight">
+\[ f_x = -3.0\ \text{N} \]</div>
+<p>acts on the particle for</p>
+<div class="math notranslate nohighlight">
+\[ \Delta t = 0.60\ \text{s}. \]</div>
+<ol class="arabic simple">
+<li><p>Compute the impulse delivered to the particle.</p></li>
+<li><p>Determine the particle’s final momentum.</p></li>
+<li><p>Find the final velocity.</p></li>
+<li><p>State whether the particle changes direction.</p></li>
+</ol>
+<p>Use proper signs throughout.</p>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+A Possible Solution Guide
+</summary>
+<p><strong>Impulse</strong></p>
+<div class="math notranslate nohighlight">
+\[
+j_x = f_x\,\Delta t = (-3.0)(0.60) = -1.8\ \text{kg·m/s}
+\]</div>
+<p><strong>Initial momentum</strong></p>
+<div class="math notranslate nohighlight">
+\[
+p_{x,i} = m v_{x,i} = (0.40)(5.0) = +2.0\ \text{kg·m/s}
+\]</div>
+<p><strong>Final momentum</strong></p>
+<div class="math notranslate nohighlight">
+\[
+p_{x,f} = p_{x,i} + j_x = 2.0 - 1.8 = +0.20\ \text{kg·m/s}
+\]</div>
+<p><strong>Final velocity</strong></p>
+<div class="math notranslate nohighlight">
+\[
+v_{x,f} = \frac{p_{x,f}}{m} = \frac{0.20}{0.40} = +0.50\ \text{m/s}
+\]</div>
+<p><strong>Interpretation</strong></p>
+<p>The impulse is negative, meaning momentum is transferred in the <strong>negative <span class="math notranslate nohighlight">\(x\)</span>-direction</strong>.<br />
+However, the impulse is not large enough to reverse the particle’s motion, so the particle continues moving in the positive direction at a reduced speed.</p>
+</details>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:12px; border-radius:4px;">
+<h3 style="margin-top:0; color:#000000;">Box Activity 2 – Net Impulse from Multiple Forces (1D)</h3>
+<p>In this activity, several forces act on a point particle along a single line.<br />
+Your goal is to determine the <strong>net impulse</strong> and the resulting motion.</p>
+<p><strong>Task:</strong></p>
+<p>A point particle has mass</p>
+<div class="math notranslate nohighlight">
+\[ m = 1.2\ \text{kg}. \]</div>
+<p>It is initially moving in the <span class="math notranslate nohighlight">\(+x\)</span> direction with speed</p>
+<div class="math notranslate nohighlight">
+\[ v_{x,i} = +2.5\ \text{m/s}. \]</div>
+<p>During a time interval of</p>
+<div class="math notranslate nohighlight">
+\[ \Delta t = 0.40\ \text{s}, \]</div>
+<p>the following forces act on the particle:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(f_{1,x} = +6.0\ \text{N}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(f_{2,x} = -4.0\ \text{N}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(f_{3,x} = -1.0\ \text{N}\)</span></p></li>
+</ul>
+<p>All forces act over the <strong>same time interval</strong>.</p>
+<ol class="arabic simple">
+<li><p>Determine the <strong>net force</strong> acting on the particle.</p></li>
+<li><p>Compute the <strong>net impulse</strong> delivered during the interaction.</p></li>
+<li><p>Find the particle’s final momentum.</p></li>
+<li><p>Determine the final velocity.</p></li>
+<li><p>State whether the direction of motion changes.</p></li>
+</ol>
+<p>Use proper signs throughout.</p>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+A Possible Solution Guide
+</summary>
+<p><strong>Net force</strong></p>
+<div class="math notranslate nohighlight">
+\[
+f_{\text{net},x} = (+6.0) + (-4.0) + (-1.0) = +1.0\ \text{N}
+\]</div>
+<p><strong>Net impulse</strong></p>
+<div class="math notranslate nohighlight">
+\[
+j_{\text{net},x} = f_{\text{net},x}\,\Delta t = (1.0)(0.40) = +0.40\ \text{kg·m/s}
+\]</div>
+<p><strong>Initial momentum</strong></p>
+<div class="math notranslate nohighlight">
+\[
+p_{x,i} = m v_{x,i} = (1.2)(2.5) = +3.0\ \text{kg·m/s}
+\]</div>
+<p><strong>Final momentum</strong></p>
+<div class="math notranslate nohighlight">
+\[
+p_{x,f} = p_{x,i} + j_{\text{net},x} = 3.0 + 0.40 = +3.4\ \text{kg·m/s}
+\]</div>
+<p><strong>Final velocity</strong></p>
+<div class="math notranslate nohighlight">
+\[
+v_{x,f} = \frac{p_{x,f}}{m} = \frac{3.4}{1.2} \approx +2.8\ \text{m/s}
+\]</div>
+<p><strong>Interpretation</strong></p>
+<p>Although two of the forces oppose the motion, the net force — and therefore the net impulse — is in the <strong>positive <span class="math notranslate nohighlight">\(x\)</span>-direction</strong>.<br />
+The particle speeds up slightly and does <strong>not</strong> change direction.</p>
+</details>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="d3-4-3-illustrative-videos">
+<h2>D3.4.3 Illustrative Videos<a class="headerlink" href="#d3-4-3-illustrative-videos" title="Link to this heading">#</a></h2>
+<p>These videos shows examples of interactions causing a momentum transfer.</p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=aMqM13EUSKw&amp;amp;t=3s">Golf Ball Impact</a></p>
+<p>In this video, the golf ball is striking a steel plate at high speeds. During the collision, energy is lost due to deformation (and most likely sound waves as well). Momentum is transferred from the golf ball to the plate. However, the plate is muc more massive than the golf ball and the steel plate velocity is near zero.</p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=pTZ9gBwftcI">Flying Hamster</a></p>
+<p>Poor hamster. The hamster’s human did not listen carefully in the physics class (or maybe listened just enough to try it but not enough to understand the consequences). A large amount of momentum transfer from exercise ball to the hamster. If you try this yourselt, use a basketball/tennis ball or basketball/golf ball. The effect is quite dramatic.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d3-4-4-impulse-and-the-forcetime-graph">
+<h2>D3.4.4 Impulse and the Force–Time Graph<a class="headerlink" href="#d3-4-4-impulse-and-the-forcetime-graph" title="Link to this heading">#</a></h2>
+<p>So far, we have described impulse in two equivalent ways.</p>
+<p>First, impulse is defined as <strong>momentum transfer</strong>,</p>
+<div class="math notranslate nohighlight">
+\[
+j_x = \Delta p_x.
+\]</div>
+<p>Second, when a force is constant (or can be well approximated by its average value), impulse can be written as</p>
+<div class="math notranslate nohighlight">
+\[
+j_x = f_x\,\Delta t.
+\]</div>
+<section id="constant-force-rectangle">
+<h3>Constant Force → Rectangle<a class="headerlink" href="#constant-force-rectangle" title="Link to this heading">#</a></h3>
+<p>If a force is <strong>constant</strong>, a force–time graph is simply a <strong>horizontal line</strong>.<br />
+The impulse is then given by the <strong>area under that line</strong>, which forms a rectangle:</p>
+<ul class="simple">
+<li><p>height = force magnitude <span class="math notranslate nohighlight">\(f_x\)</span></p></li>
+<li><p>width = interaction time <span class="math notranslate nohighlight">\(\Delta t\)</span></p></li>
+</ul>
+<p>The area of this rectangle is</p>
+<div class="math notranslate nohighlight">
+\[
+\text{area} = f_x\,\Delta t = j_x,
+\]</div>
+<p>which shows that impulse is literally the <strong>area under a force–time graph</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="variable-force-sum-of-small-rectangles">
+<h3>Variable Force → Sum of Small Rectangles<a class="headerlink" href="#variable-force-sum-of-small-rectangles" title="Link to this heading">#</a></h3>
+<p>In real situations, forces often change with time. The force–time graph may be curved or irregular.<br />
+Even in these cases, the idea of impulse as <em>area</em> still applies.</p>
+<p>The key idea is this:</p>
+<blockquote>
+<div><p>Any curve can be approximated by a large number of <strong>small rectangles</strong>.</p>
+</div></blockquote>
+<p>Each rectangle represents a small impulse delivered over a short time interval.<br />
+Adding up the areas of all these rectangles gives an approximation to the total impulse.</p>
+<p>This viewpoint allows us to estimate impulse <strong>numerically</strong>, even when the force is not constant.</p>
+</section>
+<hr class="docutils" />
+<section id="connection-to-calculus-optional-insight">
+<h3>Connection to Calculus (Optional Insight)<a class="headerlink" href="#connection-to-calculus-optional-insight" title="Link to this heading">#</a></h3>
+<p>If you have studied calculus, you may recognize this process as the idea behind <strong>Riemann sums</strong>.</p>
+<p>Depending on how the rectangles are chosen, we obtain different approximations:</p>
+<ul class="simple">
+<li><p><strong>Left Riemann sum</strong>: rectangles use the force value at the beginning of each interval</p></li>
+<li><p><strong>Right Riemann sum</strong>: rectangles use the force value at the end of each interval</p></li>
+<li><p><strong>Midpoint (center) sum</strong>: rectangles use the force value at the center of each interval</p></li>
+</ul>
+<p>As the rectangles become narrower, these approximations improve.<br />
+More advanced methods—such as the <strong>trapezoidal rule</strong> and <strong>Simpson’s rule</strong>—combine rectangles and trapezoids to achieve higher accuracy.</p>
+<p>In calculus, taking the limit as the rectangles become infinitesimally thin leads to the exact impulse.</p>
+</section>
+<hr class="docutils" />
+<section id="why-this-matters-even-without-calculus">
+<h3>Why This Matters (Even Without Calculus)<a class="headerlink" href="#why-this-matters-even-without-calculus" title="Link to this heading">#</a></h3>
+<p>You do <strong>not</strong> need calculus to understand the physical idea:</p>
+<ul class="simple">
+<li><p>Impulse depends on <strong>force acting over time</strong></p></li>
+<li><p>The total impulse is the <strong>accumulated effect</strong> of that force</p></li>
+<li><p>Force–time graphs provide a direct visual and numerical way to determine momentum change</p></li>
+</ul>
+<p>Whether using simple rectangles or advanced mathematics, the physical meaning remains the same:<br />
+<strong>impulse is the total momentum transferred during an interaction</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="force-acting-over-time">
+<h3>Force Acting Over Time<a class="headerlink" href="#force-acting-over-time" title="Link to this heading">#</a></h3>
+<p>When a force acts on a point particle, its value may change during the interaction.<br />
+Rather than focusing on the force at a single instant, impulse asks a different question:</p>
+<blockquote>
+<div><p><strong>How much total momentum is transferred over the entire time interval of interaction?</strong></p>
+</div></blockquote>
+<p>This is where the <strong>force–time graph</strong> becomes useful.</p>
+</section>
+<hr class="docutils" />
+<section id="impulse-from-a-forcetime-graph">
+<h3>Impulse from a Force–Time Graph<a class="headerlink" href="#impulse-from-a-forcetime-graph" title="Link to this heading">#</a></h3>
+<p>A <strong>force–time graph</strong> shows the value of the force <span class="math notranslate nohighlight">\(f_x\)</span> acting on a particle as a function of time <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0; color:#000000;">Impulse from a Force–Time Graph</h3>
+<p>The impulse delivered to a point particle equals the <strong>area under the force–time curve</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+j_x = \text{area under } f_x \text{ vs. } t.
+\]</div>
+</div>
+<p>This statement holds regardless of whether the force is constant, increasing, decreasing, or changing in a more complicated way.</p>
+</section>
+<hr class="docutils" />
+<section id="common-forcetime-shapes">
+<h3>Common Force–Time Shapes<a class="headerlink" href="#common-forcetime-shapes" title="Link to this heading">#</a></h3>
+<p>In introductory problems, force–time graphs often take simple geometric forms:</p>
+<ul>
+<li><p><strong>Rectangle</strong> (constant force):</p>
+<div class="math notranslate nohighlight">
+\[
+  j_x = f_x\,\Delta t
+  \]</div>
+</li>
+<li><p><strong>Triangle</strong> (linearly changing force):</p>
+<div class="math notranslate nohighlight">
+\[
+  j_x = \frac{1}{2}(\text{base})(\text{height})
+  \]</div>
+</li>
+<li><p><strong>Trapezoid</strong> (force changes between two values):</p>
+<div class="math notranslate nohighlight">
+\[
+  j_x = \frac{1}{2}(f_{\text{initial}} + f_{\text{final}})\,\Delta t
+  \]</div>
+</li>
+</ul>
+<p>In each case, the impulse is found by calculating the <strong>geometric area</strong> under the curve.</p>
+</section>
+<hr class="docutils" />
+<section id="physical-interpretation">
+<h3>Physical Interpretation<a class="headerlink" href="#physical-interpretation" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>A <strong>larger area</strong> means a larger momentum transfer.</p></li>
+<li><p>A <strong>positive area</strong> corresponds to impulse in the positive <span class="math notranslate nohighlight">\(x\)</span>-direction.</p></li>
+<li><p>A <strong>negative area</strong> corresponds to impulse in the negative <span class="math notranslate nohighlight">\(x\)</span>-direction.</p></li>
+</ul>
+<p>Importantly, very different force–time graphs can produce the <strong>same impulse</strong>.<br />
+This explains why a soft catch (small force over long time) and a hard catch (large force over short time) can bring an object to rest with the same change in momentum.</p>
+</section>
+<hr class="docutils" />
+<section id="why-forcetime-graphs-matter">
+<h3>Why Force–Time Graphs Matter<a class="headerlink" href="#why-forcetime-graphs-matter" title="Link to this heading">#</a></h3>
+<p>Force–time graphs emphasize that:</p>
+<ul class="simple">
+<li><p>impulse depends on <strong>time-integrated interaction</strong>, not peak force,</p></li>
+<li><p>momentum change can be determined <strong>without knowing acceleration</strong>, and</p></li>
+<li><p>the details of how a force varies often matter less than the <strong>total area</strong> under the curve.</p></li>
+</ul>
+<p>This perspective is essential for understanding collisions, safety devices, propulsion, and many real-world interactions.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0; color:#000000;">Example 2 – Impulse from a Force–Time Graph</h3>
+<p>A particle initially moves at <span class="math notranslate nohighlight">\(v_{x,i} = +3.0\ \text{m/s}\)</span> with mass <span class="math notranslate nohighlight">\(m = 1.0\ \text{kg}\)</span>.<br />
+A force acts in the <span class="math notranslate nohighlight">\(x\)</span>-direction according to the force–time graph below.</p>
+<p>The force increases linearly from <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(6.0\ \text{N}\)</span> over <span class="math notranslate nohighlight">\(2.0\ \text{s}\)</span> and then drops to zero.</p>
+<p><strong>Impulse from a force–time graph</strong> is equal to the <strong>area under the curve</strong>.</p>
+<p>For this triangular graph:</p>
+<div class="math notranslate nohighlight">
+\[
+j_x = \frac{1}{2}(2.0)(6.0) = 6.0\ \text{kg·m/s}.
+\]</div>
+<p>Initial momentum:</p>
+<div class="math notranslate nohighlight">
+\[
+p_{x,i} = (1.0)(3.0) = 3.0\ \text{kg·m/s}.
+\]</div>
+<p>Final momentum:</p>
+<div class="math notranslate nohighlight">
+\[
+p_{x,f} = 3.0 + 6.0 = 9.0\ \text{kg·m/s}.
+\]</div>
+<p>Final velocity:</p>
+<div class="math notranslate nohighlight">
+\[
+v_{x,f} = \frac{9.0}{1.0} = 9.0\ \text{m/s}.
+\]</div>
+</div><div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Given parameters</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mf">1.0</span>          <span class="c1"># mass (kg)</span>
+<span class="n">v_x_i</span> <span class="o">=</span> <span class="mf">3.0</span>      <span class="c1"># initial velocity (m/s)</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mf">2.0</span>          <span class="c1"># duration of force (s)</span>
+<span class="n">F_max</span> <span class="o">=</span> <span class="mf">6.0</span>      <span class="c1"># maximum force (N)</span>
+
+<span class="c1"># Time array</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+
+<span class="c1"># Force as a function of time (linear ramp)</span>
+<span class="n">f_x</span> <span class="o">=</span> <span class="p">(</span><span class="n">F_max</span> <span class="o">/</span> <span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="n">t</span>
+
+<span class="c1"># Impulse calculations</span>
+<span class="n">j_x_geom</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">T</span> <span class="o">*</span> <span class="n">F_max</span>           <span class="c1"># geometric area (triangle)</span>
+<span class="n">j_x_num</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">trapezoid</span><span class="p">(</span><span class="n">f_x</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>           <span class="c1"># numerical integration (trapezoidal rule)</span>
+
+<span class="c1"># Momentum and final velocity</span>
+<span class="n">p_x_i</span> <span class="o">=</span> <span class="n">m</span> <span class="o">*</span> <span class="n">v_x_i</span>
+<span class="n">p_x_f</span> <span class="o">=</span> <span class="n">p_x_i</span> <span class="o">+</span> <span class="n">j_x_geom</span>
+<span class="n">v_x_f</span> <span class="o">=</span> <span class="n">p_x_f</span> <span class="o">/</span> <span class="n">m</span>
+
+<span class="c1"># Output (scientific notation, 2 significant figures)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Impulse (geometry)  = </span><span class="si">{</span><span class="n">j_x_geom</span><span class="si">:</span><span class="s2">.2e</span><span class="si">}</span><span class="s2"> kg·m/s&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Impulse (numerical) = </span><span class="si">{</span><span class="n">j_x_num</span><span class="si">:</span><span class="s2">.2e</span><span class="si">}</span><span class="s2"> kg·m/s&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Final velocity      = </span><span class="si">{</span><span class="n">v_x_f</span><span class="si">:</span><span class="s2">.2e</span><span class="si">}</span><span class="s2"> m/s&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot force–time graph</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">f_x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">f_x</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time t (s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Force f_x (N)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Force–Time Graph (Triangular Pulse)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Impulse (geometry)  = 6.00e+00 kg·m/s
+Impulse (numerical) = 6.00e+00 kg·m/s
+Final velocity      = 9.00e+00 m/s
+</pre></div>
+</div>
+<img alt="../_images/4d1793426f30af370d27c02052e0e69cb95ba5fdf0ebd67e6dd057626267d4fc.png" src="../_images/4d1793426f30af370d27c02052e0e69cb95ba5fdf0ebd67e6dd057626267d4fc.png" />
+</div>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:12px; border-radius:4px;">
+<h3 style="margin-top:0; color:#000000;">Box Activity 3 – Impulse from a Force–Time Graph</h3>
+<p>A force acts on a <span class="math notranslate nohighlight">\(0.80\ \text{kg}\)</span> particle as shown in a force–time graph below.</p>
+<p>The particle initially moves at <span class="math notranslate nohighlight">\(-1.5\ \text{m/s}\)</span>.</p>
+<p><strong>Task</strong></p>
+<ol class="arabic simple">
+<li><p>Determine the impulse from the graph.</p></li>
+<li><p>Find the final velocity of the particle.</p></li>
+<li><p>State whether the direction of motion changes.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+A Possible Solution Guide
+</summary>
+<p>Impulse:</p>
+<div class="math notranslate nohighlight">
+\[
+j_x = (5.0)(0.40) = 2.0\ \text{kg·m/s}.
+\]</div>
+<p>Initial momentum:</p>
+<div class="math notranslate nohighlight">
+\[
+p_{x,i} = (0.80)(-1.5) = -1.2\ \text{kg·m/s}.
+\]</div>
+<p>Final momentum:</p>
+<div class="math notranslate nohighlight">
+\[
+p_{x,f} = -1.2 + 2.0 = +0.8\ \text{kg·m/s}.
+\]</div>
+<p>Final velocity:</p>
+<div class="math notranslate nohighlight">
+\[
+v_{x,f} = \frac{0.8}{0.80} = +1.0\ \text{m/s}.
+\]</div>
+</details>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Given parameters for Box Activity 1</span>
+<span class="n">F</span> <span class="o">=</span> <span class="mf">5.0</span>        <span class="c1"># force magnitude (N)</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.40</span>      <span class="c1"># duration (s)</span>
+
+<span class="c1"># Time array</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Constant force over time</span>
+<span class="n">f_x</span> <span class="o">=</span> <span class="n">F</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+<span class="c1"># Plot force–time graph</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">f_x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">f_x</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time t (s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Force f_x (N)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Force–Time Graph (Constant Force)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/a99c766a8723c84f8c229fb58ff798fd8d6f6b998af0d445530fc26cf9d0fd4a.png" src="../_images/a99c766a8723c84f8c229fb58ff798fd8d6f6b998af0d445530fc26cf9d0fd4a.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:12px; border-radius:4px;">
+<h3 style="margin-top:0; color:#000000;">Box Activity 4 – Force–Time Impulse Using Python</h3>
+<p>In this activity, you will compute impulse from a force–time graph (see below) using Python and then determine the final velocity.</p>
+<p><strong>Task</strong></p>
+<ol class="arabic simple">
+<li><p>A force increases linearly from <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(8.0\ \text{N}\)</span> over <span class="math notranslate nohighlight">\(1.5\ \text{s}\)</span>.</p></li>
+<li><p>The particle has mass <span class="math notranslate nohighlight">\(m = 0.60\ \text{kg}\)</span> and initial velocity <span class="math notranslate nohighlight">\(v_{x,i} = +2.0\ \text{m/s}\)</span>.</p></li>
+<li><p>Compute the impulse using the area of the triangle.</p></li>
+<li><p>Find the final velocity.</p></li>
+<li><p>Format numerical results in scientific notation with <strong>two significant figures</strong>.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+A Possible Solution Guide
+</summary>
+<p><code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">=</span> <span class="pre">0.60</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">v_x_i</span> <span class="pre">=</span> <span class="pre">2.0</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">base</span> <span class="pre">=</span> <span class="pre">1.5</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">height</span> <span class="pre">=</span> <span class="pre">8.0</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">j_x</span> <span class="pre">=</span> <span class="pre">0.5</span> <span class="pre">*</span> <span class="pre">base</span> <span class="pre">*</span> <span class="pre">height</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">p_x_i</span> <span class="pre">=</span> <span class="pre">m</span> <span class="pre">*</span> <span class="pre">v_x_i</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">p_x_f</span> <span class="pre">=</span> <span class="pre">p_x_i</span> <span class="pre">+</span> <span class="pre">j_x</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">v_x_f</span> <span class="pre">=</span> <span class="pre">p_x_f</span> <span class="pre">/</span> <span class="pre">m</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">print(f&quot;{j_x:.2e}&quot;)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">print(f&quot;{v_x_f:.2e}&quot;)</span></code></p>
+</details>
+</div><div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Given parameters for Box Activity 2</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mf">1.5</span>        <span class="c1"># duration (s)</span>
+<span class="n">F_max</span> <span class="o">=</span> <span class="mf">8.0</span>    <span class="c1"># peak force (N)</span>
+
+<span class="c1"># Time array</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+
+<span class="c1"># Linearly increasing force</span>
+<span class="n">f_x</span> <span class="o">=</span> <span class="p">(</span><span class="n">F_max</span> <span class="o">/</span> <span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="n">t</span>
+
+<span class="c1"># Plot force–time graph</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">f_x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">f_x</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time t (s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Force f_x (N)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Force–Time Graph (Linearly Increasing Force)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/4b6491d5493785330b6882f84cb905e74f492fecf662eb37bd5c9ba73fa2e9a5.png" src="../_images/4b6491d5493785330b6882f84cb905e74f492fecf662eb37bd5c9ba73fa2e9a5.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Phys-Prof-Nielsen/modulearn",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-D3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="impulse.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">D3.3 Impulse — Momentum Change as the Fundamental Quantity</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="conservation-momentum.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">D3.5 Conservation of Momentum</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation-newtons-first-law-revisited">Motivation — Newton’s First Law Revisited</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-4-1-impulse-due-to-a-single-force">D3.4.1 Impulse Due to a Single Force</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#units-of-force">Units of Force</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-4-2-net-impulse-from-multiple-forces">D3.4.2 Net Impulse from Multiple Forces</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#net-impulse-from-multiple-forces">Net Impulse from Multiple Forces</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#net-impulse-general-statement">Net Impulse — General Statement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#special-case-forces-acting-over-the-same-time-interval">Special Case — Forces Acting Over the Same Time Interval</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-distinction-matters">Why This Distinction Matters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-matters">Why This Matters</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-4-3-illustrative-videos">D3.4.3 Illustrative Videos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-4-4-impulse-and-the-forcetime-graph">D3.4.4 Impulse and the Force–Time Graph</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constant-force-rectangle">Constant Force → Rectangle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-force-sum-of-small-rectangles">Variable Force → Sum of Small Rectangles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connection-to-calculus-optional-insight">Connection to Calculus (Optional Insight)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-matters-even-without-calculus">Why This Matters (Even Without Calculus)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#force-acting-over-time">Force Acting Over Time</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#impulse-from-a-forcetime-graph">Impulse from a Force–Time Graph</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-forcetime-shapes">Common Force–Time Shapes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-interpretation">Physical Interpretation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-forcetime-graphs-matter">Why Force–Time Graphs Matter</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
