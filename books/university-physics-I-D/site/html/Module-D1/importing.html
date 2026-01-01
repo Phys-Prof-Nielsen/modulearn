@@ -1,0 +1,982 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>D1.7 Importing Functions in Python &#8212; A Competency Approach to Introductory Physics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/save_cell.css?v=43dd4451" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-D1/importing';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/save_cell.js?v=d135a7b8"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="D1.8 Solving Simple Equations with Symbolic Python and Improve Outputs" href="equations.html" />
+    <link rel="prev" title="D1.6 Using Python as a Scientific Calculator" href="python-calculator.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-D.png" class="logo__image only-light" alt="A Competency Approach to Introductory Physics - Home"/>
+    <script>document.write(`<img src="../_static/logo-D.png" class="logo__image only-dark" alt="A Competency Approach to Introductory Physics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to University Physics I: A Compendium to the D Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://modulearn.academy/spheres/physics/university-physics-I/university-physics-I.html">University Physics I Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D1 - Introduction to Python for Physics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-D1.html">D1.0 Learning Outcomes – Introduction to Python for Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro-python.html">D1.1 Introduction to Python in Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="why-python.html">D1.2 Why We Use Python in Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code-cells.html">D1.3 Using Code Cells in This E-Book (Thebe)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="options.html">D1.4 Additional / Optional Online Tools for Students</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pseudo-code.html">D1.5 Pseudocode: Planning Before Coding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python-calculator.html">D1.6 Using Python as a Scientific Calculator</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">D1.7 Importing Functions in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="equations.html">D1.8 Solving Simple Equations with Symbolic Python and Improve Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problemsD1.html">D1.9 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quiz-D1.html">D1.10 Interactive Self-Assessment Quiz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loc-assessment-D1.html">D1.11 Assessment – Introduction to Python in Physics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D2 - Foundation of Scientific Quantification</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/LOC-D2.html">D2.0 Learning Outcomes - Foundations of Scientific Quantification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/Scientific_Method.html">D2.1 The Scientific Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/Unit_Conversion.html">D2.2 Units and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/Scientific_Notation.html">D2.3 Scientific Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/orders-magnitude-calculations.html">D2.4 Orders of Magnitude Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/Significant_Figures.html">D2.5 Significant Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/statistics.html">D2.6 Basic Statistics for Scientific Measurements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/basic-plots.html">D2.7 Basic Scientific Graphing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/problemsD2.html">D2.8 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/quiz-D2.html">D2.9 Interactive Self-Assessment Quiz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/loc-assessment-D2.html">D2.10 Assessment - Foundation of Scientific Quantification</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D3 - Impulse-Momentum Framework</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/LOC-D3.html">D3.0 Learning Outcomes - Impulse-Momentum Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/point-particle.html">D3.1 Point Particle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/momentum.html">D3.2 Linear Momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/impulse.html">D3.3 Impulse — Momentum Change as the Fundamental Quantity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/impulse-momentum.html">D3.4 Impulse from Force Acting Through Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/conservation-momentum.html">D3.5 Conservation of Momentum</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/problemsD3.html">D3.6 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/quiz-D3.html">D3.7 Interactive Self-Assessment Quiz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/loc-assessment-D3.html">D3.8 Assessment - Impulse-Momentum</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D4 - Work-Energy Framework</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/LOC-D4.html">D4.0 Learning Outcomes — Work–Energy Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/kinetic-energy.html">D4.1 Kinetic Energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/work.html">D4.2 Work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/work-energy.html">D4.3 Work–Energy: Force Acting Through Displacement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/work-energy-graph.html">D4.4 Force–Displacement Graphs and Work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/conservation-kinetic-energy.html">D4.5 Conservation of Kinetic Energy (Two-Particle Systems)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/grav-potential-energy.html">D4.6 Gravitational Potential Energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/mechanical-energy.html">D4.7 Mechanical Energy and the Work–Energy Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/power.html">D4.8 Power: Rate of Energy Transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/problemsD4.html">D4.9 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/quiz-D4.html">D4.10 Interactive Self-Assessment Quiz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/loc-assessment-D4.html">D4.11 Assessment - Work-Energy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D5 - Kinematics and Emergence of Newtons Second Law</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/LOC-D5.html">D5.0 Learning Outcomes — Kinematics and the Emergence of Newton’s Second Law</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/basics-kinematics.html">D5.1 Kinematics in One Dimension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/derived-equations.html">D5.2 Derived Kinematic Equations (Constant Acceleration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/newtons-second-law.html">D5.3 Newton’s Second Law as a Special Case of the Impulse–Momentum Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/problemsD5.html">D5.4 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/quiz-D5.html">D5.5 Interactive Self-Assessment Quiz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/loc-assessment-D5.html">D5.6 Assessment - Kinematics and Newton’s 2nd Law</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D6 - Basic Oscillations and Waves</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/LOC-D6.html"><strong>D6.0 Learning Outcomes — Oscillations and Traveling Waves</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/basic-oscillations.html">D6.1 Basic Oscillations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/basic-waves.html">D6.2 Basic Waves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/problemsD6.html">D6.3 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/quiz-D6.html">D6.4 Interactive Self-Assessment Quiz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/loc-assessment-D6.html">D6.5 Assessment - Oscillations and Traveling Waves</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D7 - Foundations of Thermodynamics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/LOC-D7.html">D7.0 Learning Outcomes — Foundations of Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/temperature.html">D7.1 Temperature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/thermal-expansion.html">D7.2 Thermal Expansion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/heat.html">D7.3 Heat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/heat-transfer.html">D7.4 Methods of Heat Transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/first-law-thermo.html">D7.5 The First Law of Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/problemsD7.html">D7.6 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/quiz-D7.html">D7.7 Interactive Self-Assessment Quiz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/loc-assessment-D7.html">D7.8 Assessment - Foundations of Thermodynamics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D8 - Advanced Topics (Optional)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/taylor-series.html">D8.1 Advanced Topic A — Taylor Expansions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/complex.html">D8.2 Advanced Topic A — Complex Numbers as a Physics Tool</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Module-D1/importing.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-D1/importing.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>D1.7 Importing Functions in Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d1-7-1-motivation">D1.7.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d1-7-2-why-we-import-functions">D1.7.2 Why We Import Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d1-7-3-ways-to-import-functions-and-when-to-use-them">D1.7.3 Ways to Import Functions (and When to Use Them)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-module-use-module-name">Import the module, use module.name</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages">Advantages:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#disadvantages">Disadvantages:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-module-with-an-alias">Import the module with an alias</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Example:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Advantages:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Disadvantages:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-specific-functions">Import specific functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Example:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Advantages:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Disadvantages:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-everything-from-module-import-dangerous">Import EVERYTHING: <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">module</span> <span class="pre">import</span> <span class="pre">*</span></code> (DANGEROUS)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Example:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Advantages:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#disadvantages-major">Disadvantages (major):</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-is-dangerous-for-physics-students">Why this is dangerous for physics students:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d1-7-4-comparing-math-and-numpy-functions">D1.7.4 Comparing Math and NumPy Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rule-of-thumb">Rule of thumb:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d1-7-5-example-importing-and-using-sqrt">D1.7.5 Example: Importing and Using sqrt()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d1-7-6-box-activity-importing-the-right-way">D1.7.6 Box Activity – Importing the Right Way</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d1-7-7-summary">D1.7.7 Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="d1-7-importing-functions-in-python">
+<h1>D1.7 Importing Functions in Python<a class="headerlink" href="#d1-7-importing-functions-in-python" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="d1-7-1-motivation">
+<h2>D1.7.1 Motivation<a class="headerlink" href="#d1-7-1-motivation" title="Link to this heading">#</a></h2>
+<p>Up to now, you have used Python only with its built-in arithmetic.<br />
+But scientific work often requires mathematical tools — square roots, trigonometric functions, logarithms, constants, arrays, etc.</p>
+<p>Python does <strong>not</strong> load these automatically.<br />
+To keep Python clean and efficient, you must <strong>import</strong> the tools you need.</p>
+<p>Importing is how Python gains access to:</p>
+<ul class="simple">
+<li><p>additional mathematical functions</p></li>
+<li><p>scientific libraries</p></li>
+<li><p>numerical methods</p></li>
+<li><p>symbolic tools</p></li>
+<li><p>physical constants</p></li>
+</ul>
+<p>In physics, these become essential as problems get more complex.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d1-7-2-why-we-import-functions">
+<h2>D1.7.2 Why We Import Functions<a class="headerlink" href="#d1-7-2-why-we-import-functions" title="Link to this heading">#</a></h2>
+<p>Python starts with a very small “core vocabulary.”<br />
+If you want functions like:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sqrt()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sin()</span></code>, <code class="docutils literal notranslate"><span class="pre">cos()</span></code>, <code class="docutils literal notranslate"><span class="pre">tan()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pi</span></code></p></li>
+<li><p>numerical arrays (<code class="docutils literal notranslate"><span class="pre">numpy</span></code>)</p></li>
+<li><p>symbolic solvers (<code class="docutils literal notranslate"><span class="pre">sympy</span></code>)</p></li>
+</ul>
+<p>—you must import the correct library.</p>
+<p>This also lets you choose <strong>which</strong> version of a function you want.<br />
+For example:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">math.sqrt()</span></code> → simple, works on single numbers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">numpy.sqrt()</span></code> → fast, works on arrays and vectors</p></li>
+</ul>
+<p>Importing gives you control.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d1-7-3-ways-to-import-functions-and-when-to-use-them">
+<h2>D1.7.3 Ways to Import Functions (and When to Use Them)<a class="headerlink" href="#d1-7-3-ways-to-import-functions-and-when-to-use-them" title="Link to this heading">#</a></h2>
+<p>Below are the <strong>four standard import styles</strong> in scientific Python work.</p>
+<hr class="docutils" />
+<section id="import-the-module-use-module-name">
+<h3>Import the module, use module.name<a class="headerlink" href="#import-the-module-use-module-name" title="Link to this heading">#</a></h3>
+<section id="example">
+<h4>Example:<a class="headerlink" href="#example" title="Link to this heading">#</a></h4>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">math</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">value</span> <span class="pre">=</span> <span class="pre">math.sqrt(9)</span></code></p>
+</div></blockquote>
+</section>
+<section id="advantages">
+<h4>Advantages:<a class="headerlink" href="#advantages" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Safest method</p></li>
+<li><p>No name collisions</p></li>
+<li><p>Makes it clear which library a function comes from (<code class="docutils literal notranslate"><span class="pre">math.sin</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy.sin</span></code>)</p></li>
+<li><p>Industry standard for clean code</p></li>
+</ul>
+</section>
+<section id="disadvantages">
+<h4>Disadvantages:<a class="headerlink" href="#disadvantages" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Slightly longer typing</p></li>
+</ul>
+<p><strong>Recommended for beginners and scientific clarity.</strong></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="import-the-module-with-an-alias">
+<h3>Import the module with an alias<a class="headerlink" href="#import-the-module-with-an-alias" title="Link to this heading">#</a></h3>
+<section id="id1">
+<h4>Example:<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">array</span> <span class="pre">=</span> <span class="pre">np.array([1,2,3])</span></code></p>
+</div></blockquote>
+</section>
+<section id="id2">
+<h4>Advantages:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Shorter and fast to type</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np</span></code> is universal convention for <code class="docutils literal notranslate"><span class="pre">numpy</span></code></p></li>
+<li><p>Still avoids name collisions</p></li>
+</ul>
+</section>
+<section id="id3">
+<h4>Disadvantages:<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>None significant (as long as alias is standard)</p></li>
+</ul>
+<p><strong>Recommended for scientific work.</strong></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="import-specific-functions">
+<h3>Import specific functions<a class="headerlink" href="#import-specific-functions" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h4>Example:<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">math</span> <span class="pre">import</span> <span class="pre">sqrt,</span> <span class="pre">sin,</span> <span class="pre">pi</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">value</span> <span class="pre">=</span> <span class="pre">sqrt(9)</span></code></p>
+</div></blockquote>
+</section>
+<section id="id5">
+<h4>Advantages:<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Cleaner code (no <code class="docutils literal notranslate"><span class="pre">math.</span></code> prefix)</p></li>
+<li><p>Only imports what you need</p></li>
+<li><p>Good for small scripts</p></li>
+</ul>
+</section>
+<section id="id6">
+<h4>Disadvantages:<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Possible name collisions<br />
+(e.g., <code class="docutils literal notranslate"><span class="pre">numpy.sqrt</span></code> vs. <code class="docutils literal notranslate"><span class="pre">math.sqrt</span></code>)</p></li>
+<li><p>Harder to see where functions come from</p></li>
+</ul>
+<p><strong>Use only when you need a small set of functions.</strong></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="import-everything-from-module-import-dangerous">
+<h3>Import EVERYTHING: <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">module</span> <span class="pre">import</span> <span class="pre">*</span></code> (DANGEROUS)<a class="headerlink" href="#import-everything-from-module-import-dangerous" title="Link to this heading">#</a></h3>
+<section id="id7">
+<h4>Example:<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">numpy</span> <span class="pre">import</span> <span class="pre">*</span></code></p>
+</div></blockquote>
+</section>
+<section id="id8">
+<h4>Advantages:<a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Convenient (very short code)</p></li>
+</ul>
+</section>
+<section id="disadvantages-major">
+<h4>Disadvantages (major):<a class="headerlink" href="#disadvantages-major" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Name collisions</strong> (two libraries define the same function name)</p></li>
+<li><p>Overwrites built-ins without warning</p></li>
+<li><p>You forget where functions came from</p></li>
+<li><p>Extremely hard to debug</p></li>
+<li><p>Not allowed in most professional codebases</p></li>
+</ul>
+</section>
+<section id="why-this-is-dangerous-for-physics-students">
+<h4>Why this is dangerous for physics students:<a class="headerlink" href="#why-this-is-dangerous-for-physics-students" title="Link to this heading">#</a></h4>
+<p>If you do:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">math</span> <span class="pre">import</span> <span class="pre">*</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">numpy</span> <span class="pre">import</span> <span class="pre">*</span></code></p>
+</div></blockquote>
+<p>Then functions like <code class="docutils literal notranslate"><span class="pre">sin</span></code>, <code class="docutils literal notranslate"><span class="pre">cos</span></code>, <code class="docutils literal notranslate"><span class="pre">sqrt</span></code>, <code class="docutils literal notranslate"><span class="pre">log</span></code> will silently switch between:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">math.sin</span></code> → scalar only</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">numpy.sin</span></code> → array version</p></li>
+</ul>
+<p>This causes errors that are extremely difficult to find.</p>
+<p><strong>Never use <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code> in scientific work.</strong></p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+</section>
+<section id="d1-7-4-comparing-math-and-numpy-functions">
+<h2>D1.7.4 Comparing Math and NumPy Functions<a class="headerlink" href="#d1-7-4-comparing-math-and-numpy-functions" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">math</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">numpy</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Works on single numbers</p></td>
+<td><p>✔️</p></td>
+<td><p>✔️</p></td>
+</tr>
+<tr class="row-odd"><td><p>Works on arrays/vectors</p></td>
+<td><p>❌</p></td>
+<td><p>✔️</p></td>
+</tr>
+<tr class="row-even"><td><p>Fast for numerical computing</p></td>
+<td><p>❌</p></td>
+<td><p>✔️</p></td>
+</tr>
+<tr class="row-odd"><td><p>Good for symbolic work</p></td>
+<td><p>❌</p></td>
+<td><p>❌</p></td>
+</tr>
+<tr class="row-even"><td><p>Simpler for beginners</p></td>
+<td><p>✔️</p></td>
+<td><p>✔️</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="rule-of-thumb">
+<h3>Rule of thumb:<a class="headerlink" href="#rule-of-thumb" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">math</span></code> for simple scalar math</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">numpy</span></code> when dealing with lists, arrays, vectors, or physics data</p></li>
+</ul>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="d1-7-5-example-importing-and-using-sqrt">
+<h2>D1.7.5 Example: Importing and Using sqrt()<a class="headerlink" href="#d1-7-5-example-importing-and-using-sqrt" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">math</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">value1</span> <span class="pre">=</span> <span class="pre">math.sqrt(25)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">print(value1)</span></code></p>
+</div></blockquote>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">value2</span> <span class="pre">=</span> <span class="pre">np.sqrt(25)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">print(value2)</span></code></p>
+</div></blockquote>
+<p>Both work — but NumPy is preferred later when we use arrays.</p>
+<br>
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0; color:#006a80;">Example – Choosing the Right sqrt()</h3>
+<p>Suppose you want the magnitude of a 3-D vector (3,4,12):</p>
+<p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">math</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">=</span> <span class="pre">math.sqrt(3**2</span> <span class="pre">+</span> <span class="pre">4**2</span> <span class="pre">+</span> <span class="pre">12**2)</span></code></p>
+<p>For a whole list of vectors, NumPy is better:</p>
+<p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">xs</span> <span class="pre">=</span> <span class="pre">np.array([3,</span> <span class="pre">1,</span> <span class="pre">8])</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">ys</span> <span class="pre">=</span> <span class="pre">np.array([4,</span> <span class="pre">2,</span> <span class="pre">6])</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">zs</span> <span class="pre">=</span> <span class="pre">np.array([12,</span> <span class="pre">4,</span> <span class="pre">3])</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">=</span> <span class="pre">np.sqrt(xs**2</span> <span class="pre">+</span> <span class="pre">ys**2</span> <span class="pre">+</span> <span class="pre">zs**2)</span></code></p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d1-7-6-box-activity-importing-the-right-way">
+<h2>D1.7.6 Box Activity – Importing the Right Way<a class="headerlink" href="#d1-7-6-box-activity-importing-the-right-way" title="Link to this heading">#</a></h2>
+<div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:12px; border-radius:4px;">
+<p>Define the sides of a right triangle:</p>
+<p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">5</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">12</span></code></p>
+<p><strong>Your tasks:</strong></p>
+<ol class="arabic simple">
+<li><p>Import <strong>only</strong> what you need from <code class="docutils literal notranslate"><span class="pre">math</span></code></p></li>
+<li><p>Compute the hypotenuse using <strong>sqrt(a² + b²)</strong></p></li>
+<li><p>Try importing <strong>all</strong> of <code class="docutils literal notranslate"><span class="pre">math</span></code> using <code class="docutils literal notranslate"><span class="pre">*</span></code></p></li>
+<li><p>Notice that the result still works fine — this is why <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code> appears harmless</p></li>
+<li><p>Now import <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and see what happens.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Hint / Solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>Safe way:</p>
+<p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">math</span> <span class="pre">import</span> <span class="pre">sqrt</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">a,</span> <span class="pre">b</span> <span class="pre">=</span> <span class="pre">5,</span> <span class="pre">12</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">=</span> <span class="pre">sqrt(a**2</span> <span class="pre">+</span> <span class="pre">b**2)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">print(c)</span></code></p>
+<blockquote>
+<div><p>NOTE: here I shortened the code by one line simply by defining the variable on one line.</p>
+</div></blockquote>
+<p>Using <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code> works here only because <code class="docutils literal notranslate"><span class="pre">math</span></code> is small<br />
+and you’re using simple scalars.<br />
+The danger shows up when combining <code class="docutils literal notranslate"><span class="pre">math</span></code> with larger libraries (like <code class="docutils literal notranslate"><span class="pre">numpy</span></code>),<br />
+where function names overlap and silently overwrite each other. In this specific case, it works out ok, but if the entries are not numbers, using <code class="docutils literal notranslate"><span class="pre">math</span></code> would fail.</p>
+</div>
+</details>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d1-7-7-summary">
+<h2>D1.7.7 Summary<a class="headerlink" href="#d1-7-7-summary" title="Link to this heading">#</a></h2>
+<p>In this section you learned:</p>
+<ul class="simple">
+<li><p>why Python requires importing functions</p></li>
+<li><p>the four standard import styles</p></li>
+<li><p>why <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code> is dangerous</p></li>
+<li><p>differences between <code class="docutils literal notranslate"><span class="pre">math</span></code> and <code class="docutils literal notranslate"><span class="pre">numpy</span></code></p></li>
+<li><p>how to safely import and use functions like <code class="docutils literal notranslate"><span class="pre">sqrt()</span></code></p></li>
+</ul>
+<p>These import habits will be essential when we begin solving equations, modeling motion, and plotting data.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-D1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="python-calculator.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">D1.6 Using Python as a Scientific Calculator</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="equations.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">D1.8 Solving Simple Equations with Symbolic Python and Improve Outputs</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d1-7-1-motivation">D1.7.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d1-7-2-why-we-import-functions">D1.7.2 Why We Import Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d1-7-3-ways-to-import-functions-and-when-to-use-them">D1.7.3 Ways to Import Functions (and When to Use Them)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-module-use-module-name">Import the module, use module.name</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages">Advantages:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#disadvantages">Disadvantages:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-module-with-an-alias">Import the module with an alias</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Example:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Advantages:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Disadvantages:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-specific-functions">Import specific functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Example:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Advantages:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Disadvantages:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-everything-from-module-import-dangerous">Import EVERYTHING: <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">module</span> <span class="pre">import</span> <span class="pre">*</span></code> (DANGEROUS)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Example:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Advantages:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#disadvantages-major">Disadvantages (major):</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-is-dangerous-for-physics-students">Why this is dangerous for physics students:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d1-7-4-comparing-math-and-numpy-functions">D1.7.4 Comparing Math and NumPy Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rule-of-thumb">Rule of thumb:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d1-7-5-example-importing-and-using-sqrt">D1.7.5 Example: Importing and Using sqrt()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d1-7-6-box-activity-importing-the-right-way">D1.7.6 Box Activity – Importing the Right Way</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d1-7-7-summary">D1.7.7 Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

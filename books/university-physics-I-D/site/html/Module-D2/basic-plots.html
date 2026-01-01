@@ -1,0 +1,1045 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>D2.7 Basic Scientific Graphing &#8212; A Competency Approach to Introductory Physics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/save_cell.css?v=43dd4451" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-D2/basic-plots';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/save_cell.js?v=d135a7b8"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="D2.8 Problems" href="problemsD2.html" />
+    <link rel="prev" title="D2.6 Basic Statistics for Scientific Measurements" href="statistics.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-D.png" class="logo__image only-light" alt="A Competency Approach to Introductory Physics - Home"/>
+    <script>document.write(`<img src="../_static/logo-D.png" class="logo__image only-dark" alt="A Competency Approach to Introductory Physics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to University Physics I: A Compendium to the D Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://modulearn.academy/spheres/physics/university-physics-I/university-physics-I.html">University Physics I Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D1 - Introduction to Python for Physics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/LOC-D1.html">D1.0 Learning Outcomes – Introduction to Python for Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/intro-python.html">D1.1 Introduction to Python in Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/why-python.html">D1.2 Why We Use Python in Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/code-cells.html">D1.3 Using Code Cells in This E-Book (Thebe)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/options.html">D1.4 Additional / Optional Online Tools for Students</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/pseudo-code.html">D1.5 Pseudocode: Planning Before Coding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/python-calculator.html">D1.6 Using Python as a Scientific Calculator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/importing.html">D1.7 Importing Functions in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/equations.html">D1.8 Solving Simple Equations with Symbolic Python and Improve Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/problemsD1.html">D1.9 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/quiz-D1.html">D1.10 Interactive Self-Assessment Quiz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/loc-assessment-D1.html">D1.11 Assessment – Introduction to Python in Physics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D2 - Foundation of Scientific Quantification</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-D2.html">D2.0 Learning Outcomes - Foundations of Scientific Quantification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Scientific_Method.html">D2.1 The Scientific Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Unit_Conversion.html">D2.2 Units and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Scientific_Notation.html">D2.3 Scientific Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="orders-magnitude-calculations.html">D2.4 Orders of Magnitude Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Significant_Figures.html">D2.5 Significant Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">D2.6 Basic Statistics for Scientific Measurements</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">D2.7 Basic Scientific Graphing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problemsD2.html">D2.8 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quiz-D2.html">D2.9 Interactive Self-Assessment Quiz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loc-assessment-D2.html">D2.10 Assessment - Foundation of Scientific Quantification</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D3 - Impulse-Momentum Framework</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/LOC-D3.html">D3.0 Learning Outcomes - Impulse-Momentum Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/point-particle.html">D3.1 Point Particle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/momentum.html">D3.2 Linear Momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/impulse.html">D3.3 Impulse — Momentum Change as the Fundamental Quantity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/impulse-momentum.html">D3.4 Impulse from Force Acting Through Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/conservation-momentum.html">D3.5 Conservation of Momentum</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/problemsD3.html">D3.6 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/quiz-D3.html">D3.7 Interactive Self-Assessment Quiz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/loc-assessment-D3.html">D3.8 Assessment - Impulse-Momentum</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D4 - Work-Energy Framework</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/LOC-D4.html">D4.0 Learning Outcomes — Work–Energy Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/kinetic-energy.html">D4.1 Kinetic Energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/work.html">D4.2 Work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/work-energy.html">D4.3 Work–Energy: Force Acting Through Displacement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/work-energy-graph.html">D4.4 Force–Displacement Graphs and Work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/conservation-kinetic-energy.html">D4.5 Conservation of Kinetic Energy (Two-Particle Systems)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/grav-potential-energy.html">D4.6 Gravitational Potential Energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/mechanical-energy.html">D4.7 Mechanical Energy and the Work–Energy Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/power.html">D4.8 Power: Rate of Energy Transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/problemsD4.html">D4.9 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/quiz-D4.html">D4.10 Interactive Self-Assessment Quiz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/loc-assessment-D4.html">D4.11 Assessment - Work-Energy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D5 - Kinematics and Emergence of Newtons Second Law</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/LOC-D5.html">D5.0 Learning Outcomes — Kinematics and the Emergence of Newton’s Second Law</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/basics-kinematics.html">D5.1 Kinematics in One Dimension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/derived-equations.html">D5.2 Derived Kinematic Equations (Constant Acceleration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/newtons-second-law.html">D5.3 Newton’s Second Law as a Special Case of the Impulse–Momentum Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/problemsD5.html">D5.4 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/quiz-D5.html">D5.5 Interactive Self-Assessment Quiz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/loc-assessment-D5.html">D5.6 Assessment - Kinematics and Newton’s 2nd Law</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D6 - Basic Oscillations and Waves</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/LOC-D6.html"><strong>D6.0 Learning Outcomes — Oscillations and Traveling Waves</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/basic-oscillations.html">D6.1 Basic Oscillations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/basic-waves.html">D6.2 Basic Waves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/problemsD6.html">D6.3 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/quiz-D6.html">D6.4 Interactive Self-Assessment Quiz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/loc-assessment-D6.html">D6.5 Assessment - Oscillations and Traveling Waves</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D7 - Foundations of Thermodynamics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/LOC-D7.html">D7.0 Learning Outcomes — Foundations of Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/temperature.html">D7.1 Temperature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/thermal-expansion.html">D7.2 Thermal Expansion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/heat.html">D7.3 Heat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/heat-transfer.html">D7.4 Methods of Heat Transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/first-law-thermo.html">D7.5 The First Law of Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/problemsD7.html">D7.6 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/quiz-D7.html">D7.7 Interactive Self-Assessment Quiz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/loc-assessment-D7.html">D7.8 Assessment - Foundations of Thermodynamics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D8 - Advanced Topics (Optional)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/taylor-series.html">D8.1 Advanced Topic A — Taylor Expansions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/complex.html">D8.2 Advanced Topic A — Complex Numbers as a Physics Tool</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Module-D2/basic-plots.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-D2/basic-plots.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>D2.7 Basic Scientific Graphing</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d2-7-1-introduction">D2.7.1 Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d2-7-2-types-of-scientific-graphs">D2.7.2 Types of Scientific Graphs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d2-7-3-essential-components-of-a-good-graph">D2.7.3 Essential Components of a Good Graph</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d2-7-4-plotting-data-an-example">D2.7.4 Plotting Data: An Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d2-7-5-linearizing-data">D2.7.5 Linearizing Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d2-7-6-common-graphing-mistakes">D2.7.6 Common Graphing Mistakes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d2-7-7-summary">D2.7.7 Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="d2-7-basic-scientific-graphing">
+<h1>D2.7 Basic Scientific Graphing<a class="headerlink" href="#d2-7-basic-scientific-graphing" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="d2-7-1-introduction">
+<h2>D2.7.1 Introduction<a class="headerlink" href="#d2-7-1-introduction" title="Link to this heading">#</a></h2>
+<p>Graphs are an essential tool in physics for:</p>
+<ul class="simple">
+<li><p>Visualizing relationships between variables</p></li>
+<li><p>Identifying trends and patterns</p></li>
+<li><p>Communicating results clearly and concisely</p></li>
+</ul>
+<p>A <strong>well-made scientific graph</strong> can convey complex data at a glance,<br />
+while a poorly made graph can obscure or mislead.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d2-7-2-types-of-scientific-graphs">
+<h2>D2.7.2 Types of Scientific Graphs<a class="headerlink" href="#d2-7-2-types-of-scientific-graphs" title="Link to this heading">#</a></h2>
+<p>In introductory physics, the most common graph types are:</p>
+<ol class="arabic simple">
+<li><p><strong>Linear (Cartesian) plots</strong> — <span class="math notranslate nohighlight">\(y\)</span> vs <span class="math notranslate nohighlight">\(x\)</span></p></li>
+<li><p><strong>Logarithmic plots</strong> — <span class="math notranslate nohighlight">\(\log y\)</span> vs <span class="math notranslate nohighlight">\(\log x\)</span></p></li>
+<li><p><strong>Semi-log plots</strong> — log scale on one axis</p></li>
+<li><p><strong>Histograms</strong> — distribution of data</p></li>
+<li><p><strong>Bar graphs</strong> — comparing discrete categories (less common in physics experiments)</p></li>
+</ol>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d2-7-3-essential-components-of-a-good-graph">
+<h2>D2.7.3 Essential Components of a Good Graph<a class="headerlink" href="#d2-7-3-essential-components-of-a-good-graph" title="Link to this heading">#</a></h2>
+<p>A proper scientific graph should include:</p>
+<ol class="arabic simple">
+<li><p><strong>Descriptive title</strong></p>
+<ul class="simple">
+<li><p>Indicates what is being shown (e.g., “Velocity vs Time for a Rolling Ball”)</p></li>
+</ul>
+</li>
+<li><p><strong>Labeled axes with units</strong></p>
+<ul class="simple">
+<li><p>Example: <em>Time (s)</em>, <em>Velocity (m/s)</em></p></li>
+</ul>
+</li>
+<li><p><strong>Proper scales and tick marks</strong></p>
+<ul class="simple">
+<li><p>Avoid cramped or excessively sparse scales</p></li>
+<li><p>Choose ranges that show trends without excessive empty space</p></li>
+</ul>
+</li>
+<li><p><strong>Data points with uncertainty</strong> (Phase C)</p>
+<ul class="simple">
+<li><p>Use error bars when appropriate</p></li>
+<li><p>Vertical error bars: uncertainty in <span class="math notranslate nohighlight">\(y\)</span></p></li>
+<li><p>Horizontal error bars: uncertainty in <span class="math notranslate nohighlight">\(x\)</span></p></li>
+</ul>
+</li>
+<li><p><strong>Legend</strong> (if multiple datasets or fits are shown)</p></li>
+<li><p><strong>Consistent symbols and colors</strong></p>
+<ul class="simple">
+<li><p>Avoid overusing colors; keep it readable in black and white</p></li>
+</ul>
+</li>
+</ol>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d2-7-4-plotting-data-an-example">
+<h2>D2.7.4 Plotting Data: An Example<a class="headerlink" href="#d2-7-4-plotting-data-an-example" title="Link to this heading">#</a></h2>
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0; color:#000000;">Example — Uniform Motion Plot</h3> 
+<p><strong>Experiment:</strong> Measure displacement <span class="math notranslate nohighlight">\(x\)</span> at different times <span class="math notranslate nohighlight">\(t\)</span> for an object in uniform motion.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Time <span class="math notranslate nohighlight">\(t\)</span> (s)</p></th>
+<th class="head"><p>Displacement <span class="math notranslate nohighlight">\(x\)</span> (m)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0.0</p></td>
+<td><p>0.00</p></td>
+</tr>
+<tr class="row-odd"><td><p>1.0</p></td>
+<td><p>2.05</p></td>
+</tr>
+<tr class="row-even"><td><p>2.0</p></td>
+<td><p>4.10</p></td>
+</tr>
+<tr class="row-odd"><td><p>3.0</p></td>
+<td><p>6.05</p></td>
+</tr>
+<tr class="row-even"><td><p>4.0</p></td>
+<td><p>8.10</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<p><strong>Step 1 — Choose axes</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(t\)</span> is the <strong>independent variable</strong> → horizontal axis</p></li>
+<li><p><span class="math notranslate nohighlight">\(x\)</span> is the <strong>dependent variable</strong> → vertical axis</p></li>
+</ul>
+<p><strong>Step 2 — Label with units</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(t\)</span> in seconds (s)</p></li>
+<li><p><span class="math notranslate nohighlight">\(x\)</span> in meters (m)</p></li>
+</ul>
+<p><strong>Step 3 — Fit the data (Phase B, optional for now)</strong>
+A <strong>linear fit</strong> should yield:</p>
+<div class="math notranslate nohighlight">
+\[
+x(t) \approx v t + x_0
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(v\)</span> is the slope (velocity) and <span class="math notranslate nohighlight">\(x_0\)</span> is the intercept.</p>
+</div><div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Data</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">])</span>  <span class="c1"># seconds</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.00</span><span class="p">,</span> <span class="mf">2.05</span><span class="p">,</span> <span class="mf">4.10</span><span class="p">,</span> <span class="mf">6.05</span><span class="p">,</span> <span class="mf">8.10</span><span class="p">])</span>  <span class="c1"># meters</span>
+
+<span class="c1"># Linear fit: x = v*t + x0</span>
+<span class="n">coeffs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># slope, intercept</span>
+<span class="n">v</span><span class="p">,</span> <span class="n">x0</span> <span class="o">=</span> <span class="n">coeffs</span>
+<span class="n">fit_line</span> <span class="o">=</span> <span class="n">v</span> <span class="o">*</span> <span class="n">t</span> <span class="o">+</span> <span class="n">x0</span>
+
+<span class="c1"># Plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">fit_line</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Fit: v=</span><span class="si">{</span><span class="n">v</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> m/s, x0=</span><span class="si">{</span><span class="n">x0</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> m&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># Labels and title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Displacement (m)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Displacement vs Time for Uniform Motion&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/0161b0af801f40b9a010b452032591acab9d905bd9ea6f6d239841be3a362acc.png" src="../_images/0161b0af801f40b9a010b452032591acab9d905bd9ea6f6d239841be3a362acc.png" />
+</div>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:12px; border-radius:4px;">
+<h3 style="margin-top:0; color:#000000;">Box Activity 1 – Plotting Mass vs. Displacement Using Python</h3>
+<p>You hang different masses from a vertical spring and measure the displacement <span class="math notranslate nohighlight">\(x\)</span> from the spring’s natural length when the system is in static equilibrium.<br />
+Your task is to create a <strong>Python plot</strong> of <strong>mass vs. displacement</strong> using the data below.</p>
+<hr class="docutils" />
+<p><strong>1. Experimental Data (SI Units)</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-right"><p>Trial</p></th>
+<th class="head text-right"><p>Mass <span class="math notranslate nohighlight">\(m\)</span> (kg)</p></th>
+<th class="head text-right"><p>Displacement <span class="math notranslate nohighlight">\(x\)</span> (m)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-right"><p>1</p></td>
+<td class="text-right"><p>0.050</p></td>
+<td class="text-right"><p>0.025</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>2</p></td>
+<td class="text-right"><p>0.075</p></td>
+<td class="text-right"><p>0.036</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>3</p></td>
+<td class="text-right"><p>0.100</p></td>
+<td class="text-right"><p>0.049</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>4</p></td>
+<td class="text-right"><p>0.125</p></td>
+<td class="text-right"><p>0.061</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>5</p></td>
+<td class="text-right"><p>0.150</p></td>
+<td class="text-right"><p>0.073</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>These values should lie close to a straight line if the spring obeys Hooke’s law (that is, the spring provides a linear response following <span class="math notranslate nohighlight">\(F_{spring} = kx\)</span>) in this range.</p>
+<hr class="docutils" />
+<p><strong>2. Create Python Lists</strong></p>
+<p>In your <strong>Python code cell below</strong>, efine two lists (or NumPy arrays):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">=</span> <span class="pre">[...]</span></code> for mass</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">[...]</span></code> for displacement</p></li>
+</ul>
+<p>If you want to use NumPy, you can do:</p>
+<p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">=</span> <span class="pre">np.array([...])</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">np.array([...])</span></code></p>
+<hr class="docutils" />
+<p><strong>3. Make a Basic Scatter Plot</strong></p>
+<p>Now import Matplotlib and make a simple scatter plot.</p>
+<p>In the <strong>same Python code cell</strong>, add:</p>
+<p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">matplotlib.pyplot</span> <span class="pre">as</span> <span class="pre">plt</span></code></p>
+<p>Then:</p>
+<p><code class="docutils literal notranslate"><span class="pre">plt.figure()</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">plt.plot(...,</span> <span class="pre">...,</span> <span class="pre">'...')</span></code></p>
+<p>Here <code class="docutils literal notranslate"><span class="pre">'...'</span></code> tells Python to plot … markers for each data point.</p>
+<p><strong>Common Matplotlib Plot Markers</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Marker</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>o</p></td>
+<td><p>Circle</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>s</p></td>
+<td><p>Square</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>^</p></td>
+<td><p>Upward triangle</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>x</p></td>
+<td><p>X marker</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>+</p></td>
+<td><p>Plus sign</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>*</p></td>
+<td><p>Star</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>D</p></td>
+<td><p>Diamond</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<p><strong>4. Add Labels and Title</strong></p>
+<p>Still in the same code cell, add:</p>
+<p><code class="docutils literal notranslate"><span class="pre">plt.xlabel(&quot;...&quot;)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">plt.ylabel(&quot;...&quot;)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">plt.title(&quot;...&quot;)</span></code></p>
+<p>Finally, display the plot:</p>
+<p><code class="docutils literal notranslate"><span class="pre">plt.show()</span></code></p>
+<p>At this point, you should see a clean plot with points, labeled axes, and a title.</p>
+<hr class="docutils" />
+<p><strong>5. (Optional) Fit a Straight Line</strong></p>
+<p>If you are using NumPy, you can fit a straight line to the data.</p>
+<p>Add to your code cell:</p>
+<p><code class="docutils literal notranslate"><span class="pre">a,</span> <span class="pre">b</span> <span class="pre">=</span> <span class="pre">np.polyfit(m,</span> <span class="pre">x,</span> <span class="pre">1)</span></code></p>
+<p>This finds the best-fit line of the form <span class="math notranslate nohighlight">\(x = a m + b\)</span> (the argument <code class="docutils literal notranslate"><span class="pre">1</span></code> implies a straight line).</p>
+<p>To plot the fit on top of the data, add:</p>
+<p><code class="docutils literal notranslate"><span class="pre">plt.plot(m,</span> <span class="pre">a*m</span> <span class="pre">+</span> <span class="pre">b)</span></code></p>
+<p>right below your previous <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> line.</p>
+<p>You can inspect the slope and intercept by printing:</p>
+<p><code class="docutils literal notranslate"><span class="pre">print(a,</span> <span class="pre">b)</span></code></p>
+<p>Think about what the slope means physically using <span class="math notranslate nohighlight">\(mg = kx\)</span> (for a spring in equilibrium, the slope is related to <span class="math notranslate nohighlight">\(g/k\)</span>).</p>
+<hr class="docutils" />
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+A Possible Solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>A single Python cell that accomplishes the core task (plot + labels) might look like this:</p>
+<p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">matplotlib.pyplot</span> <span class="pre">as</span> <span class="pre">plt</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">=</span> <span class="pre">np.array([0.050,</span> <span class="pre">0.075,</span> <span class="pre">0.100,</span> <span class="pre">0.125,</span> <span class="pre">0.150])</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">np.array([0.025,</span> <span class="pre">0.036,</span> <span class="pre">0.049,</span> <span class="pre">0.061,</span> <span class="pre">0.073])</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">plt.figure()</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">plt.plot(m,</span> <span class="pre">x,</span> <span class="pre">'o')</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">plt.xlabel(&quot;Mass</span> <span class="pre">m</span> <span class="pre">(kg)&quot;)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">plt.ylabel(&quot;Displacement</span> <span class="pre">x</span> <span class="pre">(m)&quot;)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">plt.title(&quot;Mass</span> <span class="pre">vs.</span> <span class="pre">Displacement</span> <span class="pre">for</span> <span class="pre">a</span> <span class="pre">Vertical</span> <span class="pre">Spring&quot;)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">plt.show()</span></code></p>
+<p>If you choose to include the linear fit in the <strong>same cell</strong>, you could extend it as:</p>
+<p><code class="docutils literal notranslate"><span class="pre">a,</span> <span class="pre">b</span> <span class="pre">=</span> <span class="pre">np.polyfit(m,</span> <span class="pre">x,</span> <span class="pre">1)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">plt.figure()</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">plt.plot(m,</span> <span class="pre">x,</span> <span class="pre">'o')</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">plt.plot(m,</span> <span class="pre">a*m</span> <span class="pre">+</span> <span class="pre">b)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">plt.xlabel(&quot;Mass</span> <span class="pre">m</span> <span class="pre">(kg)&quot;)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">plt.ylabel(&quot;Displacement</span> <span class="pre">x</span> <span class="pre">(m)&quot;)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">plt.title(&quot;Mass</span> <span class="pre">vs.</span> <span class="pre">Displacement</span> <span class="pre">with</span> <span class="pre">Linear</span> <span class="pre">Fit&quot;)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">plt.show()</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">print(&quot;slope</span> <span class="pre">=&quot;,</span> <span class="pre">a,</span> <span class="pre">&quot;intercept</span> <span class="pre">=&quot;,</span> <span class="pre">b)</span></code></p>
+<p>This produces:</p>
+<ul class="simple">
+<li><p>A clean scatter plot of the data</p></li>
+<li><p>A second plot with the best-fit line</p></li>
+<li><p>Numerical values for the slope and intercept, which you can connect back to the spring constant via <span class="math notranslate nohighlight">\(mg = kx\)</span>.</p></li>
+</ul>
+<p>In static equilibrium, a hanging mass stretches the spring until the upward spring force balances the downward
+gravitational force. This condition is expressed by</p>
+<div class="math notranslate nohighlight">
+\[mg = kx,\]</div>
+<p>where <span class="math notranslate nohighlight">\(m\)</span> is the mass, <span class="math notranslate nohighlight">\(g\)</span> is the gravitational acceleration, <span class="math notranslate nohighlight">\(k\)</span> is the spring constant, and <span class="math notranslate nohighlight">\(x\)</span> is the displacement
+from the spring’s natural length.</p>
+<p>Solving for <span class="math notranslate nohighlight">\(x\)</span> gives</p>
+<div class="math notranslate nohighlight">
+\[x = \frac{g}{k}\, m.\]</div>
+<p>This equation shows that displacement is <strong>proportional to mass</strong>, and the constant of proportionality is</p>
+<div class="math notranslate nohighlight">
+\[\frac{g}{k}.\]</div>
+<p>Therefore, when we plot <span class="math notranslate nohighlight">\(x\)</span> versus <span class="math notranslate nohighlight">\(m\)</span> and fit a straight line, the <strong>slope of that line is equal to <span class="math notranslate nohighlight">\(g/k\)</span></strong>.<br />
+Once the slope is known, we can determine the spring constant:</p>
+<div class="math notranslate nohighlight">
+\[k = \frac{g}{\text{slope}}.\]</div>
+<p>In other words, the straight-line fit allows us to extract a physical property of the spring directly from the graph.</p>
+</div>
+</details>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="d2-7-5-linearizing-data">
+<h2>D2.7.5 Linearizing Data<a class="headerlink" href="#d2-7-5-linearizing-data" title="Link to this heading">#</a></h2>
+<p>Not all relationships are linear.<br />
+If your data follow:</p>
+<div class="math notranslate nohighlight">
+\[
+y \propto x^n
+\]</div>
+<p>then plotting <span class="math notranslate nohighlight">\(\log y\)</span> vs <span class="math notranslate nohighlight">\(\log x\)</span> will produce a straight line<br />
+with slope equal to <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<p><strong>Example:</strong> Period of a pendulum</p>
+<div class="math notranslate nohighlight">
+\[
+T = 2 \pi \sqrt{\frac{L}{g}}
+\]</div>
+<p>Taking logs:</p>
+<div class="math notranslate nohighlight">
+\[
+\log T = \frac{1}{2} \log L + \text{constant}
+\]</div>
+<p>A <span class="math notranslate nohighlight">\(\log T\)</span> vs <span class="math notranslate nohighlight">\(\log L\)</span> plot will have slope <span class="math notranslate nohighlight">\(0.5\)</span>.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Example pendulum data</span>
+<span class="n">L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.20</span><span class="p">,</span> <span class="mf">0.40</span><span class="p">,</span> <span class="mf">0.60</span><span class="p">,</span> <span class="mf">0.80</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">])</span>  <span class="c1"># length in meters</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.90</span><span class="p">,</span> <span class="mf">1.27</span><span class="p">,</span> <span class="mf">1.55</span><span class="p">,</span> <span class="mf">1.80</span><span class="p">,</span> <span class="mf">2.02</span><span class="p">])</span>  <span class="c1"># period in seconds</span>
+
+<span class="c1"># Transform data to logs (base 10)</span>
+<span class="n">log_L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<span class="n">log_T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+
+<span class="c1"># Linear fit in log-log space: log(T) = n*log(L) + c</span>
+<span class="n">coeffs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">log_L</span><span class="p">,</span> <span class="n">log_T</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">n</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">coeffs</span>
+<span class="n">fit_line</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">log_L</span> <span class="o">+</span> <span class="n">c</span>
+
+<span class="c1"># Plot log-log data and fit</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">log_L</span><span class="p">,</span> <span class="n">log_T</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Data&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">log_L</span><span class="p">,</span> <span class="n">fit_line</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Fit: slope=</span><span class="si">{</span><span class="n">n</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">, intercept=</span><span class="si">{</span><span class="n">c</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Labels and title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\log_</span><span class="si">{10}</span><span class="s1">(L \ \mathrm{[m]})$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\log_</span><span class="si">{10}</span><span class="s1">(T \ \mathrm{[s]})$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Log–Log Plot: Pendulum Period vs Length&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/bb6e32994ec3ce250ce9b104cf531cd0ee1d109cc3c93e746b83e9b09a7ab60b.png" src="../_images/bb6e32994ec3ce250ce9b104cf531cd0ee1d109cc3c93e746b83e9b09a7ab60b.png" />
+</div>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d2-7-6-common-graphing-mistakes">
+<h2>D2.7.6 Common Graphing Mistakes<a class="headerlink" href="#d2-7-6-common-graphing-mistakes" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Missing units</strong> on axes</p></li>
+<li><p><strong>Connecting scattered data points</strong> without a reason</p></li>
+<li><p><strong>Using decorative but non-informative elements</strong> (3D effects, excessive grid lines)</p></li>
+<li><p><strong>Poor scale choice</strong> — e.g., cutting off zero when it matters for interpretation</p></li>
+<li><p><strong>Not showing uncertainty</strong> when it’s significant</p></li>
+</ul>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d2-7-7-summary">
+<h2>D2.7.7 Summary<a class="headerlink" href="#d2-7-7-summary" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Graphs are a <strong>core communication tool</strong> in physics.</p></li>
+<li><p>Always label axes with <strong>quantity and units</strong>.</p></li>
+<li><p>Choose scales and formats that reveal trends clearly.</p></li>
+<li><p>Show uncertainties when known.</p></li>
+<li><p>Use transformations (e.g., log plots) to reveal underlying relationships.</p></li>
+</ul>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-D2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="statistics.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">D2.6 Basic Statistics for Scientific Measurements</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="problemsD2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">D2.8 Problems</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d2-7-1-introduction">D2.7.1 Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d2-7-2-types-of-scientific-graphs">D2.7.2 Types of Scientific Graphs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d2-7-3-essential-components-of-a-good-graph">D2.7.3 Essential Components of a Good Graph</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d2-7-4-plotting-data-an-example">D2.7.4 Plotting Data: An Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d2-7-5-linearizing-data">D2.7.5 Linearizing Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d2-7-6-common-graphing-mistakes">D2.7.6 Common Graphing Mistakes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d2-7-7-summary">D2.7.7 Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
