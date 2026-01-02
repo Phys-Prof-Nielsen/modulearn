@@ -1,0 +1,773 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>D3.2 Problems &#8212; A Competency Approach to University Physics II</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-D3/problemsD3';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="D4.1 Current" href="../Module-D4/current.html" />
+    <link rel="prev" title="D3.1 Capacitance" href="capacitance.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-D.png" class="logo__image only-light" alt="A Competency Approach to University Physics II - Home"/>
+    <script>document.write(`<img src="../_static/logo-D.png" class="logo__image only-dark" alt="A Competency Approach to University Physics II - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to University Physics II: A Compendium to the D Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://modulearn.academy/spheres/physics/university-physics-II/university-physics-II.html">University Physics II Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D1 - Field and Charges</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/standard-model.html">D1.1  Charges and Fields in the Standard Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/electric-point-charge.html">D1.2 Electrical Point Charges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/conductors-insulators.html">D1.3 Conductors and Insulators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/coulombs-law.html">D1.4 Coulomb’s Law</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/electric-field.html">D1.5 Electric Field and Field Lines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/problemsD1.html">D1.6 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D2 - Potential</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/work.html">D2.1 Work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/electric-potential.html">D2.2 Electric Potential Energy and Potential</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/problemsD2.html">D2.3 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D3 - Capacitance</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="capacitance.html">D3.1 Capacitance</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">D3.2 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D4 - Simple DC Circuit</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/current.html">D4.1 Current</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/resistance.html">D4.2 Resistance and Conductivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/ohms-law.html">D4.3 Ohm’s Law</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/electromotive-force.html">D4.4 Electromotive Force and Circuit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/problemsD4.html">D4.5 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D5 - Magnetic Force</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/magnetic-force.html">D5.1 Magnetic Force</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/problemsD5.html">D5.2 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D6 - Ray Optics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/D6-motivation.html">D6.1 Motivation: Why Study Ray Optics?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/em-rays.html">D6.2 Electromagnetic Waves as Rays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/reflection.html">D6.3 Reflection of Light</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/refraction.html">D6.4 Refraction of Light</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/total-internal-reflection.html">D6.5 Total Internal Reflection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/fermats-principle.html">D6.6 Fermat’s Principle of Least Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/thin-lenses.html">D6.7 Thin Lenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/problemsD6.html">D6.8 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D7 - Special Relativity</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/intro-special-relativity.html">D7.1 Special Relativity -  An Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/time-dilation.html">D7.2 Time Dilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/length-contraction.html">D7.3 Length Contraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/problemsD7.html">D7.4 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D8 - Prelude to Quantum Mechanics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/D8-motivation.html">D8.1 Motivation: Where the Magic Begins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/black-body-radiation.html">D8.2 Blackbody Radiation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/photoelectric-effect.html">D8.3 Photoelectric Effect</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/rutherford-scattering.html">D8.4 Rutherford Scattering: Revealing the Structure of the Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/spectral-lines.html">D8.5 Atomic Spectra: Light from Atoms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/problemsD8.html">D8.X Problems</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Module-D3/problemsD3.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-D3/problemsD3.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>D3.2 Problems</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="d3-2-problems">
+<h1>D3.2 Problems<a class="headerlink" href="#d3-2-problems" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><h2>Problem D3.1</h2>
+    </header>
+<p>Calculate the voltage applied to a <span class="math notranslate nohighlight">\(2.00~\mu\)</span>F capacitor when it holds <span class="math notranslate nohighlight">\(3.10~\mu\)</span>C of charge.</p>
+<p><a class="reference external" href="https://openstax.org/books/university-physics-volume-2/pages/8-problems">This problem is a slightly modified version from OpenStax. Access for free here</a></p>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="n">C</span> <span class="o">=</span> <span class="mf">2.00E-6</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="mf">3.10E-6</span>
+
+<span class="n">V</span> <span class="o">=</span> <span class="n">Q</span><span class="o">/</span><span class="n">C</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The voltage applied is &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">V</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; V.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The voltage applied is 1.55 V.
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><h2>Problem D3.2</h2>
+    </header>
+<p>What capacitance is needed to store <span class="math notranslate nohighlight">\(3.00~\mu\)</span>C of charge at a voltage of 120 V?</p>
+<p><a class="reference external" href="https://openstax.org/books/university-physics-volume-2/pages/8-problems">This problem is a slightly modified version from OpenStax. Access for free here</a></p>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="n">Q</span> <span class="o">=</span> <span class="mf">3.00E-6</span>
+<span class="n">V</span> <span class="o">=</span> <span class="mi">120</span>
+
+<span class="n">C</span> <span class="o">=</span> <span class="n">Q</span><span class="o">/</span><span class="n">V</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Capacitance needed is &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">C</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; F.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Capacitance needed is 2.5000000000000002e-08 F.
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><h2>Problem D3.3</h2>
+    </header>
+<p>How much energy is stored in an <span class="math notranslate nohighlight">\(8.00~\mu\)</span>F capacitor whose plates are at a potential difference of 6.00 V?</p>
+<p><a class="reference external" href="https://openstax.org/books/university-physics-volume-2/pages/8-problems">This problem is a slightly modified version from OpenStax. Access for free here</a></p>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="n">C</span> <span class="o">=</span> <span class="mf">8.00E-6</span>
+<span class="n">V</span> <span class="o">=</span> <span class="mf">6.00</span>
+
+<span class="c1"># U = 0.5*Q^2/(2C) = 0.5*C*V^2</span>
+<span class="n">U</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">C</span><span class="o">*</span><span class="n">V</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Potential energy stored in capacitor is &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">U</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; J.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Potential energy stored in capacitor is 0.000144 J.
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><h2>Problem D3.4</h2>
+    </header>
+<p>A capacitor has a charge of <span class="math notranslate nohighlight">\(2.5~\mu\)</span>C when connected to a 6.0 V battery. How much energy is stored in this capacitor?</p>
+<p><a class="reference external" href="https://openstax.org/books/university-physics-volume-2/pages/8-problems">This problem is a slightly modified version from OpenStax. Access for free here</a></p>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="n">Q</span> <span class="o">=</span> <span class="mf">2.5E-6</span>
+<span class="n">V</span> <span class="o">=</span> <span class="mf">6.00</span>
+
+<span class="c1"># U = 0.5*Q^2/(2C) = 0.5*C*V^2 = 0.5*Q*V</span>
+<span class="n">U</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">Q</span><span class="o">*</span><span class="n">V</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Potential energy stored in capacitor is &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">U</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; J.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Potential energy stored in capacitor is 7.500000000000001e-06 J.
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><h2>Problem D3.5</h2>
+    </header>
+<p>In open-heart surgery, a much smaller amount of energy will defibrillate the heart.</p>
+<ol class="arabic simple">
+<li><p>What voltage is applied to the <span class="math notranslate nohighlight">\(8.00~\mu\)</span>F capacitor of a heart defibrillator that stores 40.0 J of energy</p></li>
+<li><p>Find the amount of the stored charge.</p></li>
+</ol>
+<p><a class="reference external" href="https://openstax.org/books/university-physics-volume-2/pages/8-problems">This problem is a slightly modified version from OpenStax. Access for free here</a></p>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sym</span>
+
+<span class="n">C</span> <span class="o">=</span> <span class="mf">8.00E-6</span>
+<span class="n">U</span> <span class="o">=</span> <span class="mf">40.0</span>
+
+<span class="c1"># U = 0.5*C*V^2 </span>
+<span class="n">V</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;V&#39;</span><span class="p">)</span>
+<span class="n">eq</span> <span class="o">=</span> <span class="n">U</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">C</span><span class="o">*</span><span class="n">V</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">sol</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">eq</span><span class="p">,</span><span class="n">V</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Voltage applied to capacitor is &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">sol</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">+</span><span class="s1">&#39; V.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Voltage applied to capacitor is 3162.27766016838 V.
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><h2>Problem D3.6</h2>
+    </header>
+<p>An anxious physicist worries that the two metal shelves of a wood frame bookcase might obtain a high voltage if charged by static electricity, perhaps produced by friction.</p>
+<ol class="arabic simple">
+<li><p>What is the capacitance of the empty shelves if they have area <span class="math notranslate nohighlight">\(1.00\times 10^2\)</span> m<span class="math notranslate nohighlight">\(^2\)</span> and are <span class="math notranslate nohighlight">\(0.200\)</span> m apart?</p></li>
+<li><p>What is the voltage between them if opposite charges of magnitude <span class="math notranslate nohighlight">\(2.00\)</span> nC are placed on them?</p></li>
+<li><p>To show that this voltage poses a small hazard, calculate the energy stored.</p></li>
+<li><p>The actual shelves have an area 100 times smaller than these hypothetical shelves with a connection to the same voltage. Are his fears justified?</p></li>
+</ol>
+<p><a class="reference external" href="https://openstax.org/books/university-physics-volume-2/pages/8-problems">This problem is a slightly modified version from OpenStax. Access for free here</a></p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><h2>Problem D3.7</h2>
+    </header>
+<p>A capacitor is made from two flat parallel plates placed <span class="math notranslate nohighlight">\(0.40\)</span> mm apart. When a charge of <span class="math notranslate nohighlight">\(0.020~\mu\)</span>C is placed on the plates the potential difference between them is <span class="math notranslate nohighlight">\(250\)</span> V.</p>
+<ol class="arabic simple">
+<li><p>What is the capacitance of the plates?</p></li>
+<li><p>What is the area of each plate?</p></li>
+<li><p>What is the charge on the plates when the potential difference between them is <span class="math notranslate nohighlight">\(500.0\)</span> V?</p></li>
+<li><p>What maximum potential difference can be applied between the plates so that the magnitude of electrical fields between the plates does not exceed <span class="math notranslate nohighlight">\(3.0\)</span> MV/m?</p></li>
+</ol>
+<p><a class="reference external" href="https://openstax.org/books/university-physics-volume-2/pages/8-problems">This problem is a slightly modified version from OpenStax. Access for free here</a></p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><h2>Problem D3.8</h2>
+    </header>
+<p>A prankster applies <span class="math notranslate nohighlight">\(450\)</span> V to an <span class="math notranslate nohighlight">\(80.0~\mu\)</span>F capacitor and then tosses it to an unsuspecting victim. The victim’s finger is burned by the discharge of the capacitor through <span class="math notranslate nohighlight">\(0.200\)</span> g of flesh. Estimate, what is the temperature increase of the flesh?</p>
+<p><a class="reference external" href="https://openstax.org/books/university-physics-volume-2/pages/8-problems">This problem is a slightly modified version from OpenStax. Access for free here</a></p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><h2>Problem D3.9</h2>
+    </header>
+<p>Electronic flash units for cameras contain a capacitor for storing the energy used to produce the flash. In one such unit the flash lasts for <span class="math notranslate nohighlight">\(1/675\)</span> fraction of a second with an average light power output of <span class="math notranslate nohighlight">\(270\)</span> kW.</p>
+<ol class="arabic simple">
+<li><p>If the conversion of electrical energy to light is <span class="math notranslate nohighlight">\(95\%\)</span> efficient (because the rest of the energy goes to thermal energy), how much energy must be stored in the capacitor for one flash?</p></li>
+<li><p>The capacitor has a potential difference between its plates of <span class="math notranslate nohighlight">\(125\)</span> V when the stored energy equals the value stored in part (a). What is the capacitance?</p></li>
+</ol>
+<p><a class="reference external" href="https://openstax.org/books/university-physics-volume-2/pages/8-problems">This problem is a slightly modified version from OpenStax. Access for free here</a></p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-D3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="capacitance.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">D3.1 Capacitance</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Module-D4/current.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">D4.1 Current</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
