@@ -32,9 +32,10 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/save_cell.css?v=43dd4451" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -61,6 +62,7 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Module-D1/coulombs-law';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/save_cell.js?v=d135a7b8"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="D1.5 Electric Field and Field Lines" href="electric-field.html" />
@@ -184,7 +186,7 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference external" href="https://modulearn.academy/spheres/physics/university-physics-II/university-physics-II.html">University Physics II Main Page</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/university-physics-II/university-physics-II.html">University Physics II Main Page</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D1 - Field and Charges</span></p>
 <ul class="current nav bd-sidenav">
@@ -299,7 +301,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Module-D1/coulombs-law.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/university-physics-I-D/Module-D1/coulombs-law.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -442,8 +444,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d1-4-1-coulomb-s-experimental-discovery">D1.4.1 Coulomb’s Experimental Discovery</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coulomb-s-law-in-vector-form">1.4.2 Coulomb’s Law in Vector Form</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d1-4-1-coulomb-s-experimental-discovery">D1.4.1 Coulomb’s Experimental Discovery</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#physics-setup-radial-force-balance">1) Physics setup (radial force balance)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-evaluation">2) Numerical evaluation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coulombs-law-in-vector-form">1.4.2 Coulomb’s Law in Vector Form</a></li>
 </ul>
             </nav>
         </div>
@@ -459,56 +465,158 @@ document.write(`
 <h1>D1.4 Coulomb’s Law<a class="headerlink" href="#d1-4-coulomb-s-law" title="Link to this heading">#</a></h1>
 <hr style="height:2px;border-width:0;color:gray;background-color:gray"><section id="d1-4-1-coulomb-s-experimental-discovery">
 <h2>D1.4.1 Coulomb’s Experimental Discovery<a class="headerlink" href="#d1-4-1-coulomb-s-experimental-discovery" title="Link to this heading">#</a></h2>
-<p>Coulomb derived his law based on experiments by observing the interaction between two charged (point-like) objects using a torsion balance setup. The charges werer obviously not point charges but simply conducting objects. Knowing how to add/remove charges and the relationship between how much was added/removed (see for example Box 4 in notes on conductors), he found the interaction to be</p>
+<p>Coulomb established his law through careful experiments using a <strong>torsion balance</strong>, studying the interaction between two charged objects. While the objects themselves were not truly point-like, they were small conducting spheres whose charge could be carefully controlled and redistributed. By systematically adding and removing charge and measuring the resulting forces, Coulomb identified several key features of the electric interaction:</p>
 <ul class="simple">
-<li><p>proportional to the product between the charges on the two objects.</p></li>
-<li><p>inverse proportional to the distance between the two objects squared.</p></li>
-<li><p>directed along a straight-line segment connecting the to objects.</p></li>
-<li><p>attractive if the charges had opposite signs and repulsive if the charges has similar signs.</p></li>
-<li><p>connected through a proportionality constant, which he labeled as <span class="math notranslate nohighlight">\(k\)</span>: the <b>Coulomb’s constant</b>.</p></li>
+<li><p>The force is <strong>proportional to the product of the charges</strong> on the two objects.</p></li>
+<li><p>The force is <strong>inversely proportional to the square of the distance</strong> between them.</p></li>
+<li><p>The force acts <strong>along the straight line</strong> connecting the two objects.</p></li>
+<li><p>The force is <strong>attractive for opposite charges</strong> and <strong>repulsive for like charges</strong>.</p></li>
+<li><p>The strength of the interaction is set by a proportionality constant, now called <strong>Coulomb’s constant</strong>, <span class="math notranslate nohighlight">\(k\)</span>.</p></li>
 </ul>
-<p>In summary, the magnitude of the force acting on charge 2 due to charge 1 was found to be:</p>
-<div class="alert alert-success">
+<p>These observations are summarized mathematically by <strong>Coulomb’s Law</strong>.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:14px; border-radius:4px; margin-top:16px; margin-bottom:16px;">
+<h3 style="margin-top:0; color:#000000;">Coulomb’s Law (Magnitude)</h3>
+<p>The magnitude of the electric force acting on charge <span class="math notranslate nohighlight">\(q_2\)</span> due to charge <span class="math notranslate nohighlight">\(q_1\)</span> is</p>
 <div class="math notranslate nohighlight">
-\[ F = \frac{k|q_{1}||q_{2}|}{r^2} \tag{1}\]</div>
+\[
+F = \frac{k\,|q_1|\,|q_2|}{r^2},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(r\)</span> is the distance between the charges.</p>
 </div>
-<p>This relationship is known as <strong>Coulomb’s Law</strong> and the constant is given by:</p>
+<p>The proportionality constant is given by</p>
 <div class="math notranslate nohighlight">
-\[ k = \frac{1}{4\pi\varepsilon_0}\]</div>
-<p>The values of the constants are: <span class="math notranslate nohighlight">\(\epsilon_0 = 8.85\times 10^{-12}\)</span> N<span class="math notranslate nohighlight">\(^{-1} \)</span>m<span class="math notranslate nohighlight">\(^{-2} \)</span>C<span class="math notranslate nohighlight">\(^{2}\)</span> and <span class="math notranslate nohighlight">\(k = 8.99\times 10^9\)</span> Nm<span class="math notranslate nohighlight">\(^2\)</span>C<span class="math notranslate nohighlight">\(^{-2}\)</span>.</p>
-<p>NOTE: sometimes <span class="math notranslate nohighlight">\(r\)</span> is written as <span class="math notranslate nohighlight">\(d\)</span> to make the point that it is the <strong>distance</strong> between the source location and the point of interest. However, using <span class="math notranslate nohighlight">\(r\)</span> makes the connection to Gauss’s Law more clear (we will discuss Gauss’s Law later in the semester).</p>
-<div class="alert alert-danger">
-Coulomb's Law is only applicable to point charges or point-like objects!
+\[
+k = \frac{1}{4\pi\varepsilon_0},
+\]</div>
+<p>with numerical values</p>
+<div class="math notranslate nohighlight">
+\[
+\varepsilon_0 = 8.85\times10^{-12}\ \mathrm{N^{-1}\,m^{-2}\,C^2},
+\qquad
+k = 8.99\times10^9\ \mathrm{N\,m^2\,C^{-2}}.
+\]</div>
+<blockquote>
+<div><p><strong>Note:</strong> Sometimes the separation distance is written as <span class="math notranslate nohighlight">\(d\)</span> instead of <span class="math notranslate nohighlight">\(r\)</span> to emphasize that it represents a physical distance. We will use <span class="math notranslate nohighlight">\(r\)</span> because it connects naturally to later topics such as <strong>Gauss’s law</strong>, introduced later in the course.</p>
+</div></blockquote>
+<div style="background-color:#ffe6e6; border-left:6px solid #990000; padding:14px; border-radius:4px; margin-top:16px;">
+<h3 style="margin-top:0; color:#000000;">Danger Zone — When Coulomb’s Law Applies</h3>
+<p><strong>Coulomb’s law applies only to point charges or objects that can be treated as point-like.</strong></p>
+<p>If the size, shape, or charge distribution of an object matters—such as for extended conductors, surfaces, or continuous charge distributions—Coulomb’s law in its simple form cannot be applied directly. In those cases, the interaction must be analyzed using <strong>superposition</strong>, <strong>electric fields</strong>, or more advanced tools.</p>
 </div>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/Coulomb%27s_law">Wikipedia Page on Coulomb</a></p>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-warning">
-    <b> Box 1 </b><br>
-<p>A ground-state electron in the hydrogen atom is most likely to be found at a distance of <span class="math notranslate nohighlight">\(5.29\times 10^{-11}\)</span> m from the nucleus (a proton). Assume the proton to be a point charge with a charge of <span class="math notranslate nohighlight">\(q = 1.602\times 10^{-19}\)</span> C.  In this naive approach, what is the electric force experienced by the electron? (specify both magnitude and direction.)</p>
-</div><div class="cell tag_hide-input tag_hide-output docutils container">
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:12px; border-radius:4px;">
+<h3 style="margin-top:0; color:#000000;">Box Activity 1 — Electric Force in the Hydrogen Atom (Naive Model)</h3>
+<p>A ground-state electron in the hydrogen atom is most likely to be found at a distance of</p>
+<div class="math notranslate nohighlight">
+\[
+r = 5.29\times10^{-11}\,\mathrm{m}
+\]</div>
+<p>from the nucleus (a single proton).</p>
+<p>Assume:</p>
+<ul>
+<li><p>the proton is a <strong>point charge</strong> with charge</p>
+<div class="math notranslate nohighlight">
+\[
+  q_p = +1.602\times10^{-19}\,\mathrm{C},
+  \]</div>
+</li>
+<li><p>the electron has charge</p>
+<div class="math notranslate nohighlight">
+\[
+  q_e = -1.602\times10^{-19}\,\mathrm{C},
+  \]</div>
+</li>
+<li><p>and that Coulomb’s law applies in this simplified, classical picture.</p></li>
+</ul>
+<hr class="docutils" />
+<p>Work through the following:</p>
+<ol class="arabic simple">
+<li><p><strong>Observation</strong><br />
+The electron and proton carry opposite charges and are separated by a very small distance.</p></li>
+<li><p><strong>Question</strong><br />
+<em>What electric force does the proton exert on the electron?</em></p></li>
+<li><p><strong>Hypothesis</strong><br />
+Predict whether the force on the electron is attractive or repulsive, and which direction it points.</p></li>
+<li><p><strong>Calculation</strong><br />
+Use Coulomb’s law to compute the <strong>magnitude</strong> of the force.</p></li>
+<li><p><strong>Conclusion</strong><br />
+State both the <strong>magnitude</strong> and <strong>direction</strong> of the force acting on the electron.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+A Possible Solution Guide
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p><strong>Step 1: Direction</strong></p>
+<p>Because the proton and electron have <strong>opposite charges</strong>, the electric force is <strong>attractive</strong>.<br />
+The force on the electron points <strong>toward the proton</strong>.</p>
+<hr class="docutils" />
+<p><strong>Step 2: Magnitude</strong></p>
+<p>Using Coulomb’s law,</p>
+<div class="math notranslate nohighlight">
+\[
+F = \frac{k\,|q_p|\,|q_e|}{r^2},
+\]</div>
+<p>with</p>
+<div class="math notranslate nohighlight">
+\[
+k = 8.99\times10^9\ \mathrm{N\,m^2\,C^{-2}},
+\]</div>
+<p>we find</p>
+<div class="math notranslate nohighlight">
+\[
+F = \frac{(8.99\times10^9)(1.602\times10^{-19})^2}{(5.29\times10^{-11})^2}.
+\]</div>
+<p>Evaluating,</p>
+<div class="math notranslate nohighlight">
+\[
+F \approx 8.2\times10^{-8}\,\mathrm{N}.
+\]</div>
+<hr class="docutils" />
+<p><strong>Final Answer</strong></p>
+<p>The electron experiences an electric force of magnitude</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{F \approx 8.2\times10^{-8}\,\mathrm{N}},
+\]</div>
+<p>directed <strong>toward the proton</strong>.</p>
+<hr class="docutils" />
+<p><strong>Important Note</strong></p>
+<p>This calculation treats the hydrogen atom using a <strong>classical, point-particle model</strong>. In reality, the electron does not follow a classical orbit, and a full description requires <strong>quantum mechanics</strong>. This example is meant only to illustrate the <em>scale</em> of electric forces at atomic distances.</p>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
 <details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
 <p class="collapsed admonition-title">Show code cell source</p>
 <p class="expanded admonition-title">Hide code cell source</p>
 </summary>
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Input parameters</span>
-<span class="c1"># ---------------</span>
-<span class="n">q1</span> <span class="o">=</span> <span class="mf">1.602E-19</span>
-<span class="n">q2</span> <span class="o">=</span> <span class="mf">1.602E-19</span>
-<span class="n">k</span> <span class="o">=</span> <span class="mf">8.99E9</span>
-<span class="n">r</span> <span class="o">=</span> <span class="mf">5.29E-11</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
 
-<span class="c1"># Coulomb&#39;s law</span>
-<span class="c1"># --------------</span>
-<span class="n">F</span> <span class="o">=</span> <span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">q1</span><span class="o">*</span><span class="n">q2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">r</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
 
-<span class="c1"># direction</span>
-<span class="c1"># ---------</span>
-<span class="c1"># since the charges are of opposite charge, they repel each other. The force must be away from the proton.</span>
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Given values</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">k</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="s2">&quot;8.99e9&quot;</span><span class="p">)</span>        <span class="c1"># N·m^2/C^2</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="s2">&quot;1.602e-19&quot;</span><span class="p">)</span>     <span class="c1"># C</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="s2">&quot;5.29e-11&quot;</span><span class="p">)</span>      <span class="c1"># m</span>
 
-<span class="c1"># print answer</span>
-<span class="c1"># ------------</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The magnitude of the force is: &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">F</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; N, directed towards the proton.&#39;</span><span class="p">)</span>
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Coulomb&#39;s law (magnitude)</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">F</span> <span class="o">=</span> <span class="n">k</span><span class="o">*</span><span class="n">q</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">r</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="c1"># Nice symbolic display</span>
+<span class="n">display</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s2">&quot;F&quot;</span><span class="p">),</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s2">&quot;k&quot;</span><span class="p">)</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s2">&quot;q&quot;</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="c1"># Substitute and display numerical result</span>
+<span class="n">display</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s2">&quot;F&quot;</span><span class="p">),</span> <span class="n">sp</span><span class="o">.</span><span class="n">N</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="mi">6</span><span class="p">)))</span>
+
+<span class="c1"># Optional: scientific notation explicitly</span>
+<span class="n">display</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s2">&quot;F&quot;</span><span class="p">),</span> <span class="n">sp</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="n">F</span><span class="p">)</span><span class="o">.</span><span class="n">evalf</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -519,103 +627,348 @@ Coulomb's Law is only applicable to point charges or point-like objects!
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The magnitude of the force is: 8.24467178147591e-08 N, directed towards the proton.
-</pre></div>
-</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle F = \frac{k q^{2}}{r^{2}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle F = 8.24467 \cdot 10^{-8}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle F = 8.25 \cdot 10^{-8}\]</div>
 </div>
 </details>
 </div>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-warning">
-    <b> Box 2 </b><br>
-<p>A ground-state electron in the hydrogen atom is most likely to be found at a distance of <span class="math notranslate nohighlight">\(5.29\times 10^{-11}\)</span> m from the nucleus (a proton). Assume the proton to be a point charge with a charge of <span class="math notranslate nohighlight">\(q = 1.602\times 10^{-19}\)</span> C.  Using a classical mechanics approach, how fast is the electron moving around the nucleus if we assume a circular orbit?</p>
-<p>HINT: Think polar coordinates.</p>
-</div><div class="cell tag_hide-input tag_hide-output docutils container">
-<details class="admonition hide above-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell source</p>
-<p class="expanded admonition-title">Hide code cell source</p>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:12px; border-radius:4px;">
+<h3 style="margin-top:0; color:#000000;">Box Activity 2 — Electron Speed in a Classical Circular Orbit (Hydrogen)</h3>
+<p>A ground-state electron in the hydrogen atom is most likely to be found at a distance of</p>
+<div class="math notranslate nohighlight">
+\[
+r = 5.29\times10^{-11}\,\mathrm{m}
+\]</div>
+<p>from the nucleus (a single proton).</p>
+<p>Assume:</p>
+<ul>
+<li><p>the proton is a <strong>point charge</strong> with charge</p>
+<div class="math notranslate nohighlight">
+\[
+  q_p = +1.602\times10^{-19}\,\mathrm{C},
+  \]</div>
+</li>
+<li><p>the electron has charge</p>
+<div class="math notranslate nohighlight">
+\[
+  q_e = -1.602\times10^{-19}\,\mathrm{C},
+  \]</div>
+</li>
+<li><p>and we use a <strong>classical circular-orbit</strong> model.</p></li>
+</ul>
+<p><strong>HINT:</strong> Think polar coordinates.</p>
+<hr class="docutils" />
+<p>Work through the following:</p>
+<ol class="arabic">
+<li><p><strong>Observation</strong><br />
+The electron experiences an attractive electric force toward the proton.</p></li>
+<li><p><strong>Question</strong><br />
+<em>If the electron moves in a circular orbit of radius <span class="math notranslate nohighlight">\(r\)</span>, what must its speed <span class="math notranslate nohighlight">\(v\)</span> be?</em></p></li>
+<li><p><strong>Hypothesis</strong><br />
+For a stable circular orbit, the inward (radial) electric force must supply the required centripetal acceleration.</p></li>
+<li><p><strong>Setup</strong><br />
+Newton’s 2nd law in polar coordinates (radial motion):</p>
+<div class="math notranslate nohighlight">
+\[
+   \sum f_r = ma_r.
+   \]</div>
+</li>
+<li><p><strong>Conclusion</strong><br />
+Solve for <span class="math notranslate nohighlight">\(v\)</span> and report a numerical value.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+A Possible Solution Guide
 </summary>
-<div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#use symbolic python to solve it</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sym</span>
-
-<span class="c1"># We need the force from before, so copy the script from Box 1</span>
-<span class="c1"># Input parameters</span>
-<span class="c1"># ---------------</span>
-<span class="n">q1</span> <span class="o">=</span> <span class="mf">1.602E-19</span>
-<span class="n">q2</span> <span class="o">=</span> <span class="mf">1.602E-19</span>
-<span class="n">k</span> <span class="o">=</span> <span class="mf">8.99E9</span>
-<span class="n">r</span> <span class="o">=</span> <span class="mf">5.29E-11</span>
-
-<span class="c1"># Coulomb&#39;s law</span>
-<span class="c1"># --------------</span>
-<span class="n">F</span> <span class="o">=</span> <span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">q1</span><span class="o">*</span><span class="n">q2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">r</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="c1"># Since the force is radial and constant in magnitude for a circular motion, </span>
-<span class="c1"># it cannot change the speed of the particle (zero work). This is a case of</span>
-<span class="c1"># uniform circular motion.</span>
-<span class="c1"># in this case, the only acceleration term in polar coordinates is the centripetal acceleration:</span>
-
-<span class="c1"># F_net = mv^2/r</span>
-
-<span class="c1"># setup the unknown and equation</span>
-<span class="n">m</span> <span class="o">=</span> <span class="mf">9.1094E-31</span>
-<span class="n">v</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">)</span>
-<span class="n">eq</span> <span class="o">=</span> <span class="n">F</span> <span class="o">-</span> <span class="n">m</span><span class="o">*</span><span class="n">v</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">r</span>
-<span class="n">sol</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">eq</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
-
-<span class="c1"># print answer</span>
-<span class="c1"># ------------</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The speed of the electron is: &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">sol</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">+</span><span class="s1">&#39; m/s.&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</details>
-<details class="admonition hide below-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell output</p>
-<p class="expanded admonition-title">Hide code cell output</p>
-</summary>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The speed of the electron is: 2188112.44023539 m/s.
-</pre></div>
-</div>
-</div>
-</details>
-</div>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<section id="physics-setup-radial-force-balance">
+<h3>1) Physics setup (radial force balance)<a class="headerlink" href="#physics-setup-radial-force-balance" title="Link to this heading">#</a></h3>
+<p>For a circular orbit, the radial (inward) net force must be</p>
+<div class="math notranslate nohighlight">
+\[
+F_r = -m_e\frac{v^2}{r}.
+\]</div>
+<p>The attractive electric force is</p>
+<div class="math notranslate nohighlight">
+\[
+F_e = -\frac{k\,e^2}{r^2}.
+\]</div>
+<p>Hence, we have</p>
+<div class="math notranslate nohighlight">
+\[
+-\frac{k\,e^2}{r^2} = -\frac{m_e v^2}{r}.
+\]</div>
+<p>Solve for <span class="math notranslate nohighlight">\(v\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+v = \sqrt{\frac{k e^2}{m_e r}}.
+\]</div>
 </section>
-<section id="coulomb-s-law-in-vector-form">
-<h2>1.4.2 Coulomb’s Law in Vector Form<a class="headerlink" href="#coulomb-s-law-in-vector-form" title="Link to this heading">#</a></h2>
-<p>Depending on the problem we are presented with, it may be more appropriate to deploy Coulomb’s law in vector form:</p>
-<div class="alert alert-success">
+<hr class="docutils" />
+<section id="numerical-evaluation">
+<h3>2) Numerical evaluation<a class="headerlink" href="#numerical-evaluation" title="Link to this heading">#</a></h3>
+<p>Using</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(k = 8.99\times10^9\ \mathrm{N\,m^2\,C^{-2}}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(e = 1.602\times10^{-19}\ \mathrm{C}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(m_e = 9.11\times10^{-31}\ \mathrm{kg}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(r = 5.29\times10^{-11}\ \mathrm{m}\)</span></p></li>
+</ul>
+<p>gives</p>
 <div class="math notranslate nohighlight">
-\[ \vec{F} = \frac{kq_{1}q_{2}}{r_{21}^2}\hat{r}_{21} \tag{2}\]</div>
-</div>
-<p>where <span class="math notranslate nohighlight">\(\hat{r}_{21}\)</span> is a unit vector of <span class="math notranslate nohighlight">\(\vec{r}_{21}\)</span>, which is the <strong>directed line segment from the source charge <span class="math notranslate nohighlight">\(q_1\)</span> to the test charge <span class="math notranslate nohighlight">\(q_2\)</span></strong>: <span class="math notranslate nohighlight">\(\vec{r}_{21} = \vec{r}_2 - \vec{r}_1\)</span>. This approach will provide us with the proper direction of the force for either positive and/or negative charge interactions.</p>
-<p>Alternatively, and often more useful, we can use the definition of the unit vector:</p>
-<div class="math notranslate nohighlight">
-\[ \hat{r}_{21} = \frac{\vec{r}_{21}}{r_{21}} \]</div>
-<p>to write Coulomb’s force as</p>
-<div class="alert alert-success">
-<div class="math notranslate nohighlight">
-\[ \vec{F} = \frac{kq_{1}q_{2}}{r_{21}^3}\vec{r}_{21} \tag{3}\]</div>
-</div>
-<p>The later form is more applicable if we insert the actual position vectors for the source <span class="math notranslate nohighlight">\(\vec{r}_1\)</span> and the test <span class="math notranslate nohighlight">\(\vec{r}_2\)</span> charges:</p>
-<div class="alert alert-success">
-<div class="math notranslate nohighlight">
-\[ \vec{F} = kq_{1}q_{2}\frac{\vec{r}_2 - \vec{r}_1}{|\vec{r}_2 - \vec{r}_1|^3} \tag{4}\]</div>
-</div>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-warning">
-    <b> Box 3 </b><br>
-<p>A 5.00 mC point charge is located at <span class="math notranslate nohighlight">\((x,y) = (2.00~\textrm{m}, 3.00~\textrm{m})\)</span>. A second point charge with a charge of 2.00 mC is located at <span class="math notranslate nohighlight">\((x,y) = (3.00~\textrm{m}, 1.50~\textrm{m})\)</span>. What is the force on the 2.00 mC charge due to the 5.00 mC point charge?</p>
-</div><div class="cell tag_hide-input tag_hide-output docutils container">
+\[
+v \approx 2.2\times10^{6}\ \mathrm{m/s}.
+\]</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
 <details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
 <p class="collapsed admonition-title">Show code cell source</p>
 <p class="expanded admonition-title">Hide code cell source</p>
 </summary>
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Define symbols</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">k</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">m_e</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;k e m_e r&#39;</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Physics expression</span>
+<span class="c1"># -----------------------------</span>
+<span class="c1"># From centripetal force = Coulomb force:</span>
+<span class="c1"># m_e v^2 / r = k e^2 / r^2</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">e</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="n">m_e</span><span class="o">*</span><span class="n">r</span><span class="p">))</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">),</span> <span class="n">v</span><span class="p">))</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Numerical values with units (in comments)</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">k</span><span class="p">:</span> <span class="n">sp</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="s2">&quot;8.99e9&quot;</span><span class="p">),</span>      <span class="c1"># N·m^2/C^2</span>
+    <span class="n">e</span><span class="p">:</span> <span class="n">sp</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="s2">&quot;1.602e-19&quot;</span><span class="p">),</span>   <span class="c1"># C</span>
+    <span class="n">m_e</span><span class="p">:</span> <span class="n">sp</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="s2">&quot;9.11e-31&quot;</span><span class="p">),</span>  <span class="c1"># kg</span>
+    <span class="n">r</span><span class="p">:</span> <span class="n">sp</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="s2">&quot;5.29e-11&quot;</span><span class="p">),</span>    <span class="c1"># m</span>
+<span class="p">}</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Evaluate speed</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">v_val</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+<span class="n">v_val_num</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">N</span><span class="p">(</span><span class="n">v_val</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">),</span> <span class="n">v_val_num</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Electron speed ≈ </span><span class="si">{</span><span class="n">v_val_num</span><span class="si">}</span><span class="s2"> m/s&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Direction: tangential to the circular orbit (perpendicular to radius)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle v = \frac{e \sqrt{k}}{\sqrt{m_{e}} \sqrt{r}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle v = 2.19 \cdot 10^{6}\]</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Electron speed ≈ 2.19E+6 m/s
+Direction: tangential to the circular orbit (perpendicular to radius)
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="coulombs-law-in-vector-form">
+<h2>1.4.2 Coulomb’s Law in Vector Form<a class="headerlink" href="#coulombs-law-in-vector-form" title="Link to this heading">#</a></h2>
+<p>Depending on the physical situation, it is often necessary to use <strong>Coulomb’s law in vector form</strong> rather than relying only on magnitudes. The vector form automatically accounts for the <strong>direction</strong> of the force and correctly handles both attractive and repulsive interactions.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:14px; border-radius:4px; margin-top:16px; margin-bottom:16px;">
+<h3 style="margin-top:0; color:#000000;">Coulomb’s Law (Vector Form)</h3>
+<p>The electric force exerted on charge <span class="math notranslate nohighlight">\(q_2\)</span> by charge <span class="math notranslate nohighlight">\(q_1\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{F} = \frac{k\,q_1 q_2}{r_{21}^2}\,\hat{r}_{21}.
+\]</div>
+</div>
+<p>Here, <span class="math notranslate nohighlight">\(\hat{r}_{21}\)</span> is the <strong>unit vector</strong> in the direction of <span class="math notranslate nohighlight">\(\vec{r}_{21}\)</span>, which is defined as the <strong>directed line segment from the source charge <span class="math notranslate nohighlight">\(q_1\)</span> to the test charge <span class="math notranslate nohighlight">\(q_2\)</span></strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{r}_{21} = \vec{r}_2 - \vec{r}_1.
+\]</div>
+<p>This formulation ensures that the force points in the correct direction for both positive and negative charge combinations.</p>
+<hr class="docutils" />
+<p>We can make the directional dependence even more explicit by using the definition of the unit vector:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{r}_{21} = \frac{\vec{r}_{21}}{r_{21}}.
+\]</div>
+<p>Substituting this into Coulomb’s law gives an equivalent—but often more useful—expression.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:14px; border-radius:4px; margin-top:16px; margin-bottom:16px;">
+<h3 style="margin-top:0; color:#000000;">Coulomb’s Law (Vector Form — Expanded)</h3>
+<div class="math notranslate nohighlight">
+\[
+\vec{F} = \frac{k\,q_1 q_2}{r_{21}^3}\,\vec{r}_{21}.
+\]</div>
+</div>
+<p>Finally, writing <span class="math notranslate nohighlight">\(\vec{r}_{21}\)</span> explicitly in terms of the position vectors of the two charges yields the most general form.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:14px; border-radius:4px; margin-top:16px; margin-bottom:16px;">
+<h3 style="margin-top:0; color:#000000;">Coulomb’s Law (Position-Vector Form)</h3>
+<div class="math notranslate nohighlight">
+\[
+\vec{F}
+=
+k\,q_1 q_2
+\frac{\vec{r}_2 - \vec{r}_1}{\lvert \vec{r}_2 - \vec{r}_1 \rvert^3}.
+\]</div>
+</div>
+<p>This final form is especially powerful when working in two or three dimensions, as it allows forces to be computed directly from known charge positions using vector algebra, as well as when we are dealing with &gt;2 electrical charges.</p>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:12px; border-radius:4px;">
+<h3 style="margin-top:0; color:#000000;">Box Activity 3 — Electric Force Between Two Point Charges (Vector Form)</h3>
+<p>A <strong>point charge</strong> of</p>
+<div class="math notranslate nohighlight">
+\[
+q_1 = 5.00\,\mathrm{mC}
+\]</div>
+<p>is located at</p>
+<div class="math notranslate nohighlight">
+\[
+(x_1, y_1) = (2.00\,\mathrm{m},\,3.00\,\mathrm{m}).
+\]</div>
+<p>A second <strong>point charge</strong> of</p>
+<div class="math notranslate nohighlight">
+\[
+q_2 = 2.00\,\mathrm{mC}
+\]</div>
+<p>is located at</p>
+<div class="math notranslate nohighlight">
+\[
+(x_2, y_2) = (3.00\,\mathrm{m},\,1.50\,\mathrm{m}).
+\]</div>
+<hr class="docutils" />
+<p>Work through the following:</p>
+<ol class="arabic">
+<li><p><strong>Observation</strong><br />
+Both charges are positive and separated in two-dimensional space.</p></li>
+<li><p><strong>Question</strong><br />
+<em>What is the electric force acting on the <span class="math notranslate nohighlight">\(2.00\,\mathrm{mC}\)</span> charge due to the <span class="math notranslate nohighlight">\(5.00\,\mathrm{mC}\)</span> charge?</em></p></li>
+<li><p><strong>Hypothesis</strong><br />
+Predict whether the force on the <span class="math notranslate nohighlight">\(2.00\,\mathrm{mC}\)</span> charge is attractive or repulsive, and in which general direction it points.</p></li>
+<li><p><strong>Vector Setup</strong></p>
+<ul>
+<li><p>Write the position vectors <span class="math notranslate nohighlight">\(\vec r_1\)</span> and <span class="math notranslate nohighlight">\(\vec r_2\)</span>.</p></li>
+<li><p>Construct the displacement vector</p>
+<div class="math notranslate nohighlight">
+\[
+     \vec r_{21} = \vec r_2 - \vec r_1.
+     \]</div>
+</li>
+</ul>
+</li>
+<li><p><strong>Calculation</strong><br />
+Use <strong>Coulomb’s law in vector form</strong></p>
+<div class="math notranslate nohighlight">
+\[
+   \vec F_{21}
+   =
+   k\,q_1 q_2
+   \frac{\vec r_{21}}{|\vec r_{21}|^3}
+   \]</div>
+<p>to compute the force on charge <span class="math notranslate nohighlight">\(q_2\)</span>.</p>
+</li>
+<li><p><strong>Conclusion</strong><br />
+Report the <strong>vector force</strong>, including magnitude, direction, and units.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+A Possible Solution Guide
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p><strong>Step 1: Direction (qualitative)</strong><br />
+Because both charges are <strong>positive</strong>, the force on <span class="math notranslate nohighlight">\(q_2\)</span> is <strong>repulsive</strong> and points <em>away from</em> <span class="math notranslate nohighlight">\(q_1\)</span>.</p>
+<hr class="docutils" />
+<p><strong>Step 2: Position and displacement vectors</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\vec r_1 = \langle 2.00,\;3.00\rangle\,\mathrm{m},
+\qquad
+\vec r_2 = \langle 3.00,\;1.50\rangle\,\mathrm{m}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\vec r_{21} = \vec r_2 - \vec r_1
+= \langle 1.00,\;-1.50\rangle\,\mathrm{m}
+\]</div>
+<p>Magnitude:</p>
+<div class="math notranslate nohighlight">
+\[
+|\vec r_{21}| = \sqrt{(1.00)^2 + (-1.50)^2}
+= 1.80\,\mathrm{m}.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 3: Apply Coulomb’s law</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\vec F_{21}
+=
+k\,q_1 q_2
+\frac{\vec r_{21}}{|\vec r_{21}|^3}
+\]</div>
+<p>Substitute values:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec F_{21}
+=
+(8.99\times10^9)
+(5.00\times10^{-3})
+(2.00\times10^{-3})
+\frac{\langle 1.00,\,-1.50\rangle}
+{(1.80)^3}.
+\]</div>
+<p>Evaluating:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec F_{21}
+\approx
+\langle 15.4,\,-23.1\rangle\ \mathrm{N}.
+\]</div>
+<hr class="docutils" />
+<p><strong>Final Answer</strong></p>
+<p>The force on the <span class="math notranslate nohighlight">\(2.00\,\mathrm{mC}\)</span> charge due to the <span class="math notranslate nohighlight">\(5.00\,\mathrm{mC}\)</span> charge is</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\vec F
+\approx
+(15.4\,\hat{\imath} - 23.1\,\hat{\jmath})\ \mathrm{N}
+}
+\]</div>
+<p>This vector points away from the source charge, consistent with repulsion between like charges.</p>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="c1"># Input parameters</span>
 <span class="c1"># ---------------</span>
@@ -665,8 +1018,8 @@ Coulomb's Law is only applicable to point charges or point-like objects!
     {
         requestKernel: true,
         binderOptions: {
-            repo: "executablebooks/jupyter-book",
-            ref: "master",
+            repo: "Phys-Prof-Nielsen/modulearn",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -725,8 +1078,12 @@ Coulomb's Law is only applicable to point charges or point-like objects!
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d1-4-1-coulomb-s-experimental-discovery">D1.4.1 Coulomb’s Experimental Discovery</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coulomb-s-law-in-vector-form">1.4.2 Coulomb’s Law in Vector Form</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d1-4-1-coulomb-s-experimental-discovery">D1.4.1 Coulomb’s Experimental Discovery</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#physics-setup-radial-force-balance">1) Physics setup (radial force balance)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-evaluation">2) Numerical evaluation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coulombs-law-in-vector-form">1.4.2 Coulomb’s Law in Vector Form</a></li>
 </ul>
   </nav></div>
 
