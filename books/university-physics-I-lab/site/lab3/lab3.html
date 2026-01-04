@@ -1,0 +1,797 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Newton’s Second Law Lab: Friction-Limited Acceleration of a Cart &#8212; A Note to University Physics I Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lab3/lab3';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Helpful Code Note: Analyzing Phyphox Data in Python" href="helpful-code.html" />
+    <link rel="prev" title="Lab 2 — Reaction-Time Ruler Drop (Measurement &amp; Uncertainty)" href="../lab2/lab2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="A Note to University Physics I Lab - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="A Note to University Physics I Lab - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Notes for University Physics I Lab
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://modulearn.academy/spheres/physics/university-physics-I-lab/university-physics-I-lab.html">University Physics I Lab Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 1 - Report Writing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab1/lab1.html">Lab 1 (Synthetic): Hooke’s Law &amp; Writing a Professional Jupyter Report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab1/lab1-template.html">Template Lab 1: Hooke’s Law Report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab1/markdown.html">Markdown for Lab Reports — Quick Guide &amp; Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab1/latex.html">LaTeX Equation Cheat Sheet (for Lab Reports)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 2 - Error Analysis and Measurements</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab2/analysis-measurements.html">Measurement &amp; Uncertainty</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab2/lab2.html">Lab 2 — Reaction-Time Ruler Drop (Measurement &amp; Uncertainty)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 3 - Newton’s Second Law Lab</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Newton’s Second Law Lab: Friction-Limited Acceleration of a Cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="helpful-code.html">Helpful Code Note: Analyzing Phyphox Data in Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 4 - 1D Collision</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab4/lab4.html">Lab 4: 1D Collision</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 5 - Ballistic Pendulum</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab5/lab5.html">Lab 5: Ballistic Pendulum - Pizza Prize</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 6 - Air Drag - Numerical Simulation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab6/lab6.html">Lab 6: Realistic Projectile Motion Simulation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 7 - Spring Systems</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab7/lab7.html">Lab 7: Exploring the Spring Constant and Equivalent Springs</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 8 - Heat Transfer</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab8/lab8.html">Lab 8 — Heat Transfer with a Thermal Camera</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 9 - Pendulum and Polar Coordinates</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab9/lab9.html">Lab 9: Polar Coordinates with a Simple Pendulum — Measuring <span class="math notranslate nohighlight">\(v\)</span> from <span class="math notranslate nohighlight">\(\omega\)</span></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 10 - Error Propagation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab10/lab10.html">Lab 10 — Uncertainty and Error Propagation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 11 - Fourier Transform and Autocorrelation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab11/lab11.html">Lab 11- Sound Waves with Phyphox — Fourier Transform and Autocorrelation</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/lab3/lab3.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lab3/lab3.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Newton’s Second Law Lab: Friction-Limited Acceleration of a Cart</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose-learning-goals">Purpose &amp; Learning Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equipment">Equipment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-design-overview">Experimental Design Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">Deliverables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#safety">Safety</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="newtons-second-law-lab-friction-limited-acceleration-of-a-cart">
+<h1>Newton’s Second Law Lab: Friction-Limited Acceleration of a Cart<a class="headerlink" href="#newtons-second-law-lab-friction-limited-acceleration-of-a-cart" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="purpose-learning-goals">
+<h2>Purpose &amp; Learning Goals<a class="headerlink" href="#purpose-learning-goals" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Use Newton’s second law to model motion with kinetic friction on horizontal surfaces.</p></li>
+<li><p>Predict the cart’s acceleration under specified friction conditions.</p></li>
+<li><p>Measure acceleration with a smartphone (phyphox app) and estimate the coefficient of kinetic friction, <span class="math notranslate nohighlight">\(\mu_k\)</span>, for different surfaces.</p></li>
+<li><p>Practice data quality and statistics: collect multiple trials per surface; compute the sample mean <span class="math notranslate nohighlight">\(\bar{a}\)</span>, sample standard deviation <span class="math notranslate nohighlight">\(s\)</span>, and standard error of the mean <span class="math notranslate nohighlight">\(s_{\bar{a}} = s/\sqrt{n}\)</span>.</p></li>
+<li><p>Compare how added mass affects (or does not affect) friction-limited acceleration.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="background">
+<h2>Background<a class="headerlink" href="#background" title="Link to this heading">#</a></h2>
+<p>On a level surface with <strong>kinetic</strong> friction opposing motion, the horizontal force model:</p>
+<div class="math notranslate nohighlight">
+\[
+\sum F_x = ma_x
+\]</div>
+<p>The only horizontal force is friction:</p>
+<div class="math notranslate nohighlight">
+\[
+-f_k = ma_x
+\]</div>
+<p>The vertical model is the balance between normal force and force of gravity:</p>
+<div class="math notranslate nohighlight">
+\[
+f_N = mg
+\]</div>
+<p>The magnitude of the friction force is related to the magnitude of the normal force through the <strong>coefficient of friction (<span class="math notranslate nohighlight">\(\mu\)</span>)</strong>:</p>
+<div class="math notranslate nohighlight">
+\[f_f = \mu f_N\]</div>
+<p>so that</p>
+<div class="math notranslate nohighlight">
+\[
+a = -\mu_k g.
+\]</div>
+<p>Key predictions:</p>
+<ul class="simple">
+<li><p>During a <strong>coast phase</strong> (after a brief push, hands off), the cart experiences approximately constant acceleration <span class="math notranslate nohighlight">\(a \approx -\mu_k g\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(a\)</span> should be independent of mass (since <span class="math notranslate nohighlight">\(m\)</span> cancels out), provided wheels/bearings and contact conditions don’t change.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="equipment">
+<h2>Equipment<a class="headerlink" href="#equipment" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Dynamics cart or small rolling platform</p></li>
+<li><p>Smartphone firmly attached to cart</p></li>
+<li><p><strong>Phyphox</strong> app (Acceleration or Linear acceleration mode)</p></li>
+<li><p>Flat floor track and at least two different floor surfaces (e.g., carpet, vinyl, etc.))</p></li>
+<li></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="experimental-design-overview">
+<h2>Experimental Design Overview<a class="headerlink" href="#experimental-design-overview" title="Link to this heading">#</a></h2>
+<ol class="arabic">
+<li><p><strong>Phone orientation &amp; axis check (1–2 min)</strong></p>
+<ul class="simple">
+<li><p>Mount the phone securely on the cart with one axis aligned along the motion direction.</p></li>
+<li><p>Start <strong>Acceleration without g</strong> in Phyphox.</p></li>
+<li><p>Gently push the cart forward/backward while holding it in place. Identify which axis shows the response.<br />
+Choose that axis as your <strong>analysis axis</strong>.</p></li>
+</ul>
+</li>
+<li><p><strong>Baseline at rest (5–10 s)</strong></p>
+<ul class="simple">
+<li><p>With the cart at rest, record a short segment.</p></li>
+<li><p>In this mode, all axes should read close to <span class="math notranslate nohighlight">\(0\)</span> when stationary.</p></li>
+<li><p>Confirm your chosen analysis axis is stable near zero.</p></li>
+</ul>
+</li>
+<li><p><strong>Coast trials (repeat <span class="math notranslate nohighlight">\(n \ge 6\)</span> per surface)</strong></p>
+<ul class="simple">
+<li><p><strong>Start recording</strong>, give a <strong>short push</strong>, then <strong>hands off</strong> immediately.</p></li>
+<li><p>Let the cart coast and slow down due to kinetic friction.</p></li>
+<li><p><strong>Stop recording</strong> after it slows significantly.</p></li>
+<li><p>Try to keep the push similar across trials, but analysis will focus on the coast phase only.</p></li>
+</ul>
+</li>
+<li><p><strong>Export &amp; column selection</strong></p>
+<ul class="simple">
+<li><p>Export the file (tab-separated CSV). Header line typically:<br />
+<code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">(s)</span> <span class="pre">[tab]</span> <span class="pre">ax</span> <span class="pre">[tab]</span> <span class="pre">ay</span> <span class="pre">[tab]</span> <span class="pre">az</span> <span class="pre">[tab]</span> <span class="pre">|a|</span></code> (all in m/s²).</p></li>
+<li><p>Sampling is <strong>100 Hz</strong> (that is 100 recordings per second: <span class="math notranslate nohighlight">\(\Delta t \approx 0.01\)</span> s).</p></li>
+<li><p>Select the column corresponding to your chosen analysis axis.</p></li>
+</ul>
+</li>
+<li><p><strong>Identify coast phase from the data</strong></p>
+<ul class="simple">
+<li><p>In your acceleration data:</p>
+<ul>
+<li><p>The <strong>push</strong> appears as a sharp impulse (large positive or negative spike).</p></li>
+<li><p>The <strong>coast phase</strong> follows: a region of nearly constant acceleration at a negative value (<span class="math notranslate nohighlight">\(a \approx -\mu_k g\)</span>).</p></li>
+</ul>
+</li>
+<li><p>Select a <strong>steady segment</strong> after the push spike but before the cart nearly stops.</p></li>
+<li><p>Use the <strong>same duration</strong> across all trials on a given surface.</p></li>
+</ul>
+</li>
+<li><p><strong>Compute one acceleration per trial</strong></p>
+<ul class="simple">
+<li><p>Average acceleration over the coast segment to obtain <span class="math notranslate nohighlight">\(a_i\)</span> (m/s²).</p></li>
+</ul>
+</li>
+<li><p><strong>Repeat across conditions</strong></p>
+<ul class="simple">
+<li><p><strong>Surface A</strong>: collect <span class="math notranslate nohighlight">\(n \ge 6\)</span> trials.</p></li>
+<li><p><strong>Surface B</strong>: collect <span class="math notranslate nohighlight">\(n \ge 6\)</span> trials.</p></li>
+</ul>
+</li>
+<li><p><strong>Statistics &amp; coefficient of friction</strong></p>
+<ul>
+<li><p>For each surface, compute:</p>
+<div class="math notranslate nohighlight">
+\[
+     \bar{a} = \frac{1}{n}\sum_{i=1}^n a_i, \qquad
+     s_a = \sqrt{\frac{1}{n-1}\sum_{i=1}^n (a_i - \bar{a})^2}, \qquad
+     s_{\bar{a}} = \frac{s_a}{\sqrt{n}}
+     \]</div>
+</li>
+<li><p>Report mean acceleration as <span class="math notranslate nohighlight">\(\bar{a} \pm s_{\bar{a}}\)</span> (m/s²).</p></li>
+<li><p>Convert to coefficient of friction:</p>
+<div class="math notranslate nohighlight">
+\[
+     \mu_k = \frac{|\bar{a}|}{g}, \qquad
+     u_\mu \approx \frac{s_{\bar{a}}}{g}.
+     \]</div>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>Notes &amp; tips</strong></p>
+<ul class="simple">
+<li><p>Orientation must remain fixed for all trials on a surface. If the phone shifts, discard the trial.</p></li>
+<li><p>Coast interval should look “flat” on the graph. If not, shorten the interval.</p></li>
+<li><p>Use consistent units: time in seconds, acceleration in m/s². Report <span class="math notranslate nohighlight">\(\mu_k\)</span> without units.</p></li>
+</ul>
+<p><strong>Sub-note: Standard deviation within vs. across trials</strong></p>
+<ul class="simple">
+<li><p>Each coast window in a single trial contains many samples (e.g., 50 data points in 0.5 s at 100 Hz). You will average these to get one acceleration value <span class="math notranslate nohighlight">\(a_i\)</span> for that trial.</p></li>
+<li><p>The <strong>standard deviation within that window</strong> tells you how noisy the sensor data is (random fluctuations, bumps, vibrations). This is mainly a measure of short-term noise, not the physics we are testing.</p></li>
+<li><p>The <strong>spread of averaged accelerations across multiple trials</strong> (<span class="math notranslate nohighlight">\(a_1, a_2, \dots, a_n\)</span>) is what matters for the experiment. This variation reflects differences in pushes, cart alignment, and surface variability.</p></li>
+<li><p>Therefore:</p>
+<ul>
+<li><p>You may calculate the within-trial standard deviation as a “noise check.”</p></li>
+<li><p>But the uncertainty you report for <span class="math notranslate nohighlight">\(\bar{a}\)</span> and <span class="math notranslate nohighlight">\(\mu_k\)</span> should come from the <strong>across-trials standard deviation</strong> <span class="math notranslate nohighlight">\(s\)</span> and the standard error <span class="math notranslate nohighlight">\(s_{\bar{a}}\)</span>.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Sub-note: Two equivalent paths to <span class="math notranslate nohighlight">\(\mu_k\)</span> — what happens to the standard deviation?</strong></p>
+<p>You can compute <span class="math notranslate nohighlight">\(\mu_k\)</span> in either order, and (if you keep the sign) they are mathematically equivalent:</p>
+<p><strong>Path A (acceleration first, then divide by <span class="math notranslate nohighlight">\(g\)</span>):</strong></p>
+<ul>
+<li><p>Compute across-trials stats of acceleration:</p>
+<div class="math notranslate nohighlight">
+\[
+  \bar{a},\quad s_a,\quad s_{\bar{a}}=\frac{s_a}{\sqrt{n}}
+  \]</div>
+</li>
+<li><p>Convert to friction:</p>
+<div class="math notranslate nohighlight">
+\[
+  \mu_k = -\frac{\bar{a}}{g},\qquad
+  s_{\mu}=\frac{s_a}{g},\qquad
+  s_{\bar{\mu}}=\frac{s_{\bar{a}}}{g}
+  \]</div>
+<p>(Use the minus sign because <span class="math notranslate nohighlight">\(a\!\approx\!-\mu_k g\)</span> on level ground; you may report <span class="math notranslate nohighlight">\(|\mu_k|\)</span> at the end.)</p>
+</li>
+</ul>
+<p><strong>Path B (trial-wise <span class="math notranslate nohighlight">\(\mu\)</span> first, then average):</strong></p>
+<ul>
+<li><p>For each trial, map acceleration to friction:</p>
+<div class="math notranslate nohighlight">
+\[
+  \mu_i = -\frac{a_i}{g}
+  \]</div>
+</li>
+<li><p>Then compute across-trials stats on <span class="math notranslate nohighlight">\(\{\mu_i\}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+  \bar{\mu}=\frac{1}{n}\sum \mu_i,\qquad
+  s_{\mu}=\sqrt{\frac{1}{n-1}\sum(\mu_i-\bar{\mu})^2},\qquad
+  s_{\bar{\mu}}=\frac{s_{\mu}}{\sqrt{n}}
+  \]</div>
+</li>
+</ul>
+<p><strong>Key point:</strong> Because division by <span class="math notranslate nohighlight">\(g\)</span> is a <em>linear</em> transformation, the mean and standard deviations simply scale by <span class="math notranslate nohighlight">\(1/g\)</span>. Thus Path A and Path B give the <strong>same</strong> <span class="math notranslate nohighlight">\(\bar{\mu}\)</span>, <span class="math notranslate nohighlight">\(s_{\mu}\)</span>, and <span class="math notranslate nohighlight">\(s_{\bar{\mu}}\)</span> (up to rounding), <strong>provided you keep the sign</strong> (i.e., use <span class="math notranslate nohighlight">\(\mu=-a/g\)</span>).</p>
+<p><strong>Avoid a subtle pitfall:</strong> If you take <strong>magnitudes</strong> trial-by-trial (<span class="math notranslate nohighlight">\(\mu_i = |a_i|/g\)</span>), the absolute value is <em>nonlinear</em>. If any <span class="math notranslate nohighlight">\(a_i\)</span> crosses zero due to noise, <span class="math notranslate nohighlight">\(|\cdot|\)</span> can bias the mean/variance slightly. Safer practice:</p>
+<ul class="simple">
+<li><p>Compute with <strong>signed</strong> values first: <span class="math notranslate nohighlight">\(\mu_i=-a_i/g\)</span>,</p></li>
+<li><p>Do your statistics,</p></li>
+<li><p>Then report <span class="math notranslate nohighlight">\(|\bar{\mu}|\)</span> (and keep <span class="math notranslate nohighlight">\(s_{\mu}\)</span>, <span class="math notranslate nohighlight">\(s_{\bar{\mu}}\)</span> unchanged).</p></li>
+</ul>
+<p><strong>Recommendation for this lab:</strong> Use <strong>Path B</strong> (trial-wise <span class="math notranslate nohighlight">\(\mu_i=-a_i/g\)</span> then average). It reinforces the idea that each trial yields a physical estimate of <span class="math notranslate nohighlight">\(\mu_k\)</span>, and your reported uncertainty naturally reflects the <em>between-trial</em> variability.</p>
+</section>
+<hr class="docutils" />
+<section id="deliverables">
+<h2>Deliverables<a class="headerlink" href="#deliverables" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Methods</strong>: setup, phone axis, surfaces, coast-window choice</p></li>
+<li><p><strong>Results</strong>: tables of trials, <span class="math notranslate nohighlight">\(\bar{a}\pm s_{\bar{a}}\)</span>, <span class="math notranslate nohighlight">\(\mu_k \pm u_\mu\)</span>, plots to identify push interval, coast interval, and stop interval (if stopped by hand).</p></li>
+<li><p><strong>Prediction</strong>: stated and tested</p></li>
+<li><p><strong>Discussion</strong>: mass independence, surface ranking, uncertainties, improvements</p></li>
+<li><p><strong>Conclusion</strong>: Does the model <span class="math notranslate nohighlight">\(a = -\mu_k g\)</span> describe your data?</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="safety">
+<h2>Safety<a class="headerlink" href="#safety" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Secure the phone.</p></li>
+<li><p>Keep track clear.</p></li>
+<li><p>Catch cart gently.</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lab3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../lab2/lab2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lab 2 — Reaction-Time Ruler Drop (Measurement &amp; Uncertainty)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="helpful-code.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Helpful Code Note: Analyzing Phyphox Data in Python</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose-learning-goals">Purpose &amp; Learning Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equipment">Equipment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-design-overview">Experimental Design Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">Deliverables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#safety">Safety</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

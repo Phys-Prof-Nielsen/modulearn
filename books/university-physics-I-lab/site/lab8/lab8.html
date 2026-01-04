@@ -1,0 +1,960 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lab 8 — Heat Transfer with a Thermal Camera &#8212; A Note to University Physics I Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lab8/lab8';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lab 9: Polar Coordinates with a Simple Pendulum — Measuring \(v\) from \(\omega\)" href="../lab9/lab9.html" />
+    <link rel="prev" title="Lab 7: Exploring the Spring Constant and Equivalent Springs" href="../lab7/lab7.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="A Note to University Physics I Lab - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="A Note to University Physics I Lab - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Notes for University Physics I Lab
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://modulearn.academy/spheres/physics/university-physics-I-lab/university-physics-I-lab.html">University Physics I Lab Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 1 - Report Writing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab1/lab1.html">Lab 1 (Synthetic): Hooke’s Law &amp; Writing a Professional Jupyter Report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab1/lab1-template.html">Template Lab 1: Hooke’s Law Report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab1/markdown.html">Markdown for Lab Reports — Quick Guide &amp; Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab1/latex.html">LaTeX Equation Cheat Sheet (for Lab Reports)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 2 - Error Analysis and Measurements</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab2/analysis-measurements.html">Measurement &amp; Uncertainty</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab2/lab2.html">Lab 2 — Reaction-Time Ruler Drop (Measurement &amp; Uncertainty)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 3 - Newton’s Second Law Lab</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab3/lab3.html">Newton’s Second Law Lab: Friction-Limited Acceleration of a Cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab3/helpful-code.html">Helpful Code Note: Analyzing Phyphox Data in Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 4 - 1D Collision</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab4/lab4.html">Lab 4: 1D Collision</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 5 - Ballistic Pendulum</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab5/lab5.html">Lab 5: Ballistic Pendulum - Pizza Prize</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 6 - Air Drag - Numerical Simulation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab6/lab6.html">Lab 6: Realistic Projectile Motion Simulation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 7 - Spring Systems</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab7/lab7.html">Lab 7: Exploring the Spring Constant and Equivalent Springs</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 8 - Heat Transfer</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 8 — Heat Transfer with a Thermal Camera</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 9 - Pendulum and Polar Coordinates</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab9/lab9.html">Lab 9: Polar Coordinates with a Simple Pendulum — Measuring <span class="math notranslate nohighlight">\(v\)</span> from <span class="math notranslate nohighlight">\(\omega\)</span></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 10 - Error Propagation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab10/lab10.html">Lab 10 — Uncertainty and Error Propagation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 11 - Fourier Transform and Autocorrelation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab11/lab11.html">Lab 11- Sound Waves with Phyphox — Fourier Transform and Autocorrelation</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/lab8/lab8.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lab8/lab8.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 8 — Heat Transfer with a Thermal Camera</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives"><strong>Learning Objectives</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction"><strong>Introduction</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theory-and-models"><strong>Theory and Models</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conduction">1) <strong>Conduction</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convection">2) <strong>Convection</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thermal-radiation">3) <strong>Thermal Radiation</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infrared-thermography-concepts">4) <strong>Infrared Thermography Concepts</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodology"><strong>Methodology</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equipment"><strong>Equipment</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-a-radiation-and-emissivity-effects"><strong>Part A — Radiation and Emissivity Effects</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-b-conduction-along-a-metal-object"><strong>Part B — Conduction Along a Metal Object</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-c-convective-cooling"><strong>Part C — Convective Cooling</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-d-radiation-vs-convection"><strong>Part D — Radiation vs. Convection</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-e-campus-thermal-survey"><strong>Part E — Campus Thermal Survey</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-to-submit"><strong>What to Submit</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-parameters-summary"><strong>Key Parameters Summary</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#post-lab-reflection"><strong>Post-Lab Reflection</strong></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-8-heat-transfer-with-a-thermal-camera">
+<h1>Lab 8 — Heat Transfer with a Thermal Camera<a class="headerlink" href="#lab-8-heat-transfer-with-a-thermal-camera" title="Link to this heading">#</a></h1>
+<section id="learning-objectives">
+<h2><strong>Learning Objectives</strong><a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>By the end of this lab, you will be able to:</p>
+<ol class="arabic simple">
+<li><p>Use a handheld <strong>thermal (infrared) camera</strong> to visualize and analyze <strong>heat transfer</strong> by <strong>conduction</strong>, <strong>convection</strong>, and <strong>radiation</strong> in real environments on campus.</p></li>
+<li><p>Apply and interpret key models for the three heat transfer mechanisms:</p>
+<ul class="simple">
+<li><p><strong>Conduction:</strong> $<span class="math notranslate nohighlight">\(\dot Q_{\text{cond}} = -kA\,\frac{dT}{dx}\)</span>$</p></li>
+<li><p><strong>Convection:</strong> $<span class="math notranslate nohighlight">\(\dot Q_{\text{conv}} = hA\,(T_s - T_\infty)\)</span>$</p></li>
+<li><p><strong>Radiation:</strong> $<span class="math notranslate nohighlight">\(\dot Q_{\text{rad}} = \epsilon \sigma A\,(T_s^4 - T_{\text{sur}}^4)\)</span>$</p></li>
+</ul>
+</li>
+<li><p>Distinguish the dominant heat transfer mechanism in different situations using thermal images.</p></li>
+<li><p>Estimate physical parameters such as <strong>heat transfer coefficients</strong> (<span class="math notranslate nohighlight">\(h\)</span>) and <strong>thermal conductivities</strong> (<span class="math notranslate nohighlight">\(k\)</span>) from measured temperature distributions.</p></li>
+<li><p>Understand how <strong>emissivity</strong> and <strong>reflected temperature</strong> affect thermal camera readings and temperature accuracy.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="introduction">
+<h2><strong>Introduction</strong><a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>At night, most solar effects are absent, which makes it easier to isolate <strong>conduction</strong>, <strong>convection</strong>, and <strong>radiation</strong> between objects and their surroundings. The FLIR C-series thermal camera measures <strong>infrared radiation</strong> emitted from surfaces and converts it into a surface temperature, assuming a given <strong>emissivity</strong> and <strong>reflected ambient temperature</strong>.</p>
+<p>In this lab, you will use the camera around campus at night to identify and analyze examples of heat transfer. Common locations include:</p>
+<ul class="simple">
+<li><p>Heated pipes or radiators</p></li>
+<li><p>Warm air vents (HVAC systems)</p></li>
+<li><p>Laptop chargers or power adapters</p></li>
+<li><p>Building walls, doors, and window frames</p></li>
+<li><p>Hot beverages or containers cooling over time</p></li>
+</ul>
+<p>You will perform both <strong>qualitative imaging</strong> (seeing patterns of heat transfer) and <strong>quantitative analysis</strong> (using simplified models to estimate parameters).</p>
+</section>
+<hr class="docutils" />
+<section id="theory-and-models">
+<h2><strong>Theory and Models</strong><a class="headerlink" href="#theory-and-models" title="Link to this heading">#</a></h2>
+<section id="conduction">
+<h3>1) <strong>Conduction</strong><a class="headerlink" href="#conduction" title="Link to this heading">#</a></h3>
+<p><strong>Conduction</strong> is the transfer of heat through a material due to a <strong>temperature gradient</strong>. It occurs when faster-moving particles transfer energy to slower ones by collisions or vibrations.</p>
+<p>The rate of conductive heat transfer is given by <strong>Fourier’s Law</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot Q_{\text{cond}} = -kA\,\frac{dT}{dx}
+\]</div>
+<p><strong>Where:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\dot Q_{\text{cond}}\)</span> = rate of heat transfer (W)</p></li>
+<li><p><span class="math notranslate nohighlight">\(k\)</span> = thermal conductivity of the material (W/m·K)</p></li>
+<li><p><span class="math notranslate nohighlight">\(A\)</span> = cross-sectional area through which heat flows (m²)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\frac{dT}{dx}\)</span> = temperature gradient (K/m)</p></li>
+</ul>
+<p>A <strong>negative sign</strong> indicates heat flows from higher to lower temperature.<br />
+For a uniform slab of thickness <span class="math notranslate nohighlight">\(L\)</span> with steady temperatures <span class="math notranslate nohighlight">\(T_{\text{hot}}\)</span> and <span class="math notranslate nohighlight">\(T_{\text{cold}}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot Q_{\text{cond}} = kA\,\frac{T_{\text{hot}} - T_{\text{cold}}}{L}.
+\]</div>
+<p>You will observe this along conductive paths such as metal handrails or pipes, where heat spreads out from a warm region.</p>
+</section>
+<hr class="docutils" />
+<section id="convection">
+<h3>2) <strong>Convection</strong><a class="headerlink" href="#convection" title="Link to this heading">#</a></h3>
+<p><strong>Convection</strong> occurs between a surface and a moving fluid (such as air) that carries energy away or toward the surface.</p>
+<p><strong>Newton’s Law of Cooling</strong> describes this process:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot Q_{\text{conv}} = hA\,(T_s - T_\infty)
+\]</div>
+<p><strong>Where:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\dot Q_{\text{conv}}\)</span> = rate of convective heat transfer (W)</p></li>
+<li><p><span class="math notranslate nohighlight">\(h\)</span> = convective heat transfer coefficient (W/m²·K)</p></li>
+<li><p><span class="math notranslate nohighlight">\(A\)</span> = surface area exposed to the fluid (m²)</p></li>
+<li><p><span class="math notranslate nohighlight">\(T_s\)</span> = surface temperature (K or °C)</p></li>
+<li><p><span class="math notranslate nohighlight">\(T_\infty\)</span> = temperature of the surrounding air (K or °C)</p></li>
+</ul>
+<p>If the object cools uniformly (lumped system):</p>
+<div class="math notranslate nohighlight">
+\[
+m c \frac{dT}{dt} = -hA\,(T - T_\infty),
+\]</div>
+<p>leading to the exponential cooling model:</p>
+<div class="math notranslate nohighlight">
+\[
+T(t) = T_\infty + (T_0 - T_\infty)e^{-t/\tau}, \qquad \tau = \frac{m c}{hA}.
+\]</div>
+<p><strong>Parameters:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(m\)</span> = mass of object (kg)</p></li>
+<li><p><span class="math notranslate nohighlight">\(c\)</span> = specific heat (J/kg·K)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\tau\)</span> = time constant for cooling (s)</p></li>
+</ul>
+<p>By measuring the surface temperature over time, <span class="math notranslate nohighlight">\(h\)</span> can be estimated from <span class="math notranslate nohighlight">\(\tau\)</span>.</p>
+</section>
+<hr class="docutils" />
+<section id="thermal-radiation">
+<h3>3) <strong>Thermal Radiation</strong><a class="headerlink" href="#thermal-radiation" title="Link to this heading">#</a></h3>
+<p>All surfaces continuously emit <strong>infrared radiation</strong>, and the rate of this emission increases with the <strong>fourth power</strong> of their absolute temperature.<br />
+The net rate of radiative heat transfer between a surface and its surroundings is given by the <strong>Stefan–Boltzmann law</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot Q_{\text{rad}} = \epsilon \sigma A (T_s^4 - T_{\text{sur}}^4)
+\]</div>
+<p><strong>Where:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\dot Q_{\text{rad}}\)</span> — total radiative heat transfer rate (W)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\epsilon\)</span> — emissivity (0–1), describing how effectively the surface emits radiation compared to a perfect blackbody</p></li>
+<li><p><span class="math notranslate nohighlight">\(\sigma\)</span> — Stefan–Boltzmann constant (<span class="math notranslate nohighlight">\(5.670 \times 10^{-8}\)</span> W/m²·K⁴)</p></li>
+<li><p><span class="math notranslate nohighlight">\(A\)</span> — surface area of emission (m²)</p></li>
+<li><p><span class="math notranslate nohighlight">\(T_s\)</span> — surface temperature (K)</p></li>
+<li><p><span class="math notranslate nohighlight">\(T_{\text{sur}}\)</span> — surrounding (environmental) temperature (K)</p></li>
+</ul>
+<p>It is often convenient to express this as a <strong>heat flux</strong>, which is the rate of heat transfer per unit area:</p>
+<div class="math notranslate nohighlight">
+\[
+q''_{\text{rad}} = \frac{\dot Q_{\text{rad}}}{A} = \epsilon \sigma (T_s^4 - T_{\text{sur}}^4)
+\]</div>
+<p>Here ( q’’_{\text{rad}} ) (read as <em>q double prime</em>) represents how much thermal energy is radiated <strong>per square meter</strong> of surface.<br />
+This makes it easier to compare radiation with the other modes of heat transfer, which can also be written in flux form:</p>
+<div class="math notranslate nohighlight">
+\[
+q''_{\text{cond}} = -k\,\frac{dT}{dx}, \qquad q''_{\text{conv}} = h\,(T_s - T_\infty)
+\]</div>
+<p>Thus, whether heat is conducted through a solid, convected to air, or radiated to the surroundings, ( q’’ ) provides a <strong>common measure of energy flow intensity</strong> at the surface.</p>
+<p>For <strong>small temperature differences</strong>, radiation can be approximated as a linear process with an <strong>effective heat transfer coefficient</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+q''_{\text{rad}} = h_{\text{rad}} (T_s - T_{\text{sur}}), \qquad 
+h_{\text{rad}} = 4 \epsilon \sigma T_m^3
+\]</div>
+<p>where ( T_m ) is the mean absolute temperature (K).<br />
+In this linearized form, radiation behaves similarly to convection and can be combined with it when both are present.</p>
+</section>
+<hr class="docutils" />
+<section id="infrared-thermography-concepts">
+<h3>4) <strong>Infrared Thermography Concepts</strong><a class="headerlink" href="#infrared-thermography-concepts" title="Link to this heading">#</a></h3>
+<p>Thermal cameras do not measure temperature directly—they detect <strong>infrared radiation</strong> emitted by surfaces. The apparent temperature depends on:</p>
+<ul class="simple">
+<li><p><strong>Emissivity (<span class="math notranslate nohighlight">\(\epsilon\)</span>):</strong> fraction of emitted radiation relative to an ideal blackbody.</p>
+<ul>
+<li><p>Matte materials (tape, paper, skin): <span class="math notranslate nohighlight">\(\epsilon \approx 0.9\)</span>–<span class="math notranslate nohighlight">\(0.98\)</span></p></li>
+<li><p>Shiny metals: <span class="math notranslate nohighlight">\(\epsilon &lt; 0.2\)</span> (poor emitters, strong reflections)</p></li>
+</ul>
+</li>
+<li><p><strong>Reflected apparent temperature (<span class="math notranslate nohighlight">\(T_{\text{refl}}\)</span>):</strong> infrared radiation reflected from the environment.</p></li>
+<li><p><strong>Distance and viewing angle.</strong></p></li>
+</ul>
+<p>The <strong>FLIR C-series</strong> allows you to input emissivity and reflected temperature.<br />
+For accurate readings:</p>
+<ul class="simple">
+<li><p>Use <strong>black electrical tape</strong> on shiny surfaces as a calibration marker (<span class="math notranslate nohighlight">\(\epsilon = 0.95\)</span>).</p></li>
+<li><p>Avoid reflections (windows, metal surfaces).</p></li>
+<li><p>Work indoors or in stable air to reduce noise and convection variability.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="methodology">
+<h2><strong>Methodology</strong><a class="headerlink" href="#methodology" title="Link to this heading">#</a></h2>
+<section id="equipment">
+<h3><strong>Equipment</strong><a class="headerlink" href="#equipment" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>FLIR C-series thermal camera</p></li>
+<li><p>Black electrical tape and aluminum foil</p></li>
+<li><p>Stopwatch or phone timer</p></li>
+<li><p>Optional: thermometer for ambient air</p></li>
+<li><p>Measuring tape or ruler</p></li>
+</ul>
+<blockquote>
+<div><p><strong>Safety Note:</strong> Avoid contact with electrical outlets or very hot surfaces. Handle hot liquids carefully.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="part-a-radiation-and-emissivity-effects">
+<h3><strong>Part A — Radiation and Emissivity Effects</strong><a class="headerlink" href="#part-a-radiation-and-emissivity-effects" title="Link to this heading">#</a></h3>
+<p><strong>Goal:</strong> Examine how emissivity and reflection affect apparent temperature readings.</p>
+<ol class="arabic simple">
+<li><p>In a room or hallway, place a piece of <strong>black tape</strong> and <strong>aluminum foil</strong> side-by-side on a wall.</p></li>
+<li><p>Set emissivity in the camera to <span class="math notranslate nohighlight">\(\epsilon = 0.95\)</span>.</p></li>
+<li><p>Record an image of both materials.</p></li>
+<li><p>Note how the foil may appear much colder or hotter than its surroundings due to reflection of other warm surfaces.</p></li>
+<li><p>Adjust the reflected temperature <span class="math notranslate nohighlight">\(T_{\text{refl}}\)</span> in the camera and note how readings change.</p></li>
+</ol>
+<p><strong>Deliverable:</strong> Annotated image showing both surfaces and a short explanation of how emissivity affects apparent temperature.</p>
+</section>
+<hr class="docutils" />
+<section id="part-b-conduction-along-a-metal-object">
+<h3><strong>Part B — Conduction Along a Metal Object</strong><a class="headerlink" href="#part-b-conduction-along-a-metal-object" title="Link to this heading">#</a></h3>
+<p><strong>Goal:</strong> Visualize conduction through a solid.</p>
+<ol class="arabic">
+<li><p>Locate a <strong>metal handrail</strong>, <strong>door hinge</strong>, <strong>window frame</strong>, or <strong>pipe</strong> connected between a warm indoor surface and cooler air.</p></li>
+<li><p>Mark points along the metal (use tape dots if needed) at equal distances.</p></li>
+<li><p>Record the temperature <span class="math notranslate nohighlight">\(T(x)\)</span> at each point.</p></li>
+<li><p>Plot <span class="math notranslate nohighlight">\(T\)</span> vs. <span class="math notranslate nohighlight">\(x\)</span> to determine the temperature gradient <span class="math notranslate nohighlight">\(\frac{dT}{dx}\)</span>.</p></li>
+<li><p>Estimate <span class="math notranslate nohighlight">\(\dot Q_{\text{cond}}\)</span> using:</p>
+<div class="math notranslate nohighlight">
+\[
+   \dot Q_{\text{cond}} = kA\,\frac{T_{\text{warm}} - T_{\text{cool}}}{L},
+   \]</div>
+<p>assuming typical <span class="math notranslate nohighlight">\(k\)</span> for aluminum (≈ 200 W/m·K) or steel (≈ 50 W/m·K).</p>
+</li>
+</ol>
+<p><strong>Deliverable:</strong> Temperature profile and discussion of how geometry and materials influence conduction.</p>
+</section>
+<hr class="docutils" />
+<section id="part-c-convective-cooling">
+<h3><strong>Part C — Convective Cooling</strong><a class="headerlink" href="#part-c-convective-cooling" title="Link to this heading">#</a></h3>
+<p><strong>Goal:</strong> Estimate the convective heat transfer coefficient <span class="math notranslate nohighlight">\(h\)</span> using a cooling curve.</p>
+<ol class="arabic">
+<li><p>Fill a <strong>paper cup</strong> or <strong>ceramic mug</strong> with hot water (~60–70 °C).<br />
+Apply a small piece of black tape to the cup’s side for temperature measurement.</p></li>
+<li><p>Record the <strong>initial temperature</strong> <span class="math notranslate nohighlight">\(T_0\)</span>.</p></li>
+<li><p>Leave the cup in still air and record <span class="math notranslate nohighlight">\(T(t)\)</span> every 30 s for 5–10 min.</p></li>
+<li><p>Repeat once with <strong>gentle airflow</strong> (fan or waving hand).</p></li>
+<li><p>Fit data to:</p>
+<div class="math notranslate nohighlight">
+\[
+   T(t) = T_\infty + (T_0 - T_\infty)e^{-t/\tau}.
+   \]</div>
+<p>From <span class="math notranslate nohighlight">\(\tau\)</span>, estimate</p>
+<div class="math notranslate nohighlight">
+\[
+   h = \frac{m c}{A\,\tau}.
+   \]</div>
+</li>
+</ol>
+<p><strong>Deliverable:</strong> Plot of <span class="math notranslate nohighlight">\(\ln(T - T_\infty)\)</span> vs. <span class="math notranslate nohighlight">\(t\)</span>, slope <span class="math notranslate nohighlight">\(=-1/\tau\)</span>, and comparison of <span class="math notranslate nohighlight">\(h\)</span> (still vs. air moving).</p>
+</section>
+<hr class="docutils" />
+<section id="part-d-radiation-vs-convection">
+<h3><strong>Part D — Radiation vs. Convection</strong><a class="headerlink" href="#part-d-radiation-vs-convection" title="Link to this heading">#</a></h3>
+<p><strong>Goal:</strong> Separate radiative and convective contributions.</p>
+<ol class="arabic">
+<li><p>Repeat Part C’s test twice:</p>
+<ul class="simple">
+<li><p>Case 1: high-emissivity (bare surface with tape marker)</p></li>
+<li><p>Case 2: wrap the cup loosely with <strong>aluminum foil</strong> (low emissivity)</p></li>
+</ul>
+</li>
+<li><p>Record and analyze both cooling curves.</p></li>
+<li><p>Compute <span class="math notranslate nohighlight">\(h_{\text{eff}}\)</span> for each case and estimate <span class="math notranslate nohighlight">\(h_{\text{rad}}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+   h_{\text{rad}} = h_{\text{eff,high}\,\epsilon} - h_{\text{eff,foil}}.
+   \]</div>
+</li>
+</ol>
+<p><strong>Deliverable:</strong> Table comparing time constants <span class="math notranslate nohighlight">\(\tau\)</span>, <span class="math notranslate nohighlight">\(h_{\text{eff}}\)</span>, and the estimated radiation contribution.</p>
+</section>
+<hr class="docutils" />
+<section id="part-e-campus-thermal-survey">
+<h3><strong>Part E — Campus Thermal Survey</strong><a class="headerlink" href="#part-e-campus-thermal-survey" title="Link to this heading">#</a></h3>
+<p><strong>Goal:</strong> Capture examples of the three heat transfer modes at night.</p>
+<ol class="arabic simple">
+<li><p>Take at least one clear thermal image showing each mode:</p>
+<ul class="simple">
+<li><p><strong>Conduction:</strong> metal doorframe to outdoors, or wall–pipe junction</p></li>
+<li><p><strong>Convection:</strong> warm air escaping a vent</p></li>
+<li><p><strong>Radiation:</strong> surface of a building seen against the cold night sky</p></li>
+</ul>
+</li>
+<li><p>Add brief notes on each image describing the dominant heat transfer process.</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="what-to-submit">
+<h2><strong>What to Submit</strong><a class="headerlink" href="#what-to-submit" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Thermal images</strong> (with labels or ROIs) for each part.</p></li>
+<li><p><strong>Plots and calculations</strong> for conduction and convection experiments.</p></li>
+<li><p><strong>Summary paragraph</strong> discussing which heat transfer mechanism dominated in each case and how emissivity influenced measurements.</p></li>
+<li><p><strong>Estimated values</strong> of <span class="math notranslate nohighlight">\(k\)</span>, <span class="math notranslate nohighlight">\(h\)</span>, and <span class="math notranslate nohighlight">\(h_{\text{rad}}\)</span> (with units).</p></li>
+<li><p><strong>Discussion</strong> of uncertainties—measurement angle, surface emissivity, reflected temperature, and camera calibration.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="key-parameters-summary">
+<h2><strong>Key Parameters Summary</strong><a class="headerlink" href="#key-parameters-summary" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Symbol</p></th>
+<th class="head text-left"><p>Quantity</p></th>
+<th class="head text-left"><p>Units</p></th>
+<th class="head text-left"><p>Typical Range</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(\dot Q\)</span></p></td>
+<td class="text-left"><p>Heat transfer rate</p></td>
+<td class="text-left"><p>W</p></td>
+<td class="text-left"><p>1–1000</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(q'' = \dot Q/A\)</span></p></td>
+<td class="text-left"><p>Heat flux</p></td>
+<td class="text-left"><p>W/m²</p></td>
+<td class="text-left"><p>10–1000</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(T_s\)</span></p></td>
+<td class="text-left"><p>Surface temperature</p></td>
+<td class="text-left"><p>°C or K</p></td>
+<td class="text-left"><p>20–100</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(T_\infty\)</span></p></td>
+<td class="text-left"><p>Air (ambient) temperature</p></td>
+<td class="text-left"><p>°C or K</p></td>
+<td class="text-left"><p>15–25</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(T_{\text{sur}}\)</span></p></td>
+<td class="text-left"><p>Surrounding surface temperature</p></td>
+<td class="text-left"><p>°C or K</p></td>
+<td class="text-left"><p>15–25</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(T_{\text{refl}}\)</span></p></td>
+<td class="text-left"><p>Reflected apparent temperature</p></td>
+<td class="text-left"><p>°C or K</p></td>
+<td class="text-left"><p>15–25</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(k\)</span></p></td>
+<td class="text-left"><p>Thermal conductivity</p></td>
+<td class="text-left"><p>W/m·K</p></td>
+<td class="text-left"><p>0.1–400</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(h\)</span></p></td>
+<td class="text-left"><p>Convective heat transfer coefficient</p></td>
+<td class="text-left"><p>W/m²·K</p></td>
+<td class="text-left"><p>5–25 (air)</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(\epsilon\)</span></p></td>
+<td class="text-left"><p>Emissivity</p></td>
+<td class="text-left"><p>—</p></td>
+<td class="text-left"><p>0.1–0.98</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(\sigma\)</span></p></td>
+<td class="text-left"><p>Stefan–Boltzmann constant</p></td>
+<td class="text-left"><p>W/m²·K⁴</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(5.67\times10^{-8}\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="post-lab-reflection">
+<h2><strong>Post-Lab Reflection</strong><a class="headerlink" href="#post-lab-reflection" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Which mode of heat transfer was easiest to observe and why?</p></li>
+<li><p>How does emissivity affect temperature accuracy on shiny surfaces?</p></li>
+<li><p>Why does convection cooling increase with air motion?</p></li>
+<li><p>Estimate whether radiation is significant compared to convection for your setup.</p></li>
+</ol>
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lab8"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../lab7/lab7.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lab 7: Exploring the Spring Constant and Equivalent Springs</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../lab9/lab9.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lab 9: Polar Coordinates with a Simple Pendulum — Measuring <span class="math notranslate nohighlight">\(v\)</span> from <span class="math notranslate nohighlight">\(\omega\)</span></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives"><strong>Learning Objectives</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction"><strong>Introduction</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theory-and-models"><strong>Theory and Models</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conduction">1) <strong>Conduction</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convection">2) <strong>Convection</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thermal-radiation">3) <strong>Thermal Radiation</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infrared-thermography-concepts">4) <strong>Infrared Thermography Concepts</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodology"><strong>Methodology</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equipment"><strong>Equipment</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-a-radiation-and-emissivity-effects"><strong>Part A — Radiation and Emissivity Effects</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-b-conduction-along-a-metal-object"><strong>Part B — Conduction Along a Metal Object</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-c-convective-cooling"><strong>Part C — Convective Cooling</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-d-radiation-vs-convection"><strong>Part D — Radiation vs. Convection</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-e-campus-thermal-survey"><strong>Part E — Campus Thermal Survey</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-to-submit"><strong>What to Submit</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-parameters-summary"><strong>Key Parameters Summary</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#post-lab-reflection"><strong>Post-Lab Reflection</strong></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

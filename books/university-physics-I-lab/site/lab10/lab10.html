@@ -1,0 +1,1299 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lab 10 — Uncertainty and Error Propagation &#8212; A Note to University Physics I Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lab10/lab10';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lab 11- Sound Waves with Phyphox — Fourier Transform and Autocorrelation" href="../lab11/lab11.html" />
+    <link rel="prev" title="Lab 9: Polar Coordinates with a Simple Pendulum — Measuring \(v\) from \(\omega\)" href="../lab9/lab9.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="A Note to University Physics I Lab - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="A Note to University Physics I Lab - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Notes for University Physics I Lab
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://modulearn.academy/spheres/physics/university-physics-I-lab/university-physics-I-lab.html">University Physics I Lab Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 1 - Report Writing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab1/lab1.html">Lab 1 (Synthetic): Hooke’s Law &amp; Writing a Professional Jupyter Report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab1/lab1-template.html">Template Lab 1: Hooke’s Law Report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab1/markdown.html">Markdown for Lab Reports — Quick Guide &amp; Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab1/latex.html">LaTeX Equation Cheat Sheet (for Lab Reports)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 2 - Error Analysis and Measurements</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab2/analysis-measurements.html">Measurement &amp; Uncertainty</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab2/lab2.html">Lab 2 — Reaction-Time Ruler Drop (Measurement &amp; Uncertainty)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 3 - Newton’s Second Law Lab</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab3/lab3.html">Newton’s Second Law Lab: Friction-Limited Acceleration of a Cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab3/helpful-code.html">Helpful Code Note: Analyzing Phyphox Data in Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 4 - 1D Collision</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab4/lab4.html">Lab 4: 1D Collision</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 5 - Ballistic Pendulum</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab5/lab5.html">Lab 5: Ballistic Pendulum - Pizza Prize</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 6 - Air Drag - Numerical Simulation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab6/lab6.html">Lab 6: Realistic Projectile Motion Simulation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 7 - Spring Systems</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab7/lab7.html">Lab 7: Exploring the Spring Constant and Equivalent Springs</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 8 - Heat Transfer</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab8/lab8.html">Lab 8 — Heat Transfer with a Thermal Camera</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 9 - Pendulum and Polar Coordinates</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab9/lab9.html">Lab 9: Polar Coordinates with a Simple Pendulum — Measuring <span class="math notranslate nohighlight">\(v\)</span> from <span class="math notranslate nohighlight">\(\omega\)</span></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 10 - Error Propagation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 10 — Uncertainty and Error Propagation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 11 - Fourier Transform and Autocorrelation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab11/lab11.html">Lab 11- Sound Waves with Phyphox — Fourier Transform and Autocorrelation</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/lab10/lab10.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lab10/lab10.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 10 — Uncertainty and Error Propagation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-error-propagation-single-variable-functions">Background - Error Propagation: Single Variable Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-volume-of-a-sphere">Example: Volume of a Sphere</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">Discussion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">1) Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-idea-of-partial-derivatives">2) The Idea of Partial Derivatives</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-uncertainty">Connecting to Uncertainty</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-interpretation">Visual interpretation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-difference-approximation-numerical-estimation">3) Finite-Difference Approximation (Numerical Estimation)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propagating-uncertainties">4) Propagating Uncertainties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synthetic-data-two-examples">5) Synthetic Data (Two Examples)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-density">A) Density</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-kinetic-energy">B) Kinetic Energy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">6) Procedure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results-and-discussion">7) Results and Discussion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">8) Deliverables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfalls">9) Common Pitfalls</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monte-carlo-validation-for-the-density-example">10) Monte Carlo Validation for the Density Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-monte-carlo-simulation">What is Monte Carlo simulation?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-it-here">Why use it here?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-behavior-for-this-example">Expected behavior for this example</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-10-uncertainty-and-error-propagation">
+<h1>Lab 10 — Uncertainty and Error Propagation<a class="headerlink" href="#lab-10-uncertainty-and-error-propagation" title="Link to this heading">#</a></h1>
+<p><strong>Learning Objectives</strong></p>
+<ul class="simple">
+<li><p>Understand uncertainty propagation for functions of <strong>two variables</strong>: <span class="math notranslate nohighlight">\(f=f(x,y)\)</span>.</p></li>
+<li><p>Interpret <strong>partial derivatives</strong> as sensitivities (without calculus formulas).</p></li>
+<li><p>Use <strong>finite differences</strong> to estimate <span class="math notranslate nohighlight">\(\dfrac{\partial f}{\partial x}\)</span> and <span class="math notranslate nohighlight">\(\dfrac{\partial f}{\partial y}\)</span> numerically.</p></li>
+<li><p>Apply the propagation formula to <strong>synthetic data</strong> and compare to a Monte Carlo simulation.</p></li>
+</ul>
+<hr class="docutils" />
+<section id="background-error-propagation-single-variable-functions">
+<h2>Background - Error Propagation: Single Variable Functions<a class="headerlink" href="#background-error-propagation-single-variable-functions" title="Link to this heading">#</a></h2>
+<p>When a physical quantity <span class="math notranslate nohighlight">\( y \)</span> depends on a <em>single measured variable</em> <span class="math notranslate nohighlight">\( x \)</span>, the uncertainty in <span class="math notranslate nohighlight">\( y \)</span> arises from the uncertainty in <span class="math notranslate nohighlight">\( x \)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\( y = f(x) \)</span>, then for small uncertainties, the <strong>differential</strong> <span class="math notranslate nohighlight">\( dy \)</span> provides a first-order estimate of the change in <span class="math notranslate nohighlight">\( y \)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+dy = \frac{df}{dx} \, dx.
+\]</div>
+<p>Taking absolute values, the <strong>uncertainty in <span class="math notranslate nohighlight">\( y \)</span></strong> is approximately:</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma_y = \left| \frac{df}{dx} \right| \, \sigma_x,
+\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( \sigma_x \)</span> = uncertainty in the measurement of <span class="math notranslate nohighlight">\( x \)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\( \sigma_y \)</span> = propagated uncertainty in <span class="math notranslate nohighlight">\( y \)</span>.</p></li>
+</ul>
+<p>This linear approximation assumes the uncertainty is small enough that higher-order terms can be neglected — a <strong>first-order approximation</strong>.</p>
+<hr class="docutils" />
+<section id="example-volume-of-a-sphere">
+<h3>Example: Volume of a Sphere<a class="headerlink" href="#example-volume-of-a-sphere" title="Link to this heading">#</a></h3>
+<p>Suppose we measure the radius <span class="math notranslate nohighlight">\( r \)</span> of a small sphere as:</p>
+<div class="math notranslate nohighlight">
+\[
+r = 5.00 \pm 0.05 \text{ cm.}
+\]</div>
+<p>The volume is:</p>
+<div class="math notranslate nohighlight">
+\[
+V = \frac{4}{3}\pi r^3.
+\]</div>
+<p>Using the differential form:</p>
+<div class="math notranslate nohighlight">
+\[
+dV = 4\pi r^2 \, dr,
+\]</div>
+<p>we can estimate the uncertainty in <span class="math notranslate nohighlight">\( V \)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma_V = \left| \frac{dV}{dr} \right| \sigma_r = 4\pi r^2 \sigma_r.
+\]</div>
+<p>Substituting the measured values:</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma_V = 4\pi (5.00)^2 (0.05) = 15.7 \text{ cm}^3.
+\]</div>
+<p>Thus:</p>
+<div class="math notranslate nohighlight">
+\[
+V = 523.6 \pm 15.7 \text{ cm}^3.
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="discussion">
+<h3>Discussion<a class="headerlink" href="#discussion" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>The <em>relative uncertainty</em> can be expressed as:</p>
+<div class="math notranslate nohighlight">
+\[
+  \frac{\sigma_V}{V} = 3 \frac{\sigma_r}{r},
+  \]</div>
+<p>which shows that the uncertainty in the volume is <strong>three times larger (in percentage)</strong> than that of the radius, since <span class="math notranslate nohighlight">\( V \propto r^3 \)</span>.</p>
+</li>
+</ul>
+<p>This example highlights how small measurement errors can amplify when the measured quantity is raised to a power — an important consideration in all physical measurements.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="motivation">
+<h2>1) Motivation<a class="headerlink" href="#motivation" title="Link to this heading">#</a></h2>
+<p>Every experiment has measurement uncertainty. When a calculated result <span class="math notranslate nohighlight">\(f\)</span> depends on two (or more) measured quantities <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, their uncertainties combine to produce an uncertainty in <span class="math notranslate nohighlight">\(f\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(f=f(x,y)\)</span>, then for small, independent uncertainties, we can use the first order approximation:</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma_f^2 \;\approx\;
+\left(\frac{\partial f}{\partial x}\right)^2\sigma_x^2
++
+\left(\frac{\partial f}{\partial y}\right)^2\sigma_y^2,
+\qquad
+\sigma_f=\sqrt{\sigma_f^2}.
+\]</div>
+<p>This is called the <strong>error propagation formula</strong>, and it tells us how much uncertainty each variable contributes to the final result.</p>
+<blockquote>
+<div><p><em>Note</em>:
+The formula below is a first-order (linear) approximation, valid when the function behaves nearly linearly around the measured means.
+It is derived by keeping only the first-order terms in a Taylor expansion of <span class="math notranslate nohighlight">\(f(x,y)\)</span>.
+Later in this lab, we will compare this linear propagation to a Monte Carlo simulation that includes the nonlinear effects automatically.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="the-idea-of-partial-derivatives">
+<h2>2) The Idea of Partial Derivatives<a class="headerlink" href="#the-idea-of-partial-derivatives" title="Link to this heading">#</a></h2>
+<p>When <span class="math notranslate nohighlight">\(f\)</span> depends on two variables <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, a <strong>partial derivative</strong> measures how sensitive <span class="math notranslate nohighlight">\(f\)</span> is to one variable at a time, while holding the other fixed.</p>
+<p>We write:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial f}{\partial x} \quad \text{and} \quad \frac{\partial f}{\partial y}.
+\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\dfrac{\partial f}{\partial x}\)</span>: “How much <span class="math notranslate nohighlight">\(f\)</span> changes if <span class="math notranslate nohighlight">\(x\)</span> changes a little, while <span class="math notranslate nohighlight">\(y\)</span> stays fixed.”</p></li>
+<li><p><span class="math notranslate nohighlight">\(\dfrac{\partial f}{\partial y}\)</span>: “How much <span class="math notranslate nohighlight">\(f\)</span> changes if <span class="math notranslate nohighlight">\(y\)</span> changes a little, while <span class="math notranslate nohighlight">\(x\)</span> stays fixed.”</p></li>
+</ul>
+<hr class="docutils" />
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
+<p>If <span class="math notranslate nohighlight">\(f(x,y)=x\,y\)</span>, then:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\dfrac{\partial f}{\partial x}=y\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\dfrac{\partial f}{\partial y}=x\)</span></p></li>
+</ul>
+<p>Each variable affects <span class="math notranslate nohighlight">\(f\)</span> independently, and the larger the partial derivative, the more that variable’s uncertainty matters.</p>
+</section>
+<hr class="docutils" />
+<section id="connecting-to-uncertainty">
+<h3>Connecting to Uncertainty<a class="headerlink" href="#connecting-to-uncertainty" title="Link to this heading">#</a></h3>
+<p>Small deviations <span class="math notranslate nohighlight">\(\Delta x\)</span> and <span class="math notranslate nohighlight">\(\Delta y\)</span> change <span class="math notranslate nohighlight">\(f\)</span> approximately by:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta f \;\approx\; \frac{\partial f}{\partial x}\,\Delta x + \frac{\partial f}{\partial y}\,\Delta y.
+\]</div>
+<p>Replacing <span class="math notranslate nohighlight">\(\Delta x\)</span> and <span class="math notranslate nohighlight">\(\Delta y\)</span> with their random uncertainties <span class="math notranslate nohighlight">\(\sigma_x\)</span> and <span class="math notranslate nohighlight">\(\sigma_y\)</span> gives:</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma_f^2 \;\approx\;
+\left(\frac{\partial f}{\partial x}\right)^2\sigma_x^2 +
+\left(\frac{\partial f}{\partial y}\right)^2\sigma_y^2.
+\]</div>
+<p>Thus, partial derivatives are simply <strong>sensitivity factors</strong>: how strongly the result depends on each variable.</p>
+</section>
+<hr class="docutils" />
+<section id="visual-interpretation">
+<h3>Visual interpretation<a class="headerlink" href="#visual-interpretation" title="Link to this heading">#</a></h3>
+<p>Think of <span class="math notranslate nohighlight">\(f(x,y)\)</span> as a smooth surface.</p>
+<ul class="simple">
+<li><p>The slope along the <span class="math notranslate nohighlight">\(x\)</span>-direction is <span class="math notranslate nohighlight">\(\partial f/\partial x\)</span>.</p></li>
+<li><p>The slope along the <span class="math notranslate nohighlight">\(y\)</span>-direction is <span class="math notranslate nohighlight">\(\partial f/\partial y\)</span>.</p></li>
+</ul>
+<p>The steeper the slope in one direction, the more uncertainty in that variable changes <span class="math notranslate nohighlight">\(f\)</span>.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="finite-difference-approximation-numerical-estimation">
+<h2>3) Finite-Difference Approximation (Numerical Estimation)<a class="headerlink" href="#finite-difference-approximation-numerical-estimation" title="Link to this heading">#</a></h2>
+<p>We can estimate each partial derivative <strong>numerically</strong> without calculus:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial f}{\partial x} \approx
+\frac{f(\bar x + h_x, \bar y) - f(\bar x - h_x, \bar y)}{2h_x},
+\qquad
+\frac{\partial f}{\partial y} \approx
+\frac{f(\bar x, \bar y + h_y) - f(\bar x, \bar y - h_y)}{2h_y}.
+\]</div>
+<p>Use <span class="math notranslate nohighlight">\(h_x = \sigma_x\)</span> and <span class="math notranslate nohighlight">\(h_y = \sigma_y\)</span> as practical step sizes.</p>
+<p>Check your result:</p>
+<ul class="simple">
+<li><p><strong>Units:</strong> <span class="math notranslate nohighlight">\((\text{units of } f) / (\text{units of } x)\)</span></p></li>
+<li><p><strong>Sign:</strong> If <span class="math notranslate nohighlight">\(x\)</span> increases and <span class="math notranslate nohighlight">\(f\)</span> increases, derivative should be positive.</p></li>
+<li><p><strong>Magnitude:</strong> If doubling <span class="math notranslate nohighlight">\(x\)</span> roughly doubles <span class="math notranslate nohighlight">\(f\)</span>, derivative <span class="math notranslate nohighlight">\(\approx f/x\)</span>.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="propagating-uncertainties">
+<h2>4) Propagating Uncertainties<a class="headerlink" href="#propagating-uncertainties" title="Link to this heading">#</a></h2>
+<p>Once you have both partials, combine them:</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma_f^2 \;=\;
+\left(\frac{\partial f}{\partial x}\sigma_x\right)^2 +
+\left(\frac{\partial f}{\partial y}\sigma_y\right)^2,
+\qquad
+\sigma_f = \sqrt{\sigma_f^2}.
+\]</div>
+<p>You can also find the <strong>fraction of total variance in the mean value</strong> from each source:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Frac}_x = 
+\frac{(\tfrac{\partial f}{\partial x}\sigma_x)^2}{
+(\tfrac{\partial f}{\partial x}\sigma_x)^2 + 
+(\tfrac{\partial f}{\partial y}\sigma_y)^2},
+\qquad
+\text{Frac}_y = 1 - \text{Frac}_x.
+\]</div>
+<p>If <span class="math notranslate nohighlight">\(\text{Frac}_x \gg \text{Frac}_y\)</span>, the uncertainty in <span class="math notranslate nohighlight">\(x\)</span> dominates.</p>
+<blockquote>
+<div><p><strong>Note:</strong> If <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are correlated (not independent), a cross term appears:</p>
+<div class="math notranslate nohighlight">
+\[\sigma_f^2 = (\tfrac{\partial f}{\partial x}\sigma_x)^2 + (\tfrac{\partial f}{\partial y}\sigma_y)^2 + 2\rho\,\tfrac{\partial f}{\partial x}\tfrac{\partial f}{\partial y}\,\sigma_x\sigma_y.\]</div>
+<p>In this formula, the symbol <span class="math notranslate nohighlight">\(\rho\)</span> represents the <strong>correlation coefficient</strong> between the two measured variables (not the density).<br />
+It can range from <span class="math notranslate nohighlight">\(-1\)</span> (perfect negative correlation) to <span class="math notranslate nohighlight">\(+1\)</span> (perfect positive correlation).<br />
+In this lab we assume <span class="math notranslate nohighlight">\(\rho = 0\)</span>, meaning <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are independent and no cross term is included.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="synthetic-data-two-examples">
+<h2>5) Synthetic Data (Two Examples)<a class="headerlink" href="#synthetic-data-two-examples" title="Link to this heading">#</a></h2>
+<section id="a-density">
+<h3>A) Density<a class="headerlink" href="#a-density" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+\rho = \frac{m}{V}
+\]</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Quantity</p></th>
+<th class="head text-center"><p>Symbol</p></th>
+<th class="head text-right"><p>Mean</p></th>
+<th class="head text-right"><p>Uncertainty (<span class="math notranslate nohighlight">\(1\sigma\)</span>)</p></th>
+<th class="head text-center"><p>Units</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Mass</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(m\)</span></p></td>
+<td class="text-right"><p>0.250</p></td>
+<td class="text-right"><p>0.005</p></td>
+<td class="text-center"><p>kg</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Volume</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(V\)</span></p></td>
+<td class="text-right"><p>0.300</p></td>
+<td class="text-right"><p>0.010</p></td>
+<td class="text-center"><p>L</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Convert <span class="math notranslate nohighlight">\(V\)</span> to cubic meters before computing: <span class="math notranslate nohighlight">\(V = 0.300\times 10^{-3}\,\text{m}^3\)</span>.</p>
+</section>
+<hr class="docutils" />
+<section id="b-kinetic-energy">
+<h3>B) Kinetic Energy<a class="headerlink" href="#b-kinetic-energy" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+K = \tfrac{1}{2} m v^2
+\]</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Quantity</p></th>
+<th class="head text-center"><p>Symbol</p></th>
+<th class="head text-right"><p>Mean</p></th>
+<th class="head text-right"><p>Uncertainty (<span class="math notranslate nohighlight">\(1\sigma\)</span>)</p></th>
+<th class="head text-center"><p>Units</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Mass</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(m\)</span></p></td>
+<td class="text-right"><p>1.50</p></td>
+<td class="text-right"><p>0.05</p></td>
+<td class="text-center"><p>kg</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Velocity</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(v\)</span></p></td>
+<td class="text-right"><p>2.00</p></td>
+<td class="text-right"><p>0.10</p></td>
+<td class="text-center"><p>m/s</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="procedure">
+<h2>6) Procedure<a class="headerlink" href="#procedure" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Convert all inputs to consistent <strong>SI units</strong>.</p></li>
+<li><p>Compute <span class="math notranslate nohighlight">\(f(\bar x,\bar y)\)</span>.</p></li>
+<li><p>Use finite differences with <span class="math notranslate nohighlight">\(h_x=\sigma_x\)</span>, <span class="math notranslate nohighlight">\(h_y=\sigma_y\)</span> to find both partial derivatives.</p></li>
+<li><p>Use the propagation formula to find <span class="math notranslate nohighlight">\(\sigma_f\)</span>.</p></li>
+<li><p>Compute <span class="math notranslate nohighlight">\(\text{Frac}_x\)</span> and <span class="math notranslate nohighlight">\(\text{Frac}_y\)</span> to see which variable dominates.</p></li>
+<li><p>Check your results with the python script/output below.</p></li>
+</ol>
+<hr class="docutils" />
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Two-Variable Uncertainty Propagation</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Core helpers</span>
+<span class="c1"># -----------------------------</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">central_partial_2var</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">xbar</span><span class="p">,</span> <span class="n">ybar</span><span class="p">,</span> <span class="n">hx</span><span class="p">,</span> <span class="n">hy</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Central finite-difference partial derivative at (xbar, ybar).</span>
+<span class="sd">       Uses hx, hy as step sizes; choose hx = σx and hy = σy for robustness.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">which</span> <span class="o">==</span> <span class="s2">&quot;x&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">xbar</span> <span class="o">+</span> <span class="n">hx</span><span class="p">,</span> <span class="n">ybar</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">xbar</span> <span class="o">-</span> <span class="n">hx</span><span class="p">,</span> <span class="n">ybar</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">hx</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">xbar</span><span class="p">,</span> <span class="n">ybar</span> <span class="o">+</span> <span class="n">hy</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">xbar</span><span class="p">,</span> <span class="n">ybar</span> <span class="o">-</span> <span class="n">hy</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">hy</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">propagate_2var</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">xbar</span><span class="p">,</span> <span class="n">sx</span><span class="p">,</span> <span class="n">ybar</span><span class="p">,</span> <span class="n">sy</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;First-order propagation for f(x,y) with independent uncertainties.</span>
+<span class="sd">       Returns: f0, σ_f, ∂f/∂x, ∂f/∂y, frac_x, frac_y</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Guard against zero step: fall back to tiny relative step if needed</span>
+    <span class="n">hx</span> <span class="o">=</span> <span class="n">sx</span> <span class="k">if</span> <span class="n">sx</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="nb">max</span><span class="p">(</span><span class="mf">1e-6</span> <span class="o">*</span> <span class="nb">max</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">xbar</span><span class="p">)),</span> <span class="mf">1e-12</span><span class="p">)</span>
+    <span class="n">hy</span> <span class="o">=</span> <span class="n">sy</span> <span class="k">if</span> <span class="n">sy</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="nb">max</span><span class="p">(</span><span class="mf">1e-6</span> <span class="o">*</span> <span class="nb">max</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">ybar</span><span class="p">)),</span> <span class="mf">1e-12</span><span class="p">)</span>
+
+    <span class="n">dfdx</span> <span class="o">=</span> <span class="n">central_partial_2var</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">xbar</span><span class="p">,</span> <span class="n">ybar</span><span class="p">,</span> <span class="n">hx</span><span class="p">,</span> <span class="n">hy</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">)</span>
+    <span class="n">dfdy</span> <span class="o">=</span> <span class="n">central_partial_2var</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">xbar</span><span class="p">,</span> <span class="n">ybar</span><span class="p">,</span> <span class="n">hx</span><span class="p">,</span> <span class="n">hy</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">)</span>
+    <span class="n">f0</span>   <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">xbar</span><span class="p">,</span> <span class="n">ybar</span><span class="p">)</span>
+
+    <span class="n">var_x</span> <span class="o">=</span> <span class="p">(</span><span class="n">dfdx</span> <span class="o">*</span> <span class="n">sx</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="n">var_y</span> <span class="o">=</span> <span class="p">(</span><span class="n">dfdy</span> <span class="o">*</span> <span class="n">sy</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="n">var</span>   <span class="o">=</span> <span class="n">var_x</span> <span class="o">+</span> <span class="n">var_y</span>
+    <span class="n">sf</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">var</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">frac_x</span> <span class="o">=</span> <span class="n">var_x</span> <span class="o">/</span> <span class="n">var</span>
+        <span class="n">frac_y</span> <span class="o">=</span> <span class="n">var_y</span> <span class="o">/</span> <span class="n">var</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">frac_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        <span class="n">frac_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+    <span class="k">return</span> <span class="n">f0</span><span class="p">,</span> <span class="n">sf</span><span class="p">,</span> <span class="n">dfdx</span><span class="p">,</span> <span class="n">dfdy</span><span class="p">,</span> <span class="n">frac_x</span><span class="p">,</span> <span class="n">frac_y</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">pm_str</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">sig</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">sigfig_unc</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Format value ± uncertainty with reasonable significant figures.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">sig</span><span class="p">)</span> <span class="ow">or</span> <span class="n">sig</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">val</span><span class="si">:</span><span class="s2">g</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">unit</span><span class="si">}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">exp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">sig</span><span class="p">))))</span> <span class="k">if</span> <span class="n">sig</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+    <span class="n">scale</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">**</span> <span class="p">(</span><span class="n">exp</span> <span class="o">-</span> <span class="n">sigfig_unc</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">s_r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">sig</span> <span class="o">/</span> <span class="n">scale</span><span class="p">)</span> <span class="o">*</span> <span class="n">scale</span>
+    <span class="n">v_r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">val</span> <span class="o">/</span> <span class="n">scale</span><span class="p">)</span> <span class="o">*</span> <span class="n">scale</span>
+    <span class="n">dec</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="p">(</span><span class="n">exp</span> <span class="o">-</span> <span class="n">sigfig_unc</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">fmt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="se">{{</span><span class="s2">:.</span><span class="si">{</span><span class="n">dec</span><span class="si">}</span><span class="s2">f</span><span class="se">}}</span><span class="s2">&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">fmt</span> <span class="o">+</span> <span class="s2">&quot; ± &quot;</span> <span class="o">+</span> <span class="n">fmt</span> <span class="o">+</span> <span class="s2">&quot; </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">v_r</span><span class="p">,</span> <span class="n">s_r</span><span class="p">,</span> <span class="n">unit</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">sep</span><span class="p">(</span><span class="n">title</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">title</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">title</span><span class="p">))</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">show_shares</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">shares</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">4.8</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">shares</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Variance share&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">shares</span><span class="p">):</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">s</span> <span class="o">+</span> <span class="mf">0.02</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">s</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># ----------------------------------------</span>
+<span class="c1"># Scenario A: Density  ρ = m / V  (SI units)</span>
+<span class="c1"># ----------------------------------------</span>
+<span class="c1"># Given (convert V from liters to m^3 first):</span>
+<span class="n">m_bar</span><span class="p">,</span> <span class="n">s_m</span> <span class="o">=</span> <span class="mf">0.250</span><span class="p">,</span> <span class="mf">0.005</span>              <span class="c1"># kg</span>
+<span class="n">V_bar_L</span><span class="p">,</span> <span class="n">s_V_L</span> <span class="o">=</span> <span class="mf">0.300</span><span class="p">,</span> <span class="mf">0.010</span>          <span class="c1"># L</span>
+<span class="n">V_bar</span><span class="p">,</span>  <span class="n">s_V</span>  <span class="o">=</span> <span class="n">V_bar_L</span> <span class="o">*</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="n">s_V_L</span> <span class="o">*</span> <span class="mf">1e-3</span>   <span class="c1"># m^3</span>
+
+<span class="n">rho</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">m</span><span class="p">,</span> <span class="n">V</span><span class="p">:</span> <span class="n">m</span> <span class="o">/</span> <span class="n">V</span>
+
+<span class="n">sep</span><span class="p">(</span><span class="s2">&quot;Scenario A — Density  ρ = m / V&quot;</span><span class="p">)</span>
+<span class="n">rho0</span><span class="p">,</span> <span class="n">s_rho</span><span class="p">,</span> <span class="n">dr_dm</span><span class="p">,</span> <span class="n">dr_dV</span><span class="p">,</span> <span class="n">frac_m</span><span class="p">,</span> <span class="n">frac_V</span> <span class="o">=</span> <span class="n">propagate_2var</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">m_bar</span><span class="p">,</span> <span class="n">s_m</span><span class="p">,</span> <span class="n">V_bar</span><span class="p">,</span> <span class="n">s_V</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inputs (SI):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  m = </span><span class="si">{</span><span class="n">pm_str</span><span class="p">(</span><span class="n">m_bar</span><span class="p">,</span><span class="w"> </span><span class="n">s_m</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;kg&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  V = </span><span class="si">{</span><span class="n">pm_str</span><span class="p">(</span><span class="n">V_bar</span><span class="p">,</span><span class="w"> </span><span class="n">s_V</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;m^3&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">  (from </span><span class="si">{</span><span class="n">V_bar_L</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> ± </span><span class="si">{</span><span class="n">s_V_L</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> L)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Finite-difference propagation (independent x,y):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ρ = </span><span class="si">{</span><span class="n">pm_str</span><span class="p">(</span><span class="n">rho0</span><span class="p">,</span><span class="w"> </span><span class="n">s_rho</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;kg/m^3&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Partials (sensitivities at means):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    ∂ρ/∂m ≈ </span><span class="si">{</span><span class="n">dr_dm</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2">  (units: (kg/m^3)/kg)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    ∂ρ/∂V ≈ </span><span class="si">{</span><span class="n">dr_dV</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2">  (units: (kg/m^3)/m^3)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Variance shares:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    from m: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">frac_m</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    from V: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">frac_V</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+
+<span class="n">show_shares</span><span class="p">(</span><span class="s2">&quot;Scenario A — variance share&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;mass (m)&quot;</span><span class="p">,</span> <span class="s2">&quot;volume (V)&quot;</span><span class="p">],</span> <span class="p">[</span><span class="n">frac_m</span><span class="p">,</span> <span class="n">frac_V</span><span class="p">])</span>
+
+<span class="c1"># --------------------------------------------------</span>
+<span class="c1"># Scenario B: Kinetic Energy  K = (1/2) m v^2  (SI)</span>
+<span class="c1"># --------------------------------------------------</span>
+<span class="n">mK_bar</span><span class="p">,</span> <span class="n">s_mK</span> <span class="o">=</span> <span class="mf">1.50</span><span class="p">,</span> <span class="mf">0.05</span>   <span class="c1"># kg</span>
+<span class="n">v_bar</span><span class="p">,</span>  <span class="n">s_v</span>  <span class="o">=</span> <span class="mf">2.00</span><span class="p">,</span> <span class="mf">0.10</span>   <span class="c1"># m/s</span>
+
+<span class="n">K</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">m</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">m</span> <span class="o">*</span> <span class="n">v</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">sep</span><span class="p">(</span><span class="s2">&quot;Scenario B — Kinetic Energy  K = (1/2) m v^2&quot;</span><span class="p">)</span>
+<span class="n">K0</span><span class="p">,</span> <span class="n">s_K</span><span class="p">,</span> <span class="n">dK_dm</span><span class="p">,</span> <span class="n">dK_dv</span><span class="p">,</span> <span class="n">frac_mK</span><span class="p">,</span> <span class="n">frac_v</span> <span class="o">=</span> <span class="n">propagate_2var</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">mK_bar</span><span class="p">,</span> <span class="n">s_mK</span><span class="p">,</span> <span class="n">v_bar</span><span class="p">,</span> <span class="n">s_v</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inputs (SI):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  m = </span><span class="si">{</span><span class="n">pm_str</span><span class="p">(</span><span class="n">mK_bar</span><span class="p">,</span><span class="w"> </span><span class="n">s_mK</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;kg&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  v = </span><span class="si">{</span><span class="n">pm_str</span><span class="p">(</span><span class="n">v_bar</span><span class="p">,</span><span class="w"> </span><span class="n">s_v</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;m/s&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Finite-difference propagation (independent x,y):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  K = </span><span class="si">{</span><span class="n">pm_str</span><span class="p">(</span><span class="n">K0</span><span class="p">,</span><span class="w"> </span><span class="n">s_K</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;J&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Partials (sensitivities at means):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    ∂K/∂m ≈ </span><span class="si">{</span><span class="n">dK_dm</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2">  (units: J/kg)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    ∂K/∂v ≈ </span><span class="si">{</span><span class="n">dK_dv</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2">  (units: J·s/m)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Variance shares:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    from m: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">frac_mK</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    from v: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">frac_v</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+
+<span class="n">show_shares</span><span class="p">(</span><span class="s2">&quot;Scenario B — variance share&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;mass (m)&quot;</span><span class="p">,</span> <span class="s2">&quot;velocity (v)&quot;</span><span class="p">],</span> <span class="p">[</span><span class="n">frac_mK</span><span class="p">,</span> <span class="n">frac_v</span><span class="p">])</span>
+
+<span class="c1"># --------------------------------------------------</span>
+<span class="c1"># Template for your own function f(x,y)</span>
+<span class="c1"># --------------------------------------------------</span>
+<span class="c1"># To use:</span>
+<span class="c1"># 1) Define your function f(x,y)</span>
+<span class="c1"># 2) Set xbar, sx, ybar, sy</span>
+<span class="c1"># 3) Call propagate_2var(f, xbar, sx, ybar, sy)</span>
+<span class="c1">#</span>
+<span class="c1"># Example (commented):</span>
+<span class="c1">#</span>
+<span class="c1"># f = lambda x, y: (x * y**2) / (x + y)</span>
+<span class="c1"># xbar, sx = 2.0, 0.1</span>
+<span class="c1"># ybar, sy = 3.0, 0.2</span>
+<span class="c1"># f0, sf, dfdx, dfdy, fracx, fracy = propagate_2var(f, xbar, sx, ybar, sy)</span>
+<span class="c1"># print(f&quot;f = {pm_str(f0, sf)}&quot;)</span>
+<span class="c1"># print(f&quot;Partials: ∂f/∂x ≈ {dfdx:.3e}, ∂f/∂y ≈ {dfdy:.3e}&quot;)</span>
+<span class="c1"># print(f&quot;Variance shares: x ≈ {100*fracx:.1f}%, y ≈ {100*fracy:.1f}%&quot;)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scenario A — Density  ρ = m / V
+===============================
+Inputs (SI):
+  m = 0.2500 ± 0.0050 kg
+  V = 0.000300 ± 0.000010 m^3  (from 0.300 ± 0.010 L)
+
+Finite-difference propagation (independent x,y):
+  ρ = 833 ± 32 kg/m^3
+  Partials (sensitivities at means):
+    ∂ρ/∂m ≈ 3.333e+03  (units: (kg/m^3)/kg)
+    ∂ρ/∂V ≈ -2.781e+06  (units: (kg/m^3)/m^3)
+  Variance shares:
+    from m: 26.4%
+    from V: 73.6%
+</pre></div>
+</div>
+<img alt="../_images/2cf95d4272f7039d2e08cd9cd55011e9d7a216cc6371409a6b7c8d53c29533df.png" src="../_images/2cf95d4272f7039d2e08cd9cd55011e9d7a216cc6371409a6b7c8d53c29533df.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scenario B — Kinetic Energy  K = (1/2) m v^2
+============================================
+Inputs (SI):
+  m = 1.500 ± 0.050 kg
+  v = 2.00 ± 0.10 m/s
+
+Finite-difference propagation (independent x,y):
+  K = 3.00 ± 0.32 J
+  Partials (sensitivities at means):
+    ∂K/∂m ≈ 2.000e+00  (units: J/kg)
+    ∂K/∂v ≈ 3.000e+00  (units: J·s/m)
+  Variance shares:
+    from m: 10.0%
+    from v: 90.0%
+</pre></div>
+</div>
+<img alt="../_images/a0a92524a2fee362458bd61e747a85d78df3c4ed9fff20ac49d8f115cfd2c27e.png" src="../_images/a0a92524a2fee362458bd61e747a85d78df3c4ed9fff20ac49d8f115cfd2c27e.png" />
+</div>
+</details>
+</div>
+</section>
+<hr class="docutils" />
+<section id="results-and-discussion">
+<h2>7) Results and Discussion<a class="headerlink" href="#results-and-discussion" title="Link to this heading">#</a></h2>
+<p>For each example:</p>
+<ul class="simple">
+<li><p>Report <span class="math notranslate nohighlight">\(f = f(\bar x,\bar y)\)</span> and <span class="math notranslate nohighlight">\(\sigma_f\)</span>.</p></li>
+<li><p>Show both partials and the contribution percentages.</p></li>
+<li><p>Comment on which uncertainty dominates and why.</p></li>
+<li><p>Reflect: If <span class="math notranslate nohighlight">\(\sigma_x\)</span> were halved, how much would <span class="math notranslate nohighlight">\(\sigma_f\)</span> decrease?</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="deliverables">
+<h2>8) Deliverables<a class="headerlink" href="#deliverables" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Completed tables for both examples (inputs, computed values, partials, <span class="math notranslate nohighlight">\(\sigma_f\)</span>).</p></li>
+<li><p>Final results with correct units and reasonable significant figures.</p></li>
+<li><p>Short written paragraph explaining which measurement dominates the uncertainty and why.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="common-pitfalls">
+<h2>9) Common Pitfalls<a class="headerlink" href="#common-pitfalls" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Mixing units (e.g., liters vs. m<span class="math notranslate nohighlight">\(^3\)</span>).</p></li>
+<li><p>Using steps <span class="math notranslate nohighlight">\(h\)</span> that are too large (nonlinear bias) or too small (round-off noise).</p></li>
+<li><p>Forgetting to use <strong>absolute</strong> units for uncertainties.</p></li>
+<li><p>Reporting <span class="math notranslate nohighlight">\(f\)</span> with more precision than justified by <span class="math notranslate nohighlight">\(\sigma_f\)</span>.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Cool Factor:</strong> Run the provided Python cell below to check your results numerically using both the finite-difference method and a Monte-Carlo simulation.</p>
+</section>
+<hr class="docutils" />
+<section id="monte-carlo-validation-for-the-density-example">
+<h2>10) Monte Carlo Validation for the Density Example<a class="headerlink" href="#monte-carlo-validation-for-the-density-example" title="Link to this heading">#</a></h2>
+<p>Up to now, we used the <strong>finite-difference method</strong> to estimate how small independent uncertainties in <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(V\)</span> propagate into the uncertainty of the density:</p>
+<div class="math notranslate nohighlight">
+\[
+\rho = \frac{m}{V}.
+\]</div>
+<p>That method assumes two things:</p>
+<ol class="arabic simple">
+<li><p>The function behaves <em>approximately linearly</em> near the measured values <span class="math notranslate nohighlight">\((\bar m,\bar V)\)</span>.</p></li>
+<li><p>The uncertainties are <em>small enough</em> that higher-order terms (curvature of <span class="math notranslate nohighlight">\(f\)</span>) can be ignored.</p></li>
+</ol>
+<p>But what if the dependence on <span class="math notranslate nohighlight">\(V\)</span> is <strong>strongly nonlinear</strong> (e.g., inverse dependence),<br />
+or what if the uncertainty in <span class="math notranslate nohighlight">\(V\)</span> is <strong>relatively large</strong> compared to its mean?</p>
+<p>To check whether the linear approximation is still reliable, we can use a <strong>Monte Carlo simulation</strong>.</p>
+<hr class="docutils" />
+<section id="what-is-monte-carlo-simulation">
+<h3>What is Monte Carlo simulation?<a class="headerlink" href="#what-is-monte-carlo-simulation" title="Link to this heading">#</a></h3>
+<p>Instead of using derivatives, we <strong>simulate many possible measurements</strong> of <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(V\)</span>, treating each as a random draw from their normal (Gaussian) uncertainty distributions:</p>
+<div class="math notranslate nohighlight">
+\[
+m \sim \mathcal N(\bar m, \sigma_m), \qquad V \sim \mathcal N(\bar V, \sigma_V).
+\]</div>
+<p>For each random pair <span class="math notranslate nohighlight">\((m_i,V_i)\)</span> we compute</p>
+<div class="math notranslate nohighlight">
+\[
+\rho_i = \frac{m_i}{V_i}.
+\]</div>
+<p>After repeating this <span class="math notranslate nohighlight">\(N\)</span> times (for example <span class="math notranslate nohighlight">\(N=100{,}000\)</span>),<br />
+the collection <span class="math notranslate nohighlight">\(\{\rho_i\}\)</span> forms a <em>distribution</em> of possible densities.<br />
+The <strong>mean</strong> of this distribution estimates <span class="math notranslate nohighlight">\(\bar\rho\)</span>, and its <strong>standard deviation</strong> gives <span class="math notranslate nohighlight">\(\sigma_\rho\)</span> directly.</p>
+</section>
+<hr class="docutils" />
+<section id="why-use-it-here">
+<h3>Why use it here?<a class="headerlink" href="#why-use-it-here" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\rho = m/V\)</span> is a <strong>nonlinear</strong> function (because of the division),<br />
+so the linear finite-difference formula might slightly underestimate or overestimate <span class="math notranslate nohighlight">\(\sigma_\rho\)</span>.</p></li>
+<li><p>Monte Carlo automatically includes the nonlinear curvature.</p></li>
+<li><p>Comparing both results lets us <strong>validate</strong> whether the first-order propagation is sufficient for our data.</p></li>
+</ul>
+<p>If both agree within a few percent, the finite-difference approximation is accurate for these uncertainties.<br />
+If not, we may need to reduce <span class="math notranslate nohighlight">\(\sigma_V\)</span> experimentally or use MC propagation for the reported value.</p>
+</section>
+<hr class="docutils" />
+<section id="expected-behavior-for-this-example">
+<h3>Expected behavior for this example<a class="headerlink" href="#expected-behavior-for-this-example" title="Link to this heading">#</a></h3>
+<p>Because <span class="math notranslate nohighlight">\(\rho\)</span> depends inversely on <span class="math notranslate nohighlight">\(V\)</span>, even small variations in <span class="math notranslate nohighlight">\(V\)</span> produce noticeable asymmetry in <span class="math notranslate nohighlight">\(\rho_i\)</span>.<br />
+The histogram will therefore be slightly <em>skewed</em> (longer tail to the right), even though <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(V\)</span> are normally distributed.</p>
+<p>That skewness is precisely why it’s worth checking Monte Carlo.</p>
+<hr class="docutils" />
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># PHYS 2215 — Monte Carlo validation for density  ρ = m / V</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Given values</span>
+<span class="n">m_bar</span><span class="p">,</span> <span class="n">s_m</span> <span class="o">=</span> <span class="mf">0.250</span><span class="p">,</span> <span class="mf">0.005</span>              <span class="c1"># kg</span>
+<span class="n">V_bar_L</span><span class="p">,</span> <span class="n">s_V_L</span> <span class="o">=</span> <span class="mf">0.300</span><span class="p">,</span> <span class="mf">0.010</span>          <span class="c1"># L</span>
+<span class="n">V_bar</span><span class="p">,</span>  <span class="n">s_V</span>  <span class="o">=</span> <span class="n">V_bar_L</span> <span class="o">*</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="n">s_V_L</span> <span class="o">*</span> <span class="mf">1e-3</span>   <span class="c1"># m^3</span>
+<span class="n">rho</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">m</span><span class="p">,</span> <span class="n">V</span><span class="p">:</span> <span class="n">m</span> <span class="o">/</span> <span class="n">V</span>
+
+<span class="c1"># ----- Finite-difference propagation (from previous lab step) -----</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">central_partial_2var</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">xbar</span><span class="p">,</span> <span class="n">ybar</span><span class="p">,</span> <span class="n">hx</span><span class="p">,</span> <span class="n">hy</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">which</span> <span class="o">==</span> <span class="s2">&quot;x&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">xbar</span> <span class="o">+</span> <span class="n">hx</span><span class="p">,</span> <span class="n">ybar</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">xbar</span> <span class="o">-</span> <span class="n">hx</span><span class="p">,</span> <span class="n">ybar</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">hx</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">xbar</span><span class="p">,</span> <span class="n">ybar</span> <span class="o">+</span> <span class="n">hy</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">xbar</span><span class="p">,</span> <span class="n">ybar</span> <span class="o">-</span> <span class="n">hy</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">hy</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">propagate_fd</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">xbar</span><span class="p">,</span> <span class="n">sx</span><span class="p">,</span> <span class="n">ybar</span><span class="p">,</span> <span class="n">sy</span><span class="p">):</span>
+    <span class="n">dfdx</span> <span class="o">=</span> <span class="n">central_partial_2var</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">xbar</span><span class="p">,</span> <span class="n">ybar</span><span class="p">,</span> <span class="n">sx</span><span class="p">,</span> <span class="n">sy</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">)</span>
+    <span class="n">dfdy</span> <span class="o">=</span> <span class="n">central_partial_2var</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">xbar</span><span class="p">,</span> <span class="n">ybar</span><span class="p">,</span> <span class="n">sx</span><span class="p">,</span> <span class="n">sy</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">)</span>
+    <span class="n">f0</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">xbar</span><span class="p">,</span> <span class="n">ybar</span><span class="p">)</span>
+    <span class="n">var</span> <span class="o">=</span> <span class="p">(</span><span class="n">dfdx</span> <span class="o">*</span> <span class="n">sx</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">dfdy</span> <span class="o">*</span> <span class="n">sy</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">return</span> <span class="n">f0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
+
+<span class="n">rho_fd</span><span class="p">,</span> <span class="n">s_rho_fd</span> <span class="o">=</span> <span class="n">propagate_fd</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">m_bar</span><span class="p">,</span> <span class="n">s_m</span><span class="p">,</span> <span class="n">V_bar</span><span class="p">,</span> <span class="n">s_V</span><span class="p">)</span>
+
+<span class="c1"># ----- Monte Carlo sampling -----</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">100_000</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">2215</span><span class="p">)</span>
+<span class="n">m_samples</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">m_bar</span><span class="p">,</span> <span class="n">s_m</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">V_samples</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">V_bar</span><span class="p">,</span> <span class="n">s_V</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">rho_samples</span> <span class="o">=</span> <span class="n">rho</span><span class="p">(</span><span class="n">m_samples</span><span class="p">,</span> <span class="n">V_samples</span><span class="p">)</span>
+
+<span class="n">rho_mc_mean</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">rho_samples</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="n">rho_mc_std</span>  <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">rho_samples</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># ----- Comparison -----</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Monte Carlo vs Finite Difference for ρ = m / V</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Measured inputs:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  m = </span><span class="si">{</span><span class="n">m_bar</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> ± </span><span class="si">{</span><span class="n">s_m</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> kg&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  V = </span><span class="si">{</span><span class="n">V_bar</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> ± </span><span class="si">{</span><span class="n">s_V</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> m³  (from </span><span class="si">{</span><span class="n">V_bar_L</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> ± </span><span class="si">{</span><span class="n">s_V_L</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> L)</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Finite-difference propagation:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ρ = </span><span class="si">{</span><span class="n">rho_fd</span><span class="si">:</span><span class="s2">.6g</span><span class="si">}</span><span class="s2"> ± </span><span class="si">{</span><span class="n">s_rho_fd</span><span class="si">:</span><span class="s2">.6g</span><span class="si">}</span><span class="s2"> kg/m³&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Monte Carlo simulation (N=</span><span class="si">{</span><span class="n">N</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  mean ≈ </span><span class="si">{</span><span class="n">rho_mc_mean</span><span class="si">:</span><span class="s2">.6g</span><span class="si">}</span><span class="s2"> kg/m³&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  std  ≈ </span><span class="si">{</span><span class="n">rho_mc_std</span><span class="si">:</span><span class="s2">.6g</span><span class="si">}</span><span class="s2"> kg/m³&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Relative difference in σₚ: </span><span class="si">{</span><span class="p">(</span><span class="n">rho_mc_std</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">s_rho_fd</span><span class="p">)</span><span class="o">/</span><span class="n">s_rho_fd</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+
+<span class="c1"># ----- Visualization -----</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rho_samples</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">rho_fd</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;FD mean&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">rho_fd</span> <span class="o">-</span> <span class="n">s_rho_fd</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;FD ±1σ&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">rho_fd</span> <span class="o">+</span> <span class="n">s_rho_fd</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;ρ (kg/m³)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Probability density&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Monte Carlo distribution of ρ = m/V&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Interpretation:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• Both approaches estimate σₚ, the uncertainty in density.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• Finite-difference assumes linear behavior around the mean; Monte Carlo tests that assumption.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• A small difference (typically &lt;5–10%) indicates the linear model is adequate.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• The slightly skewed histogram shows that the inverse relation (1/V) introduces asymmetry,&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  but for these uncertainties, the difference remains small — our propagation method is valid.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Monte Carlo vs Finite Difference for ρ = m / V
+
+Measured inputs:
+  m = 0.250 ± 0.005 kg
+  V = 0.000300 ± 0.000010 m³  (from 0.300 ± 0.010 L)
+
+Finite-difference propagation:
+  ρ = 833.333 ± 32.4207 kg/m³
+Monte Carlo simulation (N=100,000):
+  mean ≈ 834.424 kg/m³
+  std  ≈ 32.5653 kg/m³
+
+Relative difference in σₚ: 0.45%
+</pre></div>
+</div>
+<img alt="../_images/f2ec53eda79f83e25ef3bdd14f4277b3858f049aa74be35a9ac6490e7a44ae4a.png" src="../_images/f2ec53eda79f83e25ef3bdd14f4277b3858f049aa74be35a9ac6490e7a44ae4a.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Interpretation:
+• Both approaches estimate σₚ, the uncertainty in density.
+• Finite-difference assumes linear behavior around the mean; Monte Carlo tests that assumption.
+• A small difference (typically &lt;5–10%) indicates the linear model is adequate.
+• The slightly skewed histogram shows that the inverse relation (1/V) introduces asymmetry,
+  but for these uncertainties, the difference remains small — our propagation method is valid.
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lab10"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../lab9/lab9.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lab 9: Polar Coordinates with a Simple Pendulum — Measuring <span class="math notranslate nohighlight">\(v\)</span> from <span class="math notranslate nohighlight">\(\omega\)</span></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../lab11/lab11.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lab 11- Sound Waves with Phyphox — Fourier Transform and Autocorrelation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-error-propagation-single-variable-functions">Background - Error Propagation: Single Variable Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-volume-of-a-sphere">Example: Volume of a Sphere</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">Discussion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">1) Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-idea-of-partial-derivatives">2) The Idea of Partial Derivatives</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-uncertainty">Connecting to Uncertainty</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-interpretation">Visual interpretation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-difference-approximation-numerical-estimation">3) Finite-Difference Approximation (Numerical Estimation)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propagating-uncertainties">4) Propagating Uncertainties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synthetic-data-two-examples">5) Synthetic Data (Two Examples)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-density">A) Density</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-kinetic-energy">B) Kinetic Energy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">6) Procedure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results-and-discussion">7) Results and Discussion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">8) Deliverables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfalls">9) Common Pitfalls</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monte-carlo-validation-for-the-density-example">10) Monte Carlo Validation for the Density Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-monte-carlo-simulation">What is Monte Carlo simulation?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-it-here">Why use it here?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-behavior-for-this-example">Expected behavior for this example</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

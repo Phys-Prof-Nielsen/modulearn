@@ -1,0 +1,789 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lab 7: Exploring the Spring Constant and Equivalent Springs &#8212; A Note to University Physics I Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lab7/lab7';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lab 8 — Heat Transfer with a Thermal Camera" href="../lab8/lab8.html" />
+    <link rel="prev" title="Lab 6: Realistic Projectile Motion Simulation" href="../lab6/lab6.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="A Note to University Physics I Lab - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="A Note to University Physics I Lab - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Notes for University Physics I Lab
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://modulearn.academy/spheres/physics/university-physics-I-lab/university-physics-I-lab.html">University Physics I Lab Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 1 - Report Writing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab1/lab1.html">Lab 1 (Synthetic): Hooke’s Law &amp; Writing a Professional Jupyter Report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab1/lab1-template.html">Template Lab 1: Hooke’s Law Report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab1/markdown.html">Markdown for Lab Reports — Quick Guide &amp; Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab1/latex.html">LaTeX Equation Cheat Sheet (for Lab Reports)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 2 - Error Analysis and Measurements</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab2/analysis-measurements.html">Measurement &amp; Uncertainty</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab2/lab2.html">Lab 2 — Reaction-Time Ruler Drop (Measurement &amp; Uncertainty)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 3 - Newton’s Second Law Lab</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab3/lab3.html">Newton’s Second Law Lab: Friction-Limited Acceleration of a Cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab3/helpful-code.html">Helpful Code Note: Analyzing Phyphox Data in Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 4 - 1D Collision</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab4/lab4.html">Lab 4: 1D Collision</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 5 - Ballistic Pendulum</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab5/lab5.html">Lab 5: Ballistic Pendulum - Pizza Prize</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 6 - Air Drag - Numerical Simulation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab6/lab6.html">Lab 6: Realistic Projectile Motion Simulation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 7 - Spring Systems</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 7: Exploring the Spring Constant and Equivalent Springs</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 8 - Heat Transfer</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab8/lab8.html">Lab 8 — Heat Transfer with a Thermal Camera</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 9 - Pendulum and Polar Coordinates</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab9/lab9.html">Lab 9: Polar Coordinates with a Simple Pendulum — Measuring <span class="math notranslate nohighlight">\(v\)</span> from <span class="math notranslate nohighlight">\(\omega\)</span></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 10 - Error Propagation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab10/lab10.html">Lab 10 — Uncertainty and Error Propagation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 11 - Fourier Transform and Autocorrelation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab11/lab11.html">Lab 11- Sound Waves with Phyphox — Fourier Transform and Autocorrelation</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/lab7/lab7.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lab7/lab7.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 7: Exploring the Spring Constant and Equivalent Springs</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives"><strong>Learning Objectives</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction"><strong>Introduction</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theory-and-model"><strong>Theory and Model</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hookes-law"><strong>1. Hooke’s Law</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#springs-in-series"><strong>2. Springs in Series</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#springs-in-parallel"><strong>3. Springs in Parallel</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#electrical-analogy"><strong>4. Electrical Analogy</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodology"><strong>Methodology</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equipment"><strong>Equipment</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-determining-the-spring-constant-of-individual-springs"><strong>Part 1: Determining the Spring Constant of Individual Springs</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-springs-in-series"><strong>Part 2: Springs in Series</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-springs-in-parallel"><strong>Part 3: Springs in Parallel</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-analysis-and-discussion"><strong>Part 4: Analysis and Discussion</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables"><strong>Deliverables</strong></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-7-exploring-the-spring-constant-and-equivalent-springs">
+<h1>Lab 7: Exploring the Spring Constant and Equivalent Springs<a class="headerlink" href="#lab-7-exploring-the-spring-constant-and-equivalent-springs" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="learning-objectives">
+<h2><strong>Learning Objectives</strong><a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>By the end of this lab, we will be able to:</p>
+<ol class="arabic simple">
+<li><p>Determine the <strong>spring constant</strong> <span class="math notranslate nohighlight">\(k\)</span> of individual springs using experimental data.</p></li>
+<li><p>Analyze and model <strong>springs connected in series and in parallel</strong>.</p></li>
+<li><p>Compare the <strong>experimental equivalent spring constants</strong> to the <strong>theoretical predictions</strong>.</p></li>
+<li><p>Recognize the <strong>analogy between mechanical spring systems and electrical circuits</strong>, such as resistors and capacitors.</p></li>
+<li><p>Practice graphing and interpreting linear relationships between force and displacement.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="introduction">
+<h2><strong>Introduction</strong><a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>In this lab, we explore one of the most fundamental relationships in mechanics — <strong>Hooke’s Law</strong>, which describes how springs respond to applied forces. Springs are simple yet powerful models for understanding oscillations, restoring forces, and energy storage in physical systems.</p>
+<p>When a force <span class="math notranslate nohighlight">\(F\)</span> is applied to stretch or compress a spring, the spring resists deformation with a restoring force that is proportional to the displacement <span class="math notranslate nohighlight">\(x\)</span> from its equilibrium position:</p>
+<div class="math notranslate nohighlight">
+\[
+F = -kx
+\]</div>
+<p>The proportionality constant <span class="math notranslate nohighlight">\(k\)</span> is the <strong>spring constant</strong>, which measures the stiffness of the spring. A large <span class="math notranslate nohighlight">\(k\)</span> indicates a stiffer spring, while a small <span class="math notranslate nohighlight">\(k\)</span> corresponds to a more flexible spring.</p>
+<p>In this experiment, you will first determine the spring constant of several individual springs, then explore how springs behave when combined in <strong>series</strong> and <strong>parallel</strong> configurations. This provides insight into how complex mechanical systems distribute forces and displacements — a principle that has direct analogies in electrical circuits.</p>
+</section>
+<hr class="docutils" />
+<section id="theory-and-model">
+<h2><strong>Theory and Model</strong><a class="headerlink" href="#theory-and-model" title="Link to this heading">#</a></h2>
+<section id="hookes-law">
+<h3><strong>1. Hooke’s Law</strong><a class="headerlink" href="#hookes-law" title="Link to this heading">#</a></h3>
+<p>When a spring is stretched or compressed by a displacement <span class="math notranslate nohighlight">\(x\)</span>, the restoring force it exerts is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+F = kx
+\]</div>
+<p>In equilibrium, the applied force and the spring’s restoring force are equal in magnitude:</p>
+<div class="math notranslate nohighlight">
+\[
+F_{\text{applied}} = kx
+\]</div>
+<p>If we hang a mass <span class="math notranslate nohighlight">\(m\)</span> from a vertical spring, the equilibrium position occurs when the gravitational force balances the spring force:</p>
+<div class="math notranslate nohighlight">
+\[
+mg = kx
+\]</div>
+<p>Thus, the spring constant can be found from the slope of a graph of <strong>force (<span class="math notranslate nohighlight">\(F = mg\)</span>)</strong> versus <strong>displacement (<span class="math notranslate nohighlight">\(x\)</span>)</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="springs-in-series">
+<h3><strong>2. Springs in Series</strong><a class="headerlink" href="#springs-in-series" title="Link to this heading">#</a></h3>
+<p>When two springs are connected <strong>in series</strong>, the same force acts through each spring. We can understand that by considering static equilibrium (when the system is at rest), the net force on every point in the system must be zero.
+Consider the junction point where the two springs meet:</p>
+<p>The upper spring pulls upward on the junction with a restoring force <span class="math notranslate nohighlight">\(F_1 = k_1 x_1\)</span>.</p>
+<p>The lower spring pulls downward on the same junction with a force <span class="math notranslate nohighlight">\(F_2 = k_2 x_2\)</span>.</p>
+<p>For the junction not to accelerate (Newton’s 2nd law), these two forces must balance. That means the tension (or force) transmitted through the series of springs is the same everywhere — just like the tension in a rope holding a mass.</p>
+<p>The total displacement is the sum of the displacements of each spring:</p>
+<div class="math notranslate nohighlight">
+\[
+x_{\text{total}} = x_1 + x_2 = \frac{F}{k_1} + \frac{F}{k_2}
+\]</div>
+<p>Rearranging gives the <strong>equivalent spring constant</strong> <span class="math notranslate nohighlight">\(k_{\text{series}}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{k_{\text{series}}} = \frac{1}{k_1} + \frac{1}{k_2}
+\]</div>
+<p>This configuration results in a <strong>softer system</strong> — the equivalent spring constant is <strong>smaller</strong> than either individual spring.</p>
+</section>
+<hr class="docutils" />
+<section id="springs-in-parallel">
+<h3><strong>3. Springs in Parallel</strong><a class="headerlink" href="#springs-in-parallel" title="Link to this heading">#</a></h3>
+<p>For springs in <strong>parallel</strong>, each spring resists that same displacement with its own restoring force according to Hooke’s law. Because both springs pull upward on the same mass, the total upward restoring force is the sum of these individual forces:</p>
+<div class="math notranslate nohighlight">
+\[
+F_{\text{total}} = F_1 + F_2 = k_1x + k_2x
+\]</div>
+<p>Therefore, the <strong>equivalent spring constant</strong> <span class="math notranslate nohighlight">\(k_{\text{parallel}}\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[
+k_{\text{parallel}} = k_1 + k_2
+\]</div>
+<p>This configuration creates a <strong>stiffer system</strong>, since the equivalent spring constant is <strong>larger</strong> than that of either individual spring.</p>
+</section>
+<hr class="docutils" />
+<section id="electrical-analogy">
+<h3><strong>4. Electrical Analogy</strong><a class="headerlink" href="#electrical-analogy" title="Link to this heading">#</a></h3>
+<p>The relationships above mirror the way <strong>resistors</strong> and <strong>capacitors</strong> combine in electrical circuits:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>System Type</p></th>
+<th class="head"><p>Series Relationship</p></th>
+<th class="head"><p>Parallel Relationship</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Springs</strong></p></td>
+<td><p><span class="math notranslate nohighlight">\(\dfrac{1}{k_{\text{eq}}} = \dfrac{1}{k_1} + \dfrac{1}{k_2}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(k_{\text{eq}} = k_1 + k_2\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Resistors</strong></p></td>
+<td><p><span class="math notranslate nohighlight">\(R_{\text{eq}} = R_1 + R_2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\dfrac{1}{R_{\text{eq}}} = \dfrac{1}{R_1} + \dfrac{1}{R_2}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Capacitors</strong></p></td>
+<td><p><span class="math notranslate nohighlight">\(\dfrac{1}{C_{\text{eq}}} = \dfrac{1}{C_1} + \dfrac{1}{C_2}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(C_{\text{eq}} = C_1 + C_2\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This analogy helps bridge mechanical and electrical systems — both obey similar mathematical structures that govern energy storage and transfer.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="methodology">
+<h2><strong>Methodology</strong><a class="headerlink" href="#methodology" title="Link to this heading">#</a></h2>
+<section id="equipment">
+<h3><strong>Equipment</strong><a class="headerlink" href="#equipment" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>3–4 springs of varying stiffness</p></li>
+<li><p>Stand and clamps</p></li>
+<li><p>Mass hanger and a set of masses</p></li>
+<li><p>Ruler or meter stick</p></li>
+<li><p>Digital balance (optional, to verify mass)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="part-1-determining-the-spring-constant-of-individual-springs">
+<h3><strong>Part 1: Determining the Spring Constant of Individual Springs</strong><a class="headerlink" href="#part-1-determining-the-spring-constant-of-individual-springs" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Hang a spring vertically and measure its <strong>initial length</strong> (no mass attached).</p></li>
+<li><p>Add masses incrementally (e.g., 50 g, 100 g, 150 g, …) and record the <strong>elongation <span class="math notranslate nohighlight">\(x\)</span></strong> after each addition.</p></li>
+<li><p>For each trial, calculate the <strong>applied force</strong> using <span class="math notranslate nohighlight">\(F = mg\)</span>.</p></li>
+<li><p>Plot <span class="math notranslate nohighlight">\(F\)</span> (y-axis) vs. <span class="math notranslate nohighlight">\(x\)</span> (x-axis). The slope of the linear fit gives the spring constant <span class="math notranslate nohighlight">\(k\)</span>.</p></li>
+<li><p>Repeat for all springs and tabulate results.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="part-2-springs-in-series">
+<h3><strong>Part 2: Springs in Series</strong><a class="headerlink" href="#part-2-springs-in-series" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Connect two springs in series and hang them vertically.</p></li>
+<li><p>Repeat the same measurement process as in Part 1.</p></li>
+<li><p>Determine <span class="math notranslate nohighlight">\(k_{\text{series}}\)</span> experimentally from the slope of the <span class="math notranslate nohighlight">\(F\)</span> vs. <span class="math notranslate nohighlight">\(x\)</span> plot.</p></li>
+<li><p>Compare the result to the theoretical prediction:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{k_{\text{series,th}}} = \frac{1}{k_1} + \frac{1}{k_2}
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="part-3-springs-in-parallel">
+<h3><strong>Part 3: Springs in Parallel</strong><a class="headerlink" href="#part-3-springs-in-parallel" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Connect two springs side by side (in parallel), both supporting the same load.</p></li>
+<li><p>Record elongations for different applied forces.</p></li>
+<li><p>Determine <span class="math notranslate nohighlight">\(k_{\text{parallel}}\)</span> experimentally.</p></li>
+<li><p>Compare to theory:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+k_{\text{parallel,th}} = k_1 + k_2
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="part-4-analysis-and-discussion">
+<h3><strong>Part 4: Analysis and Discussion</strong><a class="headerlink" href="#part-4-analysis-and-discussion" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Compare experimental and theoretical values of <span class="math notranslate nohighlight">\(k_{\text{eq}}\)</span> for both series and parallel configurations.</p></li>
+<li><p>Discuss possible sources of error (friction, non-ideal spring behavior, misalignment, etc.).</p></li>
+<li><p>Reflect on how these results illustrate energy sharing and stiffness in combined systems.</p></li>
+<li><p>Finally, discuss the analogy to electrical networks and how similar mathematical structures appear in physics across different domains.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="deliverables">
+<h2><strong>Deliverables</strong><a class="headerlink" href="#deliverables" title="Link to this heading">#</a></h2>
+<p>A detailed lab report. Pay attention to formatting and structure. Also include:</p>
+<ul class="simple">
+<li><p>Table of raw data for each spring and each configuration</p></li>
+<li><p>Graphs of <span class="math notranslate nohighlight">\(F\)</span> vs. <span class="math notranslate nohighlight">\(x\)</span> with linear fits</p></li>
+<li><p>Calculated <span class="math notranslate nohighlight">\(k\)</span>, <span class="math notranslate nohighlight">\(k_{\text{series}}\)</span>, and <span class="math notranslate nohighlight">\(k_{\text{parallel}}\)</span> (experimental and theoretical)</p></li>
+<li><p>Written discussion comparing mechanical and electrical analogies</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lab7"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../lab6/lab6.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lab 6: Realistic Projectile Motion Simulation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../lab8/lab8.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lab 8 — Heat Transfer with a Thermal Camera</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives"><strong>Learning Objectives</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction"><strong>Introduction</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theory-and-model"><strong>Theory and Model</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hookes-law"><strong>1. Hooke’s Law</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#springs-in-series"><strong>2. Springs in Series</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#springs-in-parallel"><strong>3. Springs in Parallel</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#electrical-analogy"><strong>4. Electrical Analogy</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodology"><strong>Methodology</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equipment"><strong>Equipment</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-determining-the-spring-constant-of-individual-springs"><strong>Part 1: Determining the Spring Constant of Individual Springs</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-springs-in-series"><strong>Part 2: Springs in Series</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-springs-in-parallel"><strong>Part 3: Springs in Parallel</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-analysis-and-discussion"><strong>Part 4: Analysis and Discussion</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables"><strong>Deliverables</strong></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

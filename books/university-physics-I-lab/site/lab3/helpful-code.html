@@ -1,0 +1,714 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Helpful Code Note: Analyzing Phyphox Data in Python &#8212; A Note to University Physics I Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lab3/helpful-code';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lab 4: 1D Collision" href="../lab4/lab4.html" />
+    <link rel="prev" title="Newton’s Second Law Lab: Friction-Limited Acceleration of a Cart" href="lab3.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="A Note to University Physics I Lab - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="A Note to University Physics I Lab - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Notes for University Physics I Lab
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://modulearn.academy/spheres/physics/university-physics-I-lab/university-physics-I-lab.html">University Physics I Lab Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 1 - Report Writing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab1/lab1.html">Lab 1 (Synthetic): Hooke’s Law &amp; Writing a Professional Jupyter Report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab1/lab1-template.html">Template Lab 1: Hooke’s Law Report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab1/markdown.html">Markdown for Lab Reports — Quick Guide &amp; Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab1/latex.html">LaTeX Equation Cheat Sheet (for Lab Reports)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 2 - Error Analysis and Measurements</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab2/analysis-measurements.html">Measurement &amp; Uncertainty</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab2/lab2.html">Lab 2 — Reaction-Time Ruler Drop (Measurement &amp; Uncertainty)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 3 - Newton’s Second Law Lab</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lab3.html">Newton’s Second Law Lab: Friction-Limited Acceleration of a Cart</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Helpful Code Note: Analyzing Phyphox Data in Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 4 - 1D Collision</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab4/lab4.html">Lab 4: 1D Collision</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 5 - Ballistic Pendulum</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab5/lab5.html">Lab 5: Ballistic Pendulum - Pizza Prize</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 6 - Air Drag - Numerical Simulation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab6/lab6.html">Lab 6: Realistic Projectile Motion Simulation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 7 - Spring Systems</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab7/lab7.html">Lab 7: Exploring the Spring Constant and Equivalent Springs</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 8 - Heat Transfer</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab8/lab8.html">Lab 8 — Heat Transfer with a Thermal Camera</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 9 - Pendulum and Polar Coordinates</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab9/lab9.html">Lab 9: Polar Coordinates with a Simple Pendulum — Measuring <span class="math notranslate nohighlight">\(v\)</span> from <span class="math notranslate nohighlight">\(\omega\)</span></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 10 - Error Propagation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab10/lab10.html">Lab 10 — Uncertainty and Error Propagation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 11 - Fourier Transform and Autocorrelation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab11/lab11.html">Lab 11- Sound Waves with Phyphox — Fourier Transform and Autocorrelation</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/lab3/helpful-code.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lab3/helpful-code.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Helpful Code Note: Analyzing Phyphox Data in Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-import-the-data">Step 1. Import the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-select-time-and-axis-of-motion">Step 2. Select time and axis of motion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-plot-to-see-the-coast-phase">Step 3. Plot to see the coast phase</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-average-over-the-coast-interval">Step 4. Average over the coast interval</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-convert-to-coefficient-of-friction">Step 5. Convert to coefficient of friction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-across-trials">Step 6. Across trials</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-note">Important Note</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-code">Sample Code</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="helpful-code-note-analyzing-phyphox-data-in-python">
+<h1>Helpful Code Note: Analyzing Phyphox Data in Python<a class="headerlink" href="#helpful-code-note-analyzing-phyphox-data-in-python" title="Link to this heading">#</a></h1>
+<p>You will export your trial from Phyphox as <strong>“Raw Data.csv”</strong>. The file is <strong>tab-separated</strong> and the <strong>first line is a header</strong> (column names):</p>
+<p><code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">(s)</span> <span class="pre">[tab]</span> <span class="pre">ax</span> <span class="pre">[tab]</span> <span class="pre">ay</span> <span class="pre">[tab]</span> <span class="pre">az</span> <span class="pre">[tab]</span> <span class="pre">|a|</span></code></p>
+<p>The script below automatically extracts the header and selects the <strong>y-axis</strong> column (assuming that axis was aligned with motion).<br />
+If your phone was oriented differently, you can adjust the axis by searching for <code class="docutils literal notranslate"><span class="pre">&quot;x&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;z&quot;</span></code> instead.</p>
+<hr class="docutils" />
+<section id="step-1-import-the-data">
+<h2>Step 1. Import the data<a class="headerlink" href="#step-1-import-the-data" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">pandas</span> <span class="pre">as</span> <span class="pre">pd</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">matplotlib.pyplot</span> <span class="pre">as</span> <span class="pre">plt</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">filename</span> <span class="pre">=</span> <span class="pre">&quot;Raw</span> <span class="pre">Data.csv&quot;</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">=</span> <span class="pre">pd.read_csv(filename,</span> <span class="pre">sep=&quot;\t&quot;)</span>&#160;&#160; <span class="pre">#</span> <span class="pre">tab-separated</span> <span class="pre">file</span> <span class="pre">with</span> <span class="pre">header</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">print(&quot;Columns</span> <span class="pre">in</span> <span class="pre">file:&quot;,</span> <span class="pre">df.columns.tolist())</span></code></p>
+</section>
+<hr class="docutils" />
+<section id="step-2-select-time-and-axis-of-motion">
+<h2>Step 2. Select time and axis of motion<a class="headerlink" href="#step-2-select-time-and-axis-of-motion" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">=</span> <span class="pre">df[df.columns[0]].values</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">#</span> <span class="pre">first</span> <span class="pre">column</span> <span class="pre">is</span> <span class="pre">time</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">a_y</span> <span class="pre">=</span> <span class="pre">df[[c</span> <span class="pre">for</span> <span class="pre">c</span> <span class="pre">in</span> <span class="pre">df.columns</span> <span class="pre">if</span> <span class="pre">&quot;y&quot;</span> <span class="pre">in</span> <span class="pre">c.lower()][0]].values</span></code></p>
+<p><em>(Tip: Change <code class="docutils literal notranslate"><span class="pre">&quot;y&quot;</span></code> to <code class="docutils literal notranslate"><span class="pre">&quot;x&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;z&quot;</span></code> if you used a different axis for motion.)</em></p>
+</section>
+<hr class="docutils" />
+<section id="step-3-plot-to-see-the-coast-phase">
+<h2>Step 3. Plot to see the coast phase<a class="headerlink" href="#step-3-plot-to-see-the-coast-phase" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">plt.figure(figsize=(8,4))</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">plt.plot(time,</span> <span class="pre">a_y,</span> <span class="pre">label=&quot;a_y&quot;)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">plt.xlabel(&quot;Time</span> <span class="pre">(s)&quot;)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">plt.ylabel(&quot;Acceleration</span> <span class="pre">(m/s²)&quot;)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">plt.title(&quot;Acceleration</span> <span class="pre">trace</span> <span class="pre">from</span> <span class="pre">Phyphox&quot;)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">plt.legend()</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">plt.show()</span></code></p>
+<p>Look for:</p>
+<ul class="simple">
+<li><p>A sharp <strong>spike</strong> (the push)</p></li>
+<li><p>A flatter region afterward (the <strong>coast phase</strong>)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="step-4-average-over-the-coast-interval">
+<h2>Step 4. Average over the coast interval<a class="headerlink" href="#step-4-average-over-the-coast-interval" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">t_start,</span> <span class="pre">t_end</span> <span class="pre">=</span> <span class="pre">1.0,</span> <span class="pre">1.5</span>&#160;&#160; <span class="pre">#</span> <span class="pre">adjust</span> <span class="pre">after</span> <span class="pre">inspecting</span> <span class="pre">your</span> <span class="pre">plot</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">mask</span> <span class="pre">=</span> <span class="pre">(time</span> <span class="pre">&gt;=</span> <span class="pre">t_start)</span> <span class="pre">&amp;</span> <span class="pre">(time</span> <span class="pre">&lt;=</span> <span class="pre">t_end)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">coast_segment</span> <span class="pre">=</span> <span class="pre">a_y[mask]</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">a_mean</span> <span class="pre">=</span> <span class="pre">np.mean(coast_segment)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">a_std</span> <span class="pre">=</span> <span class="pre">np.std(coast_segment,</span> <span class="pre">ddof=1)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">print(f&quot;Trial</span> <span class="pre">result:</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">{a_mean:.3f}</span> <span class="pre">±</span> <span class="pre">{a_std:.3f}</span> <span class="pre">m/s²</span> <span class="pre">(within-trial</span> <span class="pre">noise)&quot;)</span></code></p>
+</section>
+<hr class="docutils" />
+<section id="step-5-convert-to-coefficient-of-friction">
+<h2>Step 5. Convert to coefficient of friction<a class="headerlink" href="#step-5-convert-to-coefficient-of-friction" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">g</span> <span class="pre">=</span> <span class="pre">9.81</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">mu</span> <span class="pre">=</span> <span class="pre">-a_mean</span> <span class="pre">/</span> <span class="pre">g</span>&#160;&#160; <span class="pre">#</span> <span class="pre">negative</span> <span class="pre">since</span> <span class="pre">a</span> <span class="pre">≈</span> <span class="pre">-μ</span> <span class="pre">g</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">print(f&quot;Estimated</span> <span class="pre">μ_k</span> <span class="pre">=</span> <span class="pre">{mu:.3f}&quot;)</span></code></p>
+</section>
+<hr class="docutils" />
+<section id="step-6-across-trials">
+<h2>Step 6. Across trials<a class="headerlink" href="#step-6-across-trials" title="Link to this heading">#</a></h2>
+<p>Repeat the above for each exported trial. Collect all trial means <code class="docutils literal notranslate"><span class="pre">a_i</span></code> into a list called <code class="docutils literal notranslate"><span class="pre">a_vals</span></code>. Then compute statistics <strong>across trials</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">a_vals</span> <span class="pre">=</span> <span class="pre">np.array([a_trial1,</span> <span class="pre">a_trial2,</span> <span class="pre">a_trial3,</span> <span class="pre">...])</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">bar_a</span> <span class="pre">=</span> <span class="pre">np.mean(a_vals)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">s_a</span> <span class="pre">=</span> <span class="pre">np.std(a_vals,</span> <span class="pre">ddof=1)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">s_a_bar</span> <span class="pre">=</span> <span class="pre">s_a</span> <span class="pre">/</span> <span class="pre">np.sqrt(len(a_vals))</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">mu_k</span> <span class="pre">=</span> <span class="pre">-bar_a</span> <span class="pre">/</span> <span class="pre">g</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">u_mu</span> <span class="pre">=</span> <span class="pre">s_a_bar</span> <span class="pre">/</span> <span class="pre">g</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">print(f&quot;Final</span> <span class="pre">result:</span> <span class="pre">μ_k</span> <span class="pre">=</span> <span class="pre">{mu_k:.3f}</span> <span class="pre">±</span> <span class="pre">{u_mu:.3f}&quot;)</span></code></p>
+</section>
+<hr class="docutils" />
+<section id="important-note">
+<h2>Important Note<a class="headerlink" href="#important-note" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The <strong>within-trial standard deviation</strong> (<code class="docutils literal notranslate"><span class="pre">a_std</span></code>) shows short-term sensor noise.</p></li>
+<li><p>The <strong>across-trial standard deviation</strong> (<code class="docutils literal notranslate"><span class="pre">s_a</span></code>) reflects experimental variation (push differences, surface irregularities) and is the correct uncertainty to report for <code class="docutils literal notranslate"><span class="pre">μ_k</span></code>.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="sample-code">
+<h2>Sample Code<a class="headerlink" href="#sample-code" title="Link to this heading">#</a></h2>
+<p>Below is a sample code reading in the data file <code class="docutils literal notranslate"><span class="pre">Raw</span> <span class="pre">Data.csv</span></code>, using the y-axis accelerometer, and chosing a coasting interval from 2-4 seconds based on the graph. These values can be adjusted to suit your experiment upon inspection of the graph. NOTE: This script does not include Step 6. You will need to repeat this a minimum of 6 times, then perform Step 6.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># --- 1. Import data with automatic header detection ---</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;Raw Data.csv&quot;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>   <span class="c1"># Phyphox export is tab-separated with header in first line</span>
+
+<span class="c1"># Print column names so you can see exactly what Phyphox produced</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Columns in file:&quot;</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+
+<span class="c1"># --- 2. Extract time and the chosen axis ---</span>
+<span class="c1"># In this example we assume the y-axis is aligned with motion</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>                   <span class="c1"># first column should be time</span>
+<span class="n">a_y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="s2">&quot;y&quot;</span> <span class="ow">in</span> <span class="n">c</span><span class="o">.</span><span class="n">lower</span><span class="p">()][</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>  <span class="c1"># auto-detect y-axis column</span>
+
+<span class="c1"># --- 3. Plot acceleration vs. time ---</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">a_y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;a_y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Acceleration (m/s²)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Acceleration trace from Phyphox&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># --- 4. Select a coast interval manually (after inspecting the plot) --- then find mean and sample standard deviation</span>
+<span class="n">t_start</span><span class="p">,</span> <span class="n">t_end</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">4.0</span>   <span class="c1"># &lt;-- adjust for your own data</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">time</span> <span class="o">&gt;=</span> <span class="n">t_start</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">time</span> <span class="o">&lt;=</span> <span class="n">t_end</span><span class="p">)</span>
+<span class="n">coast_segment</span> <span class="o">=</span> <span class="n">a_y</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+
+<span class="n">a_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">coast_segment</span><span class="p">)</span>
+<span class="n">a_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">coast_segment</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>   <span class="c1"># within-trial noise</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Trial result: a = </span><span class="si">{</span><span class="n">a_mean</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> ± </span><span class="si">{</span><span class="n">a_std</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> m/s²&quot;</span><span class="p">)</span>
+
+<span class="c1"># --- 5. Convert to coefficient of friction ---</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="o">-</span><span class="n">a_mean</span> <span class="o">/</span> <span class="n">g</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Estimated μ_k = </span><span class="si">{</span><span class="n">mu</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Columns in file: [&#39;Time (s)&#39;, &#39;Linear Acceleration x (m/s^2)&#39;, &#39;Linear Acceleration y (m/s^2)&#39;, &#39;Linear Acceleration z (m/s^2)&#39;, &#39;Absolute acceleration (m/s^2)&#39;]
+</pre></div>
+</div>
+<img alt="../_images/7bcaf622deca5bd8f50b5f8afc73f6689fdfd03bdd19a3aaae2e7af1bdfcdf37.png" src="../_images/7bcaf622deca5bd8f50b5f8afc73f6689fdfd03bdd19a3aaae2e7af1bdfcdf37.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Trial result: a = -0.398 ± 0.632 m/s²
+Estimated μ_k = 0.041
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lab3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="lab3.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Newton’s Second Law Lab: Friction-Limited Acceleration of a Cart</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../lab4/lab4.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lab 4: 1D Collision</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-import-the-data">Step 1. Import the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-select-time-and-axis-of-motion">Step 2. Select time and axis of motion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-plot-to-see-the-coast-phase">Step 3. Plot to see the coast phase</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-average-over-the-coast-interval">Step 4. Average over the coast interval</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-convert-to-coefficient-of-friction">Step 5. Convert to coefficient of friction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-across-trials">Step 6. Across trials</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-note">Important Note</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-code">Sample Code</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
