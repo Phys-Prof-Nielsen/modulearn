@@ -190,6 +190,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="lab1.html">Lab 1 (Synthetic): Hooke’s Law &amp; Writing a Professional Jupyter Report</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Template Lab 1: Hooke’s Law Report</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown for Lab Reports — Quick Guide &amp; Cheat Sheet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="latex.html">LaTeX Equation Cheat Sheet (for Lab Reports)</a></li>
 </ul>
@@ -413,6 +414,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Template Lab 1: Hooke’s Law Report</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract">Abstract</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">Methods</a><ul class="nav section-nav flex-column">
@@ -430,6 +432,13 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#to-save-as-html">To Save as HTML</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-a-colab-notebook-to-html-step-by-step">Exporting a Colab Notebook to HTML (Step-by-Step)</a></li>
+</ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -730,7 +739,43 @@ b_A = 0.059 ± 0.063 N
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
 <p><em>List any sources used (textbook, notes). Use a consistent citation style.</em></p>
+</section>
+</section>
 <hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="to-save-as-html">
+<h1>To Save as HTML<a class="headerlink" href="#to-save-as-html" title="Link to this heading">#</a></h1>
+<section id="exporting-a-colab-notebook-to-html-step-by-step">
+<h2>Exporting a Colab Notebook to HTML (Step-by-Step)<a class="headerlink" href="#exporting-a-colab-notebook-to-html-step-by-step" title="Link to this heading">#</a></h2>
+<p>To create an HTML (webpage) version of a Colab notebook, follow these steps carefully.</p>
+<ol class="arabic">
+<li><p><strong>Download the notebook file</strong><br />
+In Colab, go to <strong>File → Download → Download <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code></strong> to save the notebook to your computer.</p></li>
+<li><p><strong>Upload the notebook to Google Drive</strong><br />
+Open <strong>drive.google.com</strong> in your browser. Click <strong>New → File upload</strong>, and upload the <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> file you just downloaded.</p></li>
+<li><p><strong>Find the folder path</strong><br />
+In Google Drive, click on the uploaded notebook. At the top of the page, you will see the folder path (for example:<br />
+<strong>My Drive → Physics → Lab 2</strong>).<br />
+Make note of each folder name exactly as it appears.</p></li>
+<li><p><strong>Open the File in Colab</strong></p>
+<p>CLick on the three dots on the top right corner of your file. Choose “Open with” then “Google Colaboratory”.</p>
+</li>
+<li><p><strong>Mount Google Drive in Colab</strong><br />
+At the bottom of your file, add a code cell and run the following command:</p>
+<p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">google.colab</span> <span class="pre">import</span> <span class="pre">drive</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">drive.mount('/content/drive')</span></code></p>
+<p>Follow the authorization instructions when prompted.</p>
+</li>
+<li><p><strong>Convert the notebook to HTML</strong><br />
+In a new code cell, replace the folder names and filename below so they match your Google Drive path. For example:</p>
+<p><code class="docutils literal notranslate"><span class="pre">!jupyter</span> <span class="pre">nbconvert</span> <span class="pre">--to</span> <span class="pre">html</span> <span class="pre">--no-input</span> <span class="pre">--embed-images</span> <span class="pre">&quot;/content/drive/MyDrive/Physics-Lab/lab1_template.ipynb&quot;</span></code></p>
+<p>This will create an HTML file in the same Google Drive folder.</p>
+</li>
+<li><p><strong>Download the HTML file</strong><br />
+Click the <strong>Files</strong> icon on the left side of Colab, then navigate to<br />
+<strong>drive → MyDrive → Physics → Lab 2</strong>.<br />
+Right-click the file <code class="docutils literal notranslate"><span class="pre">problemD1.html</span></code> and select <strong>Download</strong>.</p></li>
+</ol>
+<p>You now have a static HTML version of your notebook that can be opened in any web browser and you can submit to canvas.</p>
 </section>
 </section>
 
@@ -798,6 +843,7 @@ b_A = 0.059 ± 0.063 N
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Template Lab 1: Hooke’s Law Report</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract">Abstract</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">Methods</a><ul class="nav section-nav flex-column">
@@ -815,6 +861,13 @@ b_A = 0.059 ± 0.063 N
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#to-save-as-html">To Save as HTML</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-a-colab-notebook-to-html-step-by-step">Exporting a Colab Notebook to HTML (Step-by-Step)</a></li>
+</ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>
