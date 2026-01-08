@@ -391,13 +391,13 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-open-the-lab-template-in-google-colab">Step 1: Open the Lab Template in Google Colab</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-download-the-lab-template-from-colab">Step 2: Download the Lab Template from Colab</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-save-a-copy-to-your-google-drive">Step 3: Save a Copy to Your Google Drive</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-complete-the-lab-in-google-colab">Step 4: Complete the Lab in Google Colab</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-export-the-notebook-as-an-html-file">Step 5: Export the Notebook as an HTML File</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mount-google-drive">Mount Google Drive</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-mount-google-drive-in-colab-required">Step 4: Mount Google Drive in Colab (Required)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-complete-the-lab-in-google-colab">Step 5: Complete the Lab in Google Colab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-export-the-notebook-as-an-html-file">Step 6: Export the Notebook as an HTML File</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-the-notebook-to-html">Convert the Notebook to HTML</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-download-the-html-file">Step 6: Download the HTML File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-download-the-html-file">Step 7: Download the HTML File</a></li>
 </ul>
             </nav>
         </div>
@@ -452,8 +452,25 @@ document.write(`
 <p>All edits you make from this point forward will be saved automatically to your Drive.</p>
 </section>
 <hr class="docutils" />
-<section id="step-4-complete-the-lab-in-google-colab">
-<h2>Step 4: Complete the Lab in Google Colab<a class="headerlink" href="#step-4-complete-the-lab-in-google-colab" title="Link to this heading">#</a></h2>
+<section id="step-4-mount-google-drive-in-colab-required">
+<h2>Step 4: Mount Google Drive in Colab (Required)<a class="headerlink" href="#step-4-mount-google-drive-in-colab-required" title="Link to this heading">#</a></h2>
+<p>In order for Colab to <strong>read data files</strong> (such as CSV files) and <strong>save exported HTML files</strong> to your Google Drive, you must mount your Drive.</p>
+<ol class="arabic simple">
+<li><p>In your notebook, scroll to the bottom</p></li>
+<li><p>Add a <strong>new code cell</strong></p></li>
+<li><p>Run the following commands:</p></li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">google.colab</span> <span class="pre">import</span> <span class="pre">drive</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">drive.mount('/content/drive')</span></code></p>
+<ol class="arabic simple" start="4">
+<li><p>When prompted, follow the authorization steps to grant access</p></li>
+</ol>
+<p>Once mounted, your Google Drive will appear inside Colab at:</p>
+<p><code class="docutils literal notranslate"><span class="pre">/content/drive/MyDrive/</span></code></p>
+</section>
+<hr class="docutils" />
+<section id="step-5-complete-the-lab-in-google-colab">
+<h2>Step 5: Complete the Lab in Google Colab<a class="headerlink" href="#step-5-complete-the-lab-in-google-colab" title="Link to this heading">#</a></h2>
 <p>Work through the notebook as instructed:</p>
 <ul class="simple">
 <li><p>Enter written explanations in Markdown cells</p></li>
@@ -464,16 +481,8 @@ document.write(`
 <p>You may share the notebook with lab partners using Google Drive sharing tools.</p>
 </section>
 <hr class="docutils" />
-<section id="step-5-export-the-notebook-as-an-html-file">
-<h2>Step 5: Export the Notebook as an HTML File<a class="headerlink" href="#step-5-export-the-notebook-as-an-html-file" title="Link to this heading">#</a></h2>
-<section id="mount-google-drive">
-<h3>Mount Google Drive<a class="headerlink" href="#mount-google-drive" title="Link to this heading">#</a></h3>
-<p>At the bottom of your notebook, add a new code cell and run:</p>
-<p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">google.colab</span> <span class="pre">import</span> <span class="pre">drive</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">drive.mount('/content/drive')</span></code></p>
-<p>Follow the authorization instructions when prompted.</p>
-</section>
-<hr class="docutils" />
+<section id="step-6-export-the-notebook-as-an-html-file">
+<h2>Step 6: Export the Notebook as an HTML File<a class="headerlink" href="#step-6-export-the-notebook-as-an-html-file" title="Link to this heading">#</a></h2>
 <section id="convert-the-notebook-to-html">
 <h3>Convert the Notebook to HTML<a class="headerlink" href="#convert-the-notebook-to-html" title="Link to this heading">#</a></h3>
 <p>In a new code cell, run the command below.<br />
@@ -483,8 +492,8 @@ Make sure the folder name and filename match your Google Drive path exactly:</p>
 </section>
 </section>
 <hr class="docutils" />
-<section id="step-6-download-the-html-file">
-<h2>Step 6: Download the HTML File<a class="headerlink" href="#step-6-download-the-html-file" title="Link to this heading">#</a></h2>
+<section id="step-7-download-the-html-file">
+<h2>Step 7: Download the HTML File<a class="headerlink" href="#step-7-download-the-html-file" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Locate <code class="docutils literal notranslate"><span class="pre">lab1.html</span></code> in Google Drive</p></li>
 <li><p>Right-click the file → <strong>Download</strong></p></li>
@@ -564,13 +573,13 @@ Make sure the folder name and filename match your Google Drive path exactly:</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-open-the-lab-template-in-google-colab">Step 1: Open the Lab Template in Google Colab</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-download-the-lab-template-from-colab">Step 2: Download the Lab Template from Colab</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-save-a-copy-to-your-google-drive">Step 3: Save a Copy to Your Google Drive</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-complete-the-lab-in-google-colab">Step 4: Complete the Lab in Google Colab</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-export-the-notebook-as-an-html-file">Step 5: Export the Notebook as an HTML File</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mount-google-drive">Mount Google Drive</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-mount-google-drive-in-colab-required">Step 4: Mount Google Drive in Colab (Required)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-complete-the-lab-in-google-colab">Step 5: Complete the Lab in Google Colab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-export-the-notebook-as-an-html-file">Step 6: Export the Notebook as an HTML File</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-the-notebook-to-html">Convert the Notebook to HTML</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-download-the-html-file">Step 6: Download the HTML File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-download-the-html-file">Step 7: Download the HTML File</a></li>
 </ul>
   </nav></div>
 
