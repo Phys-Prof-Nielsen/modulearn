@@ -445,56 +445,7 @@ V = IR,
 <p class="expanded admonition-title">Hide code cell source</p>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">FileLink</span><span class="p">,</span> <span class="n">display</span>
-
-<span class="c1"># -----------------------------</span>
-<span class="c1"># Random seed for reproducibility</span>
-<span class="c1"># -----------------------------</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">222</span><span class="p">)</span>
-
-<span class="c1"># -----------------------------</span>
-<span class="c1"># Manufacturer specifications</span>
-<span class="c1"># -----------------------------</span>
-<span class="n">specs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s2">&quot;resistor&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">],</span>
-    <span class="s2">&quot;R_nominal_ohm&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">100.0</span><span class="p">,</span> <span class="mf">220.0</span><span class="p">],</span>
-    <span class="s2">&quot;tolerance_percent&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-<span class="p">})</span>
-
-<span class="c1"># -----------------------------</span>
-<span class="c1"># Generate synthetic V–I data</span>
-<span class="c1"># -----------------------------</span>
-<span class="n">records</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="n">voltages</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>  <span class="c1"># applied voltages</span>
-<span class="n">u_V</span> <span class="o">=</span> <span class="mf">0.02</span>   <span class="c1"># 20 mV uncertainty</span>
-<span class="n">u_I</span> <span class="o">=</span> <span class="mf">0.0005</span> <span class="c1"># 0.5 mA uncertainty</span>
-
-<span class="k">for</span> <span class="n">resistor</span><span class="p">,</span> <span class="n">R</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">specs</span><span class="p">[</span><span class="s2">&quot;resistor&quot;</span><span class="p">],</span> <span class="n">specs</span><span class="p">[</span><span class="s2">&quot;R_nominal_ohm&quot;</span><span class="p">]):</span>
-    <span class="k">for</span> <span class="n">trial</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>  <span class="c1"># repeated trials</span>
-        <span class="k">for</span> <span class="n">V</span> <span class="ow">in</span> <span class="n">voltages</span><span class="p">:</span>
-            <span class="n">I_true</span> <span class="o">=</span> <span class="n">V</span> <span class="o">/</span> <span class="n">R</span>
-            <span class="n">V_meas</span> <span class="o">=</span> <span class="n">V</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">u_V</span><span class="p">)</span>
-            <span class="n">I_meas</span> <span class="o">=</span> <span class="n">I_true</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">u_I</span><span class="p">)</span>
-
-            <span class="n">records</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
-                <span class="s2">&quot;resistor&quot;</span><span class="p">:</span> <span class="n">resistor</span><span class="p">,</span>
-                <span class="s2">&quot;trial&quot;</span><span class="p">:</span> <span class="n">trial</span><span class="p">,</span>
-                <span class="s2">&quot;voltage_V&quot;</span><span class="p">:</span> <span class="n">V_meas</span><span class="p">,</span>
-                <span class="s2">&quot;current_A&quot;</span><span class="p">:</span> <span class="n">I_meas</span><span class="p">,</span>
-                <span class="s2">&quot;u_voltage_V&quot;</span><span class="p">:</span> <span class="n">u_V</span><span class="p">,</span>
-                <span class="s2">&quot;u_current_A&quot;</span><span class="p">:</span> <span class="n">u_I</span>
-            <span class="p">})</span>
-
-<span class="n">ohms_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">records</span><span class="p">)</span>
-
-<span class="c1"># -----------------------------</span>
-<span class="c1"># Save CSV files</span>
-<span class="c1"># -----------------------------</span>
-<span class="n">ohms_data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;ohms_law_synthetic_lab.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">specs</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;resistor_specs.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">FileLink</span><span class="p">,</span> <span class="n">display</span>
 
 <span class="c1"># -----------------------------</span>
 <span class="c1"># Display download links</span>
