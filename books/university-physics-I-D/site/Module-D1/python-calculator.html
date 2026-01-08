@@ -505,6 +505,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#controlling-decimal-places">Controlling decimal places</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scientific-notation">Scientific notation</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d1-6-6-summary">D1.6.6 Summary</a></li>
@@ -753,6 +754,7 @@ always define your variables clearly for each new problem.</p>
 <code class="docutils literal notranslate"><span class="pre">print(a</span> <span class="pre">+</span> <span class="pre">b)</span></code></p>
 </div></blockquote>
 </section>
+<hr class="docutils" />
 <section id="printing-with-labels">
 <h3>Printing with labels<a class="headerlink" href="#printing-with-labels" title="Link to this heading">#</a></h3>
 <blockquote>
@@ -760,13 +762,15 @@ always define your variables clearly for each new problem.</p>
 <code class="docutils literal notranslate"><span class="pre">print(&quot;Velocity</span> <span class="pre">=&quot;,</span> <span class="pre">velocity,</span> <span class="pre">&quot;m/s&quot;)</span></code></p>
 </div></blockquote>
 </section>
+<hr class="docutils" />
 <section id="formatted-strings-cleaner-output">
 <h3>Formatted strings (cleaner output)<a class="headerlink" href="#formatted-strings-cleaner-output" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><p><code class="docutils literal notranslate"><span class="pre">g</span> <span class="pre">=</span> <span class="pre">9.81</span></code><br />
 <code class="docutils literal notranslate"><span class="pre">print(f&quot;The</span> <span class="pre">value</span> <span class="pre">of</span> <span class="pre">g</span> <span class="pre">is</span> <span class="pre">{g}</span> <span class="pre">m/s\u00b2&quot;)</span></code></p>
 </div></blockquote>
-<p>NOTE: Python strings can include Unicode characters. In this case, <code class="docutils literal notranslate"><span class="pre">\u00b2</span></code> is the unicode point for superscript 2.</p>
+<p>NOTE: Python strings can include Unicode characters. In this case, <code class="docutils literal notranslate"><span class="pre">\u00b2</span></code> is the Unicode code point for superscript 2.</p>
+<hr class="docutils" />
 <section id="common-superscript-and-subscript-characters-in-python">
 <h4>Common Superscript and Subscript Characters in Python<a class="headerlink" href="#common-superscript-and-subscript-characters-in-python" title="Link to this heading">#</a></h4>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -883,34 +887,68 @@ always define your variables clearly for each new problem.</p>
 </div>
 </section>
 </section>
+<hr class="docutils" />
 <section id="controlling-decimal-places">
 <h3>Controlling decimal places<a class="headerlink" href="#controlling-decimal-places" title="Link to this heading">#</a></h3>
 <blockquote>
 <div><p><code class="docutils literal notranslate"><span class="pre">mass</span> <span class="pre">=</span> <span class="pre">2.45678</span></code><br />
 <code class="docutils literal notranslate"><span class="pre">print(f&quot;Mass</span> <span class="pre">=</span> <span class="pre">{mass:.2f}</span> <span class="pre">kg&quot;)</span></code></p>
 </div></blockquote>
+<p>The format specifier <code class="docutils literal notranslate"><span class="pre">.2f</span></code> means:</p>
+<ul class="simple">
+<li><p>fixed-point (decimal) notation</p></li>
+<li><p>exactly <strong>two digits after the decimal point</strong></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="scientific-notation">
+<h3>Scientific notation<a class="headerlink" href="#scientific-notation" title="Link to this heading">#</a></h3>
+<p>In physics, values are often very large or very small. Python can format numbers in <strong>scientific notation</strong> using <code class="docutils literal notranslate"><span class="pre">e</span></code>-formatting.</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">E</span> <span class="pre">=</span> <span class="pre">6.67430e-11</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">print(f&quot;E</span> <span class="pre">=</span> <span class="pre">{E:.2e}&quot;)</span></code></p>
+</div></blockquote>
+<p>The format specifier <code class="docutils literal notranslate"><span class="pre">.2e</span></code> means:</p>
+<ul class="simple">
+<li><p>scientific notation</p></li>
+<li><p><strong>two decimal places</strong> in the mantissa</p></li>
+</ul>
+<p>You can also include units:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">print(f&quot;E</span> <span class="pre">=</span> <span class="pre">{E:.2e}</span> <span class="pre">N·m\u00b2/kg\u00b2&quot;)</span></code></p>
+</div></blockquote>
+<p>Common examples:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.1e</span></code> → one decimal place in scientific notation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.3e</span></code> → three decimal places in scientific notation</p></li>
+</ul>
+<p>This is especially useful for constants, experimental data, and results spanning many orders of magnitude.</p>
 <br>
 <div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:12px; border-radius:4px;">
 <b>Box Activity – Printing Clean Results</b><br><br>
 <p>Try printing the kinetic energy of a 3.00 kg object moving at 4.50 m/s:</p>
-<p><code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">=</span> <span class="pre">3.00</span></code><br />
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">=</span> <span class="pre">3.00</span></code><br />
 <code class="docutils literal notranslate"><span class="pre">v</span> <span class="pre">=</span> <span class="pre">4.50</span></code><br />
 <code class="docutils literal notranslate"><span class="pre">KE</span> <span class="pre">=</span> <span class="pre">0.5</span> <span class="pre">*</span> <span class="pre">m</span> <span class="pre">*</span> <span class="pre">v**2</span></code><br />
 <code class="docutils literal notranslate"><span class="pre">print(KE)</span></code></p>
+</div></blockquote>
 <p>Then make a formatted version:</p>
-<p><code class="docutils literal notranslate"><span class="pre">print(f&quot;Kinetic</span> <span class="pre">energy</span> <span class="pre">=</span> <span class="pre">{KE:.1f}</span> <span class="pre">J&quot;)</span></code></p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">print(f&quot;Kinetic</span> <span class="pre">energy</span> <span class="pre">=</span> <span class="pre">{KE:.1f}</span> <span class="pre">J&quot;)</span></code></p>
+</div></blockquote>
 <details>
 <summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
 Hint / Solution
 </summary>
 <div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
-<p>Raw output:<br />
-KE = 30.375 J</p>
-<p>Formatted output (one decimal):<br />
-Kinetic energy = 30.4 J</p>
+<p>Raw output shows the full numerical value.</p>
+<p>Formatted output displays the result rounded to one decimal place and labeled with units, making it suitable for a physics answer.</p>
 </div>
 </details>
-</div><div class="cell docutils container">
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
 </pre></div>
@@ -1021,6 +1059,7 @@ Kinetic energy = 30.4 J</p>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#controlling-decimal-places">Controlling decimal places</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scientific-notation">Scientific notation</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d1-6-6-summary">D1.6.6 Summary</a></li>
