@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/save_cell.css?v=43dd4451" />
@@ -66,7 +66,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="D4.1 Current" href="../Module-D4/current.html" />
-    <link rel="prev" title="D3.1 Capacitance" href="capacitance.html" />
+    <link rel="prev" title="D3.1 Capacitance — What It Means and Why We Care" href="capacitance.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -208,7 +208,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D3 - Capacitance</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="capacitance.html">D3.1 Capacitance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="capacitance.html">D3.1 Capacitance — What It Means and Why We Care</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">D3.2 Problems</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D4 - Simple DC Circuit</span></p>
@@ -429,7 +429,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -445,6 +447,25 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-d3-1-parallel-plate-capacitance-voltage-field-and-stored-energy">Problem D3.1 — Parallel-Plate Capacitance, Voltage, Field, and Stored Energy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-d3-2-battery-connected-vs-disconnected-what-changes-when-plate-spacing-changes">Problem D3.2 — Battery Connected vs Disconnected: What Changes When Plate Spacing Changes?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scenario-a-battery-stays-connected">Scenario A — Battery stays connected</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scenario-b-battery-is-disconnected-before-the-plates-move">Scenario B — Battery is disconnected before the plates move</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-d3-3-energy-and-work-to-charge-a-capacitor-calculus">Problem D3.3 — Energy and Work to Charge a Capacitor (Calculus)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-d3-4-stud-finder-as-a-capacitive-sensor">Problem D3.4 — Stud Finder as a Capacitive Sensor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-d3-5-thunderstormground-as-a-giant-capacitor">Problem D3.5 — Thunderstorm–Ground as a Giant Capacitor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-d3-7-substation-capacitor-accident-high-voltage-large-capacitance-severe-burns">Problem D3.7 — Substation Capacitor Accident: High Voltage, Large Capacitance, Severe Burns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-d3-8-capacitor-discharge-welding-cdw">Problem D3.8 — Capacitor Discharge Welding (CDW)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-d3-9-capacitive-touchscreen-detecting-a-finger-by-a-capacitance-change">Problem D3.9 — Capacitive Touchscreen: Detecting a Finger by a Capacitance Change</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -456,156 +477,135 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="d3-2-problems">
 <h1>D3.2 Problems<a class="headerlink" href="#d3-2-problems" title="Link to this heading">#</a></h1>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray"><h2>Problem D3.1</h2>
-    </header>
-<p>Calculate the voltage applied to a <span class="math notranslate nohighlight">\(2.00~\mu\)</span>F capacitor when it holds <span class="math notranslate nohighlight">\(3.10~\mu\)</span>C of charge.</p>
-<p><a class="reference external" href="https://openstax.org/books/university-physics-volume-2/pages/8-problems">This problem is a slightly modified version from OpenStax. Access for free here</a></p>
-<div class="cell tag_hide-input tag_hide-output docutils container">
-<details class="admonition hide above-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell source</p>
-<p class="expanded admonition-title">Hide code cell source</p>
-</summary>
-<div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
-
-<span class="n">C</span> <span class="o">=</span> <span class="mf">2.00E-6</span>
-<span class="n">Q</span> <span class="o">=</span> <span class="mf">3.10E-6</span>
-
-<span class="n">V</span> <span class="o">=</span> <span class="n">Q</span><span class="o">/</span><span class="n">C</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The voltage applied is &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">V</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; V.&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</details>
-<details class="admonition hide below-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell output</p>
-<p class="expanded admonition-title">Hide code cell output</p>
-</summary>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The voltage applied is 1.55 V.
-</pre></div>
-</div>
-</div>
-</details>
-</div>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray"><h2>Problem D3.2</h2>
-    </header>
-<p>What capacitance is needed to store <span class="math notranslate nohighlight">\(3.00~\mu\)</span>C of charge at a voltage of 120 V?</p>
-<p><a class="reference external" href="https://openstax.org/books/university-physics-volume-2/pages/8-problems">This problem is a slightly modified version from OpenStax. Access for free here</a></p>
-<div class="cell tag_hide-input tag_hide-output docutils container">
-<details class="admonition hide above-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell source</p>
-<p class="expanded admonition-title">Hide code cell source</p>
-</summary>
-<div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
-
-<span class="n">Q</span> <span class="o">=</span> <span class="mf">3.00E-6</span>
-<span class="n">V</span> <span class="o">=</span> <span class="mi">120</span>
-
-<span class="n">C</span> <span class="o">=</span> <span class="n">Q</span><span class="o">/</span><span class="n">V</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Capacitance needed is &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">C</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; F.&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</details>
-<details class="admonition hide below-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell output</p>
-<p class="expanded admonition-title">Hide code cell output</p>
-</summary>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Capacitance needed is 2.5000000000000002e-08 F.
-</pre></div>
-</div>
-</div>
-</details>
-</div>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray"><h2>Problem D3.3</h2>
-    </header>
-<p>How much energy is stored in an <span class="math notranslate nohighlight">\(8.00~\mu\)</span>F capacitor whose plates are at a potential difference of 6.00 V?</p>
-<p><a class="reference external" href="https://openstax.org/books/university-physics-volume-2/pages/8-problems">This problem is a slightly modified version from OpenStax. Access for free here</a></p>
-<div class="cell tag_hide-input tag_hide-output docutils container">
-<details class="admonition hide above-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell source</p>
-<p class="expanded admonition-title">Hide code cell source</p>
-</summary>
-<div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
-
-<span class="n">C</span> <span class="o">=</span> <span class="mf">8.00E-6</span>
-<span class="n">V</span> <span class="o">=</span> <span class="mf">6.00</span>
-
-<span class="c1"># U = 0.5*Q^2/(2C) = 0.5*C*V^2</span>
-<span class="n">U</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">C</span><span class="o">*</span><span class="n">V</span><span class="o">**</span><span class="mi">2</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Potential energy stored in capacitor is &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">U</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; J.&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</details>
-<details class="admonition hide below-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell output</p>
-<p class="expanded admonition-title">Hide code cell output</p>
-</summary>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Potential energy stored in capacitor is 0.000144 J.
-</pre></div>
-</div>
-</div>
-</details>
-</div>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray"><h2>Problem D3.4</h2>
-    </header>
-<p>A capacitor has a charge of <span class="math notranslate nohighlight">\(2.5~\mu\)</span>C when connected to a 6.0 V battery. How much energy is stored in this capacitor?</p>
-<p><a class="reference external" href="https://openstax.org/books/university-physics-volume-2/pages/8-problems">This problem is a slightly modified version from OpenStax. Access for free here</a></p>
-<div class="cell tag_hide-input tag_hide-output docutils container">
-<details class="admonition hide above-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell source</p>
-<p class="expanded admonition-title">Hide code cell source</p>
-</summary>
-<div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
-
-<span class="n">Q</span> <span class="o">=</span> <span class="mf">2.5E-6</span>
-<span class="n">V</span> <span class="o">=</span> <span class="mf">6.00</span>
-
-<span class="c1"># U = 0.5*Q^2/(2C) = 0.5*C*V^2 = 0.5*Q*V</span>
-<span class="n">U</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">Q</span><span class="o">*</span><span class="n">V</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Potential energy stored in capacitor is &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">U</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; J.&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</details>
-<details class="admonition hide below-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell output</p>
-<p class="expanded admonition-title">Hide code cell output</p>
-</summary>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Potential energy stored in capacitor is 7.500000000000001e-06 J.
-</pre></div>
-</div>
-</div>
-</details>
-</div>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray"><h2>Problem D3.5</h2>
-    </header>
-<p>In open-heart surgery, a much smaller amount of energy will defibrillate the heart.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"><section id="problem-d3-1-parallel-plate-capacitance-voltage-field-and-stored-energy">
+<h2>Problem D3.1 — Parallel-Plate Capacitance, Voltage, Field, and Stored Energy<a class="headerlink" href="#problem-d3-1-parallel-plate-capacitance-voltage-field-and-stored-energy" title="Link to this heading">#</a></h2>
+<p>A parallel-plate capacitor has plate area</p>
+<div class="math notranslate nohighlight">
+\[
+A = 0.0150\ \text{m}^2
+\]</div>
+<p>and plate separation</p>
+<div class="math notranslate nohighlight">
+\[
+d = 1.50\ \text{mm}.
+\]</div>
+<p>Assume the space between the plates is air (treat as vacuum), so use</p>
+<div class="math notranslate nohighlight">
+\[
+\varepsilon_0 = 8.85\times 10^{-12}\ \text{F/m}.
+\]</div>
+<p>The capacitor is charged so that the magnitude of charge on each plate is</p>
+<div class="math notranslate nohighlight">
+\[
+Q = 6.00\times 10^{-6}\ \text{C}.
+\]</div>
+<p>Answer the following:</p>
 <ol class="arabic simple">
-<li><p>What voltage is applied to the <span class="math notranslate nohighlight">\(8.00~\mu\)</span>F capacitor of a heart defibrillator that stores 40.0 J of energy</p></li>
-<li><p>Find the amount of the stored charge.</p></li>
+<li><p>Compute the capacitance <span class="math notranslate nohighlight">\(C\)</span> from geometry.</p></li>
+<li><p>Compute the potential difference <span class="math notranslate nohighlight">\(\Delta V\)</span> between the plates.</p></li>
+<li><p>Compute the electric field magnitude <span class="math notranslate nohighlight">\(E\)</span> between the plates (assume it is uniform).</p></li>
+<li><p>Compute the change in stored electric potential energy <span class="math notranslate nohighlight">\(\Delta U\)</span>.</p></li>
 </ol>
-<p><a class="reference external" href="https://openstax.org/books/university-physics-volume-2/pages/8-problems">This problem is a slightly modified version from OpenStax. Access for free here</a></p>
+<p>Be careful with units and provide a short physical interpretation of your results.</p>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Problem solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p><strong>Relevant equations</strong></p>
+<p>Parallel-plate capacitance:</p>
+<div class="math notranslate nohighlight">
+\[
+C = \varepsilon_0 \frac{A}{d}
+\]</div>
+<p>Capacitance definition:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta V = \frac{Q}{C}
+\]</div>
+<p>Uniform field between plates:</p>
+<div class="math notranslate nohighlight">
+\[
+E = \frac{\Delta V}{d}
+\]</div>
+<p>Energy stored in a capacitor:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta U = \frac{1}{2}Q\,\Delta V
+\]</div>
+<hr class="docutils" />
+<p><strong>Given</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(A = 0.0150\ \text{m}^2\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(d = 1.50\times 10^{-3}\ \text{m}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\varepsilon_0 = 8.85\times 10^{-12}\ \text{F/m}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Q = 6.00\times 10^{-6}\ \text{C}\)</span></p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>1) Capacitance</strong></p>
+<div class="math notranslate nohighlight">
+\[
+C = \varepsilon_0\frac{A}{d}
+= (8.85\times 10^{-12})\frac{0.0150}{1.50\times 10^{-3}}
+= 8.85\times 10^{-11}\ \text{F}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{C = 8.85\times 10^{-11}\ \text{F}}
+\]</div>
+<hr class="docutils" />
+<p><strong>2) Potential difference</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\Delta V = \frac{Q}{C}
+= \frac{6.00\times 10^{-6}}{8.85\times 10^{-11}}
+= 6.78\times 10^{4}\ \text{V}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{\Delta V = 6.78\times 10^{4}\ \text{V}}
+\]</div>
+<hr class="docutils" />
+<p><strong>3) Electric field magnitude</strong></p>
+<div class="math notranslate nohighlight">
+\[
+E = \frac{\Delta V}{d}
+= \frac{6.78\times 10^{4}}{1.50\times 10^{-3}}
+= 4.52\times 10^{7}\ \text{V/m}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{E = 4.52\times 10^{7}\ \text{V/m}}
+\]</div>
+<hr class="docutils" />
+<p><strong>4) Stored energy</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\Delta U = \frac{1}{2}Q\,\Delta V
+= \frac{1}{2}(6.00\times 10^{-6})(6.78\times 10^{4})
+= 2.03\times 10^{-1}\ \text{J}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{\Delta U = 2.03\times 10^{-1}\ \text{J}}
+\]</div>
+<hr class="docutils" />
+<p><strong>Physical interpretation</strong></p>
+<ul class="simple">
+<li><p>The capacitance is small because vacuum/air capacitors require large plate area or very small separation to store significant charge.</p></li>
+<li><p>The large voltage and strong electric field reflect that storing microcoulombs on an air-gap capacitor can require very high potentials.</p></li>
+<li><p>The stored energy is modest here because <span class="math notranslate nohighlight">\(C\)</span> is small, even though the voltage is large.</p></li>
+</ul>
+</div>
+</details>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell tag_hide-input tag_hide-output docutils container">
 <details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -615,17 +615,57 @@ document.write(`
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sym</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span>
 
-<span class="n">C</span> <span class="o">=</span> <span class="mf">8.00E-6</span>
-<span class="n">U</span> <span class="o">=</span> <span class="mf">40.0</span>
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Given values</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">eps0</span> <span class="o">=</span> <span class="mf">8.85e-12</span>    <span class="c1"># F/m</span>
+<span class="n">A</span> <span class="o">=</span> <span class="mf">0.0150</span>         <span class="c1"># m^2</span>
+<span class="n">d</span> <span class="o">=</span> <span class="mf">1.50e-3</span>        <span class="c1"># m</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="mf">6.00e-6</span>        <span class="c1"># C</span>
 
-<span class="c1"># U = 0.5*C*V^2 </span>
-<span class="n">V</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;V&#39;</span><span class="p">)</span>
-<span class="n">eq</span> <span class="o">=</span> <span class="n">U</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">C</span><span class="o">*</span><span class="n">V</span><span class="o">**</span><span class="mi">2</span>
-<span class="n">sol</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">eq</span><span class="p">,</span><span class="n">V</span><span class="p">)</span>
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Physics:</span>
+<span class="c1"># Parallel-plate capacitor:</span>
+<span class="c1"># C = eps0 * A / d</span>
+<span class="c1">#</span>
+<span class="c1"># Capacitance definition:</span>
+<span class="c1"># ΔV = Q / C</span>
+<span class="c1">#</span>
+<span class="c1"># Uniform field between plates:</span>
+<span class="c1"># E = ΔV / d</span>
+<span class="c1">#</span>
+<span class="c1"># Stored energy (change from uncharged state):</span>
+<span class="c1"># ΔU = (1/2) Q ΔV</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">eps0</span> <span class="o">*</span> <span class="n">A</span> <span class="o">/</span> <span class="n">d</span>
+<span class="n">dV</span> <span class="o">=</span> <span class="n">Q</span> <span class="o">/</span> <span class="n">C</span>
+<span class="n">E</span> <span class="o">=</span> <span class="n">dV</span> <span class="o">/</span> <span class="n">d</span>
+<span class="n">dU</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">Q</span> <span class="o">*</span> <span class="n">dV</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Voltage applied to capacitor is &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">sol</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">+</span><span class="s1">&#39; V.&#39;</span><span class="p">)</span>
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Nicely formatted output</span>
+<span class="c1"># -----------------------------</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Parallel-plate capacitor: capacitance, voltage, field, and stored energy</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Given:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Plate area:        A = </span><span class="si">{</span><span class="n">A</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> m^2&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Plate separation:  d = </span><span class="si">{</span><span class="n">d</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> m&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Vacuum permittivity: eps0 = </span><span class="si">{</span><span class="n">eps0</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> F/m&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Stored charge:     Q = </span><span class="si">{</span><span class="n">Q</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> C</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Results (3 significant figures):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Capacitance:       C = </span><span class="si">{</span><span class="n">C</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> F&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Potential diff.:  ΔV = </span><span class="si">{</span><span class="n">dV</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> V&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Electric field:    E = </span><span class="si">{</span><span class="n">E</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> V/m&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Stored energy:    ΔU = </span><span class="si">{</span><span class="n">dU</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> J</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Physical interpretation:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• C depends only on geometry (A and d) for an air/vacuum capacitor.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• For fixed Q, a small capacitance implies a large voltage: ΔV = Q/C.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• The field between plates is E = ΔV/d (approximately uniform).&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• ΔU is the energy added while charging from Q = 0 to Q; it equals the work done by an external agent.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -636,45 +676,1705 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Voltage applied to capacitor is 3162.27766016838 V.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Parallel-plate capacitor: capacitance, voltage, field, and stored energy
+
+Given:
+  Plate area:        A = 1.500e-02 m^2
+  Plate separation:  d = 1.500e-03 m
+  Vacuum permittivity: eps0 = 8.850e-12 F/m
+  Stored charge:     Q = 6.000e-06 C
+
+Results (3 significant figures):
+  Capacitance:       C = 8.850e-11 F
+  Potential diff.:  ΔV = 6.780e+04 V
+  Electric field:    E = 4.520e+07 V/m
+  Stored energy:    ΔU = 2.034e-01 J
+
+Physical interpretation:
+• C depends only on geometry (A and d) for an air/vacuum capacitor.
+• For fixed Q, a small capacitance implies a large voltage: ΔV = Q/C.
+• The field between plates is E = ΔV/d (approximately uniform).
+• ΔU is the energy added while charging from Q = 0 to Q; it equals the work done by an external agent.
 </pre></div>
 </div>
 </div>
 </details>
 </div>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray"><h2>Problem D3.6</h2>
-    </header>
-<p>An anxious physicist worries that the two metal shelves of a wood frame bookcase might obtain a high voltage if charged by static electricity, perhaps produced by friction.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"></section>
+<section id="problem-d3-2-battery-connected-vs-disconnected-what-changes-when-plate-spacing-changes">
+<h2>Problem D3.2 — Battery Connected vs Disconnected: What Changes When Plate Spacing Changes?<a class="headerlink" href="#problem-d3-2-battery-connected-vs-disconnected-what-changes-when-plate-spacing-changes" title="Link to this heading">#</a></h2>
+<p>A parallel-plate capacitor has plate area</p>
+<div class="math notranslate nohighlight">
+\[
+A = 0.0200\ \text{m}^2
+\]</div>
+<p>and an initial plate separation</p>
+<div class="math notranslate nohighlight">
+\[
+d_0 = 1.00\ \text{mm}.
+\]</div>
+<p>Assume air (treat as vacuum), so</p>
+<div class="math notranslate nohighlight">
+\[
+\varepsilon_0 = 8.85\times 10^{-12}\ \text{F/m}.
+\]</div>
+<p>The capacitor is initially connected to a battery that maintains a constant potential difference</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta V_0 = 500\ \text{V}.
+\]</div>
+<p>The plate separation is then slowly increased to</p>
+<div class="math notranslate nohighlight">
+\[
+d_1 = 3.00\ \text{mm}.
+\]</div>
+<p>Answer the following for <strong>each</strong> scenario:</p>
+<section id="scenario-a-battery-stays-connected">
+<h3>Scenario A — Battery stays connected<a class="headerlink" href="#scenario-a-battery-stays-connected" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
-<li><p>What is the capacitance of the empty shelves if they have area <span class="math notranslate nohighlight">\(1.00\times 10^2\)</span> m<span class="math notranslate nohighlight">\(^2\)</span> and are <span class="math notranslate nohighlight">\(0.200\)</span> m apart?</p></li>
-<li><p>What is the voltage between them if opposite charges of magnitude <span class="math notranslate nohighlight">\(2.00\)</span> nC are placed on them?</p></li>
-<li><p>To show that this voltage poses a small hazard, calculate the energy stored.</p></li>
-<li><p>The actual shelves have an area 100 times smaller than these hypothetical shelves with a connection to the same voltage. Are his fears justified?</p></li>
+<li><p>Find <span class="math notranslate nohighlight">\(C_0\)</span> and <span class="math notranslate nohighlight">\(C_1\)</span>.</p></li>
+<li><p>Find <span class="math notranslate nohighlight">\(Q_0\)</span> and <span class="math notranslate nohighlight">\(Q_1\)</span>.</p></li>
+<li><p>Find <span class="math notranslate nohighlight">\(E_0\)</span> and <span class="math notranslate nohighlight">\(E_1\)</span>.</p></li>
+<li><p>Find <span class="math notranslate nohighlight">\(\Delta U_0\)</span> and <span class="math notranslate nohighlight">\(\Delta U_1\)</span>.</p></li>
 </ol>
-<p><a class="reference external" href="https://openstax.org/books/university-physics-volume-2/pages/8-problems">This problem is a slightly modified version from OpenStax. Access for free here</a></p>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray"><h2>Problem D3.7</h2>
-    </header>
-<p>A capacitor is made from two flat parallel plates placed <span class="math notranslate nohighlight">\(0.40\)</span> mm apart. When a charge of <span class="math notranslate nohighlight">\(0.020~\mu\)</span>C is placed on the plates the potential difference between them is <span class="math notranslate nohighlight">\(250\)</span> V.</p>
+</section>
+<section id="scenario-b-battery-is-disconnected-before-the-plates-move">
+<h3>Scenario B — Battery is disconnected before the plates move<a class="headerlink" href="#scenario-b-battery-is-disconnected-before-the-plates-move" title="Link to this heading">#</a></h3>
+<p>The capacitor is first charged to the initial state, then the battery is removed so that charge cannot change.</p>
 <ol class="arabic simple">
-<li><p>What is the capacitance of the plates?</p></li>
-<li><p>What is the area of each plate?</p></li>
-<li><p>What is the charge on the plates when the potential difference between them is <span class="math notranslate nohighlight">\(500.0\)</span> V?</p></li>
-<li><p>What maximum potential difference can be applied between the plates so that the magnitude of electrical fields between the plates does not exceed <span class="math notranslate nohighlight">\(3.0\)</span> MV/m?</p></li>
+<li><p>Find <span class="math notranslate nohighlight">\(C_0\)</span> and <span class="math notranslate nohighlight">\(C_1\)</span>.</p></li>
+<li><p>Find <span class="math notranslate nohighlight">\(Q_0\)</span> and <span class="math notranslate nohighlight">\(Q_1\)</span>.</p></li>
+<li><p>Find <span class="math notranslate nohighlight">\(\Delta V_0\)</span> and <span class="math notranslate nohighlight">\(\Delta V_1\)</span>.</p></li>
+<li><p>Find <span class="math notranslate nohighlight">\(E_0\)</span> and <span class="math notranslate nohighlight">\(E_1\)</span>.</p></li>
+<li><p>Find <span class="math notranslate nohighlight">\(\Delta U_0\)</span> and <span class="math notranslate nohighlight">\(\Delta U_1\)</span>.</p></li>
 </ol>
-<p><a class="reference external" href="https://openstax.org/books/university-physics-volume-2/pages/8-problems">This problem is a slightly modified version from OpenStax. Access for free here</a></p>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray"><h2>Problem D3.8</h2>
-    </header>
-<p>A prankster applies <span class="math notranslate nohighlight">\(450\)</span> V to an <span class="math notranslate nohighlight">\(80.0~\mu\)</span>F capacitor and then tosses it to an unsuspecting victim. The victim’s finger is burned by the discharge of the capacitor through <span class="math notranslate nohighlight">\(0.200\)</span> g of flesh. Estimate, what is the temperature increase of the flesh?</p>
-<p><a class="reference external" href="https://openstax.org/books/university-physics-volume-2/pages/8-problems">This problem is a slightly modified version from OpenStax. Access for free here</a></p>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray"><h2>Problem D3.9</h2>
-    </header>
-<p>Electronic flash units for cameras contain a capacitor for storing the energy used to produce the flash. In one such unit the flash lasts for <span class="math notranslate nohighlight">\(1/675\)</span> fraction of a second with an average light power output of <span class="math notranslate nohighlight">\(270\)</span> kW.</p>
+<p>Finally, in one or two sentences: <strong>Which quantities are held fixed in each scenario, and why?</strong></p>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Problem solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p><strong>Relevant equations</strong></p>
+<p>Parallel-plate capacitance:</p>
+<div class="math notranslate nohighlight">
+\[
+C = \varepsilon_0 \frac{A}{d}
+\]</div>
+<p>Battery connected:</p>
+<div class="math notranslate nohighlight">
+\[
+Q = C\,\Delta V \quad (\Delta V\ \text{fixed})
+\]</div>
+<p>Battery disconnected:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta V = \frac{Q}{C} \quad (Q\ \text{fixed})
+\]</div>
+<p>Uniform field between plates:</p>
+<div class="math notranslate nohighlight">
+\[
+E = \frac{\Delta V}{d}
+\]</div>
+<p>Energy stored:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta U = \frac{1}{2}C(\Delta V)^2 = \frac{Q^2}{2C}
+\]</div>
+<hr class="docutils" />
+<p><strong>Given</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(A = 0.0200\ \text{m}^2\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(d_0 = 1.00\times 10^{-3}\ \text{m}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(d_1 = 3.00\times 10^{-3}\ \text{m}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta V_0 = 500\ \text{V}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\varepsilon_0 = 8.85\times 10^{-12}\ \text{F/m}\)</span></p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Step 1: Capacitances</strong></p>
+<div class="math notranslate nohighlight">
+\[
+C_0 = \varepsilon_0\frac{A}{d_0}
+= (8.85\times 10^{-12})\frac{0.0200}{1.00\times 10^{-3}}
+= 1.77\times 10^{-10}\ \text{F}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+C_1 = \varepsilon_0\frac{A}{d_1}
+= (8.85\times 10^{-12})\frac{0.0200}{3.00\times 10^{-3}}
+= 5.90\times 10^{-11}\ \text{F}
+\]</div>
+<p>So <span class="math notranslate nohighlight">\(C_1 = \frac{1}{3}C_0\)</span>.</p>
+<hr class="docutils" />
+<p><strong>Scenario A — Battery connected (<span class="math notranslate nohighlight">\(\Delta V\)</span> fixed)</strong></p>
+<p><strong>Charge</strong></p>
+<div class="math notranslate nohighlight">
+\[
+Q_0 = C_0 \Delta V_0 = (1.77\times 10^{-10})(500)= 8.85\times 10^{-8}\ \text{C}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+Q_1 = C_1 \Delta V_0 = (5.90\times 10^{-11})(500)= 2.95\times 10^{-8}\ \text{C}
+\]</div>
+<p><strong>Electric field</strong></p>
+<div class="math notranslate nohighlight">
+\[
+E_0 = \frac{\Delta V_0}{d_0} = \frac{500}{1.00\times 10^{-3}} = 5.00\times 10^{5}\ \text{V/m}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+E_1 = \frac{\Delta V_0}{d_1} = \frac{500}{3.00\times 10^{-3}} = 1.67\times 10^{5}\ \text{V/m}
+\]</div>
+<p><strong>Energy</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\Delta U_0 = \frac{1}{2}C_0(\Delta V_0)^2
+= \frac{1}{2}(1.77\times 10^{-10})(500)^2
+= 2.21\times 10^{-5}\ \text{J}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\Delta U_1 = \frac{1}{2}C_1(\Delta V_0)^2
+= \frac{1}{2}(5.90\times 10^{-11})(500)^2
+= 7.38\times 10^{-6}\ \text{J}
+\]</div>
+<hr class="docutils" />
+<p><strong>Scenario B — Battery disconnected (<span class="math notranslate nohighlight">\(Q\)</span> fixed)</strong></p>
+<p>Here the charge stays the same:</p>
+<div class="math notranslate nohighlight">
+\[
+Q_1 = Q_0 = 8.85\times 10^{-8}\ \text{C}.
+\]</div>
+<p><strong>Voltage</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\Delta V_1 = \frac{Q_0}{C_1}
+= \frac{8.85\times 10^{-8}}{5.90\times 10^{-11}}
+= 1.50\times 10^{3}\ \text{V}
+\]</div>
+<p>So <span class="math notranslate nohighlight">\(\Delta V_1 = 3\Delta V_0\)</span>.</p>
+<p><strong>Electric field</strong></p>
+<div class="math notranslate nohighlight">
+\[
+E_0 = \frac{\Delta V_0}{d_0} = 5.00\times 10^{5}\ \text{V/m}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+E_1 = \frac{\Delta V_1}{d_1} = \frac{1.50\times 10^{3}}{3.00\times 10^{-3}}
+= 5.00\times 10^{5}\ \text{V/m}
+\]</div>
+<p>So the electric field remains unchanged.</p>
+<p><strong>Energy</strong></p>
+<p>Using <span class="math notranslate nohighlight">\(\Delta U = \frac{Q^2}{2C}\)</span> (best form when <span class="math notranslate nohighlight">\(Q\)</span> is fixed):</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta U_0 = \frac{Q_0^2}{2C_0}
+= \frac{(8.85\times 10^{-8})^2}{2(1.77\times 10^{-10})}
+= 2.21\times 10^{-5}\ \text{J}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\Delta U_1 = \frac{Q_0^2}{2C_1}
+= \frac{(8.85\times 10^{-8})^2}{2(5.90\times 10^{-11})}
+= 6.64\times 10^{-5}\ \text{J}
+\]</div>
+<hr class="docutils" />
+<p><strong>Final interpretation</strong></p>
+<ul class="simple">
+<li><p><strong>Battery connected:</strong> <span class="math notranslate nohighlight">\(\Delta V\)</span> is fixed, so <span class="math notranslate nohighlight">\(Q\)</span> decreases when <span class="math notranslate nohighlight">\(d\)</span> increases, and the field decreases.</p></li>
+<li><p><strong>Battery disconnected:</strong> <span class="math notranslate nohighlight">\(Q\)</span> is fixed, so <span class="math notranslate nohighlight">\(\Delta V\)</span> increases when <span class="math notranslate nohighlight">\(d\)</span> increases, and the field stays the same.</p></li>
+</ul>
+</div>
+</details>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Given values</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">eps0</span> <span class="o">=</span> <span class="mf">8.85e-12</span>    <span class="c1"># F/m</span>
+<span class="n">A</span> <span class="o">=</span> <span class="mf">0.0200</span>         <span class="c1"># m^2</span>
+<span class="n">d0</span> <span class="o">=</span> <span class="mf">1.00e-3</span>       <span class="c1"># m</span>
+<span class="n">d1</span> <span class="o">=</span> <span class="mf">3.00e-3</span>       <span class="c1"># m</span>
+<span class="n">dV0</span> <span class="o">=</span> <span class="mf">500.0</span>        <span class="c1"># V</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Physics:</span>
+<span class="c1"># C = eps0 * A / d</span>
+<span class="c1">#</span>
+<span class="c1"># Scenario A (battery connected): ΔV fixed</span>
+<span class="c1">#   Q = C ΔV</span>
+<span class="c1">#   E = ΔV / d</span>
+<span class="c1">#   ΔU = (1/2) C (ΔV)^2</span>
+<span class="c1">#</span>
+<span class="c1"># Scenario B (battery disconnected): Q fixed (equals initial Q0)</span>
+<span class="c1">#   ΔV = Q / C</span>
+<span class="c1">#   E = ΔV / d</span>
+<span class="c1">#   ΔU = Q^2 / (2C)   (convenient when Q fixed)</span>
+<span class="c1"># -----------------------------</span>
+
+<span class="c1"># Capacitances</span>
+<span class="n">C0</span> <span class="o">=</span> <span class="n">eps0</span> <span class="o">*</span> <span class="n">A</span> <span class="o">/</span> <span class="n">d0</span>
+<span class="n">C1</span> <span class="o">=</span> <span class="n">eps0</span> <span class="o">*</span> <span class="n">A</span> <span class="o">/</span> <span class="n">d1</span>
+
+<span class="c1"># Scenario A: ΔV fixed</span>
+<span class="n">Q0_A</span> <span class="o">=</span> <span class="n">C0</span> <span class="o">*</span> <span class="n">dV0</span>
+<span class="n">Q1_A</span> <span class="o">=</span> <span class="n">C1</span> <span class="o">*</span> <span class="n">dV0</span>
+<span class="n">E0_A</span> <span class="o">=</span> <span class="n">dV0</span> <span class="o">/</span> <span class="n">d0</span>
+<span class="n">E1_A</span> <span class="o">=</span> <span class="n">dV0</span> <span class="o">/</span> <span class="n">d1</span>
+<span class="n">dU0_A</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">C0</span> <span class="o">*</span> <span class="n">dV0</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">dU1_A</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">C1</span> <span class="o">*</span> <span class="n">dV0</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="c1"># Scenario B: Q fixed (equal to initial charge when connected at ΔV0)</span>
+<span class="n">Q0_B</span> <span class="o">=</span> <span class="n">Q0_A</span>
+<span class="n">Q1_B</span> <span class="o">=</span> <span class="n">Q0_B</span>
+<span class="n">dV1_B</span> <span class="o">=</span> <span class="n">Q0_B</span> <span class="o">/</span> <span class="n">C1</span>
+<span class="n">E0_B</span> <span class="o">=</span> <span class="n">dV0</span> <span class="o">/</span> <span class="n">d0</span>
+<span class="n">E1_B</span> <span class="o">=</span> <span class="n">dV1_B</span> <span class="o">/</span> <span class="n">d1</span>
+<span class="n">dU0_B</span> <span class="o">=</span> <span class="n">Q0_B</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">C0</span><span class="p">)</span>
+<span class="n">dU1_B</span> <span class="o">=</span> <span class="n">Q0_B</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">C1</span><span class="p">)</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Nicely formatted output</span>
+<span class="c1"># -----------------------------</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Parallel-plate capacitor: battery connected vs disconnected (plate spacing changes)</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Given:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Plate area:        A = </span><span class="si">{</span><span class="n">A</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> m^2&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Initial spacing:   d0 = </span><span class="si">{</span><span class="n">d0</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> m&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Final spacing:     d1 = </span><span class="si">{</span><span class="n">d1</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> m&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Battery voltage:  ΔV0 = </span><span class="si">{</span><span class="n">dV0</span><span class="si">:</span><span class="s2">.3g</span><span class="si">}</span><span class="s2"> V&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Vacuum permittivity: eps0 = </span><span class="si">{</span><span class="n">eps0</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> F/m</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Capacitance (geometry only):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  C0 = </span><span class="si">{</span><span class="n">C0</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> F&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  C1 = </span><span class="si">{</span><span class="n">C1</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> F</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Scenario A: Battery connected (ΔV fixed)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Q0 = </span><span class="si">{</span><span class="n">Q0_A</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> C&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Q1 = </span><span class="si">{</span><span class="n">Q1_A</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> C&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  E0 = </span><span class="si">{</span><span class="n">E0_A</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> V/m&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  E1 = </span><span class="si">{</span><span class="n">E1_A</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> V/m&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ΔU0 = </span><span class="si">{</span><span class="n">dU0_A</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> J&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ΔU1 = </span><span class="si">{</span><span class="n">dU1_A</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> J</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Scenario B: Battery disconnected before moving plates (Q fixed)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Q0 = </span><span class="si">{</span><span class="n">Q0_B</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> C (fixed)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Q1 = </span><span class="si">{</span><span class="n">Q1_B</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> C (fixed)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ΔV0 = </span><span class="si">{</span><span class="n">dV0</span><span class="si">:</span><span class="s2">.3g</span><span class="si">}</span><span class="s2"> V&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ΔV1 = </span><span class="si">{</span><span class="n">dV1_B</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> V&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  E0 = </span><span class="si">{</span><span class="n">E0_B</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> V/m&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  E1 = </span><span class="si">{</span><span class="n">E1_B</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> V/m&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ΔU0 = </span><span class="si">{</span><span class="n">dU0_B</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> J&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ΔU1 = </span><span class="si">{</span><span class="n">dU1_B</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> J</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Physical interpretation:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• Scenario A: Battery holds ΔV constant, so increasing d decreases C and therefore decreases Q and E.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• Scenario B: Charge is trapped (fixed Q). Increasing d decreases C, so ΔV rises; E stays the same for parallel plates.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• Energy changes differently depending on what is held fixed (ΔV vs Q).&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Parallel-plate capacitor: battery connected vs disconnected (plate spacing changes)
+
+Given:
+  Plate area:        A = 0.0200 m^2
+  Initial spacing:   d0 = 1.000e-03 m
+  Final spacing:     d1 = 3.000e-03 m
+  Battery voltage:  ΔV0 = 500 V
+  Vacuum permittivity: eps0 = 8.850e-12 F/m
+
+Capacitance (geometry only):
+  C0 = 1.770e-10 F
+  C1 = 5.900e-11 F
+
+Scenario A: Battery connected (ΔV fixed)
+  Q0 = 8.850e-08 C
+  Q1 = 2.950e-08 C
+  E0 = 5.000e+05 V/m
+  E1 = 1.667e+05 V/m
+  ΔU0 = 2.213e-05 J
+  ΔU1 = 7.375e-06 J
+
+Scenario B: Battery disconnected before moving plates (Q fixed)
+  Q0 = 8.850e-08 C (fixed)
+  Q1 = 8.850e-08 C (fixed)
+  ΔV0 = 500 V
+  ΔV1 = 1.500e+03 V
+  E0 = 5.000e+05 V/m
+  E1 = 5.000e+05 V/m
+  ΔU0 = 2.212e-05 J
+  ΔU1 = 6.638e-05 J
+
+Physical interpretation:
+• Scenario A: Battery holds ΔV constant, so increasing d decreases C and therefore decreases Q and E.
+• Scenario B: Charge is trapped (fixed Q). Increasing d decreases C, so ΔV rises; E stays the same for parallel plates.
+• Energy changes differently depending on what is held fixed (ΔV vs Q).
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="problem-d3-3-energy-and-work-to-charge-a-capacitor-calculus">
+<h2>Problem D3.3 — Energy and Work to Charge a Capacitor (Calculus)<a class="headerlink" href="#problem-d3-3-energy-and-work-to-charge-a-capacitor-calculus" title="Link to this heading">#</a></h2>
+<p>A capacitor has capacitance</p>
+<div class="math notranslate nohighlight">
+\[
+C = 4.00\ \mu\text{F}.
+\]</div>
+<p>It is initially uncharged. The capacitor is slowly charged until the final potential difference across it is</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta V_f = 12.0\ \text{V}.
+\]</div>
+<p>Answer the following:</p>
 <ol class="arabic simple">
-<li><p>If the conversion of electrical energy to light is <span class="math notranslate nohighlight">\(95\%\)</span> efficient (because the rest of the energy goes to thermal energy), how much energy must be stored in the capacitor for one flash?</p></li>
-<li><p>The capacitor has a potential difference between its plates of <span class="math notranslate nohighlight">\(125\)</span> V when the stored energy equals the value stored in part (a). What is the capacitance?</p></li>
+<li><p>Find the final charge <span class="math notranslate nohighlight">\(Q_f\)</span> on the capacitor.</p></li>
+<li><p>Use a calculus argument to compute the total work done by an external agent during the charging process, and show that this equals the change in stored electric potential energy <span class="math notranslate nohighlight">\(\Delta U\)</span>.</p></li>
+<li><p>Compute <span class="math notranslate nohighlight">\(\Delta U\)</span> numerically.</p></li>
+<li><p>Briefly explain (in one or two sentences) why the factor of <span class="math notranslate nohighlight">\(\tfrac{1}{2}\)</span> appears in the energy expression.</p></li>
 </ol>
-<p><a class="reference external" href="https://openstax.org/books/university-physics-volume-2/pages/8-problems">This problem is a slightly modified version from OpenStax. Access for free here</a></p>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Problem solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p><strong>Relevant equations</strong></p>
+<p>Capacitance relationship:</p>
+<div class="math notranslate nohighlight">
+\[
+Q = C\,\Delta V
+\]</div>
+<p>During charging, the instantaneous potential difference when the capacitor holds charge <span class="math notranslate nohighlight">\(q\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta V(q) = \frac{q}{C}.
+\]</div>
+<p>Energy/work connection for adding a small amount of charge <span class="math notranslate nohighlight">\(dq\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+dW_{\text{ext}} = dU = \Delta V(q)\,dq.
+\]</div>
+<hr class="docutils" />
+<p><strong>Given</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(C = 4.00\times 10^{-6}\ \text{F}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta V_f = 12.0\ \text{V}\)</span></p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>1) Final charge</strong></p>
+<div class="math notranslate nohighlight">
+\[
+Q_f = C\,\Delta V_f
+= (4.00\times 10^{-6})(12.0)
+= 4.80\times 10^{-5}\ \text{C}.
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{Q_f = 4.80\times 10^{-5}\ \text{C}}
+\]</div>
+<hr class="docutils" />
+<p><strong>2) Work done during charging (calculus)</strong></p>
+<p>At an intermediate stage with charge <span class="math notranslate nohighlight">\(q\)</span>, the potential difference is</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta V(q) = \frac{q}{C}.
+\]</div>
+<p>The incremental work to move charge <span class="math notranslate nohighlight">\(dq\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+dW_{\text{ext}} = \Delta V(q)\,dq = \frac{q}{C}\,dq.
+\]</div>
+<p>Total work from <span class="math notranslate nohighlight">\(q=0\)</span> to <span class="math notranslate nohighlight">\(q=Q_f\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+W_{\text{ext}} = \int_0^{Q_f}\frac{q}{C}\,dq
+= \frac{1}{C}\left[\frac{q^2}{2}\right]_0^{Q_f}
+= \frac{Q_f^2}{2C}.
+\]</div>
+<p>Since the capacitor starts uncharged, this work equals the change in stored energy:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta U = W_{\text{ext}} = \frac{Q_f^2}{2C}.
+\]</div>
+<p>Using <span class="math notranslate nohighlight">\(Q_f = C\Delta V_f\)</span> gives the familiar form</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta U = \frac{1}{2}C(\Delta V_f)^2.
+\]</div>
+<hr class="docutils" />
+<p><strong>3) Numerical value of stored energy</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\Delta U = \frac{1}{2}C(\Delta V_f)^2
+= \frac{1}{2}(4.00\times 10^{-6})(12.0)^2
+= 2.88\times 10^{-4}\ \text{J}.
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{\Delta U = 2.88\times 10^{-4}\ \text{J}}
+\]</div>
+<hr class="docutils" />
+<p><strong>4) Why the factor <span class="math notranslate nohighlight">\(\tfrac{1}{2}\)</span> appears</strong></p>
+<p>The potential difference starts at <span class="math notranslate nohighlight">\(0\)</span> and increases linearly to <span class="math notranslate nohighlight">\(\Delta V_f\)</span> as charge builds up. The total work is the “area under” this linear increase, which is half of the rectangle you would get if the voltage were constant at <span class="math notranslate nohighlight">\(\Delta V_f\)</span> for the entire process.</p>
+</div>
+</details>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Given values</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">C</span> <span class="o">=</span> <span class="mf">4.00e-6</span>       <span class="c1"># F</span>
+<span class="n">dVf</span> <span class="o">=</span> <span class="mf">12.0</span>        <span class="c1"># V</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Physics:</span>
+<span class="c1"># Final charge: Qf = C ΔVf</span>
+<span class="c1">#</span>
+<span class="c1"># During charging: ΔV(q) = q/C</span>
+<span class="c1"># Incremental work (and energy increase): dW_ext = dU = ΔV(q) dq</span>
+<span class="c1"># Total: ΔU = ∫_0^Qf (q/C) dq = Qf^2/(2C) = (1/2) C (ΔVf)^2</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">Qf</span> <span class="o">=</span> <span class="n">C</span> <span class="o">*</span> <span class="n">dVf</span>
+<span class="n">dU</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">C</span> <span class="o">*</span> <span class="n">dVf</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">Wext</span> <span class="o">=</span> <span class="n">dU</span>  <span class="c1"># since capacitor starts uncharged, ΔU = W_ext</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Nicely formatted output</span>
+<span class="c1"># -----------------------------</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Charging a capacitor: charge, work, and stored potential energy</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Given:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Capacitance:        C = </span><span class="si">{</span><span class="n">C</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> F&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Final voltage:     ΔVf = </span><span class="si">{</span><span class="n">dVf</span><span class="si">:</span><span class="s2">.3g</span><span class="si">}</span><span class="s2"> V</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Results (3 significant figures):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Final charge:       Qf = </span><span class="si">{</span><span class="n">Qf</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> C&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Stored energy:     ΔU = </span><span class="si">{</span><span class="n">dU</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> J&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Work by external:  W_ext = </span><span class="si">{</span><span class="n">Wext</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> J</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Physical interpretation:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• The voltage rises from 0 to ΔVf as charge accumulates, so the average voltage during charging is (1/2)ΔVf.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• That is why ΔU = (1/2) Qf ΔVf = (1/2) C (ΔVf)^2.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• The work done by the external agent becomes stored electric potential energy in the capacitor&#39;s electric field.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Charging a capacitor: charge, work, and stored potential energy
+
+Given:
+  Capacitance:        C = 4.000e-06 F
+  Final voltage:     ΔVf = 12 V
+
+Results (3 significant figures):
+  Final charge:       Qf = 4.800e-05 C
+  Stored energy:     ΔU = 2.880e-04 J
+  Work by external:  W_ext = 2.880e-04 J
+
+Physical interpretation:
+• The voltage rises from 0 to ΔVf as charge accumulates, so the average voltage during charging is (1/2)ΔVf.
+• That is why ΔU = (1/2) Qf ΔVf = (1/2) C (ΔVf)^2.
+• The work done by the external agent becomes stored electric potential energy in the capacitor&#39;s electric field.
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"></section>
+<section id="problem-d3-4-stud-finder-as-a-capacitive-sensor">
+<h2>Problem D3.4 — Stud Finder as a Capacitive Sensor<a class="headerlink" href="#problem-d3-4-stud-finder-as-a-capacitive-sensor" title="Link to this heading">#</a></h2>
+<p>Many electronic stud finders work by detecting changes in <strong>capacitance</strong>. A simplified model is that the device contains a sensing plate facing the wall. The wall acts like the other “plate,” so the system behaves approximately like a parallel-plate capacitor.</p>
+<p>Assume the sensor can be modeled as a parallel-plate capacitor with:</p>
+<div class="math notranslate nohighlight">
+\[
+A = 8.0\ \text{cm}^2,
+\qquad
+d = 2.0\ \text{mm},
+\qquad
+\varepsilon_0 = 8.85\times10^{-12}\ \text{F/m}.
+\]</div>
+<p>When the sensor is over dry air behind thin drywall, take the effective permittivity as approximately <span class="math notranslate nohighlight">\(\varepsilon_0\)</span>.</p>
+<p>When the sensor is over a wooden stud, the effective permittivity increases (more polarization), and for this problem model it as</p>
+<div class="math notranslate nohighlight">
+\[
+\varepsilon_{\text{stud}} = 3.0\,\varepsilon_0.
+\]</div>
+<p>The drywall acts as a <strong>dielectric</strong>, which we will discuss in Phase B.</p>
+<p>The electronics hold the sensor at a constant potential difference of</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta V = 9.0\ \text{V}.
+\]</div>
+<p>Answer the following:</p>
+<ol class="arabic simple">
+<li><p>Compute the capacitance when the sensor is over air, <span class="math notranslate nohighlight">\(C_{\text{air}}\)</span>.</p></li>
+<li><p>Compute the capacitance when the sensor is over a stud, <span class="math notranslate nohighlight">\(C_{\text{stud}}\)</span>.</p></li>
+<li><p>With <span class="math notranslate nohighlight">\(\Delta V\)</span> held constant, compute the stored charge in each case: <span class="math notranslate nohighlight">\(Q_{\text{air}}\)</span> and <span class="math notranslate nohighlight">\(Q_{\text{stud}}\)</span>.</p></li>
+<li><p>Compute the stored energy in each case: <span class="math notranslate nohighlight">\(\Delta U_{\text{air}}\)</span> and <span class="math notranslate nohighlight">\(\Delta U_{\text{stud}}\)</span>.</p></li>
+<li><p>In one or two sentences, explain why detecting a change in <span class="math notranslate nohighlight">\(Q\)</span> (or <span class="math notranslate nohighlight">\(\Delta U\)</span>) allows the stud finder to detect the stud.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Problem solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p><strong>Relevant equations</strong></p>
+<p>Parallel-plate capacitance:</p>
+<div class="math notranslate nohighlight">
+\[
+C = \varepsilon \frac{A}{d}
+\]</div>
+<p>Charge at fixed voltage:</p>
+<div class="math notranslate nohighlight">
+\[
+Q = C\,\Delta V
+\]</div>
+<p>Energy at fixed voltage:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta U = \frac{1}{2}C(\Delta V)^2
+\]</div>
+<hr class="docutils" />
+<p><strong>Given</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(A = 8.0~\text{cm}^2 = 8.0\times10^{-4}~\text{m}^2\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(d = 2.0~\text{mm} = 2.0\times10^{-3}~\text{m}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\varepsilon_0 = 8.85\times10^{-12}~\text{F/m}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\varepsilon_{\text{air}} = \varepsilon_0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\varepsilon_{\text{stud}} = 3.0\,\varepsilon_0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta V = 9.0~\text{V}\)</span></p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>1) Capacitance over air</strong></p>
+<div class="math notranslate nohighlight">
+\[
+C_{\text{air}} = \varepsilon_0 \frac{A}{d}
+= (8.85\times10^{-12})\frac{8.0\times10^{-4}}{2.0\times10^{-3}}
+= 3.54\times10^{-12}~\text{F}.
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{C_{\text{air}} = 3.54~\text{pF}}
+\]</div>
+<hr class="docutils" />
+<p><strong>2) Capacitance over a stud</strong></p>
+<div class="math notranslate nohighlight">
+\[
+C_{\text{stud}} = (3.0\varepsilon_0)\frac{A}{d}
+= 3.0\,C_{\text{air}}
+= 1.06\times10^{-11}~\text{F}.
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{C_{\text{stud}} = 10.6~\text{pF}}
+\]</div>
+<hr class="docutils" />
+<p><strong>3) Stored charge (fixed voltage)</strong></p>
+<div class="math notranslate nohighlight">
+\[
+Q_{\text{air}} = C_{\text{air}}\Delta V
+= (3.54\times10^{-12})(9.0)
+= 3.19\times10^{-11}~\text{C}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+Q_{\text{stud}} = C_{\text{stud}}\Delta V
+= (1.06\times10^{-11})(9.0)
+= 9.56\times10^{-11}~\text{C}
+\]</div>
+<hr class="docutils" />
+<p><strong>4) Stored energy (fixed voltage)</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\Delta U_{\text{air}} = \frac{1}{2}C_{\text{air}}(\Delta V)^2
+= \frac{1}{2}(3.54\times10^{-12})(9.0)^2
+= 1.43\times10^{-10}~\text{J}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\Delta U_{\text{stud}} = \frac{1}{2}C_{\text{stud}}(\Delta V)^2
+= \frac{1}{2}(1.06\times10^{-11})(9.0)^2
+= 4.29\times10^{-10}~\text{J}
+\]</div>
+<hr class="docutils" />
+<p><strong>5) Physical interpretation</strong></p>
+<p>A stud increases the effective permittivity, which increases the capacitance. With the same applied voltage, the capacitor stores more charge and more energy. The stud finder detects this change in capacitance (often by measuring how quickly the sensor charges/discharges or how an oscillator frequency shifts), allowing it to locate the stud.</p>
+</div>
+</details>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Given values</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">eps0</span> <span class="o">=</span> <span class="mf">8.85e-12</span>      <span class="c1"># F/m</span>
+<span class="n">A</span> <span class="o">=</span> <span class="mf">8.0e-4</span>           <span class="c1"># m^2  (8.0 cm^2)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="mf">2.0e-3</span>           <span class="c1"># m</span>
+<span class="n">dV</span> <span class="o">=</span> <span class="mf">9.0</span>             <span class="c1"># V</span>
+
+<span class="n">eps_air</span> <span class="o">=</span> <span class="n">eps0</span>
+<span class="n">eps_stud</span> <span class="o">=</span> <span class="mf">3.0</span> <span class="o">*</span> <span class="n">eps0</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Physics:</span>
+<span class="c1"># Parallel-plate capacitance: C = eps * A / d</span>
+<span class="c1"># At fixed voltage: Q = C ΔV</span>
+<span class="c1"># Stored energy: ΔU = (1/2) C (ΔV)^2</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">C_air</span> <span class="o">=</span> <span class="n">eps_air</span> <span class="o">*</span> <span class="n">A</span> <span class="o">/</span> <span class="n">d</span>
+<span class="n">C_stud</span> <span class="o">=</span> <span class="n">eps_stud</span> <span class="o">*</span> <span class="n">A</span> <span class="o">/</span> <span class="n">d</span>
+
+<span class="n">Q_air</span> <span class="o">=</span> <span class="n">C_air</span> <span class="o">*</span> <span class="n">dV</span>
+<span class="n">Q_stud</span> <span class="o">=</span> <span class="n">C_stud</span> <span class="o">*</span> <span class="n">dV</span>
+
+<span class="n">dU_air</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">C_air</span> <span class="o">*</span> <span class="n">dV</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">dU_stud</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">C_stud</span> <span class="o">*</span> <span class="n">dV</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Nicely formatted output</span>
+<span class="c1"># -----------------------------</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stud finder (capacitive sensor): air vs stud</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Given:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Area:          A = </span><span class="si">{</span><span class="n">A</span><span class="si">:</span><span class="s2">.2e</span><span class="si">}</span><span class="s2"> m^2&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Separation:    d = </span><span class="si">{</span><span class="n">d</span><span class="si">:</span><span class="s2">.2e</span><span class="si">}</span><span class="s2"> m&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Voltage:      ΔV = </span><span class="si">{</span><span class="n">dV</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> V&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  eps0 = </span><span class="si">{</span><span class="n">eps0</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> F/m&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  eps_stud = 3.0 * eps0</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Results (3 significant figures):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  C_air  = </span><span class="si">{</span><span class="n">C_air</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> F  (</span><span class="si">{</span><span class="n">C_air</span><span class="o">*</span><span class="mf">1e12</span><span class="si">:</span><span class="s2">.3g</span><span class="si">}</span><span class="s2"> pF)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  C_stud = </span><span class="si">{</span><span class="n">C_stud</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> F  (</span><span class="si">{</span><span class="n">C_stud</span><span class="o">*</span><span class="mf">1e12</span><span class="si">:</span><span class="s2">.3g</span><span class="si">}</span><span class="s2"> pF)</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Q_air  = </span><span class="si">{</span><span class="n">Q_air</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> C&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Q_stud = </span><span class="si">{</span><span class="n">Q_stud</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> C</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ΔU_air  = </span><span class="si">{</span><span class="n">dU_air</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> J&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ΔU_stud = </span><span class="si">{</span><span class="n">dU_stud</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> J</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Physical interpretation:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• A stud increases the effective permittivity, so the capacitance increases.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• At fixed voltage, larger C means more stored charge (Q = CΔV) and more energy (ΔU = ½CΔV²).&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• Real stud finders often detect this via a change in charging time or an oscillator frequency shift.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Stud finder (capacitive sensor): air vs stud
+
+Given:
+  Area:          A = 8.00e-04 m^2
+  Separation:    d = 2.00e-03 m
+  Voltage:      ΔV = 9.00 V
+  eps0 = 8.850e-12 F/m
+  eps_stud = 3.0 * eps0
+
+Results (3 significant figures):
+  C_air  = 3.540e-12 F  (3.54 pF)
+  C_stud = 1.062e-11 F  (10.6 pF)
+
+  Q_air  = 3.186e-11 C
+  Q_stud = 9.558e-11 C
+
+  ΔU_air  = 1.434e-10 J
+  ΔU_stud = 4.301e-10 J
+
+Physical interpretation:
+• A stud increases the effective permittivity, so the capacitance increases.
+• At fixed voltage, larger C means more stored charge (Q = CΔV) and more energy (ΔU = ½CΔV²).
+• Real stud finders often detect this via a change in charging time or an oscillator frequency shift.
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"></section>
+<section id="problem-d3-5-thunderstormground-as-a-giant-capacitor">
+<h2>Problem D3.5 — Thunderstorm–Ground as a Giant Capacitor<a class="headerlink" href="#problem-d3-5-thunderstormground-as-a-giant-capacitor" title="Link to this heading">#</a></h2>
+<p>In fair-weather conditions, the electric field near Earth’s surface is relatively small. During a thunderstorm, however, charge separation in the clouds can create very large electric fields near the ground. A simple model is to treat the cloud base and the ground as the two “plates” of a gigantic parallel-plate capacitor.</p>
+<p>Assume the following idealized thunderstorm scenario:</p>
+<ul>
+<li><p>The cloud base is approximately flat over a circular area of radius</p>
+<div class="math notranslate nohighlight">
+\[
+  R = 1.20\ \text{km}.
+  \]</div>
+</li>
+<li><p>The cloud base is at a height above the ground of</p>
+<div class="math notranslate nohighlight">
+\[
+  d = 700\ \text{m}.
+  \]</div>
+</li>
+<li><p>The average downward electric field magnitude between cloud and ground is</p>
+<div class="math notranslate nohighlight">
+\[
+  E = 2.50\times10^{4}\ \text{V/m}.
+  \]</div>
+</li>
+<li><p>Use</p>
+<div class="math notranslate nohighlight">
+\[
+  \varepsilon_0 = 8.85\times10^{-12}\ \text{F/m}.
+  \]</div>
+</li>
+</ul>
+<p>Model the system as an ideal parallel-plate capacitor with plate area <span class="math notranslate nohighlight">\(A=\pi R^2\)</span>.</p>
+<p>Answer the following:</p>
+<ol class="arabic">
+<li><p>Compute the effective plate area <span class="math notranslate nohighlight">\(A\)</span>.</p></li>
+<li><p>Compute the capacitance of the cloud–ground system,</p>
+<div class="math notranslate nohighlight">
+\[
+   C = \varepsilon_0\frac{A}{d}.
+   \]</div>
+</li>
+<li><p>Compute the potential difference between cloud base and ground using</p>
+<div class="math notranslate nohighlight">
+\[
+   \Delta V = E\,d.
+   \]</div>
+</li>
+<li><p>Compute the magnitude of charge separated on the “plates” using</p>
+<div class="math notranslate nohighlight">
+\[
+   Q = C\,\Delta V.
+   \]</div>
+</li>
+<li><p>Compute the energy stored in this field configuration using</p>
+<div class="math notranslate nohighlight">
+\[
+   \Delta U = \frac{1}{2}C(\Delta V)^2.
+   \]</div>
+</li>
+<li><p>Compare your stored energy to a familiar energy scale (choose one):</p>
+<ul class="simple">
+<li><p>a typical lightning strike energy scale (<span class="math notranslate nohighlight">\(10^8\)</span>–<span class="math notranslate nohighlight">\(10^9\)</span> J),</p></li>
+<li><p>the kinetic energy of a car,</p></li>
+<li><p>or the energy in 1 kg of TNT (<span class="math notranslate nohighlight">\(\approx 4.2\times10^{6}\)</span> J).</p></li>
+</ul>
+</li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Problem solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p><strong>Relevant equations</strong></p>
+<ul>
+<li><p>Area:</p>
+<div class="math notranslate nohighlight">
+\[
+  A=\pi R^2
+  \]</div>
+</li>
+<li><p>Capacitance:</p>
+<div class="math notranslate nohighlight">
+\[
+  C=\varepsilon_0\frac{A}{d}
+  \]</div>
+</li>
+<li><p>Uniform field potential difference:</p>
+<div class="math notranslate nohighlight">
+\[
+  \Delta V = E\,d
+  \]</div>
+</li>
+<li><p>Charge:</p>
+<div class="math notranslate nohighlight">
+\[
+  Q = C\,\Delta V
+  \]</div>
+</li>
+<li><p>Stored energy:</p>
+<div class="math notranslate nohighlight">
+\[
+  \Delta U = \frac{1}{2}C(\Delta V)^2
+  \]</div>
+</li>
+</ul>
+<hr class="docutils" />
+<p><strong>Given</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(R = 1.20\times10^{3}\ \text{m}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(d = 700\ \text{m}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(E = 2.50\times10^{4}\ \text{V/m}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\varepsilon_0 = 8.85\times10^{-12}\ \text{F/m}\)</span></p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>1) Area</strong></p>
+<div class="math notranslate nohighlight">
+\[
+A = \pi R^2 = \pi (1.20\times10^{3})^2
+= \pi(1.44\times10^{6})
+= 4.52\times10^{6}\ \text{m}^2.
+\]</div>
+<hr class="docutils" />
+<p><strong>2) Capacitance</strong></p>
+<div class="math notranslate nohighlight">
+\[
+C=\varepsilon_0\frac{A}{d}
+= (8.85\times10^{-12})\frac{4.52\times10^{6}}{700}
+= 5.72\times10^{-8}\ \text{F}.
+\]</div>
+<hr class="docutils" />
+<p><strong>3) Potential difference</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\Delta V = E\,d
+= (2.50\times10^{4})(700)
+= 1.75\times10^{7}\ \text{V}.
+\]</div>
+<hr class="docutils" />
+<p><strong>4) Charge</strong></p>
+<div class="math notranslate nohighlight">
+\[
+Q = C\,\Delta V
+= (5.72\times10^{-8})(1.75\times10^{7})
+= 1.00\ \text{C}.
+\]</div>
+<hr class="docutils" />
+<p><strong>5) Stored energy</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\Delta U = \frac{1}{2}C(\Delta V)^2
+= \frac{1}{2}(5.72\times10^{-8})(1.75\times10^{7})^2
+= 8.76\times10^{6}\ \text{J}.
+\]</div>
+<hr class="docutils" />
+<p><strong>6) Comparison</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\Delta U \approx 8.8\times10^{6}\ \text{J}
+\]</div>
+<p>This is:</p>
+<ul class="simple">
+<li><p>about <strong>2.1 kg of TNT</strong> (since <span class="math notranslate nohighlight">\(1~\text{kg TNT}\approx 4.2\times10^{6}~\text{J}\)</span>),</p></li>
+<li><p>smaller than the upper-end lightning energy scale (<span class="math notranslate nohighlight">\(10^8\)</span>–<span class="math notranslate nohighlight">\(10^9\)</span> J),</p></li>
+<li><p>vastly larger than everyday mechanical energies (car at city speed is typically <span class="math notranslate nohighlight">\(\sim 10^5\)</span> J).</p></li>
+</ul>
+<p>This model suggests that the cloud–ground system can store <strong>millions of joules</strong> of electric energy under strong storm fields.</p>
+</div>
+</details>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Given values</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">eps0</span> <span class="o">=</span> <span class="mf">8.85e-12</span>     <span class="c1"># F/m</span>
+<span class="n">R</span> <span class="o">=</span> <span class="mf">1.20e3</span>          <span class="c1"># m</span>
+<span class="n">d</span> <span class="o">=</span> <span class="mf">700.0</span>           <span class="c1"># m</span>
+<span class="n">E</span> <span class="o">=</span> <span class="mf">2.50e4</span>          <span class="c1"># V/m</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Physics:</span>
+<span class="c1"># A = π R^2</span>
+<span class="c1"># C = eps0 * A / d</span>
+<span class="c1"># ΔV = E d</span>
+<span class="c1"># Q = C ΔV</span>
+<span class="c1"># ΔU = (1/2) C (ΔV)^2</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">R</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">eps0</span> <span class="o">*</span> <span class="n">A</span> <span class="o">/</span> <span class="n">d</span>
+<span class="n">dV</span> <span class="o">=</span> <span class="n">E</span> <span class="o">*</span> <span class="n">d</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="n">C</span> <span class="o">*</span> <span class="n">dV</span>
+<span class="n">dU</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">C</span> <span class="o">*</span> <span class="n">dV</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="c1"># Convert sympy pi expression to float for printing</span>
+<span class="n">A_f</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">C_f</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+<span class="n">Q_f</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+<span class="n">dU_f</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">dU</span><span class="p">)</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Nicely formatted output</span>
+<span class="c1"># -----------------------------</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Thunderstorm cloud–ground system as a giant capacitor</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Given:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Cloud radius:      R = </span><span class="si">{</span><span class="n">R</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> m&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Separation:        d = </span><span class="si">{</span><span class="n">d</span><span class="si">:</span><span class="s2">.3g</span><span class="si">}</span><span class="s2"> m&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Electric field:    E = </span><span class="si">{</span><span class="n">E</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> V/m&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  eps0 = </span><span class="si">{</span><span class="n">eps0</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> F/m</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Results (3 significant figures):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Area:              A = </span><span class="si">{</span><span class="n">A_f</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> m^2&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Capacitance:       C = </span><span class="si">{</span><span class="n">C_f</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> F&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Potential diff.:  ΔV = </span><span class="si">{</span><span class="n">dV</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> V&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Charge:            Q = </span><span class="si">{</span><span class="n">Q_f</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> C&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Stored energy:    ΔU = </span><span class="si">{</span><span class="n">dU_f</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> J</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Physical interpretation:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• Treating cloud and ground as plates gives a rough estimate of capacitance and stored energy.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• Large separation makes C small, but the enormous area and huge voltage can still store millions of joules.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• This helps explain why thunderstorms can contain enough stored electrical energy to power lightning.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Thunderstorm cloud–ground system as a giant capacitor
+
+Given:
+  Cloud radius:      R = 1.200e+03 m
+  Separation:        d = 700 m
+  Electric field:    E = 2.500e+04 V/m
+  eps0 = 8.850e-12 F/m
+
+Results (3 significant figures):
+  Area:              A = 4.524e+06 m^2
+  Capacitance:       C = 5.719e-08 F
+  Potential diff.:  ΔV = 1.750e+07 V
+  Charge:            Q = 1.001e+00 C
+  Stored energy:    ΔU = 8.758e+06 J
+
+Physical interpretation:
+• Treating cloud and ground as plates gives a rough estimate of capacitance and stored energy.
+• Large separation makes C small, but the enormous area and huge voltage can still store millions of joules.
+• This helps explain why thunderstorms can contain enough stored electrical energy to power lightning.
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"></section>
+<section id="problem-d3-7-substation-capacitor-accident-high-voltage-large-capacitance-severe-burns">
+<h2>Problem D3.7 — Substation Capacitor Accident: High Voltage, Large Capacitance, Severe Burns<a class="headerlink" href="#problem-d3-7-substation-capacitor-accident-high-voltage-large-capacitance-severe-burns" title="Link to this heading">#</a></h2>
+<p>Substation capacitor banks use many individual capacitor units to provide reactive power support. Even a single unit can store a dangerous amount of energy.</p>
+<p>In this problem, model one capacitor unit as having:</p>
+<div class="math notranslate nohighlight">
+\[
+C = 100\ \mu\text{F}
+\qquad \text{charged to} \qquad
+\Delta V = 20.0\ \text{kV}.
+\]</div>
+<p>During an accident, the capacitor discharges through an arc and dumps energy into a region of tissue. To estimate burn severity, model the affected tissue as water with:</p>
+<ul>
+<li><p>affected tissue mass:</p>
+<div class="math notranslate nohighlight">
+\[
+  m = 0.100\ \text{kg}
+  \]</div>
+</li>
+<li><p>specific heat of water:</p>
+<div class="math notranslate nohighlight">
+\[
+  c = 4186\ \mathrm{J/(kg\cdot^\circ C)}.
+  \]</div>
+</li>
+</ul>
+<p>Assume (as a worst-case estimate) that <strong>all</strong> stored electrical energy becomes thermal energy in that tissue region and that heat loss during the short event is negligible.</p>
+<p>Answer the following:</p>
+<ol class="arabic simple">
+<li><p>Compute the stored energy in the capacitor.</p></li>
+<li><p>Compute the temperature increase <span class="math notranslate nohighlight">\(\Delta T\)</span> of the tissue.</p></li>
+<li><p>If the tissue started at <span class="math notranslate nohighlight">\(33^\circ\text{C}\)</span> (skin temperature), what final temperature does your model predict?</p></li>
+<li><p>In one sentence, explain why this can still be lethal even if the discharge lasts only milliseconds.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Problem solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p><strong>Relevant equations</strong></p>
+<p>Energy stored in a capacitor:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta U = \frac{1}{2}C(\Delta V)^2
+\]</div>
+<p>Thermal energy and temperature change:</p>
+<div class="math notranslate nohighlight">
+\[
+Q_{\text{thermal}} = mc\,\Delta T
+\qquad \Rightarrow \qquad
+\Delta T = \frac{Q_{\text{thermal}}}{mc}
+\]</div>
+<p>Worst-case model:</p>
+<div class="math notranslate nohighlight">
+\[
+Q_{\text{thermal}} = \Delta U.
+\]</div>
+<hr class="docutils" />
+<p><strong>Given</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(C = 100~\mu\text{F} = 1.00\times10^{-4}\ \text{F}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta V = 20.0~\text{kV} = 2.00\times10^{4}\ \text{V}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(m = 0.100\ \text{kg}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(c = 4186\ \mathrm{J/(kg\cdot^\circ C)}\)</span></p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>1) Stored energy</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\Delta U = \frac{1}{2}(1.00\times10^{-4})(2.00\times10^{4})^2.
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\((2.00\times10^{4})^2 = 4.00\times10^{8}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta U = \frac{1}{2}(1.00\times10^{-4})(4.00\times10^{8})
+= 2.00\times10^{4}\ \text{J}.
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{\Delta U = 2.00\times10^{4}\ \text{J}}
+\]</div>
+<hr class="docutils" />
+<p><strong>2) Temperature increase</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\Delta T = \frac{\Delta U}{mc}
+= \frac{2.00\times10^{4}}{(0.100)(4186)}
+= 4.78\times10^{1}\ ^\circ\text{C}.
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{\Delta T \approx 47.8^\circ\text{C}}
+\]</div>
+<hr class="docutils" />
+<p><strong>3) Final temperature</strong></p>
+<div class="math notranslate nohighlight">
+\[
+T_f = 33^\circ\text{C} + 47.8^\circ\text{C} = 80.8^\circ\text{C}.
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{T_f \approx 81^\circ\text{C}}
+\]</div>
+<p>This is well into the range of severe burns and tissue damage.</p>
+<hr class="docutils" />
+<p><strong>4) Why this is still dangerous</strong></p>
+<p>Even if the discharge lasts only milliseconds, the capacitor can deliver very large current and power, causing intense localized heating (arc burns) and potentially driving dangerous current through the body.</p>
+<p><strong>Safety note:</strong> This is a simplified “worst-case” thermal estimate; real injuries depend strongly on the discharge path, arc duration, and how the energy is distributed (some may go into the metal, air plasma, sound, and light). The key point is that the stored energy scale can be enormous.</p>
+</div>
+</details>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Given values</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">C</span> <span class="o">=</span> <span class="mf">100e-6</span>          <span class="c1"># F</span>
+<span class="n">dV</span> <span class="o">=</span> <span class="mf">20.0e3</span>         <span class="c1"># V</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="mf">0.100</span>           <span class="c1"># kg</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mf">4186.0</span>          <span class="c1"># J/(kg·°C)</span>
+<span class="n">T_initial</span> <span class="o">=</span> <span class="mf">33.0</span>    <span class="c1"># °C</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Physics:</span>
+<span class="c1"># Energy stored: ΔU = (1/2) C (ΔV)^2</span>
+<span class="c1"># Thermal model: Q_thermal = m c ΔT</span>
+<span class="c1"># Worst-case: Q_thermal = ΔU  =&gt;  ΔT = ΔU / (m c)</span>
+<span class="c1"># Final temperature: T_f = T_initial + ΔT</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">dU</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">C</span> <span class="o">*</span> <span class="n">dV</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">dT</span> <span class="o">=</span> <span class="n">dU</span> <span class="o">/</span> <span class="p">(</span><span class="n">m</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span>
+<span class="n">T_final</span> <span class="o">=</span> <span class="n">T_initial</span> <span class="o">+</span> <span class="n">dT</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Nicely formatted output</span>
+<span class="c1"># -----------------------------</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Substation capacitor accident: energy and temperature rise estimate</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Given:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Capacitance:       C = </span><span class="si">{</span><span class="n">C</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> F&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Voltage:          ΔV = </span><span class="si">{</span><span class="n">dV</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> V&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Tissue mass:       m = </span><span class="si">{</span><span class="n">m</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> kg&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Specific heat:     c = </span><span class="si">{</span><span class="n">c</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> J/(kg·°C)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Initial temp:      T_i = </span><span class="si">{</span><span class="n">T_initial</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> °C</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Results (3 significant figures):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Stored energy:    ΔU = </span><span class="si">{</span><span class="n">dU</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> J&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Temp increase:    ΔT = </span><span class="si">{</span><span class="n">dT</span><span class="si">:</span><span class="s2">.3g</span><span class="si">}</span><span class="s2"> °C&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Final temp:       T_f = </span><span class="si">{</span><span class="n">T_final</span><span class="si">:</span><span class="s2">.3g</span><span class="si">}</span><span class="s2"> °C</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Physical interpretation:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• Even a single high-voltage capacitor can store tens of kilojoules.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• If that energy is deposited locally, the temperature rise can be large enough to cause severe burns.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• High voltage also creates additional hazards: arcing, high current, and dangerous current paths through the body.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Substation capacitor accident: energy and temperature rise estimate
+
+Given:
+  Capacitance:       C = 1.000e-04 F
+  Voltage:          ΔV = 2.000e+04 V
+  Tissue mass:       m = 0.100 kg
+  Specific heat:     c = 4186 J/(kg·°C)
+  Initial temp:      T_i = 33.0 °C
+
+Results (3 significant figures):
+  Stored energy:    ΔU = 2.000e+04 J
+  Temp increase:    ΔT = 47.8 °C
+  Final temp:       T_f = 80.8 °C
+
+Physical interpretation:
+• Even a single high-voltage capacitor can store tens of kilojoules.
+• If that energy is deposited locally, the temperature rise can be large enough to cause severe burns.
+• High voltage also creates additional hazards: arcing, high current, and dangerous current paths through the body.
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"></section>
+<section id="problem-d3-8-capacitor-discharge-welding-cdw">
+<h2>Problem D3.8 — Capacitor Discharge Welding (CDW)<a class="headerlink" href="#problem-d3-8-capacitor-discharge-welding-cdw" title="Link to this heading">#</a></h2>
+<p>In <strong>capacitor discharge welding (CDW)</strong>, a capacitor bank is charged and then discharged rapidly through a small metal region at the weld interface. The goal is to deliver energy quickly enough to melt a thin layer locally without heating the entire part.</p>
+<p>A CDW unit uses a capacitor bank with</p>
+<div class="math notranslate nohighlight">
+\[
+C = 12.0\ \text{mF}
+\qquad \text{charged to} \qquad
+\Delta V = 200\ \text{V}.
+\]</div>
+<p>During a weld pulse, assume <strong>60%</strong> of the stored capacitor energy ends up as thermal energy in a small region of steel at the weld interface (the rest goes into the arc/plasma, electrodes, sound, light, etc.).</p>
+<p>Model the affected steel region as:</p>
+<ul>
+<li><p>mass:</p>
+<div class="math notranslate nohighlight">
+\[
+  m = 2.50\ \text{g}
+  \]</div>
+</li>
+<li><p>specific heat (steel):</p>
+<div class="math notranslate nohighlight">
+\[
+  c = 450\ \mathrm{J/(kg\cdot^\circ C)}
+  \]</div>
+</li>
+<li><p>initial temperature:</p>
+<div class="math notranslate nohighlight">
+\[
+  T_i = 20^\circ\text{C}
+  \]</div>
+</li>
+</ul>
+<p>Ignore phase change (melting) for this estimate and treat all absorbed energy as heating.</p>
+<p>Answer the following:</p>
+<ol class="arabic simple">
+<li><p>Compute the stored energy in the capacitor bank, <span class="math notranslate nohighlight">\(\Delta U\)</span>.</p></li>
+<li><p>Compute the thermal energy delivered to the steel region, <span class="math notranslate nohighlight">\(Q_{\text{steel}}\)</span>.</p></li>
+<li><p>Compute the temperature increase <span class="math notranslate nohighlight">\(\Delta T\)</span> and the predicted final temperature <span class="math notranslate nohighlight">\(T_f\)</span>.</p></li>
+<li><p>Based on your result, comment on whether melting is plausible (steel melts at roughly <span class="math notranslate nohighlight">\(1500^\circ\text{C}\)</span>).</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Problem solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p><strong>Relevant equations</strong></p>
+<p>Energy stored in a capacitor:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta U = \frac{1}{2}C(\Delta V)^2
+\]</div>
+<p>Thermal energy and temperature change:</p>
+<div class="math notranslate nohighlight">
+\[
+Q_{\text{steel}} = mc\,\Delta T
+\qquad \Rightarrow \qquad
+\Delta T = \frac{Q_{\text{steel}}}{mc}
+\]</div>
+<p>Energy transfer assumption:</p>
+<div class="math notranslate nohighlight">
+\[
+Q_{\text{steel}} = 0.60\,\Delta U.
+\]</div>
+<hr class="docutils" />
+<p><strong>Given</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(C = 12.0~\text{mF} = 1.20\times10^{-2}\ \text{F}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta V = 200\ \text{V}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(m = 2.50~\text{g} = 2.50\times10^{-3}\ \text{kg}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(c = 450\ \mathrm{J/(kg\cdot^\circ C)}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(T_i = 20^\circ\text{C}\)</span></p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>1) Stored capacitor energy</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\Delta U = \frac{1}{2}C(\Delta V)^2
+= \frac{1}{2}(1.20\times10^{-2})(200)^2.
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\(200^2 = 4.00\times10^{4}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta U = 0.5(1.20\times10^{-2})(4.00\times10^{4})
+= 2.40\times10^{2}\ \text{J}.
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{\Delta U = 240\ \text{J}}
+\]</div>
+<hr class="docutils" />
+<p><strong>2) Thermal energy to the steel</strong></p>
+<div class="math notranslate nohighlight">
+\[
+Q_{\text{steel}} = 0.60\,\Delta U = 0.60(240) = 144\ \text{J}.
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{Q_{\text{steel}} = 144\ \text{J}}
+\]</div>
+<hr class="docutils" />
+<p><strong>3) Temperature rise and final temperature</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\Delta T = \frac{Q_{\text{steel}}}{mc}
+= \frac{144}{(2.50\times10^{-3})(450)}
+= \frac{144}{1.125}
+= 1.28\times10^{2}\ ^\circ\text{C}.
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{\Delta T \approx 128^\circ\text{C}}
+\]</div>
+<p>Final temperature:</p>
+<div class="math notranslate nohighlight">
+\[
+T_f = T_i + \Delta T = 20^\circ\text{C} + 128^\circ\text{C} = 148^\circ\text{C}.
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{T_f \approx 148^\circ\text{C}}
+\]</div>
+<hr class="docutils" />
+<p><strong>4) Is melting plausible?</strong></p>
+<p>Steel melts near <span class="math notranslate nohighlight">\(1500^\circ\text{C}\)</span>, and this simple heating-only estimate predicts a final temperature of only about <span class="math notranslate nohighlight">\(150^\circ\text{C}\)</span>.</p>
+<p>So <strong>melting is not plausible</strong> under these assumptions.</p>
+<p><strong>Important note:</strong> In real CDW, the heated mass is often far smaller than a few grams, heating occurs extremely locally, and phase change (latent heat) must be included for realistic melt estimates.</p>
+</div>
+</details>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Given values</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">C</span> <span class="o">=</span> <span class="mf">12.0e-3</span>         <span class="c1"># F</span>
+<span class="n">dV</span> <span class="o">=</span> <span class="mf">200.0</span>          <span class="c1"># V</span>
+<span class="n">fraction_to_steel</span> <span class="o">=</span> <span class="mf">0.60</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="mf">2.50e-3</span>         <span class="c1"># kg</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mf">450.0</span>           <span class="c1"># J/(kg·°C)</span>
+<span class="n">T_initial</span> <span class="o">=</span> <span class="mf">20.0</span>    <span class="c1"># °C</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Physics:</span>
+<span class="c1"># Stored energy: ΔU = (1/2) C (ΔV)^2</span>
+<span class="c1"># Delivered thermal energy: Q_steel = (fraction) * ΔU</span>
+<span class="c1"># Heating model: Q_steel = m c ΔT  =&gt;  ΔT = Q_steel/(m c)</span>
+<span class="c1"># Final temperature: T_f = T_i + ΔT</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">dU</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">C</span> <span class="o">*</span> <span class="n">dV</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">Q_steel</span> <span class="o">=</span> <span class="n">fraction_to_steel</span> <span class="o">*</span> <span class="n">dU</span>
+<span class="n">dT</span> <span class="o">=</span> <span class="n">Q_steel</span> <span class="o">/</span> <span class="p">(</span><span class="n">m</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span>
+<span class="n">T_final</span> <span class="o">=</span> <span class="n">T_initial</span> <span class="o">+</span> <span class="n">dT</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Nicely formatted output</span>
+<span class="c1"># -----------------------------</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Capacitor Discharge Welding (CDW): energy to temperature rise estimate</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Given:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Capacitance:       C = </span><span class="si">{</span><span class="n">C</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> F&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Voltage:          ΔV = </span><span class="si">{</span><span class="n">dV</span><span class="si">:</span><span class="s2">.3g</span><span class="si">}</span><span class="s2"> V&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Fraction to steel: f = </span><span class="si">{</span><span class="n">fraction_to_steel</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Steel mass:        m = </span><span class="si">{</span><span class="n">m</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> kg&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Steel specific heat: c = </span><span class="si">{</span><span class="n">c</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> J/(kg·°C)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Initial temp:      T_i = </span><span class="si">{</span><span class="n">T_initial</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> °C</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Results (3 significant figures):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Stored energy:     ΔU = </span><span class="si">{</span><span class="n">dU</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> J&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  To steel:      Q_steel = </span><span class="si">{</span><span class="n">Q_steel</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> J&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Temp increase:     ΔT = </span><span class="si">{</span><span class="n">dT</span><span class="si">:</span><span class="s2">.3g</span><span class="si">}</span><span class="s2"> °C&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Final temp:        T_f = </span><span class="si">{</span><span class="n">T_final</span><span class="si">:</span><span class="s2">.3g</span><span class="si">}</span><span class="s2"> °C</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Physical interpretation:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• The capacitor stores energy that can be delivered in a very short pulse (high power).&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• If the heated mass is a few grams, the temperature rise may be modest.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• Real CDW melts material because the effective heated mass is often much smaller and phase change matters.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Capacitor Discharge Welding (CDW): energy to temperature rise estimate
+
+Given:
+  Capacitance:       C = 1.200e-02 F
+  Voltage:          ΔV = 200 V
+  Fraction to steel: f = 0.60
+  Steel mass:        m = 2.500e-03 kg
+  Steel specific heat: c = 450 J/(kg·°C)
+  Initial temp:      T_i = 20.0 °C
+
+Results (3 significant figures):
+  Stored energy:     ΔU = 2.400e+02 J
+  To steel:      Q_steel = 1.440e+02 J
+  Temp increase:     ΔT = 128 °C
+  Final temp:        T_f = 148 °C
+
+Physical interpretation:
+• The capacitor stores energy that can be delivered in a very short pulse (high power).
+• If the heated mass is a few grams, the temperature rise may be modest.
+• Real CDW melts material because the effective heated mass is often much smaller and phase change matters.
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"></section>
+<section id="problem-d3-9-capacitive-touchscreen-detecting-a-finger-by-a-capacitance-change">
+<h2>Problem D3.9 — Capacitive Touchscreen: Detecting a Finger by a Capacitance Change<a class="headerlink" href="#problem-d3-9-capacitive-touchscreen-detecting-a-finger-by-a-capacitance-change" title="Link to this heading">#</a></h2>
+<p>A simplified model of a capacitive touchscreen pixel is a tiny capacitor. When no finger is present, the pixel has capacitance</p>
+<div class="math notranslate nohighlight">
+\[
+C_0 = 40.0\ \text{pF}.
+\]</div>
+<p>When a finger touches near the pixel, the electric field configuration changes and the measured capacitance increases to</p>
+<div class="math notranslate nohighlight">
+\[
+C_1 = 55.0\ \text{pF}.
+\]</div>
+<p>Assume the touchscreen electronics operate the pixel at a constant potential difference</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta V = 3.30\ \text{V}.
+\]</div>
+<p>Answer the following:</p>
+<ol class="arabic simple">
+<li><p>Compute the stored charge on the pixel before touch, <span class="math notranslate nohighlight">\(Q_0\)</span>.</p></li>
+<li><p>Compute the stored charge on the pixel during touch, <span class="math notranslate nohighlight">\(Q_1\)</span>.</p></li>
+<li><p>Compute the change in stored charge, <span class="math notranslate nohighlight">\(\Delta Q = Q_1 - Q_0\)</span>.</p></li>
+<li><p>Compute the stored energy before touch, <span class="math notranslate nohighlight">\(\Delta U_0\)</span>, and during touch, <span class="math notranslate nohighlight">\(\Delta U_1\)</span>.</p></li>
+<li><p>In one or two sentences, explain why a touchscreen can detect a finger by measuring changes in charge (or an RC timing change) even though the capacitance values are tiny.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Problem solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p><strong>Relevant equations</strong></p>
+<p>Charge at fixed voltage:</p>
+<div class="math notranslate nohighlight">
+\[
+Q = C\,\Delta V
+\]</div>
+<p>Energy at fixed voltage:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta U = \frac{1}{2}C(\Delta V)^2
+\]</div>
+<hr class="docutils" />
+<p><strong>Given</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(C_0 = 40.0~\text{pF} = 40.0\times10^{-12}~\text{F}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(C_1 = 55.0~\text{pF} = 55.0\times10^{-12}~\text{F}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta V = 3.30~\text{V}\)</span></p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>1) Charge before touch</strong></p>
+<div class="math notranslate nohighlight">
+\[
+Q_0 = C_0\Delta V
+= (40.0\times10^{-12})(3.30)
+= 1.32\times10^{-10}~\text{C}.
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{Q_0 = 1.32\times10^{-10}\ \text{C}}
+\]</div>
+<hr class="docutils" />
+<p><strong>2) Charge during touch</strong></p>
+<div class="math notranslate nohighlight">
+\[
+Q_1 = C_1\Delta V
+= (55.0\times10^{-12})(3.30)
+= 1.82\times10^{-10}~\text{C}.
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{Q_1 = 1.82\times10^{-10}\ \text{C}}
+\]</div>
+<hr class="docutils" />
+<p><strong>3) Change in charge</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\Delta Q = Q_1 - Q_0
+= (1.82 - 1.32)\times10^{-10}
+= 5.0\times10^{-11}~\text{C}.
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{\Delta Q = 5.0\times10^{-11}\ \text{C}}
+\]</div>
+<hr class="docutils" />
+<p><strong>4) Energy before and during touch</strong></p>
+<p>Before touch:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta U_0 = \frac{1}{2}C_0(\Delta V)^2
+= \frac{1}{2}(40.0\times10^{-12})(3.30)^2
+= 2.18\times10^{-10}~\text{J}.
+\]</div>
+<p>During touch:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta U_1 = \frac{1}{2}C_1(\Delta V)^2
+= \frac{1}{2}(55.0\times10^{-12})(3.30)^2
+= 2.99\times10^{-10}~\text{J}.
+\]</div>
+<p>So,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{\Delta U_0 = 2.18\times10^{-10}\ \text{J}}, 
+\qquad
+\boxed{\Delta U_1 = 2.99\times10^{-10}\ \text{J}}.
+\]</div>
+<hr class="docutils" />
+<p><strong>5) Physical interpretation</strong></p>
+<p>Even though the charges and energies are tiny, the electronics can measure very small changes in charge or detect the change indirectly through a timing/oscillator circuit. A finger modifies the electric field geometry (and effective permittivity), changing <span class="math notranslate nohighlight">\(C\)</span>, which changes <span class="math notranslate nohighlight">\(Q = C\Delta V\)</span> at a fixed voltage.</p>
+</div>
+</details>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Given values</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">C0</span> <span class="o">=</span> <span class="mf">40.0e-12</span>      <span class="c1"># F</span>
+<span class="n">C1</span> <span class="o">=</span> <span class="mf">55.0e-12</span>      <span class="c1"># F</span>
+<span class="n">dV</span> <span class="o">=</span> <span class="mf">3.30</span>          <span class="c1"># V</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Physics:</span>
+<span class="c1"># At fixed voltage: Q = C ΔV</span>
+<span class="c1"># Stored energy: ΔU = (1/2) C (ΔV)^2</span>
+<span class="c1"># Changes: ΔQ = Q1 - Q0, ΔU = U1 - U0</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">Q0</span> <span class="o">=</span> <span class="n">C0</span> <span class="o">*</span> <span class="n">dV</span>
+<span class="n">Q1</span> <span class="o">=</span> <span class="n">C1</span> <span class="o">*</span> <span class="n">dV</span>
+<span class="n">dQ</span> <span class="o">=</span> <span class="n">Q1</span> <span class="o">-</span> <span class="n">Q0</span>
+
+<span class="n">U0</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">C0</span> <span class="o">*</span> <span class="n">dV</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">U1</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">C1</span> <span class="o">*</span> <span class="n">dV</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">dU</span> <span class="o">=</span> <span class="n">U1</span> <span class="o">-</span> <span class="n">U0</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Nicely formatted output</span>
+<span class="c1"># -----------------------------</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Capacitive touchscreen pixel: before touch vs touch</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Given:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  C0 = </span><span class="si">{</span><span class="n">C0</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> F&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  C1 = </span><span class="si">{</span><span class="n">C1</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> F&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ΔV = </span><span class="si">{</span><span class="n">dV</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> V</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Results (3 significant figures):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Q0 = </span><span class="si">{</span><span class="n">Q0</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> C&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Q1 = </span><span class="si">{</span><span class="n">Q1</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> C&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ΔQ = </span><span class="si">{</span><span class="n">dQ</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> C</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ΔU0 = </span><span class="si">{</span><span class="n">U0</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> J&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ΔU1 = </span><span class="si">{</span><span class="n">U1</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> J&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ΔU  = </span><span class="si">{</span><span class="n">dU</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> J</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Physical interpretation:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• A finger changes the electric field geometry and effective permittivity, increasing the pixel capacitance.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• With ΔV held constant by the electronics, a larger C means more stored charge (Q = CΔV).&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• Touchscreens detect this change directly or indirectly using timing/oscillator circuits.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Capacitive touchscreen pixel: before touch vs touch
+
+Given:
+  C0 = 4.000e-11 F
+  C1 = 5.500e-11 F
+  ΔV = 3.30 V
+
+Results (3 significant figures):
+  Q0 = 1.320e-10 C
+  Q1 = 1.815e-10 C
+  ΔQ = 4.950e-11 C
+
+  ΔU0 = 2.178e-10 J
+  ΔU1 = 2.995e-10 J
+  ΔU  = 8.167e-11 J
+
+Physical interpretation:
+• A finger changes the electric field geometry and effective permittivity, increasing the pixel capacitance.
+• With ΔV held constant by the electronics, a larger C means more stored charge (Q = CΔV).
+• Touchscreens detect this change directly or indirectly using timing/oscillator circuits.
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"></section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -712,7 +2412,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">D3.1 Capacitance</p>
+        <p class="prev-next-title">D3.1 Capacitance — What It Means and Why We Care</p>
       </div>
     </a>
     <a class="right-next"
@@ -730,6 +2430,32 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-d3-1-parallel-plate-capacitance-voltage-field-and-stored-energy">Problem D3.1 — Parallel-Plate Capacitance, Voltage, Field, and Stored Energy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-d3-2-battery-connected-vs-disconnected-what-changes-when-plate-spacing-changes">Problem D3.2 — Battery Connected vs Disconnected: What Changes When Plate Spacing Changes?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scenario-a-battery-stays-connected">Scenario A — Battery stays connected</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scenario-b-battery-is-disconnected-before-the-plates-move">Scenario B — Battery is disconnected before the plates move</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-d3-3-energy-and-work-to-charge-a-capacitor-calculus">Problem D3.3 — Energy and Work to Charge a Capacitor (Calculus)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-d3-4-stud-finder-as-a-capacitive-sensor">Problem D3.4 — Stud Finder as a Capacitive Sensor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-d3-5-thunderstormground-as-a-giant-capacitor">Problem D3.5 — Thunderstorm–Ground as a Giant Capacitor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-d3-7-substation-capacitor-accident-high-voltage-large-capacitance-severe-burns">Problem D3.7 — Substation Capacitor Accident: High Voltage, Large Capacitance, Severe Burns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-d3-8-capacitor-discharge-welding-cdw">Problem D3.8 — Capacitor Discharge Welding (CDW)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-d3-9-capacitive-touchscreen-detecting-a-finger-by-a-capacitance-change">Problem D3.9 — Capacitive Touchscreen: Detecting a Finger by a Capacitance Change</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
