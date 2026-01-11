@@ -66,7 +66,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="D6.1 Motivation: Why Study Ray Optics?" href="../Module-D6/D6-motivation.html" />
-    <link rel="prev" title="D5.1 Magnetic Force" href="magnetic-force.html" />
+    <link rel="prev" title="D5.1 Magnetic Force on a Moving Charge" href="magnetic-force.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -223,7 +223,8 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D5 - Magnetic Force</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="magnetic-force.html">D5.1 Magnetic Force</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LOC-D5.html">D5.0 Learning Outcomes — Magnetic Force on a Moving Charge (Lorentz Force)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="magnetic-force.html">D5.1 Magnetic Force on a Moving Charge</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">D5.2 Problems</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D6 - Ray Optics</span></p>
@@ -431,7 +432,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -447,6 +450,30 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-d5-1-magnetic-force-on-a-moving-charge">Problem D5.1 — Magnetic Force on a Moving Charge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-d5-2-magnetic-force-from-given-directions-right-hand-rule">Problem D5.2 — Magnetic Force from Given Directions (Right-Hand Rule)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-d5-4-computing-a-cross-product-using-code">Problem D5.4 — Computing a Cross Product Using Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-d5-5-magnetic-force-using-your-cross-product-code">Problem D5.5 — Magnetic Force Using Your Cross-Product Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#your-tasks">Your tasks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#guidance-read-before-coding">Guidance (read before coding)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-d5-6-auroral-electron-spiraling-along-a-magnetic-field-line">Problem D5.6 — Auroral Electron Spiraling Along a Magnetic Field Line</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hint-polar-coordinate-reminder">Hint (polar-coordinate reminder)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-d5-7-separation-of-uranium-isotopes">Problem D5.7 — Separation of Uranium Isotopes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#historical-note-the-calutron">Historical note — The Calutron</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-d5-8-belle-ii-track-curvature-speed-and-equivalent-accelerating-potential">Problem D5.8 — Belle II Track Curvature: Speed and Equivalent Accelerating Potential</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -458,105 +485,99 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="d5-2-problems">
 <h1>D5.2 Problems<a class="headerlink" href="#d5-2-problems" title="Link to this heading">#</a></h1>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray"><h2>Problem D5.1</h2>
-    </header>
-<p>What is the direction of the magnetic force on a positive charge that moves as shown in each of the six cases? Ignore the <span class="math notranslate nohighlight">\(\vec{F}\)</span> on top of Part (a).</p>
-<img src="D5-P5.1.png" width="400">
-<p><a class="reference external" href="https://openstax.org/books/university-physics-volume-2/pages/11-problems">This problem is a slightly modified version from OpenStax. Access for free here</a></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell tag_hide-input tag_hide-output docutils container">
-<details class="admonition hide above-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell source</p>
-<p class="expanded admonition-title">Hide code cell source</p>
-</summary>
-<div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
-
-<span class="c1">#Use RHR</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(a): to the left on the page&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(b): into the page&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(c): up on the page&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(d): no magnetic force&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(e): to the right on the page&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(f): down on the page&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</details>
-<details class="admonition hide below-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell output</p>
-<p class="expanded admonition-title">Hide code cell output</p>
-</summary>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(a): to the left on the page
-(b): into the page
-(c): up on the page
-(d): no magnetic force
-(e): to the right on the page
-(f): down on the page
-</pre></div>
-</div>
-</div>
-</details>
-</div>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray"><h2>Problem D5.2</h2>
-    </header>
-<p>What is the direction of the velocity of a negative charge that experiences the magnetic force shown in each of the three cases, assuming it moves perpendicular to B?</p>
-<img src="D5-P5.2.png" width="300">
-<p><a class="reference external" href="https://openstax.org/books/university-physics-volume-2/pages/11-problems">This problem is a slightly modified version from OpenStax. Access for free here</a></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell tag_hide-input tag_hide-output docutils container">
-<details class="admonition hide above-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell source</p>
-<p class="expanded admonition-title">Hide code cell source</p>
-</summary>
-<div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
-
-<span class="c1">#Use RHR</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(a): to the right on the page&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(b): into the page&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(c): down on the page&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</details>
-<details class="admonition hide below-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell output</p>
-<p class="expanded admonition-title">Hide code cell output</p>
-</summary>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(a): to the right on the page
-(b): into the page
-(c): down on the page
-</pre></div>
-</div>
-</div>
-</details>
-</div>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray"><h2>Problem D5.3</h2>
-    </header>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"><section id="problem-d5-1-magnetic-force-on-a-moving-charge">
+<h2>Problem D5.1 — Magnetic Force on a Moving Charge<a class="headerlink" href="#problem-d5-1-magnetic-force-on-a-moving-charge" title="Link to this heading">#</a></h2>
+<p>A particle with charge</p>
+<div class="math notranslate nohighlight">
+\[
+q = +3.20\times 10^{-19}\ \text{C}
+\]</div>
+<p>moves through a region of uniform magnetic field with speed</p>
+<div class="math notranslate nohighlight">
+\[
+v = 2.50\times 10^{6}\ \text{m/s}.
+\]</div>
+<p>The magnetic field has magnitude</p>
+<div class="math notranslate nohighlight">
+\[
+B = 0.40\ \text{T},
+\]</div>
+<p>and the particle’s velocity makes an angle of</p>
+<div class="math notranslate nohighlight">
+\[
+\theta = 60^\circ
+\]</div>
+<p>with the direction of the magnetic field.</p>
+<p>Answer the following:</p>
 <ol class="arabic simple">
-<li><p>A cosmic ray proton moving toward Earth at <span class="math notranslate nohighlight">\(5.00\times 10^7\)</span> m/s experiences a magnetic force of <span class="math notranslate nohighlight">\(1.70\times 10^{-16}\)</span> N. What is the strength of the magnetic field if there is a <span class="math notranslate nohighlight">\(45^\circ\)</span> angle between it and the proton’s velocity?</p></li>
-<li><p>Is the value obtained in part 1 consistent with the known strength of Earth’s magnetic field on its surface?</p></li>
+<li><p>Compute the <strong>magnitude</strong> of the magnetic force acting on the particle.</p></li>
+<li><p>State whether the magnetic force would be <strong>zero, maximum, or intermediate</strong> if the particle instead moved parallel to the magnetic field.</p></li>
+<li><p>Provide a short <strong>physical interpretation</strong> of what this force does to the particle’s motion.</p></li>
 </ol>
-<p><a class="reference external" href="https://openstax.org/books/university-physics-volume-2/pages/11-problems">This problem is a slightly modified version from OpenStax. Access for free here</a></p>
+<p>Be careful with units.</p>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Problem solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p><strong>Relevant equation</strong></p>
+<p>The magnitude of the magnetic force on a moving charge is</p>
+<div class="math notranslate nohighlight">
+\[
+F_B = |q|\,v\,B\,\sin\theta.
+\]</div>
+<hr class="docutils" />
+<p><strong>Given</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(q = 3.20\times 10^{-19}\ \text{C}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(v = 2.50\times 10^{6}\ \text{m/s}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(B = 0.40\ \text{T}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\theta = 60^\circ\)</span></p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>1) Magnitude of the magnetic force</strong></p>
+<p>Substitute into the formula:</p>
+<div class="math notranslate nohighlight">
+\[
+F_B
+= (3.20\times 10^{-19})
+  (2.50\times 10^{6})
+  (0.40)
+  \sin(60^\circ).
+\]</div>
+<p>Using <span class="math notranslate nohighlight">\(\sin(60^\circ)=0.866\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+F_B
+= 2.77\times 10^{-13}\ \text{N}.
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{F_B = 2.8\times 10^{-13}\ \text{N}}
+\]</div>
+<hr class="docutils" />
+<p><strong>2) Special case: motion parallel to the field</strong></p>
+<p>If the particle moves parallel to the magnetic field,</p>
+<div class="math notranslate nohighlight">
+\[
+\theta = 0^\circ \quad \Rightarrow \quad \sin\theta = 0,
+\]</div>
+<p>so</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{F_B = 0}.
+\]</div>
+<p>The magnetic force would be zero.</p>
+<hr class="docutils" />
+<p><strong>3) Physical interpretation</strong></p>
+<ul class="simple">
+<li><p>The magnetic force depends only on the component of velocity <strong>perpendicular</strong> to the magnetic field.</p></li>
+<li><p>Because the force is perpendicular to the particle’s velocity, it can change the <strong>direction</strong> of motion but not the <strong>speed</strong>.</p></li>
+<li><p>This is why magnetic fields cause charged particles to curve rather than speed up or slow down.</p></li>
+</ul>
+</div>
+</details>
+<hr class="docutils" />
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
@@ -564,53 +585,540 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="cell tag_hide-input tag_hide-output docutils container">
-<details class="admonition hide above-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell source</p>
-<p class="expanded admonition-title">Hide code cell source</p>
-</summary>
-<div class="cell_input above-output-prompt docutils container">
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sym</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Symbols</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">q</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">theta</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;q v B theta&#39;</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">FB</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;F_B&#39;</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Given values (as SymPy objects for clean LaTeX)</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">q_val</span>     <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="s1">&#39;3.20&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">19</span><span class="p">)</span>     <span class="c1"># C</span>
+<span class="n">v_val</span>     <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="s1">&#39;2.50&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>       <span class="c1"># m/s</span>
+<span class="n">B_val</span>     <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="s1">&#39;0.40&#39;</span><span class="p">)</span>                <span class="c1"># T</span>
+<span class="n">theta_deg</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>                  <span class="c1"># degrees</span>
+
+<span class="c1"># Convert degrees -&gt; radians for SymPy trig</span>
+<span class="n">theta_val</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">theta_deg</span> <span class="o">/</span> <span class="mi">180</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Equations (symbolic)</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">FB_eq</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">FB</span><span class="p">,</span> <span class="n">sp</span><span class="o">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">q</span><span class="p">)</span> <span class="o">*</span> <span class="n">v</span> <span class="o">*</span> <span class="n">B</span> <span class="o">*</span> <span class="n">sp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">))</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Substitute values</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">FB_val</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">FB_eq</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">q</span><span class="p">:</span> <span class="n">q_val</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">v_val</span><span class="p">,</span> <span class="n">B</span><span class="p">:</span> <span class="n">B_val</span><span class="p">,</span> <span class="n">theta</span><span class="p">:</span> <span class="n">theta_val</span><span class="p">}))</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Display: symbolic setup + substituted equations (clean LaTeX)</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\textbf{Step 1: Magnetic force magnitude}&quot;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">FB_eq</span><span class="p">)))</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;F_B = (</span><span class="si">{</span><span class="n">sp</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">q_val</span><span class="p">)</span><span class="si">}</span><span class="s2">)(</span><span class="si">{</span><span class="n">sp</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">v_val</span><span class="p">)</span><span class="si">}</span><span class="s2">)(</span><span class="si">{</span><span class="n">sp</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">B_val</span><span class="p">)</span><span class="si">}</span><span class="s2">)\sin(</span><span class="si">{</span><span class="n">theta_deg</span><span class="si">}</span><span class="s2">^\circ)&quot;</span><span class="p">))</span>
+
+<span class="c1"># Show exact trig value if it&#39;s nice (sin 60 = sqrt(3)/2)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;\sin(</span><span class="si">{</span><span class="n">theta_deg</span><span class="si">}</span><span class="s2">^\circ) = </span><span class="si">{</span><span class="n">sp</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta_val</span><span class="p">))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;F_B = </span><span class="si">{</span><span class="n">sp</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">nsimplify</span><span class="p">(</span><span class="n">FB_val</span><span class="p">))</span><span class="si">}</span><span class="s2">\ \text</span><span class="se">{{</span><span class="s2">N</span><span class="se">}}</span><span class="s2">&quot;</span><span class="p">))</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Numerical results (formatted cleanly)</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">FB_num</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">FB_val</span><span class="o">.</span><span class="n">evalf</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Results:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Magnetic force magnitude:  F_B = </span><span class="si">{</span><span class="n">FB_num</span><span class="si">:</span><span class="s2">.2e</span><span class="si">}</span><span class="s2"> N&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Special case check:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• If the particle moves parallel to the magnetic field, then θ = 0° and sin(θ) = 0, so F_B = 0.&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Explanation:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• The magnetic force magnitude is |q| v B sin(θ).&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• Only the component of velocity perpendicular to B contributes to the force.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• Because the force is perpendicular to the velocity, it changes direction of motion but not speed.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \textbf{Step 1: Magnetic force magnitude}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle F_{B} = B q v \sin{\left(\theta \right)}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle F_B = (3.2 \cdot 10^{-19})(2500000.0)(0.4)\sin(60^\circ)\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \sin(60^\circ) = \frac{\sqrt{3}}{2}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle F_B = \frac{\sqrt{3}}{6250000000000}\ \text{N}\]</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Results:
+  Magnetic force magnitude:  F_B = 2.77e-13 N
+
+Special case check:
+• If the particle moves parallel to the magnetic field, then θ = 0° and sin(θ) = 0, so F_B = 0.
+
+Explanation:
+• The magnetic force magnitude is |q| v B sin(θ).
+• Only the component of velocity perpendicular to B contributes to the force.
+• Because the force is perpendicular to the velocity, it changes direction of motion but not speed.
+</pre></div>
+</div>
+</div>
+</div>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"></section>
+<section id="problem-d5-2-magnetic-force-from-given-directions-right-hand-rule">
+<h2>Problem D5.2 — Magnetic Force from Given Directions (Right-Hand Rule)<a class="headerlink" href="#problem-d5-2-magnetic-force-from-given-directions-right-hand-rule" title="Link to this heading">#</a></h2>
+<p>A charged particle moves through a region of uniform magnetic field.</p>
+<ul>
+<li><p>The particle has charge</p>
+<div class="math notranslate nohighlight">
+\[
+  q = +1.50 \times 10^{-19}\ \text{C}.
+  \]</div>
+</li>
+<li><p>The particle’s speed is</p>
+<div class="math notranslate nohighlight">
+\[
+  v = 3.00 \times 10^{6}\ \text{m/s}.
+  \]</div>
+</li>
+<li><p>The particle’s velocity vector points <strong><span class="math notranslate nohighlight">\(30^\circ\)</span> above the <span class="math notranslate nohighlight">\(+x\)</span>-axis</strong>, measured counterclockwise in the <span class="math notranslate nohighlight">\(xy\)</span>-plane.</p></li>
+<li><p>The magnetic field has magnitude</p>
+<div class="math notranslate nohighlight">
+\[
+  B = 0.50\ \text{T},
+  \]</div>
+<p>and points <strong>along the <span class="math notranslate nohighlight">\(+y\)</span>-axis</strong>.</p>
+</li>
+</ul>
+<p>Answer the following:</p>
+<ol class="arabic simple">
+<li><p>Determine the <strong>angle</strong> between the velocity vector <span class="math notranslate nohighlight">\(\vec{v}\)</span> and the magnetic field <span class="math notranslate nohighlight">\(\vec{B}\)</span>.</p></li>
+<li><p>Compute the <strong>magnitude</strong> of the magnetic force on the particle.</p></li>
+<li><p>Determine the <strong>direction</strong> of the magnetic force using the right-hand rule, expressed relative to the <span class="math notranslate nohighlight">\(z\)</span>-axis.</p></li>
+<li><p>State how the direction would change if the particle were <strong>negatively charged</strong>.</p></li>
+</ol>
+<p>Be careful with geometry and direction.</p>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Problem solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p><em>Relevant equation</em></p>
+<p>The magnitude of the magnetic force on a moving charge is</p>
+<div class="math notranslate nohighlight">
+\[
+F_B = |q|\,v\,B\,\sin\theta.
+\]</div>
+<hr class="docutils" />
+<p><em>Given</em></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(q = 1.50 \times 10^{-19}\ \text{C}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(v = 3.00 \times 10^{6}\ \text{m/s}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(B = 0.50\ \text{T}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\vec{v}\)</span> is <span class="math notranslate nohighlight">\(30^\circ\)</span> above <span class="math notranslate nohighlight">\(+x\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\vec{B}\)</span> points along <span class="math notranslate nohighlight">\(+y\)</span></p></li>
+</ul>
+<hr class="docutils" />
+<p><em>1) Angle between <span class="math notranslate nohighlight">\(\vec{v}\)</span> and <span class="math notranslate nohighlight">\(\vec{B}\)</span></em></p>
+<ul class="simple">
+<li><p>The <span class="math notranslate nohighlight">\(+y\)</span>-axis is <span class="math notranslate nohighlight">\(90^\circ\)</span> counterclockwise from the <span class="math notranslate nohighlight">\(+x\)</span>-axis.</p></li>
+<li><p>The velocity vector is <span class="math notranslate nohighlight">\(30^\circ\)</span> counterclockwise from the <span class="math notranslate nohighlight">\(+x\)</span>-axis.</p></li>
+</ul>
+<p>Therefore, the angle between <span class="math notranslate nohighlight">\(\vec{v}\)</span> and <span class="math notranslate nohighlight">\(\vec{B}\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+\theta = 90^\circ - 30^\circ = 60^\circ.
+\]</div>
+<hr class="docutils" />
+<p><em>2) Magnetic force magnitude</em></p>
+<p>Substitute into the force formula:</p>
+<div class="math notranslate nohighlight">
+\[
+F_B
+= (1.50 \times 10^{-19})
+  (3.00 \times 10^{6})
+  (0.50)
+  \sin(60^\circ).
+\]</div>
+<p>Using <span class="math notranslate nohighlight">\(\sin(60^\circ)=0.866\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+F_B = 1.95 \times 10^{-13}\ \text{N}.
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{F_B \approx 2.0 \times 10^{-13}\ \text{N}}
+\]</div>
+<hr class="docutils" />
+<p><em>3) Direction using the right-hand rule</em></p>
+<ul class="simple">
+<li><p>Point your fingers along <span class="math notranslate nohighlight">\(\vec{v}\)</span> (30° above <span class="math notranslate nohighlight">\(+x\)</span>).</p></li>
+<li><p>Curl your fingers toward <span class="math notranslate nohighlight">\(\vec{B}\)</span> (toward <span class="math notranslate nohighlight">\(+y\)</span>).</p></li>
+<li><p>Your thumb points <strong>out of the page</strong>, along the <strong><span class="math notranslate nohighlight">\(+z\)</span>-axis</strong>.</p></li>
+</ul>
+<p>Because the charge is <strong>positive</strong>, the magnetic force points in the <strong><span class="math notranslate nohighlight">\(+z\)</span> direction</strong>.</p>
+<hr class="docutils" />
+<p><em>4) Effect of charge sign</em></p>
+<p>If the particle were <strong>negatively charged</strong>, the force direction would reverse.</p>
+<ul class="simple">
+<li><p>The magnetic force would point <strong>into the page</strong>, along the <strong><span class="math notranslate nohighlight">\(-z\)</span>-axis</strong>.</p></li>
+</ul>
+<hr class="docutils" />
+<p><em>Physical interpretation</em></p>
+<ul class="simple">
+<li><p>Only the component of velocity perpendicular to the magnetic field contributes to the force.</p></li>
+<li><p>The magnetic force is perpendicular to both <span class="math notranslate nohighlight">\(\vec{v}\)</span> and <span class="math notranslate nohighlight">\(\vec{B}\)</span>.</p></li>
+<li><p>As a result, the force changes the particle’s direction of motion but not its speed.</p></li>
+</ul>
+</div>
+</details>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Symbols</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">q</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">theta</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;q v B theta&#39;</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">FB</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;F_B&#39;</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Given values (SymPy objects for clean LaTeX)</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">q_val</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="s1">&#39;1.50&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">19</span><span class="p">)</span>   <span class="c1"># C</span>
+<span class="n">v_val</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="s1">&#39;3.00&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>     <span class="c1"># m/s</span>
+<span class="n">B_val</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="s1">&#39;0.50&#39;</span><span class="p">)</span>              <span class="c1"># T</span>
+
+<span class="c1"># Geometry: v is 30° above +x, B is along +y (90° from +x)</span>
+<span class="c1"># Angle between them is theta = 90° - 30° = 60°</span>
+<span class="n">theta_deg</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+<span class="n">theta_val</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">theta_deg</span> <span class="o">/</span> <span class="mi">180</span>   <span class="c1"># radians</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Equation (symbolic)</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">FB_eq</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">FB</span><span class="p">,</span> <span class="n">sp</span><span class="o">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">q</span><span class="p">)</span> <span class="o">*</span> <span class="n">v</span> <span class="o">*</span> <span class="n">B</span> <span class="o">*</span> <span class="n">sp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">))</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Substitute values</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">FB_val</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">FB_eq</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">q</span><span class="p">:</span> <span class="n">q_val</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">v_val</span><span class="p">,</span> <span class="n">B</span><span class="p">:</span> <span class="n">B_val</span><span class="p">,</span> <span class="n">theta</span><span class="p">:</span> <span class="n">theta_val</span><span class="p">}))</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Display: geometry and symbolic setup</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\textbf{Step 1: Determine the angle between } \vec</span><span class="si">{v}</span><span class="s2"> \textbf{ and } \vec</span><span class="si">{B}</span><span class="s2">&quot;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\vec</span><span class="si">{v}</span><span class="s2">\text{ is }30^\circ\text{ above }+x,\quad \vec</span><span class="si">{B}</span><span class="s2">\text{ is along }+y\text{ (i.e., }90^\circ\text{ from }+x\text{)}&quot;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\theta = 90^\circ - 30^\circ = 60^\circ&quot;</span><span class="p">))</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\textbf{Step 2: Magnetic force magnitude}&quot;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">FB_eq</span><span class="p">)))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;F_B = (</span><span class="si">{</span><span class="n">sp</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">q_val</span><span class="p">)</span><span class="si">}</span><span class="s2">)(</span><span class="si">{</span><span class="n">sp</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">v_val</span><span class="p">)</span><span class="si">}</span><span class="s2">)(</span><span class="si">{</span><span class="n">sp</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">B_val</span><span class="p">)</span><span class="si">}</span><span class="s2">)\sin(</span><span class="si">{</span><span class="n">theta_deg</span><span class="si">}</span><span class="s2">^\circ)&quot;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;\sin(</span><span class="si">{</span><span class="n">theta_deg</span><span class="si">}</span><span class="s2">^\circ) = </span><span class="si">{</span><span class="n">sp</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta_val</span><span class="p">))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;F_B = </span><span class="si">{</span><span class="n">sp</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">nsimplify</span><span class="p">(</span><span class="n">FB_val</span><span class="p">))</span><span class="si">}</span><span class="s2">\ \text</span><span class="se">{{</span><span class="s2">N</span><span class="se">}}</span><span class="s2">&quot;</span><span class="p">))</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Numerical result</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">FB_num</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">FB_val</span><span class="o">.</span><span class="n">evalf</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Results:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Angle: θ = </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">theta_deg</span><span class="p">)</span><span class="si">}</span><span class="s2">°&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Magnetic force magnitude: F_B = </span><span class="si">{</span><span class="n">FB_num</span><span class="si">:</span><span class="s2">.2e</span><span class="si">}</span><span class="s2"> N&quot;</span><span class="p">)</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Direction (RHR explanation)</span>
+<span class="c1"># -----------------------------</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Direction (Right-Hand Rule):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• In the xy-plane, rotate from v to B: from 30° above +x toward +y (90°).&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• This rotation is counterclockwise, so v × B points along +z (out of the page).&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• Since q is positive, F_B points along +z.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• If q were negative, the force direction would reverse to −z (into the page).&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \textbf{Step 1: Determine the angle between } \vec{v} \textbf{ and } \vec{B}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \vec{v}\text{ is }30^\circ\text{ above }+x,\quad \vec{B}\text{ is along }+y\text{ (i.e., }90^\circ\text{ from }+x\text{)}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \theta = 90^\circ - 30^\circ = 60^\circ\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \textbf{Step 2: Magnetic force magnitude}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle F_{B} = B q v \sin{\left(\theta \right)}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle F_B = (1.5 \cdot 10^{-19})(3000000.0)(0.5)\sin(60^\circ)\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \sin(60^\circ) = \frac{\sqrt{3}}{2}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle F_B = \frac{9 \sqrt{3}}{80000000000000}\ \text{N}\]</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Results:
+  Angle: θ = 60°
+  Magnetic force magnitude: F_B = 1.95e-13 N
+
+Direction (Right-Hand Rule):
+• In the xy-plane, rotate from v to B: from 30° above +x toward +y (90°).
+• This rotation is counterclockwise, so v × B points along +z (out of the page).
+• Since q is positive, F_B points along +z.
+• If q were negative, the force direction would reverse to −z (into the page).
+</pre></div>
+</div>
+</div>
+</div>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"></section>
+<section id="problem-d5-4-computing-a-cross-product-using-code">
+<h2>Problem D5.4 — Computing a Cross Product Using Code<a class="headerlink" href="#problem-d5-4-computing-a-cross-product-using-code" title="Link to this heading">#</a></h2>
+<p>In this problem, the goal is to practice <strong>vector operations</strong> using code. No physics interpretation is required — focus only on the mathematics of the cross product.</p>
+<p>Two vectors are given in component form:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{A} = \langle 2,\ -1,\ 3 \rangle
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\vec{B} = \langle -4,\ 0,\ 1 \rangle
+\]</div>
+<p>Answer the following:</p>
+<ol class="arabic simple">
+<li><p>Write <strong>general Python code</strong> using NumPy that computes the cross product <span class="math notranslate nohighlight">\(\vec{A} \times \vec{B}\)</span> for <em>any</em> two 3D vectors.</p></li>
+<li><p>Use your code to compute <span class="math notranslate nohighlight">\(\vec{A} \times \vec{B}\)</span>.</p></li>
+<li><p>Report the resulting vector in <strong>unit-vector form</strong>.</p></li>
+</ol>
+<hr class="docutils" />
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Possible Problem solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p><em>Step 1: Write general cross-product code</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">cross_product(a,</span> <span class="pre">b):</span></code><br />
+<code class="docutils literal notranslate">&#160;&#160;&#160; <span class="pre">return</span> <span class="pre">np.cross(a,</span> <span class="pre">b)</span></code></p>
+<hr class="docutils" />
+<p><em>Step 2: Define the vectors</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">=</span> <span class="pre">np.array([2,</span> <span class="pre">-1,</span> <span class="pre">3])</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">B</span> <span class="pre">=</span> <span class="pre">np.array([-4,</span> <span class="pre">0,</span> <span class="pre">1])</span></code></p>
+<hr class="docutils" />
+<p><em>Step 3: Compute the cross product</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">A_cross_B</span> <span class="pre">=</span> <span class="pre">cross_product(A,</span> <span class="pre">B)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">A_cross_B</span></code></p>
+<p>This gives</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{A} \times \vec{B}
+=
+\langle
+-1,\ -14,\ -4
+\rangle.
+\]</div>
+<hr class="docutils" />
+<p><em>Step 4: Final result</em></p>
+<p>In unit-vector notation,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\vec{A} \times \vec{B}
+=
+-1\,\hat{i}
+-14\,\hat{j}
+-4\,\hat{k}
+}
+\]</div>
+<hr class="docutils" />
+<p><em>Interpretation</em></p>
+<ul class="simple">
+<li><p>The cross product produces a vector perpendicular to both <span class="math notranslate nohighlight">\(\vec{A}\)</span> and <span class="math notranslate nohighlight">\(\vec{B}\)</span>.</p></li>
+<li><p>Using code removes the risk of sign errors common in hand calculations.</p></li>
+<li><p>This same approach works for any 3D vectors.</p></li>
+</ul>
+</div>
+</details>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="n">q</span> <span class="o">=</span> <span class="mf">1.602E-19</span>
-<span class="n">v</span> <span class="o">=</span> <span class="mf">5.00E7</span>
-<span class="n">fb</span> <span class="o">=</span> <span class="mf">1.70E-16</span>
-<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">cross_product</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute the cross product of two 3D vectors a and b.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 
-<span class="c1">#Part 1</span>
-<span class="n">B</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">)</span>
+<span class="c1"># Define the vectors</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 
-<span class="n">eq</span> <span class="o">=</span> <span class="n">fb</span> <span class="o">-</span> <span class="n">q</span><span class="o">*</span><span class="n">v</span><span class="o">*</span><span class="n">B</span><span class="o">*</span><span class="n">sym</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
-<span class="n">sol</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">eq</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The magnetic field is &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">sol</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">+</span><span class="s1">&#39; T&#39;</span><span class="p">)</span>
+<span class="c1"># Compute the cross product A × B</span>
+<span class="n">A_cross_B</span> <span class="o">=</span> <span class="n">cross_product</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
 
-<span class="c1"># Part 2</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The order of magnitude is reasonable&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A × B =&quot;</span><span class="p">,</span> <span class="n">A_cross_B</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-</details>
-<details class="admonition hide below-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell output</p>
-<p class="expanded admonition-title">Hide code cell output</p>
-</summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The magnetic field is 3.00145200503653e-5 T
-The order of magnitude is reasonable
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A × B = [ -1 -14  -4]
 </pre></div>
 </div>
 </div>
-</details>
 </div>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray"><h2>Problem D5.4</h2>
-    </header>
-<p>A cosmic-ray electron moves at <span class="math notranslate nohighlight">\(7.5\times 10^6\)</span> m/s perpendicular to Earth’s magnetic field at an altitude where the field strength is <span class="math notranslate nohighlight">\(1.0\times 10^{−5}\)</span> T. What is the radius of the circular path the electron follows?</p>
-<p><a class="reference external" href="https://openstax.org/books/university-physics-volume-2/pages/11-problems">This problem is a slightly modified version from OpenStax. Access for free here</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"></section>
+<section id="problem-d5-5-magnetic-force-using-your-cross-product-code">
+<h2>Problem D5.5 — Magnetic Force Using Your Cross-Product Code<a class="headerlink" href="#problem-d5-5-magnetic-force-using-your-cross-product-code" title="Link to this heading">#</a></h2>
+<p>In a previous problem, you wrote <strong>general Python code</strong> that computes the cross product of two vectors.<br />
+In this problem, you will <strong>reuse that code</strong> to compute a <strong>magnetic force</strong>.</p>
+<p>This mirrors real scientific work: once a reliable computational tool is written, it should be reused rather than rewritten.</p>
+<hr class="docutils" />
+<p>A charged particle moves through a uniform magnetic field.</p>
+<p>The particle has:</p>
+<ul>
+<li><p>charge</p>
+<div class="math notranslate nohighlight">
+\[
+  q = +1.20 \times 10^{-9}\ \text{C},
+  \]</div>
+</li>
+<li><p>velocity vector</p>
+<div class="math notranslate nohighlight">
+\[
+  \vec{v} = \langle 3.0,\ -2.0,\ 1.0 \rangle \times 10^{6}\ \text{m/s},
+  \]</div>
+</li>
+<li><p>magnetic field vector</p>
+<div class="math notranslate nohighlight">
+\[
+  \vec{B} = \langle 0.20,\ 0.50,\ -0.30 \rangle \ \text{T}.
+  \]</div>
+</li>
+</ul>
+<hr class="docutils" />
+<section id="your-tasks">
+<h3>Your tasks<a class="headerlink" href="#your-tasks" title="Link to this heading">#</a></h3>
+<ol class="arabic">
+<li><p><strong>Reuse your previous function</strong><br />
+Take the cross-product function you wrote earlier and use it <em>unchanged</em> in this problem.</p></li>
+<li><p><strong>Compute the magnetic-force direction</strong><br />
+Use your function to compute the vector cross product</p>
+<div class="math notranslate nohighlight">
+\[
+   \vec{v} \times \vec{B}.
+   \]</div>
+</li>
+<li><p><strong>Compute the magnetic force vector</strong><br />
+Multiply the result by the charge to obtain</p>
+<div class="math notranslate nohighlight">
+\[
+   \vec{F}_B = q\,\vec{v} \times \vec{B}.
+   \]</div>
+</li>
+<li><p><strong>Report your result</strong><br />
+Write the magnetic force vector in <strong>unit-vector form</strong>.</p></li>
+<li><p><strong>Conceptual check</strong><br />
+In one sentence, explain why the magnetic force is perpendicular to the velocity vector.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="guidance-read-before-coding">
+<h3>Guidance (read before coding)<a class="headerlink" href="#guidance-read-before-coding" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Do <strong>not</strong> re-derive the cross-product formula by hand unless you feel you need that practice.</p></li>
+<li><p>Do <strong>not</strong> rewrite your cross-product logic.</p></li>
+<li><p>Treat your earlier function as a trusted tool and focus on <strong>using it correctly</strong>.</p></li>
+<li><p>This problem emphasizes <strong>code reuse</strong>, not new syntax.</p></li>
+</ul>
+<hr class="docutils" />
+<p><em>This problem reinforces an essential scientific habit:</em><br />
+<strong>Build reliable tools once — then reuse them to solve more complex physical problems.</strong></p>
+<hr class="docutils" />
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Problem solution (script-style)
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p><em>Relevant equation</em></p>
+<div class="math notranslate nohighlight">
+\[
+\vec{F}_B = q\,\vec{v} \times \vec{B}.
+\]</div>
+<hr class="docutils" />
+<p><em>Step 1: Reuse your cross-product function</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">cross_product(a,</span> <span class="pre">b):</span></code><br />
+<code class="docutils literal notranslate">&#160;&#160;&#160; <span class="pre">return</span> <span class="pre">np.cross(a,</span> <span class="pre">b)</span></code></p>
+<hr class="docutils" />
+<p><em>Step 2: Define given values</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">q</span> <span class="pre">=</span> <span class="pre">1.20e-9</span>&#160; <span class="pre">#</span> <span class="pre">C</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">=</span> <span class="pre">np.array([3.0,</span> <span class="pre">-2.0,</span> <span class="pre">1.0])</span> <span class="pre">*</span> <span class="pre">1e6</span>&#160;&#160; <span class="pre">#</span> <span class="pre">m/s</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">B</span> <span class="pre">=</span> <span class="pre">np.array([0.20,</span> <span class="pre">0.50,</span> <span class="pre">-0.30])</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">#</span> <span class="pre">T</span></code></p>
+<hr class="docutils" />
+<p><em>Step 3: Compute the cross product</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">v_cross_B</span> <span class="pre">=</span> <span class="pre">cross_product(A,</span> <span class="pre">B)</span></code></p>
+<p>This returns</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{v} \times \vec{B} =
+\langle
+1.0\times 10^{5},\ 1.1\times 10^{6},\ 1.9\times 10^{6}
+\rangle.
+\]</div>
+<hr class="docutils" />
+<p><em>Step 4: Compute the magnetic force</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">F_B</span> <span class="pre">=</span> <span class="pre">q</span> <span class="pre">*</span> <span class="pre">v_cross_B</span></code></p>
+<p>So</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{F}_B =
+\langle
+1.2\times 10^{-4},\ 1.32\times 10^{-3},\ 2.28\times 10^{-3}
+\rangle\ \text{N}.
+\]</div>
+<p>In unit-vector form,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\vec{F}_B =
+(1.2\times 10^{-4})\,\hat{i}
++(1.32\times 10^{-3})\,\hat{j}
++(2.28\times 10^{-3})\,\hat{k}\ \text{N}
+}
+\]</div>
+<hr class="docutils" />
+<p><em>Conceptual check</em></p>
+<p>The magnetic force is perpendicular to the velocity because it is defined by the cross product <span class="math notranslate nohighlight">\(\vec{v}\times\vec{B}\)</span>, which always produces a vector perpendicular to both input vectors.</p>
+</div>
+</details>
+<hr class="docutils" />
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
@@ -618,48 +1126,196 @@ The order of magnitude is reasonable
 </div>
 </div>
 </div>
-<div class="cell tag_hide-input tag_hide-output docutils container">
-<details class="admonition hide above-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell source</p>
-<p class="expanded admonition-title">Hide code cell source</p>
-</summary>
-<div class="cell_input above-output-prompt docutils container">
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="n">q</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.602E-19</span>
-<span class="n">m</span> <span class="o">=</span> <span class="mf">9.109E-31</span>
-<span class="n">v</span> <span class="o">=</span> <span class="mf">7.5E6</span>
-<span class="n">B</span> <span class="o">=</span> <span class="mf">1.0E-5</span>
+<span class="c1"># --------------------------------</span>
+<span class="c1"># Reuse cross-product function</span>
+<span class="c1"># (from previous problem)</span>
+<span class="c1"># --------------------------------</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">cross_product</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute the cross product of two 3D vectors a and b.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 
-<span class="n">R</span> <span class="o">=</span> <span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="n">v</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">q</span><span class="p">)</span><span class="o">*</span><span class="n">B</span><span class="p">)</span>
+<span class="c1"># --------------------------------</span>
+<span class="c1"># Given values</span>
+<span class="c1"># --------------------------------</span>
+<span class="n">q</span> <span class="o">=</span> <span class="mf">1.20e-9</span>  <span class="c1"># charge in C   #this needs to be added to your old code</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Radius is &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">R</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; m&#39;</span><span class="p">)</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">3.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span> <span class="o">*</span> <span class="mf">1e6</span>   <span class="c1"># velocity in m/s</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.20</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.30</span><span class="p">])</span>      <span class="c1"># magnetic field in T</span>
+
+<span class="c1"># --------------------------------</span>
+<span class="c1"># Compute magnetic force</span>
+<span class="c1"># --------------------------------</span>
+<span class="n">v_cross_B</span> <span class="o">=</span> <span class="n">cross_product</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+<span class="n">F_B</span> <span class="o">=</span> <span class="n">q</span> <span class="o">*</span> <span class="n">v_cross_B</span>
+
+<span class="c1"># --------------------------------</span>
+<span class="c1"># Output results</span>
+<span class="c1"># --------------------------------</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;v × B =&quot;</span><span class="p">,</span> <span class="n">v_cross_B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Magnetic force F_B =&quot;</span><span class="p">,</span> <span class="n">F_B</span><span class="p">,</span> <span class="s2">&quot;N&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Conceptual check:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• The magnetic force is perpendicular to the velocity because it is given by a cross product.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-</details>
-<details class="admonition hide below-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell output</p>
-<p class="expanded admonition-title">Hide code cell output</p>
-</summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Radius is 4.264513108614231 m
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>v × B = [ 100000. 1100000. 1900000.]
+Magnetic force F_B = [0.00012 0.00132 0.00228] N
+
+Conceptual check:
+• The magnetic force is perpendicular to the velocity because it is given by a cross product.
 </pre></div>
 </div>
 </div>
-</details>
 </div>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray"><h2>Problem D5.5</h2>
-    </header>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="problem-d5-6-auroral-electron-spiraling-along-a-magnetic-field-line">
+<h2>Problem D5.6 — Auroral Electron Spiraling Along a Magnetic Field Line<a class="headerlink" href="#problem-d5-6-auroral-electron-spiraling-along-a-magnetic-field-line" title="Link to this heading">#</a></h2>
+<p>Auroral electrons often spiral (move in a helix) along Earth’s magnetic field lines. The spiraling comes from the component of the electron’s velocity <strong>perpendicular</strong> to the magnetic field.</p>
+<p>An auroral electron has kinetic energy</p>
+<div class="math notranslate nohighlight">
+\[
+K = 1.00\ \text{keV}
+\]</div>
+<p>and moves in a region where the magnetic field magnitude is</p>
+<div class="math notranslate nohighlight">
+\[
+B = 5.0\times 10^{-5}\ \text{T}.
+\]</div>
+<p>At the instant shown, the electron’s velocity makes a <strong>pitch angle</strong> of</p>
+<div class="math notranslate nohighlight">
+\[
+\alpha = 30^\circ
+\]</div>
+<p>with the magnetic field direction. (So <span class="math notranslate nohighlight">\(\alpha\)</span> is the angle between <span class="math notranslate nohighlight">\(\vec{v}\)</span> and <span class="math notranslate nohighlight">\(\vec{B}\)</span>.)</p>
+<p>Use:</p>
+<ul class="simple">
+<li><p>electron mass <span class="math notranslate nohighlight">\(m_e = 9.11\times 10^{-31}\ \text{kg}\)</span></p></li>
+<li><p>electron charge magnitude <span class="math notranslate nohighlight">\(e = 1.60\times 10^{-19}\ \text{C}\)</span></p></li>
+</ul>
+<p>Answer the following:</p>
 <ol class="arabic simple">
-<li><p>Viewers of Star Trek have heard of an antimatter drive on the Starship Enterprise. One possibility for such a futuristic energy source is to store antimatter charged particles in a vacuum chamber, circulating in a magnetic field, and then extract them as needed. Antimatter annihilates normal matter, producing pure energy. What strength magnetic field is needed to hold antiprotons, moving at <span class="math notranslate nohighlight">\(5.0\times 10^7\)</span> m/s in a circular path <span class="math notranslate nohighlight">\(2.00\)</span> m in radius? Antiprotons have the same mass as protons but the opposite (negative) charge.</p></li>
-<li><p>Is this field strength obtainable with today’s technology or is it a futuristic possibility considering the strongest laboratory magnet today is 45 T?</p></li>
+<li><p>Compute the electron’s speed <span class="math notranslate nohighlight">\(v\)</span> from its kinetic energy.</p></li>
+<li><p>Compute the perpendicular component <span class="math notranslate nohighlight">\(v_\perp = v\sin\alpha\)</span>.</p></li>
+<li><p>Find the radius <span class="math notranslate nohighlight">\(r\)</span> of the spiral (the “gyroradius”).</p></li>
 </ol>
-<p><a class="reference external" href="https://openstax.org/books/university-physics-volume-2/pages/11-problems">This problem is a slightly modified version from OpenStax. Access for free here</a></p>
+<hr class="docutils" />
+<section id="hint-polar-coordinate-reminder">
+<h3>Hint (polar-coordinate reminder)<a class="headerlink" href="#hint-polar-coordinate-reminder" title="Link to this heading">#</a></h3>
+<p>For motion in a plane, the <strong>full acceleration</strong> in polar coordinates is</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{a} =
+(\ddot r - r\dot\theta^2)\,\hat{r}
++
+(r\ddot\theta + 2\dot r \dot\theta)\,\hat{\theta}.
+\]</div>
+<p>For uniform circular motion in the perpendicular plane:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(r\)</span> is constant <span class="math notranslate nohighlight">\(\Rightarrow \dot r = 0\)</span> and <span class="math notranslate nohighlight">\(\ddot r = 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\dot\theta\)</span> is constant <span class="math notranslate nohighlight">\(\Rightarrow \ddot\theta = 0\)</span></p></li>
+</ul>
+<p>so the acceleration becomes purely radial:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{a} = -r\dot\theta^2\,\hat{r}.
+\]</div>
+<p>That corresponds to centripetal acceleration with magnitude</p>
+<div class="math notranslate nohighlight">
+\[
+a = \frac{v_\perp^2}{r}.
+\]</div>
+<hr class="docutils" />
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Problem solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p><em>Step 1: Speed from kinetic energy</em></p>
+<p>Convert <span class="math notranslate nohighlight">\(1.00\ \text{keV}\)</span> to joules:</p>
+<div class="math notranslate nohighlight">
+\[
+K = (1.00\times 10^{3}\ \text{eV})(1.60\times 10^{-19}\ \text{J/eV})
+  = 1.60\times 10^{-16}\ \text{J}.
+\]</div>
+<p>Use <span class="math notranslate nohighlight">\(K=\tfrac12 m v^2\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+v = \sqrt{\frac{2K}{m_e}}
+  = \sqrt{\frac{2(1.60\times 10^{-16})}{9.11\times 10^{-31}}}
+  \approx 1.87\times 10^{7}\ \text{m/s}.
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{v \approx 1.87\times 10^{7}\ \text{m/s}}
+\]</div>
+<hr class="docutils" />
+<p><em>Step 2: Perpendicular speed</em></p>
+<div class="math notranslate nohighlight">
+\[
+v_\perp = v\sin\alpha
+= (1.87\times 10^{7})\sin(30^\circ)
+= (1.87\times 10^{7})(0.500)
+\approx 9.37\times 10^{6}\ \text{m/s}.
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{v_\perp \approx 9.37\times 10^{6}\ \text{m/s}}
+\]</div>
+<hr class="docutils" />
+<p><em>Step 3: Use magnetic force as the centripetal force</em></p>
+<p>Magnetic force magnitude (perpendicular part):</p>
+<div class="math notranslate nohighlight">
+\[
+F_B = e\,v_\perp B.
+\]</div>
+<p>Centripetal force needed for circular motion:</p>
+<div class="math notranslate nohighlight">
+\[
+F_c = m_e\frac{v_\perp^2}{r}.
+\]</div>
+<p>Set <span class="math notranslate nohighlight">\(F_B = F_c\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+e\,v_\perp B = m_e\frac{v_\perp^2}{r}.
+\]</div>
+<p>Cancel one factor of <span class="math notranslate nohighlight">\(v_\perp\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+eB = m_e\frac{v_\perp}{r}
+\quad\Rightarrow\quad
+r = \frac{m_e v_\perp}{eB}.
+\]</div>
+<p>Now substitute numbers:</p>
+<div class="math notranslate nohighlight">
+\[
+r = \frac{(9.11\times 10^{-31})(9.37\times 10^{6})}{(1.60\times 10^{-19})(5.0\times 10^{-5})}
+\approx 1.07\ \text{m}.
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{r \approx 1.1\ \text{m}}
+\]</div>
+<hr class="docutils" />
+<p><em>Physical interpretation</em></p>
+<ul class="simple">
+<li><p>The electron’s path is a helix: motion along <span class="math notranslate nohighlight">\(\vec{B}\)</span> continues forward, while the perpendicular motion produces a circle.</p></li>
+<li><p>Only <span class="math notranslate nohighlight">\(v_\perp\)</span> determines the spiral radius.</p></li>
+<li><p>A stronger magnetic field makes the spiral tighter (smaller <span class="math notranslate nohighlight">\(r\)</span>).</p></li>
+</ul>
+</div>
+</details>
+<hr class="docutils" />
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
@@ -667,57 +1323,240 @@ The order of magnitude is reasonable
 </div>
 </div>
 </div>
-<div class="cell tag_hide-input tag_hide-output docutils container">
-<details class="admonition hide above-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell source</p>
-<p class="expanded admonition-title">Hide code cell source</p>
-</summary>
-<div class="cell_input above-output-prompt docutils container">
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sym</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span>
 
-<span class="n">m</span> <span class="o">=</span> <span class="mf">1.67E-27</span>
-<span class="n">q</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.602E-19</span>
-<span class="n">v</span> <span class="o">=</span> <span class="mf">5.0E7</span>
-<span class="n">R</span> <span class="o">=</span> <span class="mf">2.00</span>
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Symbols</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">K</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;K m e B alpha&#39;</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">v</span><span class="p">,</span> <span class="n">v_perp</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;v v_perp r&#39;</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="c1">#Part 1</span>
-<span class="n">B</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">)</span>
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Given values</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">K_val</span>     <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="s1">&#39;1.00e3&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.60e-19</span>      <span class="c1"># 1.00 keV -&gt; J</span>
+<span class="n">m_val</span>     <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="s1">&#39;9.11e-31&#39;</span><span class="p">)</span>               <span class="c1"># kg</span>
+<span class="n">e_val</span>     <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="s1">&#39;1.60e-19&#39;</span><span class="p">)</span>               <span class="c1"># C</span>
+<span class="n">B_val</span>     <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="s1">&#39;5.0e-5&#39;</span><span class="p">)</span>                 <span class="c1"># T</span>
+<span class="n">alpha_deg</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">alpha_val</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">alpha_deg</span> <span class="o">/</span> <span class="mi">180</span>            <span class="c1"># radians</span>
 
-<span class="c1"># F_net = -mv^2/R </span>
-<span class="n">eq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">q</span><span class="p">)</span><span class="o">*</span><span class="n">v</span><span class="o">*</span><span class="n">B</span> <span class="o">-</span> <span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="n">v</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">R</span>
-<span class="n">sol</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">eq</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The magnetic field is &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">sol</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">+</span><span class="s1">&#39; T&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Yes, it is reasonable&#39;</span><span class="p">)</span>
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Physics equations</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">v_eq</span>      <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">sp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">K</span><span class="o">/</span><span class="n">m</span><span class="p">))</span>
+<span class="n">vperp_eq</span>  <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">v_perp</span><span class="p">,</span> <span class="n">v</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">alpha</span><span class="p">))</span>
+<span class="n">r_eq</span>      <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">m</span><span class="o">*</span><span class="n">v_perp</span><span class="o">/</span><span class="p">(</span><span class="n">e</span><span class="o">*</span><span class="n">B</span><span class="p">))</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Substitute values step-by-step</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">v_val</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">v_eq</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">K</span><span class="p">:</span> <span class="n">K_val</span><span class="p">,</span> <span class="n">m</span><span class="p">:</span> <span class="n">m_val</span><span class="p">}))</span>
+<span class="n">vperp_val</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">vperp_eq</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">v</span><span class="p">:</span> <span class="n">v_val</span><span class="p">,</span> <span class="n">alpha</span><span class="p">:</span> <span class="n">alpha_val</span><span class="p">}))</span>
+<span class="n">r_val</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">r_eq</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">m</span><span class="p">:</span> <span class="n">m_val</span><span class="p">,</span> <span class="n">v_perp</span><span class="p">:</span> <span class="n">vperp_val</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span> <span class="n">e_val</span><span class="p">,</span> <span class="n">B</span><span class="p">:</span> <span class="n">B_val</span><span class="p">}))</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Display symbolic setup</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\textbf{Step 1: Speed from kinetic energy}&quot;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">v_eq</span><span class="p">)))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;v = </span><span class="si">{</span><span class="n">sp</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">v_val</span><span class="p">)</span><span class="si">}</span><span class="s2">\ \text</span><span class="se">{{</span><span class="s2">m/s</span><span class="se">}}</span><span class="s2">&quot;</span><span class="p">))</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\textbf{Step 2: Perpendicular velocity component}&quot;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">vperp_eq</span><span class="p">)))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;v_\perp = </span><span class="si">{</span><span class="n">sp</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">vperp_val</span><span class="p">)</span><span class="si">}</span><span class="s2">\ \text</span><span class="se">{{</span><span class="s2">m/s</span><span class="se">}}</span><span class="s2">&quot;</span><span class="p">))</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\textbf{Step 3: Spiral (gyroradius)}&quot;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">r_eq</span><span class="p">)))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;r = </span><span class="si">{</span><span class="n">sp</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">nsimplify</span><span class="p">(</span><span class="n">r_val</span><span class="p">))</span><span class="si">}</span><span class="s2">\ \text</span><span class="se">{{</span><span class="s2">m</span><span class="se">}}</span><span class="s2">&quot;</span><span class="p">))</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Numerical results</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">v_num</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">v_val</span><span class="o">.</span><span class="n">evalf</span><span class="p">())</span>
+<span class="n">vperp_num</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">vperp_val</span><span class="o">.</span><span class="n">evalf</span><span class="p">())</span>
+<span class="n">r_num</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">r_val</span><span class="o">.</span><span class="n">evalf</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Numerical results:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Speed:            v = </span><span class="si">{</span><span class="n">v_num</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> m/s&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Perpendicular v:  v_perp = </span><span class="si">{</span><span class="n">vperp_num</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> m/s&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Spiral radius:    r = </span><span class="si">{</span><span class="n">r_num</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> m&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Explanation:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• Only the velocity component perpendicular to the magnetic field contributes to circular motion.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• The magnetic force provides the centripetal acceleration.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• Motion along the field line is unaffected, producing a helical (spiral) trajectory.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-</details>
-<details class="admonition hide below-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell output</p>
-<p class="expanded admonition-title">Hide code cell output</p>
-</summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The magnetic field is 0.260611735330836 T
- 
-Yes, it is reasonable
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \textbf{Step 1: Speed from kinetic energy}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle v = \frac{\sqrt{2} \sqrt{K}}{\sqrt{m}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle v = 13252591.2384514 \sqrt{2}\ \text{m/s}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \textbf{Step 2: Perpendicular velocity component}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle v_{perp} = v \sin{\left(\alpha \right)}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle v_\perp = 6626295.61922572 \sqrt{2}\ \text{m/s}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \textbf{Step 3: Spiral (gyroradius)}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle r = \frac{m v_{perp}}{B e}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle r = \frac{23580294176229 \sqrt{2}}{31250000000000}\ \text{m}\]</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Numerical results:
+  Speed:            v = 1.874e+07 m/s
+  Perpendicular v:  v_perp = 9.371e+06 m/s
+  Spiral radius:    r = 1.07 m
+
+Explanation:
+• Only the velocity component perpendicular to the magnetic field contributes to circular motion.
+• The magnetic force provides the centripetal acceleration.
+• Motion along the field line is unaffected, producing a helical (spiral) trajectory.
 </pre></div>
 </div>
 </div>
-</details>
 </div>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray"><h2>Problem D5.6</h2>
-    </header>
-<ol class="arabic simple">
-<li><p>What voltage will accelerate electrons to a speed of <span class="math notranslate nohighlight">\(6.00\times 10^7\)</span> m/s?</p></li>
-<li><p>Find the radius of curvature of the path of a proton accelerated through this potential in a <span class="math notranslate nohighlight">\(0.500\)</span> T field and compare this with the radius of curvature of an electron accelerated through the same potential.</p></li>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="problem-d5-7-separation-of-uranium-isotopes">
+<h2>Problem D5.7 — Separation of Uranium Isotopes<a class="headerlink" href="#problem-d5-7-separation-of-uranium-isotopes" title="Link to this heading">#</a></h2>
+<section id="historical-note-the-calutron">
+<h3>Historical note — The Calutron<a class="headerlink" href="#historical-note-the-calutron" title="Link to this heading">#</a></h3>
+<p>The calutron (a contraction of California University Cyclotron) was developed during World War II as part of the Manhattan Project to separate uranium isotopes. It was based directly on earlier mass-spectrometer designs, using magnetic fields to separate ions according to their mass-to-charge ratio. At the Y-12 facility in Oak Ridge, Tennessee, abouth thousand calutrons were operated to enrich uranium-235 from natural uranium, despite the process being energy-intensive and inefficient. Although later replaced by more economical methods such as gas centrifuges, the calutron played a crucial early role in demonstrating that large-scale electromagnetic isotope separation was possible.</p>
+<p>A <em>calutron</em> separates isotopes by sending <strong>ionized atoms</strong> through a uniform magnetic field. Because different isotopes have different masses, they follow circular paths with slightly different radii.</p>
+<p>Suppose uranium atoms are <strong>singly ionized</strong> (charge magnitude <span class="math notranslate nohighlight">\(q = e\)</span>) and accelerated from rest through a potential difference</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta V = 10.0\ \text{kV}.
+\]</div>
+<p>They then enter a region with a uniform magnetic field (perpendicular to their velocity) of magnitude</p>
+<div class="math notranslate nohighlight">
+\[
+B = 0.50\ \text{T}.
+\]</div>
+<p>Use:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(e = 1.60\times 10^{-19}\ \text{C}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(1\ \text{u} = 1.66\times 10^{-27}\ \text{kg}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(m_{235} = 235\ \text{u}\)</span> and <span class="math notranslate nohighlight">\(m_{238} = 238\ \text{u}\)</span></p></li>
+</ul>
+<p>Answer the following:</p>
+<ol class="arabic">
+<li><p>Find the speed of a singly ionized uranium ion after acceleration through <span class="math notranslate nohighlight">\(\Delta V\)</span>.</p></li>
+<li><p>Show that the radius of the circular path in the magnetic field can be written as</p>
+<div class="math notranslate nohighlight">
+\[
+   r = \sqrt{\frac{2m\,\Delta V}{q\,B^2}}.
+   \]</div>
+</li>
+<li><p>Compute the radii <span class="math notranslate nohighlight">\(r_{235}\)</span> and <span class="math notranslate nohighlight">\(r_{238}\)</span>.</p></li>
+<li><p>If the ions travel through a <strong>half-circle</strong> and hit a collector plate, estimate the separation distance between the two isotopes on the plate.<br />
+<em>(Hint: after a half-circle, the horizontal displacement is approximately the diameter <span class="math notranslate nohighlight">\(2r\)</span>.)</em></p></li>
 </ol>
-<p><a class="reference external" href="https://openstax.org/books/university-physics-volume-2/pages/11-problems">This problem is a slightly modified version from OpenStax. Access for free here</a></p>
+<p>Be careful with units.</p>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Problem solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p><strong>1) Speed after acceleration through <span class="math notranslate nohighlight">\(\Delta V\)</span></strong></p>
+<p>A singly ionized uranium ion has charge magnitude <span class="math notranslate nohighlight">\(q=e\)</span>. Accelerating from rest through a potential difference <span class="math notranslate nohighlight">\(\Delta V\)</span> gives kinetic energy:</p>
+<div class="math notranslate nohighlight">
+\[
+q\Delta V = \frac{1}{2}mv^2
+\quad\Rightarrow\quad
+v = \sqrt{\frac{2q\Delta V}{m}}.
+\]</div>
+<p>Because <span class="math notranslate nohighlight">\(m\)</span> differs slightly between isotopes, the speeds differ slightly as well. In practice, we combine this step with the radius step below.</p>
+<hr class="docutils" />
+<p><strong>2) Derive the radius formula</strong></p>
+<p>In the magnetic field region, the velocity is perpendicular to <span class="math notranslate nohighlight">\(\vec{B}\)</span>, so the magnetic force magnitude is</p>
+<div class="math notranslate nohighlight">
+\[
+F_B = qvB.
+\]</div>
+<p>This force provides the centripetal force for circular motion:</p>
+<div class="math notranslate nohighlight">
+\[
+F_c = \frac{mv^2}{r}.
+\]</div>
+<p>Set <span class="math notranslate nohighlight">\(F_B = F_c\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+qvB = \frac{mv^2}{r}
+\quad\Rightarrow\quad
+r = \frac{mv}{qB}.
+\]</div>
+<p>Substitute <span class="math notranslate nohighlight">\(v = \sqrt{\frac{2q\Delta V}{m}}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+r = \frac{m}{qB}\sqrt{\frac{2q\Delta V}{m}}
+= \sqrt{\frac{2m\Delta V}{qB^2}}.
+\]</div>
+<p>So,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{r = \sqrt{\frac{2m\Delta V}{qB^2}}.}
+\]</div>
+<hr class="docutils" />
+<p><strong>3) Compute <span class="math notranslate nohighlight">\(r_{235}\)</span> and <span class="math notranslate nohighlight">\(r_{238}\)</span></strong></p>
+<p>Convert masses to kg:</p>
+<div class="math notranslate nohighlight">
+\[
+m_{235} = 235\,\text{u}, \qquad m_{238} = 238\,\text{u},
+\qquad 1\,\text{u} = 1.66\times 10^{-27}\ \text{kg}.
+\]</div>
+<p>Use <span class="math notranslate nohighlight">\(q=e\)</span>, <span class="math notranslate nohighlight">\(\Delta V = 10.0\ \text{kV} = 1.00\times 10^{4}\ \text{V}\)</span>, and <span class="math notranslate nohighlight">\(B=0.50\ \text{T}\)</span> in</p>
+<div class="math notranslate nohighlight">
+\[
+r = \sqrt{\frac{2m\Delta V}{qB^2}}.
+\]</div>
+<p>Script outputs:</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{r_{235} \approx 0.4416\ \text{m}}
+\qquad
+\boxed{r_{238} \approx 0.4445\ \text{m}}.
+\]</div>
+<hr class="docutils" />
+<p><strong>4) Separation on the collector plate after a half-circle</strong></p>
+<p>After a half-circle, each isotope lands roughly a horizontal distance of about <span class="math notranslate nohighlight">\(2r\)</span> from where it entered, so the separation is approximately</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta x \approx 2(r_{238}-r_{235}).
+\]</div>
+<p>Using the script radii:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta x \approx 2(0.4445 - 0.4416)\ \text{m}
+\approx 0.00562\ \text{m}
+= 5.62\ \text{mm}.
+\]</div>
+<p>So,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{\Delta x \approx 5.62\ \text{mm}}.
+\]</div>
+<hr class="docutils" />
+<p><strong>Physical interpretation</strong></p>
+<ul class="simple">
+<li><p>The heavier isotope (U-238) has a slightly larger radius because <span class="math notranslate nohighlight">\(r\propto \sqrt{m}\)</span>.</p></li>
+<li><p>Even a small radius difference can lead to measurable separation after traveling a curved path.</p></li>
+<li><p>This is the core idea behind electromagnetic isotope separation in a calutron.</p></li>
+</ul>
+</div>
+</details>
+<hr class="docutils" />
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
@@ -725,28 +1564,213 @@ Yes, it is reasonable
 </div>
 </div>
 </div>
-<div class="cell tag_hide-input tag_hide-output docutils container">
-<details class="admonition hide above-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell source</p>
-<p class="expanded admonition-title">Hide code cell source</p>
-</summary>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Symbols</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">m</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;m q V B&#39;</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Constants / given values</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">e_val</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="s1">&#39;1.60e-19&#39;</span><span class="p">)</span>      <span class="c1"># C</span>
+<span class="n">u_val</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="s1">&#39;1.66e-27&#39;</span><span class="p">)</span>      <span class="c1"># kg</span>
+<span class="n">V_val</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="s1">&#39;1.00e4&#39;</span><span class="p">)</span>        <span class="c1"># V  (10.0 kV)</span>
+<span class="n">B_val</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="s1">&#39;0.50&#39;</span><span class="p">)</span>          <span class="c1"># T</span>
+
+<span class="n">m235_val</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">235</span><span class="p">)</span> <span class="o">*</span> <span class="n">u_val</span>
+<span class="n">m238_val</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">238</span><span class="p">)</span> <span class="o">*</span> <span class="n">u_val</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Key equation: radius after accelerating through ΔV, then entering B ⟂ v</span>
+<span class="c1"># r = sqrt(2 m ΔV / (q B^2))</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">r_eq</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">sp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="o">*</span><span class="n">V</span><span class="o">/</span><span class="p">(</span><span class="n">q</span><span class="o">*</span><span class="n">B</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\textbf{Radius formula for a calutron (after acceleration through }\Delta V\textbf{)}&quot;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">r_eq</span><span class="p">)))</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Compute radii for U-235 and U-238</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">r235_expr</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">r_eq</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">m</span><span class="p">:</span> <span class="n">m235_val</span><span class="p">,</span> <span class="n">V</span><span class="p">:</span> <span class="n">V_val</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="n">e_val</span><span class="p">,</span> <span class="n">B</span><span class="p">:</span> <span class="n">B_val</span><span class="p">}))</span>
+<span class="n">r238_expr</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">r_eq</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">m</span><span class="p">:</span> <span class="n">m238_val</span><span class="p">,</span> <span class="n">V</span><span class="p">:</span> <span class="n">V_val</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="n">e_val</span><span class="p">,</span> <span class="n">B</span><span class="p">:</span> <span class="n">B_val</span><span class="p">}))</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\textbf{U-235 radius}&quot;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;m_</span><span class="se">{{</span><span class="s2">235</span><span class="se">}}</span><span class="s2"> = </span><span class="si">{</span><span class="n">sp</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">m235_val</span><span class="p">)</span><span class="si">}</span><span class="s2">\ \text</span><span class="se">{{</span><span class="s2">kg</span><span class="se">}}</span><span class="s2">&quot;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;r_</span><span class="se">{{</span><span class="s2">235</span><span class="se">}}</span><span class="s2"> = </span><span class="si">{</span><span class="n">sp</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">r235_expr</span><span class="p">)</span><span class="si">}</span><span class="s2">\ \text</span><span class="se">{{</span><span class="s2">m</span><span class="se">}}</span><span class="s2">&quot;</span><span class="p">))</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\textbf{U-238 radius}&quot;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;m_</span><span class="se">{{</span><span class="s2">238</span><span class="se">}}</span><span class="s2"> = </span><span class="si">{</span><span class="n">sp</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">m238_val</span><span class="p">)</span><span class="si">}</span><span class="s2">\ \text</span><span class="se">{{</span><span class="s2">kg</span><span class="se">}}</span><span class="s2">&quot;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;r_</span><span class="se">{{</span><span class="s2">238</span><span class="se">}}</span><span class="s2"> = </span><span class="si">{</span><span class="n">sp</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">r238_expr</span><span class="p">)</span><span class="si">}</span><span class="s2">\ \text</span><span class="se">{{</span><span class="s2">m</span><span class="se">}}</span><span class="s2">&quot;</span><span class="p">))</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Separation after a half-circle</span>
+<span class="c1"># Approximate landing displacement ≈ 2r, so separation ≈ 2(r238 - r235)</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">sep_expr</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">r238_expr</span> <span class="o">-</span> <span class="n">r235_expr</span><span class="p">))</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\textbf{Collector separation after a half-circle (approx.)}&quot;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;\Delta x \approx 2(r_</span><span class="se">{{</span><span class="s2">238</span><span class="se">}}</span><span class="s2">-r_</span><span class="se">{{</span><span class="s2">235</span><span class="se">}}</span><span class="s2">) = </span><span class="si">{</span><span class="n">sp</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">sep_expr</span><span class="p">)</span><span class="si">}</span><span class="s2">\ \text</span><span class="se">{{</span><span class="s2">m</span><span class="se">}}</span><span class="s2">&quot;</span><span class="p">))</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Numerical results</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">r235_num</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">r235_expr</span><span class="o">.</span><span class="n">evalf</span><span class="p">())</span>
+<span class="n">r238_num</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">r238_expr</span><span class="o">.</span><span class="n">evalf</span><span class="p">())</span>
+<span class="n">sep_num</span>  <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">sep_expr</span><span class="o">.</span><span class="n">evalf</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Numerical results:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  r_235 = </span><span class="si">{</span><span class="n">r235_num</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> m&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  r_238 = </span><span class="si">{</span><span class="n">r238_num</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> m&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  separation after half-circle: Δx ≈ </span><span class="si">{</span><span class="n">sep_num</span><span class="o">*</span><span class="mi">1000</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> mm&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-</details>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \textbf{Radius formula for a calutron (after acceleration through }\Delta V\textbf{)}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle r = \frac{\sqrt{2} \sqrt{V} \sqrt{m}}{B \sqrt{q}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \textbf{U-235 radius}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle m_{235} = 3.901 \cdot 10^{-25}\ \text{kg}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle r_{235} = 0.312289929392544 \sqrt{2}\ \text{m}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \textbf{U-238 radius}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle m_{238} = 3.9508 \cdot 10^{-25}\ \text{kg}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle r_{238} = 0.314276947929688 \sqrt{2}\ \text{m}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \textbf{Collector separation after a half-circle (approx.)}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \Delta x \approx 2(r_{238}-r_{235}) = 0.00397403707428889 \sqrt{2}\ \text{m}\]</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Numerical results:
+  r_235 = 0.4416 m
+  r_238 = 0.4445 m
+  separation after half-circle: Δx ≈ 5.62 mm
+</pre></div>
 </div>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray"><h2>Problem D5.7</h2>
-    </header>
-<p>An alpha-particle (<span class="math notranslate nohighlight">\(m = 6.64\times 10^{−27}\)</span> kg, <span class="math notranslate nohighlight">\(q = 3.2\times 10^{−19}\)</span> C) travels in a circular path of radius <span class="math notranslate nohighlight">\(25\)</span> cm in a uniform magnetic field of magnitude <span class="math notranslate nohighlight">\(1.5\)</span> T.</p>
+</div>
+</div>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="problem-d5-8-belle-ii-track-curvature-speed-and-equivalent-accelerating-potential">
+<h2>Problem D5.8 — Belle II Track Curvature: Speed and Equivalent Accelerating Potential<a class="headerlink" href="#problem-d5-8-belle-ii-track-curvature-speed-and-equivalent-accelerating-potential" title="Link to this heading">#</a></h2>
+<p><strong>Belle II (at the SuperKEKB electron–positron collider in Tsukuba, Japan)</strong> measures the momentum of charged particles by observing how their tracks curve in a strong solenoidal magnetic field. In the tracking region, a charged particle moving perpendicular to the magnetic field follows (approximately) <strong>circular motion</strong> in the plane perpendicular to <span class="math notranslate nohighlight">\(\vec{B}\)</span>.</p>
+<p>In a reconstructed event, a <strong>proton</strong> track in the transverse (<span class="math notranslate nohighlight">\(xy\)</span>) plane is observed to have a curvature radius</p>
+<div class="math notranslate nohighlight">
+\[
+R = 5.0\ \text{cm}.
+\]</div>
+<p>The magnetic field is approximately uniform with magnitude</p>
+<div class="math notranslate nohighlight">
+\[
+B = 1.5\ \text{T},
+\]</div>
+<p>and is directed along the <span class="math notranslate nohighlight">\(+z\)</span> axis. Assume the proton’s velocity is perpendicular to <span class="math notranslate nohighlight">\(\vec{B}\)</span>.</p>
+<p>Use:</p>
+<ul class="simple">
+<li><p>proton mass <span class="math notranslate nohighlight">\(m_p = 1.67\times 10^{-27}\ \text{kg}\)</span></p></li>
+<li><p>proton charge magnitude <span class="math notranslate nohighlight">\(e = 1.60\times 10^{-19}\ \text{C}\)</span></p></li>
+</ul>
+<p>Answer the following:</p>
 <ol class="arabic simple">
-<li><p>What is the speed of the particle?</p></li>
-<li><p>What is the kinetic energy in electron-volts?</p></li>
-<li><p>Through what potential difference must the particle be accelerated in order to give it this kinetic energy?</p></li>
+<li><p>Use the magnetic force as the centripetal force to find the proton’s speed <span class="math notranslate nohighlight">\(v\)</span>.</p></li>
+<li><p>Compute the proton’s kinetic energy <span class="math notranslate nohighlight">\(K\)</span>.</p></li>
+<li><p>Find the <strong>equivalent accelerating potential</strong> <span class="math notranslate nohighlight">\(\Delta V\)</span> that would be needed to accelerate a proton from rest to this kinetic energy (so that <span class="math notranslate nohighlight">\(e\Delta V = K\)</span>).</p></li>
 </ol>
-<p><a class="reference external" href="https://openstax.org/books/university-physics-volume-2/pages/11-problems">This problem is a slightly modified version from OpenStax. Access for free here</a></p>
+<hr class="docutils" />
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Problem solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p><em>Step 1: Use magnetic force causing centripetal acceleration</em></p>
+<p>Because <span class="math notranslate nohighlight">\(\vec{v}\perp\vec{B}\)</span>, the magnetic force magnitude is</p>
+<div class="math notranslate nohighlight">
+\[
+F_B = e\,vB.
+\]</div>
+<p>For circular motion of radius <span class="math notranslate nohighlight">\(R\)</span>, the required centripetal force magnitude is</p>
+<div class="math notranslate nohighlight">
+\[
+F_c = m_p\frac{v^2}{R}.
+\]</div>
+<p>Set <span class="math notranslate nohighlight">\(F_B = F_c\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+e\,vB = m_p\frac{v^2}{R}.
+\]</div>
+<p>Cancel one factor of <span class="math notranslate nohighlight">\(v\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+eB = m_p\frac{v}{R}
+\quad\Rightarrow\quad
+v = \frac{eBR}{m_p}.
+\]</div>
+<p>Now substitute <span class="math notranslate nohighlight">\(R = 5.0\ \text{cm} = 5.0\times 10^{-2}\ \text{m}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+v =
+\frac{(1.60\times 10^{-19})(1.5)(5.0\times 10^{-2})}{1.67\times 10^{-27}}
+\approx 7.19\times 10^{6}\ \text{m/s}.
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{v \approx 7.19\times 10^{6}\ \text{m/s}}
+\]</div>
+<hr class="docutils" />
+<p><em>Step 2: Kinetic energy</em></p>
+<div class="math notranslate nohighlight">
+\[
+K = \frac{1}{2}m_p v^2
+= \frac{1}{2}(1.67\times 10^{-27})(7.19\times 10^{6})^2
+\approx 4.31\times 10^{-14}\ \text{J}.
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{K \approx 4.31\times 10^{-14}\ \text{J}}
+\]</div>
+<hr class="docutils" />
+<p><em>Step 3: Equivalent accelerating potential</em></p>
+<p>If the proton were accelerated from rest through a potential difference <span class="math notranslate nohighlight">\(\Delta V\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+e\Delta V = K
+\quad\Rightarrow\quad
+\Delta V = \frac{K}{e}.
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\Delta V =
+\frac{4.31\times 10^{-14}}{1.60\times 10^{-19}}
+\approx 2.69\times 10^{5}\ \text{V}.
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{\Delta V \approx 2.69\times 10^{5}\ \text{V} \;=\; 269\ \text{kV}}
+\]</div>
+<hr class="docutils" />
+<p><em>Physical interpretation</em></p>
+<ul class="simple">
+<li><p>The magnetic force bends the proton’s path into a circle in the plane perpendicular to <span class="math notranslate nohighlight">\(\vec{B}\)</span>.</p></li>
+<li><p>A tighter curve (smaller <span class="math notranslate nohighlight">\(R\)</span>) corresponds to a smaller momentum and lower speed for the same particle.</p></li>
+<li><p>The “equivalent accelerating potential” is a convenient way to express how much kinetic energy the proton has.</p></li>
+</ul>
+</div>
+</details>
+<hr class="docutils" />
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
@@ -754,71 +1778,99 @@ Yes, it is reasonable
 </div>
 </div>
 </div>
-<div class="cell tag_hide-input tag_hide-output docutils container">
-<details class="admonition hide above-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell source</p>
-<p class="expanded admonition-title">Hide code cell source</p>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
-</pre></div>
-</div>
-</div>
-</details>
-</div>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray"><h2>Problem D5.8</h2>
-    </header>
-<p>The strengths of the fields in the velocity selector of a Bainbridge mass spectrometer are <span class="math notranslate nohighlight">\(B = 0.500\)</span> T and <span class="math notranslate nohighlight">\(E = 1.2\times 10^5\)</span> V/m, and the strength of the magnetic field that separates the ions is <span class="math notranslate nohighlight">\(B_0 =0.750\)</span> T. A stream of singly charged Li ions is found to bend in a circular arc of radius <span class="math notranslate nohighlight">\(2.32\)</span> cm. What is the mass of the Li ions?</p>
-<p><a class="reference external" href="https://openstax.org/books/university-physics-volume-2/pages/11-problems">This problem is a slightly modified version from OpenStax. Access for free here</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell tag_hide-input tag_hide-output docutils container">
-<details class="admonition hide above-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell source</p>
-<p class="expanded admonition-title">Hide code cell source</p>
-</summary>
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Symbols</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">e</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">mp</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;e B R mp&#39;</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">v</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">dV</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;v K dV&#39;</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Given values</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">e_val</span>  <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="s1">&#39;1.60e-19&#39;</span><span class="p">)</span>     <span class="c1"># C</span>
+<span class="n">B_val</span>  <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="s1">&#39;1.5&#39;</span><span class="p">)</span>          <span class="c1"># T</span>
+<span class="n">R_val</span>  <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="s1">&#39;5.0e-2&#39;</span><span class="p">)</span>       <span class="c1"># m (5.0 cm)</span>
+<span class="n">mp_val</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="s1">&#39;1.67e-27&#39;</span><span class="p">)</span>     <span class="c1"># kg</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Equations</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">v_eq</span>  <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">e</span><span class="o">*</span><span class="n">B</span><span class="o">*</span><span class="n">R</span><span class="o">/</span><span class="n">mp</span><span class="p">)</span>
+<span class="n">K_eq</span>  <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">sp</span><span class="o">.</span><span class="n">Rational</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">mp</span><span class="o">*</span><span class="n">v</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">dV_eq</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">dV</span><span class="p">,</span> <span class="n">K</span><span class="o">/</span><span class="n">e</span><span class="p">)</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Substitute values</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">v_val</span>  <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">v_eq</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">e</span><span class="p">:</span> <span class="n">e_val</span><span class="p">,</span> <span class="n">B</span><span class="p">:</span> <span class="n">B_val</span><span class="p">,</span> <span class="n">R</span><span class="p">:</span> <span class="n">R_val</span><span class="p">,</span> <span class="n">mp</span><span class="p">:</span> <span class="n">mp_val</span><span class="p">}))</span>
+<span class="n">K_val</span>  <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">K_eq</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">mp</span><span class="p">:</span> <span class="n">mp_val</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">v_val</span><span class="p">}))</span>
+<span class="n">dV_val</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">dV_eq</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">K</span><span class="p">:</span> <span class="n">K_val</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span> <span class="n">e_val</span><span class="p">}))</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Display symbolic steps</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\textbf{Step 1: Speed from magnetic curvature}&quot;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">v_eq</span><span class="p">)))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;v = </span><span class="si">{</span><span class="n">sp</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">v_val</span><span class="p">)</span><span class="si">}</span><span class="s2">\ \text</span><span class="se">{{</span><span class="s2">m/s</span><span class="se">}}</span><span class="s2">&quot;</span><span class="p">))</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\textbf{Step 2: Kinetic energy}&quot;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">K_eq</span><span class="p">)))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;K = </span><span class="si">{</span><span class="n">sp</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">K_val</span><span class="p">)</span><span class="si">}</span><span class="s2">\ \text</span><span class="se">{{</span><span class="s2">J</span><span class="se">}}</span><span class="s2">&quot;</span><span class="p">))</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\textbf{Step 3: Equivalent accelerating potential}&quot;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">dV_eq</span><span class="p">)))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;\Delta V = </span><span class="si">{</span><span class="n">sp</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">dV_val</span><span class="p">)</span><span class="si">}</span><span class="s2">\ \text</span><span class="se">{{</span><span class="s2">V</span><span class="se">}}</span><span class="s2">&quot;</span><span class="p">))</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Numerical outputs</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">v_num</span>  <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">v_val</span><span class="o">.</span><span class="n">evalf</span><span class="p">())</span>
+<span class="n">K_num</span>  <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">K_val</span><span class="o">.</span><span class="n">evalf</span><span class="p">())</span>
+<span class="n">dV_num</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">dV_val</span><span class="o">.</span><span class="n">evalf</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Numerical results:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  v  = </span><span class="si">{</span><span class="n">v_num</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> m/s&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  K  = </span><span class="si">{</span><span class="n">K_num</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> J&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ΔV = </span><span class="si">{</span><span class="n">dV_num</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> V  (</span><span class="si">{</span><span class="n">dV_num</span><span class="o">/</span><span class="mi">1000</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> kV)&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-</details>
-</div>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray"><h2>Problem D5.9</h2>
-    </header>
-<ol class="arabic simple">
-<li><p>Triply charged uranium-235 and uranium-238 ions are being separated in a mass spectrometer. (The much rarer uranium-235 is used as reactor fuel.) The masses of the ions are <span class="math notranslate nohighlight">\(3.90\times 10^{−25}\)</span> kg and <span class="math notranslate nohighlight">\(3.95\times 10^{−25}\)</span> kg, respectively, and they travel at <span class="math notranslate nohighlight">\(3.0\times 10^5\)</span> m/s in a <span class="math notranslate nohighlight">\(0.250\)</span> T field. What is the separation between their paths when they hit a target after traversing a semicircle?</p></li>
-<li><p>Discuss whether this distance between their paths seems to be big enough to be practical in the separation of uranium-235 from uranium-238.</p></li>
-</ol>
-<p><a class="reference external" href="https://openstax.org/books/university-physics-volume-2/pages/9-problems">This problem is a slightly modified version from OpenStax. Access for free here</a></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \textbf{Step 1: Speed from magnetic curvature}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle v = \frac{B R e}{mp}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle v = 7185628.74251497\ \text{m/s}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \textbf{Step 2: Kinetic energy}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle K = \frac{mp v^{2}}{2}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle K = 4.31137724550898 \cdot 10^{-14}\ \text{J}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \textbf{Step 3: Equivalent accelerating potential}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle dV = \frac{K}{e}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \Delta V = 269461.077844311\ \text{V}\]</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Numerical results:
+  v  = 7.186e+06 m/s
+  K  = 4.311e-14 J
+  ΔV = 2.695e+05 V  (269.5 kV)
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell tag_hide-input docutils container">
-<details class="admonition hide above-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell source</p>
-<p class="expanded admonition-title">Hide code cell source</p>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
-</pre></div>
-</div>
-</div>
-</details>
-</div>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"></section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -856,7 +1908,7 @@ Yes, it is reasonable
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">D5.1 Magnetic Force</p>
+        <p class="prev-next-title">D5.1 Magnetic Force on a Moving Charge</p>
       </div>
     </a>
     <a class="right-next"
@@ -874,6 +1926,37 @@ Yes, it is reasonable
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-d5-1-magnetic-force-on-a-moving-charge">Problem D5.1 — Magnetic Force on a Moving Charge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-d5-2-magnetic-force-from-given-directions-right-hand-rule">Problem D5.2 — Magnetic Force from Given Directions (Right-Hand Rule)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-d5-4-computing-a-cross-product-using-code">Problem D5.4 — Computing a Cross Product Using Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-d5-5-magnetic-force-using-your-cross-product-code">Problem D5.5 — Magnetic Force Using Your Cross-Product Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#your-tasks">Your tasks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#guidance-read-before-coding">Guidance (read before coding)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-d5-6-auroral-electron-spiraling-along-a-magnetic-field-line">Problem D5.6 — Auroral Electron Spiraling Along a Magnetic Field Line</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hint-polar-coordinate-reminder">Hint (polar-coordinate reminder)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-d5-7-separation-of-uranium-isotopes">Problem D5.7 — Separation of Uranium Isotopes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#historical-note-the-calutron">Historical note — The Calutron</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-d5-8-belle-ii-track-curvature-speed-and-equivalent-accelerating-potential">Problem D5.8 — Belle II Track Curvature: Speed and Equivalent Accelerating Potential</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
