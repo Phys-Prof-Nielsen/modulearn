@@ -214,6 +214,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D4 - Simple DC Circuit</span></p>
 <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-D4.html">D4.0 Learning Outcomes — Simple DC Circuits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="current.html">D4.1 Current</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resistance.html">D4.2 Resistance and Conductivity</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">D4.3 Ohm’s Law</a></li>
@@ -453,8 +454,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-3-1-motivation">D4.3.1 Motivation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-3-2-ohm-s-law">D4.3.2 Ohm’s Law</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-3-1-motivation-why-do-we-need-ohms-law">D4.3.1 Motivation: Why Do We Need Ohm’s Law?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-3-2-ohms-law">D4.3.2 Ohm’s Law</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-local-fields-to-circuit-quantities">From Local Fields to Circuit Quantities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-resistance">Definition of Resistance</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -468,68 +473,154 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="d4-3-ohm-s-law">
 <h1>D4.3 Ohm’s Law<a class="headerlink" href="#d4-3-ohm-s-law" title="Link to this heading">#</a></h1>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray"><section id="d4-3-1-motivation">
-<h2>D4.3.1 Motivation<a class="headerlink" href="#d4-3-1-motivation" title="Link to this heading">#</a></h2>
-<p>Ohm’s law is one of the most recognized laws/equations in Physics. It provides a conceptual as well as working tool to analyze and design electric circuits, so it is needless to explain its importance to science.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><section id="d4-3-1-motivation-why-do-we-need-ohms-law">
+<h2>D4.3.1 Motivation: Why Do We Need Ohm’s Law?<a class="headerlink" href="#d4-3-1-motivation-why-do-we-need-ohms-law" title="Link to this heading">#</a></h2>
+<p>In the previous section, we developed a <strong>local, microscopic description</strong> of electrical conduction. We related the electric field inside a material to the current density through intrinsic material properties such as resistivity and conductivity. While this description is fundamental, it is not always the most practical way to analyze real electrical systems.</p>
+<p>In circuits, we are usually not interested in the electric field or current density at every point inside a wire or device. Instead, we want to know <strong>how much current flows</strong>, <strong>what voltage is required</strong>, and <strong>how energy is transferred</strong> between circuit elements.</p>
+<p>Ohm’s law provides the essential bridge between these two viewpoints. It connects:</p>
+<ul class="simple">
+<li><p>the <strong>microscopic response of materials</strong> to electric fields, and</p></li>
+<li><p>the <strong>macroscopic quantities</strong> used in circuit analysis: voltage, current, and resistance.</p></li>
+</ul>
+<p>By introducing the concept of <strong>resistance</strong>, Ohm’s law allows us to replace complicated internal details of a conductor with a simple, measurable parameter that captures the combined effects of material properties and geometry. This makes it possible to analyze circuits using straightforward algebra rather than field theory.</p>
+<p>It is important to recognize that Ohm’s law is <strong>not a universal law of nature</strong>, but a useful approximation that applies when materials respond linearly to applied electric fields. Understanding where Ohm’s law comes from—and when it applies—will help prevent common misconceptions and prepare us for more complex circuit behavior later in the course.</p>
+<p>In this section, we derive Ohm’s law from the generalized microscopic description and show how it naturally emerges in simple DC circuits.</p>
 <hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
-<section id="d4-3-2-ohm-s-law">
-<h2>D4.3.2 Ohm’s Law<a class="headerlink" href="#d4-3-2-ohm-s-law" title="Link to this heading">#</a></h2>
-<p>Let us take the relationship defining the resistivity from previous note:</p>
+<section id="d4-3-2-ohms-law">
+<h2>D4.3.2 Ohm’s Law<a class="headerlink" href="#d4-3-2-ohms-law" title="Link to this heading">#</a></h2>
+<p>In the previous section, we introduced the <strong>local</strong> relationship between electric field and current density for materials that respond linearly to an applied field,</p>
 <div class="math notranslate nohighlight">
-\[ \vec{E} = \rho\vec{J} \]</div>
-<p>While the above can be defined at a single point, we can express the average field and average current density over small distance in a conducting (wire) segment:</p>
+\[
+\vec{E} = \rho\,\vec{J}.
+\]</div>
+<p>This equation applies <strong>point by point</strong> inside a material. To use it for circuit analysis, we now connect this microscopic description to the <strong>macroscopic quantities</strong> measured in a circuit.</p>
+<hr class="docutils" />
+<section id="from-local-fields-to-circuit-quantities">
+<h3>From Local Fields to Circuit Quantities<a class="headerlink" href="#from-local-fields-to-circuit-quantities" title="Link to this heading">#</a></h3>
+<p>Consider a straight, uniform conducting wire segment of length <span class="math notranslate nohighlight">\(\Delta x\)</span> and constant cross-sectional area <span class="math notranslate nohighlight">\(A\)</span>. If the electric field inside the wire is approximately uniform along its length, the <strong>average electric field</strong> can be written as</p>
 <div class="math notranslate nohighlight">
-\[ \frac{\Delta V}{\Delta x} = \rho\frac{I}{A} \]</div>
-<p>Solving for the voltage, we have</p>
+\[
+E = \frac{\Delta V}{\Delta x},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Delta V\)</span> is the potential difference across the segment.</p>
+<p>Similarly, if the current density is uniform across the cross-section, we can write</p>
 <div class="math notranslate nohighlight">
-\[ \Delta V = \frac{\rho\Delta x}{A}I \]</div>
-<p>We define the <strong>resistance</strong> as</p>
+\[
+J = \frac{I}{A}.
+\]</div>
+<p>Substituting these average quantities into the resistivity relation gives</p>
 <div class="math notranslate nohighlight">
-\[ R = \frac{\rho\Delta x}{A} \]</div>
-<p>and we have <strong>Ohm’s Law</strong></p>
-<div class="alert alert-success">
+\[
+\frac{\Delta V}{\Delta x} = \rho \frac{I}{A}.
+\]</div>
+<p>Solving for the potential difference,</p>
 <div class="math notranslate nohighlight">
-\[ \Delta V = RI \]</div>
+\[
+\Delta V = \frac{\rho\,\Delta x}{A}\, I.
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="definition-of-resistance">
+<h3>Definition of Resistance<a class="headerlink" href="#definition-of-resistance" title="Link to this heading">#</a></h3>
+<p>The combination of material and geometric factors appearing in this expression motivates the definition of <strong>resistance</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+R \equiv \frac{\rho\,\Delta x}{A}.
+\]</div>
+<p>Resistance depends on:</p>
+<ul class="simple">
+<li><p>the <strong>material</strong> (through <span class="math notranslate nohighlight">\(\rho\)</span>),</p></li>
+<li><p>the <strong>length</strong> of the conductor,</p></li>
+<li><p>and its <strong>cross-sectional area</strong>.</p></li>
+</ul>
+<hr class="docutils" />
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:14px; border-radius:4px; margin-top:16px; margin-bottom:16px;">
+<h3 style="margin-top:0; color:#000000;">Ohm’s Law</h3>
+<p>For a uniform conducting element made of an ohmic material, the potential difference across the element is related to the current through it by</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta V = RI.
+\]</div>
+<p><strong>Conceptual Meaning</strong></p>
+<p>Ohm’s law states that when a current <strong>passes through</strong> a resistive element, a potential difference exists <strong>across</strong> that element.<br />
+The voltage represents the energy lost per unit charge as charge moves through the material.</p>
 </div>
-<div class="alert alert-success">
-<p>Conceptually Ohm’s law states that as a current <strong>passes through</strong> a resistive element a voltage exists <strong>across</strong> the element.</p>
-</div>
-<p>Materials that responds in a linear fashion to electric fields are often called <strong>ohmic materials</strong>.</p>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-warning">
-<b>Box 1 </b>
-<p>Using an amp-meter, we measure a current through a <span class="math notranslate nohighlight">\(500.0~\Omega\)</span> resistor to be <span class="math notranslate nohighlight">\(150.0\)</span> mA. What is the potential difference across the resistor?</p>
-</div><div class="cell tag_hide-input tag_hide-output docutils container">
-<details class="admonition hide above-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell source</p>
-<p class="expanded admonition-title">Hide code cell source</p>
-</summary>
-<div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
-
-<span class="n">R</span> <span class="o">=</span> <span class="mf">500.0</span>
-<span class="n">I</span> <span class="o">=</span> <span class="mf">150.0E-3</span>
-
-<span class="n">dV</span> <span class="o">=</span> <span class="n">I</span><span class="o">*</span><span class="n">R</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The potential difference across the resistor is &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">dV</span><span class="p">)</span><span class="o">+</span> <span class="s1">&#39; V&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</details>
-<details class="admonition hide below-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell output</p>
-<p class="expanded admonition-title">Hide code cell output</p>
-</summary>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The potential difference across the resistor is 75.0 V
-</pre></div>
-</div>
-</div>
-</details>
+<p>Materials that exhibit this linear relationship between voltage and current are called <strong>ohmic materials</strong>. Many metals behave approximately ohmically under ordinary conditions, though deviations can occur at high fields, high temperatures, or in non-metallic materials.</p>
+<hr class="docutils" />
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0; color:#000000;">Example — Resistance from Material Properties and Current Flow</h3>
+<p>A uniform copper wire has length <span class="math notranslate nohighlight">\(L = 1.50~\text{m}\)</span> and a circular cross-section of radius <span class="math notranslate nohighlight">\(r = 1.0~\text{mm}\)</span>. The resistivity of copper is <span class="math notranslate nohighlight">\(\rho = 1.7 \times 10^{-8}~\Omega\cdot\text{m}\)</span>. The wire is connected across a potential difference of <span class="math notranslate nohighlight">\(\Delta V = 6.0~\text{V}\)</span>.</p>
+<p>Answer the following:</p>
+<ol class="arabic simple">
+<li><p>Determine the <strong>resistance</strong> of the wire.</p></li>
+<li><p>Determine the <strong>current</strong> flowing through the wire.</p></li>
+<li><p>Interpret the <strong>energy lost per coulomb of charge</strong> in the wire.</p></li>
+</ol>
+<hr class="docutils" />
+<p><strong>Step 1: Identify the relevant relationships</strong></p>
+<p>The resistance of a uniform conductor is given by</p>
+<div class="math notranslate nohighlight">
+\[
+R = \frac{\rho L}{A},
+\]</div>
+<p>and the cross-sectional area of the wire is</p>
+<div class="math notranslate nohighlight">
+\[
+A = \pi r^2.
+\]</div>
+<p>Once the resistance is known, the current follows from Ohm’s law,</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta V = RI.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 2: Compute the cross-sectional area</strong></p>
+<div class="math notranslate nohighlight">
+\[
+A = \pi (1.0 \times 10^{-3}~\text{m})^2
+  = 3.14 \times 10^{-6}~\text{m}^2.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 3: Compute the resistance</strong></p>
+<p>Substitute the values into the resistance formula:</p>
+<div class="math notranslate nohighlight">
+\[
+R = \frac{(1.7 \times 10^{-8}~\Omega\cdot\text{m})(1.50~\text{m})}
+         {3.14 \times 10^{-6}~\text{m}^2}
+  = 8.1 \times 10^{-3}~\Omega.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 4: Compute the current</strong></p>
+<p>Rearrange Ohm’s law to solve for the current:</p>
+<div class="math notranslate nohighlight">
+\[
+I = \frac{\Delta V}{R}.
+\]</div>
+<p>Substitute the values:</p>
+<div class="math notranslate nohighlight">
+\[
+I = \frac{6.0~\text{V}}{8.1 \times 10^{-3}~\Omega}
+  \approx 7.4 \times 10^{2}~\text{A}.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 5: Interpret the energy loss per charge</strong></p>
+<p>A potential difference of <span class="math notranslate nohighlight">\(6.0~\text{V}\)</span> means that each coulomb of charge loses</p>
+<div class="math notranslate nohighlight">
+\[
+6.0~\text{J}
+\]</div>
+<p>of electric potential energy as it passes through the wire. This energy is transferred to the lattice as thermal energy due to resistive interactions.</p>
+<hr class="docutils" />
+<p><strong>Physical interpretation</strong></p>
+<ul class="simple">
+<li><p>The resistance depends on both the <strong>material</strong> and the <strong>geometry</strong> of the wire.</p></li>
+<li><p>Even a small resistance can lead to a large current if the applied voltage is sufficient.</p></li>
+<li><p>The voltage across a resistive element represents <strong>energy lost per unit charge</strong>, independent of the amount of current flowing.</p></li>
+</ul>
+<p>This example highlights how microscopic material properties determine macroscopic circuit behavior.</p>
 </div>
 <hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -596,8 +687,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-3-1-motivation">D4.3.1 Motivation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-3-2-ohm-s-law">D4.3.2 Ohm’s Law</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-3-1-motivation-why-do-we-need-ohms-law">D4.3.1 Motivation: Why Do We Need Ohm’s Law?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-3-2-ohms-law">D4.3.2 Ohm’s Law</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-local-fields-to-circuit-quantities">From Local Fields to Circuit Quantities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-resistance">Definition of Resistance</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

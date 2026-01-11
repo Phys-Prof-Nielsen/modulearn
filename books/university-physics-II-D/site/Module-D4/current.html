@@ -66,7 +66,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="D4.2 Resistance and Conductivity" href="resistance.html" />
-    <link rel="prev" title="D3.2 Problems" href="../Module-D3/problemsD3.html" />
+    <link rel="prev" title="D4.0 Learning Outcomes — Simple DC Circuits" href="LOC-D4.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -214,6 +214,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D4 - Simple DC Circuit</span></p>
 <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-D4.html">D4.0 Learning Outcomes — Simple DC Circuits</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">D4.1 Current</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resistance.html">D4.2 Resistance and Conductivity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ohms-law.html">D4.3 Ohm’s Law</a></li>
@@ -453,9 +454,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-1-1-current">D4.1.1 Current</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-1-2-drift-velocity">D4.1.2 Drift Velocity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-1-3-current-density">D4.1.3 Current Density</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-1-1-motivation-why-do-we-need-current-and-current-density">D4.1.1 Motivation: Why Do We Need Current and Current Density?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-1-2-current">D4.1.2 Current</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#units-of-electric-current">Units of Electric Current</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-electric-current-a-vector">Is Electric Current a Vector?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-1-3-drift-velocity">D4.1.3 Drift Velocity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-1-4-current-density">D4.1.4 Current Density</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relationship-between-current-density-and-current">Relationship Between Current Density and Current</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drift-velocity-vs-signal-field-propagation-speed">Drift Velocity vs. Signal (Field) Propagation Speed</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -469,26 +479,166 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="d4-1-current">
 <h1>D4.1 Current<a class="headerlink" href="#d4-1-current" title="Link to this heading">#</a></h1>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray"><section id="d4-1-1-current">
-<h2>D4.1.1 Current<a class="headerlink" href="#d4-1-1-current" title="Link to this heading">#</a></h2>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><section id="d4-1-1-motivation-why-do-we-need-current-and-current-density">
+<h2>D4.1.1 Motivation: Why Do We Need Current and Current Density?<a class="headerlink" href="#d4-1-1-motivation-why-do-we-need-current-and-current-density" title="Link to this heading">#</a></h2>
+<p>In earlier modules, we described electric phenomena using <strong>electric fields</strong> and <strong>electric potential</strong>, focusing on situations where charges were stationary. While these ideas explain how energy is stored and how forces arise, they do not describe what happens when charges are allowed to <strong>move</strong>.</p>
+<p>Many real physical systems—wires, electronic devices, plasmas, and even space environments—involve charges that flow continuously. To describe these systems, we need a way to quantify <strong>how much charge moves</strong>, <strong>how fast it moves</strong>, and <strong>how that motion is distributed in space</strong>.</p>
+<p>The concept of <strong>electric current</strong> provides a simple, global description: it tells us how much charge passes through a given cross-section per unit time. This is ideal for analyzing circuits, where geometry is well-defined and currents are uniform.</p>
+<p>However, current alone is not sufficient when:</p>
+<ul class="simple">
+<li><p>the geometry is complex,</p></li>
+<li><p>the cross-sectional area varies,</p></li>
+<li><p>charge flows through extended media rather than wires,</p></li>
+<li><p>or we want a microscopic description tied to particle motion.</p></li>
+</ul>
+<p>For these situations, we introduce <strong>current density</strong>. Current density is a <strong>local vector quantity</strong> that describes charge flow at each point in space. It connects macroscopic circuit behavior to microscopic charge motion and provides the bridge between circuit theory and electromagnetic field theory.</p>
+<p>Together:</p>
+<ul class="simple">
+<li><p><strong>Current</strong> answers <em>how much charge flows through a surface</em>.</p></li>
+<li><p><strong>Current density</strong> answers <em>where, how, and in what direction charge flows</em>.</p></li>
+</ul>
+<p>These concepts are essential not only for understanding electric circuits, but also for later topics such as resistivity, Ohm’s law, electromagnetic fields, plasmas, and energy transport.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d4-1-2-current">
+<h2>D4.1.2 Current<a class="headerlink" href="#d4-1-2-current" title="Link to this heading">#</a></h2>
 <p>An isolated neutral conductor has an equal amount of positive and negative charges distributed such that they are in an equilibrium state, that is, no net electric field produced by these charges exists inside the conductor.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:14px; border-radius:4px; margin-top:16px; margin-bottom:16px;">
+<h3 style="margin-top:0; color:#000000;">Definition of Current</h3>
 <p>If an external electric field, <span class="math notranslate nohighlight">\(\vec{E}\)</span>, is imposed upon the conductor, these charges can move according to this external field. We define the <strong>average current</strong> as the transport of charges in response to an external electric field, and it is quantified as the amount of charge passing through a cross-section of a conductor per unit time:</p>
-<div class="alert alert-success">
 <div class="math notranslate nohighlight">
-\[ I_{av} = \frac{\Delta Q}{\Delta t} \tag{1}\]</div>
-</div>
-<p>The <strong>instantaneous current</strong> is defined in the limit of <span class="math notranslate nohighlight">\(\Delta t \rightarrow 0\)</span>:</p>
-<div class="alert alert-success">
+\[
+I_{\text{av}} = \frac{\Delta Q}{\Delta t} \tag{1}
+\]</div>
+<p>The <strong>instantaneous current</strong> is defined in the limit <span class="math notranslate nohighlight">\(\Delta t \rightarrow 0\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[ I = \frac{dQ}{dt} \tag{2}\]</div>
+\[
+I = \frac{dQ}{dt} \tag{2}
+\]</div>
+<p>We characterize a current as <strong>positive</strong> in the direction of positive charge flow.<br />
+NOTE: current is not a vector even though we associate a direction with it. The vector quantity associated with charge flow will be introduced later as the <strong>current density</strong>.</p>
 </div>
-<div class="alert alert-info">
-<p>We characterize a current as <strong>positive</strong> in the direction of positive charge flow. NOTE: current is not a vector even though we associate a direction with it. We will see later that the vector object associated with current is the <strong>current density</strong>.</p>
+<section id="units-of-electric-current">
+<h3>Units of Electric Current<a class="headerlink" href="#units-of-electric-current" title="Link to this heading">#</a></h3>
+<p>Electric current is measured in the <strong>ampere (A)</strong>, one of the seven <strong>SI base units</strong>.</p>
+<p>From the definition of current, the unit of current is defined as:</p>
+<div class="math notranslate nohighlight">
+\[
+1\ \text{A} = 1\ \text{C/s}.
+\]</div>
+<p>A current of one ampere means that <strong>one coulomb of charge passes through a given cross-section of a conductor every second</strong>.</p>
+<p>Because charge is carried by discrete particles, this can also be interpreted microscopically: a current of 1 A corresponds to approximately</p>
+<div class="math notranslate nohighlight">
+\[
+6.24 \times 10^{18}
+\]</div>
+<p>elementary charges passing a point each second.</p>
+<p>It is important to emphasize that current is a <strong>rate of flow</strong>, not an amount of charge. A large current does not imply a large total charge—only that charge is moving through the conductor rapidly.</p>
+</section>
+<section id="is-electric-current-a-vector">
+<h3>Is Electric Current a Vector?<a class="headerlink" href="#is-electric-current-a-vector" title="Link to this heading">#</a></h3>
+<p>Although electric current is associated with a <strong>direction of flow</strong>, it is <strong>not a vector quantity</strong>.</p>
+<p>Current is defined as the <strong>rate at which charge crosses a surface</strong>,</p>
+<div class="math notranslate nohighlight">
+\[
+I = \frac{dQ}{dt},
+\]</div>
+<p>which is a <strong>scalar</strong> quantity. It tells us <em>how much charge per unit time</em> passes through a given cross-sectional area, but it does not contain directional components in space.</p>
+<p>The apparent direction of current is a <strong>sign convention</strong>, not a vector direction. By definition, current is taken to be <strong>positive in the direction of positive charge flow</strong>. This convention allows us to assign a sign to the scalar current, but it does not make current a vector.</p>
+<p>To see why current is not a vector, consider a wire bent into a curved or looped shape. The same current flows everywhere in the wire, even though the physical direction of charge motion changes continuously along the path. A true vector quantity would need to change direction at every point, but the current does not—it has a single scalar value throughout the circuit.</p>
+<p>The vector quantity associated with charge motion is the <strong>current density</strong>, denoted by <span class="math notranslate nohighlight">\(\vec{J}\)</span>. Current density is defined at each point in space and contains both magnitude and direction. The total current through a surface is obtained from <span class="math notranslate nohighlight">\(\vec{J}\)</span> by a surface integral.</p>
+<p>In summary:</p>
+<ul class="simple">
+<li><p><strong>Current</strong> describes <em>how much charge flows per unit time</em> (scalar).</p></li>
+<li><p><strong>Direction of current</strong> comes from a sign convention.</p></li>
+<li><p><strong>Current density</strong> is the true vector quantity that encodes the local direction of charge motion.</p></li>
+</ul>
+<hr class="docutils" />
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0; color:#000000;">Example — Current from a Time-Varying Charge</h3>
+<p>The charge that has passed through a cross-section of a wire is modeled by</p>
+<div class="math notranslate nohighlight">
+\[
+Q(t) = (4.0t^2 - 2.0t + 1.5),
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(t\)</span> is measured in seconds and <span class="math notranslate nohighlight">\(Q\)</span> is measured in coulombs.</p>
+<p>Answer the following:</p>
+<ol class="arabic simple">
+<li><p><strong>Units check</strong><br />
+Determine the SI units of the numerical constants <span class="math notranslate nohighlight">\(4.0\)</span>, <span class="math notranslate nohighlight">\(-2.0\)</span>, and <span class="math notranslate nohighlight">\(1.5\)</span> so that the expression for <span class="math notranslate nohighlight">\(Q(t)\)</span> has units of charge.</p></li>
+<li><p><strong>Instantaneous current</strong><br />
+Find the instantaneous current <span class="math notranslate nohighlight">\(I(t)\)</span>.</p></li>
+<li><p><strong>Numerical evaluation</strong><br />
+Determine the current at <span class="math notranslate nohighlight">\(t = 3.0~\text{s}\)</span>.</p></li>
+<li><p><strong>Trend of the current</strong><br />
+State whether the current is increasing or decreasing at <span class="math notranslate nohighlight">\(t = 3.0~\text{s}\)</span>.</p></li>
+</ol>
+<hr class="docutils" />
+<p><strong>Step 1: Determine the units of the constants</strong></p>
+<p>Each term in <span class="math notranslate nohighlight">\(Q(t)\)</span> must have units of coulombs.</p>
+<ul class="simple">
+<li><p>The term <span class="math notranslate nohighlight">\(4.0t^2\)</span> implies that the constant <span class="math notranslate nohighlight">\(4.0\)</span> has units of<br />
+$<span class="math notranslate nohighlight">\(
+\text{C/s}^2.
+\)</span>$</p></li>
+<li><p>The term <span class="math notranslate nohighlight">\(-2.0t\)</span> implies that the constant <span class="math notranslate nohighlight">\(-2.0\)</span> has units of<br />
+$<span class="math notranslate nohighlight">\(
+\text{C/s}.
+\)</span>$</p></li>
+<li><p>The constant term <span class="math notranslate nohighlight">\(1.5\)</span> must have units of<br />
+$<span class="math notranslate nohighlight">\(
+\text{C}.
+\)</span>$</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Step 2: Identify the relevant relationship</strong></p>
+<p>Instantaneous current is defined as</p>
+<div class="math notranslate nohighlight">
+\[
+I(t) = \frac{dQ}{dt}.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 3: Differentiate the charge function</strong></p>
+<p>Differentiate term-by-term:</p>
+<div class="math notranslate nohighlight">
+\[
+I(t) = \frac{d}{dt}(4.0t^2 - 2.0t + 1.5)
+     = 8.0t - 2.0.
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+I(t) = (8.0t - 2.0)\ \text{A}.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 4: Evaluate the current at <span class="math notranslate nohighlight">\(t = 3.0~\text{s}\)</span></strong></p>
+<div class="math notranslate nohighlight">
+\[
+I(3.0) = 8.0(3.0) - 2.0
+       = 24.0 - 2.0
+       = 22~\text{A}.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 5: Determine whether the current is increasing or decreasing</strong></p>
+<p>The rate of change of current is</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dI}{dt} = \frac{d}{dt}(8.0t - 2.0) = 8.0~\text{A/s}.
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\(dI/dt &gt; 0\)</span>, the current is <strong>increasing</strong> at <span class="math notranslate nohighlight">\(t = 3.0~\text{s}\)</span>.</p>
+<hr class="docutils" />
+<p><strong>Physical interpretation</strong></p>
+<ul class="simple">
+<li><p>Checking units ensures the charge function is physically meaningful.</p></li>
+<li><p>The instantaneous current is the slope of the <span class="math notranslate nohighlight">\(Q\)</span>–<span class="math notranslate nohighlight">\(t\)</span> graph.</p></li>
+<li><p>A quadratic charge function corresponds to a linearly changing current.</p></li>
+</ul>
 </div>
 <hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
-<section id="d4-1-2-drift-velocity">
-<h2>D4.1.2 Drift Velocity<a class="headerlink" href="#d4-1-2-drift-velocity" title="Link to this heading">#</a></h2>
-<p>A standard conductor has a large number of charges and while all positive charges will experience a net acceleration in the direction of the  electric field (and the negative charges a net acceleration in the opposite direction), there is a significant retarded force due to “collisions” (in reality it is Coulomb interactions) between the charges. However, there is a net flow of positive charges in the direction of the electric field and it is characteried by the <strong>drift velocity</strong> (<span class="math notranslate nohighlight">\(\vec{v}_d\)</span>), which is an average velocity attributed to the ensemble of charges. The <strong>drift speed</strong> is can be found by the following reasoning.</p>
+</section>
+<section id="d4-1-3-drift-velocity">
+<h2>D4.1.3 Drift Velocity<a class="headerlink" href="#d4-1-3-drift-velocity" title="Link to this heading">#</a></h2>
+<p>A standard conductor has a large number of charges and while all positive charges will experience a net acceleration in the direction of the  electric field (and the negative charges a net acceleration in the opposite direction), there is a significant retarded force due to “collisions” (in reality it is Coulomb interactions) between the charges. However, there is a net flow of positive charges in the direction of the electric field and it is characteried by the <strong>drift velocity</strong> (<span class="math notranslate nohighlight">\(\vec{v}_d\)</span>), which is an average velocity attributed to the ensemble of charges. The <strong>drift speed</strong> can be found by the following reasoning.</p>
 <p>Consider a wire segment of length <span class="math notranslate nohighlight">\(dx\)</span>, cross-sectional area <span class="math notranslate nohighlight">\(A\)</span>, and an ensemble of <span class="math notranslate nohighlight">\(N\)</span> positive charges drifting through the wire.</p>
 <img src="D4-fig1.1.png" width="500">
 <p>The distance traveled by the charges can be expressed through the drift speed and elapsed time to cover the wire segment. If one charge carrier has a charge <span class="math notranslate nohighlight">\(q\)</span>, then the total charge passing through the wire segment is</p>
@@ -502,79 +652,136 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[ dQ = nqAv_{D}dt \]</div>
 <p>or in terms of the current</p>
-<div class="alert alert-success">
 <div class="math notranslate nohighlight">
 \[ I = nqAv_{D} \]</div>
-</div>
 <hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
-<section id="d4-1-3-current-density">
-<h2>D4.1.3 Current Density<a class="headerlink" href="#d4-1-3-current-density" title="Link to this heading">#</a></h2>
-<p>For many practical applications, the concept of density is prefered. For example, if we want to know the mass of water in a swiming pool, we would measure the volume of the pool and multiply it by the density of water to obtain the mass. Similarly, we have a concept of <strong>current density</strong>, which is a <strong>directed volume current density</strong>.</p>
-<p>The magnitude of the current density is defined as</p>
+<section id="d4-1-4-current-density">
+<h2>D4.1.4 Current Density<a class="headerlink" href="#d4-1-4-current-density" title="Link to this heading">#</a></h2>
+<p>For many practical applications, it is more useful to work with <strong>densities</strong> rather than total quantities. For example, to determine the mass of water in a swimming pool, we multiply the <strong>volume</strong> of the pool by the <strong>mass density</strong> of water. The density tells us how much mass exists <em>per unit volume</em> at each point in space.</p>
+<p>In an analogous way, we introduce the concept of <strong>current density</strong>, which describes how electric current is distributed <strong>locally</strong> within a conductor. Rather than focusing on how much charge flows through an entire cross-section, current density tells us how charge motion is distributed at each point and in which direction it occurs.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:14px; border-radius:4px; margin-top:16px; margin-bottom:16px;">
+<h3 style="margin-top:0; color:#000000;">Definition of Current Density</h3>
+<p>The <strong>current density</strong> is a vector quantity that describes the flow of electric charge per unit area at a given point in space.</p>
+<p>Its magnitude is defined as</p>
 <div class="math notranslate nohighlight">
-\[ J = \frac{I}{A} = nqv_D \]</div>
-<p>or the vector form</p>
+\[
+J = \frac{I}{A},
+\]</div>
+<p>and, at the microscopic level, as</p>
 <div class="math notranslate nohighlight">
-\[ \vec{J} = nq\vec{v}_D \]</div>
-<div class="alert alert-info">
-<p>The current density is a measure at a given point and we can therefore designate it as a vector. In contrast, current is a measure across a certain volume element and we cannot designate a unique vector to current.</p>
+\[
+J = nqv_D,
+\]</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n\)</span> is the number density of charge carriers,</p></li>
+<li><p><span class="math notranslate nohighlight">\(q\)</span> is the charge of each carrier,</p></li>
+<li><p><span class="math notranslate nohighlight">\(v_D\)</span> is the drift speed.</p></li>
+</ul>
+<p>Because drift velocity has both magnitude and direction, the vector form of the current density is</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{J} = nq\vec{v}_D.
+\]</div>
+<p>The direction of <span class="math notranslate nohighlight">\(\vec{J}\)</span> is defined to be the direction of <strong>positive charge flow</strong>.</p>
 </div>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-warning">
-<b>Box 1 </b>
-<p>A current flows in an aluminum wire of diameter 2.0 mm, the drift speed of the conduction electrons is <span class="math notranslate nohighlight">\(2.5\times 10^{-4}\)</span> m/s.</p>
+<section id="relationship-between-current-density-and-current">
+<h3>Relationship Between Current Density and Current<a class="headerlink" href="#relationship-between-current-density-and-current" title="Link to this heading">#</a></h3>
+<p>Current density is defined <strong>at a point</strong>, which allows it to be treated as a vector field. Electric current, by contrast, is defined as a <strong>flow rate across a surface</strong> and is therefore a scalar quantity.</p>
+<p>The connection between the two is given by</p>
+<div class="math notranslate nohighlight">
+\[
+I = \int \vec{J} \cdot d\vec{A},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(d\vec{A} = \hat{n}\, dA\)</span> is the oriented surface area element. The dot product projects the current density onto the surface normal before summing contributions across the surface.</p>
+<p>For the special case of a uniform current density perpendicular to a flat cross-section, this reduces to</p>
+<div class="math notranslate nohighlight">
+\[
+I = JA.
+\]</div>
+<p>In more complex systems—such as <strong>plasmas in stars, the ionosphere, or laboratory plasma devices</strong>—there may be no well-defined wire or cross-section. In such cases, the surface through which current is evaluated can be <strong>chosen arbitrarily</strong>, and the full surface integral must be used to compute the current.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:14px; border-radius:4px; margin-top:16px; margin-bottom:16px;">
+<strong>Important Distinction</strong><br><br>
+<p>Current density is a <strong>local vector quantity</strong> defined at a point in space.<br />
+Electric current is a <strong>global scalar quantity</strong> obtained by integrating the current density over a surface.<br />
+The vector nature of charge flow is contained in <span class="math notranslate nohighlight">\(\vec{J}\)</span>, not in <span class="math notranslate nohighlight">\(I\)</span>.</p>
+</div>
+</section>
+<section id="drift-velocity-vs-signal-field-propagation-speed">
+<h3>Drift Velocity vs. Signal (Field) Propagation Speed<a class="headerlink" href="#drift-velocity-vs-signal-field-propagation-speed" title="Link to this heading">#</a></h3>
+<p>When a circuit is completed, a light bulb turns on almost immediately. This does <strong>not</strong> mean that electrons travel from the light switch to the bulb at anything close to the speed of light.</p>
+<p>The <strong>drift velocity</strong> <span class="math notranslate nohighlight">\(v_D\)</span> is the average speed at which charge carriers move through a conductor in response to an electric field. In typical metal wires, the drift velocity of electrons is <strong>very slow</strong>, often on the order of <strong>millimeters per second</strong> or less.</p>
+<p>Despite this slow motion of individual charges, electrical signals and energy propagate through a circuit at a speed that is a significant fraction of the <strong>speed of light</strong>. This rapid propagation is associated with the establishment of the <strong>electromagnetic field</strong> throughout the circuit, not with the physical transport of individual electrons from one end to the other.</p>
+<p>A helpful analogy is a large stadium filled with 100,000 people. Each person moves slowly as they walk around the stadium, and it may take a long time for any single individual to reach the opposite side. However, a coordinated <strong>wave</strong>—such as the “stadium wave”—can propagate around the entire stadium in a matter of seconds. The wave moves quickly even though the people themselves move very little.</p>
+<p>Similarly:</p>
+<ul class="simple">
+<li><p><strong>Electrons drift slowly</strong> through a wire.</p></li>
+<li><p><strong>Electric fields and energy propagate rapidly</strong> through the circuit.</p></li>
+<li><p>The light turns on because the electromagnetic influence reaches the bulb quickly, not because electrons race from the battery to the bulb.</p></li>
+</ul>
+<p>This distinction is essential for understanding how circuits operate and prevents the common misconception that current involves electrons traveling long distances at high speed.</p>
+<hr class="docutils" />
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0; color:#000000;">Example — Current and Current Density in a Wire</h3>
+<p>A steady current of <span class="math notranslate nohighlight">\(I = 2.0~\text{A}\)</span> flows through a straight copper wire with a circular cross-section of radius <span class="math notranslate nohighlight">\(r = 1.0~\text{mm}\)</span>. The number density of free electrons in copper is approximately <span class="math notranslate nohighlight">\(n = 8.5 \times 10^{28}~\text{m}^{-3}\)</span>.</p>
+<p>Answer the following:</p>
 <ol class="arabic simple">
-<li><p>What is the electron current in the wire? The conduction electron density in aluminum is <span class="math notranslate nohighlight">\(6.00\times 10^{28}\)</span> m<span class="math notranslate nohighlight">\(^{-3}\)</span>.</p></li>
-<li><p>How long time does it take the electrons to travel 10 m?</p></li>
+<li><p>What is the <strong>current density</strong> in the wire?</p></li>
+<li><p>What is the <strong>drift speed</strong> of the electrons?</p></li>
 </ol>
-</div><div class="cell tag_hide-input tag_hide-output docutils container">
-<details class="admonition hide above-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell source</p>
-<p class="expanded admonition-title">Hide code cell source</p>
-</summary>
-<div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-
-<span class="n">D</span> <span class="o">=</span> <span class="mf">2.0E-3</span>
-<span class="n">v_D</span> <span class="o">=</span> <span class="mf">2.5E-4</span>
-
-<span class="n">q</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.602E-19</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mf">6.00E28</span>
-
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="p">(</span><span class="n">D</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
-
-<span class="n">I</span> <span class="o">=</span> <span class="n">n</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">q</span><span class="p">)</span><span class="o">*</span><span class="n">A</span><span class="o">*</span><span class="n">v_D</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The current is &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">I</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; A&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
-
-<span class="n">dx</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">dt</span> <span class="o">=</span> <span class="n">dx</span><span class="o">/</span><span class="n">v_D</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The elapsed time is &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; s&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</details>
-<details class="admonition hide below-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell output</p>
-<p class="expanded admonition-title">Hide code cell output</p>
-</summary>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The current is 7.549247146576272 A
- 
-The elapsed time is 40000.0 s
-</pre></div>
-</div>
-</div>
-</details>
-</div>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-info">
-<p>The drift velocity if very small in a common household wire. Obviously, the light does not take 4000 s to turn in. Instead, the electric field interaction propagates near the speed of light from the origin of the disturbance and throughout the circuit.</p>
-<p>An analogue is a person making a complete run around a crowded stadium vs. the mexican wave</p>
+<hr class="docutils" />
+<p><strong>Step 1: Identify the relevant relationships</strong></p>
+<p>The current density is related to current and cross-sectional area by</p>
+<div class="math notranslate nohighlight">
+\[
+J = \frac{I}{A}.
+\]</div>
+<p>At the microscopic level, current density is related to drift velocity by</p>
+<div class="math notranslate nohighlight">
+\[
+J = nqv_D.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 2: Compute the cross-sectional area</strong></p>
+<p>The area of the wire is</p>
+<div class="math notranslate nohighlight">
+\[
+A = \pi r^2 = \pi (1.0 \times 10^{-3}~\text{m})^2
+  = 3.14 \times 10^{-6}~\text{m}^2.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 3: Compute the current density</strong></p>
+<p>Substitute into the definition:</p>
+<div class="math notranslate nohighlight">
+\[
+J = \frac{2.0~\text{A}}{3.14 \times 10^{-6}~\text{m}^2}
+  = 6.4 \times 10^{5}~\text{A/m}^2.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 4: Solve for the drift speed</strong></p>
+<p>Rearrange <span class="math notranslate nohighlight">\(J = nqv_D\)</span> to obtain</p>
+<div class="math notranslate nohighlight">
+\[
+v_D = \frac{J}{nq}.
+\]</div>
+<p>Using <span class="math notranslate nohighlight">\(q = 1.60 \times 10^{-19}~\text{C}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+v_D = \frac{6.4 \times 10^{5}}
+           {(8.5 \times 10^{28})(1.60 \times 10^{-19})}
+     \approx 4.7 \times 10^{-5}~\text{m/s}.
+\]</div>
+<hr class="docutils" />
+<p><strong>Physical interpretation</strong></p>
+<ul class="simple">
+<li><p>A current of several amperes corresponds to a <strong>very large current density</strong> because the wire’s cross-sectional area is small.</p></li>
+<li><p>Despite this, the <strong>drift speed of individual electrons is extremely slow</strong>—only a few hundredths of a millimeter per second.</p></li>
+<li><p>The light bulb turns on quickly not because electrons move rapidly, but because the <strong>electromagnetic field propagates through the circuit at nearly the speed of light</strong>.</p></li>
+</ul>
+<p>This example illustrates the difference between <strong>macroscopic current</strong>, <strong>local current density</strong>, and <strong>microscopic charge motion</strong>.</p>
 </div>
 <hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -608,12 +815,12 @@ The elapsed time is 40000.0 s
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../Module-D3/problemsD3.html"
+       href="LOC-D4.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">D3.2 Problems</p>
+        <p class="prev-next-title">D4.0 Learning Outcomes — Simple DC Circuits</p>
       </div>
     </a>
     <a class="right-next"
@@ -641,9 +848,18 @@ The elapsed time is 40000.0 s
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-1-1-current">D4.1.1 Current</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-1-2-drift-velocity">D4.1.2 Drift Velocity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-1-3-current-density">D4.1.3 Current Density</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-1-1-motivation-why-do-we-need-current-and-current-density">D4.1.1 Motivation: Why Do We Need Current and Current Density?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-1-2-current">D4.1.2 Current</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#units-of-electric-current">Units of Electric Current</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-electric-current-a-vector">Is Electric Current a Vector?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-1-3-drift-velocity">D4.1.3 Drift Velocity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-1-4-current-density">D4.1.4 Current Density</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relationship-between-current-density-and-current">Relationship Between Current Density and Current</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drift-velocity-vs-signal-field-propagation-speed">Drift Velocity vs. Signal (Field) Propagation Speed</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

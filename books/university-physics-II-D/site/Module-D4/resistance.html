@@ -214,6 +214,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D4 - Simple DC Circuit</span></p>
 <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-D4.html">D4.0 Learning Outcomes — Simple DC Circuits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="current.html">D4.1 Current</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">D4.2 Resistance and Conductivity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ohms-law.html">D4.3 Ohm’s Law</a></li>
@@ -453,8 +454,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-2-1-resistivity">D4.2.1 Resistivity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-2-2-conductivity">D4.2.2 Conductivity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-2-1-motivation-why-do-we-need-resistivity-and-conductivity">D4.2.1 Motivation: Why Do We Need Resistivity and Conductivity?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-2-1-resistivity-and-the-generalized-ohms-law">D4.2.1 Resistivity and the Generalized Ohm’s Law</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analogy-to-mass-and-newtons-second-law">Analogy to Mass and Newton’s Second Law</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-2-3-conductivity-and-generalized-ohm-s-law">D4.2.3 Conductivity and Generalized Ohm’s Law</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-2-4-anisotropic-conductivity-and-the-generalized-ohms-law">D4.2.4 Anisotropic Conductivity and the Generalized Ohm’s Law</a></li>
 </ul>
             </nav>
         </div>
@@ -468,28 +474,115 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="d4-2-resistance-and-conductivity">
 <h1>D4.2 Resistance and Conductivity<a class="headerlink" href="#d4-2-resistance-and-conductivity" title="Link to this heading">#</a></h1>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray"><section id="d4-2-1-resistivity">
-<h2>D4.2.1 Resistivity<a class="headerlink" href="#d4-2-1-resistivity" title="Link to this heading">#</a></h2>
-<p>The resistivity is a measure of the resistance to a change in motion of charged particles when subject to an electric field. We know that positive charge particles will move in the direction of an electric field, but materials can pose different resistivities in different directions due to their structural bonding. Hence, the relationshipe between current density (sort of a measure of change in motion for charged particles) and electric field can become quite complicated.</p>
-<p>In some cases, there is a linear relationship and we define the resistivity <span class="math notranslate nohighlight">\(\rho\)</span> through</p>
-<div class="alert alert-success">
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><section id="d4-2-1-motivation-why-do-we-need-resistivity-and-conductivity">
+<h2>D4.2.1 Motivation: Why Do We Need Resistivity and Conductivity?<a class="headerlink" href="#d4-2-1-motivation-why-do-we-need-resistivity-and-conductivity" title="Link to this heading">#</a></h2>
+<p>In the previous section, we introduced <strong>current</strong> and <strong>current density</strong> as ways to describe how electric charge moves. However, simply applying an electric field does not guarantee that charges will move freely or easily. Different materials respond very differently to the same electric field.</p>
+<p>For example, copper wires readily carry current, while rubber and glass do not. Even among conductors, some materials allow charge to flow much more easily than others. These differences cannot be explained by geometry alone—they arise from the <strong>microscopic structure of the material</strong> itself.</p>
+<p>To describe how a material responds to an applied electric field, we introduce the concepts of <strong>resistivity</strong> and <strong>conductivity</strong>. These quantities characterize how strongly charge carriers interact with the atomic lattice of a material and how effectively an electric field can drive charge motion.</p>
+<p>Resistivity and conductivity are <strong>intrinsic material properties</strong>:</p>
+<ul class="simple">
+<li><p>They do not depend on the size or shape of the object.</p></li>
+<li><p>They depend on the material’s composition, structure, and temperature.</p></li>
+</ul>
+<p>By introducing resistivity and conductivity, we can connect:</p>
+<ul class="simple">
+<li><p>the <strong>microscopic motion of charge carriers</strong> (via drift velocity),</p></li>
+<li><p>the <strong>local description of current flow</strong> (via current density),</p></li>
+<li><p>and the <strong>macroscopic behavior of real circuit elements</strong> (via resistance and Ohm’s law).</p></li>
+</ul>
+<p>This section provides the bridge between charge motion at the particle level and the familiar circuit-level quantities used in electrical engineering and physics.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d4-2-1-resistivity-and-the-generalized-ohms-law">
+<h2>D4.2.1 Resistivity and the Generalized Ohm’s Law<a class="headerlink" href="#d4-2-1-resistivity-and-the-generalized-ohms-law" title="Link to this heading">#</a></h2>
+<p>Resistivity characterizes how strongly a material <strong>opposes the motion of electric charge</strong> when an electric field is applied. When an external electric field <span class="math notranslate nohighlight">\(\vec{E}\)</span> is present, charged particles experience an electric force and tend to accelerate. In real materials, however, this motion is continually interrupted by interactions with the atomic lattice, impurities, and other charge carriers.</p>
+<p>Because the internal structure of a material can be complex, the response of charge carriers to an applied electric field is not always simple. In some materials, charge motion may depend on direction due to <strong>anisotropic bonding</strong>, crystal structure, or ordered molecular arrangements. As a result, the relationship between <strong>current density</strong>—which describes charge motion—and the <strong>electric field</strong>—which drives that motion—can, in general, be quite complicated (it is then described through a tensor object).</p>
+<p>In many important and practical cases, however, the response of a material is <strong>linear</strong>: the current density at a point is directly proportional to the applied electric field at that same point. When this occurs, we define the material’s <strong>resistivity</strong>.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:14px; border-radius:4px; margin-top:16px; margin-bottom:16px;">
+<h3 style="margin-top:0; color:#000000;">Definition of Resistivity</h3>
+<p>For materials that exhibit a linear response to an applied electric field, the resistivity <span class="math notranslate nohighlight">\(\rho\)</span> is defined through the relationship</p>
 <div class="math notranslate nohighlight">
-\[ \vec{E} = \rho\vec{J} \tag{1}\]</div>
+\[
+\vec{E} = \rho\,\vec{J}. \tag{1}
+\]</div>
+<p>Resistivity is an intrinsic material property that quantifies how strongly the material resists charge motion.</p>
 </div>
-We may notice the resemblence to Newton's 2nd law here. 
+<p>This relation bears a formal resemblance to <strong>Newton’s second law</strong>, where a force produces a response that depends on a property of the object. Here, the electric field plays the role of the driving influence, while resistivity determines how strongly the material responds by allowing—or impeding—current flow.</p>
+<section id="analogy-to-mass-and-newtons-second-law">
+<h3>Analogy to Mass and Newton’s Second Law<a class="headerlink" href="#analogy-to-mass-and-newtons-second-law" title="Link to this heading">#</a></h3>
+<p>The relationship between electric field and current density in a material is closely analogous to the role that <strong>mass</strong> plays in mechanics.</p>
+<p>In Newtonian mechanics, the motion of an object responds to an applied force according to <strong>Newton’s second law</strong>,</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{F} = m\vec{a}.
+\]</div>
+<p>Here, the force <span class="math notranslate nohighlight">\(\vec{F}\)</span> is the <em>driving influence</em>, while the mass <span class="math notranslate nohighlight">\(m\)</span> is an intrinsic property of the object that determines <strong>how strongly the object resists changes in its motion</strong>.</p>
+<p>A similar structure appears in electrical conduction. An applied electric field <span class="math notranslate nohighlight">\(\vec{E}\)</span> acts as the driving influence on charge carriers, while the material’s <strong>resistivity</strong> determines how strongly the material resists changes in charge motion.</p>
+<p>In this analogy:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\vec{E}\)</span> plays a role analogous to force,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\vec{J}\)</span> plays a role analogous to acceleration or response,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\rho\)</span> plays a role analogous to mass.</p></li>
+</ul>
+<p>Just as a larger mass produces a smaller acceleration for a given force, a larger resistivity produces a smaller current density for a given electric field.</p>
+<p>This analogy is not exact—electric current does not involve acceleration in the same sense as mechanics—but it is conceptually useful. It emphasizes that resistivity is not something imposed externally by circuit geometry, but an <strong>intrinsic property of the material</strong> that governs how it responds to applied fields.</p>
+<p>This perspective will help us understand why different materials behave so differently in circuits, even when they experience the same electric field.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="d4-2-3-conductivity-and-generalized-ohm-s-law">
+<h2>D4.2.3 Conductivity and Generalized Ohm’s Law<a class="headerlink" href="#d4-2-3-conductivity-and-generalized-ohm-s-law" title="Link to this heading">#</a></h2>
+<p>If <strong>resistivity</strong> characterizes how strongly a material opposes the motion of charge under the influence of an electric field, then <strong>conductivity</strong> characterizes the complementary idea: how easily charge can move through a material when an electric field is applied.</p>
+<p>Materials with high conductivity allow charge carriers to respond readily to an electric field, while materials with low conductivity severely limit charge motion. Metals, for example, have high conductivity, whereas insulators have extremely low conductivity.</p>
+<p>Conductivity is defined as the reciprocal of resistivity,</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma = \frac{1}{\rho}.
+\]</div>
+<p>Like resistivity, conductivity is an <strong>intrinsic material property</strong> and does not depend on the size or shape of the object.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:14px; border-radius:4px; margin-top:16px; margin-bottom:16px;">
+<h3 style="margin-top:0; color:#000000;">Definition of Conductivity</h3>
+<p>For materials that exhibit a linear response to an applied electric field, the <strong>conductivity</strong> <span class="math notranslate nohighlight">\(\sigma\)</span> relates current density to electric field according to</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{J} = \sigma\,\vec{E}. \tag{2}
+\]</div>
+<p>This relation is often referred to as the <strong>generalized Ohm’s law</strong> at the microscopic level.</p>
+</div>
+<p>This equation shows that conductivity determines how much current density results from a given electric field. A larger conductivity means a stronger current response for the same applied field.</p>
+<p>We will soon see how this microscopic relation leads directly to the familiar macroscopic form of <strong>Ohm’s law</strong>, connecting voltage, current, and resistance in simple circuits.</p>
 <hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
-<section id="d4-2-2-conductivity">
-<h2>D4.2.2 Conductivity<a class="headerlink" href="#d4-2-2-conductivity" title="Link to this heading">#</a></h2>
-<p>If resistivity is the resistance to a change in motion under the influence of an electric field, the conductivity is a measure of the ability to move under the influence of an electric field.</p>
-<p>The conductivity is defined as</p>
+<section id="d4-2-4-anisotropic-conductivity-and-the-generalized-ohms-law">
+<h2>D4.2.4 Anisotropic Conductivity and the Generalized Ohm’s Law<a class="headerlink" href="#d4-2-4-anisotropic-conductivity-and-the-generalized-ohms-law" title="Link to this heading">#</a></h2>
+<p>In many introductory applications, materials are assumed to be <strong>isotropic</strong>, meaning their electrical properties are the same in all directions. In such cases, the conductivity <span class="math notranslate nohighlight">\(\sigma\)</span> is a scalar, and the relationship between current density and electric field is simply</p>
 <div class="math notranslate nohighlight">
-\[ \sigma = \frac{1}{\rho} \]</div>
-<p>and expressed in terms of the electric field and current density</p>
-<div class="alert alert-success">
+\[
+\vec{J} = \sigma \vec{E}.
+\]</div>
+<p>However, not all materials respond to electric fields in the same way in every direction. In <strong>anisotropic materials</strong>, the internal structure—such as crystal orientation, layered bonding, or externally imposed magnetic fields—causes charge motion to depend on direction. Examples include crystalline solids, engineered layered materials, and plasmas in magnetic confinement devices or astrophysical environments.</p>
+<p>In these cases, conductivity must be treated as a <strong>tensor</strong>, which allows the current density in one direction to depend on electric field components in other directions. The generalized Ohm’s law then takes the form</p>
 <div class="math notranslate nohighlight">
-\[ \vec{J} = \sigma\vec{E} \tag{2}\]</div>
-</div>
-<p>We will see shortly how Equation 1 is used to obtain Ohm’s Law. In more complicated scenarios, the conductivity is not a scalar but a <strong>tensor</strong> with 9 components. In this case, Equation (2) is sometimes referred to as the <strong>Generalized Ohm’s Law</strong>.</p>
+\[\begin{split}
+\begin{pmatrix}
+J_x \\
+J_y \\
+J_z
+\end{pmatrix}
+=
+\begin{pmatrix}
+\sigma_{xx} &amp; \sigma_{xy} &amp; \sigma_{xz} \\
+\sigma_{yx} &amp; \sigma_{yy} &amp; \sigma_{yz} \\
+\sigma_{zx} &amp; \sigma_{zy} &amp; \sigma_{zz}
+\end{pmatrix}
+\begin{pmatrix}
+E_x \\
+E_y \\
+E_z
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Each component <span class="math notranslate nohighlight">\(\sigma_{ij}\)</span> describes how the <span class="math notranslate nohighlight">\(j\)</span>-component of the electric field contributes to the <span class="math notranslate nohighlight">\(i\)</span>-component of the current density. The diagonal terms represent direct responses along the same direction, while the off-diagonal terms capture coupling between different directions.</p>
+<p>In many physical systems, symmetry or external constraints reduce the number of independent tensor components. For example, a strong magnetic field in a plasma can introduce preferred directions, leading to phenomena such as currents that flow perpendicular to the applied electric field.</p>
+<p>At the level of simple DC circuits, materials are typically well-approximated as isotropic, and the scalar form of conductivity is sufficient. The tensor form is introduced here to emphasize that Ohm’s law is fundamentally a <strong>local, material-dependent relationship</strong>, and that more general behavior emerges in complex media.</p>
 <hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
 </section>
 
@@ -557,8 +650,13 @@ We may notice the resemblence to Newton's 2nd law here.
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-2-1-resistivity">D4.2.1 Resistivity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-2-2-conductivity">D4.2.2 Conductivity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-2-1-motivation-why-do-we-need-resistivity-and-conductivity">D4.2.1 Motivation: Why Do We Need Resistivity and Conductivity?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-2-1-resistivity-and-the-generalized-ohms-law">D4.2.1 Resistivity and the Generalized Ohm’s Law</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analogy-to-mass-and-newtons-second-law">Analogy to Mass and Newton’s Second Law</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-2-3-conductivity-and-generalized-ohm-s-law">D4.2.3 Conductivity and Generalized Ohm’s Law</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-2-4-anisotropic-conductivity-and-the-generalized-ohms-law">D4.2.4 Anisotropic Conductivity and the Generalized Ohm’s Law</a></li>
 </ul>
   </nav></div>
 
