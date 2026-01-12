@@ -229,9 +229,9 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D6 - Ray Optics</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="D6-motivation.html">D6.1 Motivation: Why Study Ray Optics?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="em-rays.html">D6.2 Electromagnetic Waves as Rays</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reflection.html">D6.3 Reflection of Light</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LOC-D6.html">D6.0 Learning Outcomes — Ray Optics, Fermat’s Principle, and Thin Lenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="em-rays.html">D6.1 Electromagnetic Waves as Rays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reflection.html">D6.2 Reflection of Light</a></li>
 <li class="toctree-l1"><a class="reference internal" href="refraction.html">D6.4 Refraction of Light</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">D6.5 Total Internal Reflection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fermats-principle.html">D6.6 Fermat’s Principle of Least Time</a></li>
@@ -455,12 +455,21 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-5-1-learning-goals">D6.5.1 Learning Goals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-5-2-what-is-total-internal-reflection">D6.5.2 What Is Total Internal Reflection?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-5-3-deriving-the-critical-angle">D6.5.3 Deriving the Critical Angle</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-5-4-drawing-ray-diagrams-for-tir">D6.5.4 Drawing Ray Diagrams for TIR</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-5-5-real-world-applications-of-tir">D6.5.5 Real-World Applications of TIR</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-5-6-summary">D6.5.6 Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-5-1-motivation-when-light-cannot-escape">D6.5.1 Motivation: When Light Cannot Escape</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-5-2-the-critical-angle">D6.5.2 The Critical Angle</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-does-total-internal-reflection-occur">When Does Total Internal Reflection Occur?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-the-formula">Interpreting the Formula</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-happens-beyond-the-critical-angle">What Happens Beyond the Critical Angle?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">Key Takeaways</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-5-3-consequences-and-applications-of-total-internal-reflection">D6.5.3 Consequences and Applications of Total Internal Reflection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optical-fibers">Optical Fibers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prisms-and-beam-steering">Prisms and Beam Steering</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diamonds-and-sparkle">Diamonds and Sparkle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beyond-ray-optics">Beyond Ray Optics</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -474,156 +483,296 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="d6-5-total-internal-reflection">
 <h1>D6.5 Total Internal Reflection<a class="headerlink" href="#d6-5-total-internal-reflection" title="Link to this heading">#</a></h1>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray">
-<section id="d6-5-1-learning-goals">
-<h2>D6.5.1 Learning Goals<a class="headerlink" href="#d6-5-1-learning-goals" title="Link to this heading">#</a></h2>
-<p>By the end of this lesson, students should be able to:</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><section id="d6-5-1-motivation-when-light-cannot-escape">
+<h2>D6.5.1 Motivation: When Light Cannot Escape<a class="headerlink" href="#d6-5-1-motivation-when-light-cannot-escape" title="Link to this heading">#</a></h2>
+<p>In many optical systems, light does not simply refract out of a material — instead, it can become <strong>completely trapped</strong> inside. This phenomenon is called <strong>total internal reflection</strong> (TIR).</p>
+<p>Total internal reflection explains:</p>
 <ul class="simple">
-<li><p>Define total internal reflection (TIR) and identify when it occurs.</p></li>
-<li><p>Calculate the critical angle for TIR using Snell’s Law.</p></li>
-<li><p>Draw ray diagrams showing internal reflection.</p></li>
-<li><p>Recognize applications of TIR in optical systems.</p></li>
+<li><p>why optical fibers can guide light over long distances,</p></li>
+<li><p>how prisms redirect light with high efficiency,</p></li>
+<li><p>why diamonds sparkle so intensely,</p></li>
+<li><p>and how modern technologies transmit information using light.</p></li>
 </ul>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray">
-</section>
-<section id="d6-5-2-what-is-total-internal-reflection">
-<h2>D6.5.2 What Is Total Internal Reflection?<a class="headerlink" href="#d6-5-2-what-is-total-internal-reflection" title="Link to this heading">#</a></h2>
-<p><strong>Total internal reflection (TIR)</strong> occurs when a light ray attempts to pass from a <strong>more optically dense</strong> medium into a <strong>less dense</strong> one (e.g., glass to air) at an angle too steep to allow refraction.</p>
+<p>Unlike ordinary reflection, total internal reflection:</p>
 <ul class="simple">
-<li><p>Instead of bending out, the light <strong>reflects entirely back</strong> into the original medium.</p></li>
-<li><p>TIR only occurs when:</p>
-<ol class="arabic simple">
-<li><p>Light is traveling from a medium with <strong>higher</strong> refractive index (<span class="math notranslate nohighlight">\(n_1\)</span>) to one with <strong>lower</strong> index (<span class="math notranslate nohighlight">\(n_2\)</span>).</p></li>
-<li><p>The angle of incidence <strong>exceeds the critical angle</strong>.</p></li>
-</ol>
-</li>
+<li><p>occurs <strong>only under specific conditions</strong>,</p></li>
+<li><p>involves <strong>no loss of light energy</strong> at the boundary,</p></li>
 </ul>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray">
-</section>
-<section id="d6-5-3-deriving-the-critical-angle">
-<h2>D6.5.3 Deriving the Critical Angle<a class="headerlink" href="#d6-5-3-deriving-the-critical-angle" title="Link to this heading">#</a></h2>
-<p>To find the <strong>critical angle</strong> <span class="math notranslate nohighlight">\(\theta_c\)</span>, apply <strong>Snell’s Law</strong>:</p>
-<div class="math notranslate nohighlight">
-\[
-n_1 \sin\theta_1 = n_2 \sin\theta_2
-\]</div>
-<p>The <strong>critical angle</strong> occurs at the exact angle of incidence for which the <strong>refracted ray travels along the boundary</strong> — that is, when <span class="math notranslate nohighlight">\(\theta_2 = 90^\circ\)</span>.</p>
-<p>Substitute this into Snell’s Law:</p>
-<div class="math notranslate nohighlight">
-\[
-n_1 \sin\theta_c = n_2 \sin 90^\circ
-\]</div>
-<p>Since <span class="math notranslate nohighlight">\(\sin 90^\circ = 1\)</span>, we get:</p>
-<div class="alert alert-warning">
-<div class="math notranslate nohighlight">
-\[
-\theta_c = \sin^{-1}\left(\frac{n_2}{n_1}\right)
-\]</div>
-</div>
-<blockquote>
-<div><p>The critical angle <span class="math notranslate nohighlight">\(\theta_c\)</span> is the <strong>smallest angle of incidence</strong> at which <strong>no refracted ray escapes</strong> — instead, all light reflects internally.</p>
-</div></blockquote>
+<p>In this module, we will see how:</p>
 <ul class="simple">
-<li><p>If <span class="math notranslate nohighlight">\(\theta_i &lt; \theta_c\)</span>, partial refraction occurs.</p></li>
-<li><p>If <span class="math notranslate nohighlight">\(\theta_i = \theta_c\)</span>, the refracted ray grazes the surface.</p></li>
-<li><p>If <span class="math notranslate nohighlight">\(\theta_i &gt; \theta_c\)</span>, <strong>total internal reflection</strong> occurs.</p></li>
+<li><p>refraction can fail entirely,</p></li>
+<li><p>geometry and wave behavior predict this failure,</p></li>
+<li><p>and reflection becomes the only possible outcome.</p></li>
 </ul>
-<p>Note: TIR can only happen when <span class="math notranslate nohighlight">\(n_1 &gt; n_2\)</span>.</p>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray">
-</section>
-<section id="d6-5-4-drawing-ray-diagrams-for-tir">
-<h2>D6.5.4 Drawing Ray Diagrams for TIR<a class="headerlink" href="#d6-5-4-drawing-ray-diagrams-for-tir" title="Link to this heading">#</a></h2>
-<p>Steps:</p>
-<ol class="arabic simple">
-<li><p>Draw the interface between two media (e.g., glass and air).</p></li>
-<li><p>Indicate the normal line at the point of incidence.</p></li>
-<li><p>Draw incident rays at increasing angles.</p></li>
-<li><p>For angles <strong>less than</strong> <span class="math notranslate nohighlight">\(\theta_c\)</span>, draw refracted rays.</p></li>
-<li><p>For angles <strong>greater than</strong> <span class="math notranslate nohighlight">\(\theta_c\)</span>, draw reflected rays <strong>entirely inside</strong> the denser medium.</p></li>
-</ol>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray">
-</section>
-<section id="d6-5-5-real-world-applications-of-tir">
-<h2>D6.5.5 Real-World Applications of TIR<a class="headerlink" href="#d6-5-5-real-world-applications-of-tir" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p><strong>Fiber optics</strong>: Light bounces along the core due to TIR.</p></li>
-<li><p><strong>Endoscopy</strong>: Flexible light delivery in medical imaging.</p></li>
-<li><p><strong>Sparkle of diamonds</strong>: Cut to maximize TIR.</p></li>
-<li><p><strong>Retroreflectors</strong>: Used in road signs, bike reflectors.</p></li>
-<li><p><strong>Rain sensors</strong>: Cars use TIR to detect water on windshields.</p></li>
-</ul>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray">
-</section>
-<section id="d6-5-6-summary">
-<h2>D6.5.6 Summary<a class="headerlink" href="#d6-5-6-summary" title="Link to this heading">#</a></h2>
-<ul>
-<li><p><strong>Total internal reflection</strong> happens when light cannot exit a material — instead, it reflects entirely inside.</p></li>
-<li><p>It requires <span class="math notranslate nohighlight">\(n_1 &gt; n_2\)</span> and <span class="math notranslate nohighlight">\(\theta_i &gt; \theta_c\)</span>.</p></li>
-<li><p>The <strong>critical angle</strong> occurs when the <strong>refracted angle is <span class="math notranslate nohighlight">\(90^\circ\)</span></strong>, so the refracted ray skims the boundary.</p></li>
-<li><p>The critical angle is given by:</p>
-<div class="math notranslate nohighlight">
-\[
-  \theta_c = \sin^{-1}\left(\frac{n_2}{n_1}\right)
-  \]</div>
-</li>
-<li><p>TIR is a <strong>fully ray-based phenomenon</strong> and explains many technologies involving light guidance.</p></li>
-</ul>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-warning">
-<p><strong>Box 1: Fiber Optic Light Guide</strong></p>
-<p>A laser beam enters the end of a <strong>plastic optical fiber</strong> with core refractive index <span class="math notranslate nohighlight">\(n_{\text{core}} = 1.48\)</span> and cladding refractive index <span class="math notranslate nohighlight">\(n_{\text{clad}} = 1.40\)</span>.</p>
-<p><strong>Tasks:</strong></p>
-<ol class="arabic simple">
-<li><p>Calculate the <strong>critical angle</strong> for the core-cladding interface.</p></li>
-<li><p>If a ray enters the fiber and strikes the interface at an angle of <span class="math notranslate nohighlight">\(72^\circ\)</span> (measured from the normal), will it undergo total internal reflection?</p></li>
-<li><p>What happens if the ray enters at an angle <em>smaller</em> than the critical angle?</p></li>
-</ol>
-<p>💡 <em>Hint: Light must stay within the core by repeatedly reflecting off the inner boundary.</em></p>
-</div><div class="tip dropdown admonition">
-<p class="admonition-title">Box 1: Solution</p>
-<p><strong>1. Calculate the critical angle</strong></p>
-<p>Use:</p>
-<div class="math notranslate nohighlight">
-\[
-\theta_c = \sin^{-1}\left(\frac{n_{\text{clad}}}{n_{\text{core}}}\right)
-= \sin^{-1}\left(\frac{1.40}{1.48}\right)
-\approx \sin^{-1}(0.9459)
-\approx 71.6^\circ
-\]</div>
-<p><strong>2. Does a <span class="math notranslate nohighlight">\(72^\circ\)</span> ray undergo TIR?</strong></p>
-<p>Yes. Since <span class="math notranslate nohighlight">\(72^\circ &gt; 71.6^\circ\)</span>, the angle of incidence is greater than the critical angle → <strong>TIR occurs</strong>. The ray reflects entirely within the core.</p>
-<p><strong>3.  What happens if the angle is smaller than the critical angle?</strong></p>
-<p>The ray will <strong>partially escape</strong> into the cladding — <strong>no longer fully guided</strong>. This leads to signal loss in communication fibers. Only rays above the critical angle are maintained for long-distance guidance.</p>
-</div>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-warning">
-<p><strong>Box 2: Why Diamonds Sparkle</strong></p>
-<p>Diamonds have a high refractive index: <span class="math notranslate nohighlight">\(n_{\text{diamond}} = 2.42\)</span>. Air has <span class="math notranslate nohighlight">\(n = 1.00\)</span>. When light enters a diamond, it refracts and reflects many times before exiting.</p>
-<p><strong>Tasks:</strong></p>
-<ol class="arabic simple">
-<li><p>Calculate the <strong>critical angle</strong> for light going from diamond to air.</p></li>
-<li><p>Explain why light can bounce multiple times inside the diamond before escaping.</p></li>
-<li><p>Why does cutting a diamond at certain angles <strong>maximize internal reflections</strong>?</p></li>
-<li><p>Sketch a simplified cross section of a diamond showing light rays entering from above and bouncing inside before exiting.</p></li>
-</ol>
-<p>💡 <em>Hint: A well-cut diamond causes light to hit the internal surfaces at steep angles, exceeding the critical angle and increasing brilliance.</em></p>
-</div><div class="tip dropdown admonition">
-<p class="admonition-title">Box 2: Solution</p>
-<p><strong>1. Calculate the critical angle</strong></p>
-<div class="math notranslate nohighlight">
-\[
-\theta_c = \sin^{-1}\left(\frac{n_{\text{air}}}{n_{\text{diamond}}}\right)
-= \sin^{-1}\left(\frac{1.00}{2.42}\right)
-= \sin^{-1}(0.4132)
-\approx 24.4^\circ
-\]</div>
-<p>So, any ray hitting an internal surface at an angle <strong>greater than <span class="math notranslate nohighlight">\(24.4^\circ\)</span></strong> (from the normal) will undergo TIR.</p>
-<p><strong>2. Why can light bounce many times inside a diamond?</strong></p>
-<p>Because of the <strong>very small critical angle</strong>, even modest entry angles cause rays to strike internal surfaces <strong>above <span class="math notranslate nohighlight">\(\theta_c\)</span></strong>, triggering <strong>multiple TIR events</strong>. This keeps light trapped for longer, enhancing internal reflections.</p>
-<p><strong>3. Why does the cut matter?</strong></p>
-<p>A well-cut diamond ensures that <strong>most internal rays strike surfaces at angles greater than <span class="math notranslate nohighlight">\(24.4^\circ\)</span></strong>. This maximizes TIR and directs light back out through the top (the crown), producing brilliance and “fire”. Poorly cut diamonds allow light to escape through the bottom or sides.</p>
-<p><strong>4. Sketch description</strong></p>
-<p>Draw a simplified triangle for the diamond. Incoming ray refracts inward, then reflects several times off inner surfaces before exiting back toward the top. Label internal angles and critical angle region.</p>
-</div>
+<p>Total internal reflection is one of the most powerful and elegant results of ray optics — and a perfect example of how simple rules lead to striking physical behavior.</p>
 <hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="d6-5-2-the-critical-angle">
+<h2>D6.5.2 The Critical Angle<a class="headerlink" href="#d6-5-2-the-critical-angle" title="Link to this heading">#</a></h2>
+<p>Total internal reflection does not occur for all angles.<br />
+It begins only when the angle of incidence exceeds a specific value called the <strong>critical angle</strong>.</p>
+<hr class="docutils" />
+<section id="when-does-total-internal-reflection-occur">
+<h3>When Does Total Internal Reflection Occur?<a class="headerlink" href="#when-does-total-internal-reflection-occur" title="Link to this heading">#</a></h3>
+<p>Total internal reflection can occur <strong>only if</strong>:</p>
+<ol class="arabic simple">
+<li><p>Light is traveling from a <strong>higher-index medium</strong> to a <strong>lower-index medium</strong><br />
+(for example, glass → air).</p></li>
+<li><p>The angle of incidence is <strong>sufficiently large</strong>.</p></li>
+</ol>
+<p>As the angle of incidence increases, the refracted ray bends farther <strong>away from the normal</strong>.<br />
+Eventually, the refracted ray would have to travel <em>along the boundary itself</em>.<br />
+This limiting case defines the critical angle.</p>
+<hr class="docutils" />
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:14px; border-radius:4px; margin-top:16px; margin-bottom:16px;">
+<h3 style="margin-top:0; color:#000000;">Critical Angle</h3>
+<p>The <strong>critical angle</strong> <span class="math notranslate nohighlight">\(\theta_c\)</span> is the angle of incidence (in the higher-index medium) for which the angle of refraction is <span class="math notranslate nohighlight">\(90^\circ\)</span>.</p>
+<p>Using Snell’s law:</p>
+<div class="math notranslate nohighlight">
+\[
+n_1 \sin\theta_c = n_2 \sin(90^\circ)
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\(\sin(90^\circ) = 1\)</span>, this simplifies to:</p>
+<div class="math notranslate nohighlight">
+\[
+\sin\theta_c = \frac{n_2}{n_1}
+\]</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="interpreting-the-formula">
+<h3>Interpreting the Formula<a class="headerlink" href="#interpreting-the-formula" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n_1\)</span> is the index of refraction of the <strong>initial (denser) medium</strong></p></li>
+<li><p><span class="math notranslate nohighlight">\(n_2\)</span> is the index of refraction of the <strong>second (less dense) medium</strong></p></li>
+<li><p>The formula applies <strong>only when <span class="math notranslate nohighlight">\(n_1 &gt; n_2\)</span></strong></p></li>
+</ul>
+<p>If <span class="math notranslate nohighlight">\(n_2 \ge n_1\)</span>, the ratio <span class="math notranslate nohighlight">\(n_2 / n_1 \ge 1\)</span> and <strong>no critical angle exists</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="what-happens-beyond-the-critical-angle">
+<h3>What Happens Beyond the Critical Angle?<a class="headerlink" href="#what-happens-beyond-the-critical-angle" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>For <span class="math notranslate nohighlight">\(\theta_1 &lt; \theta_c\)</span>:<br />
+Light refracts out of the material.</p></li>
+<li><p>For <span class="math notranslate nohighlight">\(\theta_1 = \theta_c\)</span>:<br />
+The refracted ray travels <strong>along the boundary</strong>.</p></li>
+<li><p>For <span class="math notranslate nohighlight">\(\theta_1 &gt; \theta_c\)</span>:<br />
+Refraction is impossible, and <strong>total internal reflection</strong> occurs.</p></li>
+</ul>
+<p>All of the light reflects back into the original medium.</p>
+</section>
+<hr class="docutils" />
+<section id="key-takeaways">
+<h3>Key Takeaways<a class="headerlink" href="#key-takeaways" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>The critical angle marks the <strong>boundary between refraction and total internal reflection</strong>.</p></li>
+<li><p>It arises naturally from <strong>Snell’s law</strong>.</p></li>
+<li><p>Total internal reflection is not an approximation — it is a <strong>strict physical result</strong>.</p></li>
+</ul>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="d6-5-3-consequences-and-applications-of-total-internal-reflection">
+<h2>D6.5.3 Consequences and Applications of Total Internal Reflection<a class="headerlink" href="#d6-5-3-consequences-and-applications-of-total-internal-reflection" title="Link to this heading">#</a></h2>
+<p>Total internal reflection is not just a theoretical result — it is widely used in science, technology, and everyday devices because it allows light to be redirected with <strong>nearly 100% efficiency</strong>.</p>
+<p>When total internal reflection occurs:</p>
+<ul class="simple">
+<li><p>no light energy is transmitted into the second medium,</p></li>
+<li><p>the reflection is much more efficient than reflection from ordinary mirrors,</p></li>
+<li><p>and the behavior is completely predictable from geometry.</p></li>
+</ul>
+<hr class="docutils" />
+<section id="optical-fibers">
+<h3>Optical Fibers<a class="headerlink" href="#optical-fibers" title="Link to this heading">#</a></h3>
+<p>One of the most important applications of total internal reflection is <strong>optical fiber technology</strong>.</p>
+<ul class="simple">
+<li><p>Light enters a fiber made of glass or plastic.</p></li>
+<li><p>The fiber has a <strong>higher refractive index</strong> than the surrounding material.</p></li>
+<li><p>Light strikes the boundary at angles greater than the critical angle.</p></li>
+<li><p>As a result, light is repeatedly <strong>totally internally reflected</strong> and guided along the fiber.</p></li>
+</ul>
+<p>This principle allows:</p>
+<ul class="simple">
+<li><p>high-speed internet communication,</p></li>
+<li><p>medical imaging (endoscopy),</p></li>
+<li><p>and precise light delivery in sensors.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="prisms-and-beam-steering">
+<h3>Prisms and Beam Steering<a class="headerlink" href="#prisms-and-beam-steering" title="Link to this heading">#</a></h3>
+<p>Prisms often use total internal reflection instead of mirrors.</p>
+<ul class="simple">
+<li><p>A prism can redirect light by <span class="math notranslate nohighlight">\(90^\circ\)</span> or <span class="math notranslate nohighlight">\(180^\circ\)</span>.</p></li>
+<li><p>The reflection is extremely efficient and does not degrade over time like metallic coatings.</p></li>
+<li><p>This is why prisms are used in binoculars, periscopes, and optical instruments.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="diamonds-and-sparkle">
+<h3>Diamonds and Sparkle<a class="headerlink" href="#diamonds-and-sparkle" title="Link to this heading">#</a></h3>
+<p>Diamonds are cut to maximize total internal reflection.</p>
+<ul class="simple">
+<li><p>Diamond has a very high refractive index.</p></li>
+<li><p>Light entering a diamond undergoes multiple total internal reflections.</p></li>
+<li><p>This traps light inside longer, increasing brightness and sparkle before it exits.</p></li>
+</ul>
+<p>The brilliance of a diamond is therefore a direct consequence of <strong>geometry and refractive index</strong>, not just material beauty.</p>
+</section>
+<hr class="docutils" />
+<section id="beyond-ray-optics">
+<h3>Beyond Ray Optics<a class="headerlink" href="#beyond-ray-optics" title="Link to this heading">#</a></h3>
+<p>Although total internal reflection appears complete in ray optics, wave optics reveals additional subtleties:</p>
+<ul class="simple">
+<li><p>An <strong>evanescent wave</strong> exists just beyond the boundary.</p></li>
+<li><p>No net energy is transmitted across the interface.</p></li>
+<li><p>These effects become important in advanced optics and sensing techniques.</p></li>
+</ul>
+<p>For now, ray optics provides an accurate and powerful framework for understanding when and why light becomes trapped.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:12px; border-radius:4px;">
+<h3 style="margin-top:0; color:#000000;">Box Activity 1 — Fiber Optic Light Guide</h3>
+<p>A laser beam enters the end of a <strong>plastic optical fiber</strong>. The fiber consists of:</p>
+<ul class="simple">
+<li><p>a <strong>core</strong> with refractive index <span class="math notranslate nohighlight">\(n_{\text{core}} = 1.48\)</span></p></li>
+<li><p>a surrounding <strong>cladding</strong> with refractive index <span class="math notranslate nohighlight">\(n_{\text{clad}} = 1.40\)</span></p></li>
+</ul>
+<p>Light is guided along the fiber by repeated reflections at the <strong>core–cladding interface</strong>.</p>
+<hr class="docutils" />
+<p>Work through the following:</p>
+<ol class="arabic simple">
+<li><p><strong>Critical angle</strong><br />
+Calculate the <strong>critical angle</strong> for total internal reflection at the core–cladding boundary.</p></li>
+<li><p><strong>Check for total internal reflection</strong><br />
+If a ray inside the core strikes the interface at an angle of <span class="math notranslate nohighlight">\(72^\circ\)</span> (measured from the normal), determine whether total internal reflection occurs.</p></li>
+<li><p><strong>Below the critical angle</strong><br />
+What happens if a ray strikes the boundary at an angle <strong>smaller</strong> than the critical angle?</p></li>
+</ol>
+<hr class="docutils" />
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+A Possible Solution Guide
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p><strong>Step 1: Identify the relevant relationship</strong></p>
+<p>The critical angle <span class="math notranslate nohighlight">\(\theta_c\)</span> for light traveling from a higher-index medium to a lower-index medium is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+\sin\theta_c = \frac{n_{\text{clad}}}{n_{\text{core}}}.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 2: Calculate the critical angle</strong></p>
+<p>Substitute the given values:</p>
+<div class="math notranslate nohighlight">
+\[
+\sin\theta_c = \frac{1.40}{1.48} \approx 0.946.
+\]</div>
+<p>So,</p>
+<div class="math notranslate nohighlight">
+\[
+\theta_c = \sin^{-1}(0.946) \approx 71^\circ.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 3: Determine whether total internal reflection occurs</strong></p>
+<p>The given angle of incidence is:</p>
+<div class="math notranslate nohighlight">
+\[
+\theta = 72^\circ.
+\]</div>
+<p>Since</p>
+<div class="math notranslate nohighlight">
+\[
+\theta &gt; \theta_c,
+\]</div>
+<p>the ray <strong>does undergo total internal reflection</strong> at the core–cladding interface.</p>
+<hr class="docutils" />
+<p><strong>Step 4: What if the angle is smaller than the critical angle?</strong></p>
+<p>If <span class="math notranslate nohighlight">\(\theta &lt; \theta_c\)</span>:</p>
+<ul class="simple">
+<li><p>refraction into the cladding becomes possible,</p></li>
+<li><p>light leaks out of the core,</p></li>
+<li><p>and the ray is no longer guided along the fiber.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Physical interpretation</strong></p>
+<ul class="simple">
+<li><p>Optical fibers work because the core has a <strong>higher refractive index</strong> than the cladding.</p></li>
+<li><p>Rays that strike the boundary above the critical angle remain trapped by <strong>total internal reflection</strong>.</p></li>
+<li><p>This allows light to travel long distances through the fiber with minimal loss.</p></li>
+</ul>
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:12px; border-radius:4px;">
+<h3 style="margin-top:0; color:#000000;">Box Activity 2 — Why Diamonds Sparkle</h3>
+<p>Diamonds have an unusually high refractive index, which strongly affects how light behaves inside them.</p>
+<ul class="simple">
+<li><p>Index of refraction of diamond: <span class="math notranslate nohighlight">\(n_{\text{diamond}} = 2.42\)</span></p></li>
+<li><p>Index of refraction of air: <span class="math notranslate nohighlight">\(n_{\text{air}} = 1.00\)</span></p></li>
+</ul>
+<p>When light enters a diamond, it refracts at the surface and can then reflect many times inside before eventually exiting.</p>
+<hr class="docutils" />
+<p>Work through the following:</p>
+<ol class="arabic simple">
+<li><p><strong>Critical angle</strong><br />
+Calculate the <strong>critical angle</strong> for light traveling from diamond into air.</p></li>
+<li><p><strong>Multiple internal reflections</strong><br />
+Explain why light can bounce multiple times inside a diamond before escaping.</p></li>
+<li><p><strong>Diamond cutting and brilliance</strong><br />
+Why does cutting a diamond at certain angles <strong>maximize total internal reflection</strong> and increase brilliance?</p></li>
+<li><p><strong>Ray sketch</strong><br />
+Sketch a simplified cross section of a diamond. Show light rays entering from above, reflecting internally, and eventually exiting.</p></li>
+</ol>
+<hr class="docutils" />
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+A Possible Solution Guide
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p><strong>Step 1: Calculate the critical angle</strong></p>
+<p>The critical angle for light going from a higher-index medium to a lower-index medium is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+\sin\theta_c = \frac{n_{\text{air}}}{n_{\text{diamond}}}.
+\]</div>
+<p>Substitute the given values:</p>
+<div class="math notranslate nohighlight">
+\[
+\sin\theta_c = \frac{1.00}{2.42} \approx 0.413.
+\]</div>
+<p>So,</p>
+<div class="math notranslate nohighlight">
+\[
+\theta_c = \sin^{-1}(0.413) \approx 24.4^\circ.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 2: Why light remains trapped</strong></p>
+<p>Because the critical angle is relatively small:</p>
+<ul class="simple">
+<li><p>many internal rays strike the diamond–air boundary at angles <strong>greater than</strong> <span class="math notranslate nohighlight">\(\theta_c\)</span>,</p></li>
+<li><p>refraction becomes impossible,</p></li>
+<li><p>and total internal reflection occurs.</p></li>
+</ul>
+<p>This traps light inside the diamond for multiple reflections.</p>
+<hr class="docutils" />
+<p><strong>Step 3: Effect of diamond cutting</strong></p>
+<p>A well-cut diamond is designed so that:</p>
+<ul class="simple">
+<li><p>internal rays hit the surfaces at <strong>steep angles</strong> relative to the normal,</p></li>
+<li><p>those angles exceed the critical angle,</p></li>
+<li><p>light is reflected back toward the top of the diamond rather than escaping through the sides or bottom.</p></li>
+</ul>
+<p>This increases the amount of light that eventually exits through the top, enhancing sparkle and brightness.</p>
+<hr class="docutils" />
+<p><strong>Step 4: Physical interpretation</strong></p>
+<ul class="simple">
+<li><p>Diamonds sparkle not because they generate light, but because they <strong>trap and redirect</strong> it efficiently.</p></li>
+<li><p>Total internal reflection allows light to remain inside long enough to undergo many reflections.</p></li>
+<li><p>Geometry and refractive index work together to maximize brilliance.</p></li>
+</ul>
+</div>
+</details>
+</div><hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -690,12 +839,21 @@ n_1 \sin\theta_c = n_2 \sin 90^\circ
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-5-1-learning-goals">D6.5.1 Learning Goals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-5-2-what-is-total-internal-reflection">D6.5.2 What Is Total Internal Reflection?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-5-3-deriving-the-critical-angle">D6.5.3 Deriving the Critical Angle</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-5-4-drawing-ray-diagrams-for-tir">D6.5.4 Drawing Ray Diagrams for TIR</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-5-5-real-world-applications-of-tir">D6.5.5 Real-World Applications of TIR</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-5-6-summary">D6.5.6 Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-5-1-motivation-when-light-cannot-escape">D6.5.1 Motivation: When Light Cannot Escape</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-5-2-the-critical-angle">D6.5.2 The Critical Angle</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-does-total-internal-reflection-occur">When Does Total Internal Reflection Occur?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-the-formula">Interpreting the Formula</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-happens-beyond-the-critical-angle">What Happens Beyond the Critical Angle?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">Key Takeaways</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-5-3-consequences-and-applications-of-total-internal-reflection">D6.5.3 Consequences and Applications of Total Internal Reflection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optical-fibers">Optical Fibers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prisms-and-beam-steering">Prisms and Beam Steering</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diamonds-and-sparkle">Diamonds and Sparkle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beyond-ray-optics">Beyond Ray Optics</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
