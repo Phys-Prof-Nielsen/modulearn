@@ -456,7 +456,10 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d1-4-1-coulomb-s-experimental-discovery">D1.4.1 Coulomb’s Experimental Discovery</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coulombs-law-in-vector-form">1.4.2 Coulomb’s Law in Vector Form</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coulombs-law-in-vector-form">1.4.2 Coulomb’s Law in Vector Form</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-task">Programming Task</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -1038,7 +1041,107 @@ k\,q_1 q_2
 </div>
 </details>
 </div>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:12px; border-radius:4px;">
+<h3 style="margin-top:0; color:#000000;">Box Activity 4 — Programming Coulomb’s Law (Vector Form)</h3>
+<p>In this activity, you will <strong>write a Python program</strong> that computes the electric force between two point charges using <strong>Coulomb’s law in vector form</strong>.<br />
+The emphasis is on <strong>program structure and vector reasoning</strong>, not hand calculation.</p>
+<hr class="docutils" />
+<section id="programming-task">
+<h3>Programming Task<a class="headerlink" href="#programming-task" title="Link to this heading">#</a></h3>
+<p>Write a Python script that performs the following steps <strong>in order</strong>.</p>
+<ol class="arabic">
+<li><p><strong>Declare constants</strong><br />
+Define Coulomb’s constant <code class="docutils literal notranslate"><span class="pre">k</span></code>.</p></li>
+<li><p><strong>Define charges</strong><br />
+Define a <strong>source charge</strong> <code class="docutils literal notranslate"><span class="pre">q1</span></code> and a <strong>test charge</strong> <code class="docutils literal notranslate"><span class="pre">q2</span></code>.<br />
+Use clear variable names to distinguish source vs. test.</p></li>
+<li><p><strong>Define position vectors</strong><br />
+Define the position vector of the source charge <code class="docutils literal notranslate"><span class="pre">r1</span></code> and the test charge <code class="docutils literal notranslate"><span class="pre">r2</span></code>.<br />
+Use <strong>NumPy arrays</strong>.</p></li>
+<li><p><strong>Construct the displacement vector</strong><br />
+Define <code class="docutils literal notranslate"><span class="pre">r21</span> <span class="pre">=</span> <span class="pre">r2</span> <span class="pre">-</span> <span class="pre">r1</span></code>.<br />
+This vector must point <strong>from the source charge to the test charge</strong>.</p></li>
+<li><p><strong>Compute the distance between charges</strong><br />
+Use a <strong>dot product</strong> to compute the magnitude of <code class="docutils literal notranslate"><span class="pre">r21</span></code>.</p></li>
+<li><p><strong>Compute the electric force (vector form)</strong><br />
+Use Coulomb’s law</p>
+<div class="math notranslate nohighlight">
+\[
+   \vec F_{21}
+   =
+   k\,q_1 q_2
+   \frac{\vec r_{21}}{|\vec r_{21}|^3}
+   \]</div>
+</li>
+<li><p><strong>Output results</strong><br />
+Print:</p>
+<ul class="simple">
+<li><p>The <strong>force vector</strong></p></li>
+<li><p>The <strong>magnitude of the force</strong><br />
+Use <strong>scientific notation</strong> with <strong>two decimal places</strong> and include units.</p></li>
+</ul>
+</li>
+</ol>
+<hr class="docutils" />
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+A Possible Solution Guide (Code Structure)
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p><strong>Step 1: Import NumPy and define constants</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">=</span> <span class="pre">8.99e9</span>&#160; <span class="pre">#</span> <span class="pre">N·m^2/C^2</span></code></p>
+<hr class="docutils" />
+<p><strong>Step 2: Define source and test charges</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">q1</span> <span class="pre">=</span> <span class="pre">...</span>&#160;&#160; <span class="pre">#</span> <span class="pre">source</span> <span class="pre">charge</span> <span class="pre">(C)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">q2</span> <span class="pre">=</span> <span class="pre">...</span>&#160;&#160; <span class="pre">#</span> <span class="pre">test</span> <span class="pre">charge</span> <span class="pre">(C)</span></code></p>
+<hr class="docutils" />
+<p><strong>Step 3: Define position vectors</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">r1</span> <span class="pre">=</span> <span class="pre">np.array([...,</span> <span class="pre">...,</span> <span class="pre">...],</span> <span class="pre">dtype=float)</span>&#160; <span class="pre">#</span> <span class="pre">source</span> <span class="pre">position</span> <span class="pre">(m)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">r2</span> <span class="pre">=</span> <span class="pre">np.array([...,</span> <span class="pre">...,</span> <span class="pre">...],</span> <span class="pre">dtype=float)</span>&#160; <span class="pre">#</span> <span class="pre">test</span> <span class="pre">position</span> <span class="pre">(m)</span></code></p>
+<hr class="docutils" />
+<p><strong>Step 4: Displacement vector (source → test)</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">r21</span> <span class="pre">=</span> <span class="pre">r2</span> <span class="pre">-</span> <span class="pre">r1</span></code></p>
+<hr class="docutils" />
+<p><strong>Step 5: Distance between charges</strong></p>
+<p>The magnitude of a vector is <span class="math notranslate nohighlight">\(\sqrt{\vec{r}\cdot\vec{r}}\)</span></p>
+<p><code class="docutils literal notranslate"><span class="pre">r21_mag</span> <span class="pre">=</span> <span class="pre">np.sqrt(r21</span> <span class="pre">&#64;</span> <span class="pre">r21)</span></code></p>
+<p>Alternatively,</p>
+<p><code class="docutils literal notranslate"><span class="pre">r21_mag</span> <span class="pre">=</span> <span class="pre">np.sqrt(np.dot(r21,r21))</span></code></p>
+<hr class="docutils" />
+<p><strong>Step 6: Coulomb force (vector form)</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">F</span> <span class="pre">=</span> <span class="pre">k*q1*q2</span> <span class="pre">*</span> <span class="pre">r21</span> <span class="pre">/</span> <span class="pre">r21_mag**3</span></code></p>
+<hr class="docutils" />
+<p><strong>Step 7: Force magnitude</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">F_mag</span> <span class="pre">=</span> <span class="pre">np.sqrt(F</span> <span class="pre">&#64;</span> <span class="pre">F)</span></code></p>
+<hr class="docutils" />
+<p><strong>Step 8: Output (scientific notation, 2 decimals)</strong></p>
+<p>Because <code class="docutils literal notranslate"><span class="pre">F</span></code> is a <strong>vector</strong>, Python cannot apply numeric formatting to it all at once.<br />
+Each component must be formatted <strong>separately</strong>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">print(f&quot;F</span> <span class="pre">=</span> <span class="pre">[{F[0]:.2e},</span> <span class="pre">{F[1]:.2e},</span> <span class="pre">{F[2]:.2e}]</span> <span class="pre">N&quot;)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">print(f&quot;|F|</span> <span class="pre">=</span> <span class="pre">{F_mag:.2e}</span> <span class="pre">N&quot;)</span></code></p>
+<hr class="docutils" />
+<p><strong>Debugging checklist</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">r21</span> <span class="pre">=</span> <span class="pre">r2</span> <span class="pre">-</span> <span class="pre">r1</span></code> must point from <strong>source → test</strong></p></li>
+<li><p>Swapping <code class="docutils literal notranslate"><span class="pre">r1</span></code> and <code class="docutils literal notranslate"><span class="pre">r2</span></code> flips the force direction</p></li>
+<li><p>Changing the sign of one charge reverses the force</p></li>
+<li><p>Force magnitude scales like <span class="math notranslate nohighlight">\(1/r^2\)</span></p></li>
+</ul>
+</div>
+</details>
+</div>
+<br>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
+</pre></div>
+</div>
+</div>
+</div>
 <hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1106,7 +1209,10 @@ k\,q_1 q_2
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d1-4-1-coulomb-s-experimental-discovery">D1.4.1 Coulomb’s Experimental Discovery</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coulombs-law-in-vector-form">1.4.2 Coulomb’s Law in Vector Form</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coulombs-law-in-vector-form">1.4.2 Coulomb’s Law in Vector Form</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-task">Programming Task</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

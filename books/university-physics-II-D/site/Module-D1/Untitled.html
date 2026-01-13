@@ -470,22 +470,29 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">k</span> <span class="o">=</span> <span class="mf">8.99e9</span>
-<span class="n">q1</span> <span class="o">=</span> <span class="mf">5.0e-3</span>
-<span class="n">q2</span> <span class="o">=</span> <span class="mf">2.0e-3</span>
+<span class="n">q1</span> <span class="o">=</span> <span class="mf">2.1e-3</span>
+<span class="n">q2</span> <span class="o">=</span> <span class="mf">1.5e-3</span>
 
-<span class="n">r1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
-<span class="n">r2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
+<span class="n">r1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.4</span><span class="p">])</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">r2</span> <span class="o">-</span> <span class="n">r1</span>
-<span class="n">r_mag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="n">r21</span> <span class="o">=</span> <span class="n">r2</span> <span class="o">-</span> <span class="n">r1</span>
+<span class="n">r21_mag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">r21</span><span class="p">,</span><span class="n">r21</span><span class="p">))</span>
 
-<span class="n">F</span> <span class="o">=</span> <span class="n">k</span><span class="o">*</span><span class="n">q1</span><span class="o">*</span><span class="n">q2</span> <span class="o">*</span> <span class="n">r</span> <span class="o">/</span> <span class="p">(</span><span class="n">r_mag</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">F</span>
+<span class="c1">#r21_mag = np.linalg.norm(r21)</span>
+<span class="c1">#r21_mag = np.sqrt(r21 @ r21)</span>
+
+<span class="n">F</span> <span class="o">=</span> <span class="n">k</span><span class="o">*</span><span class="n">q1</span><span class="o">*</span><span class="n">q2</span> <span class="o">*</span> <span class="n">r21</span> <span class="o">/</span> <span class="p">(</span><span class="n">r21_mag</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">F_mag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">F</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Coulomb force on particle 2: </span><span class="si">{</span><span class="n">F</span><span class="si">}</span><span class="s1"> N&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Magnitude of Coulomb force on particle 2: </span><span class="si">{</span><span class="n">F_mag</span><span class="si">:</span><span class="s1">.2e</span><span class="si">}</span><span class="s1"> N&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 15343.86081251, -23015.79121876,      0.        ])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coulomb force on particle 2: [-492.32079225  604.85125905 -267.25985865] N
+Magnitude of Coulomb force on particle 2: 8.24e+02 N
 </pre></div>
 </div>
 </div>
