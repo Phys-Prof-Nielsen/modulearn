@@ -1,0 +1,992 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Template Lab 2: LED Forward Voltage and Statistical Uncertainty &#8212; A Note to University Physics II Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lab2/lab2-template';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Lab 2 — LED Forward Voltage: Measurement, Variability, and Error in the Mean" href="lab2-manual.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="A Note to University Physics II Lab - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="A Note to University Physics II Lab - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Notes for University Physics II Lab
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/physics-labs/physics-lab.html">Physics Labs Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 1 - Report Writing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab1/lab1.html">Lab 1 (Synthetic): Ohm’s Law &amp; Writing a Professional Jupyter Report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab1/lab1-template.html">Template Lab 1: Ohm’s Law Report</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 2 - Arduino and Basic Error Analysis</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lab2-manual.html">Lab 2 — LED Forward Voltage: Measurement, Variability, and Error in the Mean</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Template Lab 2: LED Forward Voltage and Statistical Uncertainty</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/university-physics-II-lab/lab2/lab2-template.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lab2/lab2-template.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Template Lab 2: LED Forward Voltage and Statistical Uncertainty</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract">1. Abstract</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">2. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodology">2. Methodology</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-acquisition-and-organization">3. Data Acquisition and Organization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#table-1-raw-forward-voltage-measurements">Table 1 — Raw Forward-Voltage Measurements</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results-analysis">4. Results / Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#per-led-analysis">Per-LED Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#table-2-per-led-mean-and-sample-standard-deviation">Table 2 — Per-LED Mean and Sample Standard Deviation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#across-led-analysis">Across-LED Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainty-in-the-mean">Uncertainty in the Mean</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#final-reported-value">Final Reported Value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tables">Tables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scope-of-this-section">Scope of This Section</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">5. Discussion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">6. Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">7. References</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="template-lab-2-led-forward-voltage-and-statistical-uncertainty">
+<h1>Template Lab 2: LED Forward Voltage and Statistical Uncertainty<a class="headerlink" href="#template-lab-2-led-forward-voltage-and-statistical-uncertainty" title="Link to this heading">#</a></h1>
+<p><strong>Course:</strong> University Physics II Laboratory<br />
+<strong>Name(s):</strong> [Enter your name(s)]<br />
+<strong>Date:</strong> [Enter date]</p>
+<hr class="docutils" />
+<section id="abstract">
+<h2>1. Abstract<a class="headerlink" href="#abstract" title="Link to this heading">#</a></h2>
+<p>Write 100–150 words summarizing:</p>
+<ul class="simple">
+<li><p>the purpose of the experiment (measuring LED forward voltage and quantifying uncertainty),</p></li>
+<li><p>the measurement method (Arduino voltage measurements under fixed DC conditions),</p></li>
+<li><p>the key statistical results (mean forward voltage and standard error of the mean), and</p></li>
+<li><p>the main conclusion regarding measurement variability versus device-to-device variation.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="introduction">
+<h2>2. Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Describe what a <strong>light-emitting diode (LED)</strong> is and explain the concept of <strong>forward bias</strong>.</p></li>
+<li><p>Define the <strong>forward voltage</strong> <span class="math notranslate nohighlight">\(V_f\)</span> as the voltage drop across an LED when it is conducting.</p></li>
+<li><p>Explain why <span class="math notranslate nohighlight">\(V_f\)</span> is expected to be approximately constant for a single LED under fixed conditions.</p></li>
+<li><p>Distinguish between:</p>
+<ul>
+<li><p><strong>measurement variability</strong> (scatter in repeated measurements of one LED)</p></li>
+<li><p><strong>manufacturing variation</strong> (differences in <span class="math notranslate nohighlight">\(V_f\)</span> between LEDs)</p></li>
+</ul>
+</li>
+<li><p>State why repeated measurements and statistical analysis are required even when measuring a constant physical quantity.</p></li>
+<li><p>Explain the role of the <strong>standard deviation</strong> and the <strong>standard error of the mean (SEM)</strong> in this experiment.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="methodology">
+<h2>2. Methodology<a class="headerlink" href="#methodology" title="Link to this heading">#</a></h2>
+<p>Briefly describe the experimental and computational workflow used in this lab.<br />
+(Include code cells where appropriate for transparency, but reserve analysis and interpretation for the <em>Results</em> section.)</p>
+<ol class="arabic simple">
+<li><p>Assemble the LED circuit with a series resistor and fixed DC supply from the Arduino.</p></li>
+<li><p>Measure the LED forward voltage using a <strong>differential voltage measurement</strong> with two analog inputs.</p></li>
+<li><p>For each LED, record <strong>20 repeated measurements</strong> of <span class="math notranslate nohighlight">\(V_f\)</span> while the LED remains continuously ON.</p></li>
+<li><p>Repeat the measurement process for <strong>multiple LEDs</strong> of the same type.</p></li>
+<li><p>Organize all raw voltage measurements into a single data table.</p></li>
+<li><p>Compute per-LED mean forward voltages and standard deviations.</p></li>
+<li><p>Compute the overall mean forward voltage and the standard error of the mean (SEM) across LEDs.</p></li>
+</ol>
+</section>
+<section id="data-acquisition-and-organization">
+<h2>3. Data Acquisition and Organization<a class="headerlink" href="#data-acquisition-and-organization" title="Link to this heading">#</a></h2>
+<p>In this section, describe <strong>how the data were collected and organized</strong>, focusing on clarity and reproducibility rather than results.</p>
+<p>Your description should include:</p>
+<ul class="simple">
+<li><p>How the Arduino was used to acquire voltage measurements from the LED circuit.</p></li>
+<li><p>How the Serial Monitor output was transferred into the table.</p></li>
+<li><p>How the table is structured (what rows and columns represent).</p></li>
+<li><p>How many measurements were taken per LED and how many LEDs were measured.</p></li>
+</ul>
+<p>Do <strong>not</strong>:</p>
+<ul class="simple">
+<li><p>Interpret the data.</p></li>
+<li><p>Report averages, standard deviations, or trends.</p></li>
+<li><p>Compare LEDs or comment on numerical values.</p></li>
+</ul>
+<p>Your goal is to make it clear that another student could reproduce the <strong>data organization</strong> exactly, using your description and the table alone.</p>
+<section id="table-1-raw-forward-voltage-measurements">
+<h3>Table 1 — Raw Forward-Voltage Measurements<a class="headerlink" href="#table-1-raw-forward-voltage-measurements" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Trial <span class="math notranslate nohighlight">\(j\)</span></p></th>
+<th class="head text-center"><p>LED 1 <span class="math notranslate nohighlight">\(V_{f,1j}\)</span> (V)</p></th>
+<th class="head text-center"><p>LED 2 <span class="math notranslate nohighlight">\(V_{f,2j}\)</span> (V)</p></th>
+<th class="head text-center"><p>LED 3 <span class="math notranslate nohighlight">\(V_{f,3j}\)</span> (V)</p></th>
+<th class="head text-center"><p>LED 4 <span class="math notranslate nohighlight">\(V_{f,4j}\)</span> (V)</p></th>
+<th class="head text-center"><p>LED 5 <span class="math notranslate nohighlight">\(V_{f,5j}\)</span> (V)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>1</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>2</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>3</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>4</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>5</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>6</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>7</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>8</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>9</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>10</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>11</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>12</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>13</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>14</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>15</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>16</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>17</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>18</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>19</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>20</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="results-analysis">
+<h2>4. Results / Analysis<a class="headerlink" href="#results-analysis" title="Link to this heading">#</a></h2>
+<p>This section is where you present and analyze your data.<br />
+Numerical results, tables, plots, and calculated quantities belong here.</p>
+<p>Organize this section so that the reader can clearly follow <strong>how raw measurements lead to the final reported result</strong>.</p>
+<p>Your Results / Analysis section should include the following components, in a logical order:</p>
+<section id="per-led-analysis">
+<h3>Per-LED Analysis<a class="headerlink" href="#per-led-analysis" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Compute the mean forward voltage for each LED using its 20 measurements.</p></li>
+<li><p>Compute the sample standard deviation for each LED.</p></li>
+<li><p>Present these values in a clearly labeled table.</p></li>
+</ul>
+<p>This part addresses <strong>measurement variability</strong> for a single LED.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example script</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Example: forward-voltage measurements for one LED (in volts)</span>
+<span class="n">Vf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.98</span><span class="p">,</span> <span class="mf">2.01</span><span class="p">,</span> <span class="mf">1.99</span><span class="p">,</span> <span class="mf">2.00</span><span class="p">,</span> <span class="mf">1.97</span><span class="p">])</span>
+
+<span class="c1"># Number of measurements</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">Vf</span><span class="p">)</span>
+
+<span class="c1"># Mean forward voltage</span>
+<span class="n">Vf_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">Vf</span><span class="p">)</span>
+
+<span class="c1"># Sample standard deviation (ddof=1 is essential!)</span>
+<span class="n">Vf_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">Vf</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of measurements: n = </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mean forward voltage: </span><span class="si">{</span><span class="n">Vf_mean</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> V&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sample standard deviation: </span><span class="si">{</span><span class="n">Vf_std</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> V&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of measurements: n = 5
+Mean forward voltage: 1.990 V
+Sample standard deviation: 0.0158 V
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="table-2-per-led-mean-and-sample-standard-deviation">
+<h3>Table 2 — Per-LED Mean and Sample Standard Deviation<a class="headerlink" href="#table-2-per-led-mean-and-sample-standard-deviation" title="Link to this heading">#</a></h3>
+<p>Report the mean forward voltage and the <strong>sample</strong> standard deviation for each LED below.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>LED <span class="math notranslate nohighlight">\(i\)</span></p></th>
+<th class="head text-center"><p>Number of measurements <span class="math notranslate nohighlight">\(n\)</span></p></th>
+<th class="head text-center"><p>Mean forward voltage <span class="math notranslate nohighlight">\(\bar{V}_{f,i}\)</span> (V)</p></th>
+<th class="head text-center"><p>Sample standard deviation <span class="math notranslate nohighlight">\(s_i\)</span> (V)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>1</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>2</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>3</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>4</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>5</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Notes:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n\)</span> should be the same for each LED (typically <span class="math notranslate nohighlight">\(n = 20\)</span>).</p></li>
+<li><p><span class="math notranslate nohighlight">\(\bar{V}_{f,i}\)</span> is the mean of the measurements for LED <span class="math notranslate nohighlight">\(i\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(s_i\)</span> is the <strong>sample</strong> standard deviation computed from those measurements.</p></li>
+<li><p>These values are used later to compute the overall mean and the standard error of the mean (SEM).</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="across-led-analysis">
+<h3>Across-LED Analysis<a class="headerlink" href="#across-led-analysis" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Treat the set of LED mean values as a new dataset.</p></li>
+<li><p>Compute the overall mean forward voltage across LEDs.</p></li>
+<li><p>Compute the standard deviation across LEDs.</p></li>
+</ul>
+<p>This part addresses <strong>device-to-device variation</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="uncertainty-in-the-mean">
+<h3>Uncertainty in the Mean<a class="headerlink" href="#uncertainty-in-the-mean" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Compute the standard error of the mean (SEM) using the standard deviation across LEDs and the number of LEDs measured.</p></li>
+<li><p>Clearly indicate which quantity the SEM applies to.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example code</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Mean forward voltage for each LED (in volts)</span>
+<span class="c1"># Replace these example values with your measured LED means</span>
+<span class="n">Vf_means</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="mf">1.98</span><span class="p">,</span>   <span class="c1"># LED 1</span>
+    <span class="mf">2.01</span><span class="p">,</span>   <span class="c1"># LED 2</span>
+    <span class="mf">1.99</span><span class="p">,</span>   <span class="c1"># LED 3</span>
+    <span class="mf">2.00</span><span class="p">,</span>   <span class="c1"># LED 4</span>
+    <span class="mf">1.97</span>    <span class="c1"># LED 5</span>
+<span class="p">])</span>
+
+<span class="c1"># Number of LEDs</span>
+<span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">Vf_means</span><span class="p">)</span>
+
+<span class="c1"># Overall mean forward voltage</span>
+<span class="n">Vf_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">Vf_means</span><span class="p">)</span>
+
+<span class="c1"># Standard deviation across LEDs (sample standard deviation!)</span>
+<span class="n">Vf_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">Vf_means</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Standard error of the mean</span>
+<span class="n">SEM</span> <span class="o">=</span> <span class="n">Vf_std</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of LEDs: N = </span><span class="si">{</span><span class="n">N</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Overall mean forward voltage: </span><span class="si">{</span><span class="n">Vf_mean</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> V&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Standard deviation across LEDs: </span><span class="si">{</span><span class="n">Vf_std</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> V&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Standard error of the mean (SEM): </span><span class="si">{</span><span class="n">SEM</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> V&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of LEDs: N = 5
+Overall mean forward voltage: 1.990 V
+Standard deviation across LEDs: 0.0158 V
+Standard error of the mean (SEM): 0.0071 V
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="final-reported-value">
+<h3>Final Reported Value<a class="headerlink" href="#final-reported-value" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Report the final result in the form<br />
+$<span class="math notranslate nohighlight">\(
+\bar{V}_f \pm \mathrm{SEM}
+\)</span>$</p></li>
+<li><p>Use appropriate units and significant figures.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="tables">
+<h3>Tables<a class="headerlink" href="#tables" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>All tables must be labeled and referenced in the text.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="scope-of-this-section">
+<h3>Scope of This Section<a class="headerlink" href="#scope-of-this-section" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>This section <strong>may include brief explanation</strong> of what calculated quantities represent.</p></li>
+<li><p>Do <strong>not</strong> explain <em>why</em> values differ or discuss error sources here.</p></li>
+<li><p>Save interpretation, limitations, and sources of uncertainty for the <strong>Discussion</strong> section.</p></li>
+</ul>
+<p>The goal of this section is to demonstrate correct and transparent <strong>data analysis</strong>, not physical interpretation.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="discussion">
+<h2>5. Discussion<a class="headerlink" href="#discussion" title="Link to this heading">#</a></h2>
+<p>Use this section to <strong>interpret and evaluate</strong> your results.</p>
+<p>Your discussion should address:</p>
+<ul class="simple">
+<li><p>The distinction between <strong>measurement variability</strong> (within a single LED) and <strong>device-to-device variation</strong> (between LEDs).</p></li>
+<li><p>The meaning of the <strong>standard deviation</strong> versus the <strong>standard error of the mean</strong> in the context of this experiment.</p></li>
+<li><p>Whether the reported uncertainty appropriately reflects how well the mean forward voltage is known.</p></li>
+<li><p>Possible <strong>random error sources</strong> in the voltage measurements.</p></li>
+<li><p>Possible <strong>systematic error sources</strong> associated with the circuit, the Arduino, or the measurement method.</p></li>
+</ul>
+<p>You may also comment on:</p>
+<ul class="simple">
+<li><p>How increasing the number of measurements or LEDs would affect the uncertainty.</p></li>
+<li><p>Limitations of the experimental setup.</p></li>
+<li><p>Specific improvements that could reduce uncertainty or bias.</p></li>
+</ul>
+<p>Do <strong>not</strong> introduce new calculations or data in this section.<br />
+Focus on reasoning, interpretation, and experimental evaluation.</p>
+</section>
+<hr class="docutils" />
+<section id="conclusion">
+<h2>6. Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>In this section, briefly summarize the outcome of the experiment.</p>
+<p>Your conclusion should:</p>
+<ul class="simple">
+<li><p>Restate the purpose of the lab in one sentence.</p></li>
+<li><p>Summarize the final reported result for the mean forward voltage, including its uncertainty.</p></li>
+<li><p>State what the uncertainty represents physically (i.e., uncertainty in the mean, not the spread of individual measurements).</p></li>
+<li><p>Comment on whether the experiment met its objectives.</p></li>
+</ul>
+<p>Do <strong>not</strong>:</p>
+<ul class="simple">
+<li><p>Introduce new data, calculations, or figures.</p></li>
+<li><p>Repeat detailed analysis or error discussion.</p></li>
+</ul>
+<p>The conclusion should be short and focused, providing closure to the report.</p>
+</section>
+<hr class="docutils" />
+<section id="references">
+<h2>7. References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<p>List any sources used (textbook, notes). Use a consistent citation style.</p>
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lab2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="lab2-manual.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lab 2 — LED Forward Voltage: Measurement, Variability, and Error in the Mean</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract">1. Abstract</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">2. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodology">2. Methodology</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-acquisition-and-organization">3. Data Acquisition and Organization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#table-1-raw-forward-voltage-measurements">Table 1 — Raw Forward-Voltage Measurements</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results-analysis">4. Results / Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#per-led-analysis">Per-LED Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#table-2-per-led-mean-and-sample-standard-deviation">Table 2 — Per-LED Mean and Sample Standard Deviation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#across-led-analysis">Across-LED Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainty-in-the-mean">Uncertainty in the Mean</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#final-reported-value">Final Reported Value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tables">Tables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scope-of-this-section">Scope of This Section</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">5. Discussion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">6. Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">7. References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
