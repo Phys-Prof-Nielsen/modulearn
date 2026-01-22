@@ -1,0 +1,909 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lab 3 — Terminal Voltage vs Load Current: Experimental Determination of Internal Resistance &#8212; A Note to University Physics II Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lab3/lab3-manual';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Template Lab 2: LED Forward Voltage and Statistical Uncertainty" href="../lab2/lab2-template.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="A Note to University Physics II Lab - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="A Note to University Physics II Lab - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Notes for University Physics II Lab
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/physics-labs/physics-lab.html">Physics Labs Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 1 - Report Writing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab1/lab1.html">Lab 1 (Synthetic): Ohm’s Law &amp; Writing a Professional Jupyter Report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab1/lab1-template.html">Template Lab 1: Ohm’s Law Report</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 2 - Arduino and Basic Error Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab2/lab2-manual.html">Lab 2 — LED Forward Voltage: Measurement, Variability, and Error in the Mean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab2/lab2-template.html">Template Lab 2: LED Forward Voltage and Statistical Uncertainty</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 3 - Terminal Voltage vs Load Current</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 3 — Terminal Voltage vs Load Current: Experimental Determination of Internal Resistance</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/university-physics-II-lab/lab3/lab3-manual.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lab3/lab3-manual.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 3 — Terminal Voltage vs Load Current: Experimental Determination of Internal Resistance</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-theory">Background Theory</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#real-source-model">Real Source Model</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equipment">Equipment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-procedure">Experimental Procedure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-open-circuit-voltage">Part 1 — Open-Circuit Voltage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-load-measurements">Part 2 — Load Measurements</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-table">Data Table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-analysis">Data Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graphical-analysis">Graphical Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#error-analysis">Error Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#measurement-uncertainty">Measurement Uncertainty</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainty-in-the-v-vs-i-graph">Uncertainty in the <span class="math notranslate nohighlight">\(V\)</span> vs. <span class="math notranslate nohighlight">\(I\)</span> Graph</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-of-uncertainty">Interpretation of Uncertainty</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#common-sources-of-experimental-uncertainty">Common Sources of Experimental Uncertainty</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-questions">Analysis Questions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">Discussion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#report-requirements">Report Requirements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes-and-tips">Notes and Tips</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-manual-calculation-of-fit-parameter-uncertainties">Appendix — Manual Calculation of Fit Parameter Uncertainties</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-model">Linear Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#residuals-and-data-scatter">Residuals and Data Scatter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainty-in-the-slope">Uncertainty in the Slope</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainty-in-the-intercept">Uncertainty in the Intercept</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Interpretation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-note">Practical Note</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-3-terminal-voltage-vs-load-current-experimental-determination-of-internal-resistance">
+<h1>Lab 3 — Terminal Voltage vs Load Current: Experimental Determination of Internal Resistance<a class="headerlink" href="#lab-3-terminal-voltage-vs-load-current-experimental-determination-of-internal-resistance" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Real power sources (batteries and power supplies) are <strong>not ideal</strong>. When a current is drawn, the terminal voltage decreases due to the source’s <strong>internal resistance</strong>.</p>
+<p>In this lab you will:</p>
+<ul class="simple">
+<li><p>model a real source as an ideal emf <span class="math notranslate nohighlight">\(\mathcal{E}\)</span> in series with an internal resistance <span class="math notranslate nohighlight">\(r\)</span>,</p></li>
+<li><p>measure the <strong>terminal voltage</strong> and <strong>current</strong> for different load resistors,</p></li>
+<li><p>use a <strong>linear fit</strong> to determine the internal resistance of the source,</p></li>
+<li><p>apply Ohm’s law in a physically meaningful experimental context.</p></li>
+</ul>
+<p>Only <strong>one load resistor at a time</strong> is used. No series or parallel resistor combinations are required.</p>
+</section>
+<hr class="docutils" />
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>By the end of this lab, you should be able to:</p>
+<ol class="arabic simple">
+<li><p>Explain why terminal voltage decreases as load current increases.</p></li>
+<li><p>Apply Ohm’s law to a circuit containing a real (non-ideal) voltage source.</p></li>
+<li><p>Experimentally determine the internal resistance of a source.</p></li>
+<li><p>Interpret the slope and intercept of a <span class="math notranslate nohighlight">\(V\)</span> vs. <span class="math notranslate nohighlight">\(I\)</span> graph.</p></li>
+<li><p>Distinguish between emf and terminal voltage.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="background-theory">
+<h2>Background Theory<a class="headerlink" href="#background-theory" title="Link to this heading">#</a></h2>
+<section id="real-source-model">
+<h3>Real Source Model<a class="headerlink" href="#real-source-model" title="Link to this heading">#</a></h3>
+<p>A real voltage source can be modeled as an ideal emf <span class="math notranslate nohighlight">\(\mathcal{E}\)</span> in series with an internal resistance <span class="math notranslate nohighlight">\(r\)</span>.</p>
+<p>When a load resistor <span class="math notranslate nohighlight">\(R\)</span> is connected, the circuit current is</p>
+<div class="math notranslate nohighlight">
+\[
+I = \frac{\mathcal{E}}{R + r}.
+\]</div>
+<p>The <strong>terminal voltage</strong> across the load resistor is</p>
+<div class="math notranslate nohighlight">
+\[
+V = IR.
+\]</div>
+<p>Substituting for <span class="math notranslate nohighlight">\(I\)</span> gives</p>
+<div class="math notranslate nohighlight">
+\[
+V = \mathcal{E} - Ir.
+\]</div>
+<p>This predicts a <strong>linear relationship</strong> between terminal voltage and current:</p>
+<div class="math notranslate nohighlight">
+\[
+V = \mathcal{E} - rI.
+\]</div>
+<p>From a linear fit to <span class="math notranslate nohighlight">\(V\)</span> vs. <span class="math notranslate nohighlight">\(I\)</span>:</p>
+<ul class="simple">
+<li><p>the vertical intercept is <span class="math notranslate nohighlight">\(\mathcal{E}\)</span>,</p></li>
+<li><p>the slope is <span class="math notranslate nohighlight">\(-r\)</span>.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="equipment">
+<h2>Equipment<a class="headerlink" href="#equipment" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>DC power source (battery pack)</p></li>
+<li><p>Digital multimeter</p></li>
+<li><p>Set of single resistors (e.g. 22 <span class="math notranslate nohighlight">\(\Omega\)</span>, 47 <span class="math notranslate nohighlight">\(\Omega\)</span>, 100 <span class="math notranslate nohighlight">\(\Omega\)</span>, 220 <span class="math notranslate nohighlight">\(\Omega\)</span>, 470 <span class="math notranslate nohighlight">\(\Omega\)</span>)</p></li>
+<li><p>Connecting leads or breadboard</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="experimental-procedure">
+<h2>Experimental Procedure<a class="headerlink" href="#experimental-procedure" title="Link to this heading">#</a></h2>
+<section id="part-1-open-circuit-voltage">
+<h3>Part 1 — Open-Circuit Voltage<a class="headerlink" href="#part-1-open-circuit-voltage" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Do <strong>not</strong> connect any load resistor to the source.</p></li>
+<li><p>Measure the voltage across the source terminals.</p></li>
+<li><p>Record this value as the <strong>open-circuit voltage</strong> <span class="math notranslate nohighlight">\(V_{\text{OC}}\)</span>.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="part-2-load-measurements">
+<h3>Part 2 — Load Measurements<a class="headerlink" href="#part-2-load-measurements" title="Link to this heading">#</a></h3>
+<p>For each load resistor <span class="math notranslate nohighlight">\(R\)</span>:</p>
+<ol class="arabic simple">
+<li><p>Connect the resistor to the source.</p></li>
+<li><p>Measure the <strong>current</strong> <span class="math notranslate nohighlight">\(I\)</span> through the circuit.</p></li>
+<li><p>Measure the <strong>terminal voltage</strong> <span class="math notranslate nohighlight">\(V\)</span> across the load resistor.</p></li>
+<li><p>Record both values in your data table.</p></li>
+<li><p>Disconnect the resistor before switching to the next value.</p></li>
+</ol>
+<p>Use <strong>at least five</strong> different load resistors.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="data-table">
+<h2>Data Table<a class="headerlink" href="#data-table" title="Link to this heading">#</a></h2>
+<p>Create a table with the following columns:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-right"><p>Trial</p></th>
+<th class="head text-right"><p>Load Resistance <span class="math notranslate nohighlight">\(R\)</span> (<span class="math notranslate nohighlight">\(\Omega\)</span>)</p></th>
+<th class="head text-right"><p>Terminal Voltage <span class="math notranslate nohighlight">\(V\)</span> (V)</p></th>
+<th class="head text-right"><p>Current <span class="math notranslate nohighlight">\(I\)</span> (A)</p></th>
+</tr>
+</thead>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="data-analysis">
+<h2>Data Analysis<a class="headerlink" href="#data-analysis" title="Link to this heading">#</a></h2>
+<section id="graphical-analysis">
+<h3>Graphical Analysis<a class="headerlink" href="#graphical-analysis" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Plot terminal voltage <span class="math notranslate nohighlight">\(V\)</span> on the vertical axis.</p></li>
+<li><p>Plot current <span class="math notranslate nohighlight">\(I\)</span> on the horizontal axis.</p></li>
+<li><p>Fit the data to a straight line of the form</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+V = a + bI.
+\]</div>
+</section>
+<section id="interpretation">
+<h3>Interpretation<a class="headerlink" href="#interpretation" title="Link to this heading">#</a></h3>
+<p>From the fit parameters:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{E} = a,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+r = -b.
+\]</div>
+<p>Report both values with appropriate units.</p>
+</section>
+<hr class="docutils" />
+<section id="error-analysis">
+<h3>Error Analysis<a class="headerlink" href="#error-analysis" title="Link to this heading">#</a></h3>
+<p>All experimental measurements have uncertainty. In this lab, uncertainty enters primarily through
+measurements of <strong>voltage</strong> and <strong>current</strong>, and it affects your determination of the emf <span class="math notranslate nohighlight">\(\mathcal{E}\)</span>
+and internal resistance <span class="math notranslate nohighlight">\(r\)</span>.</p>
+<section id="measurement-uncertainty">
+<h4>Measurement Uncertainty<a class="headerlink" href="#measurement-uncertainty" title="Link to this heading">#</a></h4>
+<p>For each measured quantity, record the uncertainty based on the digital multimeter specifications
+or display resolution:</p>
+<ul class="simple">
+<li><p>Voltage uncertainty: <span class="math notranslate nohighlight">\(\delta V\)</span></p></li>
+<li><p>Current uncertainty: <span class="math notranslate nohighlight">\(\delta I\)</span></p></li>
+</ul>
+<p>If no manufacturer specifications are provided, you may estimate uncertainty as <strong>one least significant digit</strong>
+of the meter display.</p>
+</section>
+<hr class="docutils" />
+<section id="uncertainty-in-the-v-vs-i-graph">
+<h4>Uncertainty in the <span class="math notranslate nohighlight">\(V\)</span> vs. <span class="math notranslate nohighlight">\(I\)</span> Graph<a class="headerlink" href="#uncertainty-in-the-v-vs-i-graph" title="Link to this heading">#</a></h4>
+<p>You will determine <span class="math notranslate nohighlight">\(\mathcal{E}\)</span> and <span class="math notranslate nohighlight">\(r\)</span> from a linear fit to the data</p>
+<div class="math notranslate nohighlight">
+\[
+V = a + bI.
+\]</div>
+<p>The fitting routine provides:</p>
+<ul class="simple">
+<li><p>best-fit values of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>,</p></li>
+<li><p>uncertainties <span class="math notranslate nohighlight">\(\delta a\)</span> and <span class="math notranslate nohighlight">\(\delta b\)</span>.</p></li>
+</ul>
+<p>Details on how the uncertainties in the fit parameters are calculated are provided in the <a class="reference internal" href="#appendix-uncertainty"><span class="xref myst">Appendix on Manual Uncertainty Calculations</span></a> at the end of this note.</p>
+<p>These uncertainties represent how well your data constrain the model.</p>
+<p>From the fit:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{E} = a \pm \delta a,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+r = -b \pm \delta b.
+\]</div>
+<p>Be sure to report uncertainties with <strong>appropriate significant figures</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="interpretation-of-uncertainty">
+<h4>Interpretation of Uncertainty<a class="headerlink" href="#interpretation-of-uncertainty" title="Link to this heading">#</a></h4>
+<p>In your analysis, comment on:</p>
+<ul class="simple">
+<li><p>whether the uncertainty in <span class="math notranslate nohighlight">\(r\)</span> is dominated by low-current or high-current data,</p></li>
+<li><p>how the spread of your data points affects the slope determination,</p></li>
+<li><p>whether your uncertainty in <span class="math notranslate nohighlight">\(\mathcal{E}\)</span> is consistent with the measured open-circuit voltage <span class="math notranslate nohighlight">\(V_{\text{OC}}\)</span>.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="common-sources-of-experimental-uncertainty">
+<h4>Common Sources of Experimental Uncertainty<a class="headerlink" href="#common-sources-of-experimental-uncertainty" title="Link to this heading">#</a></h4>
+<p>Discuss at least <strong>two</strong> of the following in your report:</p>
+<ul class="simple">
+<li><p>finite resolution of the multimeter,</p></li>
+<li><p>fluctuations in battery voltage during the experiment,</p></li>
+<li><p>contact resistance at leads and connections,</p></li>
+<li><p>heating of the load resistor at higher currents,</p></li>
+<li><p>small variations in internal resistance as current changes.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="analysis-questions">
+<h2>Analysis Questions<a class="headerlink" href="#analysis-questions" title="Link to this heading">#</a></h2>
+<p>Answer in complete sentences.</p>
+<ol class="arabic simple">
+<li><p>Why does the terminal voltage decrease as the current increases?</p></li>
+<li><p>What physical property of the source does the slope of the <span class="math notranslate nohighlight">\(V\)</span> vs. <span class="math notranslate nohighlight">\(I\)</span> graph represent?</p></li>
+<li><p>Compare your fitted value of <span class="math notranslate nohighlight">\(\mathcal{E}\)</span> with the open-circuit voltage <span class="math notranslate nohighlight">\(V_{\text{OC}}\)</span>. Are they exactly the same? Why or why not?</p></li>
+<li><p>Which data points (low current or high current) most strongly affect the determination of <span class="math notranslate nohighlight">\(r\)</span>? Explain.</p></li>
+<li><p>What would the <span class="math notranslate nohighlight">\(V\)</span> vs. <span class="math notranslate nohighlight">\(I\)</span> graph look like if the internal resistance were zero?</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="discussion">
+<h2>Discussion<a class="headerlink" href="#discussion" title="Link to this heading">#</a></h2>
+<p>In your discussion, address:</p>
+<ul class="simple">
+<li><p>the physical meaning of internal resistance,</p></li>
+<li><p>how your data demonstrate that the source is non-ideal,</p></li>
+<li><p>major sources of uncertainty in this experiment,</p></li>
+<li><p>one real-world implication of internal resistance (for example, voltage drop in batteries under heavy load).</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="report-requirements">
+<h2>Report Requirements<a class="headerlink" href="#report-requirements" title="Link to this heading">#</a></h2>
+<p>In addition to the required format, ,ake sure your submitted report include:</p>
+<ol class="arabic simple">
+<li><p>A clearly labeled <span class="math notranslate nohighlight">\(V\)</span> vs. <span class="math notranslate nohighlight">\(I\)</span> graph with a best-fit line</p></li>
+<li><p>Calculated values of <span class="math notranslate nohighlight">\(\mathcal{E}\)</span> and <span class="math notranslate nohighlight">\(r\)</span></p></li>
+<li><p>Answers to all analysis questions</p></li>
+<li><p>Include the discussion points.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="notes-and-tips">
+<h2>Notes and Tips<a class="headerlink" href="#notes-and-tips" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Use consistent units throughout your analysis.</p></li>
+<li><p>Allow the source to rest briefly between measurements if it warms up.</p></li>
+<li><p>A linear <span class="math notranslate nohighlight">\(V\)</span>–<span class="math notranslate nohighlight">\(I\)</span> relationship is strong evidence that the source behaves like an emf in series with an internal resistance.</p></li>
+</ul>
+<hr class="docutils" />
+<p><a id="appendix-uncertainty"></a></p>
+</section>
+<section id="appendix-manual-calculation-of-fit-parameter-uncertainties">
+<h2>Appendix — Manual Calculation of Fit Parameter Uncertainties<a class="headerlink" href="#appendix-manual-calculation-of-fit-parameter-uncertainties" title="Link to this heading">#</a></h2>
+<p>This appendix shows how the uncertainties in the intercept and slope of a linear fit can be
+calculated directly from the data using standard least-squares methods. You are <strong>not required</strong>
+to perform these calculations by hand for this lab, but the results are equivalent to the
+uncertainties reported by Python or Excel fitting routines.</p>
+<hr class="docutils" />
+<section id="linear-model">
+<h3>Linear Model<a class="headerlink" href="#linear-model" title="Link to this heading">#</a></h3>
+<p>The data are modeled by a straight line</p>
+<div class="math notranslate nohighlight">
+\[
+V = a + bI,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(a\)</span> is the intercept and <span class="math notranslate nohighlight">\(b\)</span> is the slope.</p>
+</section>
+<hr class="docutils" />
+<section id="residuals-and-data-scatter">
+<h3>Residuals and Data Scatter<a class="headerlink" href="#residuals-and-data-scatter" title="Link to this heading">#</a></h3>
+<p>After determining the best-fit values of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, define the residuals</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta V_i = V_i - (a + b I_i).
+\]</div>
+<p>The variance of the data about the fit is</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma^2 = \frac{1}{N - 2} \sum_i (\Delta V_i)^2,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(N\)</span> is the number of data points and the factor <span class="math notranslate nohighlight">\((N-2)\)</span> accounts for the two fitted parameters.</p>
+</section>
+<hr class="docutils" />
+<section id="uncertainty-in-the-slope">
+<h3>Uncertainty in the Slope<a class="headerlink" href="#uncertainty-in-the-slope" title="Link to this heading">#</a></h3>
+<p>The uncertainty in the slope <span class="math notranslate nohighlight">\(b\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+\delta b
+= \sqrt{
+\frac{\sigma^2}{\sum_i (I_i - \bar I)^2}
+},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\bar I\)</span> is the mean of the current values.</p>
+</section>
+<hr class="docutils" />
+<section id="uncertainty-in-the-intercept">
+<h3>Uncertainty in the Intercept<a class="headerlink" href="#uncertainty-in-the-intercept" title="Link to this heading">#</a></h3>
+<p>The uncertainty in the intercept <span class="math notranslate nohighlight">\(a\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+\delta a
+= \sqrt{
+\sigma^2
+\left(
+\frac{1}{N}
++
+\frac{\bar I^2}{\sum_i (I_i - \bar I)^2}
+\right)
+}.
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="id1">
+<h3>Interpretation<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>These expressions show that:</p>
+<ul class="simple">
+<li><p>the uncertainty in the slope (and therefore in the internal resistance <span class="math notranslate nohighlight">\(r = -b\)</span>) decreases when the
+current values are spread over a wide range,</p></li>
+<li><p>clustering data points near a single current value leads to a poorly determined slope,</p></li>
+<li><p>the uncertainties reported by software fitting routines come directly from these formulas.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="practical-note">
+<h3>Practical Note<a class="headerlink" href="#practical-note" title="Link to this heading">#</a></h3>
+<p>In this lab, you should obtain <span class="math notranslate nohighlight">\(\delta a\)</span> and <span class="math notranslate nohighlight">\(\delta b\)</span> from the fitting routine used in Python or
+Excel. The purpose of this appendix is to demonstrate that these uncertainties have a clear
+mathematical and physical origin and are not arbitrary outputs of the software.</p>
+<hr class="docutils" />
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lab3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../lab2/lab2-template.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Template Lab 2: LED Forward Voltage and Statistical Uncertainty</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-theory">Background Theory</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#real-source-model">Real Source Model</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equipment">Equipment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-procedure">Experimental Procedure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-open-circuit-voltage">Part 1 — Open-Circuit Voltage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-load-measurements">Part 2 — Load Measurements</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-table">Data Table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-analysis">Data Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graphical-analysis">Graphical Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#error-analysis">Error Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#measurement-uncertainty">Measurement Uncertainty</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainty-in-the-v-vs-i-graph">Uncertainty in the <span class="math notranslate nohighlight">\(V\)</span> vs. <span class="math notranslate nohighlight">\(I\)</span> Graph</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-of-uncertainty">Interpretation of Uncertainty</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#common-sources-of-experimental-uncertainty">Common Sources of Experimental Uncertainty</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-questions">Analysis Questions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">Discussion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#report-requirements">Report Requirements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes-and-tips">Notes and Tips</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-manual-calculation-of-fit-parameter-uncertainties">Appendix — Manual Calculation of Fit Parameter Uncertainties</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-model">Linear Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#residuals-and-data-scatter">Residuals and Data Scatter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainty-in-the-slope">Uncertainty in the Slope</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainty-in-the-intercept">Uncertainty in the Intercept</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Interpretation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-note">Practical Note</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
