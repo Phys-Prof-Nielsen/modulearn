@@ -1,0 +1,1082 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lab 4 — Electric Fields and Electric Potential &#8212; A Note to University Physics II Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lab4/lab4-manual';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Lab 3 — Terminal Voltage vs Load Current: Experimental Determination of Internal Resistance" href="../lab3/lab3-manual.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="A Note to University Physics II Lab - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="A Note to University Physics II Lab - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Notes for University Physics II Lab
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/physics-labs/physics-lab.html">Physics Labs Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 1 - Report Writing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab1/lab1.html">Lab 1 (Synthetic): Ohm’s Law &amp; Writing a Professional Jupyter Report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab1/lab1-template.html">Template Lab 1: Ohm’s Law Report</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 2 - Arduino and Basic Error Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab2/lab2-manual.html">Lab 2 — LED Forward Voltage: Measurement, Variability, and Error in the Mean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab2/lab2-template.html">Template Lab 2: LED Forward Voltage and Statistical Uncertainty</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 3 - Terminal Voltage vs Load Current</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab3/lab3-manual.html">Lab 3 — Terminal Voltage vs Load Current: Experimental Determination of Internal Resistance</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 4 - Electric Fields and Electric Potential</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 4 — Electric Fields and Electric Potential</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/university-physics-II-lab/lab4/lab4-manual.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lab4/lab4-manual.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 4 — Electric Fields and Electric Potential</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-theory">Background Theory</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#electric-potential-and-equipotentials">1) Electric Potential and Equipotentials</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#electric-field-from-the-gradient">2) Electric Field from the Gradient</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-grid-based-derivatives-finite-differences">3) Discrete (Grid-Based) Derivatives (Finite Differences)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-sharp-points-matter-lightning-rod-geometry">4) Why Sharp Points Matter (Lightning Rod Geometry)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-electric-dipole-why-its-a-big-deal">5) The Electric Dipole (Why It’s a Big Deal)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equipment-needed">Equipment Needed</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-conducting-paper-mapping">Part 1 — Conducting Paper Mapping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-phet-simulation">Part 2 — PhET Simulation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-procedure">Experimental Procedure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-mapping-v-x-y-on-conducting-paper">Part 1 — Mapping <span class="math notranslate nohighlight">\(V(x,y)\)</span> on Conducting Paper</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-setup-and-calibration">A. Setup and Calibration</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#b-measuring-the-potential-map">B. Measuring the Potential Map</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c-repeat-for-the-lightning-rod-geometry">C. Repeat for the “Lightning Rod” Geometry</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-phet-dipole-mapping-charges-and-fields">Part 2 — PhET Dipole Mapping (Charges and Fields)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-analysis-python-or-excel">Data Analysis (Python or Excel)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#organize-your-data">1) Organize Your Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-potential-map">2) Plot the Potential Map</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-field-components">3) Compute the Field Components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-electric-field">4) Visualize the Electric Field</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-geometries">5) Compare Geometries</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-questions-include-in-your-report">Analysis Questions (Include in Your Report)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">Discussion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#report-checklist-beyond-the-standard-expexted-content">Report Checklist (Beyond the standard expexted content)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-table-template">Data Table Template</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-template">Python Template</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-4-electric-fields-and-electric-potential">
+<h1>Lab 4 — Electric Fields and Electric Potential<a class="headerlink" href="#lab-4-electric-fields-and-electric-potential" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>In this lab you will <strong>measure electric potential <span class="math notranslate nohighlight">\(V(x,y)\)</span></strong> in two different ways and then <strong>compute the electric field</strong> from that potential using</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{E}(x,y) = -\nabla V(x,y).
+\]</div>
+<p><strong>Part 1 (Conducting paper mapping):</strong> You will use conducting paper to create two electrode geometries:</p>
+<ol class="arabic simple">
+<li><p><strong>Parallel plates</strong> (a 2D model of a parallel-plate capacitor)</p></li>
+<li><p><strong>Pointed conductor (“lightning rod”)</strong> (a triangle/needle-like electrode)</p></li>
+</ol>
+<p>You will map the potential with a voltmeter, then use <strong>Python or Excel</strong> to estimate <span class="math notranslate nohighlight">\(\nabla V\)</span> from your measured grid of <span class="math notranslate nohighlight">\(V(x,y)\)</span> values and construct an electric-field map.</p>
+<p><strong>Part 2 (PhET simulation):</strong> You will use <strong>PhET Charges and Fields</strong> to map the potential and electric field for an <strong>electric dipole</strong>. You will compare patterns (equipotentials, field lines, magnitude changes with distance) and connect the dipole to real applications—especially when we move beyond static fields.</p>
+<p><strong>About PhET Interactive Simulations</strong></p>
+<p>PhET Interactive Simulations is a research-based collection of interactive science simulations designed to help students build intuitive, visual understanding of physical concepts by actively exploring cause-and-effect relationships. PhET was founded at the University of Colorado Boulder by physicist Carl Wieman, who was awarded the <strong>2001 Nobel Prize in Physics</strong> (shared with Eric Cornell and Wolfgang Ketterle) for the experimental realization of <strong>Bose–Einstein condensation in dilute gases</strong>. Wieman’s leadership of PhET powerfully illustrates his commitment not only to cutting-edge research, but also to transforming how physics is taught and learned. The simulations are grounded in physics education research and are intentionally designed to promote exploration, sense-making, and conceptual reasoning—making them an ideal complement to hands-on experiments like this lab, where students connect physical measurements, computational analysis, and visualization.</p>
+</section>
+<hr class="docutils" />
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>By the end of this lab, you should be able to:</p>
+<ol class="arabic">
+<li><p>Explain the relationship between electric potential and electric field:</p>
+<div class="math notranslate nohighlight">
+\[\vec{E} = -\nabla V.\]</div>
+</li>
+<li><p>Measure (or extract) a 2D potential map <span class="math notranslate nohighlight">\(V(x,y)\)</span> on a grid and visualize it using contour/equipotential plots.</p></li>
+<li><p>Compute the electric field from discrete potential data using finite differences:</p>
+<div class="math notranslate nohighlight">
+\[
+   E_x \approx -\frac{\partial V}{\partial x}, \qquad E_y \approx -\frac{\partial V}{\partial y}.
+   \]</div>
+</li>
+<li><p>Interpret electric-field maps: direction, relative magnitude, and where fields are strongest.</p></li>
+<li><p>Describe how geometry affects field concentration (e.g., why fields are enhanced near sharp points).</p></li>
+<li><p>Recognize why the <strong>dipole</strong> is a foundational model in E&amp;M, including its role in <strong>radiation and time-varying fields</strong>.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="background-theory">
+<h2>Background Theory<a class="headerlink" href="#background-theory" title="Link to this heading">#</a></h2>
+<section id="electric-potential-and-equipotentials">
+<h3>1) Electric Potential and Equipotentials<a class="headerlink" href="#electric-potential-and-equipotentials" title="Link to this heading">#</a></h3>
+<p>Electric potential <span class="math notranslate nohighlight">\(V\)</span> (in volts) is defined so that the potential difference relates to work per unit charge:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta V = -\int_{\mathcal{C}} \vec{E}\cdot d\vec{\ell}.
+\]</div>
+<p>Surfaces (or curves in 2D) of constant potential are <strong>equipotentials</strong>. The electric field is always <strong>perpendicular</strong> to equipotential curves and points “downhill” in potential.</p>
+</section>
+<section id="electric-field-from-the-gradient">
+<h3>2) Electric Field from the Gradient<a class="headerlink" href="#electric-field-from-the-gradient" title="Link to this heading">#</a></h3>
+<p>In two dimensions,</p>
+<div class="math notranslate nohighlight">
+\[
+\nabla V = \left(\frac{\partial V}{\partial x}\right)\hat{i} + \left(\frac{\partial V}{\partial y}\right)\hat{j},
+\qquad
+\vec{E} = -\nabla V.
+\]</div>
+<p>So, a rapid change in potential over a short distance implies a large field magnitude:</p>
+<div class="math notranslate nohighlight">
+\[
+|\vec{E}| = \sqrt{E_x^2 + E_y^2}.
+\]</div>
+</section>
+<section id="discrete-grid-based-derivatives-finite-differences">
+<h3>3) Discrete (Grid-Based) Derivatives (Finite Differences)<a class="headerlink" href="#discrete-grid-based-derivatives-finite-differences" title="Link to this heading">#</a></h3>
+<p>Your data are measured at grid points <span class="math notranslate nohighlight">\((x_i, y_j)\)</span> with spacing <span class="math notranslate nohighlight">\(\Delta x\)</span> and <span class="math notranslate nohighlight">\(\Delta y\)</span>.</p>
+<p>A common numerical estimate at interior points is the <strong>central difference</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial V}{\partial x}\Big|_{i,j} \approx \frac{V_{i+1,j}-V_{i-1,j}}{2\Delta x}, 
+\qquad
+\frac{\partial V}{\partial y}\Big|_{i,j} \approx \frac{V_{i,j+1}-V_{i,j-1}}{2\Delta y}.
+\]</div>
+<p>Then</p>
+<div class="math notranslate nohighlight">
+\[
+E_{x,i,j} \approx -\frac{V_{i+1,j}-V_{i-1,j}}{2\Delta x},
+\qquad
+E_{y,i,j} \approx -\frac{V_{i,j+1}-V_{i,j-1}}{2\Delta y}.
+\]</div>
+<p>At the boundaries, you will need <strong>one-sided differences</strong>, e.g.</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial V}{\partial x}\Big|_{1,j}\approx \frac{V_{2,j}-V_{1,j}}{\Delta x}.
+\]</div>
+<blockquote>
+<div><p>NOTE: In this lab, the provide Python template use the built-in numerical gradient function to compute <span class="math notranslate nohighlight">\(\vec{E} = -\nabla V\)</span> directly from the 2D potential array, but students who prefer Excel (or who want more control) may instead use the finite-difference method explicitly; both approaches are valid, and the finite-difference method can also be implemented manually in Python if desired.</p>
+</div></blockquote>
+</section>
+<section id="why-sharp-points-matter-lightning-rod-geometry">
+<h3>4) Why Sharp Points Matter (Lightning Rod Geometry)<a class="headerlink" href="#why-sharp-points-matter-lightning-rod-geometry" title="Link to this heading">#</a></h3>
+<p>For conductors, charges rearrange until the conductor is an equipotential. Near sharp points, surface charge density tends to be higher, producing a stronger electric field nearby. Practically: <strong>fields concentrate near points</strong>, which can promote air ionization and influence discharge paths.</p>
+</section>
+<section id="the-electric-dipole-why-its-a-big-deal">
+<h3>5) The Electric Dipole (Why It’s a Big Deal)<a class="headerlink" href="#the-electric-dipole-why-its-a-big-deal" title="Link to this heading">#</a></h3>
+<p>A dipole is two equal and opposite charges separated by a small distance. The dipole is the <strong>first nontrivial</strong> charge distribution beyond a single point charge and shows up everywhere:</p>
+<ul class="simple">
+<li><p><strong>Molecular physics/chemistry:</strong> polar molecules (e.g., water) behave like dipoles in external fields.</p></li>
+<li><p><strong>Materials:</strong> polarization and dielectric response can be modeled using dipoles.</p></li>
+<li><p><strong>Antennas and radiation:</strong> time-varying dipoles are among the simplest sources of <strong>electromagnetic waves</strong> (the “oscillating dipole” is a cornerstone model for radiation).</p></li>
+<li><p><strong>Long-range behavior:</strong> many neutral systems have a leading far-field that looks dipolar (or higher multipoles if symmetry cancels the dipole).</p></li>
+</ul>
+<p>Even though this lab focuses on static patterns, the <strong>dipole is a bridge</strong> to what comes next: induction, waves, and radiation.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="equipment-needed">
+<h2>Equipment Needed<a class="headerlink" href="#equipment-needed" title="Link to this heading">#</a></h2>
+<section id="part-1-conducting-paper-mapping">
+<h3>Part 1 — Conducting Paper Mapping<a class="headerlink" href="#part-1-conducting-paper-mapping" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Conducting paper sheets (or conductive mapping paper)</p></li>
+<li><p>DC power supply (low voltage, typically a few volts) or  9 V battery</p></li>
+<li><p>Electrodes/templates for:</p>
+<ul>
+<li><p>Parallel plates</p></li>
+<li><p>Pointed/triangular conductor (“lightning rod”)</p></li>
+</ul>
+</li>
+<li><p>Leads/alligator clips</p></li>
+<li><p>Digital multimeter (voltage mode)</p></li>
+<li><p>Ruler (for grid spacing)</p></li>
+<li><p>Laptop with <strong>Excel or Python</strong> (template provided at the end of the note)</p></li>
+</ul>
+</section>
+<section id="part-2-phet-simulation">
+<h3>Part 2 — PhET Simulation<a class="headerlink" href="#part-2-phet-simulation" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Computer with internet</p></li>
+<li><p><a class="reference external" href="https://phet.colorado.edu/en/simulations/charges-and-fields">PhET <strong>Charges and Fields</strong> simulation</a></p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="experimental-procedure">
+<h2>Experimental Procedure<a class="headerlink" href="#experimental-procedure" title="Link to this heading">#</a></h2>
+<section id="part-1-mapping-v-x-y-on-conducting-paper">
+<h3>Part 1 — Mapping <span class="math notranslate nohighlight">\(V(x,y)\)</span> on Conducting Paper<a class="headerlink" href="#part-1-mapping-v-x-y-on-conducting-paper" title="Link to this heading">#</a></h3>
+<section id="a-setup-and-calibration">
+<h4>A. Setup and Calibration<a class="headerlink" href="#a-setup-and-calibration" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>Place the conducting paper on the table.</p></li>
+<li><p>Attach the electrodes for the <strong>parallel plate</strong> configuration if not already attached.</p></li>
+<li><p>Connect the power supply across the electrodes (start with a low voltage).</p></li>
+<li><p>Choose a coordinate system: mark an origin and axes along the paper edges.</p></li>
+</ol>
+</section>
+<section id="b-measuring-the-potential-map">
+<h4>B. Measuring the Potential Map<a class="headerlink" href="#b-measuring-the-potential-map" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>Choose the negative electrode as your reference (ground) for measurements.</p></li>
+<li><p>Set the multimeter to DC voltage.</p></li>
+<li><p>For each grid point <span class="math notranslate nohighlight">\((x_i,y_j)\)</span>:</p>
+<ul class="simple">
+<li><p>Touch the probe tip at the grid point (good contact, consistent pressure).</p></li>
+<li><p>Record <span class="math notranslate nohighlight">\(V_{i,j}\)</span> relative to the reference electrode.</p></li>
+</ul>
+</li>
+<li><p>Collect enough points to see structure clearly (a coarse grid may miss sharp features near the point).</p></li>
+</ol>
+</section>
+<section id="c-repeat-for-the-lightning-rod-geometry">
+<h4>C. Repeat for the “Lightning Rod” Geometry<a class="headerlink" href="#c-repeat-for-the-lightning-rod-geometry" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>Replace the electrodes with the pointed/triangular electrode configuration.</p></li>
+<li><p>Re-use the same reference system if appropriate, but consider taking more measurements near the pointed region where <span class="math notranslate nohighlight">\(V\)</span> changes rapidly.</p></li>
+<li><p>Record a new potential map <span class="math notranslate nohighlight">\(V(x,y)\)</span>.</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-2-phet-dipole-mapping-charges-and-fields">
+<h3>Part 2 — PhET Dipole Mapping (Charges and Fields)<a class="headerlink" href="#part-2-phet-dipole-mapping-charges-and-fields" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Open the PhET simulation and set up an <strong>electric dipole</strong> (equal and opposite charges separated by a distance).</p></li>
+<li><p>Create a measurement grid in the simulation plane:</p>
+<ul class="simple">
+<li><p>Choose a spacing and a region large enough to show the overall pattern.</p></li>
+</ul>
+</li>
+<li><p>Record <span class="math notranslate nohighlight">\(V(x,y)\)</span> at grid points (either by reading values directly or by using built-in probes).</p></li>
+<li><p>Use your recorded <span class="math notranslate nohighlight">\(V(x,y)\)</span> to compute <span class="math notranslate nohighlight">\(\vec{E}(x,y)\)</span> using the same numerical gradient method as Part 1.</p></li>
+<li><p>Compare your computed field vectors to the simulation’s field vectors (direction and relative magnitude).</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="data-analysis-python-or-excel">
+<h2>Data Analysis (Python or Excel)<a class="headerlink" href="#data-analysis-python-or-excel" title="Link to this heading">#</a></h2>
+<section id="organize-your-data">
+<h3>1) Organize Your Data<a class="headerlink" href="#organize-your-data" title="Link to this heading">#</a></h3>
+<p>Create a table of:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x_i\)</span>, <span class="math notranslate nohighlight">\(y_j\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(V_{i,j}\)</span></p></li>
+</ul>
+<p>If your data are on a rectangular grid, store <span class="math notranslate nohighlight">\(V\)</span> as a 2D array with known <span class="math notranslate nohighlight">\(\Delta x\)</span>, <span class="math notranslate nohighlight">\(\Delta y\)</span>.</p>
+</section>
+<section id="plot-the-potential-map">
+<h3>2) Plot the Potential Map<a class="headerlink" href="#plot-the-potential-map" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Make a <strong>contour plot</strong> (equipotentials) of <span class="math notranslate nohighlight">\(V(x,y)\)</span>.</p></li>
+<li><p>Label axes with units.</p></li>
+</ul>
+</section>
+<section id="compute-the-field-components">
+<h3>3) Compute the Field Components<a class="headerlink" href="#compute-the-field-components" title="Link to this heading">#</a></h3>
+<p>Using finite differences:</p>
+<div class="math notranslate nohighlight">
+\[
+E_x(x_i,y_j)\approx -\frac{V_{i+1,j}-V_{i-1,j}}{2\Delta x}, 
+\qquad
+E_y(x_i,y_j)\approx -\frac{V_{i,j+1}-V_{i,j-1}}{2\Delta y}.
+\]</div>
+<p>Then compute magnitude:</p>
+<div class="math notranslate nohighlight">
+\[
+|\vec{E}|_{i,j} = \sqrt{E_{x,i,j}^2 + E_{y,i,j}^2}.
+\]</div>
+</section>
+<section id="visualize-the-electric-field">
+<h3>4) Visualize the Electric Field<a class="headerlink" href="#visualize-the-electric-field" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Make a <strong>vector (quiver) plot</strong> of <span class="math notranslate nohighlight">\(\vec{E}(x,y)\)</span>.</p></li>
+<li><p>Optionally overlay field vectors on the equipotential contour plot.</p></li>
+<li><p>Consider normalizing vectors for direction-only plots, or use magnitude shading + vectors.</p></li>
+</ul>
+</section>
+<section id="compare-geometries">
+<h3>5) Compare Geometries<a class="headerlink" href="#compare-geometries" title="Link to this heading">#</a></h3>
+<p>For parallel plates vs pointed conductor vs dipole, compare:</p>
+<ul class="simple">
+<li><p>Equipotential shapes</p></li>
+<li><p>Where <span class="math notranslate nohighlight">\(|\vec{E}|\)</span> is large</p></li>
+<li><p>How quickly <span class="math notranslate nohighlight">\(V\)</span> changes with position</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="analysis-questions-include-in-your-report">
+<h2>Analysis Questions (Include in Your Report)<a class="headerlink" href="#analysis-questions-include-in-your-report" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Orthogonality:</strong> Using your plots, explain how you can verify that <span class="math notranslate nohighlight">\(\vec{E}\)</span> is perpendicular to equipotential lines.</p></li>
+<li><p><strong>Parallel plates:</strong> Identify a region where the field is approximately uniform. What evidence in your <span class="math notranslate nohighlight">\(V(x,y)\)</span> data supports this?</p></li>
+<li><p><strong>Edge effects:</strong> Where do you see fringing fields in the parallel-plate configuration? How do they appear in both <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(\vec{E}\)</span> plots?</p></li>
+<li><p><strong>Point enhancement:</strong> In the lightning-rod geometry, where is <span class="math notranslate nohighlight">\(|\vec{E}|\)</span> largest? Explain qualitatively why geometry causes this.</p></li>
+<li><p><strong>Dipole symmetry:</strong> Describe the symmetry of the dipole potential and field. How does the pattern differ from a single point charge?</p></li>
+<li><p><strong>Static to dynamic connection:</strong> An oscillating dipole is a classic radiation source. Based on your static dipole field pattern, what features do you think might matter when the dipole moment changes with time?</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="discussion">
+<h2>Discussion<a class="headerlink" href="#discussion" title="Link to this heading">#</a></h2>
+<p>In your discussion section, connect your results to physics meaning:</p>
+<ul class="simple">
+<li><p>Describe how the <strong>shape of conductors</strong> controls equipotentials and concentrates fields.</p></li>
+<li><p>Explain differences between <strong>uniform-field regions</strong> and <strong>high-gradient regions</strong>.</p></li>
+<li><p>Discuss limitations: grid resolution, probe contact variability, and how numerical derivatives amplify measurement noise (small errors in <span class="math notranslate nohighlight">\(V\)</span> can create noticeable variation in <span class="math notranslate nohighlight">\(\vec{E}\)</span>).</p></li>
+<li><p>Highlight the importance of the <strong>dipole</strong>:</p>
+<ul>
+<li><p>Many neutral systems have dipole-like behavior at moderate distances.</p></li>
+<li><p>Dipoles are central to polarization in materials and to how matter responds to fields.</p></li>
+<li><p>In time-varying cases, dipoles connect directly to <strong>electromagnetic waves and antennas</strong> (one of the simplest and most important radiation models in E&amp;M).</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="report-checklist-beyond-the-standard-expexted-content">
+<h2>Report Checklist (Beyond the standard expexted content)<a class="headerlink" href="#report-checklist-beyond-the-standard-expexted-content" title="Link to this heading">#</a></h2>
+<p>Include:</p>
+<ul class="simple">
+<li><p>A labeled photo of each setup (parallel plates, lightning rod)</p></li>
+<li><p>Example Tables of <span class="math notranslate nohighlight">\(V(x,y)\)</span> data (no need to show all your data)</p></li>
+<li><p>Equipotential plots for each geometry</p></li>
+<li><p>Computed field vector plots for each geometry</p></li>
+<li><p>Responses to analysis questions</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="data-table-template">
+<h2>Data Table Template<a class="headerlink" href="#data-table-template" title="Link to this heading">#</a></h2>
+<p><strong>Table 1 — Electric Potential and Field Mapping Data</strong></p>
+<p>| Point # | <span class="math notranslate nohighlight">\(x\)</span> (cm) | <span class="math notranslate nohighlight">\(y\)</span> (cm) | <span class="math notranslate nohighlight">\(V(x,y)\)</span> (V) | <span class="math notranslate nohighlight">\(E_x\)</span> (V/m) | <span class="math notranslate nohighlight">\(E_y\)</span> (V/m) | <span class="math notranslate nohighlight">\(|\vec{E}|\)</span> (V/m) | Notes |
+|——–:|:——–:|:——–:|:————:|:———–:|:———–:|:—————–:|:——|
+| 1 |  |  |  |  |  |  |  |
+| 2 |  |  |  |  |  |  |  |
+| 3 |  |  |  |  |  |  |  |
+| 4 |  |  |  |  |  |  |  |
+| 5 |  |  |  |  |  |  |  |
+| … |  |  |  |  |  |  |  |</p>
+<p><em>Notes:</em></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are measured relative to the chosen origin on the conducting paper or simulation grid.</p></li>
+<li><p><span class="math notranslate nohighlight">\(E_x\)</span> and <span class="math notranslate nohighlight">\(E_y\)</span> are computed from the numerical gradient of <span class="math notranslate nohighlight">\(V(x,y)\)</span> using finite differences.</p></li>
+<li><p>Use consistent grid spacing <span class="math notranslate nohighlight">\(\Delta x\)</span> and <span class="math notranslate nohighlight">\(\Delta y\)</span> throughout the data set.</p></li>
+</ul>
+</section>
+<section id="python-template">
+<h2>Python Template<a class="headerlink" href="#python-template" title="Link to this heading">#</a></h2>
+<p>If you want to test this script, you can download this sample data file:</p>
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">FileLink</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">FileLink</span><span class="p">(</span><span class="s1">&#39;potential_map.csv&#39;</span><span class="p">,</span> <span class="n">result_html_prefix</span><span class="o">=</span><span class="s2">&quot;Download: &quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">Download: <a href='potential_map.csv' target='_blank'>potential_map.csv</a><br></div></div>
+</div>
+<blockquote>
+<div><p>NOTE: The file is a comma-separated values (CSV) file in which the first column contains the <span class="math notranslate nohighlight">\(x\)</span>-coordinate (cm), the second column contains the <span class="math notranslate nohighlight">\(y\)</span>-coordinate (cm), and the third column contains the electric potential <span class="math notranslate nohighlight">\(V\)</span> (volts) measured at that location.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --------------------------------------------------</span>
+<span class="c1"># Lab 4 — Electric Potential to Electric Field</span>
+<span class="c1"># Python Analysis Template</span>
+<span class="c1"># --------------------------------------------------</span>
+
+<span class="o">%</span><span class="k">reset</span> -f
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Imports</span>
+<span class="c1"># -----------------------------</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Load data if in CSV format...otherwise just code directly</span>
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Expected CSV format:</span>
+<span class="c1"># x_cm, y_cm, V</span>
+<span class="c1">#</span>
+<span class="c1"># Example:</span>
+<span class="c1"># 0.0, 0.0, 2.45</span>
+<span class="c1"># 1.0, 0.0, 2.30</span>
+<span class="c1"># 0.0, 1.0, 2.10</span>
+<span class="c1">#</span>
+<span class="c1"># Update the filename as needed</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;potential_map.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Extract columns</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">x_cm</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;x_cm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">y_cm</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;y_cm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">V</span>    <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;V&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># Convert cm → m</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x_cm</span> <span class="o">*</span> <span class="mf">1e-2</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">y_cm</span> <span class="o">*</span> <span class="mf">1e-2</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Create grid</span>
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Assumes data lie on a rectangular grid</span>
+
+<span class="n">x_unique</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">y_unique</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x_unique</span><span class="p">,</span> <span class="n">y_unique</span><span class="p">)</span>
+
+<span class="c1"># Reshape potential into 2D array</span>
+<span class="n">V_grid</span> <span class="o">=</span> <span class="n">V</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_unique</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_unique</span><span class="p">))</span>
+
+<span class="c1"># Grid spacing</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="n">x_unique</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x_unique</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">dy</span> <span class="o">=</span> <span class="n">y_unique</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">y_unique</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Grid spacing: dx = </span><span class="si">{</span><span class="n">dx</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> m, dy = </span><span class="si">{</span><span class="n">dy</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> m&quot;</span><span class="p">)</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Compute electric field</span>
+<span class="c1"># E = -grad(V)</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">Ey</span><span class="p">,</span> <span class="n">Ex</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">V_grid</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
+
+<span class="n">Ex</span> <span class="o">=</span> <span class="o">-</span><span class="n">Ex</span>
+<span class="n">Ey</span> <span class="o">=</span> <span class="o">-</span><span class="n">Ey</span>
+
+<span class="n">E_mag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">Ex</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">Ey</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Plot equipotential map (colored background)</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">filled</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">V_grid</span><span class="p">,</span>
+    <span class="n">levels</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;jet&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Optional: overlay contour lines</span>
+<span class="n">contours</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">V_grid</span><span class="p">,</span>
+    <span class="n">levels</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+    <span class="n">colors</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
+    <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.6</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">clabel</span><span class="p">(</span><span class="n">contours</span><span class="p">,</span> <span class="n">inline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x (m)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y (m)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Electric Potential V(x,y)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">filled</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;V (volts)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Plot electric field vectors</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Ex</span><span class="p">,</span> <span class="n">Ey</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x (m)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y (m)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Electric Field Vector Map&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Combined plot: equipotentials + E-field (colored background)</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># Filled contour for potential (color background)</span>
+<span class="n">filled</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">V_grid</span><span class="p">,</span>
+    <span class="n">levels</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;jet&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Equipotential lines</span>
+<span class="n">contours</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">V_grid</span><span class="p">,</span>
+    <span class="n">levels</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+    <span class="n">colors</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
+    <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.6</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">clabel</span><span class="p">(</span><span class="n">contours</span><span class="p">,</span> <span class="n">inline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="c1"># Electric field vectors</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Ex</span><span class="p">,</span> <span class="n">Ey</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x (m)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y (m)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Electric Field and Equipotentials&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">filled</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;V (volts)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Save processed data (optional)</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;x_m&quot;</span><span class="p">:</span> <span class="n">X</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span>
+    <span class="s2">&quot;y_m&quot;</span><span class="p">:</span> <span class="n">Y</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span>
+    <span class="s2">&quot;V&quot;</span><span class="p">:</span> <span class="n">V_grid</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span>
+    <span class="s2">&quot;Ex&quot;</span><span class="p">:</span> <span class="n">Ex</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span>
+    <span class="s2">&quot;Ey&quot;</span><span class="p">:</span> <span class="n">Ey</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span>
+    <span class="s2">&quot;|E|&quot;</span><span class="p">:</span> <span class="n">E_mag</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="p">})</span>
+
+<span class="n">output</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;electric_field_results.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Analysis complete. Results saved to electric_field_results.csv.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Grid spacing: dx = 1.000e-02 m, dy = 1.000e-02 m
+</pre></div>
+</div>
+<img alt="../_images/1f2273a1da13ae2c408601971e90c481801c51b8916842fbd437a489c10d6020.png" src="../_images/1f2273a1da13ae2c408601971e90c481801c51b8916842fbd437a489c10d6020.png" />
+<img alt="../_images/07c387a60994956a4ec57cb734d13a59be8c3297c7357a46f51631ab979ac7ab.png" src="../_images/07c387a60994956a4ec57cb734d13a59be8c3297c7357a46f51631ab979ac7ab.png" />
+<img alt="../_images/2ce867d2553d30da60e54cb36dd365610f2b64aa6b64016918fa85d5a08d45c1.png" src="../_images/2ce867d2553d30da60e54cb36dd365610f2b64aa6b64016918fa85d5a08d45c1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Analysis complete. Results saved to electric_field_results.csv.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lab4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../lab3/lab3-manual.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lab 3 — Terminal Voltage vs Load Current: Experimental Determination of Internal Resistance</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-theory">Background Theory</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#electric-potential-and-equipotentials">1) Electric Potential and Equipotentials</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#electric-field-from-the-gradient">2) Electric Field from the Gradient</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-grid-based-derivatives-finite-differences">3) Discrete (Grid-Based) Derivatives (Finite Differences)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-sharp-points-matter-lightning-rod-geometry">4) Why Sharp Points Matter (Lightning Rod Geometry)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-electric-dipole-why-its-a-big-deal">5) The Electric Dipole (Why It’s a Big Deal)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equipment-needed">Equipment Needed</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-conducting-paper-mapping">Part 1 — Conducting Paper Mapping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-phet-simulation">Part 2 — PhET Simulation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-procedure">Experimental Procedure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-mapping-v-x-y-on-conducting-paper">Part 1 — Mapping <span class="math notranslate nohighlight">\(V(x,y)\)</span> on Conducting Paper</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-setup-and-calibration">A. Setup and Calibration</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#b-measuring-the-potential-map">B. Measuring the Potential Map</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c-repeat-for-the-lightning-rod-geometry">C. Repeat for the “Lightning Rod” Geometry</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-phet-dipole-mapping-charges-and-fields">Part 2 — PhET Dipole Mapping (Charges and Fields)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-analysis-python-or-excel">Data Analysis (Python or Excel)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#organize-your-data">1) Organize Your Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-potential-map">2) Plot the Potential Map</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-field-components">3) Compute the Field Components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-electric-field">4) Visualize the Electric Field</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-geometries">5) Compare Geometries</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-questions-include-in-your-report">Analysis Questions (Include in Your Report)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">Discussion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#report-checklist-beyond-the-standard-expexted-content">Report Checklist (Beyond the standard expexted content)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-table-template">Data Table Template</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-template">Python Template</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
