@@ -1,0 +1,986 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>C1.3 Analytic Representation of a Vector &#8212; A Competency Approach to Introductory Physics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-C1/Analytic_vector';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="C1.4 Multiplication of a Vector by a Scalar: Geometric Approach" href="Multiplication_scalar_geometrical.html" />
+    <link rel="prev" title="C.1.2 Position Vector" href="Position_vector.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-C.png" class="logo__image only-light" alt="A Competency Approach to Introductory Physics - Home"/>
+    <script>document.write(`<img src="../_static/logo-C.png" class="logo__image only-dark" alt="A Competency Approach to Introductory Physics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to University Physics I: A Compendium to the C Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/university-physics-I/university-physics-I.html">University Physics I Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C1 - Basics of Vectors</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-C1.html">C1.0 Learning Outcomes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Introduction_to_vectors.html">C1.1 Introduction to Vectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Position_vector.html">C.1.2 Position Vector</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">C1.3 Analytic Representation of a Vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Multiplication_scalar_geometrical.html">C1.4 Multiplication of a Vector by a Scalar: Geometric Approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Displacement_vector.html">C1.5 Concept of Displacement Vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Addition_vectors_geometrical.html">C1.6 Addition of Vectors: Geometric Approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Addition_vectors_analytic.html">C1.7 Basic Vector Arithmetic: Analytic Approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Unit_vectors.html">C1.8 Unit Vectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dot_product.html">C1.9 Dot Product</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problemsC1.html">C1.10 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assessment-C1.html">C1.11 Module 1 Assessment</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/university-physics-I-D/Module-C1/Analytic_vector.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-C1/Analytic_vector.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>C1.3 Analytic Representation of a Vector</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-3-1-motivation">C1.3.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-3-2-vector-components">C1.3.2 Vector Components</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-3-3-magnitude-of-a-vector">C1.3.3 Magnitude of a Vector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-3-4-direction-of-a-vector">C1.3.4 Direction of a Vector</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="c1-3-analytic-representation-of-a-vector">
+<h1>C1.3 Analytic Representation of a Vector<a class="headerlink" href="#c1-3-analytic-representation-of-a-vector" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><section id="c1-3-1-motivation">
+<h2>C1.3.1 Motivation<a class="headerlink" href="#c1-3-1-motivation" title="Link to this heading">#</a></h2>
+<p>In most cases in this class, we are using vectors to quantify physical objects and thus require an analytic approach.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c1-3-2-vector-components">
+<h2>C1.3.2 Vector Components<a class="headerlink" href="#c1-3-2-vector-components" title="Link to this heading">#</a></h2>
+<p>Consider a vector <span class="math notranslate nohighlight">\(\vec{A}\)</span> in a 2D reference frame as shown in the figure below. If we project the two end points of the vector (or arrow) onto the x and y-axis, respectively, then the directed line segments of the projections are the <span style="color:red">components</span> of <span class="math notranslate nohighlight">\(\vec{A}\)</span>. We can write them as <span class="math notranslate nohighlight">\(A_x\)</span> and <span class="math notranslate nohighlight">\(A_y\)</span>.</p>
+<blockquote>
+<div><p>NOTE: these directed line segments are exactly what we encountered in Phase D.</p>
+</div></blockquote>
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Vector A endpoints</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">x0</span><span class="p">,</span> <span class="n">y0</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
+<span class="n">xA</span><span class="p">,</span> <span class="n">yA</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span>
+
+<span class="c1"># Vector components</span>
+<span class="n">Ax</span> <span class="o">=</span> <span class="n">xA</span> <span class="o">-</span> <span class="n">x0</span>
+<span class="n">Ay</span> <span class="o">=</span> <span class="n">yA</span> <span class="o">-</span> <span class="n">y0</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Plot</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># Main vector A</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">Ax</span><span class="p">,</span> <span class="n">Ay</span><span class="p">,</span>
+           <span class="n">angles</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale_units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Projections</span>
+<span class="c1"># x-projection</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">Ax</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+           <span class="n">angles</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale_units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+
+<span class="c1"># y-projection</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Ay</span><span class="p">,</span>
+           <span class="n">angles</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale_units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+
+<span class="c1"># Dashed guide lines</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">xA</span><span class="p">,</span> <span class="n">xA</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">yA</span><span class="p">],</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">xA</span><span class="p">],</span> <span class="p">[</span><span class="n">yA</span><span class="p">,</span> <span class="n">yA</span><span class="p">],</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">x0</span><span class="p">],</span> <span class="p">[</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">],</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Labels</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">xA</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">yA</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$\vec</span><span class="si">{A}</span><span class="s2">$&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x0</span> <span class="o">+</span> <span class="n">Ax</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$A_x$&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">y0</span> <span class="o">+</span> <span class="n">Ay</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$A_y$&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+
+<span class="c1"># Axes and formatting</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="n">adjustable</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Vector A and Its Projections&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/4a0248a93983332f98b8f228c2aa63f6ab4d02b04de820c35ec7e8ee23c2acc2.png" src="../_images/4a0248a93983332f98b8f228c2aa63f6ab4d02b04de820c35ec7e8ee23c2acc2.png" />
+</div>
+</div>
+<p>We can now describe the vector <span class="math notranslate nohighlight">\(\vec{A}\)</span> through its components (or in component form):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \vec{A} = \begin{bmatrix} A_x  \\ A_y  \end{bmatrix} \end{split}\]</div>
+<p>Other ways of writing the same thing:</p>
+<div class="math notranslate nohighlight">
+\[ \vec{A} = ~&lt; A_x , A_y &gt; \]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[ \vec{A} = ( A_x, A_y ) \]</div>
+<p>When we discuss unit vectors, we will see one more way of writing a vector.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c1-3-3-magnitude-of-a-vector">
+<h2>C1.3.3 Magnitude of a Vector<a class="headerlink" href="#c1-3-3-magnitude-of-a-vector" title="Link to this heading">#</a></h2>
+<p>Since the two projected components and the length of the vector itself form a right-angle triangle, we calculate the
+magnitude of the vector by applying the Pythagorean theorem:</p>
+<div class="math notranslate nohighlight">
+\[ |\vec{A}| = \sqrt{ A^{2}_{x} + A^{2}_{y} } \]</div>
+<p>It can be extended beyond 2D, so in a 3D coordinate
+system the magnitude of a the vector would be</p>
+<div class="math notranslate nohighlight">
+\[ |\vec{A}| = \sqrt{ A^{2}_{x} + A^{2}_{y} + A^{2}_{z} } \]</div>
+<div style="background-color:#FFF7D6; border-left:6px solid #8C6D1F; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0; color:#000000;">Side Note</h3>
+<p>In linear algebra this is called a norm or a metric. These are cool things! In a Minkowski space (most of our Physics 2210 content is limited to Euclidean space), a metric is defined slightly different and it is the realm of special relativity: localized space-time. ❤</div></p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:12px; border-radius:4px;">
+<h3 style="margin-top:0; color:#000000;">Box Activity 1 — Vector Components from a Plot</h3>
+<p><strong>Task:</strong></p>
+<p>A vector <span class="math notranslate nohighlight">\(\vec{A}\)</span> is drawn on the coordinate plane below</p>
+<ol class="arabic simple">
+<li><p>From the <strong>plot alone</strong>, determine the <span class="math notranslate nohighlight">\(x\)</span>-component <span class="math notranslate nohighlight">\(A_x\)</span> and the <span class="math notranslate nohighlight">\(y\)</span>-component <span class="math notranslate nohighlight">\(A_y\)</span> of the vector.</p></li>
+<li><p>Write the vector <span class="math notranslate nohighlight">\(\vec{A}\)</span> in component form.</p></li>
+<li><p>Explain, in one sentence, how the projections onto the coordinate axes relate to the components.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+A Possible Solution Guide
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>Because the vector starts at the origin, its components are read directly from the coordinates of its tip.</p>
+<div class="math notranslate nohighlight">
+\[
+A_x = +4.5
+\qquad
+A_y = +2.5
+\]</div>
+<p>The vector written in component form is</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{A} = (4.5,\;2.5).
+\]</div>
+<p>The components represent the horizontal and vertical projections of the vector onto the <span class="math notranslate nohighlight">\(x\)</span>- and <span class="math notranslate nohighlight">\(y\)</span>-axes.</p>
+</div>
+</details>
+</div>
+<br>
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Vector endpoint</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">Ax</span><span class="p">,</span> <span class="n">Ay</span> <span class="o">=</span> <span class="mf">4.5</span><span class="p">,</span> <span class="mf">2.5</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Plot</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># Vector from origin</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Ax</span><span class="p">,</span> <span class="n">Ay</span><span class="p">,</span> <span class="n">angles</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale_units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Labels</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">Ax</span><span class="o">*</span><span class="mf">1.05</span><span class="p">,</span> <span class="n">Ay</span><span class="o">*</span><span class="mf">1.05</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$\vec</span><span class="si">{A}</span><span class="s2">$&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="c1"># Axes and formatting</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Vector Components from a Plot&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/c4e516246052e88f887bea8f89fc61641c8c6b938313ed5f59cc08c5d1834cd5.png" src="../_images/c4e516246052e88f887bea8f89fc61641c8c6b938313ed5f59cc08c5d1834cd5.png" />
+</div>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:12px; border-radius:4px;">
+<h3 style="margin-top:0; color:#000000;">Box Activity 2 — Vector Components from Two Given Points</h3>
+<p><strong>Task:</strong></p>
+<p>A vector <span class="math notranslate nohighlight">\(\vec{B}\)</span> is shown in the plot below.</p>
+<ol class="arabic simple">
+<li><p>Determine the <span class="math notranslate nohighlight">\(x\)</span>- and <span class="math notranslate nohighlight">\(y\)</span>-components of the vector <span class="math notranslate nohighlight">\(\vec{B}\)</span>.</p></li>
+<li><p>Write <span class="math notranslate nohighlight">\(\vec{B}\)</span> in component form.</p></li>
+<li><p>State whether each component is positive or negative, and explain why.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+A Possible Solution Guide
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>The components of a vector are found by subtracting the initial coordinates from the final coordinates.</p>
+<div class="math notranslate nohighlight">
+\[
+B_x = -4 - (-1) = -3
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+B_y = -5 - (-2) = -3
+\]</div>
+<p>The vector written in component form is</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{B} = (-3,\,-3).
+\]</div>
+<p>Both components are negative because the vector points leftward (negative <span class="math notranslate nohighlight">\(x\)</span>) and downward (negative <span class="math notranslate nohighlight">\(y\)</span>).</p>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Vector start and end points</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">x0</span><span class="p">,</span> <span class="n">y0</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span>
+<span class="n">x1</span><span class="p">,</span> <span class="n">y1</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span>
+
+<span class="c1"># Components</span>
+<span class="n">Bx</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span>
+<span class="n">By</span> <span class="o">=</span> <span class="n">y1</span> <span class="o">-</span> <span class="n">y0</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Plot</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># Vector B</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">Bx</span><span class="p">,</span> <span class="n">By</span><span class="p">,</span> <span class="n">angles</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale_units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Label vector</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$\vec</span><span class="si">{B}</span><span class="s2">$&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="c1"># Axes and formatting</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="n">adjustable</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Vector Components from a Plot&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/f3b0542cae42ccff1e3e2feda2cf72631b0ae1de396ac70da6276d1878367599.png" src="../_images/f3b0542cae42ccff1e3e2feda2cf72631b0ae1de396ac70da6276d1878367599.png" />
+</div>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c1-3-4-direction-of-a-vector">
+<h2>C1.3.4 Direction of a Vector<a class="headerlink" href="#c1-3-4-direction-of-a-vector" title="Link to this heading">#</a></h2>
+<p>Above, we saw how we can find the magnitude of a vector if we have knowledge of the vector components. In order to fully describe the vector, we still need to find its direction. The direction can be provided through an angle measured with respect to some reference line. If we draw the vector and its components, we can identify a right-angle triangle and apply trigonometric functions to specify an angle.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Vector A endpoints</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">x0</span><span class="p">,</span> <span class="n">y0</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
+<span class="n">xA</span><span class="p">,</span> <span class="n">yA</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span>
+
+<span class="c1"># Vector components</span>
+<span class="n">Ax</span> <span class="o">=</span> <span class="n">xA</span> <span class="o">-</span> <span class="n">x0</span>
+<span class="n">Ay</span> <span class="o">=</span> <span class="n">yA</span> <span class="o">-</span> <span class="n">y0</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Plot</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># Main vector A</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">Ax</span><span class="p">,</span> <span class="n">Ay</span><span class="p">,</span>
+           <span class="n">angles</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale_units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Projections</span>
+<span class="c1"># x-projection</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">Ax</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+           <span class="n">angles</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale_units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+
+<span class="c1"># y-projection</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">xA</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Ay</span><span class="p">,</span>
+           <span class="n">angles</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale_units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+
+<span class="c1"># Labels</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">xA</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">yA</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$\vec</span><span class="si">{A}</span><span class="s2">$&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x0</span> <span class="o">+</span> <span class="n">Ax</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$A_x$&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">4.2</span><span class="p">,</span> <span class="n">y0</span> <span class="o">+</span> <span class="n">Ay</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$A_y$&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">1.3</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$\theta$&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+
+<span class="c1"># Axes and formatting</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="n">adjustable</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Direction of a Vector&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/69041c0ccaa3c6d8fd3870a830f49c4ed881912a137844a297758c76633ac45d.png" src="../_images/69041c0ccaa3c6d8fd3870a830f49c4ed881912a137844a297758c76633ac45d.png" />
+</div>
+</div>
+<p>The relation between the angle <span class="math notranslate nohighlight">\(\theta\)</span> and the components <span class="math notranslate nohighlight">\(A_x\)</span> (adjacent side) and <span class="math notranslate nohighlight">\(A_y\)</span> (opposite side) is</p>
+<div class="math notranslate nohighlight">
+\[ \tan\theta = \frac{A_y}{A_x} \]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[ \theta = \tan^{-1}\left(\frac{A_y}{A_x}\right) \]</div>
+<p>Similar relations exists if we include the magnitude of the vector itself (hypotenuse):</p>
+<div class="math notranslate nohighlight">
+\[ \sin\theta = \frac{A_y}{|\vec{A}|} \]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[ \cos\theta = \frac{A_x}{|\vec{A}|} \]</div>
+<div style="background-color:#ffe6e6; border-left:6px solid #990000; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0; color:#000000;">⚠️ Important Warning — Association of Trigonometric functions with Directions</h3>
+Here, we identified x- and y-components based on a standard Cartesion coordinate system for the given triangle. One should avoid associating cosine with x-component and sine with y-component as it depends on choice and orientation of the coordinate axes. Instead, it is advisable to consider each case by itself and go back to basic trigonometric function definition using adjacent and opposite side terminology.</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:12px; border-radius:4px;">
+<h3 style="margin-top:0; color:#000000;">Box Activity 3 — Magnitude and Direction of Vectors</h3>
+<p><strong>Task:</strong></p>
+<p>Consider the two vectors</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\vec{A} =
+\begin{bmatrix}
+3.0 \\
+5.0
+\end{bmatrix}
+\qquad
+\vec{B} =
+\begin{bmatrix}
+4.0 \\
+2.0
+\end{bmatrix}.
+\end{split}\]</div>
+<ol class="arabic simple">
+<li><p><strong>By hand:</strong> Sketch each vector on the same set of <span class="math notranslate nohighlight">\(x\)</span>–<span class="math notranslate nohighlight">\(y\)</span> axes, drawing both vectors from the origin.</p></li>
+<li><p>Determine the <strong>magnitude</strong> of each vector.</p></li>
+<li><p>Determine the <strong>direction angle</strong> of each vector, measured counterclockwise from the positive <span class="math notranslate nohighlight">\(x\)</span>-axis.</p></li>
+<li><p>Compare the directions: which vector is steeper, and how can you tell from the components?</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+A Possible Solution Guide
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p><strong>Vector <span class="math notranslate nohighlight">\(\vec{A}\)</span></strong></p>
+<p>Magnitude:</p>
+<div class="math notranslate nohighlight">
+\[
+|\vec{A}| = \sqrt{3.0^2 + 5.0^2} = \sqrt{34} \approx 5.83
+\]</div>
+<p>Direction:</p>
+<div class="math notranslate nohighlight">
+\[
+\theta_A = \tan^{-1}\!\left(\frac{5.0}{3.0}\right) \approx 59.0^\circ
+\]</div>
+<hr class="docutils" />
+<p><strong>Vector <span class="math notranslate nohighlight">\(\vec{B}\)</span></strong></p>
+<p>Magnitude:</p>
+<div class="math notranslate nohighlight">
+\[
+|\vec{B}| = \sqrt{4.0^2 + 2.0^2} = \sqrt{20} \approx 4.47
+\]</div>
+<p>Direction:</p>
+<div class="math notranslate nohighlight">
+\[
+\theta_B = \tan^{-1}\!\left(\frac{2.0}{4.0}\right) \approx 26.6^\circ
+\]</div>
+<hr class="docutils" />
+<p>Vector <span class="math notranslate nohighlight">\(\vec{A}\)</span> is steeper because the ratio <span class="math notranslate nohighlight">\(A_y/A_x\)</span> is larger than <span class="math notranslate nohighlight">\(B_y/B_x\)</span>, giving it a larger direction angle.</p>
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:12px; border-radius:4px;">
+<h3 style="margin-top:0; color:#000000;">Box Activity 4 — Components from Magnitude and Direction</h3>
+<p><strong>Task:</strong></p>
+<p>A position vector <span class="math notranslate nohighlight">\(\vec{r}\)</span> has a <strong>magnitude</strong> of <span class="math notranslate nohighlight">\(8.0\ \text{m}\)</span> and is directed<br />
+<span class="math notranslate nohighlight">\(30.0^\circ\)</span> counterclockwise from the positive <span class="math notranslate nohighlight">\(x\)</span>-axis.</p>
+<ol class="arabic simple">
+<li><p>Sketch the vector <span class="math notranslate nohighlight">\(\vec{r}\)</span> on an <span class="math notranslate nohighlight">\(x\)</span>–<span class="math notranslate nohighlight">\(y\)</span> coordinate system.</p></li>
+<li><p>Determine the <span class="math notranslate nohighlight">\(x\)</span>-component <span class="math notranslate nohighlight">\(r_x\)</span> and the <span class="math notranslate nohighlight">\(y\)</span>-component <span class="math notranslate nohighlight">\(r_y\)</span>.</p></li>
+<li><p>State whether each component is positive or negative, and explain why.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+A Possible Solution Guide
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>When a vector of magnitude <span class="math notranslate nohighlight">\(r\)</span> makes an angle <span class="math notranslate nohighlight">\(\theta\)</span> with the positive <span class="math notranslate nohighlight">\(x\)</span>-axis, its components are</p>
+<div class="math notranslate nohighlight">
+\[
+r_x = r\cos\theta
+\qquad
+r_y = r\sin\theta.
+\]</div>
+<p>Substituting <span class="math notranslate nohighlight">\(r = 8.0\ \text{m}\)</span> and <span class="math notranslate nohighlight">\(\theta = 30.0^\circ\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+r_x = (8.0)\cos(30.0^\circ) \approx 6.9\ \text{m}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+r_y = (8.0)\sin(30.0^\circ) = 4.0\ \text{m}.
+\]</div>
+<p>Both components are positive because the vector points into the <strong>first quadrant</strong>, where <span class="math notranslate nohighlight">\(x&gt;0\)</span> and <span class="math notranslate nohighlight">\(y&gt;0\)</span>.</p>
+</div>
+</details>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Phys-Prof-Nielsen/modulearn",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-C1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Position_vector.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">C.1.2 Position Vector</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Multiplication_scalar_geometrical.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">C1.4 Multiplication of a Vector by a Scalar: Geometric Approach</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-3-1-motivation">C1.3.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-3-2-vector-components">C1.3.2 Vector Components</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-3-3-magnitude-of-a-vector">C1.3.3 Magnitude of a Vector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-3-4-direction-of-a-vector">C1.3.4 Direction of a Vector</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

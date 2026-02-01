@@ -1,0 +1,739 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>C1.9 Dot Product &#8212; A Competency Approach to Introductory Physics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-C1/Dot_product';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="C1.10 Problems" href="problemsC1.html" />
+    <link rel="prev" title="C1.8 Unit Vectors" href="Unit_vectors.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-C.png" class="logo__image only-light" alt="A Competency Approach to Introductory Physics - Home"/>
+    <script>document.write(`<img src="../_static/logo-C.png" class="logo__image only-dark" alt="A Competency Approach to Introductory Physics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to University Physics I: A Compendium to the C Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/university-physics-I/university-physics-I.html">University Physics I Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C1 - Basics of Vectors</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-C1.html">C1.0 Learning Outcomes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Introduction_to_vectors.html">C1.1 Introduction to Vectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Position_vector.html">C.1.2 Position Vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Analytic_vector.html">C1.3 Analytic Representation of a Vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Multiplication_scalar_geometrical.html">C1.4 Multiplication of a Vector by a Scalar: Geometric Approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Displacement_vector.html">C1.5 Concept of Displacement Vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Addition_vectors_geometrical.html">C1.6 Addition of Vectors: Geometric Approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Addition_vectors_analytic.html">C1.7 Basic Vector Arithmetic: Analytic Approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Unit_vectors.html">C1.8 Unit Vectors</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">C1.9 Dot Product</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problemsC1.html">C1.10 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assessment-C1.html">C1.11 Module 1 Assessment</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/university-physics-I-D/Module-C1/Dot_product.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-C1/Dot_product.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>C1.9 Dot Product</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-9-1-why-we-need-the-dot-product">C1.9.1 Why We Need the Dot Product</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-9-2-geometrical-defintion">C1.9.2 Geometrical Defintion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-9-3-interpretation">C1.9.3 Interpretation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#approach-1">Approach 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#approach-2">Approach 2</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-9-4-analytic-definition">C1.9.4 Analytic Definition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-9-5-important-observations">C1.9.5 Important Observations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-of-projection">1. Importance of Projection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#magnitude-of-a-vector">2. Magnitude of a Vector</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#angle-between-two-vectors">3. Angle between Two Vectors</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-9-6-applications">C1.9.6 Applications</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="c1-9-dot-product">
+<h1>C1.9 Dot Product<a class="headerlink" href="#c1-9-dot-product" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><section id="c1-9-1-why-we-need-the-dot-product">
+<h2>C1.9.1 Why We Need the Dot Product<a class="headerlink" href="#c1-9-1-why-we-need-the-dot-product" title="Link to this heading">#</a></h2>
+<p>The <span style="color:red">dot product</span> is one of two vector operations aside from the arithmetic operations we have seen so far that we will use in PHYS2210. The dot product is also known as the <span style="color:red">scalar product</span> since it returns a <i>scalar value</i>.</p>
+<p>The dot product is a very important operation in physics. For example, one of the most important concepts in Newtonian physics is the <i>mechanical work</i> or <i>energy transfer</i> by a force acting over a distance. This quantity is defined mathematically through a dot product.</p>
+<p>As we have done so far with vectors, we will define the dot product in two forms: geometrically and analytically.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c1-9-2-geometrical-defintion">
+<h2>C1.9.2 Geometrical Defintion<a class="headerlink" href="#c1-9-2-geometrical-defintion" title="Link to this heading">#</a></h2>
+<p>As the subtitle says, this definition relies on vector quantities we associate with the geometry of the vectors such as length and angle. We define the dot product between two vectors <span class="math notranslate nohighlight">\(\vec{A}\)</span> and <span class="math notranslate nohighlight">\(\vec{B}\)</span> as</p>
+<div class="alert alert-success">
+<div class="math notranslate nohighlight">
+\[ \vec{A} \cdot \vec{B} = |\vec{A}|~|\vec{B}|~\cos\theta \]</div>
+</div>
+<p>where <span class="math notranslate nohighlight">\(|\vec{A}|\)</span> and <span class="math notranslate nohighlight">\(|\vec{B}|\)</span> are the magnitudes (or lengths) of the two vectors and <span class="math notranslate nohighlight">\(\theta\)</span> is the angle between the two vectors. From the notation, it may be evident why it is called the dot product.</p>
+<div class="alert alert-danger">
+Taking the dot product between two vectors results in a scalar value.
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div style="background-color: #D0D0D0 ; padding: 10px; border: 1px solid black;">       
+<header>
+<h3> Example 1</h3>
+    </header>
+<p>Consider a vector <span class="math notranslate nohighlight">\(\vec{A}\)</span> with a length of 5.0 units and a vector <span class="math notranslate nohighlight">\(\vec{B}\)</span> with a length of 3.0 units (let us ignore the units for now). The angle between the two vectors is <span class="math notranslate nohighlight">\(\theta = 15^\circ\)</span>. The dot product between the two vectors is</p>
+<div class="math notranslate nohighlight">
+\[ \vec{A} \cdot \vec{B} = |\vec{A}|~|\vec{B}|~\cos\theta \]</div>
+<div class="math notranslate nohighlight">
+\[ \vec{A} \cdot \vec{B} = (5.0)~(3.0)~\cos(15^\circ) \]</div>
+<div class="math notranslate nohighlight">
+\[ \vec{A} \cdot \vec{B} = 14 \]</div>
+<p>We notice that this is just a number. There is no direction associated with this answer, and it is therefore a scalar value.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div style="background-color: #D0D0D0 ; padding: 10px; border: 1px solid black;">       
+<header>
+<h3> Example 2</h3>
+    </header>
+<p>Let us calculate the dot product between unit vectors. The magnitude of each unit vector is 1, and we know that <span class="math notranslate nohighlight">\(\hat{e}_x\)</span> and <span class="math notranslate nohighlight">\(\hat{e}_y\)</span> are perpendicular. With that in mind, we have the following relationships for the dot products between unit vectors:</p>
+<div class="math notranslate nohighlight">
+\[\hat{e}_x \cdot \hat{e}_x = (1)~(1)~\cos(0) = 1 \]</div>
+<p>since the angle between a vector and itself is <span class="math notranslate nohighlight">\(0^\circ\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\hat{e}_x \cdot \hat{e}_y = (1)~(1)~\cos(90) = 0 \]</div>
+<div class="math notranslate nohighlight">
+\[\hat{e}_y \cdot \hat{e}_x = (1)~(1)~\cos(90) = 0 \]</div>
+<p>The dot product is commutative!</p>
+<p>and finally,</p>
+<div class="math notranslate nohighlight">
+\[\hat{e}_y \cdot \hat{e}_y = (1)~(1)~\cos(0) = 1 \]</div>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-warning">
+<b>Box 1</b><br>
+<p>A vector is directed along the positive x-axis and has a magnitude of 5.0. A second vector has a magnitude of 8.0 and is directed at an angle of 32<span class="math notranslate nohighlight">\(^\circ\)</span> above the positive x-axis. Find the dot product between the two vectors.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c1-9-3-interpretation">
+<h2>C1.9.3 Interpretation<a class="headerlink" href="#c1-9-3-interpretation" title="Link to this heading">#</a></h2>
+<p>The dot product is for most students relatively straightforward to calculate. However, the interpretation or its meaning is often missed in the process, or happily forgotten as it may not be important for the exam. Well, welcome to Doc Nielsen’s class where concept and understanding is a priority 🤓</p>
+<p>I will try and explain it in two ways: a more mathematical form using geometric representation, and a word example using physics. I hope they together will provide you with a conceptual understanding of the dot product.</p>
+<section id="approach-1">
+<h3>Approach 1<a class="headerlink" href="#approach-1" title="Link to this heading">#</a></h3>
+<p>First, let us consider the definition of the dot product:</p>
+<div class="math notranslate nohighlight">
+\[ \vec{A} \cdot \vec{B} = |\vec{A}|~|\vec{B}|~\cos\theta \]</div>
+<p>but now let us put some parantheses around part of the equation:</p>
+<div class="math notranslate nohighlight">
+\[ \vec{A} \cdot \vec{B} = |\vec{A}|~\left(|\vec{B}|~\cos\theta \right)\]</div>
+<p>From a trigonometric point of view, the value in the parantheses is the <span style="color:red">projection of vector <span class="math notranslate nohighlight">\(\vec{B}\)</span> onto the line of <span class="math notranslate nohighlight">\(\vec{A}\)</span></span> as shown in the figure below.</p>
+<img src="C2-fig14.png"  width="300"/>
+<p>The dot product is this projection multiplied by the lenght of vector <span class="math notranslate nohighlight">\(\vec{A}\)</span>. We can therefore interpretate the dot product as:</p>
+<div class="alert alert-info">
+The dot project is a scaled projection or a measure of how much overlap there is between two vectors.
+</div>
+<p>We could also have grouped the factors in the definition equation as (remember, the order of multiplication does not matter):</p>
+<div class="math notranslate nohighlight">
+\[ \vec{A} \cdot \vec{B} = |\vec{B}|~\left(|\vec{A}|~\cos\theta \right)\]</div>
+<p>From a trigonometric point of view, the value in the parantheses is now the <span style="color:red">projection of vector <span class="math notranslate nohighlight">\(\vec{A}\)</span> onto the line of <span class="math notranslate nohighlight">\(\vec{B}\)</span></span> as shown in the figure below.</p>
+<img src="C2-fig15.png"  width="300"/>
+<p>Obviously, these two result in the same number as it is the same equation, however, we can make the following observation: the projection of <span class="math notranslate nohighlight">\(\vec{B}\)</span> onto the line of <span class="math notranslate nohighlight">\(\vec{A}\)</span> is less than the projection of <span class="math notranslate nohighlight">\(\vec{A}\)</span> onto the line of <span class="math notranslate nohighlight">\(\vec{B}\)</span>, but the scaling is larger in the former case than in the later case, resulting in exactly the same number.</p>
+</section>
+<section id="approach-2">
+<h3>Approach 2<a class="headerlink" href="#approach-2" title="Link to this heading">#</a></h3>
+<p>The work done by a mechanical force on an object is the dot product between the force acting on the object and the displacement of the object of which the force is acting over. Work is also a measure of energy transfer, in layman’s term we may say how much effort is done by the applied force.</p>
+<p>Imagine we are pushing a box across a horizontal floor, but we are applying a force at an angle with respect to the horizontal. The dot product between the force and the displacement is a measure of the overlap between the two vectors: or how much effort is put into the horizontal displacement of the box by the force. We can imagine two scenarios:</p>
+<p>(1) a person supplying a larger force applied over a shorter distance or (2) a person supplying a smaller force applied over a larger distance, both can have put equal amount of effort (or transferred the same amount of energy) into moving the box. These scenarios are equivalent to the projection of vectors onto each other as in the previous example.</p>
+<p>NOTE: when we in daily life say something like: “it takes a lot of effort”, we are actually referring to that it requires a lot of energy transfer 🤓</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="c1-9-4-analytic-definition">
+<h2>C1.9.4 Analytic Definition<a class="headerlink" href="#c1-9-4-analytic-definition" title="Link to this heading">#</a></h2>
+<p>In the analytic definition, we work in terms of the components of the vectors. To derive an equation, we will write the two vectors in terms of their components and unit vectors. We will restrict ourself to 2D for simplicity, but it is straightforward to extend into 3D. Take a deep breath!</p>
+<p>Consider the vectors</p>
+<div class="math notranslate nohighlight">
+\[\vec{A} = A_{x}\hat{e}_x  +  A_{y}\hat{e}_y \]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[\vec{B} = B_{x}\hat{e}_x  +  B_{y}\hat{e}_y \]</div>
+<p>The dot product is then</p>
+<div class="math notranslate nohighlight">
+\[\vec{A} \cdot \vec{B} = \left(A_{x}\hat{e}_x  +  A_{y}\hat{e}_y\right) \cdot \left(B_{x}\hat{e}_x  +  B_{y}\hat{e}_y\right) \]</div>
+<p>Now we distribute the factors through the dot product:</p>
+<div class="math notranslate nohighlight">
+\[\vec{A} \cdot \vec{B} = (A_{x}\hat{e}_x)\cdot(B_{x}\hat{e}_x) + (A_{x}\hat{e}_x)\cdot(B_{y}\hat{e}_y)  +  (A_{y}\hat{e}_y)\cdot(B_{x}\hat{e}_x) + (A_{y}\hat{e}_y)\cdot(B_{y}\hat{e}_y) \]</div>
+<p>Since the dot product is an operation between vectors only, it will only act between the unit vectors and we can move the components outside the dot products:</p>
+<div class="math notranslate nohighlight">
+\[\vec{A} \cdot \vec{B} = (A_{x}B_{x})(\hat{e}_x\cdot\hat{e}_x) + (A_{x}B_{y})(\hat{e}_x\cdot\hat{e}_y)  +  (A_{y}B_{x})(\hat{e}_y\cdot\hat{e}_x) + (A_{y}B_{y})(\hat{e}_y\cdot\hat{e}_y) \]</div>
+<p>We can use the results from Example 2 above regarding the dot products among unit vectors, and we get</p>
+<div class="math notranslate nohighlight">
+\[\vec{A} \cdot \vec{B} = (A_{x}B_{x})(1) + (A_{x}B_{y})(0)  +  (A_{y}B_{x})(0) + (A_{y}B_{y})(1) \]</div>
+<p>We can then write the final result as</p>
+<div class="alert alert-success">
+<div class="math notranslate nohighlight">
+\[ \vec{A} \cdot \vec{B} = A_{x}B_{x} + A_{y}B_{y} \]</div>
+</div>
+<div class="alert alert-info">
+The dot product in component form is the addition of the products between common components.
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-warning">
+<b>Box 2</b><br>
+<p>Given two vectors: <span class="math notranslate nohighlight">\(\vec{A} = \begin{bmatrix} -1.0  \\ 4.0 \\  \end{bmatrix}\)</span> and <span class="math notranslate nohighlight">\(\vec{B} = \begin{bmatrix} 2.0  \\ 5.0 \\  \end{bmatrix}\)</span>, calculate the dot product between the two vectors.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-warning">
+<b>Box 3</b><br>
+<p>Given two vectors: <span class="math notranslate nohighlight">\(\vec{A} = -3.0\hat{i} + 2.0\hat{j}\)</span> and <span class="math notranslate nohighlight">\(\vec{B} = -1.0\hat{i} + 2.0\hat{j}\)</span>, calculate the dot product between the two vectors.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c1-9-5-important-observations">
+<h2>C1.9.5 Important Observations<a class="headerlink" href="#c1-9-5-important-observations" title="Link to this heading">#</a></h2>
+<p>We can make a few observations regarding the dot product that will be very useful throughout the rest of the semester.</p>
+<section id="importance-of-projection">
+<h3>1. Importance of Projection<a class="headerlink" href="#importance-of-projection" title="Link to this heading">#</a></h3>
+<p>We notice that only the projected component of one vector onto the other vector is important while the perpendicular component plays no role in the dot product.</p>
+</section>
+<section id="magnitude-of-a-vector">
+<h3>2. Magnitude of a Vector<a class="headerlink" href="#magnitude-of-a-vector" title="Link to this heading">#</a></h3>
+<p>If we take the dot product between a vector and itself, we get the square of the magnitude of the vector:</p>
+<div class="math notranslate nohighlight">
+\[ \vec{A}\cdot\vec{A} = |\vec{A}|^2 \]</div>
+<p>since <span class="math notranslate nohighlight">\(|\vec{A}|^2 = A^2_x + A^2_y\)</span>.</p>
+</section>
+<section id="angle-between-two-vectors">
+<h3>3. Angle between Two Vectors<a class="headerlink" href="#angle-between-two-vectors" title="Link to this heading">#</a></h3>
+<p>The dot product becomes a tool to find the angle between two vectors</p>
+<div class="math notranslate nohighlight">
+\[ \cos\theta = \frac{\vec{A}\cdot\vec{B}}{|\vec{A}|~|\vec{B}|} \]</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-warning">
+<b>Box 4</b><br>
+<p>Apply <strong>Important Observation 1</strong> to the following problem. Consider the three cases. Based on the observation determine, by inspection only, whether the dot product will be: negative, zero, or positive.
+<img src="C2-fig16.png"  width="600"/></p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-warning">
+<b>Box 5</b><br>
+<p>Apply <strong>Important Observation 1</strong> to the following problem. Consider the three sketches. Based on the observation determine, by inspection only, the ranking of the dot product from smallest to largest.
+<img src="C2-fig17.png"  width="600"/></p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-warning">
+<b>Box 6</b><br>
+<p>Apply <strong>Important Observation 3</strong> to the following problem. Given two vectors: <span class="math notranslate nohighlight">\(\vec{A} = \begin{bmatrix} -1.0  \\ 4.0  \end{bmatrix}\)</span> and <span class="math notranslate nohighlight">\(\vec{B} = \begin{bmatrix} 2.0  \\ 5.0  \end{bmatrix}\)</span>, find the angle between the two vectors. HINT: find the dot product first, then the magnitudes, and then apply the observation. As an after thought: how would you have found the angle between them if you did not know of the dot product?</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="c1-9-6-applications">
+<h2>C1.9.6 Applications<a class="headerlink" href="#c1-9-6-applications" title="Link to this heading">#</a></h2>
+<div class="alert alert-warning">
+<b>Box 7</b><br>
+<p>Work (or transfer of energy) done by a force is defined as the dot product between the applied force to an object and the displacement of the object.</p>
+<div class="math notranslate nohighlight">
+\[ w = \vec{f}\cdot\Delta\vec{r} \]</div>
+<p>Consider you are out shopping and are pushing a shopping cart across a distance of 30.0 m along a horizontal floor. You are applying a force of 20.0 N on the handle of the shopping cart that is directed in the same direction as motion, but angled 20.0<span class="math notranslate nohighlight">\(^\circ\)</span> downwards as well.</p>
+<p>Make a skecth of the two vectors: force and displacement, and calculate how much work, or energy you transferred to the shopping cart during this distance. NOTE: the unit Nm (Newton meter) is defined as J (Joule).</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-warning">
+<b>Box 8</b><br>
+<p>The power is a measure of the rate of energy transfer (or how much work done over a certain time interval). One way to calculate instantaneous power is the dot product between the applied force <span class="math notranslate nohighlight">\(\vec{F}\)</span> and the velocity <span class="math notranslate nohighlight">\(\vec{v}\)</span> of the object:</p>
+<div class="math notranslate nohighlight">
+\[ p = \vec{f}\cdot\vec{v} \]</div>
+<p>Consider the box problem above. If you move the shopping cart at 2.0 m/s. What is the instantanous power delivered to the shopping cart?</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Phys-Prof-Nielsen/modulearn",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-C1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Unit_vectors.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">C1.8 Unit Vectors</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="problemsC1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">C1.10 Problems</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-9-1-why-we-need-the-dot-product">C1.9.1 Why We Need the Dot Product</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-9-2-geometrical-defintion">C1.9.2 Geometrical Defintion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-9-3-interpretation">C1.9.3 Interpretation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#approach-1">Approach 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#approach-2">Approach 2</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-9-4-analytic-definition">C1.9.4 Analytic Definition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-9-5-important-observations">C1.9.5 Important Observations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-of-projection">1. Importance of Projection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#magnitude-of-a-vector">2. Magnitude of a Vector</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#angle-between-two-vectors">3. Angle between Two Vectors</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-9-6-applications">C1.9.6 Applications</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
