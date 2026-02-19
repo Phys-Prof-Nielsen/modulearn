@@ -1,0 +1,907 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lab 7 — Homopolar Motor &#8212; A Note to University Physics II Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lab7/lab7-manual';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Lab 4 — Electric Fields and Electric Potential" href="../lab4/lab4-manual.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="A Note to University Physics II Lab - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="A Note to University Physics II Lab - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Notes for University Physics II Lab
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/physics-labs/physics-lab.html">Physics Labs Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 1 - Report Writing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab1/lab1.html">Lab 1 (Synthetic): Ohm’s Law &amp; Writing a Professional Jupyter Report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab1/lab1-template.html">Template Lab 1: Ohm’s Law Report</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 2 - Arduino and Basic Error Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab2/lab2-manual.html">Lab 2 — LED Forward Voltage: Measurement, Variability, and Error in the Mean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab2/lab2-template.html">Template Lab 2: LED Forward Voltage and Statistical Uncertainty</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 3 - Terminal Voltage vs Load Current</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab3/lab3-manual.html">Lab 3 — Terminal Voltage vs Load Current: Experimental Determination of Internal Resistance</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 4 - Electric Fields and Electric Potential</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab4/lab4-manual.html">Lab 4 — Electric Fields and Electric Potential</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 7 - Homopolar Motor</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 7 — Homopolar Motor</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/university-physics-II-lab/lab7/lab7-manual.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lab7/lab7-manual.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 7 — Homopolar Motor</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-theory">Background Theory</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#magnetic-force-on-a-current-carrying-wire">1) Magnetic force on a current-carrying wire</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#torque-and-rotation">2) Torque and rotation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#current-and-electrical-power">3) Current and electrical power</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equipment">Equipment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-procedure">Experimental Procedure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-a-build-a-working-homopolar-motor">Part A — Build a Working Homopolar Motor</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#attach-the-magnet">1. Attach the magnet</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-the-copper-wire">2. Shape the copper wire</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#start-the-motor">3. Start the motor</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#observe-and-record">4. Observe and record</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-b-direction-and-right-hand-rule-check">Part B — Direction and right-hand rule check</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-analysis-short-burst-rotation-rate-rpm-measurements">Data Analysis: Short-Burst Rotation Rate (RPM) Measurements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#goal">Goal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-you-will-measure">What you will measure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure-short-burst-method">Procedure (short-burst method)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-table">Data table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-to-conclude">What to conclude</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-to-include-in-your-report">What to Include in Your Report</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection-questions">Reflection Questions</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-7-homopolar-motor">
+<h1>Lab 7 — Homopolar Motor<a class="headerlink" href="#lab-7-homopolar-motor" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>In this lab you will build a <strong>homopolar motor</strong> using a <strong>AA battery</strong>, a <strong>neodymium magnet</strong>, and a <strong>copper wire</strong>.<br />
+Despite its simplicity, this device demonstrates a core idea of electromagnetism: a <strong>current-carrying conductor in a magnetic field experiences a force</strong>. When the wire is shaped so that the force produces a <strong>torque</strong>, the wire begins to rotate continuously.</p>
+</section>
+<hr class="docutils" />
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>By the end of this lab, you should be able to:</p>
+<ol class="arabic simple">
+<li><p>Explain the motor’s motion using the <strong>magnetic (Lorentz) force</strong> on a current-carrying conductor.</p></li>
+<li><p>Identify the direction of force using the <strong>right-hand rule</strong> (cross product).</p></li>
+<li><p>Describe how <strong>current, magnetic field strength, and geometry</strong> influence torque and rotation.</p></li>
+<li><p>Measure rotation rate and connect it to electrical and magnetic quantities.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="background-theory">
+<h2>Background Theory<a class="headerlink" href="#background-theory" title="Link to this heading">#</a></h2>
+<section id="magnetic-force-on-a-current-carrying-wire">
+<h3>1) Magnetic force on a current-carrying wire<a class="headerlink" href="#magnetic-force-on-a-current-carrying-wire" title="Link to this heading">#</a></h3>
+<p>A wire segment of length vector <span class="math notranslate nohighlight">\(\vec{L}\)</span> carrying current <span class="math notranslate nohighlight">\(I\)</span> in a magnetic field <span class="math notranslate nohighlight">\(\vec{B}\)</span> experiences a force
+$<span class="math notranslate nohighlight">\(
+\vec{F} = I\,\vec{L}\times \vec{B}.
+\)</span>$</p>
+<p>The magnitude is
+$<span class="math notranslate nohighlight">\(
+F = I L B \sin\theta,
+\)</span><span class="math notranslate nohighlight">\(
+where \)</span>\theta<span class="math notranslate nohighlight">\( is the angle between \)</span>\vec{L}<span class="math notranslate nohighlight">\( and \)</span>\vec{B}$.</p>
+<p>In a homopolar motor, the magnetic field is roughly axial (through the magnet), and the current in parts of the wire has a component perpendicular to <span class="math notranslate nohighlight">\(\vec{B}\)</span>, creating a non-zero force.</p>
+</section>
+<hr class="docutils" />
+<section id="torque-and-rotation">
+<h3>2) Torque and rotation<a class="headerlink" href="#torque-and-rotation" title="Link to this heading">#</a></h3>
+<p>If the magnetic force acts at a lever arm distance <span class="math notranslate nohighlight">\(r\)</span> from the axis of rotation, it produces a torque
+$<span class="math notranslate nohighlight">\(
+\vec{\tau} = \vec{r}\times \vec{F},
+\)</span><span class="math notranslate nohighlight">\(
+with magnitude (in the simplest picture)
+\)</span><span class="math notranslate nohighlight">\(
+\tau \approx rF.
+\)</span>$</p>
+<p>As long as the torque exceeds resistive effects (friction, contact losses, air drag), the wire rotates.</p>
+</section>
+<hr class="docutils" />
+<section id="current-and-electrical-power">
+<h3>3) Current and electrical power<a class="headerlink" href="#current-and-electrical-power" title="Link to this heading">#</a></h3>
+<p>The motor is powered by the battery. A simple circuit model is
+$<span class="math notranslate nohighlight">\(
+I \approx \frac{V}{R_{\text{total}}} = \frac{V}{R_{\text{wire}} + R_{\text{contacts}} + r_{\text{internal}}}.
+\)</span>$</p>
+<p>Electrical power delivered is
+$<span class="math notranslate nohighlight">\(
+P_{\text{elec}} = IV.
+\)</span>$</p>
+<p>Only a fraction becomes mechanical power; much is dissipated as heat at the wire and contact points:
+$<span class="math notranslate nohighlight">\(
+P_{\text{heat}} = I^2 R_{\text{total}}.
+\)</span>$</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="equipment">
+<h2>Equipment<a class="headerlink" href="#equipment" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>1 × AA battery</p></li>
+<li><p>1 × neodymium magnet</p></li>
+<li><p>Copper wire (bare, fairly stiff; ~18–22 AWG is typical)</p></li>
+<li><p>Optional measurement tools:</p>
+<ul>
+<li><p>Multimeter (voltage and current)</p></li>
+<li><p>Stopwatch or phone timer</p></li>
+<li><p>Smartphone camera (slow-motion video is very helpful)</p></li>
+<li><p>Ruler or calipers (for wire radius/geometry)</p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<div style="background-color:#ffe6e6; border-left:6px solid #990000; padding:14px; border-radius:4px;">
+<p><strong>Safety Notes</strong></p>
+<ul class="simple">
+<li><p>Neodymium magnets can pinch skin and can damage electronics and magnetic strips.</p></li>
+<li><p>The wire and battery can get warm due to large currents.<br />
+<strong>Do not keep the circuit closed continuously for long periods (&gt;10-15 s).</strong> Use short runs and let it cool.</p></li>
+<li><p>Keep magnets away from pacemakers/medical implants.</p></li>
+</ul>
+</div>
+</section>
+<hr class="docutils" />
+<section id="experimental-procedure">
+<h2>Experimental Procedure<a class="headerlink" href="#experimental-procedure" title="Link to this heading">#</a></h2>
+<section id="part-a-build-a-working-homopolar-motor">
+<h3>Part A — Build a Working Homopolar Motor<a class="headerlink" href="#part-a-build-a-working-homopolar-motor" title="Link to this heading">#</a></h3>
+<p>In this configuration, the <strong>magnet will be placed on the positive terminal</strong> of the AA battery.<br />
+The small dent in the negative (flat) terminal provides a convenient pivot point for the wire.</p>
+<hr class="docutils" />
+<section id="attach-the-magnet">
+<h4>1. Attach the magnet<a class="headerlink" href="#attach-the-magnet" title="Link to this heading">#</a></h4>
+<p>Place the <strong>neodymium magnet on the positive (button) terminal</strong> of the AA battery.</p>
+<ul class="simple">
+<li><p>Make sure it is centered.</p></li>
+<li><p>The magnet should sit flat and make good electrical contact.</p></li>
+</ul>
+<p>Now the magnet is electrically connected to the positive terminal.</p>
+</section>
+<hr class="docutils" />
+<section id="shape-the-copper-wire">
+<h4>2. Shape the copper wire<a class="headerlink" href="#shape-the-copper-wire" title="Link to this heading">#</a></h4>
+<p>Bend the copper wire so that:</p>
+<ul class="simple">
+<li><p>The <strong>top center of the wire rests in the small dent of the negative terminal</strong> (this acts as a pivot point).</p></li>
+<li><p>The lower ends of the wire lightly touch the <strong>magnet</strong>.</p></li>
+<li><p>The wire is symmetric so that its mass is balanced around the battery.</p></li>
+</ul>
+<p>A common and effective design is a symmetric loop or heart-shaped form.<br />
+The key requirements are:</p>
+<ul class="simple">
+<li><p>The wire must complete the circuit:</p></li>
+<li><p>The bottom contact points must touch the magnet lightly (not clamp down).</p></li>
+<li><p>The wire must be free to rotate without scraping along the battery casing.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="start-the-motor">
+<h4>3. Start the motor<a class="headerlink" href="#start-the-motor" title="Link to this heading">#</a></h4>
+<p>Gently place the shaped wire onto the battery so:</p>
+<ul class="simple">
+<li><p>The top rests in the negative terminal dent.</p></li>
+<li><p>The bottom ends contact the magnet.</p></li>
+</ul>
+<p>If the circuit is properly completed, the wire should begin to rotate.</p>
+<p>If it does not rotate:</p>
+<ul class="simple">
+<li><p>Slightly adjust the contact points.</p></li>
+<li><p>Ensure the wire is not pressing too hard against the magnet.</p></li>
+<li><p>Improve symmetry of the wire.</p></li>
+<li><p>Lightly spin it to overcome static friction.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="observe-and-record">
+<h4>4. Observe and record<a class="headerlink" href="#observe-and-record" title="Link to this heading">#</a></h4>
+<p>Once rotating, observe and note:</p>
+<ul class="simple">
+<li><p>Direction of rotation.</p></li>
+<li><p>Stability of rotation (smooth or wobbling?).</p></li>
+<li><p>Changes in speed over time.</p></li>
+<li><p>Whether heating occurs at contact points.</p></li>
+</ul>
+<blockquote>
+<div><p>⚠ <strong>Important:</strong> Do not let the motor run continuously for long periods (&gt;10-15 s).<br />
+Large currents can heat the wire and battery quickly. Run in short intervals and allow cooling.</p>
+</div></blockquote>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-b-direction-and-right-hand-rule-check">
+<h3>Part B — Direction and right-hand rule check<a class="headerlink" href="#part-b-direction-and-right-hand-rule-check" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Sketch the motor and label:</p>
+<ul class="simple">
+<li><p>direction of current <span class="math notranslate nohighlight">\(I\)</span> (from battery + to −),</p></li>
+<li><p>approximate direction of <span class="math notranslate nohighlight">\(\vec{B}\)</span> near the magnet,</p></li>
+<li><p>predicted direction of force on a wire segment using <span class="math notranslate nohighlight">\(\vec{F} = I\vec{L}\times\vec{B}\)</span>.</p></li>
+</ul>
+</li>
+<li><p>Flip the magnet (turn it over) and repeat.<br />
+Record whether the rotation reverses and explain why.</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="data-analysis-short-burst-rotation-rate-rpm-measurements">
+<h2>Data Analysis: Short-Burst Rotation Rate (RPM) Measurements<a class="headerlink" href="#data-analysis-short-burst-rotation-rate-rpm-measurements" title="Link to this heading">#</a></h2>
+<p>Because the homopolar motor can draw a large current and warm up quickly, you should <strong>not</strong> run it continuously for long periods. Instead, you will measure rotation rate using <strong>short, safe bursts</strong> and repeat trials for consistency.</p>
+<hr class="docutils" />
+<section id="goal">
+<h3>Goal<a class="headerlink" href="#goal" title="Link to this heading">#</a></h3>
+<p>Measure the motor’s rotation rate and quantify how it changes with a simple modification (wire shape, contact quality, or magnet stacking), using <strong>short runs</strong> and basic statistics.</p>
+</section>
+<hr class="docutils" />
+<section id="what-you-will-measure">
+<h3>What you will measure<a class="headerlink" href="#what-you-will-measure" title="Link to this heading">#</a></h3>
+<p>You will determine the rotation frequency <span class="math notranslate nohighlight">\(f\)</span> and convert it to angular speed <span class="math notranslate nohighlight">\(\omega\)</span> and RPM.</p>
+<p>If the motor completes <span class="math notranslate nohighlight">\(N\)</span> rotations in a time interval <span class="math notranslate nohighlight">\(\Delta t\)</span>, then:
+$<span class="math notranslate nohighlight">\(
+f = \frac{N}{\Delta t}.
+\)</span>$</p>
+<p>Angular speed:
+$<span class="math notranslate nohighlight">\(
+\omega = 2\pi f.
+\)</span>$</p>
+<p>Rotation rate in revolutions per minute:
+$<span class="math notranslate nohighlight">\(
+\text{RPM} = 60f.
+\)</span>$</p>
+</section>
+<hr class="docutils" />
+<section id="procedure-short-burst-method">
+<h3>Procedure (short-burst method)<a class="headerlink" href="#procedure-short-burst-method" title="Link to this heading">#</a></h3>
+<ol class="arabic">
+<li><p><strong>Test conditions</strong>:</p>
+<ul class="simple">
+<li><p><strong>Condition A:</strong> baseline wire shape + one magnet</p></li>
+<li><p><strong>Condition B:</strong> modified wire shape</p></li>
+<li><p><strong>Condition C:</strong> two stacked magnets instead of one</p></li>
+</ul>
+</li>
+<li><p>For a single trial:</p>
+<ul class="simple">
+<li><p>Run the motor for <strong>10–15 s</strong> maximum.</p></li>
+<li><p>Use a phone video (slow motion if available) or a stopwatch.</p></li>
+</ul>
+</li>
+<li><p>During that short run, measure the time for a fixed number of rotations:</p>
+<ul class="simple">
+<li><p>Measure the time <span class="math notranslate nohighlight">\(t_{10}\)</span> for <strong>10 rotations</strong>.</p></li>
+</ul>
+<p>Then compute:
+$<span class="math notranslate nohighlight">\(
+f = \frac{10}{t_{10}},
+\qquad
+\text{RPM} = 60\left(\frac{10}{t_{10}}\right).
+\)</span>$</p>
+</li>
+<li><p><strong>Let the motor cool</strong> (about 30–60 s), then repeat.</p></li>
+<li><p>Collect at least <strong>5 trials</strong> for each condition.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="data-table">
+<h3>Data table<a class="headerlink" href="#data-table" title="Link to this heading">#</a></h3>
+<p>Record data like this for each condition:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-right"><p>Trial</p></th>
+<th class="head text-right"><p><span class="math notranslate nohighlight">\(t_{10}\)</span> (s)</p></th>
+<th class="head text-right"><p><span class="math notranslate nohighlight">\(f = 10/t_{10}\)</span> (Hz)</p></th>
+<th class="head text-right"><p>RPM</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-right"><p>1</p></td>
+<td class="text-right"><p></p></td>
+<td class="text-right"><p></p></td>
+<td class="text-right"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>2</p></td>
+<td class="text-right"><p></p></td>
+<td class="text-right"><p></p></td>
+<td class="text-right"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>3</p></td>
+<td class="text-right"><p></p></td>
+<td class="text-right"><p></p></td>
+<td class="text-right"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>4</p></td>
+<td class="text-right"><p></p></td>
+<td class="text-right"><p></p></td>
+<td class="text-right"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>5</p></td>
+<td class="text-right"><p></p></td>
+<td class="text-right"><p></p></td>
+<td class="text-right"><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="analysis">
+<h3>Analysis<a class="headerlink" href="#analysis" title="Link to this heading">#</a></h3>
+<p>Compute the mean RPM:
+$<span class="math notranslate nohighlight">\(
+\overline{\text{RPM}} = \frac{1}{n}\sum_{i=1}^{n} \text{RPM}_i.
+\)</span>$</p>
+<p>Compute the sample standard deviation:
+$<span class="math notranslate nohighlight">\(
+s_{\text{RPM}} =
+\sqrt{\frac{1}{n-1}\sum_{i=1}^{n}\left(\text{RPM}_i - \overline{\text{RPM}}\right)^2 }.
+\)</span>$</p>
+<p>Uncertainty in the mean (standard error):
+$<span class="math notranslate nohighlight">\(
+u_{\overline{\text{RPM}}} = \frac{s_{\text{RPM}}}{\sqrt{n}}.
+\)</span>$</p>
+</section>
+<hr class="docutils" />
+<section id="what-to-conclude">
+<h3>What to conclude<a class="headerlink" href="#what-to-conclude" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Report <span class="math notranslate nohighlight">\(\overline{\text{RPM}} \pm u_{\overline{\text{RPM}}}\)</span> for each condition.</p></li>
+<li><p>Compare conditions using a percent difference:
+$<span class="math notranslate nohighlight">\(
+\%\text{ difference} =
+\frac{\left|\overline{\text{RPM}}_2-\overline{\text{RPM}}_1\right|}{\overline{\text{RPM}}_1}\times 100\%.
+\)</span>$</p></li>
+</ul>
+<p>Then answer: Which modification produced the highest rotation rate, and why?</p>
+<p>Use scaling ideas to support your explanation (qualitatively is fine):
+$<span class="math notranslate nohighlight">\(
+F \sim I L B,
+\qquad
+\tau \sim r F \sim r I L B.
+\)</span>$</p>
+<p>This connects your measured RPM changes to current <span class="math notranslate nohighlight">\(I\)</span>, magnetic field strength <span class="math notranslate nohighlight">\(B\)</span>, and geometry (lever arm <span class="math notranslate nohighlight">\(r\)</span>).</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="what-to-include-in-your-report">
+<h2>What to Include in Your Report<a class="headerlink" href="#what-to-include-in-your-report" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Photos/sketches</strong> of your wire design and contact points.</p></li>
+<li><p>A short <strong>explanation</strong> using <span class="math notranslate nohighlight">\(\vec{F}=I\vec{L}\times\vec{B}\)</span> and torque.</p></li>
+<li><p>Observations on what changes made the motor work best.</p></li>
+<li><p>Detailed analysis</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="reflection-questions">
+<h2>Reflection Questions<a class="headerlink" href="#reflection-questions" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Which part of the wire experiences the force that produces rotation, and why?</p></li>
+<li><p>What happens to rotation direction if you flip the magnet? Explain using <span class="math notranslate nohighlight">\(\vec{L}\times\vec{B}\)</span>.</p></li>
+<li><p>Why do contact quality and wire stiffness matter so much?</p></li>
+<li><p>If the motor slows down over time, what are at least two likely causes?</p></li>
+<li><p>What modification would you try to increase RPM without changing the battery?</p></li>
+</ol>
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lab7"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../lab4/lab4-manual.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lab 4 — Electric Fields and Electric Potential</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-theory">Background Theory</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#magnetic-force-on-a-current-carrying-wire">1) Magnetic force on a current-carrying wire</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#torque-and-rotation">2) Torque and rotation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#current-and-electrical-power">3) Current and electrical power</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equipment">Equipment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-procedure">Experimental Procedure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-a-build-a-working-homopolar-motor">Part A — Build a Working Homopolar Motor</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#attach-the-magnet">1. Attach the magnet</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-the-copper-wire">2. Shape the copper wire</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#start-the-motor">3. Start the motor</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#observe-and-record">4. Observe and record</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-b-direction-and-right-hand-rule-check">Part B — Direction and right-hand rule check</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-analysis-short-burst-rotation-rate-rpm-measurements">Data Analysis: Short-Burst Rotation Rate (RPM) Measurements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#goal">Goal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-you-will-measure">What you will measure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure-short-burst-method">Procedure (short-burst method)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-table">Data table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-to-conclude">What to conclude</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-to-include-in-your-report">What to Include in Your Report</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection-questions">Reflection Questions</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
