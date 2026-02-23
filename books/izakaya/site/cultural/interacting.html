@@ -1,0 +1,763 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Interacting with Servers &#8212; Learning Japanese</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cultural/interacting';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Please vs. Please" href="kudasai.html" />
+    <link rel="prev" title="Casual vs. Formal Speech" href="casual-formal.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/akachouchin.png" class="logo__image only-light" alt="Learning Japanese - Home"/>
+    <script>document.write(`<img src="../_static/akachouchin.png" class="logo__image only-dark" alt="Learning Japanese - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Izakaya
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/japanese/japanese.html">Japanese Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Overview</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../izakaya-overview/izakaya-overview.html">Course Overview and Objectives</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Essential Phrases and Vocabulary</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../essentials/common-terms.html">Popular Izakaya Terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../essentials/food-drinks.html">Ordering Food and Drinks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../essentials/ingredients.html">Asking About Ingredients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../essentials/modifications.html">Making Modifications to Orders</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Cultural Etiquette</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="casual-formal.html">Casual vs. Formal Speech</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Interacting with Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kudasai.html">Please vs. Please</a></li>
+<li class="toctree-l1"><a class="reference internal" href="request-bill.html">Requesting the Bill</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Izakaya Menu</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../menu/navigate.html">Tips for Navigating a Japanese Menu</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Putting it All Together</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../review/role-play.html">Role-Playing Scenarios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../review/review.html">Review and Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../review/final.html">Final Quiz and Evaluation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Conclusion</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../end/recap.html">Course Recap and Next Steps</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/kataka/cultural/interacting.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/cultural/interacting.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Interacting with Servers</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polite-language-please-and-thank-you">Polite Language: “Please” and “Thank You”</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-please">Using “Please” (お願いします)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-thank-you">Using “Thank You” (ありがとうございます)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#honorific-language-showing-respect-to-the-server">Honorific Language: Showing Respect to the Server</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-honorifics-in-restaurant-settings">Common Honorifics in Restaurant Settings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bowing-slightly">Bowing Slightly</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#being-patient-and-attentive-to-the-servers-instructions">Being Patient and Attentive to the Server’s Instructions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listening-to-the-servers-recommendations">Listening to the Server’s Recommendations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expressing-appreciation-for-recommendations">Expressing Appreciation for Recommendations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#being-patient-while-waiting">Being Patient While Waiting</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-dialogue">Practice Dialogue</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scene-1">Scene 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scene-2">Scene 2</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cultural-tips-for-interacting-with-servers-in-japan">Cultural Tips for Interacting with Servers in Japan</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#politeness-is-essential">Politeness is essential:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#address-servers-politely">Address servers politely:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#be-patient-and-respectful">Be patient and respectful:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-body-language">Use body language:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="interacting-with-servers">
+<h1>Interacting with Servers<a class="headerlink" href="#interacting-with-servers" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>When dining at a Japanese restaurant, it is important to understand the proper way to interact with servers to ensure a pleasant dining experience. Communication in Japanese restaurants is usually respectful and polite, so knowing some basic phrases and etiquette can help you navigate the dining experience with ease.</p>
+<p>One key aspect of interacting with servers in a Japanese restaurant is using polite language such as “please” and “thank you” when making requests or expressing gratitude. It is also customary to address servers with respect by using honorific language and bowing slightly when they approach your table. Additionally, being patient and attentive to the server’s instructions or recommendations shows that you value their expertise and service.</p>
+<p>Key Lesson Concepts:</p>
+<ul class="simple">
+<li><p>Use polite language such as “please” and “thank you”</p></li>
+<li><p>Address servers with respect using honorific language</p></li>
+<li><p>Be patient and attentive to the server’s instructions or recommendations</p></li>
+</ul>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="polite-language-please-and-thank-you">
+<h2>Polite Language: “Please” and “Thank You”<a class="headerlink" href="#polite-language-please-and-thank-you" title="Link to this heading">#</a></h2>
+<p>In Japan, politeness is a fundamental aspect of communication, and it’s crucial to use respectful language when interacting with servers. Two key phrases you’ll use frequently when dining are:</p>
+<p>お願いします (onegai shimasu) = Please
+ありがとうございます (arigatou gozaimasu) = Thank you</p>
+<section id="using-please">
+<h3>Using “Please” (お願いします)<a class="headerlink" href="#using-please" title="Link to this heading">#</a></h3>
+<p>The word お願い (onegai) means a request or favor, and when combined with します (shimasu), it makes the phrase お願いします, a polite way to ask for something. You’ll use this when ordering, requesting modifications, or asking for service. For example:</p>
+<p>お水をお願いします。
+(Omizu o onegai shimasu.)
+Please bring water.</p>
+<p>もう一つお願いします。
+(Mō hitotsu onegai shimasu.)
+One more, please.</p>
+</section>
+<section id="using-thank-you">
+<h3>Using “Thank You” (ありがとうございます)<a class="headerlink" href="#using-thank-you" title="Link to this heading">#</a></h3>
+<p>When the server brings your food or attends to your needs, saying ありがとうございます (arigatou gozaimasu) expresses gratitude in a polite way. You can also shorten it to ありがとう (arigatou) in informal settings, but ありがとうございます is always the safer, more respectful choice in a restaurant. For example:</p>
+<p>美味しい食事をありがとうございます。
+(Oishii shokuji o arigatou gozaimasu.)
+Thank you for the delicious meal.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="honorific-language-showing-respect-to-the-server">
+<h2>Honorific Language: Showing Respect to the Server<a class="headerlink" href="#honorific-language-showing-respect-to-the-server" title="Link to this heading">#</a></h2>
+<p>In Japan, it is customary to show respect to servers by addressing them with honorific language and bowing slightly when they approach your table. Honorifics are a way of elevating the person you’re speaking to, and in the case of restaurant servers, it shows that you respect their service.</p>
+<section id="common-honorifics-in-restaurant-settings">
+<h3>Common Honorifics in Restaurant Settings<a class="headerlink" href="#common-honorifics-in-restaurant-settings" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>店員さん (ten’in-san) = Server (the honorific -san is used after the job title to show respect)</p></li>
+</ul>
+<p>For example, if you want to call the server over or get their attention:</p>
+<ul class="simple">
+<li><p>すみません、店員さん。
+(Sumimasen, ten’in-san.)
+Excuse me, server.</p></li>
+</ul>
+<p>Alternatively, you can simply say:</p>
+<ul class="simple">
+<li><p>すみません。
+(Sumimasen.)
+Excuse me.
+(This is a polite way to get the attention of the staff.)</p></li>
+</ul>
+</section>
+<section id="bowing-slightly">
+<h3>Bowing Slightly<a class="headerlink" href="#bowing-slightly" title="Link to this heading">#</a></h3>
+<p>When the server approaches your table, it’s common to bow slightly as a sign of respect. This is part of Japanese etiquette and helps maintain a respectful interaction.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="being-patient-and-attentive-to-the-servers-instructions">
+<h2>Being Patient and Attentive to the Server’s Instructions<a class="headerlink" href="#being-patient-and-attentive-to-the-servers-instructions" title="Link to this heading">#</a></h2>
+<p>When dining at a Japanese restaurant, it is important to be patient and attentive to the server’s instructions or recommendations. This shows that you value their expertise and are willing to follow the proper dining etiquette.</p>
+<section id="listening-to-the-servers-recommendations">
+<h3>Listening to the Server’s Recommendations<a class="headerlink" href="#listening-to-the-servers-recommendations" title="Link to this heading">#</a></h3>
+<p>Japanese servers may offer recommendations, especially if you are not familiar with the menu. It is respectful to listen attentively, and you can respond politely by saying:</p>
+<ul class="simple">
+<li><p>おすすめは何ですか？
+(Osusume wa nan desu ka?)
+What do you recommend?</p></li>
+</ul>
+<p>Once they make a suggestion, you can respond with:</p>
+<ul class="simple">
+<li><p>それをお願いします。
+(Sore o onegai shimasu.)
+I’ll have that, please.</p></li>
+</ul>
+</section>
+<section id="expressing-appreciation-for-recommendations">
+<h3>Expressing Appreciation for Recommendations<a class="headerlink" href="#expressing-appreciation-for-recommendations" title="Link to this heading">#</a></h3>
+<p>If you enjoy the dish or drink the server recommended, be sure to thank them:</p>
+<ul class="simple">
+<li><p>おすすめいただき、ありがとうございます。
+(Osusume itadaki, arigatou gozaimasu.)
+Thank you for the recommendation.</p></li>
+</ul>
+</section>
+<section id="being-patient-while-waiting">
+<h3>Being Patient While Waiting<a class="headerlink" href="#being-patient-while-waiting" title="Link to this heading">#</a></h3>
+<p>Sometimes, the restaurant may be busy, and you may need to wait for your order. It’s important to remain patient and not rush the server. If you need something, it’s polite to say:</p>
+<ul class="simple">
+<li><p>少しお待ちいただけますか？
+(Sukoshi omachi itadakemasu ka?)
+Can you wait a moment, please?</p></li>
+</ul>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="practice-dialogue">
+<h2>Practice Dialogue<a class="headerlink" href="#practice-dialogue" title="Link to this heading">#</a></h2>
+<section id="scene-1">
+<h3>Scene 1<a class="headerlink" href="#scene-1" title="Link to this heading">#</a></h3>
+<p>Customer:
+すみません、店員さん。お水をお願いします。
+(Sumimasen, ten’in-san. Omizu o onegai shimasu.)
+Excuse me, server. Please bring water.</p>
+<p>Server:
+かしこまりました。少々お待ちください。
+(Kashikomarimashita. Shōshō omachi kudasai.)
+Understood. Please wait a moment.</p>
+</section>
+<section id="scene-2">
+<h3>Scene 2<a class="headerlink" href="#scene-2" title="Link to this heading">#</a></h3>
+<p>Customer:
+おすすめは何ですか？
+(Osusume wa nan desu ka?)
+What do you recommend?</p>
+<p>Server:
+こちらの寿司セットがおすすめです。
+(Kochira no sushi setto ga osusume desu.)
+I recommend this sushi set.</p>
+<p>Customer:
+それをお願いします。
+(Sore o onegai shimasu.)
+I’ll have that, please.</p>
+<p>[After finishing the dish]</p>
+<p>Customer:
+美味しかったです。おすすめいただき、ありがとうございます。
+(Oishikatta desu. Osusume itadaki, arigatou gozaimasu.)
+It was delicious. Thank you for the recommendation.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="cultural-tips-for-interacting-with-servers-in-japan">
+<h2>Cultural Tips for Interacting with Servers in Japan<a class="headerlink" href="#cultural-tips-for-interacting-with-servers-in-japan" title="Link to this heading">#</a></h2>
+<section id="politeness-is-essential">
+<h3>Politeness is essential:<a class="headerlink" href="#politeness-is-essential" title="Link to this heading">#</a></h3>
+<p>Japanese service is based on respect, and even though the staff is there to assist you, maintaining a respectful and courteous tone is crucial.</p>
+</section>
+<section id="address-servers-politely">
+<h3>Address servers politely:<a class="headerlink" href="#address-servers-politely" title="Link to this heading">#</a></h3>
+<p>Use honorifics like -san or simply 店員さん (ten’in-san) when addressing servers.</p>
+</section>
+<section id="be-patient-and-respectful">
+<h3>Be patient and respectful:<a class="headerlink" href="#be-patient-and-respectful" title="Link to this heading">#</a></h3>
+<p>If the restaurant is busy, be understanding and patient. Show appreciation for the server’s hard work, as they are likely doing their best to provide good service.</p>
+</section>
+<section id="use-body-language">
+<h3>Use body language:<a class="headerlink" href="#use-body-language" title="Link to this heading">#</a></h3>
+<p>A slight bow when the server approaches or leaves the table is a nice gesture of respect.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>In this lesson, we’ve learned how to properly interact with servers in a Japanese restaurant by using polite language such as お願いします (onegai shimasu) for requests and ありがとうございます (arigatou gozaimasu) for expressing gratitude. It’s also important to address servers with respect using honorifics like 店員さん (ten’in-san) and to be patient and attentive to their instructions or recommendations. By demonstrating respect through your language and actions, you’ll ensure a pleasant and positive dining experience in Japan.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Phys-Prof-Nielsen/modulearn",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./cultural"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="casual-formal.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Casual vs. Formal Speech</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="kudasai.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Please vs. Please</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polite-language-please-and-thank-you">Polite Language: “Please” and “Thank You”</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-please">Using “Please” (お願いします)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-thank-you">Using “Thank You” (ありがとうございます)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#honorific-language-showing-respect-to-the-server">Honorific Language: Showing Respect to the Server</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-honorifics-in-restaurant-settings">Common Honorifics in Restaurant Settings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bowing-slightly">Bowing Slightly</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#being-patient-and-attentive-to-the-servers-instructions">Being Patient and Attentive to the Server’s Instructions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listening-to-the-servers-recommendations">Listening to the Server’s Recommendations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expressing-appreciation-for-recommendations">Expressing Appreciation for Recommendations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#being-patient-while-waiting">Being Patient While Waiting</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-dialogue">Practice Dialogue</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scene-1">Scene 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scene-2">Scene 2</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cultural-tips-for-interacting-with-servers-in-japan">Cultural Tips for Interacting with Servers in Japan</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#politeness-is-essential">Politeness is essential:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#address-servers-politely">Address servers politely:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#be-patient-and-respectful">Be patient and respectful:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-body-language">Use body language:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

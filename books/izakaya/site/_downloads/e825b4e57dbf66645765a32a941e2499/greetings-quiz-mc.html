@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japanese Izakaya Interaction Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding-top: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .question {
+            margin-bottom: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .answers {
+            list-style-type: none;
+            padding: 0;
+        }
+        .answers li {
+            margin-bottom: 10px;
+        }
+        .submit-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+        .score {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Japanese Izakaya Interaction Quiz</h1>
+
+    <!-- Question 1 -->
+    <div class="question">
+        <p>1. How do you respond to 'Irasshaimase!' when entering an izakaya?</p>
+        <ul class="answers" id="question1">
+            <li><input type="radio" name="q1" value="1"> こんばんは</li>
+            <li><input type="radio" name="q1" value="2"> ありがとう</li>
+            <li><input type="radio" name="q1" value="3"> こんにちは</li>
+            <li><input type="radio" name="q1" value="4"> ごめんなさい</li>
+        </ul>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="question">
+        <p>2. The staff asks how many people are in your group. What do they most likely say?</p>
+        <ul class="answers" id="question2">
+            <li><input type="radio" name="q2" value="1"> なんめいさまですか</li>
+            <li><input type="radio" name="q2" value="2"> なにをのみますか</li>
+            <li><input type="radio" name="q2" value="3"> おかいけいをおねがいします</li>
+            <li><input type="radio" name="q2" value="4"> せきにごあんないします</li>
+        </ul>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="question">
+        <p>3. What phrase would the staff use when showing you to your seat?</p>
+        <ul class="answers" id="question3">
+            <li><input type="radio" name="q3" value="1"> こちらへどうぞ</li>
+            <li><input type="radio" name="q3" value="2"> いらっしゃいませ</li>
+            <li><input type="radio" name="q3" value="3"> おしぼりをどうぞ</li>
+            <li><input type="radio" name="q3" value="4"> メニューをどうぞ</li>
+        </ul>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="question">
+        <p>4. What is the term for the wet towel provided at the table?</p>
+        <ul class="answers" id="question4">
+            <li><input type="radio" name="q4" value="1"> おしぼり</li>
+            <li><input type="radio" name="q4" value="2"> おみず</li>
+            <li><input type="radio" name="q4" value="3"> おちゃ</li>
+            <li><input type="radio" name="q4" value="4"> メニュー</li>
+        </ul>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="question">
+        <p>5. How do you politely ask for the menu in Japanese?</p>
+        <ul class="answers" id="question5">
+            <li><input type="radio" name="q5" value="1"> メニューをください</li>
+            <li><input type="radio" name="q5" value="2"> おしぼりをください</li>
+            <li><input type="radio" name="q5" value="3"> おちゃをください</li>
+            <li><input type="radio" name="q5" value="4"> みずをください</li>
+        </ul>
+    </div>
+
+    <!-- Submit Button -->
+    <button class="submit-button" onclick="checkAnswers()">Submit Quiz To See Your Score</button>
+
+    <!-- Score Display -->
+    <div id="score" class="score"></div>
+    <br>
+    <a href="../../index.html" class="button">Return to Class</a>
+</div>
+
+<script>
+// Function to randomize the answer options for each question
+function randomizeAnswers(questionId) {
+    var ul = document.getElementById(questionId);
+    var items = ul.getElementsByTagName("li");
+    var itemArr = Array.from(items);
+    itemArr.sort(function() {
+        return Math.random() - 0.5;
+    });
+    for (var i = 0; i < itemArr.length; i++) {
+        ul.appendChild(itemArr[i]);
+    }
+}
+
+// Call the function to randomize the answers when the page loads
+randomizeAnswers("question1");
+randomizeAnswers("question2");
+randomizeAnswers("question3");
+randomizeAnswers("question4");
+randomizeAnswers("question5");
+
+// Function to check if answers are correct and display score
+function checkAnswers() {
+    var score = 0;
+
+    // Check question 1 answer
+    if (document.querySelector('input[name="q1"]:checked') && document.querySelector('input[name="q1"]:checked').value == "1") {
+        score++;
+    }
+
+    // Check question 2 answer
+    if (document.querySelector('input[name="q2"]:checked') && document.querySelector('input[name="q2"]:checked').value == "1") {
+        score++;
+    }
+
+    // Check question 3 answer
+    if (document.querySelector('input[name="q3"]:checked') && document.querySelector('input[name="q3"]:checked').value == "1") {
+        score++;
+    }
+
+    // Check question 4 answer
+    if (document.querySelector('input[name="q4"]:checked') && document.querySelector('input[name="q4"]:checked').value == "1") {
+        score++;
+    }
+
+    // Check question 5 answer
+    if (document.querySelector('input[name="q5"]:checked') && document.querySelector('input[name="q5"]:checked').value == "1") {
+        score++;
+    }
+
+    // Display score
+    document.getElementById("score").innerHTML = "Your score: " + score + "/5";
+}
+</script>
+
+</body>
+</html>

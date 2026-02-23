@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japanese Izakaya Interaction Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 60%;
+            margin: 0 auto;
+            padding-top: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .question {
+            margin-bottom: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .submit-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+        .score {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            padding: 5px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Japanese Izakaya Interaction Quiz</h1>
+
+    <!-- Question 1 -->
+    <div class="question">
+        <p>1. How do you ask for one glass of beer?</p>
+        <input type="text" id="answer1" placeholder="Enter your answer (in hiragana/katakana)">
+    </div>
+
+    <!-- Question 2 -->
+    <div class="question">
+        <p>2. What would you say to order some edamame?</p>
+        <input type="text" id="answer2" placeholder="Enter your answer (in hiragana/katakana)">
+    </div>
+
+    <!-- Submit Button -->
+    <button class="submit-button" onclick="checkAnswers()">Submit Quiz</button>
+
+    <!-- Score Display -->
+    <div id="score" class="score"></div>
+    
+    <br>
+    <a href="../../index.html" class="button">Return to Class</a>
+</div>
+
+<script>
+// Function to check if answers are correct and display score
+function checkAnswers() {
+    var score = 0;
+    var answer1 = document.getElementById("answer1").value.trim();
+    var answer2 = document.getElementById("answer2").value.trim();
+
+    // Correct answers
+    var correctAnswer1 = "ビールをいっぱいください。";
+    var correctAnswer2 = "えだまめをください。";
+
+    // Check answer 1
+    if (answer1 === correctAnswer1) {
+        score++;
+    }
+
+    // Check answer 2
+    if (answer2 === correctAnswer2) {
+        score++;
+    }
+
+    // Display score
+    document.getElementById("score").innerHTML = "Your score: " + score + "/2";
+}
+</script>
+
+</body>
+</html>
