@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katakana Quiz - Romaji Answers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            color: #333;
+        }
+        .question {
+            font-size: 2em;
+            margin: 20px 0;
+        }
+        .answers {
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            margin: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .feedback {
+            margin-top: 20px;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Katakana Quiz - Romaji Answers</h1>
+
+<div id="quiz-container">
+    <div class="question" id="question">Question</div>
+    <div class="answers" id="answers">
+        <button onclick="checkAnswer(0)">Answer 1</button>
+        <button onclick="checkAnswer(1)">Answer 2</button>
+        <button onclick="checkAnswer(2)">Answer 3</button>
+        <button onclick="checkAnswer(3)">Answer 4</button>
+    </div>
+    <div class="feedback" id="feedback"></div>
+    <button id="next-btn" onclick="nextQuestion()">Next</button>
+</div>
+
+<script>
+    const quizData = [
+        {"katakana": "ア", "romaji": "a"},
+        {"katakana": "イ", "romaji": "i"},
+        {"katakana": "ウ", "romaji": "u"},
+        {"katakana": "エ", "romaji": "e"},
+        {"katakana": "オ", "romaji": "o"},
+        {"katakana": "カ", "romaji": "ka"},
+        {"katakana": "キ", "romaji": "ki"},
+        {"katakana": "ク", "romaji": "ku"},
+        {"katakana": "ケ", "romaji": "ke"},
+        {"katakana": "コ", "romaji": "ko"},
+        {"katakana": "サ", "romaji": "sa"},
+        {"katakana": "シ", "romaji": "shi"},
+        {"katakana": "ス", "romaji": "su"},
+        {"katakana": "セ", "romaji": "se"},
+        {"katakana": "ソ", "romaji": "so"},
+        {"katakana": "タ", "romaji": "ta"},
+        {"katakana": "チ", "romaji": "chi"},
+        {"katakana": "ツ", "romaji": "tsu"},
+        {"katakana": "テ", "romaji": "te"},
+        {"katakana": "ト", "romaji": "to"},
+        {"katakana": "ナ", "romaji": "na"},
+        {"katakana": "ニ", "romaji": "ni"},
+        {"katakana": "ヌ", "romaji": "nu"},
+        {"katakana": "ネ", "romaji": "ne"},
+        {"katakana": "ノ", "romaji": "no"},
+        {"katakana": "ハ", "romaji": "ha"},
+        {"katakana": "ヒ", "romaji": "hi"},
+        {"katakana": "フ", "romaji": "fu"},
+        {"katakana": "ヘ", "romaji": "he"},
+        {"katakana": "ホ", "romaji": "ho"},
+        {"katakana": "マ", "romaji": "ma"},
+        {"katakana": "ミ", "romaji": "mi"},
+        {"katakana": "ム", "romaji": "mu"},
+        {"katakana": "メ", "romaji": "me"},
+        {"katakana": "モ", "romaji": "mo"},
+        {"katakana": "ヤ", "romaji": "ya"},
+        {"katakana": "ユ", "romaji": "yu"},
+        {"katakana": "ヨ", "romaji": "yo"},
+        {"katakana": "ラ", "romaji": "ra"},
+        {"katakana": "リ", "romaji": "ri"},
+        {"katakana": "ル", "romaji": "ru"},
+        {"katakana": "レ", "romaji": "re"},
+        {"katakana": "ロ", "romaji": "ro"},
+        {"katakana": "ワ", "romaji": "wa"},
+        {"katakana": "ヲ", "romaji": "wo"},
+        {"katakana": "ン", "romaji": "n"},
+        {"katakana": "ガ", "romaji": "ga"},
+        {"katakana": "ギ", "romaji": "gi"},
+        {"katakana": "グ", "romaji": "gu"},
+        {"katakana": "ゲ", "romaji": "ge"},
+        {"katakana": "ゴ", "romaji": "go"},
+        {"katakana": "ザ", "romaji": "za"},
+        {"katakana": "ジ", "romaji": "ji"},
+        {"katakana": "ズ", "romaji": "zu"},
+        {"katakana": "ゼ", "romaji": "ze"},
+        {"katakana": "ゾ", "romaji": "zo"},
+        {"katakana": "ダ", "romaji": "da"},
+        {"katakana": "ヂ", "romaji": "ji"},
+        {"katakana": "ヅ", "romaji": "zu"},
+        {"katakana": "デ", "romaji": "de"},
+        {"katakana": "ド", "romaji": "do"},
+        {"katakana": "バ", "romaji": "ba"},
+        {"katakana": "ビ", "romaji": "bi"},
+        {"katakana": "ブ", "romaji": "bu"},
+        {"katakana": "ベ", "romaji": "be"},
+        {"katakana": "ボ", "romaji": "bo"},
+        {"katakana": "パ", "romaji": "pa"},
+        {"katakana": "ピ", "romaji": "pi"},
+        {"katakana": "プ", "romaji": "pu"},
+        {"katakana": "ペ", "romaji": "pe"},
+        {"katakana": "ポ", "romaji": "po"}
+    ];
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+    const totalQuestions = 10;
+
+    const questionElement = document.getElementById('question');
+    const feedbackElement = document.getElementById('feedback');
+    const nextBtn = document.getElementById('next-btn');
+    const answerButtons = document.querySelectorAll('.answers button');
+
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    function getRandomOptions(correctAnswer) {
+        const options = [correctAnswer];
+        while (options.length < 4) {
+            const randomAnswer = quizData[Math.floor(Math.random() * quizData.length)].romaji;
+            if (!options.includes(randomAnswer)) {
+                options.push(randomAnswer);
+            }
+        }
+        return shuffle(options), options;
+    }
+
+    function startQuiz() {
+        shuffle(quizData);
+        currentQuestionIndex = 0;
+        score = 0;
+        nextBtn.textContent = "Next";
+        showQuestion();
+    }
+
+    function showQuestion() {
+        const currentQuestion = quizData[currentQuestionIndex];
+        questionElement.textContent = currentQuestion.katakana;
+        const options = getRandomOptions(currentQuestion.romaji);
+        feedbackElement.textContent = '';
+        answerButtons.forEach((btn, index) => {
+            btn.textContent = options[index];
+            btn.disabled = false;
+        });
+    }
+
+    function checkAnswer(selectedIndex) {
+        const currentQuestion = quizData[currentQuestionIndex];
+        const selectedAnswer = answerButtons[selectedIndex].textContent;
+        if (selectedAnswer === currentQuestion.romaji) {
+            feedbackElement.textContent = "Correct!";
+            feedbackElement.style.color = 'green';
+            score++;
+        } else {
+            feedbackElement.textContent = `Wrong! The correct answer is ${currentQuestion.romaji}`;
+            feedbackElement.style.color = 'red';
+        }
+        answerButtons.forEach(btn => btn.disabled = true);
+    }
+
+    function nextQuestion() {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < totalQuestions) {
+            showQuestion();
+        } else {
+            questionElement.textContent = `Quiz Finished! Your score: ${score}/${totalQuestions}`;
+            feedbackElement.textContent = '';
+            nextBtn.textContent = "Begin";
+            nextBtn.onclick = startQuiz;
+        }
+    }
+
+    startQuiz();
+</script>
+
+</body>
+</html>
