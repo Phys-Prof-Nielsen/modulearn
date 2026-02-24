@@ -421,7 +421,11 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c6-4-1-motivation-what-happens-when-waves-meet">C6.4.1 Motivation: What Happens When Waves Meet?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c6-4-2-what-is-interference">C6.4.2 What Is Interference?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-superposition">Principle of Superposition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interference-of-traveling-waves">Interference of Traveling Waves</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-this-means-physically">What This Means Physically</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intensity-pattern">Intensity Pattern</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-sometimes-we-drop-the-kx-term">Why Sometimes We Drop the <span class="math notranslate nohighlight">\(kx\)</span> Term</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-insight">Key Insight</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions-for-interference">Conditions for Interference</a></li>
 </ul>
 </li>
@@ -482,23 +486,99 @@ But in wave optics, <strong>waves can combine</strong> — and this leads to ama
 <div><p>Interference is the phenomenon where two or more waves <strong>superpose</strong> to form a new wave pattern.</p>
 </div></blockquote>
 <p>This is a <strong>core feature of all wave phenomena</strong>.</p>
-<section id="principle-of-superposition">
-<h3>Principle of Superposition<a class="headerlink" href="#principle-of-superposition" title="Link to this heading">#</a></h3>
-<p>If two waves have electric fields:</p>
+<hr class="docutils" />
+<section id="interference-of-traveling-waves">
+<h3>Interference of Traveling Waves<a class="headerlink" href="#interference-of-traveling-waves" title="Link to this heading">#</a></h3>
+<p>A plane electromagnetic wave traveling in the +x direction can be written as:</p>
 <div class="math notranslate nohighlight">
 \[
-E_1(t) = E_0 \cos(\omega t), \quad E_2(t) = E_0 \cos(\omega t + \phi)
+E_1(x,t) = E_0 \cos(kx - \omega t)
 \]</div>
-<p>Then the total field is:</p>
+<p>Suppose a second wave of the same frequency arrives with a phase difference <span class="math notranslate nohighlight">\(\phi\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
-E_{\text{total}}(t) = E_1 + E_2 = 2E_0 \cos\left( \frac{\phi}{2} \right) \cos\left( \omega t + \frac{\phi}{2} \right)
+E_2(x,t) = E_0 \cos(kx - \omega t + \phi)
 \]</div>
-<p>And the intensity (which is proportional to the <strong>square of the amplitude</strong>) becomes:</p>
+<p>By the principle of superposition:</p>
 <div class="math notranslate nohighlight">
 \[
-I \propto \left( 2E_0 \cos\left( \frac{\phi}{2} \right) \right)^2 = 4E_0^2 \cos^2\left( \frac{\phi}{2} \right)
+E_{\text{total}}(x,t) = E_1 + E_2
 \]</div>
+<p>Using the trigonometric identity,</p>
+<div class="math notranslate nohighlight">
+\[
+\cos A + \cos B = 2 \cos\!\left(\frac{A-B}{2}\right)\cos\!\left(\frac{A+B}{2}\right)
+\]</div>
+<p>we obtain:</p>
+<div class="math notranslate nohighlight">
+\[
+E_{\text{total}}(x,t)
+=
+2E_0
+\cos\!\left(\frac{\phi}{2}\right)
+\cos\!\left(kx - \omega t + \frac{\phi}{2}\right)
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="what-this-means-physically">
+<h3>What This Means Physically<a class="headerlink" href="#what-this-means-physically" title="Link to this heading">#</a></h3>
+<p>The result is still a traveling wave.</p>
+<p>But notice:</p>
+<ul class="simple">
+<li><p>The <strong>frequency</strong> is unchanged.</p></li>
+<li><p>The <strong>wave number</strong> is unchanged.</p></li>
+<li><p>The <strong>amplitude</strong> has changed to</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+E_{\text{amp}} = 2E_0 \cos\!\left(\frac{\phi}{2}\right)
+\]</div>
+<p>Interference modifies the amplitude — not the frequency.</p>
+</section>
+<hr class="docutils" />
+<section id="intensity-pattern">
+<h3>Intensity Pattern<a class="headerlink" href="#intensity-pattern" title="Link to this heading">#</a></h3>
+<p>Since intensity is proportional to the square of the amplitude:</p>
+<div class="math notranslate nohighlight">
+\[
+I \propto E_{\text{amp}}^2
+\]</div>
+<p>we obtain:</p>
+<div class="math notranslate nohighlight">
+\[
+I \propto 
+\left(2E_0 \cos\!\left(\frac{\phi}{2}\right)\right)^2
+=
+4E_0^2 \cos^2\!\left(\frac{\phi}{2}\right)
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="why-sometimes-we-drop-the-kx-term">
+<h3>Why Sometimes We Drop the <span class="math notranslate nohighlight">\(kx\)</span> Term<a class="headerlink" href="#why-sometimes-we-drop-the-kx-term" title="Link to this heading">#</a></h3>
+<p>In many interference problems (like Young’s double slit), we measure intensity at a <strong>fixed position on a screen</strong>.</p>
+<p>At a fixed location <span class="math notranslate nohighlight">\(x = x_0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+kx_0 - \omega t
+\]</div>
+<p>is simply a time oscillation with a constant phase offset.</p>
+<p>So when analyzing brightness at one point, it is mathematically sufficient to write:</p>
+<div class="math notranslate nohighlight">
+\[
+E_1(t), \quad E_2(t)
+\]</div>
+<p>—but physically the waves still depend on space.</p>
+</section>
+<hr class="docutils" />
+<section id="key-insight">
+<h3>Key Insight<a class="headerlink" href="#key-insight" title="Link to this heading">#</a></h3>
+<p>Interference does not change the wave frequency or speed.</p>
+<p>It changes the <strong>amplitude</strong>, and because:</p>
+<div class="math notranslate nohighlight">
+\[
+I \propto E^2
+\]</div>
+<p>we observe bright and dark fringes.</p>
 </section>
 <section id="conditions-for-interference">
 <h3>Conditions for Interference<a class="headerlink" href="#conditions-for-interference" title="Link to this heading">#</a></h3>
@@ -835,42 +915,42 @@ input[type=range].anim-slider {
 </style>
 
 <div class="animation">
-  <img id="_anim_imge2027e2ae722466594a1d97cd5486dfe">
+  <img id="_anim_img7baa9c0507764ce9b6fe2e0f412892ce">
   <div class="anim-controls">
-    <input id="_anim_slidere2027e2ae722466594a1d97cd5486dfe" type="range" class="anim-slider"
+    <input id="_anim_slider7baa9c0507764ce9b6fe2e0f412892ce" type="range" class="anim-slider"
            name="points" min="0" max="1" step="1" value="0"
-           oninput="anime2027e2ae722466594a1d97cd5486dfe.set_frame(parseInt(this.value));">
+           oninput="anim7baa9c0507764ce9b6fe2e0f412892ce.set_frame(parseInt(this.value));">
     <div class="anim-buttons">
-      <button title="Decrease speed" aria-label="Decrease speed" onclick="anime2027e2ae722466594a1d97cd5486dfe.slower()">
+      <button title="Decrease speed" aria-label="Decrease speed" onclick="anim7baa9c0507764ce9b6fe2e0f412892ce.slower()">
           <i class="fa fa-minus"></i></button>
-      <button title="First frame" aria-label="First frame" onclick="anime2027e2ae722466594a1d97cd5486dfe.first_frame()">
+      <button title="First frame" aria-label="First frame" onclick="anim7baa9c0507764ce9b6fe2e0f412892ce.first_frame()">
         <i class="fa fa-fast-backward"></i></button>
-      <button title="Previous frame" aria-label="Previous frame" onclick="anime2027e2ae722466594a1d97cd5486dfe.previous_frame()">
+      <button title="Previous frame" aria-label="Previous frame" onclick="anim7baa9c0507764ce9b6fe2e0f412892ce.previous_frame()">
           <i class="fa fa-step-backward"></i></button>
-      <button title="Play backwards" aria-label="Play backwards" onclick="anime2027e2ae722466594a1d97cd5486dfe.reverse_animation()">
+      <button title="Play backwards" aria-label="Play backwards" onclick="anim7baa9c0507764ce9b6fe2e0f412892ce.reverse_animation()">
           <i class="fa fa-play fa-flip-horizontal"></i></button>
-      <button title="Pause" aria-label="Pause" onclick="anime2027e2ae722466594a1d97cd5486dfe.pause_animation()">
+      <button title="Pause" aria-label="Pause" onclick="anim7baa9c0507764ce9b6fe2e0f412892ce.pause_animation()">
           <i class="fa fa-pause"></i></button>
-      <button title="Play" aria-label="Play" onclick="anime2027e2ae722466594a1d97cd5486dfe.play_animation()">
+      <button title="Play" aria-label="Play" onclick="anim7baa9c0507764ce9b6fe2e0f412892ce.play_animation()">
           <i class="fa fa-play"></i></button>
-      <button title="Next frame" aria-label="Next frame" onclick="anime2027e2ae722466594a1d97cd5486dfe.next_frame()">
+      <button title="Next frame" aria-label="Next frame" onclick="anim7baa9c0507764ce9b6fe2e0f412892ce.next_frame()">
           <i class="fa fa-step-forward"></i></button>
-      <button title="Last frame" aria-label="Last frame" onclick="anime2027e2ae722466594a1d97cd5486dfe.last_frame()">
+      <button title="Last frame" aria-label="Last frame" onclick="anim7baa9c0507764ce9b6fe2e0f412892ce.last_frame()">
           <i class="fa fa-fast-forward"></i></button>
-      <button title="Increase speed" aria-label="Increase speed" onclick="anime2027e2ae722466594a1d97cd5486dfe.faster()">
+      <button title="Increase speed" aria-label="Increase speed" onclick="anim7baa9c0507764ce9b6fe2e0f412892ce.faster()">
           <i class="fa fa-plus"></i></button>
     </div>
-    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_selecte2027e2ae722466594a1d97cd5486dfe"
+    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_select7baa9c0507764ce9b6fe2e0f412892ce"
           class="anim-state">
-      <input type="radio" name="state" value="once" id="_anim_radio1_e2027e2ae722466594a1d97cd5486dfe"
+      <input type="radio" name="state" value="once" id="_anim_radio1_7baa9c0507764ce9b6fe2e0f412892ce"
              >
-      <label for="_anim_radio1_e2027e2ae722466594a1d97cd5486dfe">Once</label>
-      <input type="radio" name="state" value="loop" id="_anim_radio2_e2027e2ae722466594a1d97cd5486dfe"
+      <label for="_anim_radio1_7baa9c0507764ce9b6fe2e0f412892ce">Once</label>
+      <input type="radio" name="state" value="loop" id="_anim_radio2_7baa9c0507764ce9b6fe2e0f412892ce"
              checked>
-      <label for="_anim_radio2_e2027e2ae722466594a1d97cd5486dfe">Loop</label>
-      <input type="radio" name="state" value="reflect" id="_anim_radio3_e2027e2ae722466594a1d97cd5486dfe"
+      <label for="_anim_radio2_7baa9c0507764ce9b6fe2e0f412892ce">Loop</label>
+      <input type="radio" name="state" value="reflect" id="_anim_radio3_7baa9c0507764ce9b6fe2e0f412892ce"
              >
-      <label for="_anim_radio3_e2027e2ae722466594a1d97cd5486dfe">Reflect</label>
+      <label for="_anim_radio3_7baa9c0507764ce9b6fe2e0f412892ce">Reflect</label>
     </form>
   </div>
 </div>
@@ -880,9 +960,9 @@ input[type=range].anim-slider {
   /* Instantiate the Animation class. */
   /* The IDs given should match those used in the template above. */
   (function() {
-    var img_id = "_anim_imge2027e2ae722466594a1d97cd5486dfe";
-    var slider_id = "_anim_slidere2027e2ae722466594a1d97cd5486dfe";
-    var loop_select_id = "_anim_loop_selecte2027e2ae722466594a1d97cd5486dfe";
+    var img_id = "_anim_img7baa9c0507764ce9b6fe2e0f412892ce";
+    var slider_id = "_anim_slider7baa9c0507764ce9b6fe2e0f412892ce";
+    var loop_select_id = "_anim_loop_select7baa9c0507764ce9b6fe2e0f412892ce";
     var frames = new Array(50);
     
   frames[0] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAJYCAYAAACadoJwAAAAOnRFWHRTb2Z0d2FyZQBNYXRwbG90\
@@ -125154,7 +125234,7 @@ YDQY/wduzEYDeSE9SwAAAABJRU5ErkJggg==\
     /* set a timeout to make sure all the above elements are created before
        the object is initialized. */
     setTimeout(function() {
-        anime2027e2ae722466594a1d97cd5486dfe = new Animation(frames, img_id, slider_id, 100.0,
+        anim7baa9c0507764ce9b6fe2e0f412892ce = new Animation(frames, img_id, slider_id, 100.0,
                                  loop_select_id);
     }, 0);
   })()
@@ -125431,42 +125511,42 @@ input[type=range].anim-slider {
 </style>
 
 <div class="animation">
-  <img id="_anim_imgd7966eb7522c44f98974eb418923ffc7">
+  <img id="_anim_img8032529f3312465fa1bb147ed8fe460e">
   <div class="anim-controls">
-    <input id="_anim_sliderd7966eb7522c44f98974eb418923ffc7" type="range" class="anim-slider"
+    <input id="_anim_slider8032529f3312465fa1bb147ed8fe460e" type="range" class="anim-slider"
            name="points" min="0" max="1" step="1" value="0"
-           oninput="animd7966eb7522c44f98974eb418923ffc7.set_frame(parseInt(this.value));">
+           oninput="anim8032529f3312465fa1bb147ed8fe460e.set_frame(parseInt(this.value));">
     <div class="anim-buttons">
-      <button title="Decrease speed" aria-label="Decrease speed" onclick="animd7966eb7522c44f98974eb418923ffc7.slower()">
+      <button title="Decrease speed" aria-label="Decrease speed" onclick="anim8032529f3312465fa1bb147ed8fe460e.slower()">
           <i class="fa fa-minus"></i></button>
-      <button title="First frame" aria-label="First frame" onclick="animd7966eb7522c44f98974eb418923ffc7.first_frame()">
+      <button title="First frame" aria-label="First frame" onclick="anim8032529f3312465fa1bb147ed8fe460e.first_frame()">
         <i class="fa fa-fast-backward"></i></button>
-      <button title="Previous frame" aria-label="Previous frame" onclick="animd7966eb7522c44f98974eb418923ffc7.previous_frame()">
+      <button title="Previous frame" aria-label="Previous frame" onclick="anim8032529f3312465fa1bb147ed8fe460e.previous_frame()">
           <i class="fa fa-step-backward"></i></button>
-      <button title="Play backwards" aria-label="Play backwards" onclick="animd7966eb7522c44f98974eb418923ffc7.reverse_animation()">
+      <button title="Play backwards" aria-label="Play backwards" onclick="anim8032529f3312465fa1bb147ed8fe460e.reverse_animation()">
           <i class="fa fa-play fa-flip-horizontal"></i></button>
-      <button title="Pause" aria-label="Pause" onclick="animd7966eb7522c44f98974eb418923ffc7.pause_animation()">
+      <button title="Pause" aria-label="Pause" onclick="anim8032529f3312465fa1bb147ed8fe460e.pause_animation()">
           <i class="fa fa-pause"></i></button>
-      <button title="Play" aria-label="Play" onclick="animd7966eb7522c44f98974eb418923ffc7.play_animation()">
+      <button title="Play" aria-label="Play" onclick="anim8032529f3312465fa1bb147ed8fe460e.play_animation()">
           <i class="fa fa-play"></i></button>
-      <button title="Next frame" aria-label="Next frame" onclick="animd7966eb7522c44f98974eb418923ffc7.next_frame()">
+      <button title="Next frame" aria-label="Next frame" onclick="anim8032529f3312465fa1bb147ed8fe460e.next_frame()">
           <i class="fa fa-step-forward"></i></button>
-      <button title="Last frame" aria-label="Last frame" onclick="animd7966eb7522c44f98974eb418923ffc7.last_frame()">
+      <button title="Last frame" aria-label="Last frame" onclick="anim8032529f3312465fa1bb147ed8fe460e.last_frame()">
           <i class="fa fa-fast-forward"></i></button>
-      <button title="Increase speed" aria-label="Increase speed" onclick="animd7966eb7522c44f98974eb418923ffc7.faster()">
+      <button title="Increase speed" aria-label="Increase speed" onclick="anim8032529f3312465fa1bb147ed8fe460e.faster()">
           <i class="fa fa-plus"></i></button>
     </div>
-    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_selectd7966eb7522c44f98974eb418923ffc7"
+    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_select8032529f3312465fa1bb147ed8fe460e"
           class="anim-state">
-      <input type="radio" name="state" value="once" id="_anim_radio1_d7966eb7522c44f98974eb418923ffc7"
+      <input type="radio" name="state" value="once" id="_anim_radio1_8032529f3312465fa1bb147ed8fe460e"
              >
-      <label for="_anim_radio1_d7966eb7522c44f98974eb418923ffc7">Once</label>
-      <input type="radio" name="state" value="loop" id="_anim_radio2_d7966eb7522c44f98974eb418923ffc7"
+      <label for="_anim_radio1_8032529f3312465fa1bb147ed8fe460e">Once</label>
+      <input type="radio" name="state" value="loop" id="_anim_radio2_8032529f3312465fa1bb147ed8fe460e"
              checked>
-      <label for="_anim_radio2_d7966eb7522c44f98974eb418923ffc7">Loop</label>
-      <input type="radio" name="state" value="reflect" id="_anim_radio3_d7966eb7522c44f98974eb418923ffc7"
+      <label for="_anim_radio2_8032529f3312465fa1bb147ed8fe460e">Loop</label>
+      <input type="radio" name="state" value="reflect" id="_anim_radio3_8032529f3312465fa1bb147ed8fe460e"
              >
-      <label for="_anim_radio3_d7966eb7522c44f98974eb418923ffc7">Reflect</label>
+      <label for="_anim_radio3_8032529f3312465fa1bb147ed8fe460e">Reflect</label>
     </form>
   </div>
 </div>
@@ -125476,9 +125556,9 @@ input[type=range].anim-slider {
   /* Instantiate the Animation class. */
   /* The IDs given should match those used in the template above. */
   (function() {
-    var img_id = "_anim_imgd7966eb7522c44f98974eb418923ffc7";
-    var slider_id = "_anim_sliderd7966eb7522c44f98974eb418923ffc7";
-    var loop_select_id = "_anim_loop_selectd7966eb7522c44f98974eb418923ffc7";
+    var img_id = "_anim_img8032529f3312465fa1bb147ed8fe460e";
+    var slider_id = "_anim_slider8032529f3312465fa1bb147ed8fe460e";
+    var loop_select_id = "_anim_loop_select8032529f3312465fa1bb147ed8fe460e";
     var frames = new Array(60);
     
   frames[0] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAGQCAYAAABWJQQ0AAAAOnRFWHRTb2Z0d2FyZQBNYXRwbG90\
@@ -207984,7 +208064,7 @@ fhVQBoQgCIIgCIIgiCbj/wF7EZJOU0xvvwAAAABJRU5ErkJggg==\
     /* set a timeout to make sure all the above elements are created before
        the object is initialized. */
     setTimeout(function() {
-        animd7966eb7522c44f98974eb418923ffc7 = new Animation(frames, img_id, slider_id, 100.0,
+        anim8032529f3312465fa1bb147ed8fe460e = new Animation(frames, img_id, slider_id, 100.0,
                                  loop_select_id);
     }, 0);
   })()
@@ -208169,7 +208249,11 @@ Even the <em>possibility</em> of obtaining that information — without actually
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c6-4-1-motivation-what-happens-when-waves-meet">C6.4.1 Motivation: What Happens When Waves Meet?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c6-4-2-what-is-interference">C6.4.2 What Is Interference?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-superposition">Principle of Superposition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interference-of-traveling-waves">Interference of Traveling Waves</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-this-means-physically">What This Means Physically</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intensity-pattern">Intensity Pattern</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-sometimes-we-drop-the-kx-term">Why Sometimes We Drop the <span class="math notranslate nohighlight">\(kx\)</span> Term</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-insight">Key Insight</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions-for-interference">Conditions for Interference</a></li>
 </ul>
 </li>
