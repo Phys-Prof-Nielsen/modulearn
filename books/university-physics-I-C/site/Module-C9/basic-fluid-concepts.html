@@ -1,0 +1,766 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>C9.1 Basic Fluid Concepts &#8212; A Competency Approach to Introductory Physics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-C9/basic-fluid-concepts';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="C9.2 Pressure with Depth" href="pressure-depth.html" />
+    <link rel="prev" title="C8.3 Problems" href="../Module-C8/problemsC8.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-C.png" class="logo__image only-light" alt="A Competency Approach to Introductory Physics - Home"/>
+    <script>document.write(`<img src="../_static/logo-C.png" class="logo__image only-dark" alt="A Competency Approach to Introductory Physics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to University Physics I: A Compendium to the C Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/university-physics-I/university-physics-I.html">University Physics I Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C1 - Basics of Vectors</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/LOC-C1.html">C1.0 Learning Outcomes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/Introduction_to_vectors.html">C1.1 Introduction to Vectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/Position_vector.html">C.1.2 Position Vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/Analytic_vector.html">C1.3 Analytic Representation of a Vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/Multiplication_scalar_geometrical.html">C1.4 Multiplication of a Vector by a Scalar: Geometric Approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/Displacement_vector.html">C1.5 Concept of Displacement Vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/Addition_vectors_geometrical.html">C1.6 Addition of Vectors: Geometric Approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/Addition_vectors_analytic.html">C1.7 Basic Vector Arithmetic: Analytic Approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/Unit_vectors.html">C1.8 Unit Vectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/Dot_product.html">C1.9 Dot Product</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/problemsC1.html">C1.10 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/assessment-C1.html">C1.11 Module 1 Assessment</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C2 - Equations of Kinematics - Average</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/LOC-C2.html">C2.0 Learning Outcomes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/Average-speed-velocity.html">C2.1 Average Speed and Velocity: Definitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/Average-acceleration.html">C2.2 Average Acceleration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/Equations-kinematics.html">C2.3 Equations of Kinematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/Projectile-motion.html">C2.4 Projectile Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/problemsC2.html">C2.5 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/assessment-C2.html">C2.6 Module Assessment</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C3 - Linear Momentum of Point Particle</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C3/LOC-C3.html">C3.0 Learning Outcomes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C3/Linear_momentum_point_particle.html">C3.1 Linear Momentum: Point Particle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C3/Impulse-momentum.html">C3.2 Impulse-Momentum Theorem: Point Particle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C3/problemsC3.html">C3.3 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C3/assessment-C3.html">C3.4 Module 3 Assessment</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C4 - Linear Force on Point Particle</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C4/LOC-C4.html">C4.0 Learning Outcomes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C4/Newtons-laws.html">C4.1 Newton’s Laws: Point Particle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C4/Fundamental-interactions.html">C4.2 Fundamental Interactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C4/solving-strategy.html">C4.3 Newton’s Laws: Solving Strategy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C4/problemsC4.html">C4.4 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C4/assessment-C4.html">C4.5 Module 4 Assessment</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C5 - Galilean Transformations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C5/LOC-C5.html">C5.0 Learning Outcomes — Galilean Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C5/galilean-relativity-coordinate.html">C5.1 Galilean Relativity: Coordinate Transformation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C5/galilean-relativity-length.html">C5.2 Galilean Relativity: Length Measurement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C5/galilean-relativity-displacement.html">C5.3 Galilean Relativity: Displacement Measurement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C5/galilean-relativity-velocity.html">C5.4 Galilean Relativity: Velocity Transformation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C5/galilean-relativity-acc.html">C5.5 Acceleration and Newton’s Laws in Galilean Relativity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C5/problemsC5.html">C5.6 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C6 - Work and Energy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C6/LOC-C6.html">C6.0 Learning Outcomes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C6/Linear-work-particle.html">C6.1 Linear Work: Point Particle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C6/Conservative-forces.html">C6.2 Conservative Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C6/Potential-energy.html">C6.3 Potential Energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C6/Conservation-energy.html">C6.4 Conservation of Mechanical Energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C6/problemsC6.html">C6.5 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C6/assessment-C6.html">C6.6 Module 6 Assessment</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C7 - Discrete System of Particles</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C7/center-of-mass.html">C7.1 Discrete System - Mass of System and Center of Mass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C7/CM-impulse-momentum.html">C7.2 Impulse-Momentum Theorem - Center of Mass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C7/CM-work-energy.html">C7.3 Pseudo Work-Energy Theorem - Center of Mass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C7/problemsC7.html">C7.4 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C8 - Rotational Kinematics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C8/basic-relations.html">C8.1 Rotational Kinematics - Basic Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C8/equations-kinematics.html">C8.2 Rotational Equations of Kinematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C8/problemsC8.html">C8.3 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C9 - Introduction to Fluids</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">C9.1 Basic Fluid Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pressure-depth.html">C9.2 Pressure with Depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pascals-principle.html">C9.3 Pascal’s Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archimedes.html">C9.4 Archimedes’ Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problemsC9.html">C9.5 Problems</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/university-physics-I-C/Module-C9/basic-fluid-concepts.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-C9/basic-fluid-concepts.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>C9.1 Basic Fluid Concepts</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c9-1-1-motivation-why-study-fluids">C9.1.1 Motivation: Why Study Fluids?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c9-1-2-density">C9.1.2 Density</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c9-1-3-specific-weight-and-specific-gravity">C9.1.3 Specific Weight and Specific Gravity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c9-1-4-pressure-in-a-fluid">C9.1.4 Pressure in a Fluid</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c9-1-5-absolute-and-gauge-pressure">C9.1.5  Absolute and Gauge Pressure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#absolute-pressure-p-text-abs">Absolute Pressure (<span class="math notranslate nohighlight">\(P_\text{abs}\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gauge-pressure-p-text-gauge">Gauge Pressure (<span class="math notranslate nohighlight">\(P_\text{gauge}\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-gauge-pressure-in-practice">Examples of Gauge Pressure in Practice</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-gauge-pressure-is-common">Why Gauge Pressure is Common</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="c9-1-basic-fluid-concepts">
+<h1>C9.1 Basic Fluid Concepts<a class="headerlink" href="#c9-1-basic-fluid-concepts" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><section id="c9-1-1-motivation-why-study-fluids">
+<h2>C9.1.1 Motivation: Why Study Fluids?<a class="headerlink" href="#c9-1-1-motivation-why-study-fluids" title="Link to this heading">#</a></h2>
+<p>Fluids are everywhere — in nature, in technology, and even within our own bodies. Understanding how fluids behave allows us to explain and predict a vast range of physical phenomena and engineering applications.</p>
+<p>When we studied <strong>Newton’s laws</strong>, <strong>momentum</strong>, and <strong>energy</strong>, we treated matter as discrete particles or rigid bodies. However, many real-world systems cannot be described this way. Air, water, blood, and even the molten rock beneath Earth’s crust are all <strong>continuous materials</strong> that <strong>flow</strong> and <strong>deform</strong> continuously under applied forces. To describe these systems, we must extend the tools of mechanics to <strong>continuous media</strong>, leading us to <strong>fluid dynamics</strong>.</p>
+<p>Fluids play a central role in both natural and technological systems:</p>
+<ul class="simple">
+<li><p>The <strong>air we breathe</strong> exerts pressure that enables weather, flight, and sound propagation.</p></li>
+<li><p>The <strong>water cycle</strong> drives climate and life.</p></li>
+<li><p><strong>Hydraulic systems</strong> use fluid pressure to lift heavy machinery.</p></li>
+<li><p><strong>Blood flow</strong> delivers oxygen and nutrients through the circulatory system.</p></li>
+<li><p><strong>Buoyancy and drag</strong> determine how ships float and how fish or submarines move.</p></li>
+<li><p>Even the <strong>forces on airplanes</strong> and the <strong>lift of a bird’s wing</strong> are governed by fluid behavior.</p></li>
+</ul>
+<p>By understanding basic fluid properties like <strong>density</strong> and <strong>pressure</strong>, we establish the foundation for explaining:</p>
+<ul class="simple">
+<li><p>Why pressure increases with depth underwater.</p></li>
+<li><p>How hydraulics multiply force (Pascal’s principle).</p></li>
+<li><p>Why some objects float and others sink (Archimedes’ principle).</p></li>
+<li><p>How pressure differences create motion — from ocean currents to human breathing.</p></li>
+</ul>
+<p>In short, <strong>fluid mechanics connects the microscopic world of molecules to the macroscopic world of motion and forces</strong>. It bridges physics, biology, engineering, and environmental science — making it one of the most broadly applicable topics in classical mechanics.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="c9-1-2-density">
+<h2>C9.1.2 Density<a class="headerlink" href="#c9-1-2-density" title="Link to this heading">#</a></h2>
+<p>The <strong>density</strong> of a substance is defined as the <strong>mass per unit volume</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+\rho = \frac{m}{V}
+\]</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\rho\)</span> = density (kg/m<span class="math notranslate nohighlight">\(^3\)</span>),</p></li>
+<li><p><span class="math notranslate nohighlight">\(m\)</span> = mass (kg),</p></li>
+<li><p><span class="math notranslate nohighlight">\(V\)</span> = volume (m<span class="math notranslate nohighlight">\(^3\)</span>).</p></li>
+</ul>
+<p>For a uniform material, density is constant throughout.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="c9-1-3-specific-weight-and-specific-gravity">
+<h2>C9.1.3 Specific Weight and Specific Gravity<a class="headerlink" href="#c9-1-3-specific-weight-and-specific-gravity" title="Link to this heading">#</a></h2>
+<p>The <strong>specific weight</strong> (also called <strong>weight density</strong>) is the weight per unit volume:</p>
+<div class="math notranslate nohighlight">
+\[
+\gamma = \frac{W}{V} = \rho g
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(g\)</span> is the acceleration due to gravity.</p>
+<p>The <strong>specific gravity (SG)</strong> is the ratio of the density of a substance to the density of water at <span class="math notranslate nohighlight">\(4^\circ\)</span>C (approximately <span class="math notranslate nohighlight">\(1000 \text{ kg/m}^3\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[
+\text{SG} = \frac{\rho_\text{substance}}{\rho_\text{water}}
+\]</div>
+<p>This dimensionless number indicates whether an object will float or sink in water.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="c9-1-4-pressure-in-a-fluid">
+<h2>C9.1.4 Pressure in a Fluid<a class="headerlink" href="#c9-1-4-pressure-in-a-fluid" title="Link to this heading">#</a></h2>
+<p><strong>Pressure</strong> is the <strong>normal force per unit area</strong> exerted by a fluid:</p>
+<div class="math notranslate nohighlight">
+\[
+P = \frac{F_\perp}{A}
+\]</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(P\)</span> = pressure (Pa or N/m<span class="math notranslate nohighlight">\(^2\)</span>),</p></li>
+<li><p><span class="math notranslate nohighlight">\(F_\perp\)</span> = force acting perpendicular to the surface,</p></li>
+<li><p><span class="math notranslate nohighlight">\(A\)</span> = surface area.</p></li>
+</ul>
+<p>Pressure is a scalar quantity because it represents the normal component of the stress tensor in a fluid. In a fluid at rest, the stress tensor is isotropic, so the normal stress — the pressure — has the same value for any orientation of the surface element.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="c9-1-5-absolute-and-gauge-pressure">
+<h2>C9.1.5  Absolute and Gauge Pressure<a class="headerlink" href="#c9-1-5-absolute-and-gauge-pressure" title="Link to this heading">#</a></h2>
+<p>Pressure can be measured in two main ways, depending on the reference point chosen:</p>
+<hr class="docutils" />
+<section id="absolute-pressure-p-text-abs">
+<h3>Absolute Pressure (<span class="math notranslate nohighlight">\(P_\text{abs}\)</span>)<a class="headerlink" href="#absolute-pressure-p-text-abs" title="Link to this heading">#</a></h3>
+<p>Absolute pressure is measured <strong>relative to a perfect vacuum</strong> (zero pressure).<br />
+It represents the <strong>total pressure</strong> exerted by the fluid, including the effects of the surrounding atmosphere.</p>
+<div class="math notranslate nohighlight">
+\[
+P_\text{abs} = P_\text{atm} + P_\text{gauge}
+\]</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(P_\text{atm}\)</span> = atmospheric pressure (~101.3 kPa at sea level)</p></li>
+<li><p><span class="math notranslate nohighlight">\(P_\text{gauge}\)</span> = gauge pressure (measured relative to the atmosphere)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="gauge-pressure-p-text-gauge">
+<h3>Gauge Pressure (<span class="math notranslate nohighlight">\(P_\text{gauge}\)</span>)<a class="headerlink" href="#gauge-pressure-p-text-gauge" title="Link to this heading">#</a></h3>
+<p>Gauge pressure is measured <strong>relative to the local atmospheric pressure</strong> rather than a vacuum.<br />
+This is the type of pressure most commonly used in everyday applications.</p>
+<div class="math notranslate nohighlight">
+\[
+P_\text{gauge} = P_\text{abs} - P_\text{atm}
+\]</div>
+<p>If the absolute pressure is <strong>greater</strong> than atmospheric pressure, the <strong>gauge pressure is positive</strong>.<br />
+If it is <strong>less</strong>, the gauge pressure is <strong>negative</strong>, which is sometimes referred to as a <strong>partial vacuum</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="examples-of-gauge-pressure-in-practice">
+<h3>Examples of Gauge Pressure in Practice<a class="headerlink" href="#examples-of-gauge-pressure-in-practice" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Automobile and Bicycle Tires:</strong><br />
+When a tire gauge reads “32 psi,” it means <strong>32 psi above atmospheric pressure</strong>.<br />
+The absolute pressure inside the tire is approximately:
+$<span class="math notranslate nohighlight">\(
+P_\text{abs} = 32 \, \text{psi} + 14.7 \, \text{psi} = 46.7 \, \text{psi}
+\)</span>$
+since 14.7 psi is the average atmospheric pressure at sea level.</p></li>
+<li><p><strong>Hydraulic Systems (e.g., car brakes, lifts):</strong><br />
+Hydraulic gauges display the pressure inside the fluid relative to the surrounding air.<br />
+These pressures can reach thousands of kilopascals, depending on the load being lifted.</p></li>
+<li><p><strong>Medical Applications:</strong></p>
+<ul>
+<li><p><strong>Blood Pressure:</strong><br />
+A blood pressure reading of 120/80 mmHg is a <strong>gauge pressure</strong> relative to atmospheric pressure.<br />
+The higher number (systolic) corresponds to the peak pressure when the heart contracts, and the lower number (diastolic) when it relaxes.<br />
+In absolute terms, the systolic pressure would be:
+$<span class="math notranslate nohighlight">\(
+P_\text{abs} = 101.3 \, \text{kPa} + (120 \, \text{mmHg}) = 117.3 \, \text{kPa}
+\)</span><span class="math notranslate nohighlight">\(
+since \)</span>1 , \text{mmHg} \approx 133.3 , \text{Pa}$.</p></li>
+<li><p><strong>Intracranial or Intraocular Pressure:</strong><br />
+These are also measured relative to atmospheric pressure to assess internal fluid pressure within the body.</p></li>
+</ul>
+</li>
+<li><p><strong>Industrial and Laboratory Equipment:</strong><br />
+Pressure gauges on pumps, boilers, and gas cylinders all measure <strong>gauge pressure</strong>, allowing operators to quickly see whether pressure is above or below ambient conditions.</p></li>
+<li><p><strong>Vacuum Systems:</strong><br />
+A negative gauge pressure indicates a vacuum. For example, a reading of <span class="math notranslate nohighlight">\(-50\)</span> kPa gauge means the pressure inside is <span class="math notranslate nohighlight">\(50\)</span> kPa <strong>below</strong> atmospheric.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="why-gauge-pressure-is-common">
+<h3>Why Gauge Pressure is Common<a class="headerlink" href="#why-gauge-pressure-is-common" title="Link to this heading">#</a></h3>
+<p>Atmospheric pressure is always present and constant under most everyday conditions.<br />
+Because most systems operate relative to this environment, it is more practical to measure <strong>pressure differences</strong> rather than total pressure.</p>
+<p>Gauge pressure simplifies design and measurement — what matters for the integrity of a container or the function of a device is <strong>how much greater (or less)</strong> the internal pressure is compared to the outside.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Phys-Prof-Nielsen/modulearn",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-C9"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Module-C8/problemsC8.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">C8.3 Problems</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="pressure-depth.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">C9.2 Pressure with Depth</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c9-1-1-motivation-why-study-fluids">C9.1.1 Motivation: Why Study Fluids?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c9-1-2-density">C9.1.2 Density</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c9-1-3-specific-weight-and-specific-gravity">C9.1.3 Specific Weight and Specific Gravity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c9-1-4-pressure-in-a-fluid">C9.1.4 Pressure in a Fluid</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c9-1-5-absolute-and-gauge-pressure">C9.1.5  Absolute and Gauge Pressure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#absolute-pressure-p-text-abs">Absolute Pressure (<span class="math notranslate nohighlight">\(P_\text{abs}\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gauge-pressure-p-text-gauge">Gauge Pressure (<span class="math notranslate nohighlight">\(P_\text{gauge}\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-gauge-pressure-in-practice">Examples of Gauge Pressure in Practice</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-gauge-pressure-is-common">Why Gauge Pressure is Common</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

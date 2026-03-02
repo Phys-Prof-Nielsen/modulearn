@@ -1,0 +1,711 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>C9.2 Pressure with Depth &#8212; A Competency Approach to Introductory Physics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-C9/pressure-depth';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="C9.3 Pascal’s Principle" href="pascals-principle.html" />
+    <link rel="prev" title="C9.1 Basic Fluid Concepts" href="basic-fluid-concepts.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-C.png" class="logo__image only-light" alt="A Competency Approach to Introductory Physics - Home"/>
+    <script>document.write(`<img src="../_static/logo-C.png" class="logo__image only-dark" alt="A Competency Approach to Introductory Physics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to University Physics I: A Compendium to the C Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/university-physics-I/university-physics-I.html">University Physics I Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C1 - Basics of Vectors</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/LOC-C1.html">C1.0 Learning Outcomes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/Introduction_to_vectors.html">C1.1 Introduction to Vectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/Position_vector.html">C.1.2 Position Vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/Analytic_vector.html">C1.3 Analytic Representation of a Vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/Multiplication_scalar_geometrical.html">C1.4 Multiplication of a Vector by a Scalar: Geometric Approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/Displacement_vector.html">C1.5 Concept of Displacement Vector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/Addition_vectors_geometrical.html">C1.6 Addition of Vectors: Geometric Approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/Addition_vectors_analytic.html">C1.7 Basic Vector Arithmetic: Analytic Approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/Unit_vectors.html">C1.8 Unit Vectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/Dot_product.html">C1.9 Dot Product</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/problemsC1.html">C1.10 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/assessment-C1.html">C1.11 Module 1 Assessment</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C2 - Equations of Kinematics - Average</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/LOC-C2.html">C2.0 Learning Outcomes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/Average-speed-velocity.html">C2.1 Average Speed and Velocity: Definitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/Average-acceleration.html">C2.2 Average Acceleration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/Equations-kinematics.html">C2.3 Equations of Kinematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/Projectile-motion.html">C2.4 Projectile Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/problemsC2.html">C2.5 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/assessment-C2.html">C2.6 Module Assessment</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C3 - Linear Momentum of Point Particle</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C3/LOC-C3.html">C3.0 Learning Outcomes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C3/Linear_momentum_point_particle.html">C3.1 Linear Momentum: Point Particle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C3/Impulse-momentum.html">C3.2 Impulse-Momentum Theorem: Point Particle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C3/problemsC3.html">C3.3 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C3/assessment-C3.html">C3.4 Module 3 Assessment</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C4 - Linear Force on Point Particle</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C4/LOC-C4.html">C4.0 Learning Outcomes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C4/Newtons-laws.html">C4.1 Newton’s Laws: Point Particle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C4/Fundamental-interactions.html">C4.2 Fundamental Interactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C4/solving-strategy.html">C4.3 Newton’s Laws: Solving Strategy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C4/problemsC4.html">C4.4 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C4/assessment-C4.html">C4.5 Module 4 Assessment</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C5 - Galilean Transformations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C5/LOC-C5.html">C5.0 Learning Outcomes — Galilean Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C5/galilean-relativity-coordinate.html">C5.1 Galilean Relativity: Coordinate Transformation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C5/galilean-relativity-length.html">C5.2 Galilean Relativity: Length Measurement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C5/galilean-relativity-displacement.html">C5.3 Galilean Relativity: Displacement Measurement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C5/galilean-relativity-velocity.html">C5.4 Galilean Relativity: Velocity Transformation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C5/galilean-relativity-acc.html">C5.5 Acceleration and Newton’s Laws in Galilean Relativity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C5/problemsC5.html">C5.6 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C6 - Work and Energy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C6/LOC-C6.html">C6.0 Learning Outcomes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C6/Linear-work-particle.html">C6.1 Linear Work: Point Particle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C6/Conservative-forces.html">C6.2 Conservative Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C6/Potential-energy.html">C6.3 Potential Energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C6/Conservation-energy.html">C6.4 Conservation of Mechanical Energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C6/problemsC6.html">C6.5 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C6/assessment-C6.html">C6.6 Module 6 Assessment</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C7 - Discrete System of Particles</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C7/center-of-mass.html">C7.1 Discrete System - Mass of System and Center of Mass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C7/CM-impulse-momentum.html">C7.2 Impulse-Momentum Theorem - Center of Mass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C7/CM-work-energy.html">C7.3 Pseudo Work-Energy Theorem - Center of Mass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C7/problemsC7.html">C7.4 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C8 - Rotational Kinematics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C8/basic-relations.html">C8.1 Rotational Kinematics - Basic Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C8/equations-kinematics.html">C8.2 Rotational Equations of Kinematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C8/problemsC8.html">C8.3 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C9 - Introduction to Fluids</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="basic-fluid-concepts.html">C9.1 Basic Fluid Concepts</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">C9.2 Pressure with Depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pascals-principle.html">C9.3 Pascal’s Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archimedes.html">C9.4 Archimedes’ Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problemsC9.html">C9.5 Problems</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/university-physics-I-C/Module-C9/pressure-depth.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-C9/pressure-depth.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>C9.2 Pressure with Depth</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c9-2-1-motivation-why-pressure-changes-with-depth">C9.2.1 Motivation: Why Pressure Changes with Depth</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c9-2-2-quantifying-pressure-with-depth">C9.2.2 Quantifying Pressure with Depth</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-forces-acting-on-the-fluid-column">Step 1. Forces Acting on the Fluid Column</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-force-balance-static-equilibrium">Step 2. Force Balance (Static Equilibrium)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-simplify">Step 3. Simplify</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-interpretation">Step 4. Interpretation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-meaning">Physical Meaning</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="c9-2-pressure-with-depth">
+<h1>C9.2 Pressure with Depth<a class="headerlink" href="#c9-2-pressure-with-depth" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="c9-2-1-motivation-why-pressure-changes-with-depth">
+<h2>C9.2.1 Motivation: Why Pressure Changes with Depth<a class="headerlink" href="#c9-2-1-motivation-why-pressure-changes-with-depth" title="Link to this heading">#</a></h2>
+<p>When you dive into a swimming pool or descend in a lake, you quickly feel a change — your ears “pop,” and it becomes harder to move downward.<br />
+This familiar experience is a direct consequence of how <strong>pressure increases with depth</strong> in a fluid.</p>
+<p>At the surface, the fluid must already support the <strong>weight of the atmosphere above it</strong> — this is the <strong>atmospheric pressure</strong> we experience every day.<br />
+As you move deeper, each layer of fluid must also support the <strong>weight of all the fluid above it</strong>.<br />
+That added weight compresses the fluid below, increasing the pressure at deeper levels.</p>
+<p>This principle explains a wide range of real-world phenomena:</p>
+<ul class="simple">
+<li><p><strong>Scuba diving and submarines:</strong> Equipment must withstand increasing pressure as depth increases.</p></li>
+<li><p><strong>Hydraulic systems:</strong> Fluid pressure at one point can transmit force throughout the system, a concept that leads directly to <strong>Pascal’s principle</strong>.</p></li>
+<li><p><strong>Atmospheric science:</strong> Air pressure decreases with altitude because there is less air (mass) above you.</p></li>
+<li><p><strong>Engineering and architecture:</strong> Dams and underwater structures must be designed to handle much higher pressures at greater depths.</p></li>
+<li><p><strong>Biology:</strong> Deep-sea organisms evolve specialized structures to survive under immense pressure, while humans require pressure regulation even in modest underwater depths.</p></li>
+</ul>
+<p>Thus, understanding <strong>why and how pressure varies with depth</strong> is not just an academic exercise — it connects directly to the way we design, move, and even survive in fluid environments.<br />
+It also sets the stage for some of the most powerful ideas in fluid mechanics, such as <strong>Pascal’s Principle</strong>, <strong>Archimedes’ Principle</strong>, and <strong>hydrostatic equilibrium</strong>.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="c9-2-2-quantifying-pressure-with-depth">
+<h2>C9.2.2 Quantifying Pressure with Depth<a class="headerlink" href="#c9-2-2-quantifying-pressure-with-depth" title="Link to this heading">#</a></h2>
+<p>To understand how pressure changes with depth in a fluid, let’s analyze a small <strong>imaginary fluid column</strong> of <strong>constant cross-sectional area</strong> <span class="math notranslate nohighlight">\(A\)</span> and <strong>height</strong> <span class="math notranslate nohighlight">\(h\)</span>.</p>
+<p>We’ll assume:</p>
+<ul class="simple">
+<li><p>The fluid is <strong>at rest</strong> (no motion).</p></li>
+<li><p>The <strong>density</strong> <span class="math notranslate nohighlight">\(\rho\)</span> is <strong>uniform</strong> throughout the fluid.</p></li>
+<li><p>The <strong>top</strong> of the column is exposed to a known pressure <span class="math notranslate nohighlight">\(P_0\)</span> (for example, atmospheric pressure).</p></li>
+</ul>
+<hr class="docutils" />
+<section id="step-1-forces-acting-on-the-fluid-column">
+<h3>Step 1. Forces Acting on the Fluid Column<a class="headerlink" href="#step-1-forces-acting-on-the-fluid-column" title="Link to this heading">#</a></h3>
+<p>The fluid element is surrounded by other fluid, so it experiences forces from its surroundings:</p>
+<ol class="arabic simple">
+<li><p><strong>Downward force at the top surface:</strong><br />
+<span class="math notranslate nohighlight">\(F_\text{top} = P_0 A\)</span></p></li>
+<li><p><strong>Upward force at the bottom surface:</strong><br />
+<span class="math notranslate nohighlight">\(F_\text{bottom} = P A\)</span></p></li>
+<li><p><strong>Weight of the fluid column:</strong><br />
+<span class="math notranslate nohighlight">\(W = m g = (\rho V) g = \rho (A h) g\)</span></p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="step-2-force-balance-static-equilibrium">
+<h3>Step 2. Force Balance (Static Equilibrium)<a class="headerlink" href="#step-2-force-balance-static-equilibrium" title="Link to this heading">#</a></h3>
+<p>Since the fluid is at rest, the <strong>net vertical force</strong> on this fluid element must be zero:</p>
+<div class="math notranslate nohighlight">
+\[
+F_\text{up} = F_\text{down}
+\]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[
+F_\text{bottom} = F_\text{top} + W
+\]</div>
+<p>Substituting the forces:</p>
+<div class="math notranslate nohighlight">
+\[
+P A = P_0 A + \rho g A h
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="step-3-simplify">
+<h3>Step 3. Simplify<a class="headerlink" href="#step-3-simplify" title="Link to this heading">#</a></h3>
+<p>Cancel the common area <span class="math notranslate nohighlight">\(A\)</span> from both sides:</p>
+<div class="math notranslate nohighlight">
+\[
+P = P_0 + \rho g h
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="step-4-interpretation">
+<h3>Step 4. Interpretation<a class="headerlink" href="#step-4-interpretation" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(P\)</span> is the pressure <strong>at depth</strong> <span class="math notranslate nohighlight">\(h\)</span> below the surface.</p></li>
+<li><p><span class="math notranslate nohighlight">\(P_0\)</span> is the <strong>surface pressure</strong> (often atmospheric pressure).</p></li>
+<li><p><span class="math notranslate nohighlight">\(\rho g h\)</span> is the <strong>increase in pressure</strong> due to the <strong>weight of the fluid</strong> above that depth.</p></li>
+</ul>
+<p>This shows that <strong>pressure increases linearly with depth</strong> in a fluid of uniform density.</p>
+</section>
+<hr class="docutils" />
+<section id="physical-meaning">
+<h3>Physical Meaning<a class="headerlink" href="#physical-meaning" title="Link to this heading">#</a></h3>
+<p>Each layer of fluid must support the weight of all fluid above it.<br />
+As you move deeper, there is more fluid overhead, so the pressure must increase to balance that additional weight.</p>
+<p>This result holds true for any container shape — only the <strong>depth</strong>, <strong>density</strong>, and <strong>gravity</strong> determine the pressure difference:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta P = \rho g \Delta h
+\]</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Phys-Prof-Nielsen/modulearn",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-C9"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="basic-fluid-concepts.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">C9.1 Basic Fluid Concepts</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="pascals-principle.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">C9.3 Pascal’s Principle</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c9-2-1-motivation-why-pressure-changes-with-depth">C9.2.1 Motivation: Why Pressure Changes with Depth</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c9-2-2-quantifying-pressure-with-depth">C9.2.2 Quantifying Pressure with Depth</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-forces-acting-on-the-fluid-column">Step 1. Forces Acting on the Fluid Column</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-force-balance-static-equilibrium">Step 2. Force Balance (Static Equilibrium)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-simplify">Step 3. Simplify</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-interpretation">Step 4. Interpretation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-meaning">Physical Meaning</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
