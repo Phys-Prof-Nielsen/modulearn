@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Lab 11- Sound Waves with Phyphox — Fourier Transform and Autocorrelation &#8212; A Note to University Physics I Lab</title>
+    <title>Lab 10 — Uncertainty and Error Propagation &#8212; A Note to University Physics I Lab</title>
   
   
   
@@ -63,7 +63,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Lab 10 — Uncertainty and Error Propagation" href="../lab10/lab10.html" />
+    <link rel="prev" title="Lab 9: Investigating Thermodynamic Processes with a Fire Syringe" href="../lab9/lab9.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -222,15 +222,11 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 9 - Pendulum and Polar Coordinates</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../lab9/lab9.html">Lab 9: Polar Coordinates with a Simple Pendulum — Measuring <span class="math notranslate nohighlight">\(v\)</span> from <span class="math notranslate nohighlight">\(\omega\)</span></a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 10 - Error Propagation</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../lab10/lab10.html">Lab 10 — Uncertainty and Error Propagation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab9/lab9.html">Lab 9: Investigating Thermodynamic Processes with a Fire Syringe</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 11 - Fourier Transform and Autocorrelation</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 11- Sound Waves with Phyphox — Fourier Transform and Autocorrelation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 10 — Uncertainty and Error Propagation</a></li>
 </ul>
 
     </div>
@@ -400,7 +396,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Lab 11- Sound Waves with Phyphox — Fourier Transform and Autocorrelation</h1>
+    <h1>Lab 10 — Uncertainty and Error Propagation</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -410,39 +406,35 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sound-as-a-function">Sound as a Function</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dot-product-orthogonality-and-the-idea-behind-fourier-analysis">Dot Product, Orthogonality, and the Idea Behind Fourier Analysis</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-dot-product-for-functions">(a) Dot Product for Functions</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#b-orthogonality-of-sine-and-cosine-functions">(b) Orthogonality of Sine and Cosine Functions</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c-fourier-series-as-expansion-in-orthogonal-functions">(c) Fourier Series as Expansion in Orthogonal Functions</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-a-simple-example">(d) A Simple Example</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transform-fft-in-phyphox">Fourier Transform (FFT in phyphox)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-error-propagation-single-variable-functions">Background - Error Propagation: Single Variable Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-volume-of-a-sphere">Example: Volume of a Sphere</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">Discussion</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#autocorrelation-comparing-a-function-with-itself">Autocorrelation — Comparing a Function with Itself</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-the-basic-idea">(a) The Basic Idea</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#b-physical-meaning">(b) Physical Meaning</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c-example-a-simple-sine-wave">(c) Example — A Simple Sine Wave</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-why-it-works-for-real-sounds">(d) Why It Works for Real Sounds</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#e-relationship-to-fourier-transform">(e) Relationship to Fourier Transform</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-summary-of-the-intuition">(f) Summary of the Intuition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">1) Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-idea-of-partial-derivatives">2) The Idea of Partial Derivatives</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-uncertainty">Connecting to Uncertainty</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-interpretation">Visual interpretation</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-of-the-two-methods">5) Comparison of the Two Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-difference-approximation-numerical-estimation">3) Finite-Difference Approximation (Numerical Estimation)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propagating-uncertainties">4) Propagating Uncertainties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synthetic-data-two-examples">5) Synthetic Data (Two Examples)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-density">A) Density</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-kinetic-energy">B) Kinetic Energy</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phyphox-setup">2) Phyphox Setup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiments-recording-exporting-and-analyzing-data">3) Experiments — Recording, Exporting, and Analyzing Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-setup">⚙️ General Setup</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-a-single-tone-comparing-fft-and-autocorrelation"><strong>Part A — Single Tone: Comparing FFT and Autocorrelation</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-b-harmonics-and-timbre"><strong>Part B — Harmonics and Timbre</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-c-beats-from-two-nearby-tones"><strong>Part C — Beats from Two Nearby Tones</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">6) Procedure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results-and-discussion">7) Results and Discussion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">8) Deliverables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfalls">9) Common Pitfalls</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monte-carlo-validation-for-the-density-example">10) Monte Carlo Validation for the Density Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-monte-carlo-simulation">What is Monte Carlo simulation?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-it-here">Why use it here?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-behavior-for-this-example">Expected behavior for this example</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaway">4) Key Takeaway</a></li>
 </ul>
             </nav>
         </div>
@@ -454,461 +446,681 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="lab-11-sound-waves-with-phyphox-fourier-transform-and-autocorrelation">
-<h1>Lab 11- Sound Waves with Phyphox — Fourier Transform and Autocorrelation<a class="headerlink" href="#lab-11-sound-waves-with-phyphox-fourier-transform-and-autocorrelation" title="Link to this heading">#</a></h1>
-<p><strong>Goal:</strong><br />
-Use your smartphone and the <strong>phyphox</strong> app to study sound waves in two ways — using the <strong>Fourier Transform (FFT)</strong> and <strong>Autocorrelation</strong> tools. You’ll see that they answer two different questions about the same sound:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-10-uncertainty-and-error-propagation">
+<h1>Lab 10 — Uncertainty and Error Propagation<a class="headerlink" href="#lab-10-uncertainty-and-error-propagation" title="Link to this heading">#</a></h1>
+<p><strong>Learning Objectives</strong></p>
 <ul class="simple">
-<li><p><strong>Fourier Transform:</strong> “What frequencies make up this sound?”</p></li>
-<li><p><strong>Autocorrelation:</strong> “How does the signal repeat in time?”</p></li>
+<li><p>Understand uncertainty propagation for functions of <strong>two variables</strong>: <span class="math notranslate nohighlight">\(f=f(x,y)\)</span>.</p></li>
+<li><p>Interpret <strong>partial derivatives</strong> as sensitivities (without calculus formulas).</p></li>
+<li><p>Use <strong>finite differences</strong> to estimate <span class="math notranslate nohighlight">\(\dfrac{\partial f}{\partial x}\)</span> and <span class="math notranslate nohighlight">\(\dfrac{\partial f}{\partial y}\)</span> numerically.</p></li>
+<li><p>Apply the propagation formula to <strong>synthetic data</strong> and compare to a Monte Carlo simulation.</p></li>
 </ul>
 <hr class="docutils" />
-<section id="learning-objectives">
-<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
-<p>After this lab, you should be able to:</p>
-<ol class="arabic simple">
-<li><p>Record and analyze a sound using the <strong>FFT</strong> and <strong>Autocorrelation</strong> functions in phyphox.</p></li>
-<li><p>Explain conceptually what each method does using ideas of <strong>dot products</strong> and <strong>orthogonal functions</strong>.</p></li>
-<li><p>Find a sound’s <strong>frequency</strong>, <strong>period</strong>, and <strong>beat pattern</strong>.</p></li>
-<li><p>Compare both methods and know when to use each one.</p></li>
-</ol>
-</section>
-<hr class="docutils" />
-<section id="background">
-<h2>Background<a class="headerlink" href="#background" title="Link to this heading">#</a></h2>
-<section id="sound-as-a-function">
-<h3>Sound as a Function<a class="headerlink" href="#sound-as-a-function" title="Link to this heading">#</a></h3>
-<p>A sound wave can be represented as a function of time:</p>
+<section id="background-error-propagation-single-variable-functions">
+<h2>Background - Error Propagation: Single Variable Functions<a class="headerlink" href="#background-error-propagation-single-variable-functions" title="Link to this heading">#</a></h2>
+<p>When a physical quantity <span class="math notranslate nohighlight">\( y \)</span> depends on a <em>single measured variable</em> <span class="math notranslate nohighlight">\( x \)</span>, the uncertainty in <span class="math notranslate nohighlight">\( y \)</span> arises from the uncertainty in <span class="math notranslate nohighlight">\( x \)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\( y = f(x) \)</span>, then for small uncertainties, the <strong>differential</strong> <span class="math notranslate nohighlight">\( dy \)</span> provides a first-order estimate of the change in <span class="math notranslate nohighlight">\( y \)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
-x(t)
+dy = \frac{df}{dx} \, dx.
 \]</div>
-<p>This could be your voice, a tuning fork, or a musical note. Every sound can be thought of as a combination of simple sine and cosine waves of different frequencies — just like any vector can be built from the sum of basis vectors.</p>
-</section>
-<hr class="docutils" />
-<section id="dot-product-orthogonality-and-the-idea-behind-fourier-analysis">
-<h3>Dot Product, Orthogonality, and the Idea Behind Fourier Analysis<a class="headerlink" href="#dot-product-orthogonality-and-the-idea-behind-fourier-analysis" title="Link to this heading">#</a></h3>
-<p>In physics and math, we often describe an object by how much it “lines up” with a set of <strong>basis vectors</strong>.<br />
-For example, a 3D vector <span class="math notranslate nohighlight">\(\vec{v}\)</span> can be written as</p>
+<p>Taking absolute values, the <strong>uncertainty in <span class="math notranslate nohighlight">\( y \)</span></strong> is approximately:</p>
 <div class="math notranslate nohighlight">
 \[
-\vec{v} = v_x \hat{i} + v_y \hat{j} + v_z \hat{k},
+\sigma_y = \left| \frac{df}{dx} \right| \, \sigma_x,
 \]</div>
-<p>where the unit vectors <span class="math notranslate nohighlight">\(\hat{i}, \hat{j}, \hat{k}\)</span> are <strong>orthogonal</strong> — they point in perpendicular directions.<br />
-The <strong>dot product</strong> tells us how much of <span class="math notranslate nohighlight">\(\vec{v}\)</span> points in a given direction:</p>
-<div class="math notranslate nohighlight">
-\[
-v_x = \vec{v}\cdot \hat{i}, \quad v_y = \vec{v}\cdot \hat{j}, \quad v_z = \vec{v}\cdot \hat{k}.
-\]</div>
-<p>We can do the <strong>same thing with functions</strong> instead of vectors.</p>
-<hr class="docutils" />
-<section id="a-dot-product-for-functions">
-<h4>(a) Dot Product for Functions<a class="headerlink" href="#a-dot-product-for-functions" title="Link to this heading">#</a></h4>
-<p>The dot product of two functions over one full period <span class="math notranslate nohighlight">\(T\)</span> is defined as</p>
-<div class="math notranslate nohighlight">
-\[
-\langle f, g \rangle = \frac{1}{T} \int_0^T f(t)\,g(t)\,dt.
-\]</div>
-<p>If this equals zero, the two functions are <strong>orthogonal</strong> (just like perpendicular vectors):</p>
-<div class="math notranslate nohighlight">
-\[
-\langle f, g \rangle = 0.
-\]</div>
-</section>
-<hr class="docutils" />
-<section id="b-orthogonality-of-sine-and-cosine-functions">
-<h4>(b) Orthogonality of Sine and Cosine Functions<a class="headerlink" href="#b-orthogonality-of-sine-and-cosine-functions" title="Link to this heading">#</a></h4>
-<p>The sine and cosine functions of different frequencies are orthogonal over a full number of periods:</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{1}{T}\int_0^T \sin(2\pi n t/T)\,\sin(2\pi m t/T)\,dt = 0 \quad \text{for } n \neq m,
-\]</div>
-<p>and similarly for cosines.<br />
-Also,</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{1}{T}\int_0^T \sin(2\pi n t/T)\,\cos(2\pi m t/T)\,dt = 0.
-\]</div>
-<p>This means each sine or cosine of a different frequency points in its own “direction” in function space.</p>
-</section>
-<hr class="docutils" />
-<section id="c-fourier-series-as-expansion-in-orthogonal-functions">
-<h4>(c) Fourier Series as Expansion in Orthogonal Functions<a class="headerlink" href="#c-fourier-series-as-expansion-in-orthogonal-functions" title="Link to this heading">#</a></h4>
-<p>Any reasonably smooth, periodic signal <span class="math notranslate nohighlight">\(x(t)\)</span> with period <span class="math notranslate nohighlight">\(T\)</span> can be represented as a <strong>Fourier series</strong>:</p>
-<div class="math notranslate nohighlight">
-\[
-x(t) = a_0 + \sum_{n=1}^{\infty}\big[a_n \cos(2\pi n t/T) + b_n \sin(2\pi n t/T)\big].
-\]</div>
-<p>The coefficients <span class="math notranslate nohighlight">\(a_n\)</span> and <span class="math notranslate nohighlight">\(b_n\)</span> are found by taking <strong>dot products</strong> of the signal with the basis functions:</p>
-<div class="math notranslate nohighlight">
-\[
-a_n = \frac{2}{T}\int_0^T x(t)\cos(2\pi n t/T)\,dt,
-\]</div>
-<div class="math notranslate nohighlight">
-\[
-b_n = \frac{2}{T}\int_0^T x(t)\sin(2\pi n t/T)\,dt.
-\]</div>
-<p>So, to find “how much” of each frequency <span class="math notranslate nohighlight">\(n/T\)</span> is in the signal, we project <span class="math notranslate nohighlight">\(x(t)\)</span> onto each sine and cosine — just like finding <span class="math notranslate nohighlight">\(v_x\)</span>, <span class="math notranslate nohighlight">\(v_y\)</span>, and <span class="math notranslate nohighlight">\(v_z\)</span> for a vector.</p>
-</section>
-<hr class="docutils" />
-<section id="d-a-simple-example">
-<h4>(d) A Simple Example<a class="headerlink" href="#d-a-simple-example" title="Link to this heading">#</a></h4>
-<p>Suppose we have a signal made of two pure tones:</p>
-<div class="math notranslate nohighlight">
-\[
-x(t) = \sin(2\pi f_1 t) + 0.5\sin(2\pi f_2 t),
-\]</div>
-<p>where <span class="math notranslate nohighlight">\(f_1=200\)</span> Hz and <span class="math notranslate nohighlight">\(f_2=400\)</span> Hz.</p>
-<p>If we take the dot product of <span class="math notranslate nohighlight">\(x(t)\)</span> with <span class="math notranslate nohighlight">\(\sin(2\pi f t)\)</span> for different <span class="math notranslate nohighlight">\(f\)</span>, we’ll get:</p>
+<p>where:</p>
 <ul class="simple">
-<li><p>a <strong>large value</strong> when <span class="math notranslate nohighlight">\(f=f_1\)</span> or <span class="math notranslate nohighlight">\(f_2\)</span> (strong match),</p></li>
-<li><p>and nearly <strong>zero</strong> when <span class="math notranslate nohighlight">\(f\)</span> is different (no overlap).</p></li>
+<li><p><span class="math notranslate nohighlight">\( \sigma_x \)</span> = uncertainty in the measurement of <span class="math notranslate nohighlight">\( x \)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\( \sigma_y \)</span> = propagated uncertainty in <span class="math notranslate nohighlight">\( y \)</span>.</p></li>
 </ul>
-<p>That’s exactly what the <strong>Fourier Transform</strong> does — it measures how much each pure sine and cosine contributes to the sound.</p>
+<p>This linear approximation assumes the uncertainty is small enough that higher-order terms can be neglected — a <strong>first-order approximation</strong>.</p>
 <hr class="docutils" />
-<p><strong>Summary Idea:</strong></p>
-<ul class="simple">
-<li><p>Think of sines and cosines as <strong>unit vectors</strong> in a space of functions.</p></li>
-<li><p>The Fourier coefficients <span class="math notranslate nohighlight">\(a_n\)</span> and <span class="math notranslate nohighlight">\(b_n\)</span> are the <strong>dot products</strong> between your signal and each of those “basis waves.”</p></li>
-<li><p>The <strong>FFT plot</strong> simply shows the length (magnitude) of these projections at every frequency.</p></li>
-</ul>
+<section id="example-volume-of-a-sphere">
+<h3>Example: Volume of a Sphere<a class="headerlink" href="#example-volume-of-a-sphere" title="Link to this heading">#</a></h3>
+<p>Suppose we measure the radius <span class="math notranslate nohighlight">\( r \)</span> of a small sphere as:</p>
+<div class="math notranslate nohighlight">
+\[
+r = 5.00 \pm 0.05 \text{ cm.}
+\]</div>
+<p>The volume is:</p>
+<div class="math notranslate nohighlight">
+\[
+V = \frac{4}{3}\pi r^3.
+\]</div>
+<p>Using the differential form:</p>
+<div class="math notranslate nohighlight">
+\[
+dV = 4\pi r^2 \, dr,
+\]</div>
+<p>we can estimate the uncertainty in <span class="math notranslate nohighlight">\( V \)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma_V = \left| \frac{dV}{dr} \right| \sigma_r = 4\pi r^2 \sigma_r.
+\]</div>
+<p>Substituting the measured values:</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma_V = 4\pi (5.00)^2 (0.05) = 15.7 \text{ cm}^3.
+\]</div>
+<p>Thus:</p>
+<div class="math notranslate nohighlight">
+\[
+V = 523.6 \pm 15.7 \text{ cm}^3.
+\]</div>
 </section>
 <hr class="docutils" />
-<section id="fourier-transform-fft-in-phyphox">
-<h4>Fourier Transform (FFT in phyphox)<a class="headerlink" href="#fourier-transform-fft-in-phyphox" title="Link to this heading">#</a></h4>
-<p>The FFT (Fast Fourier Transform) is just a computer version of this projection idea.<br />
-You’ll see a graph with frequency on the horizontal axis and amplitude (strength) on the vertical axis.</p>
-<ul class="simple">
-<li><p>Peaks show the <strong>frequencies that make up your sound</strong>.</p></li>
-<li><p>The largest peak is the <strong>fundamental frequency</strong>, which gives the <strong>pitch</strong>.</p></li>
-<li><p>Smaller peaks at multiples of that frequency are <strong>harmonics</strong> that shape the tone or timbre.</p></li>
+<section id="discussion">
+<h3>Discussion<a class="headerlink" href="#discussion" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>The <em>relative uncertainty</em> can be expressed as:</p>
+<div class="math notranslate nohighlight">
+\[
+  \frac{\sigma_V}{V} = 3 \frac{\sigma_r}{r},
+  \]</div>
+<p>which shows that the uncertainty in the volume is <strong>three times larger (in percentage)</strong> than that of the radius, since <span class="math notranslate nohighlight">\( V \propto r^3 \)</span>.</p>
+</li>
 </ul>
-<p>Think of FFT as taking your sound and asking:</p>
+<p>This example highlights how small measurement errors can amplify when the measured quantity is raised to a power — an important consideration in all physical measurements.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="motivation">
+<h2>1) Motivation<a class="headerlink" href="#motivation" title="Link to this heading">#</a></h2>
+<p>Every experiment has measurement uncertainty. When a calculated result <span class="math notranslate nohighlight">\(f\)</span> depends on two (or more) measured quantities <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, their uncertainties combine to produce an uncertainty in <span class="math notranslate nohighlight">\(f\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(f=f(x,y)\)</span>, then for small, independent uncertainties, we can use the first order approximation:</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma_f^2 \;\approx\;
+\left(\frac{\partial f}{\partial x}\right)^2\sigma_x^2
++
+\left(\frac{\partial f}{\partial y}\right)^2\sigma_y^2,
+\qquad
+\sigma_f=\sqrt{\sigma_f^2}.
+\]</div>
+<p>This is called the <strong>error propagation formula</strong>, and it tells us how much uncertainty each variable contributes to the final result.</p>
 <blockquote>
-<div><p>“How strongly does this sound match each pure tone?”</p>
+<div><p><em>Note</em>:
+The formula below is a first-order (linear) approximation, valid when the function behaves nearly linearly around the measured means.
+It is derived by keeping only the first-order terms in a Taylor expansion of <span class="math notranslate nohighlight">\(f(x,y)\)</span>.
+Later in this lab, we will compare this linear propagation to a Monte Carlo simulation that includes the nonlinear effects automatically.</p>
 </div></blockquote>
 </section>
-</section>
 <hr class="docutils" />
-<section id="autocorrelation-comparing-a-function-with-itself">
-<h3>Autocorrelation — Comparing a Function with Itself<a class="headerlink" href="#autocorrelation-comparing-a-function-with-itself" title="Link to this heading">#</a></h3>
-<p>So far, the Fourier approach compared your signal <span class="math notranslate nohighlight">\(x(t)\)</span> with a set of <strong>different basis functions</strong> (sines and cosines).<br />
-Now we’ll compare the signal with <strong>itself</strong>, but shifted in time — that’s called <strong>autocorrelation</strong>.</p>
-<hr class="docutils" />
-<section id="a-the-basic-idea">
-<h4>(a) The Basic Idea<a class="headerlink" href="#a-the-basic-idea" title="Link to this heading">#</a></h4>
-<p>Imagine you slide a copy of the signal over itself and, at each shift, measure how well they overlap.<br />
-When the peaks of one line up with the peaks of the other, the overlap (dot product) is large.<br />
-When they don’t line up, the overlap is small or even negative.</p>
-<p>Mathematically, the autocorrelation function is</p>
+<section id="the-idea-of-partial-derivatives">
+<h2>2) The Idea of Partial Derivatives<a class="headerlink" href="#the-idea-of-partial-derivatives" title="Link to this heading">#</a></h2>
+<p>When <span class="math notranslate nohighlight">\(f\)</span> depends on two variables <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, a <strong>partial derivative</strong> measures how sensitive <span class="math notranslate nohighlight">\(f\)</span> is to one variable at a time, while holding the other fixed.</p>
+<p>We write:</p>
 <div class="math notranslate nohighlight">
 \[
-R_{xx}(\tau) = \frac{1}{T}\int_0^T x(t)\,x(t+\tau)\,dt
+\frac{\partial f}{\partial x} \quad \text{and} \quad \frac{\partial f}{\partial y}.
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(\tau\)</span> is the <strong>time shift</strong> (sometimes called “lag”).<br />
-This is another kind of <strong>dot product</strong>, but between the signal and a shifted version of itself.</p>
-</section>
-<hr class="docutils" />
-<section id="b-physical-meaning">
-<h4>(b) Physical Meaning<a class="headerlink" href="#b-physical-meaning" title="Link to this heading">#</a></h4>
 <ul class="simple">
-<li><p>At <span class="math notranslate nohighlight">\(\tau = 0\)</span>, the signal lines up perfectly with itself, so <span class="math notranslate nohighlight">\(R_{xx}(0)\)</span> is the <strong>maximum value</strong>.</p></li>
-<li><p>As we increase <span class="math notranslate nohighlight">\(\tau\)</span>, the two signals start to misalign.<br />
-When they line up again (for example, after one full period), <span class="math notranslate nohighlight">\(R_{xx}(\tau)\)</span> becomes large again.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\dfrac{\partial f}{\partial x}\)</span>: “How much <span class="math notranslate nohighlight">\(f\)</span> changes if <span class="math notranslate nohighlight">\(x\)</span> changes a little, while <span class="math notranslate nohighlight">\(y\)</span> stays fixed.”</p></li>
+<li><p><span class="math notranslate nohighlight">\(\dfrac{\partial f}{\partial y}\)</span>: “How much <span class="math notranslate nohighlight">\(f\)</span> changes if <span class="math notranslate nohighlight">\(y\)</span> changes a little, while <span class="math notranslate nohighlight">\(x\)</span> stays fixed.”</p></li>
 </ul>
-<p>If the signal repeats every <span class="math notranslate nohighlight">\(T_0\)</span> seconds, then <span class="math notranslate nohighlight">\(R_{xx}(\tau)\)</span> will have peaks at</p>
-<div class="math notranslate nohighlight">
-\[
-\tau = T_0,\; 2T_0,\; 3T_0,\;\dots
-\]</div>
-<p>From the first peak (after <span class="math notranslate nohighlight">\(\tau=0\)</span>), we can find the period <span class="math notranslate nohighlight">\(T_0\)</span> and therefore the frequency</p>
-<div class="math notranslate nohighlight">
-\[
-f_0 = \frac{1}{T_0}.
-\]</div>
-</section>
 <hr class="docutils" />
-<section id="c-example-a-simple-sine-wave">
-<h4>(c) Example — A Simple Sine Wave<a class="headerlink" href="#c-example-a-simple-sine-wave" title="Link to this heading">#</a></h4>
-<p>Let’s take a pure tone:</p>
-<div class="math notranslate nohighlight">
-\[
-x(t) = \sin(2\pi f_0 t),
-\]</div>
-<p>where <span class="math notranslate nohighlight">\(f_0\)</span> is its frequency and <span class="math notranslate nohighlight">\(T_0 = 1/f_0\)</span> is its period.</p>
-<p>The <strong>autocorrelation</strong> is defined as</p>
-<div class="math notranslate nohighlight">
-\[
-R_{xx}(\tau) = \frac{1}{T_0}\int_0^{T_0} x(t)\,x(t+\tau)\,dt.
-\]</div>
-<p>Substitute the sine wave:</p>
-<div class="math notranslate nohighlight">
-\[
-R_{xx}(\tau) = \frac{1}{T_0}\int_0^{T_0} \sin(2\pi f_0 t)\,\sin[2\pi f_0(t+\tau)]\,dt.
-\]</div>
-<p>To simplify, we use the trigonometric identity:</p>
-<div class="math notranslate nohighlight">
-\[
-\sin A\,\sin B = \tfrac{1}{2}[\cos(A-B) - \cos(A+B)].
-\]</div>
-<p>Then:</p>
-<div class="math notranslate nohighlight">
-\[
-R_{xx}(\tau)
-= \frac{1}{2T_0}\int_0^{T_0} \Big[\cos(2\pi f_0 \tau) - \cos(4\pi f_0 t + 2\pi f_0 \tau)\Big]\,dt.
-\]</div>
-<p>The first term, <span class="math notranslate nohighlight">\(\cos(2\pi f_0 \tau)\)</span>, is constant with respect to <span class="math notranslate nohighlight">\(t\)</span>, so its integral gives</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{1}{2T_0}\int_0^{T_0}\cos(2\pi f_0 \tau)\,dt
-= \frac{1}{2}\cos(2\pi f_0 \tau).
-\]</div>
-<p>The second term,</p>
-<div class="math notranslate nohighlight">
-\[
-\int_0^{T_0}\cos(4\pi f_0 t + 2\pi f_0 \tau)\,dt,
-\]</div>
-<p>contains two parts inside the cosine:</p>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
+<p>If <span class="math notranslate nohighlight">\(f(x,y)=x\,y\)</span>, then:</p>
 <ul class="simple">
-<li><p>The <span class="math notranslate nohighlight">\(4\pi f_0 t\)</span> part depends on time and completes <strong>two full oscillations</strong> during the integration from <span class="math notranslate nohighlight">\(t=0\)</span> to <span class="math notranslate nohighlight">\(t=T_0\)</span>, because the cosine argument changes by <span class="math notranslate nohighlight">\(4\pi f_0 T_0 = 4\pi\)</span>.</p></li>
-<li><p>The <span class="math notranslate nohighlight">\(2\pi f_0\tau\)</span> part is just a <strong>constant phase shift</strong> — it slides the cosine curve left or right, but it does not change the area under one full number of cycles.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\dfrac{\partial f}{\partial x}=y\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\dfrac{\partial f}{\partial y}=x\)</span></p></li>
 </ul>
-<p>Since <span class="math notranslate nohighlight">\(\cos(4\pi f_0 t + \text{constant})\)</span> spends equal time positive and negative over complete cycles, its average value over any integer number of periods is zero:</p>
-<div class="math notranslate nohighlight">
-\[
-\int_0^{T_0}\cos(4\pi f_0 t + 2\pi f_0 \tau)\,dt = 0.
-\]</div>
-<p>Therefore, the entire second term vanishes, and only the constant term
-<span class="math notranslate nohighlight">\(\tfrac{1}{2}\cos(2\pi f_0 \tau)\)</span> remains.</p>
+<p>Each variable affects <span class="math notranslate nohighlight">\(f\)</span> independently, and the larger the partial derivative, the more that variable’s uncertainty matters.</p>
 </section>
 <hr class="docutils" />
-<section id="interpretation">
-<h4>Interpretation<a class="headerlink" href="#interpretation" title="Link to this heading">#</a></h4>
+<section id="connecting-to-uncertainty">
+<h3>Connecting to Uncertainty<a class="headerlink" href="#connecting-to-uncertainty" title="Link to this heading">#</a></h3>
+<p>Small deviations <span class="math notranslate nohighlight">\(\Delta x\)</span> and <span class="math notranslate nohighlight">\(\Delta y\)</span> change <span class="math notranslate nohighlight">\(f\)</span> approximately by:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta f \;\approx\; \frac{\partial f}{\partial x}\,\Delta x + \frac{\partial f}{\partial y}\,\Delta y.
+\]</div>
+<p>Replacing <span class="math notranslate nohighlight">\(\Delta x\)</span> and <span class="math notranslate nohighlight">\(\Delta y\)</span> with their random uncertainties <span class="math notranslate nohighlight">\(\sigma_x\)</span> and <span class="math notranslate nohighlight">\(\sigma_y\)</span> gives:</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma_f^2 \;\approx\;
+\left(\frac{\partial f}{\partial x}\right)^2\sigma_x^2 +
+\left(\frac{\partial f}{\partial y}\right)^2\sigma_y^2.
+\]</div>
+<p>Thus, partial derivatives are simply <strong>sensitivity factors</strong>: how strongly the result depends on each variable.</p>
+</section>
+<hr class="docutils" />
+<section id="visual-interpretation">
+<h3>Visual interpretation<a class="headerlink" href="#visual-interpretation" title="Link to this heading">#</a></h3>
+<p>Think of <span class="math notranslate nohighlight">\(f(x,y)\)</span> as a smooth surface.</p>
 <ul class="simple">
-<li><p>At <span class="math notranslate nohighlight">\(\tau = 0\)</span>: <span class="math notranslate nohighlight">\(R_{xx}(0) = \tfrac{1}{2}\)</span> → perfect alignment (maximum similarity).</p></li>
-<li><p>At <span class="math notranslate nohighlight">\(\tau = T_0/2\)</span>: <span class="math notranslate nohighlight">\(R_{xx}(T_0/2) = \tfrac{1}{2}\cos(\pi) = -\tfrac{1}{2}\)</span> → peaks of one line up with valleys of the other (opposite phase).</p></li>
-<li><p>At <span class="math notranslate nohighlight">\(\tau = T_0\)</span>: <span class="math notranslate nohighlight">\(R_{xx}(T_0) = \tfrac{1}{2}\cos(2\pi) = \tfrac{1}{2}\)</span> → perfect alignment again.</p></li>
+<li><p>The slope along the <span class="math notranslate nohighlight">\(x\)</span>-direction is <span class="math notranslate nohighlight">\(\partial f/\partial x\)</span>.</p></li>
+<li><p>The slope along the <span class="math notranslate nohighlight">\(y\)</span>-direction is <span class="math notranslate nohighlight">\(\partial f/\partial y\)</span>.</p></li>
 </ul>
-<p>So <span class="math notranslate nohighlight">\(R_{xx}(\tau)\)</span> repeats every <span class="math notranslate nohighlight">\(T_0\)</span>, showing that the <strong>autocorrelation of a sine wave is a cosine function</strong> of the same frequency.<br />
-The “lag” <span class="math notranslate nohighlight">\(\tau\)</span> where <span class="math notranslate nohighlight">\(R_{xx}\)</span> reaches its first positive maximum (after zero) tells us the <strong>period</strong>, and therefore the <strong>frequency</strong> of the signal:</p>
-<div class="math notranslate nohighlight">
-\[
-f_0 = \frac{1}{T_0}.
-\]</div>
-<p>This simple result explains why the <strong>autocorrelation plot</strong> in phyphox shows evenly spaced peaks for any repeating sound — each peak corresponds to the signal lining up with itself again.</p>
+<p>The steeper the slope in one direction, the more uncertainty in that variable changes <span class="math notranslate nohighlight">\(f\)</span>.</p>
+</section>
 </section>
 <hr class="docutils" />
-<section id="d-why-it-works-for-real-sounds">
-<h4>(d) Why It Works for Real Sounds<a class="headerlink" href="#d-why-it-works-for-real-sounds" title="Link to this heading">#</a></h4>
-<p>Most real sounds (voice, instruments, whistles) are <em>not</em> perfect sine waves — they are combinations of many frequencies.<br />
-Even so, if the sound repeats regularly (has a pitch), its overall shape still lines up again after roughly the same time <span class="math notranslate nohighlight">\(T_0\)</span>, and we see that in <span class="math notranslate nohighlight">\(R_{xx}(\tau)\)</span> as repeating peaks.</p>
-<p>Autocorrelation therefore tells us:</p>
+<section id="finite-difference-approximation-numerical-estimation">
+<h2>3) Finite-Difference Approximation (Numerical Estimation)<a class="headerlink" href="#finite-difference-approximation-numerical-estimation" title="Link to this heading">#</a></h2>
+<p>We can estimate each partial derivative <strong>numerically</strong> without calculus:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial f}{\partial x} \approx
+\frac{f(\bar x + h_x, \bar y) - f(\bar x - h_x, \bar y)}{2h_x},
+\qquad
+\frac{\partial f}{\partial y} \approx
+\frac{f(\bar x, \bar y + h_y) - f(\bar x, \bar y - h_y)}{2h_y}.
+\]</div>
+<p>Use <span class="math notranslate nohighlight">\(h_x = \sigma_x\)</span> and <span class="math notranslate nohighlight">\(h_y = \sigma_y\)</span> as practical step sizes.</p>
+<p>Check your result:</p>
 <ul class="simple">
-<li><p><strong>Pitch or fundamental period</strong> of a sound, even when the FFT has many harmonics.</p></li>
-<li><p><strong>Beat patterns</strong> when two similar frequencies interfere.</p></li>
+<li><p><strong>Units:</strong> <span class="math notranslate nohighlight">\((\text{units of } f) / (\text{units of } x)\)</span></p></li>
+<li><p><strong>Sign:</strong> If <span class="math notranslate nohighlight">\(x\)</span> increases and <span class="math notranslate nohighlight">\(f\)</span> increases, derivative should be positive.</p></li>
+<li><p><strong>Magnitude:</strong> If doubling <span class="math notranslate nohighlight">\(x\)</span> roughly doubles <span class="math notranslate nohighlight">\(f\)</span>, derivative <span class="math notranslate nohighlight">\(\approx f/x\)</span>.</p></li>
 </ul>
 </section>
 <hr class="docutils" />
-<section id="e-relationship-to-fourier-transform">
-<h4>(e) Relationship to Fourier Transform<a class="headerlink" href="#e-relationship-to-fourier-transform" title="Link to this heading">#</a></h4>
-<p>Both Fourier and autocorrelation are based on <strong>overlap or similarity</strong>, but they ask different questions:</p>
+<section id="propagating-uncertainties">
+<h2>4) Propagating Uncertainties<a class="headerlink" href="#propagating-uncertainties" title="Link to this heading">#</a></h2>
+<p>Once you have both partials, combine them:</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma_f^2 \;=\;
+\left(\frac{\partial f}{\partial x}\sigma_x\right)^2 +
+\left(\frac{\partial f}{\partial y}\sigma_y\right)^2,
+\qquad
+\sigma_f = \sqrt{\sigma_f^2}.
+\]</div>
+<p>You can also find the <strong>fraction of total variance in the mean value</strong> from each source:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Frac}_x = 
+\frac{(\tfrac{\partial f}{\partial x}\sigma_x)^2}{
+(\tfrac{\partial f}{\partial x}\sigma_x)^2 + 
+(\tfrac{\partial f}{\partial y}\sigma_y)^2},
+\qquad
+\text{Frac}_y = 1 - \text{Frac}_x.
+\]</div>
+<p>If <span class="math notranslate nohighlight">\(\text{Frac}_x \gg \text{Frac}_y\)</span>, the uncertainty in <span class="math notranslate nohighlight">\(x\)</span> dominates.</p>
+<blockquote>
+<div><p><strong>Note:</strong> If <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are correlated (not independent), a cross term appears:</p>
+<div class="math notranslate nohighlight">
+\[\sigma_f^2 = (\tfrac{\partial f}{\partial x}\sigma_x)^2 + (\tfrac{\partial f}{\partial y}\sigma_y)^2 + 2\rho\,\tfrac{\partial f}{\partial x}\tfrac{\partial f}{\partial y}\,\sigma_x\sigma_y.\]</div>
+<p>In this formula, the symbol <span class="math notranslate nohighlight">\(\rho\)</span> represents the <strong>correlation coefficient</strong> between the two measured variables (not the density).<br />
+It can range from <span class="math notranslate nohighlight">\(-1\)</span> (perfect negative correlation) to <span class="math notranslate nohighlight">\(+1\)</span> (perfect positive correlation).<br />
+In this lab we assume <span class="math notranslate nohighlight">\(\rho = 0\)</span>, meaning <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are independent and no cross term is included.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="synthetic-data-two-examples">
+<h2>5) Synthetic Data (Two Examples)<a class="headerlink" href="#synthetic-data-two-examples" title="Link to this heading">#</a></h2>
+<section id="a-density">
+<h3>A) Density<a class="headerlink" href="#a-density" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+\rho = \frac{m}{V}
+\]</div>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="head text-left"><p>Method</p></th>
-<th class="head text-left"><p>What’s compared</p></th>
-<th class="head text-left"><p>What it tells you</p></th>
-<th class="head text-left"><p>Analogy</p></th>
+<tr class="row-odd"><th class="head text-left"><p>Quantity</p></th>
+<th class="head text-center"><p>Symbol</p></th>
+<th class="head text-right"><p>Mean</p></th>
+<th class="head text-right"><p>Uncertainty (<span class="math notranslate nohighlight">\(1\sigma\)</span>)</p></th>
+<th class="head text-center"><p>Units</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-left"><p><strong>Fourier Transform</strong></p></td>
-<td class="text-left"><p>Compare <span class="math notranslate nohighlight">\(x(t)\)</span> with many sine/cosine waves</p></td>
-<td class="text-left"><p>Which frequencies are present</p></td>
-<td class="text-left"><p>“How much of each tone?”</p></td>
+<tr class="row-even"><td class="text-left"><p>Mass</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(m\)</span></p></td>
+<td class="text-right"><p>0.250</p></td>
+<td class="text-right"><p>0.005</p></td>
+<td class="text-center"><p>kg</p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><strong>Autocorrelation</strong></p></td>
-<td class="text-left"><p>Compare <span class="math notranslate nohighlight">\(x(t)\)</span> with itself shifted by <span class="math notranslate nohighlight">\(\tau\)</span></p></td>
-<td class="text-left"><p>How the signal repeats in time</p></td>
-<td class="text-left"><p>“When does it sound the same again?”</p></td>
+<tr class="row-odd"><td class="text-left"><p>Volume</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(V\)</span></p></td>
+<td class="text-right"><p>0.300</p></td>
+<td class="text-right"><p>0.010</p></td>
+<td class="text-center"><p>L</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Convert <span class="math notranslate nohighlight">\(V\)</span> to cubic meters before computing: <span class="math notranslate nohighlight">\(V = 0.300\times 10^{-3}\,\text{m}^3\)</span>.</p>
+</section>
+<hr class="docutils" />
+<section id="b-kinetic-energy">
+<h3>B) Kinetic Energy<a class="headerlink" href="#b-kinetic-energy" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+K = \tfrac{1}{2} m v^2
+\]</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Quantity</p></th>
+<th class="head text-center"><p>Symbol</p></th>
+<th class="head text-right"><p>Mean</p></th>
+<th class="head text-right"><p>Uncertainty (<span class="math notranslate nohighlight">\(1\sigma\)</span>)</p></th>
+<th class="head text-center"><p>Units</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Mass</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(m\)</span></p></td>
+<td class="text-right"><p>1.50</p></td>
+<td class="text-right"><p>0.05</p></td>
+<td class="text-center"><p>kg</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Velocity</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(v\)</span></p></td>
+<td class="text-right"><p>2.00</p></td>
+<td class="text-right"><p>0.10</p></td>
+<td class="text-center"><p>m/s</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </section>
-<hr class="docutils" />
-<section id="f-summary-of-the-intuition">
-<h4>(f) Summary of the Intuition<a class="headerlink" href="#f-summary-of-the-intuition" title="Link to this heading">#</a></h4>
-<ul class="simple">
-<li><p>The Fourier Transform measures <strong>how much your signal overlaps</strong> with <em>different</em> sine and cosine waves.</p></li>
-<li><p>The Autocorrelation measures <strong>how much your signal overlaps</strong> with <em>itself</em>, shifted in time.</p></li>
-</ul>
-<p>Both use the same central concept:</p>
-<blockquote>
-<div><p>“Compare two functions using a dot product to see how similar they are.”</p>
-</div></blockquote>
-</section>
 </section>
 <hr class="docutils" />
-<section id="comparison-of-the-two-methods">
-<h3>5) Comparison of the Two Methods<a class="headerlink" href="#comparison-of-the-two-methods" title="Link to this heading">#</a></h3>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head text-left"><p>Method</p></th>
-<th class="head text-left"><p>What it compares</p></th>
-<th class="head text-left"><p>What it shows best</p></th>
-<th class="head text-left"><p>When to use</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-left"><p><strong>Fourier Transform</strong></p></td>
-<td class="text-left"><p>The signal with pure sine/cosine waves</p></td>
-<td class="text-left"><p>Frequencies and harmonics</p></td>
-<td class="text-left"><p>Identifying tones and timbre</p></td>
-</tr>
-<tr class="row-odd"><td class="text-left"><p><strong>Autocorrelation</strong></p></td>
-<td class="text-left"><p>The signal with a delayed copy of itself</p></td>
-<td class="text-left"><p>Periods, repetition, echoes, and beats</p></td>
-<td class="text-left"><p>Finding pitch and delays</p></td>
-</tr>
-</tbody>
-</table>
+<section id="procedure">
+<h2>6) Procedure<a class="headerlink" href="#procedure" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Convert all inputs to consistent <strong>SI units</strong>.</p></li>
+<li><p>Compute <span class="math notranslate nohighlight">\(f(\bar x,\bar y)\)</span>.</p></li>
+<li><p>Use finite differences with <span class="math notranslate nohighlight">\(h_x=\sigma_x\)</span>, <span class="math notranslate nohighlight">\(h_y=\sigma_y\)</span> to find both partial derivatives.</p></li>
+<li><p>Use the propagation formula to find <span class="math notranslate nohighlight">\(\sigma_f\)</span>.</p></li>
+<li><p>Compute <span class="math notranslate nohighlight">\(\text{Frac}_x\)</span> and <span class="math notranslate nohighlight">\(\text{Frac}_y\)</span> to see which variable dominates.</p></li>
+<li><p>Check your results with the python script/output below.</p></li>
+</ol>
+<hr class="docutils" />
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Two-Variable Uncertainty Propagation</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Core helpers</span>
+<span class="c1"># -----------------------------</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">central_partial_2var</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">xbar</span><span class="p">,</span> <span class="n">ybar</span><span class="p">,</span> <span class="n">hx</span><span class="p">,</span> <span class="n">hy</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Central finite-difference partial derivative at (xbar, ybar).</span>
+<span class="sd">       Uses hx, hy as step sizes; choose hx = σx and hy = σy for robustness.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">which</span> <span class="o">==</span> <span class="s2">&quot;x&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">xbar</span> <span class="o">+</span> <span class="n">hx</span><span class="p">,</span> <span class="n">ybar</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">xbar</span> <span class="o">-</span> <span class="n">hx</span><span class="p">,</span> <span class="n">ybar</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">hx</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">xbar</span><span class="p">,</span> <span class="n">ybar</span> <span class="o">+</span> <span class="n">hy</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">xbar</span><span class="p">,</span> <span class="n">ybar</span> <span class="o">-</span> <span class="n">hy</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">hy</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">propagate_2var</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">xbar</span><span class="p">,</span> <span class="n">sx</span><span class="p">,</span> <span class="n">ybar</span><span class="p">,</span> <span class="n">sy</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;First-order propagation for f(x,y) with independent uncertainties.</span>
+<span class="sd">       Returns: f0, σ_f, ∂f/∂x, ∂f/∂y, frac_x, frac_y</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Guard against zero step: fall back to tiny relative step if needed</span>
+    <span class="n">hx</span> <span class="o">=</span> <span class="n">sx</span> <span class="k">if</span> <span class="n">sx</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="nb">max</span><span class="p">(</span><span class="mf">1e-6</span> <span class="o">*</span> <span class="nb">max</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">xbar</span><span class="p">)),</span> <span class="mf">1e-12</span><span class="p">)</span>
+    <span class="n">hy</span> <span class="o">=</span> <span class="n">sy</span> <span class="k">if</span> <span class="n">sy</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="nb">max</span><span class="p">(</span><span class="mf">1e-6</span> <span class="o">*</span> <span class="nb">max</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">ybar</span><span class="p">)),</span> <span class="mf">1e-12</span><span class="p">)</span>
+
+    <span class="n">dfdx</span> <span class="o">=</span> <span class="n">central_partial_2var</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">xbar</span><span class="p">,</span> <span class="n">ybar</span><span class="p">,</span> <span class="n">hx</span><span class="p">,</span> <span class="n">hy</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">)</span>
+    <span class="n">dfdy</span> <span class="o">=</span> <span class="n">central_partial_2var</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">xbar</span><span class="p">,</span> <span class="n">ybar</span><span class="p">,</span> <span class="n">hx</span><span class="p">,</span> <span class="n">hy</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">)</span>
+    <span class="n">f0</span>   <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">xbar</span><span class="p">,</span> <span class="n">ybar</span><span class="p">)</span>
+
+    <span class="n">var_x</span> <span class="o">=</span> <span class="p">(</span><span class="n">dfdx</span> <span class="o">*</span> <span class="n">sx</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="n">var_y</span> <span class="o">=</span> <span class="p">(</span><span class="n">dfdy</span> <span class="o">*</span> <span class="n">sy</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="n">var</span>   <span class="o">=</span> <span class="n">var_x</span> <span class="o">+</span> <span class="n">var_y</span>
+    <span class="n">sf</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">var</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">frac_x</span> <span class="o">=</span> <span class="n">var_x</span> <span class="o">/</span> <span class="n">var</span>
+        <span class="n">frac_y</span> <span class="o">=</span> <span class="n">var_y</span> <span class="o">/</span> <span class="n">var</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">frac_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        <span class="n">frac_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+    <span class="k">return</span> <span class="n">f0</span><span class="p">,</span> <span class="n">sf</span><span class="p">,</span> <span class="n">dfdx</span><span class="p">,</span> <span class="n">dfdy</span><span class="p">,</span> <span class="n">frac_x</span><span class="p">,</span> <span class="n">frac_y</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">pm_str</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">sig</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">sigfig_unc</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Format value ± uncertainty with reasonable significant figures.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">sig</span><span class="p">)</span> <span class="ow">or</span> <span class="n">sig</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">val</span><span class="si">:</span><span class="s2">g</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">unit</span><span class="si">}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">exp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">sig</span><span class="p">))))</span> <span class="k">if</span> <span class="n">sig</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+    <span class="n">scale</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">**</span> <span class="p">(</span><span class="n">exp</span> <span class="o">-</span> <span class="n">sigfig_unc</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">s_r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">sig</span> <span class="o">/</span> <span class="n">scale</span><span class="p">)</span> <span class="o">*</span> <span class="n">scale</span>
+    <span class="n">v_r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">val</span> <span class="o">/</span> <span class="n">scale</span><span class="p">)</span> <span class="o">*</span> <span class="n">scale</span>
+    <span class="n">dec</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="p">(</span><span class="n">exp</span> <span class="o">-</span> <span class="n">sigfig_unc</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">fmt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="se">{{</span><span class="s2">:.</span><span class="si">{</span><span class="n">dec</span><span class="si">}</span><span class="s2">f</span><span class="se">}}</span><span class="s2">&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">fmt</span> <span class="o">+</span> <span class="s2">&quot; ± &quot;</span> <span class="o">+</span> <span class="n">fmt</span> <span class="o">+</span> <span class="s2">&quot; </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">v_r</span><span class="p">,</span> <span class="n">s_r</span><span class="p">,</span> <span class="n">unit</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">sep</span><span class="p">(</span><span class="n">title</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">title</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">title</span><span class="p">))</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">show_shares</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">shares</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">4.8</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">shares</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Variance share&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">shares</span><span class="p">):</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">s</span> <span class="o">+</span> <span class="mf">0.02</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">s</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># ----------------------------------------</span>
+<span class="c1"># Scenario A: Density  ρ = m / V  (SI units)</span>
+<span class="c1"># ----------------------------------------</span>
+<span class="c1"># Given (convert V from liters to m^3 first):</span>
+<span class="n">m_bar</span><span class="p">,</span> <span class="n">s_m</span> <span class="o">=</span> <span class="mf">0.250</span><span class="p">,</span> <span class="mf">0.005</span>              <span class="c1"># kg</span>
+<span class="n">V_bar_L</span><span class="p">,</span> <span class="n">s_V_L</span> <span class="o">=</span> <span class="mf">0.300</span><span class="p">,</span> <span class="mf">0.010</span>          <span class="c1"># L</span>
+<span class="n">V_bar</span><span class="p">,</span>  <span class="n">s_V</span>  <span class="o">=</span> <span class="n">V_bar_L</span> <span class="o">*</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="n">s_V_L</span> <span class="o">*</span> <span class="mf">1e-3</span>   <span class="c1"># m^3</span>
+
+<span class="n">rho</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">m</span><span class="p">,</span> <span class="n">V</span><span class="p">:</span> <span class="n">m</span> <span class="o">/</span> <span class="n">V</span>
+
+<span class="n">sep</span><span class="p">(</span><span class="s2">&quot;Scenario A — Density  ρ = m / V&quot;</span><span class="p">)</span>
+<span class="n">rho0</span><span class="p">,</span> <span class="n">s_rho</span><span class="p">,</span> <span class="n">dr_dm</span><span class="p">,</span> <span class="n">dr_dV</span><span class="p">,</span> <span class="n">frac_m</span><span class="p">,</span> <span class="n">frac_V</span> <span class="o">=</span> <span class="n">propagate_2var</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">m_bar</span><span class="p">,</span> <span class="n">s_m</span><span class="p">,</span> <span class="n">V_bar</span><span class="p">,</span> <span class="n">s_V</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inputs (SI):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  m = </span><span class="si">{</span><span class="n">pm_str</span><span class="p">(</span><span class="n">m_bar</span><span class="p">,</span><span class="w"> </span><span class="n">s_m</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;kg&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  V = </span><span class="si">{</span><span class="n">pm_str</span><span class="p">(</span><span class="n">V_bar</span><span class="p">,</span><span class="w"> </span><span class="n">s_V</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;m^3&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">  (from </span><span class="si">{</span><span class="n">V_bar_L</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> ± </span><span class="si">{</span><span class="n">s_V_L</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> L)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Finite-difference propagation (independent x,y):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ρ = </span><span class="si">{</span><span class="n">pm_str</span><span class="p">(</span><span class="n">rho0</span><span class="p">,</span><span class="w"> </span><span class="n">s_rho</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;kg/m^3&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Partials (sensitivities at means):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    ∂ρ/∂m ≈ </span><span class="si">{</span><span class="n">dr_dm</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2">  (units: (kg/m^3)/kg)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    ∂ρ/∂V ≈ </span><span class="si">{</span><span class="n">dr_dV</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2">  (units: (kg/m^3)/m^3)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Variance shares:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    from m: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">frac_m</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    from V: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">frac_V</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+
+<span class="n">show_shares</span><span class="p">(</span><span class="s2">&quot;Scenario A — variance share&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;mass (m)&quot;</span><span class="p">,</span> <span class="s2">&quot;volume (V)&quot;</span><span class="p">],</span> <span class="p">[</span><span class="n">frac_m</span><span class="p">,</span> <span class="n">frac_V</span><span class="p">])</span>
+
+<span class="c1"># --------------------------------------------------</span>
+<span class="c1"># Scenario B: Kinetic Energy  K = (1/2) m v^2  (SI)</span>
+<span class="c1"># --------------------------------------------------</span>
+<span class="n">mK_bar</span><span class="p">,</span> <span class="n">s_mK</span> <span class="o">=</span> <span class="mf">1.50</span><span class="p">,</span> <span class="mf">0.05</span>   <span class="c1"># kg</span>
+<span class="n">v_bar</span><span class="p">,</span>  <span class="n">s_v</span>  <span class="o">=</span> <span class="mf">2.00</span><span class="p">,</span> <span class="mf">0.10</span>   <span class="c1"># m/s</span>
+
+<span class="n">K</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">m</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">m</span> <span class="o">*</span> <span class="n">v</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">sep</span><span class="p">(</span><span class="s2">&quot;Scenario B — Kinetic Energy  K = (1/2) m v^2&quot;</span><span class="p">)</span>
+<span class="n">K0</span><span class="p">,</span> <span class="n">s_K</span><span class="p">,</span> <span class="n">dK_dm</span><span class="p">,</span> <span class="n">dK_dv</span><span class="p">,</span> <span class="n">frac_mK</span><span class="p">,</span> <span class="n">frac_v</span> <span class="o">=</span> <span class="n">propagate_2var</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">mK_bar</span><span class="p">,</span> <span class="n">s_mK</span><span class="p">,</span> <span class="n">v_bar</span><span class="p">,</span> <span class="n">s_v</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inputs (SI):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  m = </span><span class="si">{</span><span class="n">pm_str</span><span class="p">(</span><span class="n">mK_bar</span><span class="p">,</span><span class="w"> </span><span class="n">s_mK</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;kg&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  v = </span><span class="si">{</span><span class="n">pm_str</span><span class="p">(</span><span class="n">v_bar</span><span class="p">,</span><span class="w"> </span><span class="n">s_v</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;m/s&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Finite-difference propagation (independent x,y):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  K = </span><span class="si">{</span><span class="n">pm_str</span><span class="p">(</span><span class="n">K0</span><span class="p">,</span><span class="w"> </span><span class="n">s_K</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;J&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Partials (sensitivities at means):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    ∂K/∂m ≈ </span><span class="si">{</span><span class="n">dK_dm</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2">  (units: J/kg)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    ∂K/∂v ≈ </span><span class="si">{</span><span class="n">dK_dv</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2">  (units: J·s/m)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Variance shares:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    from m: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">frac_mK</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    from v: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">frac_v</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+
+<span class="n">show_shares</span><span class="p">(</span><span class="s2">&quot;Scenario B — variance share&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;mass (m)&quot;</span><span class="p">,</span> <span class="s2">&quot;velocity (v)&quot;</span><span class="p">],</span> <span class="p">[</span><span class="n">frac_mK</span><span class="p">,</span> <span class="n">frac_v</span><span class="p">])</span>
+
+<span class="c1"># --------------------------------------------------</span>
+<span class="c1"># Template for your own function f(x,y)</span>
+<span class="c1"># --------------------------------------------------</span>
+<span class="c1"># To use:</span>
+<span class="c1"># 1) Define your function f(x,y)</span>
+<span class="c1"># 2) Set xbar, sx, ybar, sy</span>
+<span class="c1"># 3) Call propagate_2var(f, xbar, sx, ybar, sy)</span>
+<span class="c1">#</span>
+<span class="c1"># Example (commented):</span>
+<span class="c1">#</span>
+<span class="c1"># f = lambda x, y: (x * y**2) / (x + y)</span>
+<span class="c1"># xbar, sx = 2.0, 0.1</span>
+<span class="c1"># ybar, sy = 3.0, 0.2</span>
+<span class="c1"># f0, sf, dfdx, dfdy, fracx, fracy = propagate_2var(f, xbar, sx, ybar, sy)</span>
+<span class="c1"># print(f&quot;f = {pm_str(f0, sf)}&quot;)</span>
+<span class="c1"># print(f&quot;Partials: ∂f/∂x ≈ {dfdx:.3e}, ∂f/∂y ≈ {dfdy:.3e}&quot;)</span>
+<span class="c1"># print(f&quot;Variance shares: x ≈ {100*fracx:.1f}%, y ≈ {100*fracy:.1f}%&quot;)</span>
+</pre></div>
 </div>
-<p>They are two sides of the same coin:</p>
-<ul class="simple">
-<li><p>Fourier looks at <strong>what frequencies</strong> are inside the sound.</p></li>
-<li><p>Autocorrelation looks at <strong>how often</strong> the sound repeats in time.</p></li>
-</ul>
-</section>
-</section>
-<hr class="docutils" />
-<section id="phyphox-setup">
-<h2>2) Phyphox Setup<a class="headerlink" href="#phyphox-setup" title="Link to this heading">#</a></h2>
-<p>Open <strong>phyphox</strong> and choose these experiments:</p>
-<ul class="simple">
-<li><p><strong>Audio Spectrum (FFT)</strong></p></li>
-<li><p><strong>Audio Autocorrelation</strong></p></li>
-</ul>
-<p>Use a quiet room. Use your amazing voice and a tuning fork.</p>
-</section>
-<hr class="docutils" />
-<section id="experiments-recording-exporting-and-analyzing-data">
-<h2>3) Experiments — Recording, Exporting, and Analyzing Data<a class="headerlink" href="#experiments-recording-exporting-and-analyzing-data" title="Link to this heading">#</a></h2>
-<p>In this lab, you will use <strong>phyphox</strong> to record short sound samples and analyze them using both <strong>FFT (frequency domain)</strong> and <strong>Autocorrelation (time domain)</strong> tools.<br />
-You will also <strong>export your data</strong> for further analysis and plotting on a computer.</p>
-<hr class="docutils" />
-<section id="general-setup">
-<h3>⚙️ General Setup<a class="headerlink" href="#general-setup" title="Link to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>Open <strong>phyphox</strong> on your smartphone.</p></li>
-<li><p>Select one of the following experiments:</p>
-<ul class="simple">
-<li><p><strong>Audio Spectrum (FFT)</strong></p></li>
-<li><p><strong>Audio Autocorrelation</strong></p></li>
-</ul>
-</li>
-<li><p>The <strong>sampling rate</strong> is typically fixed around <strong>2048 samples per second</strong>, which is sufficient for this lab.</p></li>
-<li><p>No buffer length needs to be set — the app will record while you hold the record button.</p></li>
-<li><p><strong>Timing is important:</strong></p>
-<ul class="simple">
-<li><p>Wait until the sound source is already on before starting recording.</p></li>
-<li><p>Stop recording <strong>before</strong> the sound stops.</p></li>
-<li><p>This ensures your data only contains the steady part of the signal.</p></li>
-<li><p>Take screenshots for comparison to your own generated plots.</p></li>
-</ul>
-</li>
-<li><p>After each recording, tap the <strong>⋮ menu → Export data → CSV</strong>.</p>
-<ul class="simple">
-<li><p>Export “Time vs Amplitude” for Autocorrelation data or “Frequency vs Amplitude” for FFT data.</p></li>
-<li><p>Save each file with a clear name, e.g. <code class="docutils literal notranslate"><span class="pre">PartA_FFT.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">PartA_AC.csv</span></code>.</p></li>
-<li><p>Send the files to your computer for plotting.</p></li>
-</ul>
-</li>
-</ol>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scenario A — Density  ρ = m / V
+===============================
+Inputs (SI):
+  m = 0.2500 ± 0.0050 kg
+  V = 0.000300 ± 0.000010 m^3  (from 0.300 ± 0.010 L)
+
+Finite-difference propagation (independent x,y):
+  ρ = 833 ± 32 kg/m^3
+  Partials (sensitivities at means):
+    ∂ρ/∂m ≈ 3.333e+03  (units: (kg/m^3)/kg)
+    ∂ρ/∂V ≈ -2.781e+06  (units: (kg/m^3)/m^3)
+  Variance shares:
+    from m: 26.4%
+    from V: 73.6%
+</pre></div>
+</div>
+<img alt="../_images/2cf95d4272f7039d2e08cd9cd55011e9d7a216cc6371409a6b7c8d53c29533df.png" src="../_images/2cf95d4272f7039d2e08cd9cd55011e9d7a216cc6371409a6b7c8d53c29533df.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scenario B — Kinetic Energy  K = (1/2) m v^2
+============================================
+Inputs (SI):
+  m = 1.500 ± 0.050 kg
+  v = 2.00 ± 0.10 m/s
+
+Finite-difference propagation (independent x,y):
+  K = 3.00 ± 0.32 J
+  Partials (sensitivities at means):
+    ∂K/∂m ≈ 2.000e+00  (units: J/kg)
+    ∂K/∂v ≈ 3.000e+00  (units: J·s/m)
+  Variance shares:
+    from m: 10.0%
+    from v: 90.0%
+</pre></div>
+</div>
+<img alt="../_images/a0a92524a2fee362458bd61e747a85d78df3c4ed9fff20ac49d8f115cfd2c27e.png" src="../_images/a0a92524a2fee362458bd61e747a85d78df3c4ed9fff20ac49d8f115cfd2c27e.png" />
+</div>
+</details>
+</div>
 </section>
 <hr class="docutils" />
-<section id="part-a-single-tone-comparing-fft-and-autocorrelation">
-<h3><strong>Part A — Single Tone: Comparing FFT and Autocorrelation</strong><a class="headerlink" href="#part-a-single-tone-comparing-fft-and-autocorrelation" title="Link to this heading">#</a></h3>
-<p><strong>Goal:</strong> Measure the same steady tone using both methods and compare the frequencies.</p>
-<ol class="arabic">
-<li><p>Generate or whistle a steady tone (300–800 Hz) for about <strong>3–5 seconds</strong>.</p></li>
-<li><p>Use <strong>Audio Spectrum (FFT)</strong> and record while the tone is constant.</p></li>
-<li><p>Export and save the data (<code class="docutils literal notranslate"><span class="pre">.csv</span></code>).</p></li>
-<li><p>Repeat using <strong>Audio Autocorrelation</strong> and export that dataset as well.</p></li>
-<li><p>Plot both datasets:</p>
+<section id="results-and-discussion">
+<h2>7) Results and Discussion<a class="headerlink" href="#results-and-discussion" title="Link to this heading">#</a></h2>
+<p>For each example:</p>
 <ul class="simple">
-<li><p><strong>FFT:</strong> Frequency (Hz) on x-axis, amplitude on y-axis.</p></li>
-<li><p><strong>Autocorrelation:</strong> Lag (s) on x-axis, normalized correlation on y-axis.</p></li>
+<li><p>Report <span class="math notranslate nohighlight">\(f = f(\bar x,\bar y)\)</span> and <span class="math notranslate nohighlight">\(\sigma_f\)</span>.</p></li>
+<li><p>Show both partials and the contribution percentages.</p></li>
+<li><p>Comment on which uncertainty dominates and why.</p></li>
+<li><p>Reflect: If <span class="math notranslate nohighlight">\(\sigma_x\)</span> were halved, how much would <span class="math notranslate nohighlight">\(\sigma_f\)</span> decrease?</p></li>
 </ul>
-</li>
-<li><p>From FFT, find the <strong>frequency of the main peak</strong> <span class="math notranslate nohighlight">\( f_{\text{FFT}} \)</span>.</p></li>
-<li><p>From Autocorrelation, find the <strong>first nonzero-lag peak</strong> at <span class="math notranslate nohighlight">\( \tau_1 \)</span> and calculate</p>
+</section>
+<hr class="docutils" />
+<section id="deliverables">
+<h2>8) Deliverables<a class="headerlink" href="#deliverables" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Completed tables for both examples (inputs, computed values, partials, <span class="math notranslate nohighlight">\(\sigma_f\)</span>).</p></li>
+<li><p>Final results with correct units and reasonable significant figures.</p></li>
+<li><p>Short written paragraph explaining which measurement dominates the uncertainty and why.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="common-pitfalls">
+<h2>9) Common Pitfalls<a class="headerlink" href="#common-pitfalls" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Mixing units (e.g., liters vs. m<span class="math notranslate nohighlight">\(^3\)</span>).</p></li>
+<li><p>Using steps <span class="math notranslate nohighlight">\(h\)</span> that are too large (nonlinear bias) or too small (round-off noise).</p></li>
+<li><p>Forgetting to use <strong>absolute</strong> units for uncertainties.</p></li>
+<li><p>Reporting <span class="math notranslate nohighlight">\(f\)</span> with more precision than justified by <span class="math notranslate nohighlight">\(\sigma_f\)</span>.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Cool Factor:</strong> Run the provided Python cell below to check your results numerically using both the finite-difference method and a Monte-Carlo simulation.</p>
+</section>
+<hr class="docutils" />
+<section id="monte-carlo-validation-for-the-density-example">
+<h2>10) Monte Carlo Validation for the Density Example<a class="headerlink" href="#monte-carlo-validation-for-the-density-example" title="Link to this heading">#</a></h2>
+<p>Up to now, we used the <strong>finite-difference method</strong> to estimate how small independent uncertainties in <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(V\)</span> propagate into the uncertainty of the density:</p>
 <div class="math notranslate nohighlight">
 \[
-   f_{\text{AC}} = \frac{1}{\tau_1}.
-   \]</div>
-</li>
-<li><p>Compare <span class="math notranslate nohighlight">\( f_{\text{FFT}} \)</span> and <span class="math notranslate nohighlight">\( f_{\text{AC}} \)</span>, and compute the percent difference.</p></li>
-</ol>
-</section>
-<hr class="docutils" />
-<section id="part-b-harmonics-and-timbre">
-<h3><strong>Part B — Harmonics and Timbre</strong><a class="headerlink" href="#part-b-harmonics-and-timbre" title="Link to this heading">#</a></h3>
-<p><strong>Goal:</strong> Examine complex periodic sounds to see harmonics (Fourier view) and periodicity (time view).</p>
+\rho = \frac{m}{V}.
+\]</div>
+<p>That method assumes two things:</p>
 <ol class="arabic simple">
-<li><p>Record your <strong>voice</strong> (sustained “ahh”) or a musical instrument playing one note.</p></li>
-<li><p>Export both <strong>FFT</strong> and <strong>Autocorrelation</strong> data.</p></li>
-<li><p>Plot:</p>
-<ul class="simple">
-<li><p>FFT: Identify the <strong>fundamental frequency</strong> and its <strong>harmonics</strong> at <span class="math notranslate nohighlight">\( 2f_0, 3f_0, \dots \)</span>.</p></li>
-<li><p>Autocorrelation: Identify the <strong>period</strong> <span class="math notranslate nohighlight">\( T_0 \)</span> between repeating peaks.</p></li>
-</ul>
-</li>
-<li><p>Calculate <span class="math notranslate nohighlight">\( f_0 = 1/T_0 \)</span> from the autocorrelation.</p></li>
-<li><p>Discuss:</p>
-<ul class="simple">
-<li><p>Which plot shows harmonics (tone color)?</p></li>
-<li><p>Which plot shows a cleaner measure of pitch (periodicity)?</p></li>
-</ul>
-</li>
+<li><p>The function behaves <em>approximately linearly</em> near the measured values <span class="math notranslate nohighlight">\((\bar m,\bar V)\)</span>.</p></li>
+<li><p>The uncertainties are <em>small enough</em> that higher-order terms (curvature of <span class="math notranslate nohighlight">\(f\)</span>) can be ignored.</p></li>
 </ol>
-</section>
+<p>But what if the dependence on <span class="math notranslate nohighlight">\(V\)</span> is <strong>strongly nonlinear</strong> (e.g., inverse dependence),<br />
+or what if the uncertainty in <span class="math notranslate nohighlight">\(V\)</span> is <strong>relatively large</strong> compared to its mean?</p>
+<p>To check whether the linear approximation is still reliable, we can use a <strong>Monte Carlo simulation</strong>.</p>
 <hr class="docutils" />
-<section id="part-c-beats-from-two-nearby-tones">
-<h3><strong>Part C — Beats from Two Nearby Tones</strong><a class="headerlink" href="#part-c-beats-from-two-nearby-tones" title="Link to this heading">#</a></h3>
-<p><strong>Goal:</strong> Observe beats in both domains and measure their frequency.</p>
-<ol class="arabic">
-<li><p>Play two tones close in pitch (for example, 440 Hz and 450 Hz).</p></li>
-<li><p>Use <strong>Audio Spectrum (FFT)</strong> to record the combined sound.</p>
-<ul class="simple">
-<li><p>Expect two nearby peaks at <span class="math notranslate nohighlight">\( f_1 \)</span> and <span class="math notranslate nohighlight">\( f_2 \)</span>.</p></li>
-</ul>
-</li>
-<li><p>Then record with <strong>Autocorrelation</strong>.</p>
-<ul class="simple">
-<li><p>Expect a slower repeating pattern (beat envelope) in the autocorrelation.</p></li>
-</ul>
-</li>
-<li><p>Export and plot both datasets.</p></li>
-<li><p>Measure the <strong>beat period</strong> <span class="math notranslate nohighlight">\( T_b \)</span> from the spacing between large peaks in the autocorrelation plot, and compute</p>
+<section id="what-is-monte-carlo-simulation">
+<h3>What is Monte Carlo simulation?<a class="headerlink" href="#what-is-monte-carlo-simulation" title="Link to this heading">#</a></h3>
+<p>Instead of using derivatives, we <strong>simulate many possible measurements</strong> of <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(V\)</span>, treating each as a random draw from their normal (Gaussian) uncertainty distributions:</p>
 <div class="math notranslate nohighlight">
 \[
-   f_b = \frac{1}{T_b}.
-   \]</div>
-</li>
-<li><p>Compare <span class="math notranslate nohighlight">\( f_b \)</span> with the theoretical value <span class="math notranslate nohighlight">\( |f_2 - f_1| \)</span>.</p></li>
-</ol>
-</section>
+m \sim \mathcal N(\bar m, \sigma_m), \qquad V \sim \mathcal N(\bar V, \sigma_V).
+\]</div>
+<p>For each random pair <span class="math notranslate nohighlight">\((m_i,V_i)\)</span> we compute</p>
+<div class="math notranslate nohighlight">
+\[
+\rho_i = \frac{m_i}{V_i}.
+\]</div>
+<p>After repeating this <span class="math notranslate nohighlight">\(N\)</span> times (for example <span class="math notranslate nohighlight">\(N=100{,}000\)</span>),<br />
+the collection <span class="math notranslate nohighlight">\(\{\rho_i\}\)</span> forms a <em>distribution</em> of possible densities.<br />
+The <strong>mean</strong> of this distribution estimates <span class="math notranslate nohighlight">\(\bar\rho\)</span>, and its <strong>standard deviation</strong> gives <span class="math notranslate nohighlight">\(\sigma_\rho\)</span> directly.</p>
 </section>
 <hr class="docutils" />
-<section id="key-takeaway">
-<h2>4) Key Takeaway<a class="headerlink" href="#key-takeaway" title="Link to this heading">#</a></h2>
-<p>Both FFT and Autocorrelation are ways of comparing one function with another:</p>
+<section id="why-use-it-here">
+<h3>Why use it here?<a class="headerlink" href="#why-use-it-here" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p>FFT compares your sound with <strong>mathematically perfect tones</strong> (sines and cosines).</p></li>
-<li><p>Autocorrelation compares your sound with <strong>itself shifted in time</strong>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\rho = m/V\)</span> is a <strong>nonlinear</strong> function (because of the division),<br />
+so the linear finite-difference formula might slightly underestimate or overestimate <span class="math notranslate nohighlight">\(\sigma_\rho\)</span>.</p></li>
+<li><p>Monte Carlo automatically includes the nonlinear curvature.</p></li>
+<li><p>Comparing both results lets us <strong>validate</strong> whether the first-order propagation is sufficient for our data.</p></li>
 </ul>
-<p>Both rely on the idea that functions can be <strong>orthogonal</strong>, and that we can find out “how much” one function overlaps with another — just like taking a <strong>dot product</strong> between vectors.</p>
+<p>If both agree within a few percent, the finite-difference approximation is accurate for these uncertainties.<br />
+If not, we may need to reduce <span class="math notranslate nohighlight">\(\sigma_V\)</span> experimentally or use MC propagation for the reported value.</p>
+</section>
 <hr class="docutils" />
+<section id="expected-behavior-for-this-example">
+<h3>Expected behavior for this example<a class="headerlink" href="#expected-behavior-for-this-example" title="Link to this heading">#</a></h3>
+<p>Because <span class="math notranslate nohighlight">\(\rho\)</span> depends inversely on <span class="math notranslate nohighlight">\(V\)</span>, even small variations in <span class="math notranslate nohighlight">\(V\)</span> produce noticeable asymmetry in <span class="math notranslate nohighlight">\(\rho_i\)</span>.<br />
+The histogram will therefore be slightly <em>skewed</em> (longer tail to the right), even though <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(V\)</span> are normally distributed.</p>
+<p>That skewness is precisely why it’s worth checking Monte Carlo.</p>
+<hr class="docutils" />
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># PHYS 2215 — Monte Carlo validation for density  ρ = m / V</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Given values</span>
+<span class="n">m_bar</span><span class="p">,</span> <span class="n">s_m</span> <span class="o">=</span> <span class="mf">0.250</span><span class="p">,</span> <span class="mf">0.005</span>              <span class="c1"># kg</span>
+<span class="n">V_bar_L</span><span class="p">,</span> <span class="n">s_V_L</span> <span class="o">=</span> <span class="mf">0.300</span><span class="p">,</span> <span class="mf">0.010</span>          <span class="c1"># L</span>
+<span class="n">V_bar</span><span class="p">,</span>  <span class="n">s_V</span>  <span class="o">=</span> <span class="n">V_bar_L</span> <span class="o">*</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="n">s_V_L</span> <span class="o">*</span> <span class="mf">1e-3</span>   <span class="c1"># m^3</span>
+<span class="n">rho</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">m</span><span class="p">,</span> <span class="n">V</span><span class="p">:</span> <span class="n">m</span> <span class="o">/</span> <span class="n">V</span>
+
+<span class="c1"># ----- Finite-difference propagation (from previous lab step) -----</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">central_partial_2var</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">xbar</span><span class="p">,</span> <span class="n">ybar</span><span class="p">,</span> <span class="n">hx</span><span class="p">,</span> <span class="n">hy</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">which</span> <span class="o">==</span> <span class="s2">&quot;x&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">xbar</span> <span class="o">+</span> <span class="n">hx</span><span class="p">,</span> <span class="n">ybar</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">xbar</span> <span class="o">-</span> <span class="n">hx</span><span class="p">,</span> <span class="n">ybar</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">hx</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">xbar</span><span class="p">,</span> <span class="n">ybar</span> <span class="o">+</span> <span class="n">hy</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">xbar</span><span class="p">,</span> <span class="n">ybar</span> <span class="o">-</span> <span class="n">hy</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">hy</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">propagate_fd</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">xbar</span><span class="p">,</span> <span class="n">sx</span><span class="p">,</span> <span class="n">ybar</span><span class="p">,</span> <span class="n">sy</span><span class="p">):</span>
+    <span class="n">dfdx</span> <span class="o">=</span> <span class="n">central_partial_2var</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">xbar</span><span class="p">,</span> <span class="n">ybar</span><span class="p">,</span> <span class="n">sx</span><span class="p">,</span> <span class="n">sy</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">)</span>
+    <span class="n">dfdy</span> <span class="o">=</span> <span class="n">central_partial_2var</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">xbar</span><span class="p">,</span> <span class="n">ybar</span><span class="p">,</span> <span class="n">sx</span><span class="p">,</span> <span class="n">sy</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">)</span>
+    <span class="n">f0</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">xbar</span><span class="p">,</span> <span class="n">ybar</span><span class="p">)</span>
+    <span class="n">var</span> <span class="o">=</span> <span class="p">(</span><span class="n">dfdx</span> <span class="o">*</span> <span class="n">sx</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">dfdy</span> <span class="o">*</span> <span class="n">sy</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">return</span> <span class="n">f0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
+
+<span class="n">rho_fd</span><span class="p">,</span> <span class="n">s_rho_fd</span> <span class="o">=</span> <span class="n">propagate_fd</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">m_bar</span><span class="p">,</span> <span class="n">s_m</span><span class="p">,</span> <span class="n">V_bar</span><span class="p">,</span> <span class="n">s_V</span><span class="p">)</span>
+
+<span class="c1"># ----- Monte Carlo sampling -----</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">100_000</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">2215</span><span class="p">)</span>
+<span class="n">m_samples</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">m_bar</span><span class="p">,</span> <span class="n">s_m</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">V_samples</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">V_bar</span><span class="p">,</span> <span class="n">s_V</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">rho_samples</span> <span class="o">=</span> <span class="n">rho</span><span class="p">(</span><span class="n">m_samples</span><span class="p">,</span> <span class="n">V_samples</span><span class="p">)</span>
+
+<span class="n">rho_mc_mean</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">rho_samples</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="n">rho_mc_std</span>  <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">rho_samples</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># ----- Comparison -----</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Monte Carlo vs Finite Difference for ρ = m / V</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Measured inputs:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  m = </span><span class="si">{</span><span class="n">m_bar</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> ± </span><span class="si">{</span><span class="n">s_m</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> kg&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  V = </span><span class="si">{</span><span class="n">V_bar</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> ± </span><span class="si">{</span><span class="n">s_V</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> m³  (from </span><span class="si">{</span><span class="n">V_bar_L</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> ± </span><span class="si">{</span><span class="n">s_V_L</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> L)</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Finite-difference propagation:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ρ = </span><span class="si">{</span><span class="n">rho_fd</span><span class="si">:</span><span class="s2">.6g</span><span class="si">}</span><span class="s2"> ± </span><span class="si">{</span><span class="n">s_rho_fd</span><span class="si">:</span><span class="s2">.6g</span><span class="si">}</span><span class="s2"> kg/m³&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Monte Carlo simulation (N=</span><span class="si">{</span><span class="n">N</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  mean ≈ </span><span class="si">{</span><span class="n">rho_mc_mean</span><span class="si">:</span><span class="s2">.6g</span><span class="si">}</span><span class="s2"> kg/m³&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  std  ≈ </span><span class="si">{</span><span class="n">rho_mc_std</span><span class="si">:</span><span class="s2">.6g</span><span class="si">}</span><span class="s2"> kg/m³&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Relative difference in σₚ: </span><span class="si">{</span><span class="p">(</span><span class="n">rho_mc_std</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">s_rho_fd</span><span class="p">)</span><span class="o">/</span><span class="n">s_rho_fd</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+
+<span class="c1"># ----- Visualization -----</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rho_samples</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">rho_fd</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;FD mean&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">rho_fd</span> <span class="o">-</span> <span class="n">s_rho_fd</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;FD ±1σ&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">rho_fd</span> <span class="o">+</span> <span class="n">s_rho_fd</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;ρ (kg/m³)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Probability density&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Monte Carlo distribution of ρ = m/V&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Interpretation:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• Both approaches estimate σₚ, the uncertainty in density.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• Finite-difference assumes linear behavior around the mean; Monte Carlo tests that assumption.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• A small difference (typically &lt;5–10%) indicates the linear model is adequate.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;• The slightly skewed histogram shows that the inverse relation (1/V) introduces asymmetry,&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  but for these uncertainties, the difference remains small — our propagation method is valid.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Monte Carlo vs Finite Difference for ρ = m / V
+
+Measured inputs:
+  m = 0.250 ± 0.005 kg
+  V = 0.000300 ± 0.000010 m³  (from 0.300 ± 0.010 L)
+
+Finite-difference propagation:
+  ρ = 833.333 ± 32.4207 kg/m³
+Monte Carlo simulation (N=100,000):
+  mean ≈ 834.424 kg/m³
+  std  ≈ 32.5653 kg/m³
+
+Relative difference in σₚ: 0.45%
+</pre></div>
+</div>
+<img alt="../_images/f2ec53eda79f83e25ef3bdd14f4277b3858f049aa74be35a9ac6490e7a44ae4a.png" src="../_images/f2ec53eda79f83e25ef3bdd14f4277b3858f049aa74be35a9ac6490e7a44ae4a.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Interpretation:
+• Both approaches estimate σₚ, the uncertainty in density.
+• Finite-difference assumes linear behavior around the mean; Monte Carlo tests that assumption.
+• A small difference (typically &lt;5–10%) indicates the linear model is adequate.
+• The slightly skewed histogram shows that the inverse relation (1/V) introduces asymmetry,
+  but for these uncertainties, the difference remains small — our propagation method is valid.
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
 </section>
 </section>
 
@@ -943,12 +1155,12 @@ You will also <strong>export your data</strong> for further analysis and plottin
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../lab10/lab10.html"
+       href="../lab9/lab9.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Lab 10 — Uncertainty and Error Propagation</p>
+        <p class="prev-next-title">Lab 9: Investigating Thermodynamic Processes with a Fire Syringe</p>
       </div>
     </a>
 </div>
@@ -967,39 +1179,35 @@ You will also <strong>export your data</strong> for further analysis and plottin
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sound-as-a-function">Sound as a Function</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dot-product-orthogonality-and-the-idea-behind-fourier-analysis">Dot Product, Orthogonality, and the Idea Behind Fourier Analysis</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-dot-product-for-functions">(a) Dot Product for Functions</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#b-orthogonality-of-sine-and-cosine-functions">(b) Orthogonality of Sine and Cosine Functions</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c-fourier-series-as-expansion-in-orthogonal-functions">(c) Fourier Series as Expansion in Orthogonal Functions</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-a-simple-example">(d) A Simple Example</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transform-fft-in-phyphox">Fourier Transform (FFT in phyphox)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-error-propagation-single-variable-functions">Background - Error Propagation: Single Variable Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-volume-of-a-sphere">Example: Volume of a Sphere</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">Discussion</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#autocorrelation-comparing-a-function-with-itself">Autocorrelation — Comparing a Function with Itself</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-the-basic-idea">(a) The Basic Idea</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#b-physical-meaning">(b) Physical Meaning</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c-example-a-simple-sine-wave">(c) Example — A Simple Sine Wave</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-why-it-works-for-real-sounds">(d) Why It Works for Real Sounds</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#e-relationship-to-fourier-transform">(e) Relationship to Fourier Transform</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-summary-of-the-intuition">(f) Summary of the Intuition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">1) Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-idea-of-partial-derivatives">2) The Idea of Partial Derivatives</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-uncertainty">Connecting to Uncertainty</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-interpretation">Visual interpretation</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-of-the-two-methods">5) Comparison of the Two Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-difference-approximation-numerical-estimation">3) Finite-Difference Approximation (Numerical Estimation)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propagating-uncertainties">4) Propagating Uncertainties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synthetic-data-two-examples">5) Synthetic Data (Two Examples)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-density">A) Density</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-kinetic-energy">B) Kinetic Energy</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phyphox-setup">2) Phyphox Setup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiments-recording-exporting-and-analyzing-data">3) Experiments — Recording, Exporting, and Analyzing Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-setup">⚙️ General Setup</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-a-single-tone-comparing-fft-and-autocorrelation"><strong>Part A — Single Tone: Comparing FFT and Autocorrelation</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-b-harmonics-and-timbre"><strong>Part B — Harmonics and Timbre</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-c-beats-from-two-nearby-tones"><strong>Part C — Beats from Two Nearby Tones</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">6) Procedure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results-and-discussion">7) Results and Discussion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">8) Deliverables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfalls">9) Common Pitfalls</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monte-carlo-validation-for-the-density-example">10) Monte Carlo Validation for the Density Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-monte-carlo-simulation">What is Monte Carlo simulation?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-it-here">Why use it here?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-behavior-for-this-example">Expected behavior for this example</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaway">4) Key Takeaway</a></li>
 </ul>
   </nav></div>
 
