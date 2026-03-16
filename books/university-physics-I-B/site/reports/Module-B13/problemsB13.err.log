@@ -1,0 +1,101 @@
+Traceback (most recent call last):
+  File "/Users/kim/anaconda3/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 154, in wrapped
+    asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/kim/anaconda3/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/kim/anaconda3/lib/python3.10/site-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/kim/anaconda3/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 158, in wrapped
+    return loop.run_until_complete(inner)
+  File "/Users/kim/anaconda3/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/Users/kim/anaconda3/lib/python3.10/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/Users/kim/anaconda3/lib/python3.10/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/kim/anaconda3/lib/python3.10/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+%reset -f
+
+# 🐍 Starter code: use SymPy to get f, then plot y(x, t0)
+
+import sympy as sp
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Given constants
+v = 3.0      # m/s (wave speed)
+lam = 2.0    # m (wavelength)
+A = 0.10     # m (amplitude)
+t0 = 0.50    # s (snapshot time)
+
+
+# -----------------------------------------
+# 1) Use SymPy to solve v = f * λ for f
+# -----------------------------------------
+
+# Define the symbol for frequency
+f = sp.symbols('f', real=True)
+
+# TODO: write the equation v = f * lam using SymPy's Eq
+
+# TODO: solve the equation for f
+
+# Convert symbolic result to float
+f_value = float(solution_for_f)
+
+print(f"Solved frequency: f = {f_value:.3f} Hz")
+
+# -----------------------------------------
+# 2) Compute omega and k
+# -----------------------------------------
+
+omega =          # TODO: angular frequency
+k =                 # TODO: wavenumber
+
+print(f"ω = {omega:.3f} rad/s")
+print(f"k = {k:.3f} rad/m")
+
+# -----------------------------------------
+# 3) Define y(x, t0) and create data for plotting
+# -----------------------------------------
+
+def y_xt(x, t):
+    # TODO: return y(x,t) = A * sin(k x - ω t)
+    
+
+# Create x array
+x_vals = np.linspace(0, 10, 400)     # from 0 to 10 m
+y_vals = y_xt(x_vals, t0)
+
+# -----------------------------------------
+# 4) Plot y(x, t0) vs x
+# -----------------------------------------
+
+plt.figure(figsize=(8, 4))
+plt.plot(x_vals, y_vals, label=r"$y(x, t_0)$ at $t_0 = 0.50\,\text{s}$")
+plt.axhline(0, color='gray', lw=1, linestyle='--', alpha=0.7)
+
+plt.xlabel("x (m)")
+plt.ylabel("y (m)")
+plt.title("Snapshot of a Traveling Wave on a String")
+plt.legend(loc="upper right")
+plt.grid(True, alpha=0.3)
+plt.tight_layout()
+plt.show()
+------------------
+
+
+[0;36m  Cell [0;32mIn[5], line 36[0;36m[0m
+[0;31m    omega =          # TODO: angular frequency[0m
+[0m                     ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+
