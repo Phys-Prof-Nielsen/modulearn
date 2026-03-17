@@ -1,0 +1,94 @@
+Traceback (most recent call last):
+  File "/Users/kim/anaconda3/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 154, in wrapped
+    asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/kim/anaconda3/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/kim/anaconda3/lib/python3.10/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/kim/anaconda3/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 158, in wrapped
+    return loop.run_until_complete(inner)
+  File "/Users/kim/anaconda3/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/Users/kim/anaconda3/lib/python3.10/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/Users/kim/anaconda3/lib/python3.10/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/kim/anaconda3/lib/python3.10/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Time grid
+N = 4096
+t_max = 50
+t = np.linspace(-t_max, t_max, N)
+dt = t[1] - t[0]
+
+# Frequency grid (angular frequency ω)
+omega = np.fft.fftshift(np.fft.fftfreq(N, d=dt)) * 2*np.pi
+
+# Gaussian pulses in time (narrow vs wide)
+def gaussian_t(t, sigma_t):
+    return np.exp(-t**2/(2*sigma_t**2))
+
+sigma_short = 2.0   # very short lifetime
+sigma_long = 15.0   # long-lived state
+
+psi_short = gaussian_t(t, sigma_short)
+psi_long = gaussian_t(t, sigma_long)
+
+# Fourier transform to frequency domain (normalized)
+phi_short = np.fft.fftshift(np.fft.fft(np.fft.ifftshift(psi_short))) * dt / np.sqrt(2*np.pi)
+phi_long = np.fft.fftshift(np.fft.fft(np.fft.ifftshift(psi_long))) * dt / np.sqrt(2*np.pi)
+
+psi_short_prob = np.abs(psi_short)**2 / np.max(np.abs(psi_short)**2)
+psi_long_prob = np.abs(psi_long)**2 / np.max(np.abs(psi_long)**2)
+phi_short_prob = np.abs(phi_short)**2 / np.max(np.abs(phi_short)**2)
+phi_long_prob = np.abs(phi_long)**2 / np.max(np.abs(phi_long)**2)
+
+# Plot
+fig, axes = plt.subplots(2, 2, figsize=(10,6))
+
+axes[0,0].plot(t, psi_short_prob)
+axes[0,0].set_title("Short Lifetime")
+axes[0,0].set_xlabel("Time t")
+axes[0,0].grid(True)
+
+axes[0,1].plot(t, psi_long_prob)
+axes[0,1].set_title("Long Lifetime")
+axes[0,1].set_xlabel("Time t")
+axes[0,1].grid(True)
+
+axes[1,0].plot(omega, phi_short_prob)
+axes[1,0].set_title("Broad Energy Spread")
+axes[1,0].set_xlabel("Angular Frequency ω")
+axes[1,0].set_xlim(-2,2)
+axes[1,0].grid(True)
+
+axes[1,1].plot(omega, phi_long_prob)
+axes[1,1].set_title("Narrow Energy Spread")
+axes[1,1].set_xlabel("Angular Frequency ω")
+axes[1,1].set_xlim(-2,2)
+axes[1,1].grid(True)
+
+plt.tight_layout()
+plt.show()
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [0;32mIn[1], line 1[0m
+[0;32m----> 1[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mnumpy[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mnp[39;00m
+[1;32m      2[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mplt[39;00m
+[1;32m      4[0m [38;5;66;03m# Time grid[39;00m
+
+[0;31mModuleNotFoundError[0m: No module named 'numpy'
+

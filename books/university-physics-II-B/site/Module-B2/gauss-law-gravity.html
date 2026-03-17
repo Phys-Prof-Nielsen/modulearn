@@ -1,0 +1,706 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>B2.2 Gauss’s Law for Gravity &#8212; A Competency Approach to University Physics II</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-B2/gauss-law-gravity';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="B2.3 Gauss’s Law for Electric Fields" href="gauss-law-electric.html" />
+    <link rel="prev" title="B2.1 Flux" href="flux.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-B.png" class="logo__image only-light" alt="A Competency Approach to University Physics II - Home"/>
+    <script>document.write(`<img src="../_static/logo-B.png" class="logo__image only-dark" alt="A Competency Approach to University Physics II - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to University Physics II: A Compendium to the B Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/university-physics-II/university-physics-II.html">University Physics II Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B1 - Vector Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/partial-derivatives.html">B1.1 Partial Derivatives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/line-integrals.html">B1.2 Introduction to Line Integrals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/parameterization-line-integrals.html">B1.3 Parameterization of Line Integrals</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B2 - Gauss's Law</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="flux.html">B2.1 Flux</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">B2.2 Gauss’s Law for Gravity</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="gauss-law-electric.html">B2.3 Gauss’s Law for Electric Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problemsB2.html">B2.4 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B3 - Work - Potential Energy - Potential</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B3/work-potential.html">B3.1 Work, Conservative Forces, Potential Energy, and Electric Potential</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B3/problemsB3.html">B3.2 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B4 - Dieletric</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B4/dielectric.html">B4.1 Dielectrics: Motivation and Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B4/gauss-law-dielectric.html">B4.2 Gauss’s Law in Dielectrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B4/problemsB4.html">B4.3 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B5 - Magnetic Field</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B5/b-field-moving-charge.html">B5.1 Magnetic Field from a Moving Charge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B5/biot-savart.html">B5.2 Magnetic Fields and the Biot–Savart Law</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B5/force-wire.html">B5.3 Force on a Current-Carrying Wire</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B5/amperes-law.html">B5.4 Ampère’s Law</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B5/problemsB5.html">B5.5 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B6 - Induction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B6/magnetic-flux.html">B6.1 Magnetic Flux and Gauss’s Law for Magnetic Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B6/faradays-law.html">B6.2 Faraday’s Law of Electromagnetic Induction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B6/motional-emf.html">B6.3 Motional EMF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B6/induced-E-field.html">B6.4 Induced Electric Field: What Sets It Apart from the Static Electric Field?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B6/problemsB6.html">B6.5 Problems</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/university-physics-II-B/Module-B2/gauss-law-gravity.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-B2/gauss-law-gravity.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>B2.2 Gauss’s Law for Gravity</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">B2.2 Gauss’s Law for Gravity</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#b2-2-1-motivation">B2.2.1 Motivation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b2-2-2-gravitational-field-flux">B2.2.2 Gravitational Field Flux</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b2-2-3-gauss-s-law">B2.2.3 Gauss’s Law</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="b2-2-gauss-s-law-for-gravity">
+<h1>B2.2 Gauss’s Law for Gravity<a class="headerlink" href="#b2-2-gauss-s-law-for-gravity" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section class="tex2jax_ignore mathjax_ignore" id="b2-2-1-motivation">
+<h1>B2.2.1 Motivation<a class="headerlink" href="#b2-2-1-motivation" title="Link to this heading">#</a></h1>
+<p>We have four fundamental forces in physics, each arising from fundamental interactions:</p>
+<ul class="simple">
+<li><p>Gravity</p></li>
+<li><p>Electromagnetic</p></li>
+<li><p>Strong nuclear</p></li>
+<li><p>Weak nuclear</p></li>
+</ul>
+<p>Every known force we encounter can be explained in terms of these four interactions, all of which emerge from what we understand as field interactions. In this sense, fields are more fundamental than forces themselves.</p>
+<p>So far, we have primarily discussed the gravitational field in terms of Newton’s law of universal gravitation, which describes the interaction between masses. However, in more advanced physics, the focus shifts from forces to the properties and behavior of the fields themselves. One key concept that arises in this context is flux—a measure of how much of a field passes through a given surface.</p>
+<p>The flux concept is central to Gauss’s Law, which exists for gravitational, electric, and magnetic fields. Since we are already somewhat familiar with Newtonian gravity, we will introduce the idea of flux in the context of the gravitational field before exploring its deeper implications. Gauss’s Law for gravity provides a powerful alternative perspective on Newton’s law, revealing an elegant mathematical structure that simplifies many problems in gravitational physics.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><section id="b2-2-2-gravitational-field-flux">
+<h2>B2.2.2 Gravitational Field Flux<a class="headerlink" href="#b2-2-2-gravitational-field-flux" title="Link to this heading">#</a></h2>
+<div class="alert alert-success">
+<p>In general, the <strong>flux</strong> is defined in terms of a vector field passing through a surface per unit time. We can say that the flux is a measure of how much of a field quantity is passing through a given surface.</p>
+<div class="math notranslate nohighlight">
+\[ \Phi = \int \vec{g}\cdot d\vec{A} \tag{1} \]</div>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b2-2-3-gauss-s-law">
+<h2>B2.2.3 Gauss’s Law<a class="headerlink" href="#b2-2-3-gauss-s-law" title="Link to this heading">#</a></h2>
+<p>We have previously labeled the acceleration of gravity at the Earth’s surface as <span class="math notranslate nohighlight">\(g = 9.81\)</span> m/s<span class="math notranslate nohighlight">\(^2\)</span>. However, we know that it changes as we move away from Earth. The objective of these notes is to learn how to calculate the gravitational field (acceleration) as we move away from the Earth’s surface as well as also from certain non-spherical mass distributions.</p>
+<p>The tool to perform these calculations is <strong>Gauss’s law for gravity</strong>:</p>
+<div class="alert alert-success">
+<p><strong>Gauss’s Law</strong></p>
+<div class="math notranslate nohighlight">
+\[ \oint \vec{g}\cdot d\vec{A} = -4\pi Gm_{\textrm{enclosed}} \tag{2}\]</div>
+</div>
+<p>where <span class="math notranslate nohighlight">\(\vec{g}\)</span> is the gravitational field, <span class="math notranslate nohighlight">\(d\vec{A}\)</span> is an area element with a direction pointing <strong>out</strong> of the closed surface, known as the <strong>Gaussian surface</strong>, that we are integrating over, <span class="math notranslate nohighlight">\(G\)</span> is a constant known as the universal constant of gravity, and <span class="math notranslate nohighlight">\(m_{enclosed}\)</span> is the mass that is inside the closed surface. We can understand the <span class="math notranslate nohighlight">\(m_{enclosed}\)</span> to be <strong>the source of the gravitational field</strong>.</p>
+<p>We can re-write the integral in terms of the vector magnitudes using the definition of the dot product:</p>
+<div class="alert alert-success">
+<div class="math notranslate nohighlight">
+\[  \oint g\cos\theta dA = -4\pi Gm_{\textrm{enclosed}} \tag{3}\]</div>
+</div>
+<p>where <span class="math notranslate nohighlight">\(\theta\)</span> is the angle between the gravitational field and the area vector (unit vector pointing out of the closed surface).</p>
+<p>For a spherical symmetric source such as the Earth (the blue planet in the Figure below), the obvious surface to integrate over is a sphere. Any point on the sphere is the same distance away from the source and the field strength is therefore the same at any point on the sphere (<span class="math notranslate nohighlight">\(g = constant\)</span>). Furthermore, since the normal area element <span class="math notranslate nohighlight">\(d\vec{A}\)</span> is pointing away from the sphere, the angle between <span class="math notranslate nohighlight">\(\vec{g}\)</span> and  <span class="math notranslate nohighlight">\(d\vec{A}\)</span> is <span class="math notranslate nohighlight">\(180^\circ\)</span>.</p>
+<img src="B2-fig1.png" width="300">
+<hr style="border:1px solid gray"> </hr><div class="alert alert-warning">
+    <b> Box 1 </b><br>
+<p>Consider the Earth to be a perfect sphere. Imagine we are enclosing a closed spherical surface encapsulating the Earth. Using equation 1, show that the gravitational field at the surface of the Earth or outside the Earth is</p>
+<div class="math notranslate nohighlight">
+\[ g = \frac{GM_{Earth}}{r^2} \]</div>
+<p>where <span class="math notranslate nohighlight">\(M_{Earth}\)</span> is the mass of the Earth (the mass inside the imaginary Gaussian sphere) and <span class="math notranslate nohighlight">\(r\)</span> is the distance away from the center of the Earth (the radius of the Gaussian sphere) with the condition that <span class="math notranslate nohighlight">\(r \geq R_{Earth}\)</span>. The surface area of a sphere with radius <span class="math notranslate nohighlight">\(r\)</span> is <span class="math notranslate nohighlight">\(A_{sphere} = 4\pi r^2\)</span>.</p>
+</div>
+<hr style="border:1px solid gray"> </hr><div class="alert alert-warning">
+    <b> Box 2 </b><br>
+<p>Use your result from Box 1 to calculate the acceleration of gravity at the surface of the Earth. Use <span class="math notranslate nohighlight">\(G = 6.67 \times 10^{-11}\)</span> Nm<span class="math notranslate nohighlight">\(^2\)</span>/kg<span class="math notranslate nohighlight">\(^2\)</span>, mass of Earth (<span class="math notranslate nohighlight">\(M_E = 5.97 \times 10^{24}\)</span> kg), and radius of Earth (<span class="math notranslate nohighlight">\(R_E = 6.37 \times 10^6\)</span> m).</p>
+</div>
+<hr style="border:1px solid gray"> </hr><div class="alert alert-warning">
+    <b> Box 3 </b><br>
+<p>Use your result from Box 1 to calculate the acceleration of gravity on the international space station (its altitude above surface of the Earth is <span class="math notranslate nohighlight">\(\sim 400\)</span> km). Use <span class="math notranslate nohighlight">\(G = 6.67 \times 10^{-11}\)</span> Nm<span class="math notranslate nohighlight">\(^2\)</span>/kg<span class="math notranslate nohighlight">\(^2\)</span>, mass of Earth (<span class="math notranslate nohighlight">\(M_E = 5.97 \times 10^{24}\)</span> kg), and radius of Earth (<span class="math notranslate nohighlight">\(R_E = 6.37 \times 10^6\)</span> m).</p>
+</div>
+<hr style="border:1px solid gray"> </hr><div class="alert alert-warning">
+    <b> Box 4 </b><br>
+<p>Use your result from Box 1 to calculate the acceleration of gravity on a geostationary satellite (its altitude above surface of the Earth is <span class="math notranslate nohighlight">\(\sim 40,000\)</span> km). Use <span class="math notranslate nohighlight">\(G = 6.67 \times 10^{-11}\)</span> Nm<span class="math notranslate nohighlight">\(^2\)</span>/kg<span class="math notranslate nohighlight">\(^2\)</span>, mass of Earth (<span class="math notranslate nohighlight">\(M_E = 5.97 \times 10^{24}\)</span> kg), and radius of Earth (<span class="math notranslate nohighlight">\(R_E = 6.37 \times 10^6\)</span> m).</p>
+</div>
+<hr style="border:1px solid gray"> </hr><div class="alert alert-warning">
+    <b> Box 5 </b><br>
+<p>Show that the gravitational field inside the Earth is</p>
+<div class="math notranslate nohighlight">
+\[ g = \frac{GM_{E}r}{R_{E}^3} \]</div>
+<p>where <span class="math notranslate nohighlight">\(M_E\)</span> is the mass of the Earth, <span class="math notranslate nohighlight">\(R_E\)</span> is the radius of the Earth, and <span class="math notranslate nohighlight">\(r\)</span> is the distance from the center of the Earth to the point of interest (<span class="math notranslate nohighlight">\(r &lt; R_E\)</span>).
+HINT: Write the density of the Earth as <span class="math notranslate nohighlight">\(\rho = \frac{M_E}{\frac{4}{3}\pi R_{E}^{3}}\)</span> and use that to find the mass enclosed inside the Gaussian surface.</p>
+</div>
+<hr style="border:1px solid gray"> </hr><div class="alert alert-warning">
+    <b> Box 6 </b><br>
+<p>Summarize the above boxes by writing down two equations: one for the gravitational field  outside the surface of the Earth and one for the gravitational field inside the Earth.</p>
+</div>
+<hr style="border:1px solid gray"> </hr><div class="alert alert-warning">
+    <b> Box 7 </b><br>
+<p>Make a plot of the gravitational field of the Earth ranging from <span class="math notranslate nohighlight">\(r = 0\)</span> to <span class="math notranslate nohighlight">\(r = 400,000\)</span> km (the approximate distance to the moon) using a code box below here. I have made a template code but you will need to enter the equstions. If you need further help, let me know!</p>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Template code for making a plot</span>
+
+<span class="c1">#import functions we will need</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1">#given constants</span>
+<span class="n">G</span> <span class="o">=</span> <span class="mf">6.67E-11</span>
+<span class="n">M_E</span> <span class="o">=</span> <span class="mf">5.97E24</span>
+
+<span class="c1">#create a list/array of r-values for both inside and outside the Earth</span>
+<span class="n">R_E</span> <span class="o">=</span> <span class="mf">6.37E6</span>
+<span class="n">r_in</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">R_E</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">R_E</span> <span class="o">+</span> <span class="mf">4.0E7</span>
+<span class="n">r_out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">R_E</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="c1">########### INSERT YOUR TWO EQUATIONS HERE ###############</span>
+<span class="n">g_in</span> <span class="o">=</span> <span class="n">G</span><span class="o">*</span><span class="n">M_E</span><span class="o">*</span><span class="n">r_in</span><span class="o">/</span><span class="n">R_E</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">g_out</span> <span class="o">=</span> <span class="n">G</span><span class="o">*</span><span class="n">M_E</span><span class="o">/</span><span class="n">r_out</span><span class="o">**</span><span class="mi">2</span>
+<span class="c1">##########################################################</span>
+
+
+<span class="c1">#set up plotting environment</span>
+<span class="c1"># UNCOMMENT EVERYTHING BELOW TO CREATE THE PLOT</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>  <span class="c1">#fit to plotting canvas</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_in</span><span class="p">,</span><span class="n">g_in</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_out</span><span class="p">,</span><span class="n">g_out</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Gravity Field of Earth&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Distance from center of Earth (m)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Gravitational Field (m/s^2)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Gravitational Field (m/s^2)&#39;)
+</pre></div>
+</div>
+<img alt="../_images/57466318b9013c8271f92cfa18193bc3bec1fee2e97c8e0c27876748b8c3f998.png" src="../_images/57466318b9013c8271f92cfa18193bc3bec1fee2e97c8e0c27876748b8c3f998.png" />
+</div>
+</details>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Phys-Prof-Nielsen/modulearn",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-B2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="flux.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">B2.1 Flux</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="gauss-law-electric.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">B2.3 Gauss’s Law for Electric Fields</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">B2.2 Gauss’s Law for Gravity</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#b2-2-1-motivation">B2.2.1 Motivation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b2-2-2-gravitational-field-flux">B2.2.2 Gravitational Field Flux</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b2-2-3-gauss-s-law">B2.2.3 Gauss’s Law</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

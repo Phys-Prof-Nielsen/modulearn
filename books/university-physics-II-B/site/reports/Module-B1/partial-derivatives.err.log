@@ -1,0 +1,76 @@
+Traceback (most recent call last):
+  File "/Users/kim/anaconda3/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 154, in wrapped
+    asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/kim/anaconda3/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/kim/anaconda3/lib/python3.10/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/kim/anaconda3/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 158, in wrapped
+    return loop.run_until_complete(inner)
+  File "/Users/kim/anaconda3/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/Users/kim/anaconda3/lib/python3.10/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/Users/kim/anaconda3/lib/python3.10/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/kim/anaconda3/lib/python3.10/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+# Define the function
+def f(x, y):
+    return np.exp(-y**2) * np.sin(x)
+
+# Create grid
+x = np.linspace(-2*np.pi, 2*np.pi, 200)
+y = np.linspace(-3, 3, 200)
+X, Y = np.meshgrid(x, y)
+Z = f(X, Y)
+
+# Plot
+fig = plt.figure(figsize=(10, 7))
+ax = fig.add_subplot(111, projection='3d')
+
+# Main surface
+ax.plot_surface(X, Y, Z, cmap='viridis', alpha=0.8, edgecolor='none')
+
+# Projections on planes
+ax.contour(X, Y, Z, zdir='z', offset=np.min(Z)-0.5, cmap='viridis')  # xy-plane projection
+ax.contour(X, Y, Z, zdir='y', offset=np.max(y)+0.5, cmap='viridis')  # xz-plane projection
+ax.contour(X, Y, Z, zdir='x', offset=np.min(x)-0.5, cmap='viridis')  # yz-plane projection
+
+# Labels
+ax.set_xlabel('x', labelpad=10)
+ax.set_ylabel('y', labelpad=10)
+ax.zaxis.label.set_text(r'$f(x,y)$')  # Force z-label to display
+ax.zaxis.labelpad = 1.5  # Adjust distance from axis if needed
+
+# Title
+ax.set_title(r'$f(x,y)=e^{-y^2}\sin(x)$ with Projections', pad=20)
+
+# Adjust viewing angle for clarity
+ax.view_init(elev=25, azim=-60)
+
+plt.show()
+
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [0;32mIn[1], line 1[0m
+[0;32m----> 1[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mnumpy[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mnp[39;00m
+[1;32m      2[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mplt[39;00m
+[1;32m      3[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mmpl_toolkits[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmplot3d[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m Axes3D
+
+[0;31mModuleNotFoundError[0m: No module named 'numpy'
+

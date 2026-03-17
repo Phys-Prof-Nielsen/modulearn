@@ -1,0 +1,676 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>B4.2 Gauss’s Law in Dielectrics &#8212; A Competency Approach to University Physics II</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-B4/gauss-law-dielectri';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-B.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo-B.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to University Physics II: A Compendium to the B Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://modulearn.academy/spheres/physics/university-physics-II/university-physics-II.html">University Physics II Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B1 - Vector Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/partial-derivatives.html">B1.1 Partial Derivatives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/line-integrals.html">B1.2 Introduction to Line Integrals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/parameterization-line-integrals.html">B1.3 Parameterization of Line Integrals</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B2 - Gauss's Law</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/flux.html">B2.1 Flux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/gauss-law-gravity.html">B2.2 Gauss’s Law for Gravity</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/gauss-law-electric.html">B2.3 Gauss’s Law for Electric Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/problemsB2.html">B2.4 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B3 - Work - Potential Energy - Potential</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B3/work-potential.html">B3.1 Work, Conservative Forces, Potential Energy, and Electric Potential</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B3/problemsB3.html">B3.2 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B4 - Dieletric</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="dielectric.html">B4.1 Dielectrics: Motivation and Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problemsB4.html">B4.3 Problems</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Module-B4/gauss-law-dielectri.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-B4/gauss-law-dielectri.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>B4.2 Gauss’s Law in Dielectrics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b4-2-1-motivation">B4.2.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b4-2-2-the-electric-displacement-field">B4.2.2 The Electric Displacement Field</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#important-notes"><strong>Important Notes</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b4-2-3-using-gausss-law-in-dielectrics">B4.2.3 Using Gauss’s Law in Dielectrics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#steps"><strong>Steps</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b4-2-4-examples">B4.2.4 Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spherical-charge-in-a-dielectric">Spherical Charge in a Dielectric</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-plate-capacitor-filled-with-dielectric">Parallel-Plate Capacitor Filled with Dielectric</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="b4-2-gausss-law-in-dielectrics">
+<h1>B4.2 Gauss’s Law in Dielectrics<a class="headerlink" href="#b4-2-gausss-law-in-dielectrics" title="Permalink to this heading">#</a></h1>
+<section id="b4-2-1-motivation">
+<h2>B4.2.1 Motivation<a class="headerlink" href="#b4-2-1-motivation" title="Permalink to this heading">#</a></h2>
+<p>In vacuum, Gauss’s law relates electric flux to total charge enclosed:</p>
+<div class="math notranslate nohighlight">
+\[
+\oint_S \mathbf{E} \cdot d\mathbf{A} = \frac{Q_{\text{enc}}}{\varepsilon_0}.
+\]</div>
+<p>But in materials, the situation changes:</p>
+<ul class="simple">
+<li><p><strong>The dielectric weakens the electric field.</strong></p></li>
+<li><p>The relationship between field and enclosed charge must be modified to account for the material.</p></li>
+</ul>
+<p>We introduce the <strong>electric displacement field</strong> <span class="math notranslate nohighlight">\(\mathbf{D}\)</span> to make Gauss’s law easier to apply with dielectrics.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b4-2-2-the-electric-displacement-field">
+<h2>B4.2.2 The Electric Displacement Field<a class="headerlink" href="#b4-2-2-the-electric-displacement-field" title="Permalink to this heading">#</a></h2>
+<p>In a linear, uniform dielectric:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{D} \equiv \varepsilon \mathbf{E} = \kappa \varepsilon_0 \mathbf{E}
+\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\varepsilon = \kappa \varepsilon_0\)</span> = permittivity of the dielectric,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\kappa\)</span> = dielectric constant,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{E}\)</span> = electric field inside the dielectric.</p></li>
+</ul>
+<p>Using <span class="math notranslate nohighlight">\(\mathbf{D}\)</span>, <strong>Gauss’s law in dielectrics</strong> becomes:</p>
+<div class="math notranslate nohighlight">
+\[
+\oint_S \mathbf{D} \cdot d\mathbf{A} = Q_{\text{free}}
+\]</div>
+<p>Only the <strong>free charge</strong> (charge placed on conductors or introduced externally) appears in this law.<br />
+The effect of the dielectric is already built into <span class="math notranslate nohighlight">\(\varepsilon\)</span> (or <span class="math notranslate nohighlight">\(\mathbf{D}\)</span>).</p>
+<hr class="docutils" />
+<section id="important-notes">
+<h3><strong>Important Notes</strong><a class="headerlink" href="#important-notes" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>If the dielectric is uniform and fills the region completely, you can simply replace <span class="math notranslate nohighlight">\(\varepsilon_0\)</span> with <span class="math notranslate nohighlight">\(\varepsilon\)</span> in the usual Gauss’s law:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\oint_S \mathbf{E} \cdot d\mathbf{A} = \frac{Q_{\text{free}}}{\varepsilon}
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p>If different dielectrics are present, use <span class="math notranslate nohighlight">\(\mathbf{D}\)</span> because it stays continuous across boundaries (except where free surface charge is present).</p></li>
+</ol>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="b4-2-3-using-gausss-law-in-dielectrics">
+<h2>B4.2.3 Using Gauss’s Law in Dielectrics<a class="headerlink" href="#b4-2-3-using-gausss-law-in-dielectrics" title="Permalink to this heading">#</a></h2>
+<section id="steps">
+<h3><strong>Steps</strong><a class="headerlink" href="#steps" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Choose a Gaussian surface</strong> based on symmetry (spherical, cylindrical, planar).</p></li>
+<li><p><strong>Write Gauss’s law in terms of <span class="math notranslate nohighlight">\(\mathbf{D}\)</span>:</strong></p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\oint_S \mathbf{D} \cdot d\mathbf{A} = Q_{\text{free}}.
+\]</div>
+<ol class="arabic simple" start="3">
+<li><p>Solve for <span class="math notranslate nohighlight">\(\mathbf{D}\)</span> first:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+D = \frac{Q_{\text{free, enclosed}}}{\text{surface area}}.
+\]</div>
+<ol class="arabic simple" start="4">
+<li><p>Convert to <span class="math notranslate nohighlight">\(\mathbf{E}\)</span> using:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{E} = \frac{\mathbf{D}}{\varepsilon}.
+\]</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="b4-2-4-examples">
+<h2>B4.2.4 Examples<a class="headerlink" href="#b4-2-4-examples" title="Permalink to this heading">#</a></h2>
+<section id="spherical-charge-in-a-dielectric">
+<h3>Spherical Charge in a Dielectric<a class="headerlink" href="#spherical-charge-in-a-dielectric" title="Permalink to this heading">#</a></h3>
+<p><strong>Problem:</strong><br />
+A point charge <span class="math notranslate nohighlight">\(+Q\)</span> is placed at the center of a large uniform dielectric with permittivity <span class="math notranslate nohighlight">\(\varepsilon\)</span>.<br />
+Find the electric field at distance <span class="math notranslate nohighlight">\(r\)</span>.</p>
+<p><strong>Solution:</strong></p>
+<ol class="arabic simple">
+<li><p>Symmetry → choose a spherical Gaussian surface of radius <span class="math notranslate nohighlight">\(r\)</span>.</p></li>
+<li><p>Gauss’s law with <span class="math notranslate nohighlight">\(\mathbf{D}\)</span>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\oint_S \mathbf{D} \cdot d\mathbf{A} = Q_{\text{free}} \\
+D (4\pi r^2) = Q \\
+D = \frac{Q}{4\pi r^2}
+\end{split}\]</div>
+<ol class="arabic simple" start="3">
+<li><p>Convert to <span class="math notranslate nohighlight">\(E\)</span>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+E = \frac{D}{\varepsilon} = \frac{Q}{4\pi \varepsilon r^2} = \frac{Q}{4\pi \kappa \varepsilon_0 r^2}
+\]</div>
+<p>So the dielectric <strong>reduces</strong> the electric field by a factor of <span class="math notranslate nohighlight">\(\kappa\)</span> compared to vacuum.</p>
+</section>
+<hr class="docutils" />
+<section id="parallel-plate-capacitor-filled-with-dielectric">
+<h3>Parallel-Plate Capacitor Filled with Dielectric<a class="headerlink" href="#parallel-plate-capacitor-filled-with-dielectric" title="Permalink to this heading">#</a></h3>
+<p><strong>Problem:</strong><br />
+A parallel-plate capacitor is filled completely with a dielectric of permittivity <span class="math notranslate nohighlight">\(\varepsilon\)</span>.<br />
+Find the electric field between the plates for free charge <span class="math notranslate nohighlight">\(+Q\)</span> on the top plate.</p>
+<p><strong>Solution:</strong></p>
+<ol class="arabic simple">
+<li><p>Gaussian surface: a rectangular box enclosing one plate (area <span class="math notranslate nohighlight">\(A\)</span>).</p></li>
+<li><p>Gauss’s law with <span class="math notranslate nohighlight">\(\mathbf{D}\)</span>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\oint_S \mathbf{D} \cdot d\mathbf{A} = Q_{\text{free}} \\
+D A = Q \\
+D = \frac{Q}{A}
+\end{split}\]</div>
+<ol class="arabic simple" start="3">
+<li><p>Convert to <span class="math notranslate nohighlight">\(E\)</span>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+E = \frac{D}{\varepsilon} = \frac{Q}{\varepsilon A}
+\]</div>
+<ol class="arabic simple" start="4">
+<li><p>Voltage between plates (<span class="math notranslate nohighlight">\(d =\)</span> separation):</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+V = E d = \frac{Q d}{\varepsilon A}
+\]</div>
+<ol class="arabic simple" start="5">
+<li><p>Capacitance:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+C = \frac{Q}{V} = \frac{\varepsilon A}{d} = \kappa \frac{\varepsilon_0 A}{d}
+\]</div>
+<p>as expected.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-B4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b4-2-1-motivation">B4.2.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b4-2-2-the-electric-displacement-field">B4.2.2 The Electric Displacement Field</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#important-notes"><strong>Important Notes</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b4-2-3-using-gausss-law-in-dielectrics">B4.2.3 Using Gauss’s Law in Dielectrics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#steps"><strong>Steps</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b4-2-4-examples">B4.2.4 Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spherical-charge-in-a-dielectric">Spherical Charge in a Dielectric</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-plate-capacitor-filled-with-dielectric">Parallel-Plate Capacitor Filled with Dielectric</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

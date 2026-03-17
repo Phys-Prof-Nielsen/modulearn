@@ -1,0 +1,851 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>B5.4 Ampère’s Law &#8212; A Competency Approach to University Physics II</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-B5/amperes-law';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="B5.5 Problems" href="problemsB5.html" />
+    <link rel="prev" title="B5.3 Force on a Current-Carrying Wire" href="force-wire.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-B.png" class="logo__image only-light" alt="A Competency Approach to University Physics II - Home"/>
+    <script>document.write(`<img src="../_static/logo-B.png" class="logo__image only-dark" alt="A Competency Approach to University Physics II - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to University Physics II: A Compendium to the B Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/university-physics-II/university-physics-II.html">University Physics II Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B1 - Vector Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/partial-derivatives.html">B1.1 Partial Derivatives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/line-integrals.html">B1.2 Introduction to Line Integrals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/parameterization-line-integrals.html">B1.3 Parameterization of Line Integrals</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B2 - Gauss's Law</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/flux.html">B2.1 Flux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/gauss-law-gravity.html">B2.2 Gauss’s Law for Gravity</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/gauss-law-electric.html">B2.3 Gauss’s Law for Electric Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/problemsB2.html">B2.4 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B3 - Work - Potential Energy - Potential</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B3/work-potential.html">B3.1 Work, Conservative Forces, Potential Energy, and Electric Potential</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B3/problemsB3.html">B3.2 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B4 - Dieletric</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B4/dielectric.html">B4.1 Dielectrics: Motivation and Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B4/gauss-law-dielectric.html">B4.2 Gauss’s Law in Dielectrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B4/problemsB4.html">B4.3 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B5 - Magnetic Field</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="b-field-moving-charge.html">B5.1 Magnetic Field from a Moving Charge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biot-savart.html">B5.2 Magnetic Fields and the Biot–Savart Law</a></li>
+<li class="toctree-l1"><a class="reference internal" href="force-wire.html">B5.3 Force on a Current-Carrying Wire</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">B5.4 Ampère’s Law</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problemsB5.html">B5.5 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B6 - Induction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B6/magnetic-flux.html">B6.1 Magnetic Flux and Gauss’s Law for Magnetic Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B6/faradays-law.html">B6.2 Faraday’s Law of Electromagnetic Induction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B6/motional-emf.html">B6.3 Motional EMF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B6/induced-E-field.html">B6.4 Induced Electric Field: What Sets It Apart from the Static Electric Field?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B6/problemsB6.html">B6.5 Problems</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/university-physics-II-B/Module-B5/amperes-law.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-B5/amperes-law.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>B5.4 Ampère’s Law</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b5-4-1-motivation">B5.4.1 Motivation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-need-it">Why Do We Need It?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b5-4-2-historical-context">B5.4.2 Historical Context</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b5-4-3-amperes-law-statement">B5.4.3 Ampère’s Law – Statement</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-form">Differential Form</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b5-4-4-when-and-how-to-use-amperes-law">B5.4.4 When and How to Use Ampère’s Law</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b5-4-5-examples">B5.4.5 Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-infinite-straight-wire">(a) Infinite Straight Wire</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-infinite-solenoid">(b) Infinite Solenoid</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-toroid">(c) Toroid</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b5-4-6-calculated-example">B5.4.6 Calculated Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b5-4-6-importance-in-physics-engineering">B5.4.6 Importance in Physics &amp; Engineering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b5-4-7-looking-ahead-amperemaxwell-law">B5.4.7 Looking Ahead: Ampère–Maxwell Law</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="b5-4-ampere-s-law">
+<h1>B5.4 Ampère’s Law<a class="headerlink" href="#b5-4-ampere-s-law" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="b5-4-1-motivation">
+<h2>B5.4.1 Motivation<a class="headerlink" href="#b5-4-1-motivation" title="Link to this heading">#</a></h2>
+<p>In the previous sections, we studied the magnetic field of moving charges and derived expressions for currents using the Biot–Savart Law. The Biot–Savart law is a powerful but computationally heavy tool: for every current distribution, we must integrate over all current elements to find the magnetic field.</p>
+<p>But nature often gives us symmetry, and when symmetry is present, we should exploit it. Just as Gauss’s Law allowed us to avoid complicated integrations for electric fields by relating them to enclosed charge, Ampère’s Law provides a similar shortcut for magnetic fields: it relates the circulation of the magnetic field around a closed loop to the total current passing through that loop.</p>
+<section id="why-do-we-need-it">
+<h3>Why Do We Need It?<a class="headerlink" href="#why-do-we-need-it" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Simplification</strong>:
+When symmetry is present (straight wires, solenoids, toroids), Ampère’s Law gives the magnetic field in a single step rather than complex integrations.</p></li>
+<li><p><strong>Insight into Magnetism</strong>:
+It reveals a fundamental relationship between currents and magnetic fields: moving charges (currents) are the source of magnetic fields, just as charges are the source of electric fields.</p></li>
+<li><p><strong>Foundation for Electrodynamics</strong>:
+Ampère’s Law, when combined with Faraday’s Law and Gauss’s Laws, becomes one of Maxwell’s equations, the cornerstone of classical electromagnetism.</p></li>
+</ul>
+<p>Just as <strong>Gauss’s Law</strong> provides a shortcut for electric fields when symmetry is present,<br />
+<strong>Ampère’s Law</strong> does the same for magnetic fields:</p>
+<ul class="simple">
+<li><p><strong>Simplification:</strong> Quick determination of magnetic fields for symmetric configurations.</p></li>
+<li><p><strong>Physical Insight:</strong> Shows that <strong>currents are the source of magnetic fields</strong>.</p></li>
+<li><p><strong>Foundation of Electrodynamics:</strong> Forms one of <strong>Maxwell’s four equations</strong> when extended to include displacement current.</p></li>
+</ul>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="b5-4-2-historical-context">
+<h2>B5.4.2 Historical Context<a class="headerlink" href="#b5-4-2-historical-context" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>1820 – Oersted:</strong> Observed compass deflection near a current-carrying wire, linking electricity and magnetism.</p></li>
+<li><p><strong>1820 – Biot &amp; Savart:</strong> Quantified the field of a current element.</p></li>
+<li><p><strong>1826 – André-Marie Ampère:</strong> Systematically studied forces between current-carrying wires and formulated the early version of <strong>Ampère’s Circuital Law</strong>.</p></li>
+<li><p><strong>1860s – James Clerk Maxwell:</strong> Added the <strong>displacement current term</strong>, making the law consistent with charge conservation and enabling electromagnetic wave theory.</p></li>
+</ul>
+<p>Ampère thought primarily in terms of forces between wires, not fields. Maxwell later recast Ampère’s findings in the <strong>field formulation</strong> we use today.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b5-4-3-amperes-law-statement">
+<h2>B5.4.3 Ampère’s Law – Statement<a class="headerlink" href="#b5-4-3-amperes-law-statement" title="Link to this heading">#</a></h2>
+<p>The <strong>integral form</strong> for steady currents is:</p>
+<div class="math notranslate nohighlight">
+\[
+\oint_{\mathcal{C}} \mathbf{B} \cdot d\mathbf{l} = \mu_0 I_{\text{enc}}
+\]</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\oint_{\mathcal{C}} \mathbf{B} \cdot d\mathbf{l}\)</span> = circulation of the magnetic field around closed loop <span class="math notranslate nohighlight">\(\mathcal{C}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(I_{\text{enc}}\)</span> = total current enclosed by the loop</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mu_0 = 4 \pi \times 10^{-7} \ \text{T}\cdot\text{m/A}\)</span> (permeability of free space)</p></li>
+</ul>
+<p><strong>Interpretation:</strong> Currents generate a curling magnetic field.</p>
+<hr class="docutils" />
+<section id="differential-form">
+<h3>Differential Form<a class="headerlink" href="#differential-form" title="Link to this heading">#</a></h3>
+<p>Using Stokes’ theorem:</p>
+<div class="math notranslate nohighlight">
+\[
+\nabla \times \mathbf{B} = \mu_0 \mathbf{J}
+\]</div>
+<p>with <span class="math notranslate nohighlight">\(\mathbf{J}\)</span> = current density.</p>
+<p>This explicitly shows that magnetic fields have <strong>curl</strong> in the presence of current (unlike electric fields in electrostatics, which are curl-free).</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="b5-4-4-when-and-how-to-use-amperes-law">
+<h2>B5.4.4 When and How to Use Ampère’s Law<a class="headerlink" href="#b5-4-4-when-and-how-to-use-amperes-law" title="Link to this heading">#</a></h2>
+<p>Ampère’s Law is most effective when:</p>
+<ul class="simple">
+<li><p><strong>High symmetry is present</strong>:</p>
+<ul>
+<li><p>Cylindrical (straight wire)</p></li>
+<li><p>Planar (infinite current sheet)</p></li>
+<li><p>Toroidal (solenoids, toroids)</p></li>
+</ul>
+</li>
+<li><p>The chosen <strong>Ampèrian loop</strong> follows the magnetic field lines:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(B\)</span> is tangential and constant along the loop.</p></li>
+</ul>
+</li>
+</ul>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b5-4-5-examples">
+<h2>B5.4.5 Examples<a class="headerlink" href="#b5-4-5-examples" title="Link to this heading">#</a></h2>
+<section id="a-infinite-straight-wire">
+<h3>(a) Infinite Straight Wire<a class="headerlink" href="#a-infinite-straight-wire" title="Link to this heading">#</a></h3>
+<p>Choose a circular Ampèrian loop of radius <span class="math notranslate nohighlight">\(r\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+B (2\pi r) = \mu_0 I \quad \Rightarrow \quad B = \frac{\mu_0 I}{2\pi r}
+\]</div>
+<hr class="docutils" />
+</section>
+<section id="b-infinite-solenoid">
+<h3>(b) Infinite Solenoid<a class="headerlink" href="#b-infinite-solenoid" title="Link to this heading">#</a></h3>
+<p>Inside:</p>
+<div class="math notranslate nohighlight">
+\[
+B = \mu_0 n I
+\]</div>
+<p>Outside:</p>
+<div class="math notranslate nohighlight">
+\[
+B \approx 0
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(n\)</span> = turns per unit length.</p>
+<hr class="docutils" />
+</section>
+<section id="c-toroid">
+<h3>(c) Toroid<a class="headerlink" href="#c-toroid" title="Link to this heading">#</a></h3>
+<p>Inside the toroid:</p>
+<div class="math notranslate nohighlight">
+\[
+B (2\pi r) = \mu_0 N I \quad \Rightarrow \quad B = \frac{\mu_0 N I}{2\pi r}
+\]</div>
+<p>Outside: <span class="math notranslate nohighlight">\(B \approx 0\)</span></p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="b5-4-6-calculated-example">
+<h2>B5.4.6 Calculated Example<a class="headerlink" href="#b5-4-6-calculated-example" title="Link to this heading">#</a></h2>
+<div style="background-color: #D0D0D0 ; padding: 10px; border: 1px solid black;">       
+<header>
+<h3>Example: Magnetic Field of an Infinite Solenoid</h3>
+    </header>
+<p>Use <strong>Ampère’s Law</strong> to determine the magnetic field <strong>inside</strong> and <strong>outside</strong> an <strong>ideal infinite solenoid</strong><br />
+carrying a steady current <span class="math notranslate nohighlight">\(I\)</span>. The solenoid has:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n\)</span> = number of turns per unit length</p></li>
+<li><p>Current flows in tightly wound coils along the solenoid.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Step 1: Choosing an Ampèrian Loop</strong></p>
+<p>We choose a rectangular Ampèrian loop:</p>
+<ul class="simple">
+<li><p>One side <strong>inside</strong> the solenoid (parallel to the axis, length <span class="math notranslate nohighlight">\(l\)</span>).</p></li>
+<li><p>One side <strong>outside</strong> the solenoid (also length <span class="math notranslate nohighlight">\(l\)</span>).</p></li>
+<li><p>Two sides perpendicular to the axis (negligible contribution because <span class="math notranslate nohighlight">\(\mathbf{B} \perp d\mathbf{l}\)</span>).</p></li>
+</ul>
+<p><strong>Why this loop?</strong></p>
+<ul class="simple">
+<li><p>The field <strong>inside</strong> is expected to be uniform and parallel to the solenoid axis.</p></li>
+<li><p>The field <strong>outside</strong> is expected to be negligible for an <em>ideal</em> infinite solenoid (by symmetry).</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Step 2: Ampère’s Law</strong></p>
+<p>Start with the integral form:</p>
+<div class="math notranslate nohighlight">
+\[
+\oint_{\mathcal{C}} \mathbf{B} \cdot d\mathbf{l} = \mu_0 I_{\text{enc}}
+\]</div>
+<p>Break the loop into four sides:</p>
+<ol class="arabic simple">
+<li><p><strong>Inside (length <span class="math notranslate nohighlight">\(l\)</span>):</strong> <span class="math notranslate nohighlight">\(\mathbf{B}\)</span> is parallel to <span class="math notranslate nohighlight">\(d\mathbf{l}\)</span>, constant in magnitude:
+$<span class="math notranslate nohighlight">\(
+\int_{\text{inside}} \mathbf{B} \cdot d\mathbf{l} = B_{\text{inside}} l
+\)</span>$</p></li>
+<li><p><strong>Outside (length <span class="math notranslate nohighlight">\(l\)</span>):</strong> <span class="math notranslate nohighlight">\(\mathbf{B}\)</span> is essentially zero (ideal solenoid assumption):
+$<span class="math notranslate nohighlight">\(
+\int_{\text{outside}} \mathbf{B} \cdot d\mathbf{l} \approx 0
+\)</span>$</p></li>
+<li><p><strong>Perpendicular sides:</strong> <span class="math notranslate nohighlight">\(\mathbf{B} \perp d\mathbf{l}\)</span>, so:
+$<span class="math notranslate nohighlight">\(
+\int_{\perp} \mathbf{B} \cdot d\mathbf{l} = 0
+\)</span>$</p></li>
+</ol>
+<p>Thus:</p>
+<div class="math notranslate nohighlight">
+\[
+B_{\text{inside}} l = \mu_0 I_{\text{enc}}
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 3: Finding <span class="math notranslate nohighlight">\(I_{\text{enc}}\)</span></strong></p>
+<p>The enclosed current is the <strong>total current through the area enclosed by the Ampèrian loop</strong>:</p>
+<ul class="simple">
+<li><p>There are <span class="math notranslate nohighlight">\(n\)</span> turns per unit length.</p></li>
+<li><p>Over length <span class="math notranslate nohighlight">\(l\)</span>, there are <span class="math notranslate nohighlight">\(n l\)</span> turns.</p></li>
+<li><p>Each turn carries current <span class="math notranslate nohighlight">\(I\)</span>.</p></li>
+</ul>
+<p>So:</p>
+<div class="math notranslate nohighlight">
+\[
+I_{\text{enc}} = (n l) I
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 4: Solving for <span class="math notranslate nohighlight">\(B_{\text{inside}}\)</span></strong></p>
+<p>Substitute into Ampère’s Law:</p>
+<div class="math notranslate nohighlight">
+\[
+B_{\text{inside}} l = \mu_0 (n l) I
+\]</div>
+<p>Cancel <span class="math notranslate nohighlight">\(l\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{B_{\text{inside}} = \mu_0 n I}
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 5: Field Outside</strong></p>
+<p>For an <strong>ideal infinite solenoid</strong>, symmetry and field-line confinement imply:</p>
+<div class="math notranslate nohighlight">
+\[
+B_{\text{outside}} \approx 0
+\]</div>
+<hr class="docutils" />
+<p><strong>Final Answer</strong></p>
+<ul class="simple">
+<li><p><strong>Inside the solenoid:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+B = \mu_0 n I \quad \text{(uniform and parallel to the axis)}
+\]</div>
+<ul class="simple">
+<li><p><strong>Outside the solenoid:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+B \approx 0
+\]</div>
+<hr class="docutils" />
+<p><strong>Physical Interpretation</strong></p>
+<ul class="simple">
+<li><p>The field strength depends only on the <strong>turn density</strong> <span class="math notranslate nohighlight">\(n\)</span> and current <span class="math notranslate nohighlight">\(I\)</span>,<br />
+not on the radius of the solenoid.</p></li>
+<li><p>The near-zero external field is why solenoids are useful in devices that need<br />
+a confined magnetic field region.</p></li>
+</ul>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b5-4-6-importance-in-physics-engineering">
+<h2>B5.4.6 Importance in Physics &amp; Engineering<a class="headerlink" href="#b5-4-6-importance-in-physics-engineering" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Magnetic device design:</strong> Solenoids, inductors, transformers</p></li>
+<li><p><strong>Predicting steady-state magnetic fields</strong></p></li>
+<li><p><strong>Key Maxwell equation</strong> (forms the basis of electrodynamics)</p></li>
+<li><p><strong>Symmetry-based problem solving:</strong> Powerful analytical tool</p></li>
+</ul>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b5-4-7-looking-ahead-amperemaxwell-law">
+<h2>B5.4.7 Looking Ahead: Ampère–Maxwell Law<a class="headerlink" href="#b5-4-7-looking-ahead-amperemaxwell-law" title="Link to this heading">#</a></h2>
+<p>For time-varying situations:</p>
+<div class="math notranslate nohighlight">
+\[
+\oint_{\mathcal{C}} \mathbf{B} \cdot d\mathbf{l} = \mu_0 I_{\text{enc}} + \mu_0 \varepsilon_0 \frac{d\Phi_E}{dt}
+\]</div>
+<ul class="simple">
+<li><p>The extra term, the <strong>displacement current</strong>, shows that changing electric fields generate magnetic fields.</p></li>
+<li><p>Crucial for understanding <strong>electromagnetic waves</strong>.</p></li>
+</ul>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Phys-Prof-Nielsen/modulearn",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-B5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="force-wire.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">B5.3 Force on a Current-Carrying Wire</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="problemsB5.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">B5.5 Problems</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b5-4-1-motivation">B5.4.1 Motivation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-need-it">Why Do We Need It?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b5-4-2-historical-context">B5.4.2 Historical Context</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b5-4-3-amperes-law-statement">B5.4.3 Ampère’s Law – Statement</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-form">Differential Form</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b5-4-4-when-and-how-to-use-amperes-law">B5.4.4 When and How to Use Ampère’s Law</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b5-4-5-examples">B5.4.5 Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-infinite-straight-wire">(a) Infinite Straight Wire</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-infinite-solenoid">(b) Infinite Solenoid</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-toroid">(c) Toroid</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b5-4-6-calculated-example">B5.4.6 Calculated Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b5-4-6-importance-in-physics-engineering">B5.4.6 Importance in Physics &amp; Engineering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b5-4-7-looking-ahead-amperemaxwell-law">B5.4.7 Looking Ahead: Ampère–Maxwell Law</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
