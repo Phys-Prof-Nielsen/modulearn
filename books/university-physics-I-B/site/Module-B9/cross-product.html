@@ -1,0 +1,925 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>B8.1 Cross Product &#8212; A Competency Approach to Introductory Physics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-B9/cross-product';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-B.png" class="logo__image only-light" alt="A Competency Approach to Introductory Physics - Home"/>
+    <script>document.write(`<img src="../_static/logo-B.png" class="logo__image only-dark" alt="A Competency Approach to Introductory Physics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to University Physics I: A Compendium to the B Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/university-physics-I/university-physics-I.html">University Physics I Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B1 - Basic Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/LOC-B1.html">B1.0 Learning Outcomes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/Introduction-derivative.html">B1.1 Introduction to the Derivative</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/Rules-derivatives.html">B1.2 Rules of Derivatives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/sympy-derivatives.html">B1.3 Derivatives Using Symbolic Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/Instantaneous-velocity.html">B1.4 Instantaneous Velocity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/Instantaneous-acceleration.html">B1.5 Instantaneous Acceleration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/Integral-antiderivative.html">B1.6 Integrals - Antiderivative</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/Integral-infinite-sum.html">B1.7 Integrals - Infinite Sum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/Integral-definite.html">B1.8 Integrals - Definite Integrals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/Differentials.html">B1.9 Differentials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/sympy-integrals.html">B1.10 Integrals Using Symbolic Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/assessment-B1.html">B1.11 Module B1 Assessment</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B2 - Discrete Systems and Differences</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/LOC-B2.html">B2.0 Learning Outcomes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/data.html">B2.1 Working with Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/basic-error.html">B2.2 Basic Error Analysis in Working with Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/linear-regression.html">B2.3 Linear Regression - Least Squares Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/problemsB2.html">B2.6 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/assessment-B2.html">B2.7 Module B2 Assessment</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B3 - Equations of Kinematics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B3/Equations-kinematics-general.html">B3.1 Equations of Kinematics: General Position and Velocity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B3/Equations-kinematics-constant-velocity.html">B3.2 Equations of Kinematics: Constant Velocity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B3/Equations-kinematics-constant-acceleration.html">B3.3 Equations of Kinematics: Constant Acceleration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B3/Equations-kinematics-definite-approach.html">B3.4 Equations of Kinematics - Definite Integral Approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B3/problemsB3.html">B3.5 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B4 - Linear Force</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B4/Impulse-momentum-theorem.html">B4.1 Impulse-Momentum Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B4/Newton-second-law.html">B4.2 Newton’s 2nd Law</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B4/Time-varying-force.html">B4.3 Time-varying Force</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B4/problemsB4.html">B4.4 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B5 - Non-inertial Frames - Linear</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B5/accelerated-frames.html">B5.1 Transformation of Acceleration Between Linearly Accelerating Coordinate Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B5/problemsB5.html">B5.2 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B6 - Work and Energy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B6/Linear-work.html">B6.1 Linear Work and Energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B6/work-energy-derivation.html">B6.2 Deriving Work-Energy Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B6/spring-potential-energy.html">B6.3 Spring Potential Energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B6/Power.html">B6.4 Power</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B6/problemsB6.html">B6.5 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B7 - System of Particles</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B7/center-of-mass.html">B7.1 Mass of System and Center of Mass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B7/problemsB7.html">B6.X Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B8 - Rotational Kinematics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B8/polar-coordinates.html">B8.1 Kinematics in Polar Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B8/uniform-circular-motion.html">B8.2 Newton’s 2nd Law: Uniform Circular Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B8/problemsB8.html">B8.3 Problems</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/university-physics-I-B/Module-B9/cross-product.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-B9/cross-product.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>B8.1 Cross Product</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b8-1-1-introduction">B8.1.1 Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b8-1-2-geometrical-definition">B8.1.2 Geometrical Definition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-direction-method-1-right-hand-rule">Finding the Direction: Method 1 :: Right-Hand Rule</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-direction-method-2-parallelogram">Finding the Direction: Method 2 :: Parallelogram</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b8-1-3-geometrical-interpretation-of-cross-product">B8.1.3 Geometrical Interpretation of Cross Product</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b8-1-4-analytic-definition">B8.1.4 Analytic Definition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b8-1-5-important-observations">B8.1.5 Important Observations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-of-projection">1. Importance of Projection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#direction-of-cross-product">2. Direction of cross product</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">3. Interpretation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b8-1-6-application">B8.1.6 Application</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#torque">Torque</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="b8-1-cross-product">
+<h1>B8.1 Cross Product<a class="headerlink" href="#b8-1-cross-product" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><section id="b8-1-1-introduction">
+<h2>B8.1.1 Introduction<a class="headerlink" href="#b8-1-1-introduction" title="Link to this heading">#</a></h2>
+<p>The <strong>cross product</strong> is the second vector product we encounter in introductory physics. The cross product is a lot more complex than the dot product for various reasons that we will not discuss in this course. If you are interested in learning much more about the cross product, you will need to take courses in abstract algebra as well as differential geometry. In our course, we will restrict ourselves to learn how to calculate the cross product using both a geometric and an analytic approach, similar to our discussion on the dot product.</p>
+<p>The main difference between the cross and dot products is that the cross product returns a vector instead of a scalar.</p>
+<p>The cross product is a very important operation in physics. For example, angular momentum and torque are calculated using cross products. If you take the second semester of introductory physics you will see a lot more applications of the cross product.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b8-1-2-geometrical-definition">
+<h2>B8.1.2 Geometrical Definition<a class="headerlink" href="#b8-1-2-geometrical-definition" title="Link to this heading">#</a></h2>
+<p>As the subtitle says, this definition relies on vector quantities we associate with the geometry of the vectors such as length and angle. We define the <strong>magnitude</strong> of the cross product between two vectors <span class="math notranslate nohighlight">\(\vec{A}\)</span> and <span class="math notranslate nohighlight">\(\vec{B}\)</span> as</p>
+<div class="alert alert-success">
+<div class="math notranslate nohighlight">
+\[ |\vec{A} \times \vec{B}| = AB\sin\theta \]</div>
+</div>
+<p>where <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are the magnitudes (or lengths) of the two vectors and <span class="math notranslate nohighlight">\(\theta\)</span> is the <strong>smallest</strong> angle between the two vectors, that is, <span class="math notranslate nohighlight">\(\theta \in [0^\circ,180^\circ]\)</span>. From the notation, it may be evident why it is called the cross product.</p>
+<div class="alert alert-danger">
+<p>Taking the cross product between two vectors results in a new vector that is <i>perpendicular</i> to the plane containing the two vectors <span class="math notranslate nohighlight">\(\vec{A}\)</span> and <span class="math notranslate nohighlight">\(\vec{B}\)</span>.</p>
+</div>
+<div class="alert alert-danger">
+<p>The equation above <strong>only</strong> calculates the <strong>magnitude</strong> of the new vector, not its direction.</p>
+</div>
+<div class="alert alert-danger">
+<p>The cross product is <strong>not</strong> commutative: <span class="math notranslate nohighlight">\(\vec{A} \times \vec{B} \neq \vec{B} \times \vec{A}\)</span>.</p>
+</div>
+<section id="finding-the-direction-method-1-right-hand-rule">
+<h3>Finding the Direction: Method 1 :: Right-Hand Rule<a class="headerlink" href="#finding-the-direction-method-1-right-hand-rule" title="Link to this heading">#</a></h3>
+<p>Oh, this is so much fun!</p>
+<ol class="arabic simple">
+<li><p>Make a sketch of the two vectors and align their tails together.</p></li>
+<li><p>Form your hand as you would for a handshake (no fist bump here) and extend a big happy thumb.</p></li>
+<li><p>Align your finger tips with the first vector in the cross product.</p></li>
+<li><p>Flex your finger to point towards the second vector.</p></li>
+<li><p>Your thumb now aligns in the direction of the cross product.</p></li>
+</ol>
+<p>Notice that your thumb is always perpendicular to the plane containing your index and middle finger.</p>
+<p>The wikipedia page on cross product has an <a class="reference external" href="https://en.wikipedia.org/wiki/Cross_product">illustration</a> of a slightly different version (you will need to scroll down a little bit).</p>
+</section>
+<section id="finding-the-direction-method-2-parallelogram">
+<h3>Finding the Direction: Method 2 :: Parallelogram<a class="headerlink" href="#finding-the-direction-method-2-parallelogram" title="Link to this heading">#</a></h3>
+<p>I have not been able to find a name for this rule, so I will call it <strong>the parallelogram Rule</strong>:</p>
+<ol class="arabic simple">
+<li><p>Make a sketch of the two vectors and align their tails together.</p></li>
+<li><p>Draw a parallelogram spanned by the two vectors.</p></li>
+<li><p>The parallelogram is in the plane of the two vectors.</p></li>
+<li><p>Rotate the first vector <strong>across the parallelogram</strong> and onto the second vector.</p>
+<ol class="arabic simple">
+<li><p>if the rotation is counterclockwise (ccw) then the cross product is a vector up through the plane containing the two vectors.</p></li>
+<li><p>if the rotation is clockwise (cw) then the cross product is a vector down through the plane containing the two vectors.</p></li>
+</ol>
+</li>
+</ol>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div style="background-color: #D0D0D0 ; padding: 10px; border: 1px solid black;">       
+<header>
+<h3> Example 1</h3>
+    </header>
+<p>Consider a vector <span class="math notranslate nohighlight">\(\vec{A}\)</span> with a length of 5.0 units along the positive x-axis and a vector <span class="math notranslate nohighlight">\(\vec{B}\)</span> with a length of 3.0 units (let us ignore the units for now). The angle between the two vectors is <span class="math notranslate nohighlight">\(\theta = 15^\circ\)</span> clockwise from <span class="math notranslate nohighlight">\(\vec{A}\)</span> towards vector <span class="math notranslate nohighlight">\(\vec{B}\)</span>. The magnitude of the cross product between the two vectors is</p>
+<div class="math notranslate nohighlight">
+\[ |\vec{A} \times \vec{B}| = AB\sin\theta \]</div>
+<div class="math notranslate nohighlight">
+\[ |\vec{A} \times \vec{B}| = (5.0)~(3.0)~\sin(15^\circ) \]</div>
+<div class="math notranslate nohighlight">
+\[ |\vec{A} \times \vec{B}| = 3.9 \]</div>
+<p>We notice that this is just a number. There is no direction associated with this answer, and we must find the direction using a rule to determine the direction of a cross product.</p>
+<p><strong>Solution: Method 1 from above</strong></p>
+<ol class="arabic simple">
+<li><p>Make a sketch
+<img src="B8.3-fig1a.png"  width="300"/></p></li>
+<li><p>I am making a handshake with my hand.</p></li>
+<li><p>Aligning my index finger with vector <span class="math notranslate nohighlight">\(\vec{A}\)</span>.</p></li>
+<li><p>Attempting to rotate my middle finger to align it with vector <span class="math notranslate nohighlight">\(\vec{B}\)</span>. The only way for me to be able to do that is to orient my hand such that my thumb is pointing into the screen of my computer.</p></li>
+<li><p>The cross product is in the direction of my thumb: into the screen.</p></li>
+</ol>
+<p>Conclusion: the cross product is pointing into my screen with a magnitude of 3.9</p>
+<p><strong>Solution: Method 2 from above</strong></p>
+<ol class="arabic simple">
+<li><p>Make a sketch
+<img src="B8.3-fig2.png"  width="400"/></p></li>
+<li><p>Draw a parallelogrom in the sketch</p></li>
+<li><p>Observe that the plane of the parallelogram is the same as the plane of my computer screen (or piece of paper if printed out).</p></li>
+<li><p>Imagine that I am rotating vector <span class="math notranslate nohighlight">\(\vec{A}\)</span> across the parallelogram and onto vector <span class="math notranslate nohighlight">\(\vec{B}\)</span>.</p></li>
+<li><p>The rotation is clockwise (cw) and therefore the cross product is directed down through the plane, which is into my screen.</p></li>
+</ol>
+<p>Conclusion: the cross product is pointing into my screen with a magnitude of 3.9.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div style="background-color: #D0D0D0 ; padding: 10px; border: 1px solid black;">       
+<header>
+<h3> Example 2</h3>
+    </header>
+<p>Let us calculate the cross product between a few unit vectors. The magnitude of each unit vector is 1, and we know that <span class="math notranslate nohighlight">\(\hat{e}_x\)</span> and <span class="math notranslate nohighlight">\(\hat{e}_y\)</span> are perpendicular. With that in mind, we have the following relationships for the magnitude of the cross products:</p>
+<p><strong>Example 2.1</strong></p>
+<div class="math notranslate nohighlight">
+\[|\hat{e}_x \times \hat{e}_x| = (1)~(1)~\sin(0) = 0 \]</div>
+<p>since the angle between a vector and itself is <span class="math notranslate nohighlight">\(0^\circ\)</span>.</p>
+<p>Since the cross product is zero, there is no need to determine a direction.</p>
+<p><strong>Example 2.2</strong></p>
+<div class="math notranslate nohighlight">
+\[|\hat{e}_x \times \hat{e}_y| = (1)~(1)~\sin(90) = 1 \]</div>
+<p>Assuming the two unit vectors are in the plane of the computer screen, with <span class="math notranslate nohighlight">\(\hat{e}_x\)</span> in positive x-direction and <span class="math notranslate nohighlight">\(\hat{e}_y\)</span> in the positive y-direction in a traditional xy-coordinate system, then using one of the rules above, we conclude that the cross product must be coming <em>out</em> of the screen.</p>
+<p>Conclusion: the cross product <span class="math notranslate nohighlight">\(\hat{e}_x \times \hat{e}_y\)</span> is coming out of the screen with a magnitude of 1. However, the direction out of the screen is the same as the z-direction if we consider a traditional 3D coordinate system, and thus, the cross product <span class="math notranslate nohighlight">\(\hat{e}_x \times \hat{e}_y\)</span> is equivalent to a unit vector pointing in the positive z-direction:</p>
+<div class="math notranslate nohighlight">
+\[\hat{e}_x \times \hat{e}_y = \hat{e}_z \]</div>
+<p>or if we use the <em>i</em>,<em>j</em>, <em>k</em> notation:</p>
+<div class="math notranslate nohighlight">
+\[\hat{i} \times \hat{j} = \hat{k} \]</div>
+<p><strong>Example 2.3</strong></p>
+<p>Similarly, we could find that</p>
+<div class="math notranslate nohighlight">
+\[\hat{j} \times \hat{i} = -\hat{k} \]</div>
+<p>showing that the cross product is <em>not</em> commutative.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-warning">
+<b>Box 1</b><br>
+<p>A vector is directed along the positive x-axis and has a magnitude of 5. A second vector has a magnitude of 8 and is directed at an angle of 32<span class="math notranslate nohighlight">\(^\circ\)</span> above the positive x-axis. Find the cross product between the two vectors. Remember to specify <i>both</i> magnitude and direction.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="b8-1-3-geometrical-interpretation-of-cross-product">
+<h2>B8.1.3 Geometrical Interpretation of Cross Product<a class="headerlink" href="#b8-1-3-geometrical-interpretation-of-cross-product" title="Link to this heading">#</a></h2>
+<p>While the cross product is a complex topic, we can associate a geometrical interpretation to it.</p>
+<div class="alert alert-info">
+<p>The magnitude of the cross product is the area of the parallelogram spanned by the two vectors in the cross product and the direction of the cross product provides the orientation of the parallelogram.</p>
+</div>
+<p>Ok, we can understand area of a parallelogram, but an orientation is just weird. In Calculus III as well as the second semester of this course we will see how to associate directions to areas etc. It is an extremely important concept at that point, so for now: just put it in the back of our mind and wait 🤓</p>
+<p>Let us see how we arrived at the above conclusion: consider the parallelogram spanned by the two vectors <span class="math notranslate nohighlight">\(\vec{A}\)</span> and <span class="math notranslate nohighlight">\(\vec{B}\)</span>.</p>
+<img src="B8.3-fig3.png"  width="200"/>
+<p>If we make the projection of vector <span class="math notranslate nohighlight">\(\vec{B}\)</span> onto the y-axis (assuming the vectors are positioned in a traditional xy-coordinate system), then the length of the projection is
+$<span class="math notranslate nohighlight">\( |\vec{B}|\sin\theta \)</span>$, which is illustrated in the next figure:</p>
+<img src="B8.3-fig4.png"  width="300"/>
+<p>However, if we multiply this projection with the length of vector <span class="math notranslate nohighlight">\(\vec{A}\)</span>, then it is the same as the rule for finding the area of the parallelogram:</p>
+<div class="math notranslate nohighlight">
+\[ \textrm{Area} = |\vec{A}|~|\vec{B}|~\sin\theta \]</div>
+<p>Hence, we can conclude that the magnitude of the cross product between two vectors represents the area of the parallelogram spanned by the two vectors.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-warning">
+<b>Box 2</b><br>
+<p>Find the cross product between <span class="math notranslate nohighlight">\(\hat{i}\)</span> and <span class="math notranslate nohighlight">\(\hat{k}\)</span>.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-warning">
+<b>Box 3</b><br>
+<p>Complete the table below</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Problem</p></th>
+<th class="head text-right"><p>Answer</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><img width=100/></p></td>
+<td class="text-right"><p><img width=100/></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(\hat{i} \times \hat{i} =\)</span></p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(\hat{0}\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\hat{i} \times \hat{j} =\)</span></p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(\hat{k}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(\hat{i} \times \hat{k} =\)</span></p></td>
+<td class="text-right"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\hat{j} \times \hat{i} =\)</span></p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(-\hat{k}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(\hat{j} \times \hat{j} =\)</span></p></td>
+<td class="text-right"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\hat{j} \times \hat{k} =\)</span></p></td>
+<td class="text-right"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(\hat{k} \times \hat{i} =\)</span></p></td>
+<td class="text-right"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\hat{k} \times \hat{j} =\)</span></p></td>
+<td class="text-right"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(\hat{k} \times \hat{k} =\)</span></p></td>
+<td class="text-right"><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b8-1-4-analytic-definition">
+<h2>B8.1.4 Analytic Definition<a class="headerlink" href="#b8-1-4-analytic-definition" title="Link to this heading">#</a></h2>
+<p>Phew, this approach is mathematically straightforward but very tedious. So let us just take a deep breath and do it. It is like doing dishes.</p>
+<p>We will follow the distributive rules for vector algebra, which is similar to the ones for number algebra. We will be following the same appraoach as we did for the dot product:</p>
+<p>Consider the vectors</p>
+<div class="math notranslate nohighlight">
+\[\vec{A} = A_{x}\hat{i}  +  A_{y}\hat{j} +  A_{z}\hat{k} \]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[\vec{B} = B_{x}\hat{i}  +  B_{y}\hat{j} +  B_{z}\hat{k} \]</div>
+<p>The cross product is then</p>
+<div class="math notranslate nohighlight">
+\[\vec{A} \times \vec{B} = \left(A_{x}\hat{i}  +  A_{y}\hat{j} +  A_{z}\hat{k}\right) \times \left(B_{x}\hat{i}  +  B_{y}\hat{j} +  B_{z}\hat{k} \right) \]</div>
+<p>So far so good. Now we distribute the factors through the cross product:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\vec{A} \times \vec{B} = (A_{x}\hat{i})\times(B_{x}\hat{i}) + (A_{x}\hat{i})\times(B_{y}\hat{j})  + (A_{x}\hat{i})\times(B_{z}\hat{k}) \\
++ (A_{y}\hat{j})\times(B_{x}\hat{i}) + (A_{y}\hat{j})\times(B_{y}\hat{j})  +  (A_{y}\hat{j})\times(B_{z}\hat{k}) \\
++ (A_{z}\hat{k})\times(B_{x}\hat{i}) + (A_{z}\hat{k})\times(B_{y}\hat{j})  +  (A_{z}\hat{k})\times(B_{z}\hat{k})
+\end{split}\]</div>
+<p>Since the cross product is an operation between vectors only, it will only act between the unit vectors and we can move the vector components outside the cross products:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\vec{A} \times \vec{B} = (A_{x}B_{x})(\hat{i}\times\hat{i}) + (A_{x}B_{y})(\hat{i}\times\hat{j}) + (A_{x}B_{z})(\hat{i}\times\hat{k}) \\
++ (A_{y}B_{x})(\hat{j}\times\hat{i}) + (A_{y}B_{y})(\hat{j}\times\hat{j}) + (A_{y}B_{z})(\hat{j}\times\hat{k}) \\
+(A_{z}B_{x})(\hat{k}\times\hat{i}) + (A_{z}B_{y})(\hat{k}\times\hat{j}) + (A_{z}B_{z})(\hat{k}\times\hat{k}) 
+\end{split}\]</div>
+<p>We can use the results from Example 2 (and your Box 3) above regarding the cross products among unit vectors, and we get</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\vec{A} \times \vec{B} =  (A_{x}B_{x})(\hat{0}) + (A_{x}B_{y})(\hat{k}) + (A_{x}B_{z})(-\hat{j}) \\
++ (A_{y}B_{x})(-\hat{k}) + (A_{y}B_{y})(\hat{0}) + (A_{y}B_{z})(\hat{i}) \\
+(A_{z}B_{x})(\hat{j}) + (A_{z}B_{y})(-\hat{i}) + (A_{z}B_{z})(\hat{0}) 
+\end{split}\]</div>
+<p>We should clean up this mess a little bit:</p>
+<div class="alert alert-success">
+<div class="math notranslate nohighlight">
+\[\vec{A} \times \vec{B} = [(A_{y}B_{z}) - (A_{z}B_{y})]~\hat{i} 
++ [(A_{z}B_{x}) - (A_{x}B_{z})]~\hat{j}
++ [(A_{x}B_{y}) - (A_{y}B_{x})]~\hat{k}
+\]</div>
+</div>
+<p>Hence, if we know the components of the two vectors, we can simply insert them into this equation.</p>
+<div class="alert alert-info">
+<p>We notice that the direction of the cross product is provided through the unit vectors while the magnitude is not stated explicitly. However, we can find the magnitude by using the pythagorean theorem.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div style="background-color: #D0D0D0 ; padding: 10px; border: 1px solid black;">       
+<header>
+<h3> Example 3</h3>
+    </header>
+<p>Given two vectors with exact components: <span class="math notranslate nohighlight">\(\vec{A} = \begin{bmatrix} -1  \\ 4 \\ 3  \end{bmatrix}\)</span> and <span class="math notranslate nohighlight">\(\vec{B} = \begin{bmatrix} 2  \\ 5 \\ -2  \end{bmatrix}\)</span>, calculate the cross product between the two vectors.</p>
+<p><strong>Solution</strong></p>
+<p>We insert the components into the equation from above:</p>
+<div class="math notranslate nohighlight">
+\[\vec{A} \times \vec{B} = [(4)(-2) - (3)(5)]~\hat{i} 
++ [(3)(2) - (-1)(-2)]~\hat{j}
++ [(-1)(5) - (4)(2)]~\hat{k}
+\]</div>
+<div class="math notranslate nohighlight">
+\[\vec{A} \times \vec{B} = [(-8) - (15)]~\hat{i} 
++ [(6) - (2)]~\hat{j}
++ [(-5) - (8)]~\hat{k}
+\]</div>
+<div class="math notranslate nohighlight">
+\[\vec{A} \times \vec{B} = (-23)~\hat{i} 
++ (4)~\hat{j}
++ (-13)~\hat{k}
+\]</div>
+<p>Our answer is</p>
+<div class="math notranslate nohighlight">
+\[\vec{A} \times \vec{B} = -23~\hat{i} 
++ 4~\hat{j}
++ -13~\hat{k}
+\]</div>
+<p>If we want to know the magnitude of this vector, we would apply the pythagorean theorem.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-warning">
+<b>Box 4</b><br>
+<p>Given two vectors with exact components: <span class="math notranslate nohighlight">\(\vec{A} = \begin{bmatrix} 4  \\ 4 \\ 3  \end{bmatrix}\)</span> and <span class="math notranslate nohighlight">\(\vec{B} = \begin{bmatrix} -2  \\ 5 \\ -2  \end{bmatrix}\)</span>, calculate the cross product between the two vectors and find the magnitude of the cross product.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-warning">
+<b>Box 5</b><br>
+<p>Given two vectors with exact components: <span class="math notranslate nohighlight">\(\vec{A} = \begin{bmatrix} 4  \\ 4 \\ 0  \end{bmatrix}\)</span> and <span class="math notranslate nohighlight">\(\vec{B} = \begin{bmatrix} -2  \\ 5 \\ 0  \end{bmatrix}\)</span>.</p>
+<ol class="arabic simple">
+<li><p>Calculate the cross product between the two vectors.</p></li>
+<li><p>Consider a traditional xyz-coordinate system. What direction is the cross product?</p></li>
+<li><p>What plane does the vectors <span class="math notranslate nohighlight">\(\vec{A}\)</span> and <span class="math notranslate nohighlight">\(\vec{B}\)</span> lay in?</p></li>
+</ol>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-warning">
+<b>Box 6</b><br>
+<p>Given two vectors with exact components: <span class="math notranslate nohighlight">\(\vec{A} = \begin{bmatrix} 4  \\ 0 \\ 4  \end{bmatrix}\)</span> and <span class="math notranslate nohighlight">\(\vec{B} = \begin{bmatrix} -2  \\ 0 \\ 1  \end{bmatrix}\)</span>.
+Can you without doing any calculations determine along which coordinate axis the cross product is?</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b8-1-5-important-observations">
+<h2>B8.1.5 Important Observations<a class="headerlink" href="#b8-1-5-important-observations" title="Link to this heading">#</a></h2>
+<section id="importance-of-projection">
+<h3>1. Importance of Projection<a class="headerlink" href="#importance-of-projection" title="Link to this heading">#</a></h3>
+<p>We notice that only the projected component of one vector <strong>perpendicular</strong> to the other vector is important. The implication is that the cross product is zero for parallel vectors.</p>
+</section>
+<section id="direction-of-cross-product">
+<h3>2. Direction of cross product<a class="headerlink" href="#direction-of-cross-product" title="Link to this heading">#</a></h3>
+<p>The direction of the cross product is <strong>always perpendicular</strong> to the plane containing the two vectors involved in calculalting the cross product.</p>
+</section>
+<section id="interpretation">
+<h3>3. Interpretation<a class="headerlink" href="#interpretation" title="Link to this heading">#</a></h3>
+<p>The magnitude of the cross product is a representation of the area of the parallelogram spanned by the two vectors.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-warning">
+<b>Box 7</b><br>
+<p>Consider the three sketches. Based on the important observations, determine without calculation whether the cross product <span class="math notranslate nohighlight">\(\vec{A}\times\vec{B}\)</span> will be: negative, zero, or positive. Consider the direction out of the screen to be positive and the direction into the screen to be negative. Under which circumstance would the cross product be zero?</p>
+<img src="B8.3-fig5.png"  width="600"/>    
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-warning">
+<b>Box 8</b><br>
+<p>Apply <strong>Important Observation 1</strong> to the following problem: Consider the three sketches. Determine by inspection only, the ranking of the magnitude of the cross product <span class="math notranslate nohighlight">\(\vec{A}\times\vec{B}\)</span>  from smallest to largest.</p>
+<img src="B8.3-fig6.png"  width="600"/>   
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="b8-1-6-application">
+<h2>B8.1.6 Application<a class="headerlink" href="#b8-1-6-application" title="Link to this heading">#</a></h2>
+</section>
+<section id="torque">
+<h2>Torque<a class="headerlink" href="#torque" title="Link to this heading">#</a></h2>
+<p>We will see a few concepts in physics that are quantified through the cross product. The one we are most familiar with from everyday life is the torque (or rotational force), and perhaps this example will help put the cross product into a better perspective.</p>
+<p>The torque acting on an object by an applied force depends on the force and where the force is applied. For example, if you want to open a door, it is a lot easier to open it if you push on the opposite side of the hinges and push perpendicular to the door. Similarly, if you use a wrench to losen a nut, you should hold the wrench at the end opposite to the nut and apply a force perpendicular to the handle of the wrench.</p>
+<p>In the above examples, the distance from the hinges to the place on the door where you apply the force, and the distance from the nut to where you apply the force on the wrench, is called the <strong>moment arm</strong> or the <strong>lever arm</strong>.</p>
+<p>In general, the directed line segment from the point of rotation (e.g. the hinges or the nut) to the point of interaction (where the force is applied) is <span class="math notranslate nohighlight">\(\vec{r}_{f}\)</span> and the force is <span class="math notranslate nohighlight">\(\vec{f}\)</span>. The torque <span class="math notranslate nohighlight">\(\vec{\tau}\)</span> (greek later “tau”) is defined as</p>
+<div class="math notranslate nohighlight">
+\[ \vec{\tau} = \vec{r}_{f}\times\vec{f}\]</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-warning">
+<b>Box 9</b><br>
+<p>A lug nut on a car wheel needs to be tighten. At first, you are using the lug wrench that came with the car. The lug wrench is 30 cm long. You are capable of supplying a force of 350 N. Since you know how to use a wrench, you apply the force perpendicular to the handle of the lug wrench and as far away from the nut (rotation point) as possible.</p>
+<ol class="arabic simple">
+<li><p>How much torque do you supply in units of Nm (Newton-meter)?</p></li>
+<li><p>According to the manufaturer, it requires a torque of 80 foot-lbs (good ol’ imperial units) which is equivalent of 108 Nm. Can you tighten the lug nut as required?</p></li>
+<li><p>Since you are short of muscle power to tighten this nut, you can either call a friend or use your physics knowledge. Chosing the later, you grab a pipe to extend the length of the wrench by 15 cm. What is the maximum torque you can supply now?</p></li>
+</ol>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-warning">
+<b>Box 10</b><br>
+<p>As part of a home improvement project, you are using a manual screw driver. In this process, you grab a screw driver with your <em>right</em> hand (this is important for this example, and I mean no offense to discriminate against left-hand people: I respect and love you).</p>
+<p>In order to tighten a screw you apply a force along the direction of your finger tips (you have to do that in order to use the screw driver, right!). The axis of rotation is along the screw driver and through its center. Your applied force of 30 N is a short distance from that axis, say 1 cm.</p>
+<ol class="arabic simple">
+<li><p>How much torque do you supply in units of Nm (Newton-meter)?</p></li>
+<li><p>What direction is the torque?</p></li>
+<li><p>If you answered down towards the screw in previous question, then you are right! It is in the direction of the thumb if you hold a screw driver in a normal manner with your right hand. This is another version of the right-hand rule!</p></li>
+</ol>
+<p>Comment: When you are using your right-hand to tighten something, like a jar etc., the applied torque is pointing in the direction of your thumb provided you tighten something like most people would do :)</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Phys-Prof-Nielsen/modulearn",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-B9"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b8-1-1-introduction">B8.1.1 Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b8-1-2-geometrical-definition">B8.1.2 Geometrical Definition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-direction-method-1-right-hand-rule">Finding the Direction: Method 1 :: Right-Hand Rule</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-direction-method-2-parallelogram">Finding the Direction: Method 2 :: Parallelogram</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b8-1-3-geometrical-interpretation-of-cross-product">B8.1.3 Geometrical Interpretation of Cross Product</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b8-1-4-analytic-definition">B8.1.4 Analytic Definition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b8-1-5-important-observations">B8.1.5 Important Observations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-of-projection">1. Importance of Projection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#direction-of-cross-product">2. Direction of cross product</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">3. Interpretation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b8-1-6-application">B8.1.6 Application</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#torque">Torque</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
