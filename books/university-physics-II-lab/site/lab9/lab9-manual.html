@@ -214,8 +214,6 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 9 - Radioactive Decay</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab9: Radioactive Decay - Half-Life, Randomness, and Carbon Dating</a></li>
-
-
 </ul>
 
     </div>
@@ -395,7 +393,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Lab9: Radioactive Decay - Half-Life, Randomness, and Carbon Dating</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview"><strong>Overview</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives"><strong>Learning Objectives</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-theory"><strong>Background Theory</strong></a><ul class="nav section-nav flex-column">
@@ -433,22 +430,19 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c5-what-the-simulation-tells-us"><strong>C5. What the simulation tells us</strong></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c6-what-affects-dating-accuracy"><strong>C6. What affects dating accuracy</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#modern-carbon-contamination">1. Modern carbon contamination</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#background-radiation">2. Background radiation</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#measurement-time-or-sample-size">3. Measurement time or sample size</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-reliability-study-run-several-true-ages"><strong>C7. Reliability study (run several true ages)</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c8-final-analysis"><strong>C8. Final analysis</strong></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#background-radiation">2. Background radiation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measurement-time-or-sample-size">3. Measurement time or sample size</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-to-turn-in"><strong>What to Turn In</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#post-lab-questions"><strong>Post-Lab Questions</strong></a></li>
 </ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-reliability-study-run-several-true-ages"><strong>C7. Reliability study (run several true ages)</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c8-final-analysis"><strong>C8. Final analysis</strong></a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#what-to-turn-in"><strong>What to Turn In</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#post-lab-questions"><strong>Post-Lab Questions</strong></a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -803,7 +797,7 @@ t_{1/2} = \frac{\ln 2}{\lambda}
     <span class="k">for</span> <span class="n">t</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">t_min</span><span class="p">,</span> <span class="n">counts</span><span class="p">):</span>
         <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">t</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">c</span><span class="p">)])</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Wrote </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">t_min</span><span class="p">)</span><span class="si">}</span><span class="s2"> rows to: </span><span class="si">{</span><span class="n">outfile</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1">#print(f&quot;Wrote {len(t_min)} rows to: {outfile}&quot;)</span>
 
 <span class="c1"># ----------------------------</span>
 <span class="c1"># Optional quick-look plot (uncomment if you want)</span>
@@ -817,11 +811,6 @@ t_{1/2} = \frac{\ln 2}{\lambda}
 <span class="c1">#plt.title(&quot;Synthetic decay data (Poisson noise + background)&quot;)</span>
 <span class="c1">#plt.tight_layout()</span>
 <span class="c1">#plt.show()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Wrote 41 rows to: ba137m_synthetic_counts.csv
 </pre></div>
 </div>
 </div>
@@ -948,10 +937,10 @@ r_{1/2} = \frac{\ln 2}{-\ln(1-p)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Round 1: Remaining dice = 85
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Round 1: Remaining dice = 79
 </pre></div>
 </div>
-<img alt="../_images/ec8efdf6864c182b4988447f23072f4a0c7407383f4661437bee7d47278b71f5.png" src="../_images/ec8efdf6864c182b4988447f23072f4a0c7407383f4661437bee7d47278b71f5.png" />
+<img alt="../_images/ce6af91eac33a4acabc8dbfd022158f039d60d2b1720fec0a6b6fbfe2dfae966.png" src="../_images/ce6af91eac33a4acabc8dbfd022158f039d60d2b1720fec0a6b6fbfe2dfae966.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1086,24 +1075,22 @@ S_{\text{eff}} = (1-f)S_0 e^{-\lambda t} + fS_0
 \]</div>
 <p>Because modern carbon contains much more <span class="math notranslate nohighlight">\({}^{14}\mathrm{C}\)</span> than an ancient sample, even tiny contamination levels can make an old sample appear much younger.</p>
 </section>
-</section>
-</section>
 <hr class="docutils" />
 <section id="background-radiation">
-<h3>2. Background radiation<a class="headerlink" href="#background-radiation" title="Link to this heading">#</a></h3>
+<h5>2. Background radiation<a class="headerlink" href="#background-radiation" title="Link to this heading">#</a></h5>
 <p>Real detectors also record background counts from sources such as cosmic rays and natural radioactivity.</p>
 <p>A larger background level <span class="math notranslate nohighlight">\(B\)</span> increases the statistical noise in the measurement and makes it harder to distinguish very old samples from background radiation.</p>
 </section>
 <hr class="docutils" />
 <section id="measurement-time-or-sample-size">
-<h3>3. Measurement time or sample size<a class="headerlink" href="#measurement-time-or-sample-size" title="Link to this heading">#</a></h3>
+<h5>3. Measurement time or sample size<a class="headerlink" href="#measurement-time-or-sample-size" title="Link to this heading">#</a></h5>
 <p>Increasing the measurement time or the amount of material being measured increases the expected signal <span class="math notranslate nohighlight">\(S_0\)</span>.</p>
 <p>More detected counts reduce statistical uncertainty and improve the accuracy of the age estimate.</p>
 </section>
 </section>
 <hr class="docutils" />
 <section id="c7-reliability-study-run-several-true-ages">
-<h2><strong>C7. Reliability study (run several true ages)</strong><a class="headerlink" href="#c7-reliability-study-run-several-true-ages" title="Link to this heading">#</a></h2>
+<h4><strong>C7. Reliability study (run several true ages)</strong><a class="headerlink" href="#c7-reliability-study-run-several-true-ages" title="Link to this heading">#</a></h4>
 <p>To understand when radiocarbon dating becomes unreliable, repeat the Monte Carlo simulation for several different true ages.</p>
 <p>Keep <span class="math notranslate nohighlight">\(S_0\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, and <span class="math notranslate nohighlight">\(f\)</span> the same and run the simulation for the following five cases:</p>
 <ol class="arabic simple">
@@ -1123,7 +1110,7 @@ S_{\text{eff}} = (1-f)S_0 e^{-\lambda t} + fS_0
 </section>
 <hr class="docutils" />
 <section id="c8-final-analysis">
-<h2><strong>C8. Final analysis</strong><a class="headerlink" href="#c8-final-analysis" title="Link to this heading">#</a></h2>
+<h4><strong>C8. Final analysis</strong><a class="headerlink" href="#c8-final-analysis" title="Link to this heading">#</a></h4>
 <p>After completing all five runs, answer the following questions:</p>
 <ol class="arabic simple">
 <li><p>For which ages does radiocarbon dating appear <strong>reliable</strong> (small uncertainty and high valid fraction)?</p></li>
@@ -1287,9 +1274,10 @@ S0 =  20000 counts | valid 100.0% | std ≈ 2,154 yr | median t_hat ≈ 50,041 y
 </div>
 </section>
 </section>
+</section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="what-to-turn-in">
-<h1><strong>What to Turn In</strong><a class="headerlink" href="#what-to-turn-in" title="Link to this heading">#</a></h1>
+<section id="what-to-turn-in">
+<h2><strong>What to Turn In</strong><a class="headerlink" href="#what-to-turn-in" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p><strong>Part A:</strong></p>
 <ul class="simple">
@@ -1319,8 +1307,8 @@ S0 =  20000 counts | valid 100.0% | std ≈ 2,154 yr | median t_hat ≈ 50,041 y
 </ol>
 </section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="post-lab-questions">
-<h1><strong>Post-Lab Questions</strong><a class="headerlink" href="#post-lab-questions" title="Link to this heading">#</a></h1>
+<section id="post-lab-questions">
+<h2><strong>Post-Lab Questions</strong><a class="headerlink" href="#post-lab-questions" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Why does a constant decay probability lead to an exponential decay law?</p></li>
 <li><p>In Part A, why is it necessary to subtract the background <span class="math notranslate nohighlight">\(B\)</span> before taking <span class="math notranslate nohighlight">\(\ln(C-B)\)</span>?</p></li>
@@ -1329,6 +1317,7 @@ S0 =  20000 counts | valid 100.0% | std ≈ 2,154 yr | median t_hat ≈ 50,041 y
 <li><p>Which factor has the strongest effect on dating very old samples: a larger background <span class="math notranslate nohighlight">\(B\)</span> or a small contamination fraction <span class="math notranslate nohighlight">\(f\)</span> of modern carbon? Explain your reasoning.</p></li>
 </ol>
 <hr class="docutils" />
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1386,7 +1375,6 @@ S0 =  20000 counts | valid 100.0% | std ≈ 2,154 yr | median t_hat ≈ 50,041 y
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Lab9: Radioactive Decay - Half-Life, Randomness, and Carbon Dating</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview"><strong>Overview</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives"><strong>Learning Objectives</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-theory"><strong>Background Theory</strong></a><ul class="nav section-nav flex-column">
@@ -1424,22 +1412,19 @@ S0 =  20000 counts | valid 100.0% | std ≈ 2,154 yr | median t_hat ≈ 50,041 y
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c5-what-the-simulation-tells-us"><strong>C5. What the simulation tells us</strong></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c6-what-affects-dating-accuracy"><strong>C6. What affects dating accuracy</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#modern-carbon-contamination">1. Modern carbon contamination</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#background-radiation">2. Background radiation</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#measurement-time-or-sample-size">3. Measurement time or sample size</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-reliability-study-run-several-true-ages"><strong>C7. Reliability study (run several true ages)</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c8-final-analysis"><strong>C8. Final analysis</strong></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#background-radiation">2. Background radiation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measurement-time-or-sample-size">3. Measurement time or sample size</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-to-turn-in"><strong>What to Turn In</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#post-lab-questions"><strong>Post-Lab Questions</strong></a></li>
 </ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-reliability-study-run-several-true-ages"><strong>C7. Reliability study (run several true ages)</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c8-final-analysis"><strong>C8. Final analysis</strong></a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#what-to-turn-in"><strong>What to Turn In</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#post-lab-questions"><strong>Post-Lab Questions</strong></a></li>
-</ul>
-
   </nav></div>
 
 </div></div>
