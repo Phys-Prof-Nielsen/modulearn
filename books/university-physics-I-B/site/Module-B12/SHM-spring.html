@@ -1,0 +1,907 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>B12.1 Simple Harmonic Motion for a Spring &#8212; A Competency Approach to Introductory Physics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-B12/SHM-spring';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="B12.2 The Simple Pendulum" href="SHM-simple-pendulum.html" />
+    <link rel="prev" title="B12.0 Learning Outcomes - Oscillations" href="LOC-B12.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-B.png" class="logo__image only-light" alt="A Competency Approach to Introductory Physics - Home"/>
+    <script>document.write(`<img src="../_static/logo-B.png" class="logo__image only-dark" alt="A Competency Approach to Introductory Physics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to University Physics I: A Compendium to the B Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/university-physics-I/university-physics-I.html">University Physics I Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B1 - Basic Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/LOC-B1.html">B1.0 Learning Outcomes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/Introduction-derivative.html">B1.1 Introduction to the Derivative</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/Rules-derivatives.html">B1.2 Rules of Derivatives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/sympy-derivatives.html">B1.3 Derivatives Using Symbolic Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/Instantaneous-velocity.html">B1.4 Instantaneous Velocity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/Instantaneous-acceleration.html">B1.5 Instantaneous Acceleration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/Integral-antiderivative.html">B1.6 Integrals - Antiderivative</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/Integral-infinite-sum.html">B1.7 Integrals - Infinite Sum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/Integral-definite.html">B1.8 Integrals - Definite Integrals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/Differentials.html">B1.9 Differentials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/sympy-integrals.html">B1.10 Integrals Using Symbolic Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/assessment-B1.html">B1.11 Module B1 Assessment</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B2 - Discrete Systems and Differences</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/LOC-B2.html">B2.0 Learning Outcomes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/data.html">B2.1 Working with Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/basic-error.html">B2.2 Basic Error Analysis in Working with Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/linear-regression.html">B2.3 Linear Regression - Least Squares Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/problemsB2.html">B2.6 Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/assessment-B2.html">B2.7 Module B2 Assessment</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B3 - Equations of Kinematics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B3/Equations-kinematics-general.html">B3.1 Equations of Kinematics: General Position and Velocity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B3/Equations-kinematics-constant-velocity.html">B3.2 Equations of Kinematics: Constant Velocity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B3/Equations-kinematics-constant-acceleration.html">B3.3 Equations of Kinematics: Constant Acceleration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B3/Equations-kinematics-definite-approach.html">B3.4 Equations of Kinematics - Definite Integral Approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B3/problemsB3.html">B3.5 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B4 - Linear Force</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B4/Impulse-momentum-theorem.html">B4.1 Impulse-Momentum Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B4/Newton-second-law.html">B4.2 Newton’s 2nd Law</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B4/Time-varying-force.html">B4.3 Time-varying Force</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B4/problemsB4.html">B4.4 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B5 - Non-inertial Frames - Linear</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B5/accelerated-frames.html">B5.1 Transformation of Acceleration Between Linearly Accelerating Coordinate Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B5/problemsB5.html">B5.2 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B6 - Work and Energy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B6/Linear-work.html">B6.1 Linear Work and Energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B6/work-energy-derivation.html">B6.2 Deriving Work-Energy Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B6/spring-potential-energy.html">B6.3 Spring Potential Energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B6/Power.html">B6.4 Power</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B6/problemsB6.html">B6.5 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B7 - System of Particles</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B7/center-of-mass.html">B7.1 Mass of System and Center of Mass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B7/problemsB7.html">B6.X Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B8 - Rotational Dynamics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B8/polar-coordinates.html">B8.1 Kinematics in Polar Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B8/uniform-circular-motion.html">B8.2 Newton’s 2nd Law: Uniform Circular Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B8/problemsB8.html">B8.3 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B9 - Rotational Momentum</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B9/cross-product.html">B9.1 Cross Product</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B9/orbital-angular-momentum.html">B9.2 Orbital Angular Momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B9/spin-angular-momentum.html">B9.3 Spin Angular Momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B9/problemsB9.html">B9.3 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B10 - Rotational Force</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B10/Rotational-force-point-particle.html">B10.1 Rotational Force - Point Particle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B10/Calculating-torque.html">B10.2 Calculating Torque - Point Particle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B10/Rotational-force-object.html">B10.3 Rotational Force - Extended Object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B10/problemsB10.html">B10.4 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B11 - Rotational Work and Energy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B11/rotational-work.html">B11.1 Rotational Work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B11/work-energy-pure-rotation.html">B11.2 Work-Energy Theorem - Pure Rotation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B11/Power.html">B11.3 Power</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B11/problemsB11.html">B11.4 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B12 - Oscillations</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-B12.html">B12.0 Learning Outcomes - Oscillations</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">B12.1 Simple Harmonic Motion for a Spring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SHM-simple-pendulum.html">B12.2 The Simple Pendulum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SHM-physical-pendulum.html">B12.3 The Physical Pendulum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stability.html">B12.4 Stability and Potential Energy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B13 - Mechanical Waves</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B13/LOC-B13.html">B13.0 Learning Outcomes - Mechanical Waves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B13/mechanical-waves.html">B13.1 Mechanical Waves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B13/superposition.html">B13.2 Superposition of Mechanical Waves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B13/transverse-longitudinal.html">B13.3 Types of Mechanical Waves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B13/problemsB13.html">B13.4 Problems</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/university-physics-I-B/Module-B12/SHM-spring.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-B12/SHM-spring.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>B12.1 Simple Harmonic Motion for a Spring</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b12-1-1-motivation">B12.1.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b12-1-2-derivation-of-the-equation-of-motion">B12.1.2 Derivation of the Equation of Motion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#period-and-frequency">Period and Frequency</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b12-1-3-energy-in-shm">B12.1.3 Energy in SHM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#energy-at-special-points">Energy at Special Points</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deriving-the-general-expressions">Deriving the General Expressions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-in">Check-in</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b12-1-4-examples">B12.1.4 Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b12-1-5-physical-interpretation">B12.1.5 Physical Interpretation</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="b12-1-simple-harmonic-motion-for-a-spring">
+<h1>B12.1 Simple Harmonic Motion for a Spring<a class="headerlink" href="#b12-1-simple-harmonic-motion-for-a-spring" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="b12-1-1-motivation">
+<h2>B12.1.1 Motivation<a class="headerlink" href="#b12-1-1-motivation" title="Link to this heading">#</a></h2>
+<p>Many physical systems can be modeled as a <strong>mass attached to a spring</strong>, either literally (like a hanging mass–spring oscillator) or conceptually (like atoms vibrating in a solid or car suspensions oscillating after a bump).<br />
+When displaced from its equilibrium position, the spring exerts a <strong>restoring force</strong> that always points back toward equilibrium. If this restoring force is <strong>proportional to displacement</strong>, the system undergoes <strong>simple harmonic motion (SHM)</strong> — a fundamental type of periodic motion that appears across all of physics.</p>
+<p>Understanding SHM for a spring gives us a foundation for more complex oscillations, including pendulums, molecules, and even electrical oscillations in LC circuits.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b12-1-2-derivation-of-the-equation-of-motion">
+<h2>B12.1.2 Derivation of the Equation of Motion<a class="headerlink" href="#b12-1-2-derivation-of-the-equation-of-motion" title="Link to this heading">#</a></h2>
+<p>Consider a mass <span class="math notranslate nohighlight">\(m\)</span> attached to a spring with spring constant <span class="math notranslate nohighlight">\(k\)</span>, oscillating horizontally on a frictionless surface.</p>
+<p>According to <strong>Hooke’s Law</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+F = -kx
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(x\)</span> is the displacement from the equilibrium position and the negative sign indicates that the force is <strong>restoring</strong> (opposite to displacement).</p>
+<p>Applying <strong>Newton’s Second Law</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+F = m \frac{d^2x}{dt^2}
+\]</div>
+<p>we obtain:</p>
+<div class="math notranslate nohighlight">
+\[
+m \frac{d^2x}{dt^2} = -kx
+\]</div>
+<p>or equivalently,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d^2x}{dt^2} + \frac{k}{m}x = 0
+\]</div>
+<p>This is the <strong>differential equation of simple harmonic motion</strong>.</p>
+<p>We define the <strong>angular frequency</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+\omega = \sqrt{\frac{k}{m}}
+\]</div>
+<p>so that the equation becomes:</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{\displaystyle \frac{d^2x}{dt^2} + \omega^2 x = 0}
+\]</div>
+<p>This compact <strong>second-order ordinary differential equation (ODE)</strong> represents the mathematical form of <strong>any simple harmonic motion</strong> — whenever we see this equation (or one reducible to it), we should immediately recognize it as describing oscillatory dynamics about a stable equilibrium.</p>
+<p>The general solution is a sinusoidal function:</p>
+<div class="math notranslate nohighlight">
+\[
+x(t) = A \cos(\omega t + \phi)
+\]</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(A\)</span> = amplitude (maximum displacement),</p></li>
+<li><p><span class="math notranslate nohighlight">\(\phi\)</span> = phase constant (depends on initial conditions).</p></li>
+</ul>
+<section id="period-and-frequency">
+<h3>Period and Frequency<a class="headerlink" href="#period-and-frequency" title="Link to this heading">#</a></h3>
+<p>The angular frequency <span class="math notranslate nohighlight">\(\omega\)</span> is related to the physical parameters of the system:</p>
+<div class="math notranslate nohighlight">
+\[
+\omega = \sqrt{\frac{k}{m}}
+\]</div>
+<p>The <strong>period</strong> <span class="math notranslate nohighlight">\(T\)</span> (time for one complete oscillation) and <strong>frequency</strong> <span class="math notranslate nohighlight">\(f\)</span> (number of oscillations per second) are given by</p>
+<div class="math notranslate nohighlight">
+\[
+T = \frac{2\pi}{\omega} = 2\pi \sqrt{\frac{m}{k}}, \qquad
+f = \frac{1}{T} = \frac{1}{2\pi} \sqrt{\frac{k}{m}}
+\]</div>
+<p>These relationships show that a stiffer spring (larger <span class="math notranslate nohighlight">\(k\)</span>) or a smaller mass leads to faster oscillations.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="c1"># Simple Harmonic Motion plot with amplitude and period annotations</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Parameters</span>
+<span class="n">A</span> <span class="o">=</span> <span class="mf">0.05</span>             <span class="c1"># amplitude (m)</span>
+<span class="n">omega</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>    <span class="c1"># angular frequency (rad/s)</span>
+<span class="n">phi</span> <span class="o">=</span> <span class="mi">0</span>              <span class="c1"># phase constant (rad)</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">omega</span>  <span class="c1"># period (s)</span>
+
+<span class="c1"># Time array (two full periods)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.5</span><span class="o">*</span><span class="n">T</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">omega</span> <span class="o">*</span> <span class="n">t</span> <span class="o">+</span> <span class="n">phi</span><span class="p">)</span>
+
+<span class="c1"># Plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$x(t) = A \cos(\omega t)$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+
+<span class="c1"># Annotate amplitude (vertical)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">A</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Amplitude (A)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+
+<span class="c1"># Annotate period (horizontal between crests)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="p">],</span> <span class="p">[</span><span class="n">A</span><span class="p">,</span> <span class="n">A</span><span class="p">],</span> <span class="s1">&#39;ro&#39;</span><span class="p">)</span>  <span class="c1"># crest points</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">A</span> <span class="o">+</span> <span class="mf">0.001</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">A</span> <span class="o">+</span> <span class="mf">0.001</span><span class="p">),</span>
+             <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s1">&#39;&lt;-&gt;&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">A</span> <span class="o">-</span> <span class="mf">0.005</span><span class="p">,</span> <span class="s1">&#39;One Period (T)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span>
+
+<span class="c1"># Formatting</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Simple Harmonic Motion ($\phi = 0$)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Displacement x(t) (m)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/4bdc11877b57ee9ab4ae36ed2d1aef66cfd2cc418842e1cd88abf686c1ebc8d5.png" src="../_images/4bdc11877b57ee9ab4ae36ed2d1aef66cfd2cc418842e1cd88abf686c1ebc8d5.png" />
+</div>
+</div>
+<p>Velocity and acceleration follow from differentiation:</p>
+<div class="math notranslate nohighlight">
+\[
+v(t) = \frac{dx}{dt} = -A\omega \sin(\omega t + \phi)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+a(t) = \frac{d^2x}{dt^2} = -A\omega^2 \cos(\omega t + \phi)
+\]</div>
+<p>Thus, the acceleration is always opposite to the displacement and proportional to it — the defining characteristic of SHM.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="b12-1-3-energy-in-shm">
+<h2>B12.1.3 Energy in SHM<a class="headerlink" href="#b12-1-3-energy-in-shm" title="Link to this heading">#</a></h2>
+<p>In simple harmonic motion, energy continually transforms between <strong>kinetic</strong> and <strong>potential</strong> forms, but the <strong>total mechanical energy</strong> remains constant (assuming no friction).</p>
+<p>For a spring–mass system:</p>
+<ul>
+<li><p>The <strong>potential energy</strong> stored in the spring is</p>
+<div class="math notranslate nohighlight">
+\[
+  U = \tfrac{1}{2} k x^2
+  \]</div>
+</li>
+<li><p>The <strong>kinetic energy</strong> of the moving mass is</p>
+<div class="math notranslate nohighlight">
+\[
+  K = \tfrac{1}{2} m v^2
+  \]</div>
+</li>
+</ul>
+<p>At any instant, the total energy is</p>
+<div class="math notranslate nohighlight">
+\[
+E = K + U = \tfrac{1}{2} m v^2 + \tfrac{1}{2} k x^2
+\]</div>
+<hr class="docutils" />
+<section id="energy-at-special-points">
+<h3>Energy at Special Points<a class="headerlink" href="#energy-at-special-points" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>At the equilibrium position</strong> (<span class="math notranslate nohighlight">\(x=0\)</span>):<br />
+The spring is neither stretched nor compressed, so<br />
+<span class="math notranslate nohighlight">\(U = 0\)</span>, and all the energy is <strong>kinetic</strong> (<span class="math notranslate nohighlight">\(K = E\)</span>).</p></li>
+<li><p><strong>At the endpoints</strong> (<span class="math notranslate nohighlight">\(x = \pm A\)</span>):<br />
+The velocity is zero (<span class="math notranslate nohighlight">\(v = 0\)</span>), so<br />
+<span class="math notranslate nohighlight">\(K = 0\)</span>, and all the energy is <strong>potential</strong> (<span class="math notranslate nohighlight">\(U = E\)</span>).</p></li>
+</ul>
+<p>Thus, the energy oscillates back and forth between kinetic and potential forms as the mass moves.</p>
+</section>
+<hr class="docutils" />
+<section id="deriving-the-general-expressions">
+<h3>Deriving the General Expressions<a class="headerlink" href="#deriving-the-general-expressions" title="Link to this heading">#</a></h3>
+<p>At the extreme position (<span class="math notranslate nohighlight">\(x = A\)</span>), the total energy is purely potential:</p>
+<div class="math notranslate nohighlight">
+\[
+E = \tfrac{1}{2} k A^2
+\]</div>
+<p>Since total energy is conserved, this must also equal the sum of kinetic and potential energies at any position <span class="math notranslate nohighlight">\(x\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\tfrac{1}{2} k A^2 = \tfrac{1}{2} k x^2 + \tfrac{1}{2} m v^2
+\]</div>
+<p>Rearranging for velocity:</p>
+<div class="math notranslate nohighlight">
+\[
+v = \pm \sqrt{\frac{k}{m}(A^2 - x^2)} = \pm \omega \sqrt{A^2 - x^2}
+\]</div>
+<p>This expression shows that the mass moves fastest at the equilibrium position (<span class="math notranslate nohighlight">\(x = 0\)</span>) and comes momentarily to rest at the turning points (<span class="math notranslate nohighlight">\(x = \pm A\)</span>).</p>
+</section>
+<hr class="docutils" />
+<section id="check-in">
+<h3>Check-in<a class="headerlink" href="#check-in" title="Link to this heading">#</a></h3>
+<p>The oscillation of energy between <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(K\)</span> reflects the <strong>interplay between restoring force and inertia</strong>:</p>
+<ul class="simple">
+<li><p>As the spring pulls the mass back toward equilibrium, potential energy converts into kinetic.</p></li>
+<li><p>As the mass overshoots equilibrium, inertia carries it to the opposite extreme, storing energy again as potential.</p></li>
+</ul>
+<p>This continuous exchange — without any loss of total energy — is the hallmark of <strong>undamped simple harmonic motion</strong>.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="b12-1-4-examples">
+<h2>B12.1.4 Examples<a class="headerlink" href="#b12-1-4-examples" title="Link to this heading">#</a></h2>
+<div style="background-color:#d9d9d9; padding:15px; border-radius:10px;">
+<p><strong>Example 1 – Determining the Period of Oscillation</strong></p>
+<p>A <span class="math notranslate nohighlight">\(0.25\ \text{kg}\)</span> mass is attached to a spring with <span class="math notranslate nohighlight">\(k = 100\ \text{N/m}\)</span>.<br />
+Find the <strong>period</strong>, <strong>frequency</strong>, and <strong>angular frequency</strong> of oscillation.</p>
+<p><strong>Solution</strong></p>
+<p>The angular frequency is:</p>
+<div class="math notranslate nohighlight">
+\[
+\omega = \sqrt{\frac{k}{m}} = \sqrt{\frac{100}{0.25}} = 20\ \text{rad/s}
+\]</div>
+<p>The period is:</p>
+<div class="math notranslate nohighlight">
+\[
+T = \frac{2\pi}{\omega} = \frac{2\pi}{20} = 0.314\ \text{s}
+\]</div>
+<p>and the frequency is:</p>
+<div class="math notranslate nohighlight">
+\[
+f = \frac{1}{T} = 3.18\ \text{Hz}
+\]</div>
+<p>So the mass completes a full oscillation about every 0.31 seconds.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#d9d9d9; padding:15px; border-radius:10px;">
+<p><strong>Example 2 – Finding Position and Velocity at a Given Time</strong></p>
+<p>A <span class="math notranslate nohighlight">\(0.50\ \text{kg}\)</span> mass is attached to a spring (<span class="math notranslate nohighlight">\(k = 200\ \text{N/m}\)</span>) and released from rest at <span class="math notranslate nohighlight">\(x = 0.05\ \text{m}\)</span>.<br />
+Find <span class="math notranslate nohighlight">\(x(t)\)</span> and <span class="math notranslate nohighlight">\(v(t)\)</span> at <span class="math notranslate nohighlight">\(t = 0.1\)</span> s.</p>
+<p><strong>Solution</strong></p>
+<p>Since the mass starts at maximum displacement (<span class="math notranslate nohighlight">\(x=A\)</span>) and zero velocity,<br />
+<span class="math notranslate nohighlight">\(\phi = 0\)</span> and <span class="math notranslate nohighlight">\(A = 0.05\ \text{m}\)</span>.</p>
+<p>Then,</p>
+<div class="math notranslate nohighlight">
+\[
+x(t) = 0.05 \cos(\omega t)
+\]</div>
+<p>with</p>
+<div class="math notranslate nohighlight">
+\[
+\omega = \sqrt{\frac{k}{m}} = \sqrt{\frac{200}{0.5}} = 20\ \text{rad/s}
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+v(t) = -A\omega \sin(\omega t) = -1.0 \sin(20t)\ \text{m/s}
+\]</div>
+<p>At <span class="math notranslate nohighlight">\(t = 0.1\ \text{s}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+x = 0.05 \cos(2.0) = -0.021\ \text{m}, \qquad v = -1.0 \sin(2.0) = -0.91\ \text{m/s}
+\]</div>
+<p>So after 0.1 s, the mass is 2.1 cm left of equilibrium and moving left at 0.91 m/s.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b12-1-5-physical-interpretation">
+<h2>B12.1.5 Physical Interpretation<a class="headerlink" href="#b12-1-5-physical-interpretation" title="Link to this heading">#</a></h2>
+<p>The mass–spring oscillator shows that when a system experiences a <strong>restoring force proportional to displacement</strong>, the resulting motion is perfectly sinusoidal.<br />
+This same mathematical form describes countless physical systems — from atoms to acoustic waves — making SHM one of the most universal concepts in physics.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Phys-Prof-Nielsen/modulearn",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-B12"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="LOC-B12.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">B12.0 Learning Outcomes - Oscillations</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="SHM-simple-pendulum.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">B12.2 The Simple Pendulum</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b12-1-1-motivation">B12.1.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b12-1-2-derivation-of-the-equation-of-motion">B12.1.2 Derivation of the Equation of Motion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#period-and-frequency">Period and Frequency</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b12-1-3-energy-in-shm">B12.1.3 Energy in SHM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#energy-at-special-points">Energy at Special Points</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deriving-the-general-expressions">Deriving the General Expressions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-in">Check-in</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b12-1-4-examples">B12.1.4 Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b12-1-5-physical-interpretation">B12.1.5 Physical Interpretation</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
