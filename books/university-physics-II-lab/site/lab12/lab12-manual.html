@@ -1,0 +1,901 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lab 12: Magnetic Field of a Small Permanent Magnet &#8212; A Note to University Physics II Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lab12/lab12-manual';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Lab 11: RC Circuits — Charging and Discharging with Arduino" href="../lab11/lab11-manual.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="A Note to University Physics II Lab - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="A Note to University Physics II Lab - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Notes for University Physics II Lab
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/physics-labs/physics-lab.html">Physics Labs Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 1 - Report Writing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab1/lab1.html">Lab 1 (Synthetic): Ohm’s Law &amp; Writing a Professional Jupyter Report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab1/lab1-template.html">Template Lab 1: Ohm’s Law Report</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 2 - Arduino and Basic Error Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab2/lab2-manual.html">Lab 2 — LED Forward Voltage: Measurement, Variability, and Error in the Mean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab2/lab2-template.html">Template Lab 2: LED Forward Voltage and Statistical Uncertainty</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 3 - Terminal Voltage vs Load Current</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab3/lab3-manual.html">Lab 3 — Terminal Voltage vs Load Current: Experimental Determination of Internal Resistance</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 4 - Electric Fields and Electric Potential</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab4/lab4-manual.html">Lab 4 — Electric Fields and Electric Potential</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 7 - Homopolar Motor</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab7/lab7-manual.html">Lab 7 — Homopolar Motor</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 8 - Microwave Polarization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab8/lab8-manual.html">Lab 8: Microwave Intensity Distribution and Polarization</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 9 - Radioactive Decay</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab9/lab9-manual.html">Lab9: Radioactive Decay - Half-Life, Randomness, and Carbon Dating</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 11 - RC Circuit</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab11/lab11-manual.html">Lab 11: RC Circuits — Charging and Discharging with Arduino</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 12 - Hall Sensor</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 12: Magnetic Field of a Small Permanent Magnet</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/university-physics-II-lab/lab12/lab12-manual.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lab12/lab12-manual.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 12: Magnetic Field of a Small Permanent Magnet</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview"><strong>Overview</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives"><strong>Learning Objectives</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-theory"><strong>Background Theory</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#magnetic-field-of-a-dipole"><strong>Magnetic Field of a Dipole</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#power-law-form"><strong>Power-Law Form</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hall-effect-sensor-ss495b"><strong>Hall Effect Sensor (SS495B)</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-sensor-works"><strong>How the Sensor Works</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pin-identification"><strong>Pin Identification</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensor-orientation"><strong>Sensor Orientation</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#important-experimental-note"><strong>Important Experimental Note</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-removes-the-sensor-offset-and-isolates-the-magnetic-field-contribution">This removes the sensor offset and isolates the magnetic field contribution.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equipment"><strong>Equipment</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#circuit-setup"><strong>Circuit Setup</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-procedure"><strong>Experimental Procedure</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arduino-code"><strong>Arduino Code</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-analysis"><strong>Data Analysis</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-magnetic-signal-vs-distance"><strong>1. Plot Magnetic Signal vs Distance</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-the-dipole-model"><strong>2. Test the Dipole Model</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-python-analysis"><strong>3. Optional Python Analysis</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-questions"><strong>Discussion Questions</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-to-turn-in"><strong>What to Turn In</strong></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-12-magnetic-field-of-a-small-permanent-magnet">
+<h1>Lab 12: Magnetic Field of a Small Permanent Magnet<a class="headerlink" href="#lab-12-magnetic-field-of-a-small-permanent-magnet" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>In this lab we will measure how the <strong>axial magnetic field strength varies with distance from a small neodymium magnet</strong>. Using a <strong>Hall-effect sensor (SS495B)</strong> connected to an <strong>Arduino Nano</strong>, we will record the magnetic field strength as the distance from the magnet changes.</p>
+<p>We will compare our experimental measurements to the theoretical prediction for the magnetic field produced by a <strong>magnetic dipole</strong>. At distances larger than the size of the magnet, the field behaves approximately as</p>
+<div class="math notranslate nohighlight">
+\[
+B(r) \propto \frac{1}{r^3}
+\]</div>
+<p>By analyzing the data and plotting the field as a function of distance, we will determine whether our measurements follow this expected relationship.</p>
+<p>This experiment introduces practical techniques used in many areas of physics and engineering, including <strong>magnetic sensing, position detection, and experimental field mapping</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="learning-objectives">
+<h2><strong>Learning Objectives</strong><a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>By the end of this lab, we will be able to:</p>
+<ol class="arabic simple">
+<li><p>Use a <strong>Hall-effect sensor</strong> to measure magnetic field strength.</p></li>
+<li><p>Interface a <strong>sensor with an Arduino Nano</strong> to collect experimental data.</p></li>
+<li><p>Measure the <strong>magnetic field of a permanent magnet as a function of distance</strong>.</p></li>
+<li><p>Compare experimental measurements with the <strong>magnetic dipole model</strong>.</p></li>
+<li><p>Analyze data to determine whether the field follows a <strong><span class="math notranslate nohighlight">\(1/r^3\)</span> dependence</strong>.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="background-theory">
+<h2><strong>Background Theory</strong><a class="headerlink" href="#background-theory" title="Link to this heading">#</a></h2>
+<section id="magnetic-field-of-a-dipole">
+<h3><strong>Magnetic Field of a Dipole</strong><a class="headerlink" href="#magnetic-field-of-a-dipole" title="Link to this heading">#</a></h3>
+<p>A small permanent magnet behaves approximately like a <strong>magnetic dipole</strong> when observed at distances larger than its size.</p>
+<p>Along the axis of the magnet, the magnetic field is approximately</p>
+<div class="math notranslate nohighlight">
+\[
+B(r) = \frac{\mu_0}{4\pi}\frac{2m}{r^3}
+\]</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(B\)</span> = magnetic field strength</p></li>
+<li><p><span class="math notranslate nohighlight">\(m\)</span> = magnetic dipole moment of the magnet</p></li>
+<li><p><span class="math notranslate nohighlight">\(r\)</span> = distance from the center of the magnet</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mu_0\)</span> = permeability of free space</p></li>
+</ul>
+<p>This equation predicts that the magnetic field decreases very rapidly with distance.</p>
+</section>
+<hr class="docutils" />
+<section id="power-law-form">
+<h3><strong>Power-Law Form</strong><a class="headerlink" href="#power-law-form" title="Link to this heading">#</a></h3>
+<p>The dipole field can also be written in a simplified form</p>
+<div class="math notranslate nohighlight">
+\[
+B(r) = \frac{C}{r^3}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(C\)</span> is a constant depending on the magnet.</p>
+<p>If this model is correct, then a <strong>log–log plot</strong> should produce a straight line:</p>
+<div class="math notranslate nohighlight">
+\[
+\ln B = \ln C - 3\ln r
+\]</div>
+<p>The slope of this line should be <strong><span class="math notranslate nohighlight">\(-3\)</span></strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="hall-effect-sensor-ss495b">
+<h3><strong>Hall Effect Sensor (SS495B)</strong><a class="headerlink" href="#hall-effect-sensor-ss495b" title="Link to this heading">#</a></h3>
+<p>In this experiment we use the <strong>SS495B linear Hall-effect sensor</strong> to measure magnetic field strength. The sensor produces an output voltage that is <strong>linearly proportional to the magnetic field</strong> perpendicular to the sensing surface.</p>
+<p>The full datasheet for the sensor can be found here:</p>
+<p>https://www.honeywell.com/content/dam/honeywell-sensing-and-iot/en/documents/sps-siot-ss495a1-ss495a2-ss495a-linear-hall-effect-sensor-datasheet-005850-2-en.pdf</p>
+<hr class="docutils" />
+<section id="how-the-sensor-works">
+<h4><strong>How the Sensor Works</strong><a class="headerlink" href="#how-the-sensor-works" title="Link to this heading">#</a></h4>
+<p>The operation of a Hall sensor is based on the <strong>Hall effect</strong>, discovered by Edwin Hall in 1879. When an electric current flows through a conductor or semiconductor and a magnetic field is applied perpendicular to the direction of the current, the moving charge carriers experience a sideways force. This force causes the charges to accumulate on one side of the material, producing a measurable voltage difference across the conductor. This voltage is called the <strong>Hall voltage</strong>.</p>
+<p>The sideways force responsible for this effect is the <strong>magnetic component of the Lorentz force</strong> acting on moving charges:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{F} = q \vec{v} \times \vec{B}
+\]</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(q\)</span> is the charge of the carrier</p></li>
+<li><p><span class="math notranslate nohighlight">\(\vec{v}\)</span> is the drift velocity of the charge carriers</p></li>
+<li><p><span class="math notranslate nohighlight">\(\vec{B}\)</span> is the magnetic field</p></li>
+</ul>
+<p>Because the force acts perpendicular to both the current and the magnetic field, charge carriers are pushed toward one side of the sensor material. As charges accumulate, an electric field builds up that eventually balances the magnetic force. The resulting potential difference across the material is the <strong>Hall voltage</strong>, which is proportional to the magnetic field strength.</p>
+<p>In a <strong>Hall-effect sensor</strong>, this voltage is measured and amplified using integrated electronics. The SS495B used in this experiment is a <strong>linear Hall sensor</strong>, meaning the output voltage varies approximately linearly with magnetic field. With no magnetic field present, the sensor outputs a voltage near <strong>half the supply voltage</strong>. When a magnetic field is applied, the output voltage increases or decreases depending on the field direction. This allows the sensor to measure both the <strong>magnitude and direction</strong> of the magnetic field.</p>
+<p>When a magnetic field is present, the Hall sensor generates a voltage change proportional to the field:</p>
+<div class="math notranslate nohighlight">
+\[
+V_{\text{out}} = V_0 + S B
+\]</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(V_{\text{out}}\)</span> = sensor output voltage</p></li>
+<li><p><span class="math notranslate nohighlight">\(V_0\)</span> = zero-field voltage (about half the supply voltage)</p></li>
+<li><p><span class="math notranslate nohighlight">\(S\)</span> = sensor sensitivity</p></li>
+<li><p><span class="math notranslate nohighlight">\(B\)</span> = magnetic field strength</p></li>
+</ul>
+<p>For the SS495B operating at <span class="math notranslate nohighlight">\(5\text{ V}\)</span>:</p>
+<ul class="simple">
+<li><p>Zero-field voltage is approximately</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+V_0 \approx 2.5 \text{ V}
+\]</div>
+<ul class="simple">
+<li><p>Sensitivity is approximately</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+S \approx 3.125 \text{ mV/G}
+\]</div>
+<p>This means the output voltage increases or decreases depending on the magnetic field direction.</p>
+</section>
+<hr class="docutils" />
+<section id="pin-identification">
+<h4><strong>Pin Identification</strong><a class="headerlink" href="#pin-identification" title="Link to this heading">#</a></h4>
+<p>The SS495B has <strong>three legs</strong>. When holding the sensor so that the <strong>larger flat face of the package is facing you</strong> and the legs point downward, the pins from <strong>left to right</strong> are:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin</p></th>
+<th class="head"><p>Function</p></th>
+<th class="head"><p>Connection</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p><span class="math notranslate nohighlight">\(V_{cc}\)</span></p></td>
+<td><p>Connect to <strong>5 V</strong> on the Arduino</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>GND</p></td>
+<td><p>Connect to <strong>Arduino ground</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Output</p></td>
+<td><p>Connect to <strong>analog input A0</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="sensor-orientation">
+<h4><strong>Sensor Orientation</strong><a class="headerlink" href="#sensor-orientation" title="Link to this heading">#</a></h4>
+<p>The sensor package has <strong>two flat faces</strong>:</p>
+<ul class="simple">
+<li><p>one <strong>larger flat face</strong></p></li>
+<li><p>one <strong>smaller flat face</strong></p></li>
+</ul>
+<p>The <strong>larger flat face is the sensing face</strong> and should be considered the <strong>front of the sensor</strong>.</p>
+<p>👉 <strong>The magnet should face this larger flat side.</strong></p>
+<p>The sensor measures the component of the magnetic field <strong>perpendicular to this face</strong>.</p>
+<p>Correct orientation improves the strength and consistency of the measured signal.</p>
+</section>
+<hr class="docutils" />
+<section id="important-experimental-note">
+<h4><strong>Important Experimental Note</strong><a class="headerlink" href="#important-experimental-note" title="Link to this heading">#</a></h4>
+<p>Before beginning measurements, record the sensor voltage when <strong>no magnet is nearby</strong>. This baseline voltage is</p>
+<div class="math notranslate nohighlight">
+\[
+V_0 \approx \frac{V_{cc}}{2}
+\]</div>
+<p>The magnetic field signal used in the analysis will be</p>
+<div class="math notranslate nohighlight">
+\[
+B_{\text{signal}} \propto V_{\text{out}} - V_0
+\]</div>
+</section>
+</section>
+</section>
+<section id="this-removes-the-sensor-offset-and-isolates-the-magnetic-field-contribution">
+<h2>This removes the sensor offset and isolates the magnetic field contribution.<a class="headerlink" href="#this-removes-the-sensor-offset-and-isolates-the-magnetic-field-contribution" title="Link to this heading">#</a></h2>
+</section>
+<section id="equipment">
+<h2><strong>Equipment</strong><a class="headerlink" href="#equipment" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Arduino Nano</p></li>
+<li><p>SS495B Hall-effect sensor</p></li>
+<li><p>Small neodymium cylindrical magnet</p></li>
+<li><p>Breadboard and jumper wires</p></li>
+<li><p>Ruler or measuring tape</p></li>
+<li><p>Computer with Arduino IDE</p></li>
+<li><p>Spreadsheet or Python for analysis</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="circuit-setup">
+<h2><strong>Circuit Setup</strong><a class="headerlink" href="#circuit-setup" title="Link to this heading">#</a></h2>
+<p>Connect the Hall sensor as follows:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Sensor Pin</p></th>
+<th class="head"><p>Connection</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Vcc</p></td>
+<td><p>5 V on Arduino</p></td>
+</tr>
+<tr class="row-odd"><td><p>GND</p></td>
+<td><p>Ground</p></td>
+</tr>
+<tr class="row-even"><td><p>Output</p></td>
+<td><p>Analog pin A0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The magnet should be placed along the <strong>axis of the sensor</strong>, with the distance measured from the <strong>center of the sensor to the center of the magnet</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="experimental-procedure">
+<h2><strong>Experimental Procedure</strong><a class="headerlink" href="#experimental-procedure" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Build the circuit using the Hall sensor and Arduino Nano.</p></li>
+<li><p>Upload the Arduino program below.</p></li>
+<li><p>Open the <strong>Serial Monitor</strong>.</p></li>
+<li><p>With <strong>no magnet nearby</strong>, record the baseline voltage <span class="math notranslate nohighlight">\(V_0\)</span>.</p></li>
+<li><p>Place the magnet several centimeters away from the sensor.</p></li>
+<li><p>Move the magnet gradually toward the sensor.</p></li>
+<li><p>Record the voltage at distances such as</p>
+<ul class="simple">
+<li><p>8 cm</p></li>
+<li><p>7 cm</p></li>
+<li><p>6 cm</p></li>
+<li><p>5 cm</p></li>
+<li><p>4 cm</p></li>
+<li><p>3 cm</p></li>
+<li><p>2.5 cm</p></li>
+<li><p>2 cm</p></li>
+<li><p>1.5 cm</p></li>
+<li><p>1 cm</p></li>
+</ul>
+</li>
+<li><p>For each distance, record the <strong>average of several readings</strong>. You can do that by copy-paste, say 10 s of data, into excel and calculate the mean voltage. As you move the magnet, the readings may fluctuate quite a bit, so only use the data that appear relatively stable once the magnet is placed at location.</p></li>
+<li><p>Stop the measurement once the magnet is very close to the sensor.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="arduino-code">
+<h2><strong>Arduino Code</strong><a class="headerlink" href="#arduino-code" title="Link to this heading">#</a></h2>
+<p>Use the following program:</p>
+<p><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">int</span> <span class="pre">hallPin</span> <span class="pre">=</span> <span class="pre">A0;</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setup()</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">{</span></code></p>
+<p><code class="docutils literal notranslate">&#160; <span class="pre">Serial.begin(9600);</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">}</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">loop()</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">{</span></code></p>
+<p><code class="docutils literal notranslate">&#160; <span class="pre">int</span> <span class="pre">sensorValue</span> <span class="pre">=</span> <span class="pre">analogRead(hallPin);</span></code></p>
+<p><code class="docutils literal notranslate">&#160; <span class="pre">float</span> <span class="pre">voltage</span> <span class="pre">=</span> <span class="pre">sensorValue</span> <span class="pre">*</span> <span class="pre">(5.0</span> <span class="pre">/</span> <span class="pre">1023.0);</span></code></p>
+<p><code class="docutils literal notranslate">&#160; <span class="pre">Serial.println(voltage);</span></code></p>
+<p><code class="docutils literal notranslate">&#160; <span class="pre">delay(500);</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">}</span></code></p>
+<p>This program outputs <code class="docutils literal notranslate"><span class="pre">voltage</span></code> every half second.</p>
+</section>
+<hr class="docutils" />
+<section id="data-analysis">
+<h2><strong>Data Analysis</strong><a class="headerlink" href="#data-analysis" title="Link to this heading">#</a></h2>
+<section id="plot-magnetic-signal-vs-distance">
+<h3><strong>1. Plot Magnetic Signal vs Distance</strong><a class="headerlink" href="#plot-magnetic-signal-vs-distance" title="Link to this heading">#</a></h3>
+<p>Plot</p>
+<div class="math notranslate nohighlight">
+\[
+B_{\text{signal}} \; \text{vs} \; r
+\]</div>
+<p>Describe how quickly the field decreases with distance.</p>
+</section>
+<hr class="docutils" />
+<section id="test-the-dipole-model">
+<h3><strong>2. Test the Dipole Model</strong><a class="headerlink" href="#test-the-dipole-model" title="Link to this heading">#</a></h3>
+<p>Create a <strong>log–log plot</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\ln(B_{\text{signal}}) \; \text{vs} \; \ln(r)
+\]</div>
+<p>Fit a straight line.</p>
+<p>The slope should be approximately</p>
+<div class="math notranslate nohighlight">
+\[
+\text{slope} \approx -3
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="optional-python-analysis">
+<h3><strong>3. Optional Python Analysis</strong><a class="headerlink" href="#optional-python-analysis" title="Link to this heading">#</a></h3>
+<p>You may analyze the data using Python.</p>
+<p>`import numpy as np
+import matplotlib.pyplot as plt</p>
+<p>r = np.array([…])
+B = np.array([…])</p>
+<p>plt.loglog(r, B, ‘o’)
+plt.xlabel(“Distance”)
+plt.ylabel(“Magnetic signal”)
+plt.show()`</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="discussion-questions">
+<h2><strong>Discussion Questions</strong><a class="headerlink" href="#discussion-questions" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Why does a small magnet behave like a <strong>magnetic dipole</strong> at large distances?</p></li>
+<li><p>Does your experimental slope match the expected value of <strong><span class="math notranslate nohighlight">\(-3\)</span></strong>?</p></li>
+<li><p>At what distances does the dipole model begin to fail?</p></li>
+<li><p>Why might the measurements become less reliable when the magnet is very close to the sensor?</p></li>
+<li><p>What experimental uncertainties might affect the measurements?</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="what-to-turn-in">
+<h2><strong>What to Turn In</strong><a class="headerlink" href="#what-to-turn-in" title="Link to this heading">#</a></h2>
+<p>Submit:</p>
+<ol class="arabic simple">
+<li><p>Your <strong>data table</strong>.</p></li>
+<li><p>A <strong>plot of magnetic signal vs distance</strong>.</p></li>
+<li><p>A <strong>log–log plot</strong> testing the <span class="math notranslate nohighlight">\(1/r^3\)</span> relationship.</p></li>
+<li><p>The <strong>measured slope</strong> from your log–log fit.</p></li>
+<li><p>A short paragraph comparing your results with theory.</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lab12"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../lab11/lab11-manual.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lab 11: RC Circuits — Charging and Discharging with Arduino</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview"><strong>Overview</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives"><strong>Learning Objectives</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-theory"><strong>Background Theory</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#magnetic-field-of-a-dipole"><strong>Magnetic Field of a Dipole</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#power-law-form"><strong>Power-Law Form</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hall-effect-sensor-ss495b"><strong>Hall Effect Sensor (SS495B)</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-sensor-works"><strong>How the Sensor Works</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pin-identification"><strong>Pin Identification</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensor-orientation"><strong>Sensor Orientation</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#important-experimental-note"><strong>Important Experimental Note</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-removes-the-sensor-offset-and-isolates-the-magnetic-field-contribution">This removes the sensor offset and isolates the magnetic field contribution.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equipment"><strong>Equipment</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#circuit-setup"><strong>Circuit Setup</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-procedure"><strong>Experimental Procedure</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arduino-code"><strong>Arduino Code</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-analysis"><strong>Data Analysis</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-magnetic-signal-vs-distance"><strong>1. Plot Magnetic Signal vs Distance</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-the-dipole-model"><strong>2. Test the Dipole Model</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-python-analysis"><strong>3. Optional Python Analysis</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-questions"><strong>Discussion Questions</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-to-turn-in"><strong>What to Turn In</strong></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
