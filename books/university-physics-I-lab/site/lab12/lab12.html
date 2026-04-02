@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Lab 11- Sound Waves with Phyphox — Fourier Transform and Autocorrelation &#8212; A Note to University Physics I Lab</title>
+    <title>Lab 12: Simple Harmonic Motion with a Phone Pendulum &#8212; A Note to University Physics I Lab</title>
   
   
   
@@ -63,6 +63,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Lab 10 — Uncertainty and Error Propagation" href="../lab10/lab10.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -124,8 +125,6 @@
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -230,8 +229,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../lab10/lab10.html">Lab 10 — Uncertainty and Error Propagation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 11 - Pendulum and Polar Coordinates</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../lab11/lab11.html">Lab 11: Polar Coordinates with a Simple Pendulum — Measuring <span class="math notranslate nohighlight">\(v\)</span> from <span class="math notranslate nohighlight">\(\omega\)</span></a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 12: Simple Harmonic Motion with a Phone Pendulum</a></li>
 </ul>
 
     </div>
@@ -401,7 +400,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Lab 11- Sound Waves with Phyphox — Fourier Transform and Autocorrelation</h1>
+    <h1>Lab 12: Simple Harmonic Motion with a Phone Pendulum</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -411,39 +410,30 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sound-as-a-function">Sound as a Function</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dot-product-orthogonality-and-the-idea-behind-fourier-analysis">Dot Product, Orthogonality, and the Idea Behind Fourier Analysis</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-dot-product-for-functions">(a) Dot Product for Functions</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#b-orthogonality-of-sine-and-cosine-functions">(b) Orthogonality of Sine and Cosine Functions</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c-fourier-series-as-expansion-in-orthogonal-functions">(c) Fourier Series as Expansion in Orthogonal Functions</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-a-simple-example">(d) A Simple Example</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transform-fft-in-phyphox">Fourier Transform (FFT in phyphox)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview"><strong>Overview</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives"><strong>Learning Objectives</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-theory"><strong>Background Theory</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-harmonic-motion"><strong>1. Simple Harmonic Motion</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pendulum-motion"><strong>2. Pendulum Motion</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#effective-length-of-the-phone-pendulum"><strong>3. Effective Length of the Phone Pendulum</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#percent-difference"><strong>4. Percent Difference</strong></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#autocorrelation-comparing-a-function-with-itself">Autocorrelation — Comparing a Function with Itself</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-the-basic-idea">(a) The Basic Idea</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#b-physical-meaning">(b) Physical Meaning</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c-example-a-simple-sine-wave">(c) Example — A Simple Sine Wave</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-why-it-works-for-real-sounds">(d) Why It Works for Real Sounds</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#e-relationship-to-fourier-transform">(e) Relationship to Fourier Transform</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-summary-of-the-intuition">(f) Summary of the Intuition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equipment"><strong>Equipment</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-setup"><strong>Experimental Setup</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure"><strong>Procedure</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-a-measure-the-pendulum-geometry"><strong>Part A — Measure the Pendulum Geometry</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-b-predict-the-angular-frequency"><strong>Part B — Predict the Angular Frequency</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-c-measure-the-motion-with-phyphox"><strong>Part C — Measure the Motion with Phyphox</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-d-compare-theory-and-experiment"><strong>Part D — Compare Theory and Experiment</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-e-optional-extension"><strong>Part E — Optional Extension</strong></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-of-the-two-methods">5) Comparison of the Two Methods</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phyphox-setup">2) Phyphox Setup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiments-recording-exporting-and-analyzing-data">3) Experiments — Recording, Exporting, and Analyzing Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-setup">⚙️ General Setup</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-a-single-tone-comparing-fft-and-autocorrelation"><strong>Part A — Single Tone: Comparing FFT and Autocorrelation</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-b-harmonics-and-timbre"><strong>Part B — Harmonics and Timbre</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-c-beats-from-two-nearby-tones"><strong>Part C — Beats from Two Nearby Tones</strong></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaway">4) Key Takeaway</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-analysis"><strong>Data Analysis</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-questions"><strong>Discussion Questions</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sources-of-uncertainty"><strong>Sources of Uncertainty</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion"><strong>Conclusion</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-to-turn-in"><strong>What to Turn In</strong></a></li>
 </ul>
             </nav>
         </div>
@@ -455,460 +445,301 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="lab-11-sound-waves-with-phyphox-fourier-transform-and-autocorrelation">
-<h1>Lab 11- Sound Waves with Phyphox — Fourier Transform and Autocorrelation<a class="headerlink" href="#lab-11-sound-waves-with-phyphox-fourier-transform-and-autocorrelation" title="Link to this heading">#</a></h1>
-<p><strong>Goal:</strong><br />
-Use your smartphone and the <strong>phyphox</strong> app to study sound waves in two ways — using the <strong>Fourier Transform (FFT)</strong> and <strong>Autocorrelation</strong> tools. You’ll see that they answer two different questions about the same sound:</p>
-<ul class="simple">
-<li><p><strong>Fourier Transform:</strong> “What frequencies make up this sound?”</p></li>
-<li><p><strong>Autocorrelation:</strong> “How does the signal repeat in time?”</p></li>
-</ul>
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-12-simple-harmonic-motion-with-a-phone-pendulum">
+<h1>Lab 12: Simple Harmonic Motion with a Phone Pendulum<a class="headerlink" href="#lab-12-simple-harmonic-motion-with-a-phone-pendulum" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>In this lab we will investigate <strong>simple harmonic motion (SHM)</strong> using a pendulum made from a phone suspended by a string. We will use the <strong>Phyphox pendulum tool</strong> to measure the oscillation period and angular frequency directly from the motion of the phone.</p>
+<p>By measuring the effective pendulum length from the pivot point to the approximate <strong>center of mass</strong> of the phone, we can predict the angular frequency theoretically and compare it to the measured value.</p>
+<p>This lab connects experimental motion data to the mathematical model of SHM and helps us test how well a real pendulum follows the small-angle approximation.</p>
+</section>
 <hr class="docutils" />
 <section id="learning-objectives">
-<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
-<p>After this lab, you should be able to:</p>
+<h2><strong>Learning Objectives</strong><a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>By the end of this lab, we will be able to:</p>
 <ol class="arabic simple">
-<li><p>Record and analyze a sound using the <strong>FFT</strong> and <strong>Autocorrelation</strong> functions in phyphox.</p></li>
-<li><p>Explain conceptually what each method does using ideas of <strong>dot products</strong> and <strong>orthogonal functions</strong>.</p></li>
-<li><p>Find a sound’s <strong>frequency</strong>, <strong>period</strong>, and <strong>beat pattern</strong>.</p></li>
-<li><p>Compare both methods and know when to use each one.</p></li>
+<li><p>Model a pendulum as an example of <strong>simple harmonic motion</strong> for small oscillations.</p></li>
+<li><p>Measure the <strong>effective pendulum length</strong> from the pivot to the phone’s approximate center of mass.</p></li>
+<li><p>Use theory to calculate the expected angular frequency</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\omega_{\text{theory}} = \sqrt{\frac{g}{L}}
+\]</div>
+<ol class="arabic simple" start="4">
+<li><p>Use <strong>Phyphox</strong> to measure the pendulum’s oscillation period and angular frequency.</p></li>
+<li><p>Compare theoretical and experimental values and discuss sources of disagreement.</p></li>
+<li><p>Evaluate the assumptions behind the small-angle pendulum model.</p></li>
 </ol>
 </section>
 <hr class="docutils" />
-<section id="background">
-<h2>Background<a class="headerlink" href="#background" title="Link to this heading">#</a></h2>
-<section id="sound-as-a-function">
-<h3>Sound as a Function<a class="headerlink" href="#sound-as-a-function" title="Link to this heading">#</a></h3>
-<p>A sound wave can be represented as a function of time:</p>
+<section id="background-theory">
+<h2><strong>Background Theory</strong><a class="headerlink" href="#background-theory" title="Link to this heading">#</a></h2>
+<section id="simple-harmonic-motion">
+<h3><strong>1. Simple Harmonic Motion</strong><a class="headerlink" href="#simple-harmonic-motion" title="Link to this heading">#</a></h3>
+<p>A system is in simple harmonic motion when the restoring influence is proportional to displacement and directed toward equilibrium.</p>
+<p>A common mathematical model for SHM is</p>
 <div class="math notranslate nohighlight">
 \[
-x(t)
+x(t) = A\cos(\omega t + \phi)
 \]</div>
-<p>This could be your voice, a tuning fork, or a musical note. Every sound can be thought of as a combination of simple sine and cosine waves of different frequencies — just like any vector can be built from the sum of basis vectors.</p>
-</section>
-<hr class="docutils" />
-<section id="dot-product-orthogonality-and-the-idea-behind-fourier-analysis">
-<h3>Dot Product, Orthogonality, and the Idea Behind Fourier Analysis<a class="headerlink" href="#dot-product-orthogonality-and-the-idea-behind-fourier-analysis" title="Link to this heading">#</a></h3>
-<p>In physics and math, we often describe an object by how much it “lines up” with a set of <strong>basis vectors</strong>.<br />
-For example, a 3D vector <span class="math notranslate nohighlight">\(\vec{v}\)</span> can be written as</p>
-<div class="math notranslate nohighlight">
-\[
-\vec{v} = v_x \hat{i} + v_y \hat{j} + v_z \hat{k},
-\]</div>
-<p>where the unit vectors <span class="math notranslate nohighlight">\(\hat{i}, \hat{j}, \hat{k}\)</span> are <strong>orthogonal</strong> — they point in perpendicular directions.<br />
-The <strong>dot product</strong> tells us how much of <span class="math notranslate nohighlight">\(\vec{v}\)</span> points in a given direction:</p>
-<div class="math notranslate nohighlight">
-\[
-v_x = \vec{v}\cdot \hat{i}, \quad v_y = \vec{v}\cdot \hat{j}, \quad v_z = \vec{v}\cdot \hat{k}.
-\]</div>
-<p>We can do the <strong>same thing with functions</strong> instead of vectors.</p>
-<hr class="docutils" />
-<section id="a-dot-product-for-functions">
-<h4>(a) Dot Product for Functions<a class="headerlink" href="#a-dot-product-for-functions" title="Link to this heading">#</a></h4>
-<p>The dot product of two functions over one full period <span class="math notranslate nohighlight">\(T\)</span> is defined as</p>
-<div class="math notranslate nohighlight">
-\[
-\langle f, g \rangle = \frac{1}{T} \int_0^T f(t)\,g(t)\,dt.
-\]</div>
-<p>If this equals zero, the two functions are <strong>orthogonal</strong> (just like perpendicular vectors):</p>
-<div class="math notranslate nohighlight">
-\[
-\langle f, g \rangle = 0.
-\]</div>
-</section>
-<hr class="docutils" />
-<section id="b-orthogonality-of-sine-and-cosine-functions">
-<h4>(b) Orthogonality of Sine and Cosine Functions<a class="headerlink" href="#b-orthogonality-of-sine-and-cosine-functions" title="Link to this heading">#</a></h4>
-<p>The sine and cosine functions of different frequencies are orthogonal over a full number of periods:</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{1}{T}\int_0^T \sin(2\pi n t/T)\,\sin(2\pi m t/T)\,dt = 0 \quad \text{for } n \neq m,
-\]</div>
-<p>and similarly for cosines.<br />
-Also,</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{1}{T}\int_0^T \sin(2\pi n t/T)\,\cos(2\pi m t/T)\,dt = 0.
-\]</div>
-<p>This means each sine or cosine of a different frequency points in its own “direction” in function space.</p>
-</section>
-<hr class="docutils" />
-<section id="c-fourier-series-as-expansion-in-orthogonal-functions">
-<h4>(c) Fourier Series as Expansion in Orthogonal Functions<a class="headerlink" href="#c-fourier-series-as-expansion-in-orthogonal-functions" title="Link to this heading">#</a></h4>
-<p>Any reasonably smooth, periodic signal <span class="math notranslate nohighlight">\(x(t)\)</span> with period <span class="math notranslate nohighlight">\(T\)</span> can be represented as a <strong>Fourier series</strong>:</p>
-<div class="math notranslate nohighlight">
-\[
-x(t) = a_0 + \sum_{n=1}^{\infty}\big[a_n \cos(2\pi n t/T) + b_n \sin(2\pi n t/T)\big].
-\]</div>
-<p>The coefficients <span class="math notranslate nohighlight">\(a_n\)</span> and <span class="math notranslate nohighlight">\(b_n\)</span> are found by taking <strong>dot products</strong> of the signal with the basis functions:</p>
-<div class="math notranslate nohighlight">
-\[
-a_n = \frac{2}{T}\int_0^T x(t)\cos(2\pi n t/T)\,dt,
-\]</div>
-<div class="math notranslate nohighlight">
-\[
-b_n = \frac{2}{T}\int_0^T x(t)\sin(2\pi n t/T)\,dt.
-\]</div>
-<p>So, to find “how much” of each frequency <span class="math notranslate nohighlight">\(n/T\)</span> is in the signal, we project <span class="math notranslate nohighlight">\(x(t)\)</span> onto each sine and cosine — just like finding <span class="math notranslate nohighlight">\(v_x\)</span>, <span class="math notranslate nohighlight">\(v_y\)</span>, and <span class="math notranslate nohighlight">\(v_z\)</span> for a vector.</p>
-</section>
-<hr class="docutils" />
-<section id="d-a-simple-example">
-<h4>(d) A Simple Example<a class="headerlink" href="#d-a-simple-example" title="Link to this heading">#</a></h4>
-<p>Suppose we have a signal made of two pure tones:</p>
-<div class="math notranslate nohighlight">
-\[
-x(t) = \sin(2\pi f_1 t) + 0.5\sin(2\pi f_2 t),
-\]</div>
-<p>where <span class="math notranslate nohighlight">\(f_1=200\)</span> Hz and <span class="math notranslate nohighlight">\(f_2=400\)</span> Hz.</p>
-<p>If we take the dot product of <span class="math notranslate nohighlight">\(x(t)\)</span> with <span class="math notranslate nohighlight">\(\sin(2\pi f t)\)</span> for different <span class="math notranslate nohighlight">\(f\)</span>, we’ll get:</p>
+<p>where:</p>
 <ul class="simple">
-<li><p>a <strong>large value</strong> when <span class="math notranslate nohighlight">\(f=f_1\)</span> or <span class="math notranslate nohighlight">\(f_2\)</span> (strong match),</p></li>
-<li><p>and nearly <strong>zero</strong> when <span class="math notranslate nohighlight">\(f\)</span> is different (no overlap).</p></li>
+<li><p><span class="math notranslate nohighlight">\(A\)</span> is the amplitude</p></li>
+<li><p><span class="math notranslate nohighlight">\(\omega\)</span> is the angular frequency</p></li>
+<li><p><span class="math notranslate nohighlight">\(\phi\)</span> is the phase constant</p></li>
 </ul>
-<p>That’s exactly what the <strong>Fourier Transform</strong> does — it measures how much each pure sine and cosine contributes to the sound.</p>
+<p>The angular frequency is related to the period <span class="math notranslate nohighlight">\(T\)</span> by</p>
+<div class="math notranslate nohighlight">
+\[
+\omega = \frac{2\pi}{T}
+\]</div>
+<p>and the ordinary frequency is</p>
+<div class="math notranslate nohighlight">
+\[
+f = \frac{1}{T}
+\]</div>
+<p>so that</p>
+<div class="math notranslate nohighlight">
+\[
+\omega = 2\pi f
+\]</div>
+</section>
 <hr class="docutils" />
-<p><strong>Summary Idea:</strong></p>
+<section id="pendulum-motion">
+<h3><strong>2. Pendulum Motion</strong><a class="headerlink" href="#pendulum-motion" title="Link to this heading">#</a></h3>
+<p>A simple pendulum consists of a mass suspended from a pivot by a light string. When the pendulum is displaced slightly and released, it oscillates back and forth.</p>
+<p>For small angles, the pendulum behaves approximately like an SHM system. Its angular frequency is</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_{\text{theory}} = \sqrt{\frac{g}{L}}
+\]</div>
+<p>where:</p>
 <ul class="simple">
-<li><p>Think of sines and cosines as <strong>unit vectors</strong> in a space of functions.</p></li>
-<li><p>The Fourier coefficients <span class="math notranslate nohighlight">\(a_n\)</span> and <span class="math notranslate nohighlight">\(b_n\)</span> are the <strong>dot products</strong> between your signal and each of those “basis waves.”</p></li>
-<li><p>The <strong>FFT plot</strong> simply shows the length (magnitude) of these projections at every frequency.</p></li>
+<li><p><span class="math notranslate nohighlight">\(g = 9.80\ \text{m/s}^2\)</span> is the acceleration due to gravity</p></li>
+<li><p><span class="math notranslate nohighlight">\(L\)</span> is the effective length of the pendulum</p></li>
+</ul>
+<p>The period is therefore</p>
+<div class="math notranslate nohighlight">
+\[
+T = 2\pi\sqrt{\frac{L}{g}}
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="effective-length-of-the-phone-pendulum">
+<h3><strong>3. Effective Length of the Phone Pendulum</strong><a class="headerlink" href="#effective-length-of-the-phone-pendulum" title="Link to this heading">#</a></h3>
+<p>In an ideal pendulum, the entire mass is concentrated at a single point. For a real phone pendulum, the mass is distributed across the phone. Therefore, the effective pendulum length should be measured from the pivot point to the approximate <strong>center of mass</strong> of the phone.</p>
+<p>If the string length is <span class="math notranslate nohighlight">\(L_s\)</span> and the distance from the top attachment point on the phone to the phone’s center of mass is estimated as <span class="math notranslate nohighlight">\(d\)</span>, then the effective pendulum length is</p>
+<div class="math notranslate nohighlight">
+\[
+L = L_s + d
+\]</div>
+<p>In many cases, a reasonable estimate for the center of mass is near the geometric center of the phone.</p>
+</section>
+<hr class="docutils" />
+<section id="percent-difference">
+<h3><strong>4. Percent Difference</strong><a class="headerlink" href="#percent-difference" title="Link to this heading">#</a></h3>
+<p>To compare theory and experiment, we will calculate the percent difference between the measured and predicted angular frequencies:</p>
+<div class="math notranslate nohighlight">
+\[
+\%\text{ difference} = \frac{|\omega_{\text{measured}} - \omega_{\text{theory}}|}{\omega_{\text{theory}}}\times 100\%
+\]</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="equipment">
+<h2><strong>Equipment</strong><a class="headerlink" href="#equipment" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Smartphone</p></li>
+<li><p>String or cord</p></li>
+<li><p>Tape, clamp, or secure attachment method</p></li>
+<li><p>Meter stick or measuring tape</p></li>
+<li><p>Phyphox app installed on the phone</p></li>
+<li><p>Support stand or other stable hanging point</p></li>
 </ul>
 </section>
 <hr class="docutils" />
-<section id="fourier-transform-fft-in-phyphox">
-<h4>Fourier Transform (FFT in phyphox)<a class="headerlink" href="#fourier-transform-fft-in-phyphox" title="Link to this heading">#</a></h4>
-<p>The FFT (Fast Fourier Transform) is just a computer version of this projection idea.<br />
-You’ll see a graph with frequency on the horizontal axis and amplitude (strength) on the vertical axis.</p>
+<section id="experimental-setup">
+<h2><strong>Experimental Setup</strong><a class="headerlink" href="#experimental-setup" title="Link to this heading">#</a></h2>
+<p>Attach the phone securely to a string so that it can swing like a pendulum. The setup should allow the phone to oscillate freely in a vertical plane.</p>
+<p>Make sure:</p>
 <ul class="simple">
-<li><p>Peaks show the <strong>frequencies that make up your sound</strong>.</p></li>
-<li><p>The largest peak is the <strong>fundamental frequency</strong>, which gives the <strong>pitch</strong>.</p></li>
-<li><p>Smaller peaks at multiples of that frequency are <strong>harmonics</strong> that shape the tone or timbre.</p></li>
+<li><p>the phone is securely attached</p></li>
+<li><p>the pivot point is stable</p></li>
+<li><p>the oscillation angle remains small</p></li>
+<li><p>the phone will not hit nearby objects during motion</p></li>
 </ul>
-<p>Think of FFT as taking your sound and asking:</p>
-<blockquote>
-<div><p>“How strongly does this sound match each pure tone?”</p>
-</div></blockquote>
-</section>
+<p>Use the <strong>Pendulum</strong> experiment in Phyphox to record the motion.</p>
 </section>
 <hr class="docutils" />
-<section id="autocorrelation-comparing-a-function-with-itself">
-<h3>Autocorrelation — Comparing a Function with Itself<a class="headerlink" href="#autocorrelation-comparing-a-function-with-itself" title="Link to this heading">#</a></h3>
-<p>So far, the Fourier approach compared your signal <span class="math notranslate nohighlight">\(x(t)\)</span> with a set of <strong>different basis functions</strong> (sines and cosines).<br />
-Now we’ll compare the signal with <strong>itself</strong>, but shifted in time — that’s called <strong>autocorrelation</strong>.</p>
-<hr class="docutils" />
-<section id="a-the-basic-idea">
-<h4>(a) The Basic Idea<a class="headerlink" href="#a-the-basic-idea" title="Link to this heading">#</a></h4>
-<p>Imagine you slide a copy of the signal over itself and, at each shift, measure how well they overlap.<br />
-When the peaks of one line up with the peaks of the other, the overlap (dot product) is large.<br />
-When they don’t line up, the overlap is small or even negative.</p>
-<p>Mathematically, the autocorrelation function is</p>
-<div class="math notranslate nohighlight">
-\[
-R_{xx}(\tau) = \frac{1}{T}\int_0^T x(t)\,x(t+\tau)\,dt
-\]</div>
-<p>where <span class="math notranslate nohighlight">\(\tau\)</span> is the <strong>time shift</strong> (sometimes called “lag”).<br />
-This is another kind of <strong>dot product</strong>, but between the signal and a shifted version of itself.</p>
-</section>
-<hr class="docutils" />
-<section id="b-physical-meaning">
-<h4>(b) Physical Meaning<a class="headerlink" href="#b-physical-meaning" title="Link to this heading">#</a></h4>
-<ul class="simple">
-<li><p>At <span class="math notranslate nohighlight">\(\tau = 0\)</span>, the signal lines up perfectly with itself, so <span class="math notranslate nohighlight">\(R_{xx}(0)\)</span> is the <strong>maximum value</strong>.</p></li>
-<li><p>As we increase <span class="math notranslate nohighlight">\(\tau\)</span>, the two signals start to misalign.<br />
-When they line up again (for example, after one full period), <span class="math notranslate nohighlight">\(R_{xx}(\tau)\)</span> becomes large again.</p></li>
-</ul>
-<p>If the signal repeats every <span class="math notranslate nohighlight">\(T_0\)</span> seconds, then <span class="math notranslate nohighlight">\(R_{xx}(\tau)\)</span> will have peaks at</p>
-<div class="math notranslate nohighlight">
-\[
-\tau = T_0,\; 2T_0,\; 3T_0,\;\dots
-\]</div>
-<p>From the first peak (after <span class="math notranslate nohighlight">\(\tau=0\)</span>), we can find the period <span class="math notranslate nohighlight">\(T_0\)</span> and therefore the frequency</p>
-<div class="math notranslate nohighlight">
-\[
-f_0 = \frac{1}{T_0}.
-\]</div>
-</section>
-<hr class="docutils" />
-<section id="c-example-a-simple-sine-wave">
-<h4>(c) Example — A Simple Sine Wave<a class="headerlink" href="#c-example-a-simple-sine-wave" title="Link to this heading">#</a></h4>
-<p>Let’s take a pure tone:</p>
-<div class="math notranslate nohighlight">
-\[
-x(t) = \sin(2\pi f_0 t),
-\]</div>
-<p>where <span class="math notranslate nohighlight">\(f_0\)</span> is its frequency and <span class="math notranslate nohighlight">\(T_0 = 1/f_0\)</span> is its period.</p>
-<p>The <strong>autocorrelation</strong> is defined as</p>
-<div class="math notranslate nohighlight">
-\[
-R_{xx}(\tau) = \frac{1}{T_0}\int_0^{T_0} x(t)\,x(t+\tau)\,dt.
-\]</div>
-<p>Substitute the sine wave:</p>
-<div class="math notranslate nohighlight">
-\[
-R_{xx}(\tau) = \frac{1}{T_0}\int_0^{T_0} \sin(2\pi f_0 t)\,\sin[2\pi f_0(t+\tau)]\,dt.
-\]</div>
-<p>To simplify, we use the trigonometric identity:</p>
-<div class="math notranslate nohighlight">
-\[
-\sin A\,\sin B = \tfrac{1}{2}[\cos(A-B) - \cos(A+B)].
-\]</div>
-<p>Then:</p>
-<div class="math notranslate nohighlight">
-\[
-R_{xx}(\tau)
-= \frac{1}{2T_0}\int_0^{T_0} \Big[\cos(2\pi f_0 \tau) - \cos(4\pi f_0 t + 2\pi f_0 \tau)\Big]\,dt.
-\]</div>
-<p>The first term, <span class="math notranslate nohighlight">\(\cos(2\pi f_0 \tau)\)</span>, is constant with respect to <span class="math notranslate nohighlight">\(t\)</span>, so its integral gives</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{1}{2T_0}\int_0^{T_0}\cos(2\pi f_0 \tau)\,dt
-= \frac{1}{2}\cos(2\pi f_0 \tau).
-\]</div>
-<p>The second term,</p>
-<div class="math notranslate nohighlight">
-\[
-\int_0^{T_0}\cos(4\pi f_0 t + 2\pi f_0 \tau)\,dt,
-\]</div>
-<p>contains two parts inside the cosine:</p>
-<ul class="simple">
-<li><p>The <span class="math notranslate nohighlight">\(4\pi f_0 t\)</span> part depends on time and completes <strong>two full oscillations</strong> during the integration from <span class="math notranslate nohighlight">\(t=0\)</span> to <span class="math notranslate nohighlight">\(t=T_0\)</span>, because the cosine argument changes by <span class="math notranslate nohighlight">\(4\pi f_0 T_0 = 4\pi\)</span>.</p></li>
-<li><p>The <span class="math notranslate nohighlight">\(2\pi f_0\tau\)</span> part is just a <strong>constant phase shift</strong> — it slides the cosine curve left or right, but it does not change the area under one full number of cycles.</p></li>
-</ul>
-<p>Since <span class="math notranslate nohighlight">\(\cos(4\pi f_0 t + \text{constant})\)</span> spends equal time positive and negative over complete cycles, its average value over any integer number of periods is zero:</p>
-<div class="math notranslate nohighlight">
-\[
-\int_0^{T_0}\cos(4\pi f_0 t + 2\pi f_0 \tau)\,dt = 0.
-\]</div>
-<p>Therefore, the entire second term vanishes, and only the constant term
-<span class="math notranslate nohighlight">\(\tfrac{1}{2}\cos(2\pi f_0 \tau)\)</span> remains.</p>
-</section>
-<hr class="docutils" />
-<section id="interpretation">
-<h4>Interpretation<a class="headerlink" href="#interpretation" title="Link to this heading">#</a></h4>
-<ul class="simple">
-<li><p>At <span class="math notranslate nohighlight">\(\tau = 0\)</span>: <span class="math notranslate nohighlight">\(R_{xx}(0) = \tfrac{1}{2}\)</span> → perfect alignment (maximum similarity).</p></li>
-<li><p>At <span class="math notranslate nohighlight">\(\tau = T_0/2\)</span>: <span class="math notranslate nohighlight">\(R_{xx}(T_0/2) = \tfrac{1}{2}\cos(\pi) = -\tfrac{1}{2}\)</span> → peaks of one line up with valleys of the other (opposite phase).</p></li>
-<li><p>At <span class="math notranslate nohighlight">\(\tau = T_0\)</span>: <span class="math notranslate nohighlight">\(R_{xx}(T_0) = \tfrac{1}{2}\cos(2\pi) = \tfrac{1}{2}\)</span> → perfect alignment again.</p></li>
-</ul>
-<p>So <span class="math notranslate nohighlight">\(R_{xx}(\tau)\)</span> repeats every <span class="math notranslate nohighlight">\(T_0\)</span>, showing that the <strong>autocorrelation of a sine wave is a cosine function</strong> of the same frequency.<br />
-The “lag” <span class="math notranslate nohighlight">\(\tau\)</span> where <span class="math notranslate nohighlight">\(R_{xx}\)</span> reaches its first positive maximum (after zero) tells us the <strong>period</strong>, and therefore the <strong>frequency</strong> of the signal:</p>
-<div class="math notranslate nohighlight">
-\[
-f_0 = \frac{1}{T_0}.
-\]</div>
-<p>This simple result explains why the <strong>autocorrelation plot</strong> in phyphox shows evenly spaced peaks for any repeating sound — each peak corresponds to the signal lining up with itself again.</p>
-</section>
-<hr class="docutils" />
-<section id="d-why-it-works-for-real-sounds">
-<h4>(d) Why It Works for Real Sounds<a class="headerlink" href="#d-why-it-works-for-real-sounds" title="Link to this heading">#</a></h4>
-<p>Most real sounds (voice, instruments, whistles) are <em>not</em> perfect sine waves — they are combinations of many frequencies.<br />
-Even so, if the sound repeats regularly (has a pitch), its overall shape still lines up again after roughly the same time <span class="math notranslate nohighlight">\(T_0\)</span>, and we see that in <span class="math notranslate nohighlight">\(R_{xx}(\tau)\)</span> as repeating peaks.</p>
-<p>Autocorrelation therefore tells us:</p>
-<ul class="simple">
-<li><p><strong>Pitch or fundamental period</strong> of a sound, even when the FFT has many harmonics.</p></li>
-<li><p><strong>Beat patterns</strong> when two similar frequencies interfere.</p></li>
-</ul>
-</section>
-<hr class="docutils" />
-<section id="e-relationship-to-fourier-transform">
-<h4>(e) Relationship to Fourier Transform<a class="headerlink" href="#e-relationship-to-fourier-transform" title="Link to this heading">#</a></h4>
-<p>Both Fourier and autocorrelation are based on <strong>overlap or similarity</strong>, but they ask different questions:</p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head text-left"><p>Method</p></th>
-<th class="head text-left"><p>What’s compared</p></th>
-<th class="head text-left"><p>What it tells you</p></th>
-<th class="head text-left"><p>Analogy</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-left"><p><strong>Fourier Transform</strong></p></td>
-<td class="text-left"><p>Compare <span class="math notranslate nohighlight">\(x(t)\)</span> with many sine/cosine waves</p></td>
-<td class="text-left"><p>Which frequencies are present</p></td>
-<td class="text-left"><p>“How much of each tone?”</p></td>
-</tr>
-<tr class="row-odd"><td class="text-left"><p><strong>Autocorrelation</strong></p></td>
-<td class="text-left"><p>Compare <span class="math notranslate nohighlight">\(x(t)\)</span> with itself shifted by <span class="math notranslate nohighlight">\(\tau\)</span></p></td>
-<td class="text-left"><p>How the signal repeats in time</p></td>
-<td class="text-left"><p>“When does it sound the same again?”</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<hr class="docutils" />
-<section id="f-summary-of-the-intuition">
-<h4>(f) Summary of the Intuition<a class="headerlink" href="#f-summary-of-the-intuition" title="Link to this heading">#</a></h4>
-<ul class="simple">
-<li><p>The Fourier Transform measures <strong>how much your signal overlaps</strong> with <em>different</em> sine and cosine waves.</p></li>
-<li><p>The Autocorrelation measures <strong>how much your signal overlaps</strong> with <em>itself</em>, shifted in time.</p></li>
-</ul>
-<p>Both use the same central concept:</p>
-<blockquote>
-<div><p>“Compare two functions using a dot product to see how similar they are.”</p>
-</div></blockquote>
-</section>
-</section>
-<hr class="docutils" />
-<section id="comparison-of-the-two-methods">
-<h3>5) Comparison of the Two Methods<a class="headerlink" href="#comparison-of-the-two-methods" title="Link to this heading">#</a></h3>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head text-left"><p>Method</p></th>
-<th class="head text-left"><p>What it compares</p></th>
-<th class="head text-left"><p>What it shows best</p></th>
-<th class="head text-left"><p>When to use</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-left"><p><strong>Fourier Transform</strong></p></td>
-<td class="text-left"><p>The signal with pure sine/cosine waves</p></td>
-<td class="text-left"><p>Frequencies and harmonics</p></td>
-<td class="text-left"><p>Identifying tones and timbre</p></td>
-</tr>
-<tr class="row-odd"><td class="text-left"><p><strong>Autocorrelation</strong></p></td>
-<td class="text-left"><p>The signal with a delayed copy of itself</p></td>
-<td class="text-left"><p>Periods, repetition, echoes, and beats</p></td>
-<td class="text-left"><p>Finding pitch and delays</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>They are two sides of the same coin:</p>
-<ul class="simple">
-<li><p>Fourier looks at <strong>what frequencies</strong> are inside the sound.</p></li>
-<li><p>Autocorrelation looks at <strong>how often</strong> the sound repeats in time.</p></li>
-</ul>
-</section>
-</section>
-<hr class="docutils" />
-<section id="phyphox-setup">
-<h2>2) Phyphox Setup<a class="headerlink" href="#phyphox-setup" title="Link to this heading">#</a></h2>
-<p>Open <strong>phyphox</strong> and choose these experiments:</p>
-<ul class="simple">
-<li><p><strong>Audio Spectrum (FFT)</strong></p></li>
-<li><p><strong>Audio Autocorrelation</strong></p></li>
-</ul>
-<p>Use a quiet room. Use your amazing voice and a tuning fork.</p>
-</section>
-<hr class="docutils" />
-<section id="experiments-recording-exporting-and-analyzing-data">
-<h2>3) Experiments — Recording, Exporting, and Analyzing Data<a class="headerlink" href="#experiments-recording-exporting-and-analyzing-data" title="Link to this heading">#</a></h2>
-<p>In this lab, you will use <strong>phyphox</strong> to record short sound samples and analyze them using both <strong>FFT (frequency domain)</strong> and <strong>Autocorrelation (time domain)</strong> tools.<br />
-You will also <strong>export your data</strong> for further analysis and plotting on a computer.</p>
-<hr class="docutils" />
-<section id="general-setup">
-<h3>⚙️ General Setup<a class="headerlink" href="#general-setup" title="Link to this heading">#</a></h3>
+<section id="procedure">
+<h2><strong>Procedure</strong><a class="headerlink" href="#procedure" title="Link to this heading">#</a></h2>
+<section id="part-a-measure-the-pendulum-geometry">
+<h3><strong>Part A — Measure the Pendulum Geometry</strong><a class="headerlink" href="#part-a-measure-the-pendulum-geometry" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
-<li><p>Open <strong>phyphox</strong> on your smartphone.</p></li>
-<li><p>Select one of the following experiments:</p>
-<ul class="simple">
-<li><p><strong>Audio Spectrum (FFT)</strong></p></li>
-<li><p><strong>Audio Autocorrelation</strong></p></li>
-</ul>
-</li>
-<li><p>The <strong>sampling rate</strong> is typically fixed around <strong>2048 samples per second</strong>, which is sufficient for this lab.</p></li>
-<li><p>No buffer length needs to be set — the app will record while you hold the record button.</p></li>
-<li><p><strong>Timing is important:</strong></p>
-<ul class="simple">
-<li><p>Wait until the sound source is already on before starting recording.</p></li>
-<li><p>Stop recording <strong>before</strong> the sound stops.</p></li>
-<li><p>This ensures your data only contains the steady part of the signal.</p></li>
-<li><p>Take screenshots for comparison to your own generated plots.</p></li>
-</ul>
-</li>
-<li><p>After each recording, tap the <strong>⋮ menu → Export data → CSV</strong>.</p>
-<ul class="simple">
-<li><p>Export “Time vs Amplitude” for Autocorrelation data or “Frequency vs Amplitude” for FFT data.</p></li>
-<li><p>Save each file with a clear name, e.g. <code class="docutils literal notranslate"><span class="pre">PartA_FFT.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">PartA_AC.csv</span></code>.</p></li>
-<li><p>Send the files to your computer for plotting.</p></li>
-</ul>
-</li>
+<li><p>Measure the length of the string from the pivot point to the point where the string attaches to the phone. Record this as <span class="math notranslate nohighlight">\(L_s\)</span>.</p></li>
+<li><p>Measure the dimensions of the phone and estimate the location of its center of mass.</p></li>
+<li><p>Estimate the distance from the string attachment point on the phone to the center of mass. Record this as <span class="math notranslate nohighlight">\(d\)</span>.</p></li>
+<li><p>Compute the effective pendulum length:</p></li>
 </ol>
-</section>
-<hr class="docutils" />
-<section id="part-a-single-tone-comparing-fft-and-autocorrelation">
-<h3><strong>Part A — Single Tone: Comparing FFT and Autocorrelation</strong><a class="headerlink" href="#part-a-single-tone-comparing-fft-and-autocorrelation" title="Link to this heading">#</a></h3>
-<p><strong>Goal:</strong> Measure the same steady tone using both methods and compare the frequencies.</p>
-<ol class="arabic">
-<li><p>Generate or whistle a steady tone (300–800 Hz) for about <strong>3–5 seconds</strong>.</p></li>
-<li><p>Use <strong>Audio Spectrum (FFT)</strong> and record while the tone is constant.</p></li>
-<li><p>Export and save the data (<code class="docutils literal notranslate"><span class="pre">.csv</span></code>).</p></li>
-<li><p>Repeat using <strong>Audio Autocorrelation</strong> and export that dataset as well.</p></li>
-<li><p>Plot both datasets:</p>
-<ul class="simple">
-<li><p><strong>FFT:</strong> Frequency (Hz) on x-axis, amplitude on y-axis.</p></li>
-<li><p><strong>Autocorrelation:</strong> Lag (s) on x-axis, normalized correlation on y-axis.</p></li>
-</ul>
-</li>
-<li><p>From FFT, find the <strong>frequency of the main peak</strong> <span class="math notranslate nohighlight">\( f_{\text{FFT}} \)</span>.</p></li>
-<li><p>From Autocorrelation, find the <strong>first nonzero-lag peak</strong> at <span class="math notranslate nohighlight">\( \tau_1 \)</span> and calculate</p>
 <div class="math notranslate nohighlight">
 \[
-   f_{\text{AC}} = \frac{1}{\tau_1}.
-   \]</div>
-</li>
-<li><p>Compare <span class="math notranslate nohighlight">\( f_{\text{FFT}} \)</span> and <span class="math notranslate nohighlight">\( f_{\text{AC}} \)</span>, and compute the percent difference.</p></li>
+L = L_s + d
+\]</div>
+<ol class="arabic simple" start="5">
+<li><p>Record all measurements with units and reasonable uncertainty estimates.</p></li>
 </ol>
 </section>
 <hr class="docutils" />
-<section id="part-b-harmonics-and-timbre">
-<h3><strong>Part B — Harmonics and Timbre</strong><a class="headerlink" href="#part-b-harmonics-and-timbre" title="Link to this heading">#</a></h3>
-<p><strong>Goal:</strong> Examine complex periodic sounds to see harmonics (Fourier view) and periodicity (time view).</p>
+<section id="part-b-predict-the-angular-frequency">
+<h3><strong>Part B — Predict the Angular Frequency</strong><a class="headerlink" href="#part-b-predict-the-angular-frequency" title="Link to this heading">#</a></h3>
+<p>Using your measured effective length, calculate the theoretical angular frequency:</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_{\text{theory}} = \sqrt{\frac{g}{L}}
+\]</div>
+<p>Then calculate the theoretical period:</p>
+<div class="math notranslate nohighlight">
+\[
+T_{\text{theory}} = 2\pi\sqrt{\frac{L}{g}}
+\]</div>
+<p>Record both values.</p>
+</section>
+<hr class="docutils" />
+<section id="part-c-measure-the-motion-with-phyphox">
+<h3><strong>Part C — Measure the Motion with Phyphox</strong><a class="headerlink" href="#part-c-measure-the-motion-with-phyphox" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
-<li><p>Record your <strong>voice</strong> (sustained “ahh”) or a musical instrument playing one note.</p></li>
-<li><p>Export both <strong>FFT</strong> and <strong>Autocorrelation</strong> data.</p></li>
-<li><p>Plot:</p>
-<ul class="simple">
-<li><p>FFT: Identify the <strong>fundamental frequency</strong> and its <strong>harmonics</strong> at <span class="math notranslate nohighlight">\( 2f_0, 3f_0, \dots \)</span>.</p></li>
-<li><p>Autocorrelation: Identify the <strong>period</strong> <span class="math notranslate nohighlight">\( T_0 \)</span> between repeating peaks.</p></li>
-</ul>
-</li>
-<li><p>Calculate <span class="math notranslate nohighlight">\( f_0 = 1/T_0 \)</span> from the autocorrelation.</p></li>
-<li><p>Discuss:</p>
-<ul class="simple">
-<li><p>Which plot shows harmonics (tone color)?</p></li>
-<li><p>Which plot shows a cleaner measure of pitch (periodicity)?</p></li>
-</ul>
-</li>
+<li><p>Open the <strong>Phyphox</strong> app and select the pendulum experiment.</p></li>
+<li><p>Set the pendulum swinging with a <strong>small initial angle</strong>. Try to keep the release gentle so that the phone swings in a single plane.</p></li>
+<li><p>Start the measurement and allow the pendulum to oscillate for many cycles.</p></li>
+<li><p>Record the measured period <span class="math notranslate nohighlight">\(T_{\text{measured}}\)</span> from Phyphox.</p></li>
+<li><p>Use the measured period to compute the experimental angular frequency:</p></li>
 </ol>
-</section>
-<hr class="docutils" />
-<section id="part-c-beats-from-two-nearby-tones">
-<h3><strong>Part C — Beats from Two Nearby Tones</strong><a class="headerlink" href="#part-c-beats-from-two-nearby-tones" title="Link to this heading">#</a></h3>
-<p><strong>Goal:</strong> Observe beats in both domains and measure their frequency.</p>
-<ol class="arabic">
-<li><p>Play two tones close in pitch (for example, 440 Hz and 450 Hz).</p></li>
-<li><p>Use <strong>Audio Spectrum (FFT)</strong> to record the combined sound.</p>
-<ul class="simple">
-<li><p>Expect two nearby peaks at <span class="math notranslate nohighlight">\( f_1 \)</span> and <span class="math notranslate nohighlight">\( f_2 \)</span>.</p></li>
-</ul>
-</li>
-<li><p>Then record with <strong>Autocorrelation</strong>.</p>
-<ul class="simple">
-<li><p>Expect a slower repeating pattern (beat envelope) in the autocorrelation.</p></li>
-</ul>
-</li>
-<li><p>Export and plot both datasets.</p></li>
-<li><p>Measure the <strong>beat period</strong> <span class="math notranslate nohighlight">\( T_b \)</span> from the spacing between large peaks in the autocorrelation plot, and compute</p>
 <div class="math notranslate nohighlight">
 \[
-   f_b = \frac{1}{T_b}.
-   \]</div>
-</li>
-<li><p>Compare <span class="math notranslate nohighlight">\( f_b \)</span> with the theoretical value <span class="math notranslate nohighlight">\( |f_2 - f_1| \)</span>.</p></li>
+\omega_{\text{measured}} = \frac{2\pi}{T_{\text{measured}}}
+\]</div>
+<ol class="arabic simple" start="6">
+<li><p>If Phyphox reports frequency directly, you may also use</p></li>
 </ol>
+<div class="math notranslate nohighlight">
+\[
+\omega_{\text{measured}} = 2\pi f
+\]</div>
+<ol class="arabic simple" start="7">
+<li><p>Repeat the measurement at least <strong>three times</strong> and average your results.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="part-d-compare-theory-and-experiment">
+<h3><strong>Part D — Compare Theory and Experiment</strong><a class="headerlink" href="#part-d-compare-theory-and-experiment" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Compare your theoretical and measured values of angular frequency.</p></li>
+<li><p>Calculate the percent difference:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\%\text{ difference} = \frac{|\omega_{\text{measured}} - \omega_{\text{theory}}|}{\omega_{\text{theory}}}\times 100\%
+\]</div>
+<ol class="arabic simple" start="3">
+<li><p>Decide whether your results agree reasonably well.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="part-e-optional-extension">
+<h3><strong>Part E — Optional Extension</strong><a class="headerlink" href="#part-e-optional-extension" title="Link to this heading">#</a></h3>
+<p>Repeat the experiment for a different pendulum length.</p>
+<ul class="simple">
+<li><p>Does a longer pendulum produce a larger or smaller angular frequency?</p></li>
+<li><p>Does the trend agree with</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\omega \propto \frac{1}{\sqrt{L}} \, ?
+\]</div>
+<p>If time permits, test whether larger initial angles change the measured period noticeably.</p>
 </section>
 </section>
 <hr class="docutils" />
-<section id="key-takeaway">
-<h2>4) Key Takeaway<a class="headerlink" href="#key-takeaway" title="Link to this heading">#</a></h2>
-<p>Both FFT and Autocorrelation are ways of comparing one function with another:</p>
+<section id="data-analysis">
+<h2><strong>Data Analysis</strong><a class="headerlink" href="#data-analysis" title="Link to this heading">#</a></h2>
+<p>For your analysis, show the following clearly:</p>
+<ol class="arabic simple">
+<li><p>Your measured values of <span class="math notranslate nohighlight">\(L_s\)</span> and <span class="math notranslate nohighlight">\(d\)</span></p></li>
+<li><p>Your calculation of the effective length <span class="math notranslate nohighlight">\(L\)</span></p></li>
+<li><p>Your theoretical calculation of <span class="math notranslate nohighlight">\(\omega_{\text{theory}}\)</span></p></li>
+<li><p>Your measured average period <span class="math notranslate nohighlight">\(T_{\text{measured}}\)</span></p></li>
+<li><p>Your calculation of <span class="math notranslate nohighlight">\(\omega_{\text{measured}}\)</span></p></li>
+<li><p>Your percent difference between theory and experiment</p></li>
+</ol>
+<p>A sample structure is:</p>
+<div class="math notranslate nohighlight">
+\[
+L = L_s + d
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\omega_{\text{theory}} = \sqrt{\frac{g}{L}}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\omega_{\text{measured}} = \frac{2\pi}{T_{\text{measured}}}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\%\text{ difference} = \frac{|\omega_{\text{measured}} - \omega_{\text{theory}}|}{\omega_{\text{theory}}}\times 100\%
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="discussion-questions">
+<h2><strong>Discussion Questions</strong><a class="headerlink" href="#discussion-questions" title="Link to this heading">#</a></h2>
+<p>Answer the following in complete sentences:</p>
+<ol class="arabic simple">
+<li><p>Why must the pendulum angle remain small for the SHM model to work well?</p></li>
+<li><p>Why is the effective length measured to the phone’s center of mass rather than just to the top of the phone?</p></li>
+<li><p>Did your measured angular frequency agree with theory? If not, what are the most likely sources of error?</p></li>
+<li><p>How would increasing the pendulum length affect the period?</p></li>
+<li><p>Would this setup still behave like an ideal simple pendulum for very large swing angles? Why or why not?</p></li>
+<li><p>How might air resistance, shifting motion of the phone, or an inaccurate center-of-mass estimate affect the result?</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="sources-of-uncertainty">
+<h2><strong>Sources of Uncertainty</strong><a class="headerlink" href="#sources-of-uncertainty" title="Link to this heading">#</a></h2>
+<p>Some common uncertainties in this lab include:</p>
 <ul class="simple">
-<li><p>FFT compares your sound with <strong>mathematically perfect tones</strong> (sines and cosines).</p></li>
-<li><p>Autocorrelation compares your sound with <strong>itself shifted in time</strong>.</p></li>
+<li><p>uncertainty in locating the phone’s center of mass</p></li>
+<li><p>slight motion outside a single plane</p></li>
+<li><p>large release angle</p></li>
+<li><p>reaction or sensor limitations</p></li>
+<li><p>stretch in the string</p></li>
+<li><p>imperfect pivot point</p></li>
+<li><p>damping from air resistance</p></li>
 </ul>
-<p>Both rely on the idea that functions can be <strong>orthogonal</strong>, and that we can find out “how much” one function overlaps with another — just like taking a <strong>dot product</strong> between vectors.</p>
+<p>Be specific about which of these mattered most in your experiment.</p>
+</section>
+<hr class="docutils" />
+<section id="conclusion">
+<h2><strong>Conclusion</strong><a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>In this lab we modeled a phone pendulum as a simple harmonic oscillator. By estimating the distance from the pivot to the phone’s center of mass, we calculated a theoretical angular frequency using</p>
+<div class="math notranslate nohighlight">
+\[
+\omega = \sqrt{\frac{g}{L}}
+\]</div>
+<p>We then used Phyphox to measure the pendulum’s actual oscillation and compared experiment to theory. The quality of agreement shows how well a real pendulum follows the ideal SHM model and highlights the importance of small-angle motion and careful length measurement.</p>
+</section>
+<hr class="docutils" />
+<section id="what-to-turn-in">
+<h2><strong>What to Turn In</strong><a class="headerlink" href="#what-to-turn-in" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Completed data tables</p></li>
+<li><p>Theoretical calculation of <span class="math notranslate nohighlight">\(\omega_{\text{theory}}\)</span> and <span class="math notranslate nohighlight">\(T_{\text{theory}}\)</span></p></li>
+<li><p>Experimental determination of <span class="math notranslate nohighlight">\(T_{\text{measured}}\)</span> and <span class="math notranslate nohighlight">\(\omega_{\text{measured}}\)</span></p></li>
+<li><p>Percent difference calculation</p></li>
+<li><p>Answers to the discussion questions</p></li>
+<li><p>A short conclusion summarizing whether theory and experiment agreed</p></li>
+</ol>
 <hr class="docutils" />
 </section>
 </section>
@@ -943,6 +774,15 @@ You will also <strong>export your data</strong> for further analysis and plottin
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../lab10/lab10.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lab 10 — Uncertainty and Error Propagation</p>
+      </div>
+    </a>
 </div>
                 </footer>
               
@@ -959,39 +799,30 @@ You will also <strong>export your data</strong> for further analysis and plottin
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sound-as-a-function">Sound as a Function</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dot-product-orthogonality-and-the-idea-behind-fourier-analysis">Dot Product, Orthogonality, and the Idea Behind Fourier Analysis</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-dot-product-for-functions">(a) Dot Product for Functions</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#b-orthogonality-of-sine-and-cosine-functions">(b) Orthogonality of Sine and Cosine Functions</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c-fourier-series-as-expansion-in-orthogonal-functions">(c) Fourier Series as Expansion in Orthogonal Functions</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-a-simple-example">(d) A Simple Example</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transform-fft-in-phyphox">Fourier Transform (FFT in phyphox)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview"><strong>Overview</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives"><strong>Learning Objectives</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-theory"><strong>Background Theory</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-harmonic-motion"><strong>1. Simple Harmonic Motion</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pendulum-motion"><strong>2. Pendulum Motion</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#effective-length-of-the-phone-pendulum"><strong>3. Effective Length of the Phone Pendulum</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#percent-difference"><strong>4. Percent Difference</strong></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#autocorrelation-comparing-a-function-with-itself">Autocorrelation — Comparing a Function with Itself</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-the-basic-idea">(a) The Basic Idea</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#b-physical-meaning">(b) Physical Meaning</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c-example-a-simple-sine-wave">(c) Example — A Simple Sine Wave</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#d-why-it-works-for-real-sounds">(d) Why It Works for Real Sounds</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#e-relationship-to-fourier-transform">(e) Relationship to Fourier Transform</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-summary-of-the-intuition">(f) Summary of the Intuition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equipment"><strong>Equipment</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-setup"><strong>Experimental Setup</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure"><strong>Procedure</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-a-measure-the-pendulum-geometry"><strong>Part A — Measure the Pendulum Geometry</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-b-predict-the-angular-frequency"><strong>Part B — Predict the Angular Frequency</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-c-measure-the-motion-with-phyphox"><strong>Part C — Measure the Motion with Phyphox</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-d-compare-theory-and-experiment"><strong>Part D — Compare Theory and Experiment</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-e-optional-extension"><strong>Part E — Optional Extension</strong></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-of-the-two-methods">5) Comparison of the Two Methods</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phyphox-setup">2) Phyphox Setup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiments-recording-exporting-and-analyzing-data">3) Experiments — Recording, Exporting, and Analyzing Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-setup">⚙️ General Setup</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-a-single-tone-comparing-fft-and-autocorrelation"><strong>Part A — Single Tone: Comparing FFT and Autocorrelation</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-b-harmonics-and-timbre"><strong>Part B — Harmonics and Timbre</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-c-beats-from-two-nearby-tones"><strong>Part C — Beats from Two Nearby Tones</strong></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaway">4) Key Takeaway</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-analysis"><strong>Data Analysis</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-questions"><strong>Discussion Questions</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sources-of-uncertainty"><strong>Sources of Uncertainty</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion"><strong>Conclusion</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-to-turn-in"><strong>What to Turn In</strong></a></li>
 </ul>
   </nav></div>
 
