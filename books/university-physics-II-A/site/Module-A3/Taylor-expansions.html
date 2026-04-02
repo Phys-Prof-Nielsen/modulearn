@@ -1,0 +1,694 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>A3.1 Taylor Expansions &#8212; A Competency Approach to University Physics II</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-A3/Taylor-expansions';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-A.png" class="logo__image only-light" alt="A Competency Approach to University Physics II - Home"/>
+    <script>document.write(`<img src="../_static/logo-A.png" class="logo__image only-dark" alt="A Competency Approach to University Physics II - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to University Physics II: A Compendium to the A Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://modulearn.academy/spheres/physics/university-physics-II/university-physics-II.html">University Physics II Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module A1 - Maxwell's Equations'</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-A1/maxwell.html">A1.1 Maxwell’s Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A1/wave-equation.html">A1.2 Deriving the Electromagnetic Wave Equation from Maxwell’s Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A1/plane-wave.html">A1.3 Plane Wave Solutions and Transverse Nature of Electromagnetic Waves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A1/poynting-vector.html">A1.4 Poynting Vector and Energy in Electromagnetic Waves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A1/radiation-pressure.html">A1.5 Radiation Pressure and Momentum Transfer in Electromagnetic Waves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A1/problemsA1.html">A1.6 Problems</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/physics-sphere/blob/main/books/university-physics-II-A/Module-A3/Taylor-expansions.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Phys-Prof-Nielsen/physics-sphere" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Phys-Prof-Nielsen/physics-sphere/issues/new?title=Issue%20on%20page%20%2FModule-A3/Taylor-expansions.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-A3/Taylor-expansions.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>A3.1 Taylor Expansions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a3-1-1-motivation">A3.1.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a3-1-2-taylor-s-series">A3.1.2 Taylor’s Series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a3-1-3-binomial-series">A3.1.3 Binomial Series</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="a3-1-taylor-expansions">
+<h1>A3.1 Taylor Expansions<a class="headerlink" href="#a3-1-taylor-expansions" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><section id="a3-1-1-motivation">
+<h2>A3.1.1 Motivation<a class="headerlink" href="#a3-1-1-motivation" title="Link to this heading">#</a></h2>
+<p>Taylor expansions is a mathematical tool that is heavily utilized in the fields of physics and engineering. The topic is typically covered in Calculus II, but it is advantageous to illustrate the use of the expansions both in Physics I and II. We will not cover the rigorous mathematical treatment, but only show simple applications that will make our life easier in Physics I and II. Series expansions are often utilized when approximations may be required to solve a problem. With these expansions, we can justify our approximation and even gain information regarding the orders of magnitude of the ignored terms.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="a3-1-2-taylor-s-series">
+<h2>A3.1.2 Taylor’s Series<a class="headerlink" href="#a3-1-2-taylor-s-series" title="Link to this heading">#</a></h2>
+<p>A well-behaved function <span class="math notranslate nohighlight">\(f(x)\)</span> can be approximated by an infinite (and convergent) power series around a point <span class="math notranslate nohighlight">\(a\)</span></p>
+<div class="math notranslate nohighlight">
+\[ f(x) = f(a) + (x-a)\left.\frac{df}{dx}\right |_{x = a} + \frac{(x-a)^2}{2!}\left.\frac{d^{2}f}{dx^2}\right|_{x = a}
++ \frac{(x-a)^3}{3!}\left.\frac{d^{3}f}{dx^3}\right |_{x = a} + \cdots \]</div>
+<p>or written more concisely</p>
+<div class="math notranslate nohighlight">
+\[ f(x) = \sum^{\infty}_{n=0}\frac{(x-a)^n}{n!}\left.\frac{d^{n}f}{dx^n}\right|_{x=a} \]</div>
+<p>We can truncate the Taylor series and obtain the <strong>Taylor polynomial</strong></p>
+<div class="alert alert-success">
+<div class="math notranslate nohighlight">
+\[ f(x) \sim f(a) + (x-a)\left.\frac{df}{dx}\right |_{x = a} + \frac{(x-a)^2}{2!}\left.\frac{d^{2}f}{dx^2}\right|_{x = a} +  \cdots +  \frac{(x-a)^n}{n!}\left.\frac{d^{n}f}{dx^n}\right |_{x = a} \]</div>
+</div>
+<p>where we have neglected terms with orders greater of <span class="math notranslate nohighlight">\((x-a)^{n+1}\)</span>. We may say that the error of approximating <span class="math notranslate nohighlight">\(f(x)\)</span> with the Taylor polynomial is <span class="math notranslate nohighlight">\(\mathcal{O}(x-a)^{n+1}\)</span>. The later should be read as “…the order of <span class="math notranslate nohighlight">\((x-a)^{n+1}\)</span>”.</p>
+<div class="alert alert-info">
+<p>The Taylor Polynomial is a method to approximate non-linear and/or complex functions with a sum of simple polynomials.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div style="background-color: #D0D0D0 ; padding: 10px; border: 1px solid black;">       
+<header>
+<h3> Example 1</h3>
+    </header>
+<p>Let <span class="math notranslate nohighlight">\(f(x) = \cos(x)\)</span>. Approximate this function with polynomials around the point <span class="math notranslate nohighlight">\(a = 0\)</span> (we often say “ expand the function <span class="math notranslate nohighlight">\(f(x)\)</span> around <span class="math notranslate nohighlight">\(a\)</span>) to include three non-zero terms.</p>
+<p><strong>Solution</strong></p>
+<p>From Equation (1), we will calculate each term on the right side and recognize that <span class="math notranslate nohighlight">\(a = 0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ f(a) = \cos(0) = 1\]</div>
+<div class="math notranslate nohighlight">
+\[ (x - a)\left.\frac{df}{dx}\right |_{x = a} = (x-0)[-\sin(0)]  = 0 \]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{(x-a)^2}{2!}\left.\frac{d^{2}f}{dx^2}\right|_{x = a} = \frac{(x-0)^2}{2!}[-\cos(0)] = -\frac{x^2}{2}\]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{(x-a)^3}{3!}\left.\frac{d^{3}f}{dx^3}\right|_{x = a} = \frac{(x-0)^3}{3!}[\sin(0)] = 0\]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{(x-a)^4}{4!}\left.\frac{d^{4}f}{dx^4}\right|_{x = a} = \frac{(x-0)^4}{4!}[\cos(0)] = \frac{x^4}{24}\]</div>
+<p>We now have 3 non-zero terms and the Taylor polynoimal (or approximation) is</p>
+<div class="alert alert-success">
+<div class="math notranslate nohighlight">
+\[ \cos(x) = 1 -\frac{x^2}{2} + \frac{x^4}{24} \]</div>
+</div>
+<p>The next term that is not zero is a polynomial to the power of <span class="math notranslate nohighlight">\(6\)</span>: <span class="math notranslate nohighlight">\(\mathcal{O}(x)^{6}\)</span>. <strong>We can then with confidence say that our error in approximating <span class="math notranslate nohighlight">\(f(x) = \cos(x)\)</span> with the above polynomial is of the order of <span class="math notranslate nohighlight">\(x^6\)</span> or less</strong>. For small <span class="math notranslate nohighlight">\(x\)</span>, we can thus approximate <span class="math notranslate nohighlight">\(\cos(x) = 1 - \frac{x^2}{2} +  \frac{x^4}{24}\)</span>.</p>
+<p>We can estimate the error if we set a certain value. If <span class="math notranslate nohighlight">\(x = 2.0\times 10^{-1}\)</span>~radians (<span class="math notranslate nohighlight">\(\sim 11.5^\circ\)</span>), then our error is on the order of <span class="math notranslate nohighlight">\(x^6 \sim10^{-4}\)</span>, where we rounded <span class="math notranslate nohighlight">\((2.0\times 10^{-1})^6\)</span> up to the nearest order of magnitude. If we truncate after the second term, then we have <span class="math notranslate nohighlight">\(\cos(x) = 1 - \frac{x^2}{2}\)</span> and an error of <span class="math notranslate nohighlight">\(\sim 10^{-3}\)</span>. In many of our applications for this course, we may be satisfied with just keeping the first term of the expansion. So when we say that cosine of a small angle is close to <span class="math notranslate nohighlight">\(1\)</span>, we can be a lot more specific now as we can inform about the error in that approximation.</p>
+<p>NOTE: this is how calculators and computers find the values of functions such as cosine and sine. The Taylor Polynomial is easy to program into a computer script and the computer can let <span class="math notranslate nohighlight">\(n\)</span> become very large and achieve the accuracy needed for either 32- or 64-bit systems.</p>
+<p>A graphical representation may be beneficial to conceptualize what we are doing here. Below, I am plotting <span class="math notranslate nohighlight">\(f(x) = \cos(x)\)</span> from <span class="math notranslate nohighlight">\(x = [-2\pi, +2\pi]\)</span>, and each accumulative term in the series we found above.</p>
+</div><div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">f0</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">f4</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">4</span><span class="o">/</span><span class="mi">24</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;f(x)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">f0</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">f2</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">f4</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">)])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">])</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dotted&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/d87043c02ada75649f7eb63d99f8f3eeb13f338be6845118ef88e13b8cd62a17.png" src="../_images/d87043c02ada75649f7eb63d99f8f3eeb13f338be6845118ef88e13b8cd62a17.png" />
+</div>
+</div>
+<div style="background-color: #D0D0D0 ; padding: 10px; border: 1px solid black;">  
+<p><strong>Reflection</strong>: The black line is the actual function.</p>
+<ul class="simple">
+<li><p>We see that the lowest order approximation (red) is just the constant value <span class="math notranslate nohighlight">\(1\)</span> and is exact at <span class="math notranslate nohighlight">\(x = 0\)</span>, and may be an ok approximation in very close proximity to <span class="math notranslate nohighlight">\(x = 0\)</span>. In fact, within <span class="math notranslate nohighlight">\(\pm 5^\circ\)</span>, it is often an adequate approximation. We call this the <strong>small angle approximation</strong> and we will use that at time in this course.</p></li>
+<li><p>The polynomial consisting of the first two terms of the expansion is shown in blue. This is a significantly better approximation and appears to be almost exact out to <span class="math notranslate nohighlight">\(\pm 1\)</span> radians (57<span class="math notranslate nohighlight">\(^\circ\)</span>). Not too shappy at all!</p></li>
+<li><p>The polynomial represented by the green graph has three terms included and appears to be almost exact out to <span class="math notranslate nohighlight">\(\pm 2\)</span> radians (115<span class="math notranslate nohighlight">\(^\circ\)</span>), which is pretty outstanding!</p></li>
+</ul>
+<p>So if you need to calculate the sine of an angle, but do not have a calculator handy, who do you call? The Taylor Expansion! This is pretty hot stuff.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-warning">
+<p><strong>Box 1</strong></p>
+<p>Expand the function <span class="math notranslate nohighlight">\(f(x) = \sin(x)\)</span> around a = 0 using the approach above. Expand to the first three non-zero terms and describe the order of the truncation error. Make a similar plot of the polynomial approximations by considering the first term only, the first two terms, and finally the first three terms.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-warning">
+<b>Box 2</b><br>
+<p>Expand the function <span class="math notranslate nohighlight">\(f(x) = \textrm{e}^x\)</span> around a = 0 to the first three non-zero terms. Make a plot of the function and the approximate polynomial incl. the first term only, the first two terms, and finally the first three terms.</p>
+  </div>
+  <hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="a3-1-3-binomial-series">
+<h2>A3.1.3 Binomial Series<a class="headerlink" href="#a3-1-3-binomial-series" title="Link to this heading">#</a></h2>
+<p>In physics we are often presented with a function of the form <span class="math notranslate nohighlight">\(f(x) = (1 + x)^n\)</span>. The Taylor series of this function around a = 0 is known as the <strong>binomial series</strong>:</p>
+<div class="alert alert-success">
+<div class="math notranslate nohighlight">
+\[ f(x) = 1 + nx + \frac{n(n-1)}{2!}x^2 + \frac{n(n-1)(n-2)}{3!}x^3 + \cdots \tag{2}\]</div>
+</div>
+<p>We use it often enough that we will not derive it each time, but instead just apply Equation (2).</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-warning">
+<b>Box 3</b><br>
+<p>Expand the function <span class="math notranslate nohighlight">\(f(x) = (1 + x)^{1/2}\)</span> around a = 0 to the first three non-zero terms using the binomial
+expansion formula. Make a plot similarly to above. HINT: identify what <span class="math notranslate nohighlight">\(n\)</span> is and insert into Equation (2).</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-warning">
+<b>Box 4</b><br>
+<p>Expand the function <span class="math notranslate nohighlight">\(f(x) = (1 + x)^{-1/2}\)</span> around a = 0 to the first three non-zero terms using the binomial
+expansion formula. Make a plot similarly to above. HINT: identify what <span class="math notranslate nohighlight">\(n\)</span> is and insert into Equation (2).</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-warning">
+<b>Box 5</b><br>
+<p>Expand the function <span class="math notranslate nohighlight">\(\gamma = \frac{1}{\sqrt{1 - \left(\frac{v}{c}\right)^2}}\)</span> around a = 0 to the first three non-zero terms using the binomial
+expansion formula. Make a plot similarly to above. HINT: redefine <span class="math notranslate nohighlight">\(x\)</span> such that the binomial expansion can be applied, identify what <span class="math notranslate nohighlight">\(n\)</span> is and insert into Equation (2).</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Phys-Prof-Nielsen/physics-sphere",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-A3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a3-1-1-motivation">A3.1.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a3-1-2-taylor-s-series">A3.1.2 Taylor’s Series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a3-1-3-binomial-series">A3.1.3 Binomial Series</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
