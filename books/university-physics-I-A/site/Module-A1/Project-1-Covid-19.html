@@ -1,0 +1,953 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>A1.4 Realistic Projectile Motion Project 1: Covid-19 &#8212; A Competency Approach to Introductory Physics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/save_cell.css?v=43dd4451" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-A1/Project-1-Covid-19';</script>
+    <script src="../_static/save_cell.js?v=d135a7b8"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="A1.5 Realistic Projectile Motion Project 2: Artillery" href="Project-2-Artillery.html" />
+    <link rel="prev" title="A1.3 Numerical Methods - Practice" href="Numerical-methods-practice.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-A.png" class="logo__image only-light" alt="A Competency Approach to Introductory Physics - Home"/>
+    <script>document.write(`<img src="../_static/logo-A.png" class="logo__image only-dark" alt="A Competency Approach to Introductory Physics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to University Physics I: A Compendium to the A Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/university-physics-I/university-physics-I.html">University Physics I Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module A1 - Numerical Method</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Taylor-expansions.html">A1.1 Taylor Expansions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Numerical-methods.html">A1.2 Numerical Integration: Finite Difference Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Numerical-methods-practice.html">A1.3 Numerical Methods - Practice</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">A1.4 Realistic Projectile Motion Project 1: Covid-19</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Project-2-Artillery.html">A1.5 Realistic Projectile Motion Project 2: Artillery</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module A2 - Translational + Rotational Dynamics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-A2/angular-momentum.html">A2.1 Angular Momentum Revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A2/translational-rotational.html">A2.2 A Note on Combined Translational and Rotational Angular Speed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A2/newton-rotational.html">A2.3 Newton’s 2nd Law - Rotational Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A2/problemsA2.html">A2.x Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module A3 - Gravity</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/newton-law-gravity.html">A3.1 Newton’s Law of Gravity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/mass-distributions.html">A3.2 Newton’s Law of Gravity -  Mass Distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/flux.html">A3.3 Field Flux</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/problemsA3.html">A3.X Problems</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Module-A1/Project-1-Covid-19.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-A1/Project-1-Covid-19.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>A1.4 Realistic Projectile Motion Project 1: Covid-19</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-4-1-objective">A1.4.1 Objective</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-4-2-background">A1.4.2 Background</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#physics-background">Physics Background</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#covid-19-molecule">Covid-19 Molecule</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-4-3-methodology">A1.4.3 Methodology</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-method">Numerical Method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#air-drag">Air Drag</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#air-drag-components">Air Drag Components</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterative-equations">Iterative Equations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#auxiliary-equations-and-values">Auxiliary Equations and Values</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-4-4-results">A1.4.4 Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sneeze-droplet">Sneeze Droplet</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-observation">Quick Observation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#breathing">Breathing</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Quick Observation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-4-5-summary">A1.4.5 Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-4-6-references">A1.4.6 References</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="a1-4-realistic-projectile-motion-project-1-covid-19">
+<h1>A1.4 Realistic Projectile Motion Project 1: Covid-19<a class="headerlink" href="#a1-4-realistic-projectile-motion-project-1-covid-19" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><section id="a1-4-1-objective">
+<h2>A1.4.1 Objective<a class="headerlink" href="#a1-4-1-objective" title="Link to this heading">#</a></h2>
+<p>The recommendation for safe physical distancing is 6 ft to limit the spread of the SARS-CoV-2 virus also known as the COVID-19. The objective of this project is to find out of 6 ft really is a safe distance or just something put forth by scientists who barely passed physics.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="a1-4-2-background">
+<h2>A1.4.2 Background<a class="headerlink" href="#a1-4-2-background" title="Link to this heading">#</a></h2>
+<section id="physics-background">
+<h3>Physics Background<a class="headerlink" href="#physics-background" title="Link to this heading">#</a></h3>
+<p>We have explored kinematics and numerical methods on how to solve first order differential equations that can not be solved through analytical integration. This allow us to study a more realistic trajectory for the COVID-19 molecule in comparison to the textbook standard projectile motion.</p>
+<p>The trajectory of the molecule(s) can be parameterized by <span class="math notranslate nohighlight">\(x\)</span>- and <span class="math notranslate nohighlight">\(y\)</span>-positions (with <span class="math notranslate nohighlight">\(y\)</span> being our vertical direction) in a <span class="math notranslate nohighlight">\(xy\)</span>-plane with these positions dictated through accelerations and velocites. Obviously, we have the acceleration of gravity acting on the molecule(s) in the vertical direction, but we will go one step futher and include acceleration due to air drag after the molecule(s) leave the host.</p>
+</section>
+<section id="covid-19-molecule">
+<h3>Covid-19 Molecule<a class="headerlink" href="#covid-19-molecule" title="Link to this heading">#</a></h3>
+<img src="covid.jpeg" width="300">
+<p>The Covid-19 pandemic was caused by the SARS-CoV-2 virus and predominantly spread through droplet transmission via breathing talk, cough, and sneeze. Due to its effective transmission and novel nature, it caused a pandemic and affected the life of everyone more or less. While the most severe cases resulted in deaths, a majority of people only exhibited cold-like symptoms.</p>
+<p>The novel nature of the virus implies that we do not have a clear picture of long-term effects of this virus and as such, catious behaviors are recommended to limit its transmission. The number one recommendation to spread the virus is termed <b>social distancing</b>, which is an absolutely ridiculous term as it clearly refers to <b>physical distancing</b>. The goal is to avoid physical interactions of close proximity. Social interactions can take place over large distances via phone or computer and has absolutely no capability of transmitting the virus.</p>
+<p>Obviously this term was coined by either a politician, liberal arts graduate, or a social “scientist” (this is of course ment as a physics joke. I have nothing againts people with these careers or education background, I just do not respect them. Okay, that last one was another physics jokes as we are known to be among the most arrogant people :)  I do respect them as well, yet, the social distancing terminology is still mindboggling to me. How do you measure a social distance? Apparently in feet, just like a physical distance: “Hey, you over there, a social distance of 6 ft from me”.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="a1-4-3-methodology">
+<h2>A1.4.3 Methodology<a class="headerlink" href="#a1-4-3-methodology" title="Link to this heading">#</a></h2>
+<section id="numerical-method">
+<h3>Numerical Method<a class="headerlink" href="#numerical-method" title="Link to this heading">#</a></h3>
+<p>The numerical scheme will attempt to approximate the <span class="math notranslate nohighlight">\(x\)</span>- and <span class="math notranslate nohighlight">\(y\)</span>-positions from the respective accelerations through</p>
+<div class="math notranslate nohighlight">
+\[ \vec{a} = \frac{d^2\vec{r}}{dt^2} \]</div>
+<p>or in component form:</p>
+<div class="math notranslate nohighlight">
+\[ a_x = \frac{d^{2}x}{dt^2} \]</div>
+<div class="math notranslate nohighlight">
+\[ a_y = \frac{d^{2}y}{dt^2} \]</div>
+<p>Unfortunately, we have not learned about finite difference methods for second derivative, only first derivative. So what do we do? Well, we can convert each of the two second-order differential equations (DE) into two coupled first-order differential equations, giving us four equations to solve:</p>
+<div class="alert alert-success">
+<div class="math notranslate nohighlight">
+\[ a_x = \frac{dv_x}{dt} \tag{1}\]</div>
+<div class="math notranslate nohighlight">
+\[ a_y = \frac{dv_y}{dt} \tag{2}\]</div>
+<div class="math notranslate nohighlight">
+\[ v_x = \frac{dx}{dt} \tag{3}\]</div>
+<div class="math notranslate nohighlight">
+\[ v_y = \frac{dy}{dt} \tag{4}\]</div>
+</div>
+<p>Since these 4 equations are all first-order DE, we can apply the finitie difference method that we have learned.</p>
+<p>Using the finite different method, we perform numerical integration by <strong>stepping</strong> or <strong>propagating</strong> an initial condition through our model to approximate the solution. This is known as an <strong>iterative</strong> solution. In this process, we replace the derivative with differences:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{df}{dx} \rightarrow \frac{f_{i+1} - f{i}}{\Delta x} \]</div>
+<p>If we replace the derivatives in Equations 1-4 with the differences, we have</p>
+<div class="math notranslate nohighlight">
+\[ a_{x,i} = \frac{v_{x,i+1} - v_{x,i}}{\Delta t}\tag{1}\]</div>
+<div class="math notranslate nohighlight">
+\[ a_{y,i} = \frac{v_{y,i+1} - v_{y,i}}{\Delta t} \tag{2}\]</div>
+<div class="math notranslate nohighlight">
+\[ v_{x,i} = \frac{x_{i+1} - x_{i}}{\Delta t} \tag{3}\]</div>
+<div class="math notranslate nohighlight">
+\[ v_{y,i} = \frac{x_{i+1} - x_{i}}{\Delta t} \tag{4}\]</div>
+<p>Solving for the updated values (those with the subscripts <span class="math notranslate nohighlight">\(i+1\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[ v_{x,i+1} = v_{x,i} + a_{x,i}\Delta t \]</div>
+<div class="math notranslate nohighlight">
+\[ v_{y,i+1} = v_{y,i} + a_{y,i}\Delta t \]</div>
+<div class="math notranslate nohighlight">
+\[ x_{i+1} = x_{i} + v_{x,i}\Delta t \]</div>
+<div class="math notranslate nohighlight">
+\[ y_{i+1} = y_{i} + v_{y,i}\Delta t \]</div>
+<p>We can identify our acceleration in the vertical as the acceleration of gravity:</p>
+<div class="math notranslate nohighlight">
+\[ a_{y} = -g \]</div>
+<p>and assume it is constant for our purpose. However, we must also incorporate the acceleration components due to air drag.</p>
+</section>
+<section id="air-drag">
+<h3>Air Drag<a class="headerlink" href="#air-drag" title="Link to this heading">#</a></h3>
+<p>These molecules leave the host at relatively high speeds and the appropriate magnitude of the acceleration due to air drag is</p>
+<div class="math notranslate nohighlight">
+\[a_{drag} = \frac{1}{2}\frac{\rho C_{D}A}{m}v^{2} \]</div>
+<p>where <span class="math notranslate nohighlight">\(\rho\)</span> is the density of the gas/fluid the object moves in. The speed of the object is <span class="math notranslate nohighlight">\(v\)</span>, <span class="math notranslate nohighlight">\(C_D\)</span> is a drag coefficient that depends on the shape of the object, <span class="math notranslate nohighlight">\(A\)</span> is the cross-sectional area of the object as it moves through the gas/fluid, and <span class="math notranslate nohighlight">\(m\)</span> is the mass of the object.</p>
+<p>We need to find the <span class="math notranslate nohighlight">\(x\)</span>- and <span class="math notranslate nohighlight">\(y\)</span>-components of this acceleration to implement into the numerical equations.</p>
+<section id="air-drag-components">
+<h4>Air Drag Components<a class="headerlink" href="#air-drag-components" title="Link to this heading">#</a></h4>
+<p>Let us try and find the x-component. We will assume a standard xy-reference system (y is upward) and an angle <span class="math notranslate nohighlight">\(\theta\)</span> measured CCW with respect to positive x-axis. We then have</p>
+<div class="math notranslate nohighlight">
+\[ a_{drag,x} = a_{drag}\cos\theta \tag{5}\]</div>
+<p>For the instantaneous velocity at that time of consideration, we also have</p>
+<div class="math notranslate nohighlight">
+\[ v_x = v\cos\theta \]</div>
+<p>which implies that <span class="math notranslate nohighlight">\(\cos\theta = \frac{v_x}{v}\)</span>. Inserting this into Equation 5, we get</p>
+<div class="math notranslate nohighlight">
+\[ a_{drag,x} = a_{drag}\frac{v_x}{v} \]</div>
+<p>If we insert the expression for the acceleration due to air drag, we get:</p>
+<div class="math notranslate nohighlight">
+\[ a_{drag,x} = \left(\frac{1}{2}\frac{\rho C_{D}A}{m}v^{2}\right)\frac{v_x}{v} \]</div>
+<p>and simplify:</p>
+<div class="math notranslate nohighlight">
+\[ a_{drag,x} = \frac{1}{2}\frac{\rho C_{D}A}{m}vv_x \]</div>
+<p>Similarly, we have for the y-component</p>
+<div class="math notranslate nohighlight">
+\[ a_{drag,y} = \frac{1}{2}\frac{\rho C_{D}A}{m}vv_y \]</div>
+</section>
+</section>
+<section id="iterative-equations">
+<h3>Iterative Equations<a class="headerlink" href="#iterative-equations" title="Link to this heading">#</a></h3>
+<p>Inserting the acceleration components into the iterativative equations and take into account the sign of the accelerations, our specific iterative equations to solve are then:</p>
+<div class="alert alert-success">
+<div class="math notranslate nohighlight">
+\[ v_{x,i+1} = v_{x,i} - \frac{1}{2}\frac{\rho C_{D}A}{m}v_{i}v_{x,i}\Delta t \]</div>
+<div class="math notranslate nohighlight">
+\[ v_{y,i+1} = v_{y,i} - \left( g +  \frac{1}{2}\frac{\rho C_{D}A}{m}v_{i}v_{y,i}\right)\Delta t \]</div>
+<div class="math notranslate nohighlight">
+\[ x_{i+1} = x_{i} + v_{x,i}\Delta t \]</div>
+<div class="math notranslate nohighlight">
+\[ y_{i+1} = y_{i} + v_{y,i}\Delta t \]</div>
+</div>
+</section>
+<section id="auxiliary-equations-and-values">
+<h3>Auxiliary Equations and Values<a class="headerlink" href="#auxiliary-equations-and-values" title="Link to this heading">#</a></h3>
+<p>We have a few more equations we need to calculate parameters in the accelerations due to air drag:</p>
+<ul class="simple">
+<li><p>Density of air: <span class="math notranslate nohighlight">\(\rho_{air} = 1.28\)</span> kg/m<span class="math notranslate nohighlight">\(^3\)</span></p></li>
+<li><p>Drag parameter: <span class="math notranslate nohighlight">\(C_D = 0.47\)</span></p></li>
+<li><p>Cross-sectional area of virus/droplet: A (see section below)</p></li>
+<li><p>Mass of virus: m (see section below)</p></li>
+<li><p>speed: <span class="math notranslate nohighlight">\(v = \sqrt{v_x^2 + v_y^2} \)</span></p></li>
+</ul>
+<p>Before we can start our numerical scheme, we determine what we need to address our objective. We have two scenarios for spreading the molecule(s) through the air:</p>
+<ol class="arabic simple">
+<li><p>Covid-19 molecules are embedded in a larger respiratory droplet through sneezing or coughing.</p></li>
+<li><p>Individual molecule(s) through breathing and talking.</p></li>
+</ol>
+<p>These two scenarios have very different initial velocity conditions:</p>
+<ul class="simple">
+<li><p>Sneeze: initial velocity <span class="math notranslate nohighlight">\(\sim 15\)</span> m/s.</p></li>
+<li><p>Breathing: initial velocity <span class="math notranslate nohighlight">\(\sim 1\)</span> m/s.</p></li>
+</ul>
+<p>For the parameters needed to estimate the air drag, we have</p>
+<ul class="simple">
+<li><p>sneeze droplet: R = 30 <span class="math notranslate nohighlight">\(\mu\)</span>m</p></li>
+<li><p>Covid molecule: R = 0.05 <span class="math notranslate nohighlight">\(\mu\)</span>m</p></li>
+<li><p>density of droplet: <span class="math notranslate nohighlight">\(rho_{droplet} = 1.3\)</span> g/mL . The mass is apparently really difficult to find online :)</p></li>
+<li><p>mass of Covid-19 molecule: m = 30 kDa (kilo Dalton)</p></li>
+</ul>
+<p>The cross sectional area <span class="math notranslate nohighlight">\(A\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[ A = \pi R^2\]</div>
+<p>while the mass can be found from the density and volume (assuming spherical object)</p>
+<div class="math notranslate nohighlight">
+\[ m = V \rho_{droplet} = \frac{4}{3}\pi R^3\rho_{droplet} \]</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="a1-4-4-results">
+<h2>A1.4.4 Results<a class="headerlink" href="#a1-4-4-results" title="Link to this heading">#</a></h2>
+<p>We will implement the numerical approach into a Python script below. It can also be done in an Excel sheet if desireable.</p>
+<p>We will assume the following:</p>
+<ul class="simple">
+<li><p>initial height is that of an average adult person: 5 ft 7” or 1.70 m.</p></li>
+<li><p>the virus is ejected horizontally.</p></li>
+</ul>
+<section id="sneeze-droplet">
+<h3>Sneeze Droplet<a class="headerlink" href="#sneeze-droplet" title="Link to this heading">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="c1">#define our constants</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>
+<span class="n">rho_air</span> <span class="o">=</span> <span class="mf">1.28</span>
+<span class="n">c_d</span> <span class="o">=</span> <span class="mf">0.47</span>
+<span class="n">R</span> <span class="o">=</span> <span class="mf">3.0E-5</span>
+<span class="n">rho_droplet</span> <span class="o">=</span> <span class="mf">1.3</span><span class="o">*</span><span class="mf">1000.0</span>  <span class="c1">#( 1 g/mL  = 1000 kg/m^3)</span>
+
+<span class="c1">#calculate cross section area of droplet</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">R</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="c1">#calculate mass of droplet</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">rho_droplet</span> <span class="o">*</span> <span class="p">(</span><span class="mf">4.0</span><span class="o">/</span><span class="mf">3.0</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">R</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="n">rho_droplet</span>
+
+<span class="c1"># initial conditions</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mf">1.70</span>
+<span class="n">vx</span> <span class="o">=</span> <span class="mf">15.0</span>
+<span class="n">vy</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="c1">#choose time step</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>
+
+<span class="n">x_arr</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span>
+<span class="n">y_arr</span> <span class="o">=</span> <span class="p">[</span><span class="n">y</span><span class="p">]</span> 
+
+<span class="c1"># now it is time to iterate forward:</span>
+<span class="k">while</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    
+    <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">vx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">vy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    
+    <span class="n">ax</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">rho_air</span> <span class="o">*</span> <span class="n">c_d</span> <span class="o">*</span> <span class="n">A</span><span class="o">/</span><span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="n">v</span> <span class="o">*</span> <span class="n">vx</span> 
+    <span class="n">vx</span> <span class="o">=</span> <span class="n">vx</span> <span class="o">-</span> <span class="n">ax</span><span class="o">*</span><span class="n">dt</span>
+    
+    <span class="n">ay</span> <span class="o">=</span> <span class="n">g</span> <span class="o">+</span> <span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">rho_air</span> <span class="o">*</span> <span class="n">c_d</span> <span class="o">*</span> <span class="n">A</span><span class="o">/</span><span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="n">v</span> <span class="o">*</span> <span class="n">vy</span> 
+    <span class="n">vy</span> <span class="o">=</span> <span class="n">vy</span> <span class="o">-</span> <span class="n">ay</span><span class="o">*</span><span class="n">dt</span>
+    
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">vx</span> <span class="o">*</span> <span class="n">dt</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">vy</span> <span class="o">*</span> <span class="n">dt</span>
+    
+    <span class="n">x_arr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y_arr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Plotting</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y (m)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x (m)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sneeze&#39;</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_arr</span><span class="p">,</span><span class="n">y_arr</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x_arr</span><span class="p">)])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">y_arr</span><span class="p">)])</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">1.83</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/82d2e180e8c9952e69f8a5c1ffb3809e4bbed08ee8796098e63826e4f940a971.png" src="../_images/82d2e180e8c9952e69f8a5c1ffb3809e4bbed08ee8796098e63826e4f940a971.png" />
+</div>
+</div>
+<section id="quick-observation">
+<h4>Quick Observation<a class="headerlink" href="#quick-observation" title="Link to this heading">#</a></h4>
+<p>The dashed line represents the 6 ft distance. It is evident that the droplet has not dropped significantly within the 6 ft distance. However, the droplet will miss the resporatory system between adults of normal heights.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="breathing">
+<h3>Breathing<a class="headerlink" href="#breathing" title="Link to this heading">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="c1">#define our constants</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>
+<span class="n">rho_air</span> <span class="o">=</span> <span class="mf">1.28</span>
+<span class="n">c_d</span> <span class="o">=</span> <span class="mf">0.47</span>
+<span class="n">R</span> <span class="o">=</span> <span class="mf">5.0E-8</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mf">30.0E3</span> <span class="o">*</span> <span class="mf">1.66E-24</span>   <span class="c1">#convert from Dalton to kg</span>
+
+<span class="c1">#calculate cross section area of virus</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">R</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">/</span><span class="n">m</span><span class="p">)</span>
+
+<span class="c1"># initial conditions</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mf">1.70</span>
+<span class="n">vx</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">vy</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="c1">#choose time step</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="n">x_arr</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span>
+<span class="n">y_arr</span> <span class="o">=</span> <span class="p">[</span><span class="n">y</span><span class="p">]</span> 
+
+<span class="c1"># now it is time to iterate forward:</span>
+<span class="k">while</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    
+    <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">vx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">vy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    
+    <span class="n">ax</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">rho_air</span> <span class="o">*</span> <span class="n">c_d</span> <span class="o">*</span> <span class="n">A</span><span class="o">/</span><span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="n">v</span> <span class="o">*</span> <span class="n">vx</span> 
+    <span class="n">vx</span> <span class="o">=</span> <span class="n">vx</span> <span class="o">-</span> <span class="n">ax</span><span class="o">*</span><span class="n">dt</span>
+    
+    <span class="k">if</span> <span class="n">vx</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">break</span>
+    
+    <span class="n">ay</span> <span class="o">=</span> <span class="n">g</span> <span class="o">+</span> <span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">rho_air</span> <span class="o">*</span> <span class="n">c_d</span> <span class="o">*</span> <span class="n">A</span><span class="o">/</span><span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="n">v</span> <span class="o">*</span> <span class="n">vy</span> 
+    <span class="n">vy</span> <span class="o">=</span> <span class="n">vy</span> <span class="o">-</span> <span class="n">ay</span><span class="o">*</span><span class="n">dt</span>
+    
+    <span class="k">if</span> <span class="n">vy</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">break</span>
+    
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">vx</span> <span class="o">*</span> <span class="n">dt</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">vy</span> <span class="o">*</span> <span class="n">dt</span>
+    
+    <span class="n">x_arr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y_arr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Plotting</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y (m)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x (m)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Breathing&#39;</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_arr</span><span class="p">,</span><span class="n">y_arr</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x_arr</span><span class="p">)])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">y_arr</span><span class="p">)])</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">1.83</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>157710.47457780084
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/74/jtxzz5d9637f574hh5cmbq240000gn/T/ipykernel_25171/1728733566.py:62: UserWarning: Attempting to set identical low and high xlims makes transformation singular; automatically expanding.
+  ax.set_xlim([0, np.max(x_arr)])
+</pre></div>
+</div>
+<img alt="../_images/f55531609d1c5780e68bf7cf3f16571a160225888350e5b1d3de66763bab5fdc.png" src="../_images/f55531609d1c5780e68bf7cf3f16571a160225888350e5b1d3de66763bab5fdc.png" />
+</div>
+</div>
+<section id="id1">
+<h4>Quick Observation<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<p>This just does not work! I inserted break statements in the code. Try and remove them so see what happens. The ratio of A/m is very large. This is causing the magnitudes of the velocity components to become very large in the first iteration. In the next iteration that results in a net positive acceleration, which is not realistic!</p>
+<p><strong>Our model does not work on the single SAR-CoV-2 molecule</strong>. This may not be surprising as other physical interactions becomes important and the air drag model we used is not suitable for this system. While our numerical iterations works just fine, it gives us erronous results due to wrong physics incorporated. The most important element here is the influence of air currents, which we have ignored. <strong>Air currents are capable of suspending these molecules in the air for several hours</strong>!</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+</section>
+<section id="a1-4-5-summary">
+<h2>A1.4.5 Summary<a class="headerlink" href="#a1-4-5-summary" title="Link to this heading">#</a></h2>
+<p>Our results above showed that a droplet containing thousands of SAR-CoV-2 virusses are capable of traveling a horizontal distance of ~9 meters through a sneeze from an average adult person with a height of 5’7”. The use of masks prevents these droplets to propagate and is therefore a excellent source of migitating the spread of the virus.</p>
+<p>Our results also showed that our physical model was not appropriate to work with particles sizes similar to the virus itself. Additonal physics must be implemented to properly address the propagation distance of these smaller particles.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="a1-4-6-references">
+<h2>A1.4.6 References<a class="headerlink" href="#a1-4-6-references" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Tang J.W., et al. (2013) Airflow Dynamics of Human Jets: Sneezing and Breathing - Potential Sources of Infectious Aerosols, PLoS ONE 8(4): e59970. doi:10.1371/journal.pone.0059970</p></li>
+<li><p>Chaudhuri, S., et al. (2020) Modeling the role of respiratory droplets in Covid-19 type pandemics, Phys. Fluids 32, 063309 (2020); doi:10.1063/5.0015984</p></li>
+<li><p>VanSciver, M. , et al. (2011) Particle Image Velocimetry of Human Cough, Aerosol Science and Technology, 45:3, 415-422, doi:10.1080/02786826.2010.542785</p></li>
+<li><p>Han Z.Y., et al. (2013) Characterizations of particle size distribution of the droplets exhaled by sneeze, J.R. Soc. Interface 10: 20130560.http://dx.doi.org/10.1098/rsif.2013.0560</p></li>
+<li><p>Dhand R., and J. Li (2020) Coughs and Sneezes: Their Role in Transmission of Respiratory Viral Infections, Including SARS-CoV-2, Am. J. Respir. Crit. Care Med., Vol 202, Iss. 5, pp 651–659.</p></li>
+</ol>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-A1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Numerical-methods-practice.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">A1.3 Numerical Methods - Practice</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Project-2-Artillery.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">A1.5 Realistic Projectile Motion Project 2: Artillery</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-4-1-objective">A1.4.1 Objective</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-4-2-background">A1.4.2 Background</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#physics-background">Physics Background</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#covid-19-molecule">Covid-19 Molecule</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-4-3-methodology">A1.4.3 Methodology</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-method">Numerical Method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#air-drag">Air Drag</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#air-drag-components">Air Drag Components</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterative-equations">Iterative Equations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#auxiliary-equations-and-values">Auxiliary Equations and Values</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-4-4-results">A1.4.4 Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sneeze-droplet">Sneeze Droplet</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-observation">Quick Observation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#breathing">Breathing</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Quick Observation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-4-5-summary">A1.4.5 Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-4-6-references">A1.4.6 References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

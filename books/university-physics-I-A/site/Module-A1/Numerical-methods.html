@@ -1,0 +1,898 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>A1.2 Numerical Integration: Finite Difference Methods &#8212; A Competency Approach to Introductory Physics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/save_cell.css?v=43dd4451" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-A1/Numerical-methods';</script>
+    <script src="../_static/save_cell.js?v=d135a7b8"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="A1.3 Numerical Methods - Practice" href="Numerical-methods-practice.html" />
+    <link rel="prev" title="A1.1 Taylor Expansions" href="Taylor-expansions.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-A.png" class="logo__image only-light" alt="A Competency Approach to Introductory Physics - Home"/>
+    <script>document.write(`<img src="../_static/logo-A.png" class="logo__image only-dark" alt="A Competency Approach to Introductory Physics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to University Physics I: A Compendium to the A Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/university-physics-I/university-physics-I.html">University Physics I Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module A1 - Numerical Method</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Taylor-expansions.html">A1.1 Taylor Expansions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">A1.2 Numerical Integration: Finite Difference Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Numerical-methods-practice.html">A1.3 Numerical Methods - Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Project-1-Covid-19.html">A1.4 Realistic Projectile Motion Project 1: Covid-19</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Project-2-Artillery.html">A1.5 Realistic Projectile Motion Project 2: Artillery</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module A2 - Translational + Rotational Dynamics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-A2/angular-momentum.html">A2.1 Angular Momentum Revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A2/translational-rotational.html">A2.2 A Note on Combined Translational and Rotational Angular Speed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A2/newton-rotational.html">A2.3 Newton’s 2nd Law - Rotational Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A2/problemsA2.html">A2.x Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module A3 - Gravity</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/newton-law-gravity.html">A3.1 Newton’s Law of Gravity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/mass-distributions.html">A3.2 Newton’s Law of Gravity -  Mass Distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/flux.html">A3.3 Field Flux</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/problemsA3.html">A3.X Problems</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Module-A1/Numerical-methods.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-A1/Numerical-methods.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>A1.2 Numerical Integration: Finite Difference Methods</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-2-1-motivation">A1.2.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-2-2-linearization">A1.2.2 Linearization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-2-3-taylor-series">A1.2.3 Taylor Series</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-trick">Mathematical Trick</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#truncation">Truncation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question">Question</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answer">Answer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Question</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Answer</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-2-4-first-order-forward-finite-difference-method">A1.2.4 First Order Forward Finite Difference Method</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="a1-2-numerical-integration-finite-difference-methods">
+<h1>A1.2 Numerical Integration: Finite Difference Methods<a class="headerlink" href="#a1-2-numerical-integration-finite-difference-methods" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><section id="a1-2-1-motivation">
+<h2>A1.2.1 Motivation<a class="headerlink" href="#a1-2-1-motivation" title="Link to this heading">#</a></h2>
+<p>We will see that many examples encountered in Physics I
+come with assumptions that makes them less applicable to everyday life.
+While these examples are great at illustrating important concepts, they fail
+in providing accurate prediction for real-life examples. When these
+assumptions are not valid, our problems often become too difficult to obtain
+exact solutions for, and our best effort is to provide approximate solutions
+that are correct to within a set acceptable error margin.</p>
+<p>As an example, Newton’s second law is a second order differential equation, which in many real-life applications is non-linear and only solveable through numerical methods. Under certain situations, we can transform it into coupled first order differential equations that can be solved by numerical integration methods. The objective of this note is to obtain these numerical integration schemes known as <strong>finite difference methods</strong>.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="a1-2-2-linearization">
+<h2>A1.2.2 Linearization<a class="headerlink" href="#a1-2-2-linearization" title="Link to this heading">#</a></h2>
+<p>Let us consider the graphical setup below. Assume that we have
+knowledge of a data point with
+coordinates <span class="math notranslate nohighlight">\([x_0,f(x_0)]\)</span> of a function
+<span class="math notranslate nohighlight">\(f(x)\)</span>, and we desire knowledge about
+a point P with coordinates <span class="math notranslate nohighlight">\([x, f(x)]\)</span> in
+close proximity to the data point.</p>
+<img src="A1-fig1.png" width="400">
+<p>In the Figure, the blue line represents the function <span class="math notranslate nohighlight">\(f(x)\)</span> and the red line is the tangent line at point <span class="math notranslate nohighlight">\([x_0,f(x_0)]\)</span>, which is the best linear
+representation of the function at that point. The tangent line is represented
+by the linear equation (think of the intercept/rise form: <span class="math notranslate nohighlight">\(y = A + Bx\)</span>):</p>
+<div class="alert alert-success">
+<div class="math notranslate nohighlight">
+\[ L(x) = f(x_0) + \left.\frac{df}{dx}\right|_{x = x_0}(x - x_0) \tag{1}\]</div>
+</div>
+<p>If we use this equation to approximate the function <span class="math notranslate nohighlight">\(f(x)\)</span> at point P, we call <span class="math notranslate nohighlight">\(L(x)\)</span> <strong>the
+linearization</strong> or the linear approximation of <span class="math notranslate nohighlight">\(f(x)\)</span>. From the figure, we can see
+that our guess <span class="math notranslate nohighlight">\(L(x)\)</span> for <span class="math notranslate nohighlight">\(f(x)\)</span> at point P is only an approximation and we introduce an
+error with this approximation. A good, and very important, question would
+be: how big is this error? We will provide a more rigorous approach next that will help us answer that question.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="a1-2-3-taylor-series">
+<h2>A1.2.3 Taylor Series<a class="headerlink" href="#a1-2-3-taylor-series" title="Link to this heading">#</a></h2>
+<p>Calculus tells us that if we have a well-behaved function, the function can be written as the sum of an infinite series of polynomials called the <strong>Taylor series</strong> provided we have information about the function at some point <span class="math notranslate nohighlight">\(x = a\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ f(x) = f(a) + (x-a)\left.\frac{df}{dx}\right |_{x = a} + \frac{(x-a)^2}{2!}\left.\frac{d^{2}f}{dx^2}\right|_{x = a}
++ \frac{(x-a)^3}{3!}\left.\frac{d^{3}f}{dx^3}\right |_{x = a} + \cdots \]</div>
+<p>With our notation in the above discussion of linearization, we have information about a point <span class="math notranslate nohighlight">\(x = x_0\)</span>, so let us re-write the Taylor series using <span class="math notranslate nohighlight">\(x_0\)</span> insted of <span class="math notranslate nohighlight">\(a\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ f(x) = f(x_0) + (x-x_0)\left.\frac{df}{dx}\right |_{x = x_0} + \frac{(x-x_0)^2}{2!}\left.\frac{d^{2}f}{dx^2}\right|_{x = x_0}
++ \frac{(x-x_0)^3}{3!}\left.\frac{d^{3}f}{dx^3}\right |_{x = x_0} + \cdots \]</div>
+<p>I am introducing this notation, since we are more familiar with writing the difference in <span class="math notranslate nohighlight">\(x\)</span> as <span class="math notranslate nohighlight">\(\Delta x = x - x_0\)</span>. If we introduce this notation into our Taylor series, we get (note: <span class="math notranslate nohighlight">\(x = x_0 + \Delta x\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[ f(x_0 + \Delta x) = f(x_0) + (\Delta x)\left.\frac{df}{dx}\right |_{x = x_0} + \frac{(\Delta x)^2}{2!}\left.\frac{d^{2}f}{dx^2}\right|_{x = x_0}
++ \frac{(\Delta x)^3}{3!}\left.\frac{d^{3}f}{dx^3}\right |_{x = x_0} + \cdots \]</div>
+<p>At this point, we have not done anything other than re-write the Taylor series using different notation. However, it may be more evident now <strong>that our left hand-side of the equation is the function <span class="math notranslate nohighlight">\(f(x)\)</span> evaluated at a point ahead of <span class="math notranslate nohighlight">\(x\)</span> by using information about the function at <span class="math notranslate nohighlight">\(x_0\)</span> only</strong>. That is actually pretty cool!</p>
+<p>If the above feels overwhelming, please do not panic! I am only showing these steps towards our numericale scheme such that those of you with the mathematical confidence can see what is behind the door. The focus in the class will be on applying the numerical scheme, which is ahead of us yet.</p>
+<section id="mathematical-trick">
+<h3>Mathematical Trick<a class="headerlink" href="#mathematical-trick" title="Link to this heading">#</a></h3>
+<p>We will now make some tricks, or just plain arithmetic: subract <span class="math notranslate nohighlight">\(f(x_0)\)</span> on both sides of the equation and divide by <span class="math notranslate nohighlight">\(\Delta x\)</span> through all terms:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{f(x_0 + \Delta x) - f(x_0)}{\Delta x} = \left.\frac{df}{dx}\right |_{x = x_0} + \frac{(\Delta x)}{2!}\left.\frac{d^{2}f}{dx^2}\right|_{x = x_0}
++ \frac{(\Delta x)^2}{3!}\left.\frac{d^{3}f}{dx^3}\right |_{x = x_0} + \cdots \]</div>
+</section>
+<section id="truncation">
+<h3>Truncation<a class="headerlink" href="#truncation" title="Link to this heading">#</a></h3>
+<p>The next step is to truncate the expression to only include the first derivative term (truncation simply refers to the fact that we are only considering a limited number of terms in the infinite series):</p>
+<div class="alert alert-success">
+<div class="math notranslate nohighlight">
+\[ \frac{f(x_0 + \Delta x) - f(x_0)}{\Delta x} \sim \left.\frac{df}{dx}\right |_{x = x_0} \tag{2}\]</div>
+</div>
+<p>Notice that we change the “=” to “~” since we are now approximating it. We also notice that this approximation is similar to the linearization in Equation (1). However, there is one important element that sets the two
+approaches apart. Whereas the error in the linearization was unknown,
+the Taylor expansion approach provides us with an order of magnitude
+estimation of the error!</p>
+<p>Each successive term in the Taylor
+expansion is smaller than the previous (a requirement for mathematical convergence), and
+as such, our largest term that we ignored in the approximation above was</p>
+<div class="math notranslate nohighlight">
+\[ \frac{(\Delta x)}{2!}\left.\frac{d^{2}f}{dx^2}\right|_{x = x_0} \]</div>
+<p><strong>Hence, the error in our approximation is <span class="math notranslate nohighlight">\(\mathcal{O}(\Delta x)\)</span></strong> (read as: order of magnitude <span class="math notranslate nohighlight">\(\Delta x\)</span>).</p>
+</section>
+<section id="question">
+<h3>Question<a class="headerlink" href="#question" title="Link to this heading">#</a></h3>
+<p>Professor, why go through these lengthy steps to obtain our rise/run
+approximation for the derivative?</p>
+</section>
+<section id="answer">
+<h3>Answer<a class="headerlink" href="#answer" title="Link to this heading">#</a></h3>
+<p>This is the simplest approximation
+(linear), but we could have truncated the Taylor expansion further down
+and obtained more accurate approximations (for example <span class="math notranslate nohighlight">\(\mathcal{O}(\Delta x)^2\)</span>. We will do that as a box
+exercise. <strong>The above processes in using Taylor expansions to obtain approximations for derivatives are called finite difference methods</strong>.</p>
+</section>
+<section id="id1">
+<h3>Question<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>This is not in my textbook and I do not feel this is physics. Why do I need to know this?</p>
+</section>
+<section id="id2">
+<h3>Answer<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Because it is an important element to solve realistic physics problems, and often the only way of doing it. As physicists and engineers, you do not get very far in real life by always ignoring friction or non-linear properties of materials. In software engineering, you will have to deal with discrete math and solving methods. A game engine, for example, is full of numerical methods.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="a1-2-4-first-order-forward-finite-difference-method">
+<h2>A1.2.4 First Order Forward Finite Difference Method<a class="headerlink" href="#a1-2-4-first-order-forward-finite-difference-method" title="Link to this heading">#</a></h2>
+<p>The approximation for the derivative we obtained in Equation (2) is known
+as the <strong>first order derivative forward finite difference method</strong>. It is forward since we are applying knowledge
+of our data point <span class="math notranslate nohighlight">\(x_0\)</span> to obtain information about a point <span class="math notranslate nohighlight">\(x\)</span> laying ahead (or forward) of
+<span class="math notranslate nohighlight">\(x_0\)</span> (see figure in section 1).</p>
+<p>When we apply this method to update the value <span class="math notranslate nohighlight">\(f(x)\)</span> based on the known
+value <span class="math notranslate nohighlight">\(f(x_0)\)</span>, it is often more convenient to write it in subscript form (this
+notation is also more intuitive with respect to implementing it into a
+computer script):</p>
+<div class="math notranslate nohighlight">
+\[ \frac{f(x_0 + \Delta x) - f(x_0)}{\Delta x} \sim \left.\frac{df}{dx}\right |_{x = x_0} \]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{f(x_{i+1}) - f(x_i)}{x_{i+1}- x_i} \sim \left.\frac{df}{dx}\right |_{x = x_i} \]</div>
+<div class="alert alert-success">
+<div class="math notranslate nohighlight">
+\[ \frac{f_{i+1} - f_i}{x_{i+1}- x_i} \sim \left.\frac{df}{dx}\right |_{x = x_i} \tag{3} \]</div>
+</div>
+<p>Equation (3) is the form we will implement as our numerical tool. While it would be great if you understand all the steps above, it is certainly not a requirement in this course. The applications are the essential and we will see some examples now.</p>
+<div class="alert alert-info">
+<p>Given a single data point <span class="math notranslate nohighlight">\([x_0, f(x_0)]\)</span> and a <strong>model</strong> for the derivative, we can make discrete <strong>linear</strong> steps to obtain a solution:</p>
+<div class="math notranslate nohighlight">
+\[ f_{i+1} = f_i + f_{i}'\Delta x\]</div>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div style="background-color: #D0D0D0 ; padding: 10px; border: 1px solid black;">       
+<header>
+<h3> Example 1</h3>
+    </header>
+<p>We will consider a simple differential equation that we can solve analytical
+as well to demonstrate the use of the forward finite difference method.
+Consider the following differential equation with the condition that <span class="math notranslate nohighlight">\((y_0, x_0)
+= (0,0)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{dy}{dx} = x^2 \]</div>
+<p><strong>Question</strong>: Find the solution <span class="math notranslate nohighlight">\(y(x)\)</span> at <span class="math notranslate nohighlight">\(x = 5\)</span>.</p>
+<p>We can utilize differentials to cast it into integration form with solution</p>
+<div class="math notranslate nohighlight">
+\[ y(x) = \frac{x^3}{3} \]</div>
+<p>If we evaluate at <span class="math notranslate nohighlight">\(x = 5\)</span> we get:</p>
+<img src="A1-fig2.png" width="300">
+<p>Now let us try and solve it through numerical integration!</p>
+<p>According to Equation (3), we can approximate the derivative by</p>
+<div class="math notranslate nohighlight">
+\[ \left.\frac{df}{dx}\right |_{x = x_i} \sim \frac{f_{i+1} - f_i}{x_{i+1}- x_i} \]</div>
+<p>In our case, the dependent variable is <span class="math notranslate nohighlight">\(y\)</span> and not <span class="math notranslate nohighlight">\(f\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ \left.\frac{dy}{dx}\right |_{x = x_i} \sim \frac{y_{i+1} - y_i}{x_{i+1}- x_i} \]</div>
+<p>In the numerical approach, we will start at our initial data point <span class="math notranslate nohighlight">\((y_0, x_0)
+= (0,0)\)</span> and progress towards <span class="math notranslate nohighlight">\(x = 5\)</span> in chosen steps of <span class="math notranslate nohighlight">\(\Delta x = x_{i+1} - x_i\)</span>. We call <span class="math notranslate nohighlight">\(\Delta x\)</span> the <strong>step size</strong> and the process is called an <strong>iterative process</strong>.</p>
+<p>Note: in a computational physics
+course, we would learn more about how to make a proper choice regarding
+this step size to obtain the most accurate solution without jeopardizing computer speed, but it is beyond the scope of this course.</p>
+<p>The next step is to replace the derivative in our differential equation with the approximation:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{y_{i+1} - y_i}{x_{i+1}- x_i} =  x_{i}^2\]</div>
+<p><strong>Important: the variable <span class="math notranslate nohighlight">\(x\)</span> on the right side of the equation now got a subscript “i” attached to it. The reason is that we assume knowledge of <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> at our initial point. We must have this initial point to start the iteration</strong>!</p>
+<p>We have now converted a differential equation (continuous) into discrete equation that can be solved by arithmetic. Solving for our next <span class="math notranslate nohighlight">\(y\)</span> value:</p>
+<div class="alert alert-success">
+<div class="math notranslate nohighlight">
+\[ y_{i+1} = y_i +  x_{i}^{2}\Delta x\]</div>
+</div>
+<p>We call this our <strong>iterative equation</strong> and is the equation we will use to step forward in <span class="math notranslate nohighlight">\(x\)</span> until we reach <span class="math notranslate nohighlight">\(x = 5\)</span>.
+Let’s try and iterate it in the interval <span class="math notranslate nohighlight">\(x = [0,5]\)</span> in step sizes of 1:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>x</p></th>
+<th class="head text-left"><p>y</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><img width=100/></p></td>
+<td class="text-left"><p><img width=600/></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(x_0 = 0\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(y_0 = 0\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(x_1 = 1\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(y_1 = y_0 + x_{0}^2\Delta t = 0 + (0)^2(1) = 0 \)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(x_2 = 2\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(y_2 = y_1 + x_{1}^2\Delta t = 0 + (1)^2(1) = 1 \)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(x_3 = 3\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(y_3 = y_2 + x_{2}^2\Delta t = 1 + (2)^2(1) = 5 \)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(x_4 = 4\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(y_4 = y_3 + x_{3}^2\Delta t = 5 + (3)^2(1) = 14 \)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(x_5 = 5\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(y_5 = y_4 + x_{4}^2\Delta t = 14 + (4)^2(1) = 30 \)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="alert alert-success">
+<p>Our numerical solution is <span class="math notranslate nohighlight">\(y = 30\)</span> at <span class="math notranslate nohighlight">\(x = 5\)</span></p>
+</div>
+<p>A quick comparison between the analytical solution (42) and the numerical (30) will tell us that we are quite
+a bit off. However, we used a large step
+size (<span class="math notranslate nohighlight">\(\Delta x = 1\)</span>), and the function is changing
+significantly over this large step size. <strong>We
+should choice a step size over which the function is not varying significantly</strong>. Let us try and repeat the process with a stepsize of <span class="math notranslate nohighlight">\(\Delta x = 0.1\)</span>:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>x</p></th>
+<th class="head text-left"><p>y</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><img width=100/></p></td>
+<td class="text-left"><p><img width=600/></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(x_0 = 0\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(y_0 = 0\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(x_1 = 0.1\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(y_1 = y_0 + x_{0}^2\Delta t = 0 + (0)^2(1) = 0 \)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(x_2 = 0.2\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(y_2 = y_1 + x_{1}^2\Delta t = 0 + (0.1)^2(1) = 0.01 \)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Hold on! I will have to do this about 50 times. No way, dude! Python to the rescue:</p>
+</div><div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">dx</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="n">x_f</span> <span class="o">=</span> <span class="mf">5.</span>
+<span class="n">nSteps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">x_f</span><span class="o">/</span><span class="n">dx</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nSteps</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">dx</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Numerical Solution: &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Numerical Solution: 40.42500000000002
+</pre></div>
+</div>
+</div>
+</div>
+<div style="background-color: #D0D0D0 ; padding: 10px; border: 1px solid black;">       
+<p>That is pretty close. In fact, the percent error is:</p>
+<div class="math notranslate nohighlight">
+\[\textrm{percent error} = \frac{|\textrm{Numerical} - \textrm{Analytic}|}{\textrm{Analytic}}\times 100\% = \frac{|40.425 - 42|}{42}*100\% = 3.8\%\]</div>
+<p>We could anticipate this great result since we know the error is comparable to <span class="math notranslate nohighlight">\(\Delta x\)</span> (we know this from the Taylor truncation error), and since we chose <span class="math notranslate nohighlight">\(\Delta x = 0.1\)</span>, we would anticipate an error of the order of <span class="math notranslate nohighlight">\(\sim 1\%\)</span>.</p>
+<p>Let us visualize the analytic and numerical solutions:</p>
+</div><div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="c1"># Analytic solution</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">5.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">t</span><span class="o">**</span><span class="mi">3</span><span class="o">/</span><span class="mf">3.</span>
+
+<span class="c1"># Numerical solution</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">dx</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="n">x_f</span> <span class="o">=</span> <span class="mf">5.</span>
+<span class="n">nSteps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">x_f</span><span class="o">/</span><span class="n">dx</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nSteps</span><span class="p">):</span>
+    <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span><span class="p">)</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">dx</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Numerical Solution: &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">nSteps</span><span class="p">]))</span>
+
+<span class="c1"># Plotting</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y(x)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">)])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">y</span><span class="p">)])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Numerical Solution: 40.42500000000002
+</pre></div>
+</div>
+<img alt="../_images/eb0190c9d63d5dcdd38b960202a5a827a6b0880f3f3c81f8bac64fb91f172b62.png" src="../_images/eb0190c9d63d5dcdd38b960202a5a827a6b0880f3f3c81f8bac64fb91f172b62.png" />
+</div>
+</div>
+<div style="background-color: #D0D0D0 ; padding: 10px; border: 1px solid black;">       
+<p>Here we can see how good our numerical solution (blue) is compared to the actual solution (red). Isn’t this amazing? We can apply this approach to a variety of complex physics problems, that we otherwise could not cover in Physics I. We will get practice using this approach and by the end of the semester, I hope we have a much better appreciation for it.</p>
+<p>Now it is your turn to try it! Below is one Box problem for you to test your skills on this subject. I will make a separate note, where there is a brief summary and some sort of guide on how to approach these problems. I guess we can call it a solving strategy :)</p>
+<p>As a final note: the approach above is the <strong>first order forward finite difference method</strong>. We could also work backwards with the Taylor expansion to obtain the <strong>backward finite difference method</strong>. This method is used when we need to gain information about points prior to our known data point. Finally, we can combine the two and obtain the <strong>central finite difference method</strong>, which differ by having an order of magnitude smaller error. We will not be employing either of the two, but if you are curious, check out</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Finite_difference">Finite Difference</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Finite_difference_method">Finite Difference Method</a></p></li>
+</ul>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-warning">
+<b>Box 1</b><br>
+<p>Consider the differential equation</p>
+<div class="math notranslate nohighlight">
+\[ \frac{dy}{dx} = x^3 \]</div>
+<p>Find the solution <span class="math notranslate nohighlight">\(y(x)\)</span> at <span class="math notranslate nohighlight">\(x = 5\)</span> if we know that <span class="math notranslate nohighlight">\((x_0, y_0) = (0,2)\)</span>. What is the percent error between the analytical and numerical solutions? Create a plot showing the analytical and numerical solution.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-A1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Taylor-expansions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">A1.1 Taylor Expansions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Numerical-methods-practice.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">A1.3 Numerical Methods - Practice</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-2-1-motivation">A1.2.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-2-2-linearization">A1.2.2 Linearization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-2-3-taylor-series">A1.2.3 Taylor Series</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-trick">Mathematical Trick</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#truncation">Truncation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question">Question</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answer">Answer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Question</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Answer</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-2-4-first-order-forward-finite-difference-method">A1.2.4 First Order Forward Finite Difference Method</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
