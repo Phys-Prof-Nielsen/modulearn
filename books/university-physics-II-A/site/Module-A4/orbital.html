@@ -1,0 +1,813 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>A4.7 — Orbital Angular Momentum in Quantum Mechanics &#8212; A Competency Approach to University Physics II</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-A4/orbital';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="A4.8 — Spin: Intrinsic Angular Momentum" href="spin.html" />
+    <link rel="prev" title="A4.6 — The Quantum Harmonic Oscillator" href="oscillator.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-A.png" class="logo__image only-light" alt="A Competency Approach to University Physics II - Home"/>
+    <script>document.write(`<img src="../_static/logo-A.png" class="logo__image only-dark" alt="A Competency Approach to University Physics II - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to University Physics II: A Compendium to the A Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/university-physics-II/university-physics-II.html">University Physics II Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module A1 - Maxwell's Equations'</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-A1/maxwell.html">A1.1 Maxwell’s Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A1/wave-equation.html">A1.2 Deriving the Electromagnetic Wave Equation from Maxwell’s Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A1/plane-wave.html">A1.3 Plane Wave Solutions and Transverse Nature of Electromagnetic Waves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A1/poynting-vector.html">A1.4 Poynting Vector and Energy in Electromagnetic Waves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A1/radiation-pressure.html">A1.5 Radiation Pressure and Momentum Transfer in Electromagnetic Waves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A1/problemsA1.html">A1.6 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module A2 - Wave Optics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-A2/LOC-A2.html">A2.0 Learning Outcomes — Wave Optics: Diffraction, Resolution, Coherence, and Interferometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A2/diffraction.html">A2.1 Diffraction — When Waves Spread and Interfere</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A2/patterns.html">A2.2 Single-Slit Diffraction, Fraunhofer Diffraction, and the Airy Disk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A2/resolution.html">A2.3 Optical Resolution and the Rayleigh Criterion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A2/coherence.html">A2.4 Coherence of Light</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A2/interferometry.html">A2.5 Interferometry — Using Interference for Precision Measurement</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module A3 - Special Relativity</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/Taylor-expansions.html">A3.1 Taylor Expansions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/rel-momentum.html">A3.2 Relativistic Momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/rel-energy.html">A3.3 Relativistic Energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/rel-force.html">A3.4 Relativistic Force</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/spacetime.html">A3.5 Introduction to Spacetime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/spacetime-diagram.html">A3.6 Spacetime Diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/spacetime-simultaneity.html">A3.7 Spacetime Diagram: Relativity of Simultaneity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/spacetime-timedilation.html">A3.8 Time Dilation: A Geometric Perspective</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/spacetime-example.html">A3.9 Example: A Flashing Beacon on the Millennium Falcon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/problemsA3.html">A3.10 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module A4 - Quantum Mechanics and Structure of Matter</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="operators.html">A4.1 — Operators in Quantum Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="time-dependent.html">A4.2 — The Time-Dependent Schrödinger Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="time-independent.html">A4.3 — The Time-Independent Schrödinger Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="infinite-square-well.html">A4.4 — The Infinite Square Well (Particle in a Box)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="finite-barrier.html">A4.5 — Finite Potential Barriers and Quantum Tunneling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oscillator.html">A4.6 — The Quantum Harmonic Oscillator</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">A4.7 — Orbital Angular Momentum in Quantum Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spin.html">A4.8 — Spin: Intrinsic Angular Momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="atomic-structure.html">A4.9 — Quantum Numbers and Atomic Structure</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/physics-sphere/blob/main/books/university-physics-II-A/Module-A4/orbital.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Phys-Prof-Nielsen/physics-sphere" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Phys-Prof-Nielsen/physics-sphere/issues/new?title=Issue%20on%20page%20%2FModule-A4/orbital.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-A4/orbital.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>A4.7 — Orbital Angular Momentum in Quantum Mechanics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#angular-momentum-operators">Angular Momentum Operators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#allowed-orientations">Allowed Orientations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-angular-momentum">Measuring Angular Momentum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#looking-ahead">Looking Ahead</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="a4-7-orbital-angular-momentum-in-quantum-mechanics">
+<h1>A4.7 — Orbital Angular Momentum in Quantum Mechanics<a class="headerlink" href="#a4-7-orbital-angular-momentum-in-quantum-mechanics" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Link to this heading">#</a></h2>
+<p>So far in this module we have studied quantum systems in <strong>one spatial dimension</strong>, such as the infinite square well and the harmonic oscillator. These systems helped us understand how the Schrödinger equation produces <strong>quantized energy levels</strong> and structured wavefunctions.</p>
+<p>Many important physical systems, however, involve <strong>rotational motion in three dimensions</strong>. Examples include</p>
+<ul class="simple">
+<li><p>electrons moving in atoms,</p></li>
+<li><p>rotating molecules,</p></li>
+<li><p>orbital motion in central forces.</p></li>
+</ul>
+<p>In classical mechanics, orbitalk angular momentum is defined by</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{L} = \mathbf{r} \times \mathbf{p}.
+\]</div>
+<p>Angular momentum can point in <strong>any direction</strong> and its magnitude can take <strong>any value</strong>.</p>
+<p>Quantum mechanics introduces a very different picture.</p>
+<p>In quantum systems:</p>
+<ul class="simple">
+<li><p>the <strong>magnitude of angular momentum is quantized</strong></p></li>
+<li><p>only certain <strong>components of angular momentum</strong> can be measured simultaneously</p></li>
+<li><p>angular momentum vectors cannot point in completely arbitrary directions.</p></li>
+</ul>
+<p>Understanding angular momentum is essential for describing <strong>atomic structure</strong>, <strong>spectroscopy</strong>, and the organization of electrons in atoms.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="angular-momentum-operators">
+<h2>Angular Momentum Operators<a class="headerlink" href="#angular-momentum-operators" title="Link to this heading">#</a></h2>
+<p>In quantum mechanics, angular momentum is represented by <strong>operators</strong>.</p>
+<p>The three components are</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{L}_x, \quad \hat{L}_y, \quad \hat{L}_z.
+\]</div>
+<p>These operators act on the wavefunction and correspond to measurements of angular momentum along the three coordinate axes.</p>
+<p>In spherical coordinates, the operator for the <span class="math notranslate nohighlight">\(z\)</span> component is</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{L}_z = -i\hbar \frac{\partial}{\partial \phi}.
+\]</div>
+<p>This operator will play an important role when solving problems with <strong>rotational symmetry</strong>, such as the hydrogen atom.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div style="background-color:#e6f0ff; padding:15px; border-left:6px solid #003366; border-radius:5px;">
+<p><strong>Definition — Quantized Angular Momentum</strong></p>
+<p>Angular momentum in quantum mechanics is described by two quantum numbers.</p>
+<p>The <strong>orbital angular momentum quantum number</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\ell = 0,1,2,3,\dots
+\]</div>
+<p>determines the <strong>magnitude of the angular momentum</strong></p>
+<div class="math notranslate nohighlight">
+\[
+L = \sqrt{\ell(\ell+1)}\,\hbar.
+\]</div>
+<p>The <strong>magnetic quantum number</strong></p>
+<div class="math notranslate nohighlight">
+\[
+m_\ell = -\ell, -\ell+1, \dots , \ell-1, \ell
+\]</div>
+<p>determines the <strong>component of angular momentum along the <span class="math notranslate nohighlight">\(z\)</span>-axis</strong></p>
+<div class="math notranslate nohighlight">
+\[
+L_z = m_\ell \hbar.
+\]</div>
+<p>For a given value of <span class="math notranslate nohighlight">\(\ell\)</span>, there are</p>
+<div class="math notranslate nohighlight">
+\[
+2\ell + 1
+\]</div>
+<p>possible orientations of the angular momentum vector.</p>
+<p>Thus both the <strong>magnitude</strong> and <strong>projection</strong> of angular momentum are <strong>quantized</strong>.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="allowed-orientations">
+<h2>Allowed Orientations<a class="headerlink" href="#allowed-orientations" title="Link to this heading">#</a></h2>
+<p>For a given value of <span class="math notranslate nohighlight">\(\ell\)</span>, the quantum number <span class="math notranslate nohighlight">\(m_\ell\)</span> determines the possible orientations of the angular momentum vector relative to the <span class="math notranslate nohighlight">\(z\)</span> axis.</p>
+<p>There are</p>
+<div class="math notranslate nohighlight">
+\[
+2\ell + 1
+\]</div>
+<p>possible orientations.</p>
+<p>For example:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(\ell\)</span></p></th>
+<th class="head"><p>Possible <span class="math notranslate nohighlight">\(m_\ell\)</span> values</p></th>
+<th class="head"><p>Number of orientations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>-1, 0, 1</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>-2, -1, 0, 1, 2</p></td>
+<td><p>5</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Thus the angular momentum vector can only take certain <strong>discrete orientations in space</strong>.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div style="background-color:#fff8e1; padding:15px; border-left:6px solid #ffc20e; border-radius:5px;">
+<p><strong>Insight — Space Quantization</strong></p>
+<p>In classical mechanics, angular momentum vectors can point in <strong>any direction</strong>.</p>
+<p>Quantum mechanics restricts the allowed orientations.</p>
+<p>This phenomenon is called <strong>space quantization</strong>.</p>
+<p>The angular momentum vector still has a definite magnitude, but its projection along the <span class="math notranslate nohighlight">\(z\)</span> axis can only take certain discrete values.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="measuring-angular-momentum">
+<h2>Measuring Angular Momentum<a class="headerlink" href="#measuring-angular-momentum" title="Link to this heading">#</a></h2>
+<p>A famous experiment demonstrating the quantization of angular momentum is the <strong>Stern–Gerlach experiment</strong>.</p>
+<p>In this experiment:</p>
+<ul class="simple">
+<li><p>a beam of particles passes through a <strong>nonuniform magnetic field</strong></p></li>
+<li><p>the magnetic moment interacts with the field</p></li>
+<li><p>the beam splits into <strong>discrete components</strong>.</p></li>
+</ul>
+<p>Instead of forming a continuous distribution, the particles appear in <strong>separate spots</strong>, corresponding to the allowed values of angular momentum projection.</p>
+<p>This was one of the earliest experimental demonstrations of <strong>quantization in nature</strong>.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div style="background-color:#ffe6e6; padding:15px; border-left:6px solid #990000; border-radius:5px;">
+<p><strong>Danger Zone — Angular Momentum Is Not a Classical Vector</strong></p>
+<p>It is tempting to picture the angular momentum vector pointing in a precise direction with a well-defined magnitude and components.</p>
+<p>In quantum mechanics, however, the components of angular momentum <strong>cannot all be known simultaneously</strong>.</p>
+<p>Only the magnitude <span class="math notranslate nohighlight">\(L\)</span> and <strong>one component</strong>, usually <span class="math notranslate nohighlight">\(L_z\)</span>, can be measured at the same time.</p>
+<p>This is a consequence of the <strong>non-commuting nature of the angular momentum operators</strong>.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div style="background-color:#e0f7fa; padding:15px; border-left:6px solid #006a80; border-radius:5px;">
+<p><strong>Example — Angular Momentum for <span class="math notranslate nohighlight">\(\ell = 1\)</span></strong></p>
+<p>For <span class="math notranslate nohighlight">\(\ell = 1\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+L = \sqrt{2}\hbar
+\]</div>
+<p>The possible <span class="math notranslate nohighlight">\(L_z\)</span> values are</p>
+<div class="math notranslate nohighlight">
+\[
+-\hbar, \quad 0, \quad \hbar.
+\]</div>
+<p>Thus there are <strong>three possible orientations</strong> of the angular momentum vector relative to the <span class="math notranslate nohighlight">\(z\)</span> axis.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div style="background-color:#e8f5e9; padding:15px; border-left:6px solid #006633; border-radius:5px;">
+<p><strong>Box Activity 1 — Allowed Angular Momentum States</strong></p>
+<p>Consider a quantum state with angular momentum quantum number <span class="math notranslate nohighlight">\(\ell = 2\)</span>.</p>
+<ol class="arabic simple">
+<li><p>Calculate the magnitude of the angular momentum.</p></li>
+<li><p>List all possible values of <span class="math notranslate nohighlight">\(m_\ell\)</span>.</p></li>
+<li><p>How many possible orientations of the angular momentum vector exist?</p></li>
+</ol>
+<details>
+<summary>Solution</summary>
+<p>The magnitude of the angular momentum is</p>
+<div class="math notranslate nohighlight">
+\[
+L = \sqrt{\ell(\ell+1)}\hbar.
+\]</div>
+<p>For <span class="math notranslate nohighlight">\(\ell = 2\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+L = \sqrt{6}\hbar.
+\]</div>
+<p>The allowed <span class="math notranslate nohighlight">\(m_\ell\)</span> values are</p>
+<div class="math notranslate nohighlight">
+\[
+-2, -1, 0, 1, 2.
+\]</div>
+<p>Thus there are</p>
+<div class="math notranslate nohighlight">
+\[
+2\ell + 1 = 5
+\]</div>
+<p>possible orientations of the angular momentum vector.</p>
+</details>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="looking-ahead">
+<h2>Looking Ahead<a class="headerlink" href="#looking-ahead" title="Link to this heading">#</a></h2>
+<p>Angular momentum plays a central role in the <strong>structure of atoms</strong>.</p>
+<p>In the next module we will introduce another form of angular momentum that has no classical analogue:</p>
+<p><strong>spin</strong>.</p>
+<p>Spin is an intrinsic property of particles and is essential for understanding the <strong>organization of electrons in atoms and the structure of matter</strong>.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Phys-Prof-Nielsen/physics-sphere",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-A4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="oscillator.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">A4.6 — The Quantum Harmonic Oscillator</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="spin.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">A4.8 — Spin: Intrinsic Angular Momentum</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#angular-momentum-operators">Angular Momentum Operators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#allowed-orientations">Allowed Orientations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-angular-momentum">Measuring Angular Momentum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#looking-ahead">Looking Ahead</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

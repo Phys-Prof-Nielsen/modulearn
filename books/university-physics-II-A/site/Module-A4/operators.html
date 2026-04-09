@@ -1,0 +1,1230 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>A4.1 — Operators in Quantum Mechanics &#8212; A Competency Approach to University Physics II</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-A4/operators';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="A4.2 — The Time-Dependent Schrödinger Equation" href="time-dependent.html" />
+    <link rel="prev" title="A3.10 Problems" href="../Module-A3/problemsA3.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-A.png" class="logo__image only-light" alt="A Competency Approach to University Physics II - Home"/>
+    <script>document.write(`<img src="../_static/logo-A.png" class="logo__image only-dark" alt="A Competency Approach to University Physics II - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to University Physics II: A Compendium to the A Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/university-physics-II/university-physics-II.html">University Physics II Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module A1 - Maxwell's Equations'</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-A1/maxwell.html">A1.1 Maxwell’s Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A1/wave-equation.html">A1.2 Deriving the Electromagnetic Wave Equation from Maxwell’s Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A1/plane-wave.html">A1.3 Plane Wave Solutions and Transverse Nature of Electromagnetic Waves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A1/poynting-vector.html">A1.4 Poynting Vector and Energy in Electromagnetic Waves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A1/radiation-pressure.html">A1.5 Radiation Pressure and Momentum Transfer in Electromagnetic Waves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A1/problemsA1.html">A1.6 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module A2 - Wave Optics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-A2/LOC-A2.html">A2.0 Learning Outcomes — Wave Optics: Diffraction, Resolution, Coherence, and Interferometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A2/diffraction.html">A2.1 Diffraction — When Waves Spread and Interfere</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A2/patterns.html">A2.2 Single-Slit Diffraction, Fraunhofer Diffraction, and the Airy Disk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A2/resolution.html">A2.3 Optical Resolution and the Rayleigh Criterion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A2/coherence.html">A2.4 Coherence of Light</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A2/interferometry.html">A2.5 Interferometry — Using Interference for Precision Measurement</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module A3 - Special Relativity</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/Taylor-expansions.html">A3.1 Taylor Expansions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/rel-momentum.html">A3.2 Relativistic Momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/rel-energy.html">A3.3 Relativistic Energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/rel-force.html">A3.4 Relativistic Force</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/spacetime.html">A3.5 Introduction to Spacetime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/spacetime-diagram.html">A3.6 Spacetime Diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/spacetime-simultaneity.html">A3.7 Spacetime Diagram: Relativity of Simultaneity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/spacetime-timedilation.html">A3.8 Time Dilation: A Geometric Perspective</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/spacetime-example.html">A3.9 Example: A Flashing Beacon on the Millennium Falcon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/problemsA3.html">A3.10 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module A4 - Quantum Mechanics and Structure of Matter</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">A4.1 — Operators in Quantum Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="time-dependent.html">A4.2 — The Time-Dependent Schrödinger Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="time-independent.html">A4.3 — The Time-Independent Schrödinger Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="infinite-square-well.html">A4.4 — The Infinite Square Well (Particle in a Box)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="finite-barrier.html">A4.5 — Finite Potential Barriers and Quantum Tunneling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oscillator.html">A4.6 — The Quantum Harmonic Oscillator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="orbital.html">A4.7 — Orbital Angular Momentum in Quantum Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spin.html">A4.8 — Spin: Intrinsic Angular Momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="atomic-structure.html">A4.9 — Quantum Numbers and Atomic Structure</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/physics-sphere/blob/main/books/university-physics-II-A/Module-A4/operators.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Phys-Prof-Nielsen/physics-sphere" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Phys-Prof-Nielsen/physics-sphere/issues/new?title=Issue%20on%20page%20%2FModule-A4/operators.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-A4/operators.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>A4.1 — Operators in Quantum Mechanics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-examples-of-operators">Simple Examples of Operators</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplication-operator">Multiplication operator</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#derivative-operator">Derivative operator</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#second-derivative-operator">Second-derivative operator</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operators-acting-on-wavefunctions">Operators Acting on Wavefunctions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-momentum-involve-a-derivative">Why Does Momentum Involve a Derivative?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-operators">Linear Operators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eigenvalue-equations">Eigenvalue Equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-eigenvalue-problems-matter-in-quantum-mechanics">Why Eigenvalue Problems Matter in Quantum Mechanics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="a4-1-operators-in-quantum-mechanics">
+<h1>A4.1 — Operators in Quantum Mechanics<a class="headerlink" href="#a4-1-operators-in-quantum-mechanics" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Link to this heading">#</a></h2>
+<p>In Phase B, we introduced the idea that particles are described by <strong>wavefunctions</strong> and that measurements in quantum mechanics are fundamentally probabilistic. We also saw that wave-like behavior leads naturally to ideas such as <strong>uncertainty</strong>, <strong>momentum spread</strong>, and <strong>probability density</strong>.</p>
+<p>To move further into quantum mechanics, we now need a mathematical language that tells us how to extract physical information from a wavefunction.</p>
+<p>That language is built around <strong>operators</strong>.</p>
+<p>In classical mechanics, physical quantities such as position, momentum, and energy are treated as numbers attached to a particle. In quantum mechanics, these measurable quantities are represented by <strong>operators</strong> that act on the wavefunction. This is one of the most important conceptual shifts in the subject.</p>
+<p>In this section, we will introduce:</p>
+<ul class="simple">
+<li><p>what an <strong>operator</strong> is,</p></li>
+<li><p>how operators act on functions,</p></li>
+<li><p>why <strong>position</strong> and <strong>momentum</strong> are represented by different kinds of operators,</p></li>
+<li><p>and how operators lead naturally to <strong>eigenvalue problems</strong>, which will appear throughout this phase.</p></li>
+</ul>
+<p>This section is therefore the mathematical doorway into the rest of the quantum module.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div style="background-color:#e6f0ff; padding:15px; border-left:6px solid #003366; border-radius:5px;">
+<p><strong>Definition — Operator</strong></p>
+<p>An <strong>operator</strong> is a mathematical rule that acts on a function and produces another function.</p>
+<p>If <span class="math notranslate nohighlight">\(\hat{A}\)</span> is an operator and <span class="math notranslate nohighlight">\(f(x)\)</span> is a function, then</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{A}f(x)
+\]</div>
+<p>means that the operator <span class="math notranslate nohighlight">\(\hat{A}\)</span> acts on <span class="math notranslate nohighlight">\(f(x)\)</span>.</p>
+<p>Examples:</p>
+<ul class="simple">
+<li><p>Multiplication by <span class="math notranslate nohighlight">\(x\)</span></p></li>
+<li><p>Taking a derivative</p></li>
+<li><p>Taking a second derivative</p></li>
+</ul>
+<p>In quantum mechanics, measurable quantities such as <strong>position</strong>, <strong>momentum</strong>, and <strong>energy</strong> are represented by operators.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="simple-examples-of-operators">
+<h2>Simple Examples of Operators<a class="headerlink" href="#simple-examples-of-operators" title="Link to this heading">#</a></h2>
+<p>Let us look at a few simple examples before discussing quantum operators.</p>
+<section id="multiplication-operator">
+<h3>Multiplication operator<a class="headerlink" href="#multiplication-operator" title="Link to this heading">#</a></h3>
+<p>Suppose the operator <span class="math notranslate nohighlight">\(\hat{A}\)</span> multiplies a function by <span class="math notranslate nohighlight">\(x\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{A}f(x) = x f(x)
+\]</div>
+<p>If</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = x^2
+\]</div>
+<p>then</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{A}f(x) = x(x^2) = x^3
+\]</div>
+</section>
+<section id="derivative-operator">
+<h3>Derivative operator<a class="headerlink" href="#derivative-operator" title="Link to this heading">#</a></h3>
+<p>Suppose the operator <span class="math notranslate nohighlight">\(\hat{B}\)</span> differentiates with respect to <span class="math notranslate nohighlight">\(x\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{B}f(x) = \frac{d}{dx}f(x)
+\]</div>
+<p>If</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = x^2
+\]</div>
+<p>then</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{B}f(x) = 2x
+\]</div>
+</section>
+<section id="second-derivative-operator">
+<h3>Second-derivative operator<a class="headerlink" href="#second-derivative-operator" title="Link to this heading">#</a></h3>
+<p>Suppose the operator <span class="math notranslate nohighlight">\(\hat{C}\)</span> takes the second derivative:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{C}f(x) = \frac{d^2}{dx^2}f(x)
+\]</div>
+<p>For the same function,</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = x^2
+\]</div>
+<p>we get</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{C}f(x) = 2
+\]</div>
+<p>These examples show that an operator is not just a number. It is an <strong>action</strong>.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div style="background-color:#fff8e1; padding:15px; border-left:6px solid #ffc20e; border-radius:5px;">
+<p><strong>Insight — Why Operators Matter in Quantum Mechanics</strong></p>
+<p>In classical physics, if we know a particle’s state, we simply assign numbers like position <span class="math notranslate nohighlight">\(x\)</span>, momentum <span class="math notranslate nohighlight">\(p\)</span>, and energy <span class="math notranslate nohighlight">\(E\)</span>.</p>
+<p>In quantum mechanics, the state is described by a <strong>wavefunction</strong> <span class="math notranslate nohighlight">\(\psi(x)\)</span>.</p>
+<p>So how do we extract information about measurable quantities from <span class="math notranslate nohighlight">\(\psi(x)\)</span>?</p>
+<p>We do this using <strong>operators</strong>.</p>
+<p>Quantum mechanics tells us that observables are not inserted as ordinary numbers. Instead, they are represented by mathematical operations acting on the wavefunction.</p>
+<p>This is one of the central structural ideas of the entire subject.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="operators-acting-on-wavefunctions">
+<h2>Operators Acting on Wavefunctions<a class="headerlink" href="#operators-acting-on-wavefunctions" title="Link to this heading">#</a></h2>
+<p>A wavefunction <span class="math notranslate nohighlight">\(\psi(x)\)</span> contains the information about the state of a particle in one dimension.</p>
+<p>An operator acts on that wavefunction to produce new information.</p>
+<p>For example:</p>
+<ul class="simple">
+<li><p>the <strong>position operator</strong> tells us how position is represented,</p></li>
+<li><p>the <strong>momentum operator</strong> tells us how momentum is represented,</p></li>
+<li><p>and later the <strong>Hamiltonian operator</strong> will represent the total energy.</p></li>
+</ul>
+<p>Thus quantum mechanics replaces the classical question</p>
+<blockquote>
+<div><p>“What number is the momentum?”</p>
+</div></blockquote>
+<p>with the quantum question</p>
+<blockquote>
+<div><p>“How does the momentum operator act on the wavefunction?”</p>
+</div></blockquote>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div style="background-color:#e6f0ff; padding:15px; border-left:6px solid #003366; border-radius:5px;">
+<p><strong>Definition — Position Operator</strong></p>
+<p>In one dimension, the <strong>position operator</strong> is</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{x} = x
+\]</div>
+<p>This means that the operator acts by multiplying the wavefunction by <span class="math notranslate nohighlight">\(x\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{x}\psi(x) = x\psi(x)
+\]</div>
+<p>So position is represented by a <strong>multiplication operator</strong>.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div style="background-color:#e0f7fa; padding:15px; border-left:6px solid #006a80; border-radius:5px;">
+<p><strong>Example — Applying the Position Operator</strong></p>
+<p>Let</p>
+<div class="math notranslate nohighlight">
+\[
+\psi(x) = e^{-x^2}
+\]</div>
+<p>Then applying the position operator gives</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{x}\psi(x) = x e^{-x^2}
+\]</div>
+<p>The operator does not return a single number. It returns a <strong>new function</strong>.</p>
+<p>This is typical of quantum operators.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div style="background-color:#e6f0ff; padding:15px; border-left:6px solid #003366; border-radius:5px;">
+<p><strong>Definition — Momentum Operator</strong></p>
+<p>In one dimension, the <strong>momentum operator</strong> is</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{p} = -i\hbar \frac{d}{dx}
+\]</div>
+<p>This means that the operator acts on a wavefunction as</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{p}\psi(x) = -i\hbar \frac{d\psi}{dx}
+\]</div>
+<p>So momentum is represented by a <strong>derivative operator</strong>, not by simple multiplication.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="why-does-momentum-involve-a-derivative">
+<h2>Why Does Momentum Involve a Derivative?<a class="headerlink" href="#why-does-momentum-involve-a-derivative" title="Link to this heading">#</a></h2>
+<p>This result is deeply connected to the wave nature of matter.</p>
+<p>Recall from Phase B that a wave with wavelength <span class="math notranslate nohighlight">\(\lambda\)</span> has momentum</p>
+<div class="math notranslate nohighlight">
+\[
+p = \frac{h}{\lambda}
+\]</div>
+<p>A sinusoidal or exponential wave changes in space at a rate determined by its wavelength.</p>
+<ul class="simple">
+<li><p>Shorter wavelength <span class="math notranslate nohighlight">\(\rightarrow\)</span> more rapid variation in space</p></li>
+<li><p>More rapid variation <span class="math notranslate nohighlight">\(\rightarrow\)</span> larger derivative</p></li>
+<li><p>Larger momentum <span class="math notranslate nohighlight">\(\rightarrow\)</span> shorter wavelength</p></li>
+</ul>
+<p>So the derivative naturally captures the spatial variation associated with momentum.</p>
+<p>This is why momentum is represented by a differential operator.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div style="background-color:#e0f7fa; padding:15px; border-left:6px solid #006a80; border-radius:5px;">
+<p><strong>Example — Applying the Momentum Operator</strong></p>
+<p>Let</p>
+<div class="math notranslate nohighlight">
+\[
+\psi(x) = Ae^{ikx}
+\]</div>
+<p>Apply the momentum operator:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{p}\psi(x) = -i\hbar \frac{d}{dx}\left(Ae^{ikx}\right)
+\]</div>
+<p>Since</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dx}\left(Ae^{ikx}\right) = ikAe^{ikx}
+\]</div>
+<p>we obtain</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{p}\psi(x) = -i\hbar (ik)Ae^{ikx}
+\]</div>
+<p>so</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{p}\psi(x) = \hbar k \psi(x)
+\]</div>
+<p>This is an extremely important result:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{p}\psi = p\psi
+\qquad \text{with} \qquad
+p = \hbar k
+\]</div>
+<p>So the wavefunction <span class="math notranslate nohighlight">\(Ae^{ikx}\)</span> is an <strong>eigenfunction of the momentum operator</strong>, and the corresponding eigenvalue is the momentum <span class="math notranslate nohighlight">\(\hbar k\)</span>.</p>
+</div>
+<p><strong>Interpreting the Result</strong></p>
+<p>The result</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{p}\psi = \hbar k \psi
+\]</div>
+<p>shows that the wavefunction <span class="math notranslate nohighlight">\(Ae^{ikx}\)</span> is an eigenfunction of the momentum operator with eigenvalue <span class="math notranslate nohighlight">\(p=\hbar k\)</span>.</p>
+<p>In fact, we could reverse this logic and use it to <strong>define the momentum operator</strong>. From de Broglie’s relation we know that a plane wave</p>
+<div class="math notranslate nohighlight">
+\[
+\psi(x)=Ae^{ikx}
+\]</div>
+<p>represents a state with definite momentum</p>
+<div class="math notranslate nohighlight">
+\[
+p=\hbar k .
+\]</div>
+<p>If we demand that this wavefunction satisfy an eigenvalue equation of the form</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{p}\psi = p\psi ,
+\]</div>
+<p>then the operator that accomplishes this must be</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{p} = -i\hbar\frac{d}{dx}.
+\]</div>
+<p>Thus the derivative form of the momentum operator is not arbitrary—it is precisely the operator that returns the correct momentum eigenvalue for a matter wave.</p>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; padding:15px; border-left:6px solid #006633; border-radius:5px;">
+<p><strong>Box Activity 1 — Deriving the Kinetic Energy Operator</strong></p>
+<p>In classical mechanics, the kinetic energy of a particle is</p>
+<div class="math notranslate nohighlight">
+\[
+K = \frac{p^2}{2m}.
+\]</div>
+<p>In quantum mechanics, momentum is represented by the <strong>momentum operator</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\hat{p} = -i\hbar\frac{d}{dx}.
+\]</div>
+<ol class="arabic simple">
+<li><p>Substitute the momentum operator into the classical kinetic energy expression to construct the <strong>kinetic energy operator</strong>.</p></li>
+<li><p>Apply the resulting operator to a wavefunction <span class="math notranslate nohighlight">\(\psi(x)\)</span>.</p></li>
+<li><p>Simplify the expression to obtain the final form of the kinetic energy operator.</p></li>
+</ol>
+<details>
+<summary>Solution</summary>
+<p>Start with the classical kinetic energy expression</p>
+<div class="math notranslate nohighlight">
+\[
+K = \frac{p^2}{2m}.
+\]</div>
+<p>In quantum mechanics we replace the momentum <span class="math notranslate nohighlight">\(p\)</span> with the <strong>momentum operator</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\hat{p} = -i\hbar\frac{d}{dx}.
+\]</div>
+<p>Thus the kinetic energy operator becomes</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{K} = \frac{\hat{p}^2}{2m}.
+\]</div>
+<p>Now substitute the momentum operator:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{K} = \frac{1}{2m}\left(-i\hbar\frac{d}{dx}\right)^2.
+\]</div>
+<p>Apply this operator to a wavefunction <span class="math notranslate nohighlight">\(\psi(x)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{K}\psi(x) = \frac{1}{2m}\left(-i\hbar\frac{d}{dx}\right)^2 \psi(x).
+\]</div>
+<p>Squaring the operator gives</p>
+<div class="math notranslate nohighlight">
+\[
+(-i\hbar)^2 = -\hbar^2.
+\]</div>
+<p>Thus</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{K}\psi(x) =
+-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2}.
+\]</div>
+<p>Therefore the <strong>kinetic energy operator</strong> is</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{\hat{K} = -\frac{\hbar^2}{2m}\frac{d^2}{dx^2}}
+\]</div>
+<p>This operator will appear in the <strong>Hamiltonian operator</strong>, which represents the total energy of a quantum system.</p>
+</details>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div style="background-color:#ffe6e6; padding:15px; border-left:6px solid #990000; border-radius:5px;">
+<p><strong>Danger Zone — Operators Are Not Always Ordinary Multiplication</strong></p>
+<p>A common mistake is to think that every observable in quantum mechanics acts like multiplication by a number.</p>
+<p>That is true for the position operator:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{x}\psi = x\psi
+\]</div>
+<p>but not for momentum:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{p}\psi = -i\hbar \frac{d\psi}{dx}
+\]</div>
+<p>Different physical observables are represented by different kinds of operators.</p>
+<p>This is one reason quantum mechanics feels so different from classical mechanics.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="linear-operators">
+<h2>Linear Operators<a class="headerlink" href="#linear-operators" title="Link to this heading">#</a></h2>
+<p>Most quantum operators are <strong>linear</strong>.</p>
+<p>An operator <span class="math notranslate nohighlight">\(\hat{A}\)</span> is linear if</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{A}\left[c_1 f(x) + c_2 g(x)\right]
+=
+c_1 \hat{A}f(x) + c_2 \hat{A}g(x)
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(c_1\)</span> and <span class="math notranslate nohighlight">\(c_2\)</span> are constants.</p>
+<p>This matters because wavefunctions can be added together to form <strong>superpositions</strong>, and quantum mechanics depends heavily on that structure.</p>
+<p>For example, the derivative operator is linear:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dx}\left[c_1 f(x) + c_2 g(x)\right]
+=
+c_1 \frac{df}{dx} + c_2 \frac{dg}{dx}
+\]</div>
+<p>The position operator is also linear:</p>
+<div class="math notranslate nohighlight">
+\[
+x[c_1 f(x) + c_2 g(x)] = c_1 x f(x) + c_2 x g(x)
+\]</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div style="background-color:#fff8e1; padding:15px; border-left:6px solid #ffc20e; border-radius:5px;">
+<p><strong>Cool Information — Matrices Also Represent Operators</strong></p>
+<p>In this phase, we will mainly use operators as <strong>differential operators acting on wavefunctions</strong>.</p>
+<p>However, in more advanced quantum mechanics, the same ideas can also be expressed using <strong>matrices acting on vectors</strong>.</p>
+<p>So when we later talk about <strong>eigenvalues</strong> and <strong>eigenvectors</strong> in linear algebra, we are seeing a mathematical structure closely related to what we are doing here.</p>
+<p>For now, the differential-operator viewpoint is enough for solving the problems we need in this course.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="eigenvalue-equations">
+<h2>Eigenvalue Equations<a class="headerlink" href="#eigenvalue-equations" title="Link to this heading">#</a></h2>
+<p>One of the most important ideas in quantum mechanics is the <strong>eigenvalue equation</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\hat{A}\psi = a\psi
+\]</div>
+<p>This means:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\hat{A}\)</span> is an operator</p></li>
+<li><p><span class="math notranslate nohighlight">\(\psi\)</span> is a function that the operator acts on</p></li>
+<li><p><span class="math notranslate nohighlight">\(a\)</span> is a number called the <strong>eigenvalue</strong></p></li>
+</ul>
+<p>If applying the operator to a function gives back the <strong>same function times a constant</strong>, then that function is called an <strong>eigenfunction</strong> of the operator.</p>
+<p>The constant is the <strong>eigenvalue</strong>.</p>
+<p>This is crucial in quantum mechanics because measurement outcomes are associated with operator eigenvalues.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div style="background-color:#e6f0ff; padding:15px; border-left:6px solid #003366; border-radius:5px;">
+<p><strong>Definition — Eigenfunction and Eigenvalue</strong></p>
+<p>If an operator <span class="math notranslate nohighlight">\(\hat{A}\)</span> satisfies</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{A}\psi = a\psi
+\]</div>
+<p>then:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\psi\)</span> is an <strong>eigenfunction</strong> of <span class="math notranslate nohighlight">\(\hat{A}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(a\)</span> is the corresponding <strong>eigenvalue</strong></p></li>
+</ul>
+<p>In quantum mechanics, eigenvalues correspond to the <strong>allowed measured values</strong> of the observable associated with the operator.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div style="background-color:#e0f7fa; padding:15px; border-left:6px solid #006a80; border-radius:5px;">
+<p><strong>Example — A Simple Eigenvalue Problem</strong></p>
+<p>Consider the derivative operator</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{D} = \frac{d}{dx}
+\]</div>
+<p>and the function</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = e^{3x}
+\]</div>
+<p>Apply the operator:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{D}f(x) = \frac{d}{dx}(e^{3x}) = 3e^{3x}
+\]</div>
+<p>Thus</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{D}f = 3f
+\]</div>
+<p>So <span class="math notranslate nohighlight">\(e^{3x}\)</span> is an eigenfunction of the derivative operator, with eigenvalue</p>
+<div class="math notranslate nohighlight">
+\[
+3
+\]</div>
+<p>This is the same mathematical structure that appears in quantum mechanics.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="why-eigenvalue-problems-matter-in-quantum-mechanics">
+<h2>Why Eigenvalue Problems Matter in Quantum Mechanics<a class="headerlink" href="#why-eigenvalue-problems-matter-in-quantum-mechanics" title="Link to this heading">#</a></h2>
+<p>Quantum mechanics uses eigenvalue equations everywhere.</p>
+<p>Examples:</p>
+<ul class="simple">
+<li><p><strong>Momentum eigenvalue equation</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\hat{p}\psi = p\psi
+\]</div>
+<ul class="simple">
+<li><p><strong>Energy eigenvalue equation</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\hat{H}\psi = E\psi
+\]</div>
+<ul class="simple">
+<li><p>later, for angular momentum and spin, we will encounter similar equations again.</p></li>
+</ul>
+<p>These equations tell us the <strong>allowed values</strong> of measurable quantities and the wavefunctions associated with them.</p>
+<p>In particular, the <strong>time-independent Schrödinger equation</strong> is an eigenvalue problem for energy.</p>
+<p>That is why operators and eigenvalue equations must come before solving quantum systems.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div style="background-color:#e8f5e9; padding:15px; border-left:6px solid #006633; border-radius:5px;">
+<p><strong>Box Activity 2 — Identifying Operators</strong></p>
+<p>For each of the following, determine what the operator does to the function.</p>
+<ol class="arabic simple">
+<li><p>If</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\hat{A} = x
+\qquad \text{and} \qquad
+f(x) = x^2 + 1
+\]</div>
+<p>find <span class="math notranslate nohighlight">\(\hat{A}f(x)\)</span>.</p>
+<ol class="arabic simple" start="2">
+<li><p>If</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\hat{B} = \frac{d}{dx}
+\qquad \text{and} \qquad
+g(x) = x^3
+\]</div>
+<p>find <span class="math notranslate nohighlight">\(\hat{B}g(x)\)</span>.</p>
+<ol class="arabic simple" start="3">
+<li><p>Which of the two operators above acts by <strong>multiplication</strong>, and which acts by <strong>differentiation</strong>?</p></li>
+</ol>
+<details>
+<summary>Solution</summary>
+<ol class="arabic simple">
+<li><p>Since <span class="math notranslate nohighlight">\(\hat{A}\)</span> multiplies by <span class="math notranslate nohighlight">\(x\)</span>,</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\hat{A}f(x) = x(x^2+1)=x^3+x
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p>Since <span class="math notranslate nohighlight">\(\hat{B}\)</span> differentiates,</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\hat{B}g(x)=\frac{d}{dx}(x^3)=3x^2
+\]</div>
+<ol class="arabic simple" start="3">
+<li><p>The operator <span class="math notranslate nohighlight">\(\hat{A}=x\)</span> is a multiplication operator, while <span class="math notranslate nohighlight">\(\hat{B}=\frac{d}{dx}\)</span> is a derivative operator.</p></li>
+</ol>
+</details>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div style="background-color:#e8f5e9; padding:15px; border-left:6px solid #006633; border-radius:5px;">
+<p><strong>Box Activity 3 — Is This an Eigenfunction?</strong></p>
+<p>Consider the operator</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{A} = \frac{d^2}{dx^2}
+\]</div>
+<p>and the function</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = \sin(2x).
+\]</div>
+<ol class="arabic simple">
+<li><p>Apply the operator <span class="math notranslate nohighlight">\(\hat{A}\)</span> to the function <span class="math notranslate nohighlight">\(f(x)\)</span>.</p></li>
+<li><p>Determine whether <span class="math notranslate nohighlight">\(f(x)\)</span> is an <strong>eigenfunction</strong> of the operator.</p></li>
+<li><p>If it is an eigenfunction, determine the <strong>eigenvalue</strong>.</p></li>
+<li><p>What other functions might also be eigenfunctions of this operator?</p></li>
+</ol>
+<details>
+<summary>Solution</summary>
+<p>First apply the operator:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{A}f(x) = \frac{d^2}{dx^2}(\sin(2x)).
+\]</div>
+<p>Take the derivatives step by step.</p>
+<p>First derivative:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dx}(\sin(2x)) = 2\cos(2x).
+\]</div>
+<p>Second derivative:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d^2}{dx^2}(\sin(2x)) = -4\sin(2x).
+\]</div>
+<p>Thus</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{A}f(x) = -4\sin(2x).
+\]</div>
+<p>This can be written as</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{A}f(x) = -4f(x).
+\]</div>
+<p>Since the result is the <strong>original function multiplied by a constant</strong>, the function is an <strong>eigenfunction</strong> of the operator.</p>
+<p>The <strong>eigenvalue</strong> is</p>
+<div class="math notranslate nohighlight">
+\[
+-4.
+\]</div>
+<p>Other functions such as <span class="math notranslate nohighlight">\(\cos(2x)\)</span> are also eigenfunctions of the same operator, because</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d^2}{dx^2}(\cos(2x)) = -4\cos(2x).
+\]</div>
+<p>This is important in physics because <strong>sinusoidal functions frequently appear as eigenfunctions of differential operators</strong>, especially in wave problems and quantum systems.</p>
+</details>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>In this section we introduced the mathematical language that we will use throughout the rest of the quantum module.</p>
+<p>The key ideas are:</p>
+<ul class="simple">
+<li><p>An <strong>operator</strong> acts on a function and produces another function.</p></li>
+<li><p>In quantum mechanics, observables are represented by <strong>operators</strong>.</p></li>
+<li><p>The <strong>position operator</strong> acts by multiplication:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\hat{x}\psi = x\psi
+\]</div>
+<ul class="simple">
+<li><p>The <strong>momentum operator</strong> acts by differentiation:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\hat{p}\psi = -i\hbar\frac{d\psi}{dx}
+\]</div>
+<ul class="simple">
+<li><p><strong>Eigenvalue equations</strong> have the form</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\hat{A}\psi = a\psi
+\]</div>
+<p>and play a central role in quantum mechanics.</p>
+<p>In the next section, we will build directly on this idea by looking more carefully at <strong>eigenvalue problems</strong> and then applying them to the <strong>Schrödinger equation</strong>.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Phys-Prof-Nielsen/physics-sphere",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-A4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Module-A3/problemsA3.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">A3.10 Problems</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="time-dependent.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">A4.2 — The Time-Dependent Schrödinger Equation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-examples-of-operators">Simple Examples of Operators</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplication-operator">Multiplication operator</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#derivative-operator">Derivative operator</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#second-derivative-operator">Second-derivative operator</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operators-acting-on-wavefunctions">Operators Acting on Wavefunctions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-momentum-involve-a-derivative">Why Does Momentum Involve a Derivative?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-operators">Linear Operators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eigenvalue-equations">Eigenvalue Equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-eigenvalue-problems-matter-in-quantum-mechanics">Why Eigenvalue Problems Matter in Quantum Mechanics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

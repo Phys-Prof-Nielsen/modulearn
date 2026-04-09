@@ -1,0 +1,834 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>A4.3 — The Time-Independent Schrödinger Equation &#8212; A Competency Approach to University Physics II</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-A4/time-independent';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="A4.4 — The Infinite Square Well (Particle in a Box)" href="infinite-square-well.html" />
+    <link rel="prev" title="A4.2 — The Time-Dependent Schrödinger Equation" href="time-dependent.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-A.png" class="logo__image only-light" alt="A Competency Approach to University Physics II - Home"/>
+    <script>document.write(`<img src="../_static/logo-A.png" class="logo__image only-dark" alt="A Competency Approach to University Physics II - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to University Physics II: A Compendium to the A Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/university-physics-II/university-physics-II.html">University Physics II Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module A1 - Maxwell's Equations'</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-A1/maxwell.html">A1.1 Maxwell’s Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A1/wave-equation.html">A1.2 Deriving the Electromagnetic Wave Equation from Maxwell’s Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A1/plane-wave.html">A1.3 Plane Wave Solutions and Transverse Nature of Electromagnetic Waves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A1/poynting-vector.html">A1.4 Poynting Vector and Energy in Electromagnetic Waves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A1/radiation-pressure.html">A1.5 Radiation Pressure and Momentum Transfer in Electromagnetic Waves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A1/problemsA1.html">A1.6 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module A2 - Wave Optics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-A2/LOC-A2.html">A2.0 Learning Outcomes — Wave Optics: Diffraction, Resolution, Coherence, and Interferometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A2/diffraction.html">A2.1 Diffraction — When Waves Spread and Interfere</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A2/patterns.html">A2.2 Single-Slit Diffraction, Fraunhofer Diffraction, and the Airy Disk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A2/resolution.html">A2.3 Optical Resolution and the Rayleigh Criterion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A2/coherence.html">A2.4 Coherence of Light</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A2/interferometry.html">A2.5 Interferometry — Using Interference for Precision Measurement</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module A3 - Special Relativity</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/Taylor-expansions.html">A3.1 Taylor Expansions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/rel-momentum.html">A3.2 Relativistic Momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/rel-energy.html">A3.3 Relativistic Energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/rel-force.html">A3.4 Relativistic Force</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/spacetime.html">A3.5 Introduction to Spacetime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/spacetime-diagram.html">A3.6 Spacetime Diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/spacetime-simultaneity.html">A3.7 Spacetime Diagram: Relativity of Simultaneity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/spacetime-timedilation.html">A3.8 Time Dilation: A Geometric Perspective</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/spacetime-example.html">A3.9 Example: A Flashing Beacon on the Millennium Falcon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/problemsA3.html">A3.10 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module A4 - Quantum Mechanics and Structure of Matter</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="operators.html">A4.1 — Operators in Quantum Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="time-dependent.html">A4.2 — The Time-Dependent Schrödinger Equation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">A4.3 — The Time-Independent Schrödinger Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="infinite-square-well.html">A4.4 — The Infinite Square Well (Particle in a Box)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="finite-barrier.html">A4.5 — Finite Potential Barriers and Quantum Tunneling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oscillator.html">A4.6 — The Quantum Harmonic Oscillator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="orbital.html">A4.7 — Orbital Angular Momentum in Quantum Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spin.html">A4.8 — Spin: Intrinsic Angular Momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="atomic-structure.html">A4.9 — Quantum Numbers and Atomic Structure</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/physics-sphere/blob/main/books/university-physics-II-A/Module-A4/time-independent.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Phys-Prof-Nielsen/physics-sphere" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Phys-Prof-Nielsen/physics-sphere/issues/new?title=Issue%20on%20page%20%2FModule-A4/time-independent.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-A4/time-independent.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>A4.3 — The Time-Independent Schrödinger Equation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-the-equation">Interpreting the Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">Boundary Conditions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#looking-ahead">Looking Ahead</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="a4-3-the-time-independent-schrodinger-equation">
+<h1>A4.3 — The Time-Independent Schrödinger Equation<a class="headerlink" href="#a4-3-the-time-independent-schrodinger-equation" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Link to this heading">#</a></h2>
+<p>In the previous module we introduced <strong>operators</strong> and <strong>eigenvalue equations</strong>, which form the mathematical language of quantum mechanics. Physical observables such as <strong>position</strong>, <strong>momentum</strong>, and <strong>energy</strong> are represented by operators acting on the <strong>wavefunction</strong>.</p>
+<p>A central question in quantum mechanics is therefore:</p>
+<p><strong>How does the wavefunction evolve in time, and how do we determine the allowed energy states of a system?</strong></p>
+<p>The time evolution of a quantum system is governed by the <strong>time-dependent Schrödinger equation</strong></p>
+<div class="math notranslate nohighlight">
+\[
+i\hbar \frac{\partial \psi(x,t)}{\partial t} = \hat{H}\psi(x,t)
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\hat{H}\)</span> is the <strong>Hamiltonian operator</strong>, representing the total energy of the system.</p>
+<p>For a particle moving in a potential <span class="math notranslate nohighlight">\(V(x)\)</span>, the Hamiltonian operator is</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{H} = -\frac{\hbar^2}{2m}\frac{d^2}{dx^2} + V(x).
+\]</div>
+<p>When the potential does <strong>not depend on time</strong>, the Schrödinger equation allows solutions that separate into spatial and temporal parts. These solutions take the form</p>
+<div class="math notranslate nohighlight">
+\[
+\psi(x,t) = \psi(x)e^{-iEt/\hbar}.
+\]</div>
+<p>Substituting this form into the time-dependent Schrödinger equation leads to an <strong>eigenvalue equation for the Hamiltonian operator</strong>. This equation is known as the <strong>time-independent Schrödinger equation</strong> and determines the allowed <strong>stationary states</strong> and <strong>energy levels</strong> of the system.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div style="background-color:#e6f0ff; padding:15px; border-left:6px solid #003366; border-radius:5px;">
+<p><strong>Definition — Time-Independent Schrödinger Equation</strong></p>
+<p>For a particle of mass <span class="math notranslate nohighlight">\(m\)</span> moving in a potential energy <span class="math notranslate nohighlight">\(V(x)\)</span>, the time-independent Schrödinger equation is</p>
+<div class="math notranslate nohighlight">
+\[
+-\frac{\hbar^2}{2m}\frac{d^2\psi(x)}{dx^2} + V(x)\psi(x) = E\psi(x)
+\]</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\psi(x)\)</span> is the <strong>wavefunction</strong></p></li>
+<li><p><span class="math notranslate nohighlight">\(V(x)\)</span> is the <strong>potential energy</strong></p></li>
+<li><p><span class="math notranslate nohighlight">\(E\)</span> is the <strong>energy eigenvalue</strong></p></li>
+<li><p><span class="math notranslate nohighlight">\(\hbar = \frac{h}{2\pi}\)</span> is the <strong>reduced Planck constant</strong></p></li>
+</ul>
+<p>Solutions <span class="math notranslate nohighlight">\(\psi(x)\)</span> that satisfy this equation correspond to <strong>stationary quantum states</strong>, and the allowed values of <span class="math notranslate nohighlight">\(E\)</span> are the <strong>quantized energies</strong> of the system.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="interpreting-the-equation">
+<h2>Interpreting the Equation<a class="headerlink" href="#interpreting-the-equation" title="Link to this heading">#</a></h2>
+<p>The time-independent Schrödinger equation can be written compactly using operators as</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{H}\psi = E\psi
+\]</div>
+<p>This is an <strong>eigenvalue equation</strong> for the Hamiltonian operator.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\hat{H}\)</span> is the <strong>energy operator</strong></p></li>
+<li><p><span class="math notranslate nohighlight">\(\psi\)</span> is an <strong>energy eigenfunction</strong></p></li>
+<li><p><span class="math notranslate nohighlight">\(E\)</span> is the corresponding <strong>energy eigenvalue</strong></p></li>
+</ul>
+<p>Thus solving the Schrödinger equation means finding the wavefunctions that satisfy this equation and determining the corresponding allowed energies.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div style="background-color:#fff8e1; padding:15px; border-left:6px solid #ffc20e; border-radius:5px;">
+<p><strong>Insight — Why Quantization Appears</strong></p>
+<p>In classical physics, a particle can have <strong>any energy</strong>.</p>
+<p>In quantum mechanics, the Schrödinger equation combined with <strong>boundary conditions</strong> often restricts the allowed solutions. Only certain wave patterns “fit” into the system.</p>
+<p>This is similar to <strong>standing waves on a string</strong>: only specific wavelengths are allowed between two fixed ends.</p>
+<p>Because wavelength and momentum are related by the <strong>de Broglie relation</strong></p>
+<div class="math notranslate nohighlight">
+\[
+p = \frac{h}{\lambda}
+\]</div>
+<p>only certain momenta and therefore <strong>only certain energies</strong> are possible.</p>
+<p>Quantization therefore emerges naturally from <strong>wave behavior and spatial constraints</strong>.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div style="background-color:#ffe6e6; padding:15px; border-left:6px solid #990000; border-radius:5px;">
+<p><strong>Danger Zone — The Wavefunction is Not a Physical Wave</strong></p>
+<p>It is tempting to think of <span class="math notranslate nohighlight">\(\psi(x)\)</span> as a literal physical wave like a water wave.</p>
+<p>However, the wavefunction itself is <strong>not directly observable</strong>.</p>
+<p>Instead, the measurable quantity is the <strong>probability density</strong></p>
+<div class="math notranslate nohighlight">
+\[
+P(x) = |\psi(x)|^2
+\]</div>
+<p>which gives the probability of finding the particle at position <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p>The wavefunction is therefore best understood as a <strong>mathematical object encoding probability information</strong> about the system.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="boundary-conditions">
+<h2>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Link to this heading">#</a></h2>
+<p>Not every mathematical solution of the Schrödinger equation is physically acceptable.</p>
+<p>A valid wavefunction must satisfy several conditions:</p>
+<ol class="arabic simple">
+<li><p><strong>Finite everywhere</strong></p></li>
+<li><p><strong>Single-valued</strong></p></li>
+<li><p><strong>Continuous</strong></p></li>
+<li><p><strong>Normalizable</strong></p></li>
+</ol>
+<p>The normalization condition requires that the total probability of finding the particle somewhere in space is equal to 1:</p>
+<div class="math notranslate nohighlight">
+\[
+\int |\psi(x)|^2 dx = 1
+\]</div>
+<p>These requirements eliminate many mathematical solutions and leave only those corresponding to <strong>physically meaningful quantum states</strong>.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div style="background-color:#e0f7fa; padding:15px; border-left:6px solid #006a80; border-radius:5px;">
+<p><strong>Example — Free Particle</strong></p>
+<p>Consider a particle moving in a region where the potential energy is zero:</p>
+<div class="math notranslate nohighlight">
+\[
+V(x) = 0
+\]</div>
+<p>The Schrödinger equation becomes</p>
+<div class="math notranslate nohighlight">
+\[
+-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} = E\psi
+\]</div>
+<p>which can be rewritten as</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d^2\psi}{dx^2} + k^2\psi = 0
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+k = \frac{\sqrt{2mE}}{\hbar}.
+\]</div>
+<p>The solutions are traveling waves</p>
+<div class="math notranslate nohighlight">
+\[
+\psi(x) = Ae^{ikx} + Be^{-ikx}.
+\]</div>
+<p>These correspond to <strong>matter waves</strong> moving in opposite directions.</p>
+<p>For a free particle there are <strong>no boundary conditions restricting the wavelength</strong>, so the energy is <strong>not quantized</strong>.</p>
+<p>Quantization appears only when the particle is <strong>confined</strong>.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div style="background-color:#e8f5e9; padding:15px; border-left:6px solid #006633; border-radius:5px;">
+<p><strong>Box Activity 1 — Interpreting the Schrödinger Equation</strong></p>
+<p>Consider the time-independent Schrödinger equation</p>
+<div class="math notranslate nohighlight">
+\[
+-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} + V(x)\psi = E\psi.
+\]</div>
+<p>Discuss the following questions with your group:</p>
+<ol class="arabic simple">
+<li><p>Which term in the equation represents the <strong>kinetic energy contribution</strong>?</p></li>
+<li><p>Which term represents the <strong>potential energy contribution</strong>?</p></li>
+<li><p>Why might the <strong>curvature of the wavefunction</strong> be related to the kinetic energy of the particle?</p></li>
+</ol>
+<details>
+<summary>Solution</summary>
+<p>We analyze the time-independent Schrödinger equation</p>
+<div class="math notranslate nohighlight">
+\[
+-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} + V(x)\psi = E\psi
+\]</div>
+<p>term by term.</p>
+<p><strong>1. Kinetic energy term</strong></p>
+<p>The kinetic energy contribution is</p>
+<div class="math notranslate nohighlight">
+\[
+-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2}.
+\]</div>
+<p>This term originates from replacing momentum in the classical kinetic energy formula</p>
+<div class="math notranslate nohighlight">
+\[
+K = \frac{p^2}{2m}
+\]</div>
+<p>with the momentum operator</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{p} = -i\hbar\frac{d}{dx}.
+\]</div>
+<p>Squaring this operator gives</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{p}^2 = -\hbar^2\frac{d^2}{dx^2}.
+\]</div>
+<p>Thus the first term represents the <strong>kinetic energy operator</strong>.</p>
+<p><strong>2. Potential energy term</strong></p>
+<p>The term</p>
+<div class="math notranslate nohighlight">
+\[
+V(x)\psi
+\]</div>
+<p>represents the <strong>potential energy</strong> contribution.</p>
+<p><strong>3. Total energy</strong></p>
+<p>The right-hand side</p>
+<div class="math notranslate nohighlight">
+\[
+E\psi
+\]</div>
+<p>represents the <strong>total energy of the stationary state</strong>.</p>
+<p>Thus the Schrödinger equation is the quantum version of</p>
+<div class="math notranslate nohighlight">
+\[
+E = K + V.
+\]</div>
+<p><strong>4. Curvature and kinetic energy</strong></p>
+<p>The kinetic energy depends on the <strong>second derivative of the wavefunction</strong>, which measures the <strong>curvature</strong>.</p>
+<ul class="simple">
+<li><p>large curvature → short wavelength</p></li>
+<li><p>short wavelength → large momentum</p></li>
+<li><p>large momentum → large kinetic energy</p></li>
+</ul>
+<p>Thus the <strong>shape of the wavefunction</strong> directly reflects the energy of the particle.</p>
+</details>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="looking-ahead">
+<h2>Looking Ahead<a class="headerlink" href="#looking-ahead" title="Link to this heading">#</a></h2>
+<p>The Schrödinger equation is powerful, but solving it exactly is only possible for a limited number of systems.</p>
+<p>Fortunately, several <strong>model systems</strong> provide deep insights into quantum physics. In the following sections we will explore</p>
+<ul class="simple">
+<li><p>the <strong>infinite square well</strong> (particle confined in a box),</p></li>
+<li><p><strong>potential barriers and tunneling</strong>, and</p></li>
+<li><p>the <strong>quantum harmonic oscillator</strong>.</p></li>
+</ul>
+<p>These systems reveal how <strong>quantization, confinement, and wave behavior</strong> shape the microscopic structure of matter.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Phys-Prof-Nielsen/physics-sphere",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-A4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="time-dependent.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">A4.2 — The Time-Dependent Schrödinger Equation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="infinite-square-well.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">A4.4 — The Infinite Square Well (Particle in a Box)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-the-equation">Interpreting the Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">Boundary Conditions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#looking-ahead">Looking Ahead</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
