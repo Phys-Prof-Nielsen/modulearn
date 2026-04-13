@@ -1,0 +1,1038 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>A4.1 Damped Oscillations &#8212; A Competency Approach to Introductory Physics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/save_cell.css?v=43dd4451" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-A4/damped';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/save_cell.js?v=d135a7b8"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="A4.2 Driven Oscillations" href="driven.html" />
+    <link rel="prev" title="A4.0 Learning Outcomes - Advanced Oscillations" href="LOC-A4.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-A.png" class="logo__image only-light" alt="A Competency Approach to Introductory Physics - Home"/>
+    <script>document.write(`<img src="../_static/logo-A.png" class="logo__image only-dark" alt="A Competency Approach to Introductory Physics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to University Physics I: A Compendium to the A Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/university-physics-I/university-physics-I.html">University Physics I Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module A1 - Numerical Method</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-A1/Taylor-expansions.html">A1.1 Taylor Expansions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A1/Numerical-methods.html">A1.2 Numerical Integration: Finite Difference Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A1/Numerical-methods-practice.html">A1.3 Numerical Methods - Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A1/Project-1-Covid-19.html">A1.4 Realistic Projectile Motion Project 1: Covid-19</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A1/Project-2-Artillery.html">A1.5 Realistic Projectile Motion Project 2: Artillery</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module A2 - Translational + Rotational Dynamics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-A2/angular-momentum.html">A2.1 Angular Momentum Revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A2/translational-rotational.html">A2.2 A Note on Combined Translational and Rotational Angular Speed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A2/newton-rotational.html">A2.3 Newton’s 2nd Law - Rotational Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A2/problemsA2.html">A2.x Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module A3 - Gravity</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/newton-law-gravity.html">A3.1 Newton’s Law of Gravity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/mass-distributions.html">A3.2 Newton’s Law of Gravity -  Mass Distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/flux.html">A3.3 Field Flux</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Module-A3/problemsA3.html">A3.X Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module A4 - Advanced Oscillations</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-A4.html">A4.0 Learning Outcomes - Advanced Oscillations</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">A4.1 Damped Oscillations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="driven.html">A4.2 Driven Oscillations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resonance.html">A4.3 Resonance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="q-factor.html">A4.4 Quality Factor and Resonance Width</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coupled.html">A4.5 Coupled Oscillators and Normal Modes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="small-stable.html">A4.6 Small Oscillations About Stable Equilibrium</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/university-physics-I-A/Module-A4/damped.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-A4/damped.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>A4.1 Damped Oscillations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-of-motion-for-a-damped-oscillator">Equation of Motion for a Damped Oscillator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristic-behavior">Characteristic Behavior</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-phase-plots">Interpreting Phase Plots</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-phase-plots-show">What Phase Plots Show</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underdamped-case-spiral-toward-the-origin">Underdamped Case — Spiral Toward the Origin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critically-damped-case-direct-approach">Critically Damped Case — Direct Approach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overdamped-case-slow-approach">Overdamped Case — Slow Approach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-phase-plots-are-useful">Why Phase Plots Are Useful</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-insight">Key Insight</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#energy-loss-in-oscillations">Energy Loss in Oscillations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#looking-ahead">Looking Ahead</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="a4-1-damped-oscillations">
+<h1>A4.1 Damped Oscillations<a class="headerlink" href="#a4-1-damped-oscillations" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Link to this heading">#</a></h2>
+<p>In the previous phase we studied <strong>ideal oscillations</strong>, where energy continually moves between kinetic and potential forms while the <strong>total mechanical energy remains constant</strong>. In reality, however, oscillations rarely persist forever. Friction, air resistance, electrical resistance, and other dissipative effects gradually remove energy from the system.</p>
+<p>These effects are collectively called <strong>damping</strong>. Damping plays a crucial role in many physical systems. It prevents structures from oscillating dangerously after disturbances, allows measuring instruments to settle quickly, and determines how long vibrations persist in musical instruments.</p>
+<p>In this section we investigate how dissipative forces modify oscillatory motion and how different levels of damping produce qualitatively different behaviors.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div style="background-color:#e6f0ff; padding:15px; border-left:6px solid #003366; border-radius:5px;">
+<p><strong>Definition — Damping Force</strong></p>
+<p>A <strong>damping force</strong> is a force that removes mechanical energy from an oscillating system.<br />
+For many systems at moderate speeds, the damping force is approximately proportional to velocity:</p>
+<div class="math notranslate nohighlight">
+\[
+F_d = -b v
+\]</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(b\)</span> is the <strong>damping coefficient</strong></p></li>
+<li><p><span class="math notranslate nohighlight">\(v\)</span> is the velocity of the oscillator.</p></li>
+</ul>
+<p>The negative sign indicates that the force <strong>opposes the motion</strong>.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="equation-of-motion-for-a-damped-oscillator">
+<h2>Equation of Motion for a Damped Oscillator<a class="headerlink" href="#equation-of-motion-for-a-damped-oscillator" title="Link to this heading">#</a></h2>
+<p>Consider a mass attached to a spring that experiences a damping force proportional to velocity.</p>
+<p>Using Newton’s Second Law:</p>
+<div class="math notranslate nohighlight">
+\[
+\sum F = m\ddot{x}
+\]</div>
+<p>The forces acting on the mass are</p>
+<ul class="simple">
+<li><p>spring restoring force: <span class="math notranslate nohighlight">\(-kx\)</span></p></li>
+<li><p>damping force: <span class="math notranslate nohighlight">\(-b\dot{x}\)</span></p></li>
+</ul>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+m\ddot{x} = -b\dot{x} - kx
+\]</div>
+<p>or equivalently,</p>
+<div class="math notranslate nohighlight">
+\[
+m\ddot{x} + b\dot{x} + kx = 0
+\]</div>
+<p>This equation describes the motion of a <strong>damped harmonic oscillator</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="characteristic-behavior">
+<h2>Characteristic Behavior<a class="headerlink" href="#characteristic-behavior" title="Link to this heading">#</a></h2>
+<p>The behavior of the oscillator depends on the relative strength of the damping compared to the restoring force. Three qualitatively different regimes emerge.</p>
+<hr class="docutils" />
+<div style="background-color:#e6f0ff; padding:15px; border-left:6px solid #003366; border-radius:5px;">
+<p><strong>Definition — Underdamped Motion</strong></p>
+<p>An oscillator is <strong>underdamped</strong> when damping is small enough that oscillations still occur, but their amplitude gradually decreases over time.</p>
+<p>The motion can be written approximately as</p>
+<div class="math notranslate nohighlight">
+\[
+x(t) = A e^{-\gamma t}\cos(\omega_d t + \phi)
+\]</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\gamma = \frac{b}{2m}\)</span> is the <strong>damping rate</strong></p></li>
+<li><p><span class="math notranslate nohighlight">\(\omega_d\)</span> is the <strong>damped angular frequency</strong>.</p></li>
+</ul>
+<p>The oscillations persist but their amplitude <strong>decays exponentially</strong>.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e6f0ff; padding:15px; border-left:6px solid #003366; border-radius:5px;">
+<p><strong>Definition — Critically Damped Motion</strong></p>
+<p>A system is <strong>critically damped</strong> when the damping is exactly large enough to prevent oscillation while allowing the system to return to equilibrium as quickly as possible.</p>
+<p>This type of response is commonly used in</p>
+<ul class="simple">
+<li><p>door closers</p></li>
+<li><p>analog measurement devices</p></li>
+<li><p>mechanical shock absorbers.</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e6f0ff; padding:15px; border-left:6px solid #003366; border-radius:5px;">
+<p><strong>Definition — Overdamped Motion</strong></p>
+<p>A system is <strong>overdamped</strong> when damping is so strong that the system returns to equilibrium <strong>slowly without oscillating</strong>.</p>
+<p>In this case the motion is monotonic and the return to equilibrium takes longer than in the critically damped case.</p>
+</div>
+<hr class="docutils" />
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %reset -f</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># ============================================================</span>
+<span class="c1"># Mechanical damping illustration:</span>
+<span class="c1">#   1) Underdamped</span>
+<span class="c1">#   2) Critically damped</span>
+<span class="c1">#   3) Overdamped</span>
+<span class="c1">#</span>
+<span class="c1"># Equation:</span>
+<span class="c1">#     m x&#39;&#39; + b x&#39; + k x = 0</span>
+<span class="c1">#</span>
+<span class="c1"># State variables:</span>
+<span class="c1">#     y = [x, v], where v = dx/dt</span>
+<span class="c1"># ============================================================</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Mechanical parameters</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+<span class="n">b_critical</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">m</span> <span class="o">*</span> <span class="n">k</span><span class="p">)</span>
+
+<span class="c1"># Better choices:</span>
+<span class="n">b_under</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="o">*</span> <span class="n">b_critical</span>   <span class="c1"># clearly oscillatory</span>
+<span class="n">b_crit</span>  <span class="o">=</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">b_critical</span>
+<span class="n">b_over</span>  <span class="o">=</span> <span class="mf">3.0</span> <span class="o">*</span> <span class="n">b_critical</span>
+
+<span class="c1"># Initial conditions</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">v0</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="c1"># Time array</span>
+<span class="n">t_max</span> <span class="o">=</span> <span class="mf">30.0</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.002</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_max</span> <span class="o">+</span> <span class="n">dt</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># RHS of first-order system</span>
+<span class="c1"># -----------------------------</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">mech_rhs</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">state</span>
+    <span class="n">dxdt</span> <span class="o">=</span> <span class="n">v</span>
+    <span class="n">dvdt</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">b</span> <span class="o">/</span> <span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="n">v</span> <span class="o">-</span> <span class="p">(</span><span class="n">k</span> <span class="o">/</span> <span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">dxdt</span><span class="p">,</span> <span class="n">dvdt</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># RK4 solver</span>
+<span class="c1"># -----------------------------</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">solve_mechanical</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="mi">2</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">x0</span><span class="p">,</span> <span class="n">v0</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">t</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+        <span class="n">yn</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+
+        <span class="n">k1</span> <span class="o">=</span> <span class="n">mech_rhs</span><span class="p">(</span><span class="n">yn</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+        <span class="n">k2</span> <span class="o">=</span> <span class="n">mech_rhs</span><span class="p">(</span><span class="n">yn</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">h</span> <span class="o">*</span> <span class="n">k1</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+        <span class="n">k3</span> <span class="o">=</span> <span class="n">mech_rhs</span><span class="p">(</span><span class="n">yn</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">h</span> <span class="o">*</span> <span class="n">k2</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+        <span class="n">k4</span> <span class="o">=</span> <span class="n">mech_rhs</span><span class="p">(</span><span class="n">yn</span> <span class="o">+</span> <span class="n">h</span> <span class="o">*</span> <span class="n">k3</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+
+        <span class="n">y</span><span class="p">[</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">yn</span> <span class="o">+</span> <span class="p">(</span><span class="n">h</span> <span class="o">/</span> <span class="mf">6.0</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">k1</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">k2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">k3</span> <span class="o">+</span> <span class="n">k4</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">y</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Solve cases</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">x_under</span><span class="p">,</span> <span class="n">v_under</span> <span class="o">=</span> <span class="n">solve_mechanical</span><span class="p">(</span><span class="n">b_under</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+<span class="n">x_crit</span><span class="p">,</span>  <span class="n">v_crit</span>  <span class="o">=</span> <span class="n">solve_mechanical</span><span class="p">(</span><span class="n">b_crit</span><span class="p">,</span>  <span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+<span class="n">x_over</span><span class="p">,</span>  <span class="n">v_over</span>  <span class="o">=</span> <span class="n">solve_mechanical</span><span class="p">(</span><span class="n">b_over</span><span class="p">,</span>  <span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Envelope for underdamped case</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">gamma_under</span> <span class="o">=</span> <span class="n">b_under</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">m</span><span class="p">)</span>
+<span class="n">envelope</span> <span class="o">=</span> <span class="n">x0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">gamma_under</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Plot: time behavior</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x_under</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Underdamped&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x_crit</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Critically damped&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x_over</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Overdamped&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">envelope</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Upper envelope&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="o">-</span><span class="n">envelope</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Lower envelope&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time t&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Displacement x(t)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Mechanical Damping Regimes&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Phase plot: underdamped</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_under</span><span class="p">,</span> <span class="n">v_under</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Displacement x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Velocity v&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Phase Plot: Underdamped&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Phase plot: critically damped</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_crit</span><span class="p">,</span> <span class="n">v_crit</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Displacement x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Velocity v&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Phase Plot: Critically Damped&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Phase plot: overdamped</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_over</span><span class="p">,</span> <span class="n">v_over</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Displacement x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Velocity v&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Phase Plot: Overdamped&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Useful quantities</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">omega0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">k</span> <span class="o">/</span> <span class="n">m</span><span class="p">)</span>
+<span class="n">gamma</span> <span class="o">=</span> <span class="n">b_under</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">m</span><span class="p">)</span>
+<span class="n">omega_d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">omega0</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">gamma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Critical damping coefficient: b_c = </span><span class="si">{</span><span class="n">b_critical</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Chosen underdamped coefficient: b = </span><span class="si">{</span><span class="n">b_under</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Chosen critically damped coefficient: b = </span><span class="si">{</span><span class="n">b_crit</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Chosen overdamped coefficient: b = </span><span class="si">{</span><span class="n">b_over</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Natural angular frequency: omega_0 = </span><span class="si">{</span><span class="n">omega0</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Underdamped decay constant: gamma = </span><span class="si">{</span><span class="n">gamma</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Underdamped oscillation frequency: omega_d = </span><span class="si">{</span><span class="n">omega_d</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Underdamped period: T_d = </span><span class="si">{</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">omega_d</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/7e023a665a553c6172679c65f1d5c0fc01fbc70caf1f62d775977cb763a618b9.png" src="../_images/7e023a665a553c6172679c65f1d5c0fc01fbc70caf1f62d775977cb763a618b9.png" />
+<img alt="../_images/153aed2ae3132ccaeb971bb8d6dbf6808b53fa3ae5e53fdac8eee9e8a44139c7.png" src="../_images/153aed2ae3132ccaeb971bb8d6dbf6808b53fa3ae5e53fdac8eee9e8a44139c7.png" />
+<img alt="../_images/ea095c6946e380b71df651fa3a57488811cedeff2715822cab27d0e42f961dba.png" src="../_images/ea095c6946e380b71df651fa3a57488811cedeff2715822cab27d0e42f961dba.png" />
+<img alt="../_images/1e0df0cf994f05592ea403043877e5639a6735b8331c1d2099607cb4721402c8.png" src="../_images/1e0df0cf994f05592ea403043877e5639a6735b8331c1d2099607cb4721402c8.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Critical damping coefficient: b_c = 2.0000
+Chosen underdamped coefficient: b = 0.6000
+Chosen critically damped coefficient: b = 2.0000
+Chosen overdamped coefficient: b = 6.0000
+Natural angular frequency: omega_0 = 1.0000
+Underdamped decay constant: gamma = 0.3000
+Underdamped oscillation frequency: omega_d = 0.9539
+Underdamped period: T_d = 6.5866
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="interpreting-phase-plots">
+<h2>Interpreting Phase Plots<a class="headerlink" href="#interpreting-phase-plots" title="Link to this heading">#</a></h2>
+<p>In addition to time-based graphs, we can also represent the behavior of a damped mechanical oscillator using a <strong>phase plot</strong>, where we graph:</p>
+<div class="math notranslate nohighlight">
+\[
+v \;\text{vs.}\; x
+\]</div>
+<p>Since velocity is related to position by</p>
+<div class="math notranslate nohighlight">
+\[
+v = \frac{dx}{dt},
+\]</div>
+<p>each point on this plot represents the <strong>state of the system at a given instant</strong>:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x\)</span> tells us “where the system is”</p></li>
+<li><p><span class="math notranslate nohighlight">\(v\)</span> tells us “how it is changing”</p></li>
+</ul>
+<p>As time progresses, the system traces out a <strong>trajectory in the <span class="math notranslate nohighlight">\((x,v)\)</span> plane</strong>, called <strong>phase space</strong>.</p>
+<hr class="docutils" />
+<section id="what-phase-plots-show">
+<h3>What Phase Plots Show<a class="headerlink" href="#what-phase-plots-show" title="Link to this heading">#</a></h3>
+<p>A phase plot does not explicitly show time. Instead, it shows:</p>
+<ul class="simple">
+<li><p>The relationship between a variable and its rate of change</p></li>
+<li><p>The overall structure of motion in a single curve</p></li>
+</ul>
+<p>👉 This makes it possible to identify qualitative behavior immediately:</p>
+<ul class="simple">
+<li><p>Oscillatory vs. non-oscillatory motion</p></li>
+<li><p>Fast vs. slow return to equilibrium</p></li>
+<li><p>Energy exchange between kinetic and potential forms</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="underdamped-case-spiral-toward-the-origin">
+<h3>Underdamped Case — Spiral Toward the Origin<a class="headerlink" href="#underdamped-case-spiral-toward-the-origin" title="Link to this heading">#</a></h3>
+<p>For the underdamped case:</p>
+<ul class="simple">
+<li><p>The system oscillates while gradually losing energy</p></li>
+</ul>
+<p>In the phase plot:</p>
+<ul class="simple">
+<li><p>The trajectory forms a <strong>spiral inward</strong></p></li>
+</ul>
+<p><strong>Interpretation:</strong></p>
+<ul class="simple">
+<li><p>Each loop corresponds to one oscillation</p></li>
+<li><p>The decreasing radius reflects <strong>energy dissipation</strong></p></li>
+<li><p>Motion alternates between:</p>
+<ul>
+<li><p>Large <span class="math notranslate nohighlight">\(x\)</span>, small <span class="math notranslate nohighlight">\(v\)</span> <span class="math notranslate nohighlight">\(\rightarrow\)</span> energy mostly potential</p></li>
+<li><p>Small <span class="math notranslate nohighlight">\(x\)</span>, large <span class="math notranslate nohighlight">\(v\)</span> <span class="math notranslate nohighlight">\(\rightarrow\)</span> energy mostly kinetic</p></li>
+</ul>
+</li>
+</ul>
+<p>👉 The spiral captures both <strong>oscillation and decay</strong> in a single picture.</p>
+</section>
+<hr class="docutils" />
+<section id="critically-damped-case-direct-approach">
+<h3>Critically Damped Case — Direct Approach<a class="headerlink" href="#critically-damped-case-direct-approach" title="Link to this heading">#</a></h3>
+<p>For the critically damped case:</p>
+<ul class="simple">
+<li><p>The system returns to equilibrium without oscillating</p></li>
+<li><p>It does so as quickly as possible</p></li>
+</ul>
+<p>In the phase plot:</p>
+<ul class="simple">
+<li><p>The trajectory moves <strong>directly toward the origin</strong></p></li>
+<li><p>There are no loops or spirals</p></li>
+</ul>
+<p><strong>Interpretation:</strong></p>
+<ul class="simple">
+<li><p>The system smoothly approaches equilibrium</p></li>
+<li><p>There is no back-and-forth energy exchange</p></li>
+<li><p>The path represents the <strong>optimal balance</strong> between inertia and damping</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="overdamped-case-slow-approach">
+<h3>Overdamped Case — Slow Approach<a class="headerlink" href="#overdamped-case-slow-approach" title="Link to this heading">#</a></h3>
+<p>For the overdamped case:</p>
+<ul class="simple">
+<li><p>The system does not oscillate</p></li>
+<li><p>It returns to equilibrium more slowly</p></li>
+</ul>
+<p>In the phase plot:</p>
+<ul class="simple">
+<li><p>The trajectory approaches the origin gradually</p></li>
+<li><p>It does not loop or spiral</p></li>
+</ul>
+<p><strong>Interpretation:</strong></p>
+<ul class="simple">
+<li><p>Strong damping suppresses oscillation</p></li>
+<li><p>Energy is dissipated before repeated motion can develop</p></li>
+<li><p>The system is “over-restrained,” leading to slow evolution</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="why-phase-plots-are-useful">
+<h3>Why Phase Plots Are Useful<a class="headerlink" href="#why-phase-plots-are-useful" title="Link to this heading">#</a></h3>
+<p>Phase plots provide a powerful way to understand system behavior:</p>
+<ul class="simple">
+<li><p>They combine <strong>position and rate of change</strong> in one view</p></li>
+<li><p>They clearly distinguish between:</p>
+<ul>
+<li><p>Oscillatory motion (spirals)</p></li>
+<li><p>Non-oscillatory motion (direct paths)</p></li>
+</ul>
+</li>
+<li><p>They visualize energy flow:</p>
+<ul>
+<li><p>Horizontal extremes (large <span class="math notranslate nohighlight">\(x\)</span>) <span class="math notranslate nohighlight">\(\rightarrow\)</span> spring potential energy</p></li>
+<li><p>Vertical extremes (large <span class="math notranslate nohighlight">\(v\)</span>) <span class="math notranslate nohighlight">\(\rightarrow\)</span> kinetic energy</p></li>
+</ul>
+</li>
+<li><p>They reveal the <strong>global behavior</strong> of the system, not just snapshots in time</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="key-insight">
+<h3>Key Insight<a class="headerlink" href="#key-insight" title="Link to this heading">#</a></h3>
+<p>A phase plot shows how the system moves through its possible states:</p>
+<blockquote>
+<div><p>Instead of tracking motion as a function of time, we see the <strong>structure of the motion itself</strong>.</p>
+</div></blockquote>
+<p>This perspective provides a deeper understanding of damped mechanical oscillators as <strong>dynamical systems</strong>, connecting mass-spring motion to broader ideas used throughout physics.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="energy-loss-in-oscillations">
+<h2>Energy Loss in Oscillations<a class="headerlink" href="#energy-loss-in-oscillations" title="Link to this heading">#</a></h2>
+<p>In an ideal oscillator the total mechanical energy</p>
+<div class="math notranslate nohighlight">
+\[
+E = K + U
+\]</div>
+<p>remains constant.</p>
+<p>With damping present, however, the damping force performs <strong>negative work</strong>, removing energy from the system.</p>
+<p>As a result,</p>
+<ul class="simple">
+<li><p>the <strong>amplitude decreases over time</strong></p></li>
+<li><p>the <strong>mechanical energy decays exponentially</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+E(t) \propto e^{-2\gamma t}
+\]</div>
+<p>This explains why oscillations eventually stop in real physical systems.</p>
+<hr class="docutils" />
+<div style="background-color:#e0f7fa; padding:15px; border-left:6px solid #006a80; border-radius:5px;">
+<p><strong>Example — Shock Absorbers in a Car</strong></p>
+<p>A car suspension system can be modeled as a <strong>mass–spring–damper system</strong>.</p>
+<ul class="simple">
+<li><p>The <strong>spring</strong> supports the weight of the car and allows vertical motion.</p></li>
+<li><p>The <strong>shock absorber</strong> provides damping.</p></li>
+</ul>
+<p>Without damping, the car would continue bouncing after hitting a bump.<br />
+With appropriate damping, the oscillations quickly decay and the ride becomes smooth and stable.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; padding:15px; border-left:6px solid #006633; border-radius:5px;">
+<p><strong>Box Activity 1 — Identifying Damping Regimes</strong></p>
+<p>Consider three oscillatory systems:</p>
+<ol class="arabic simple">
+<li><p>A tuning fork vibrating in air.</p></li>
+<li><p>A car suspension with worn-out shock absorbers.</p></li>
+<li><p>A heavy door with a hydraulic closer.</p></li>
+</ol>
+<p>For each system:</p>
+<ol class="arabic simple">
+<li><p>Predict whether the motion is <strong>underdamped</strong>, <strong>critically damped</strong>, or <strong>overdamped</strong>.</p></li>
+<li><p>Explain the physical reasons for your choice.</p></li>
+</ol>
+<details>
+<summary>Discussion</summary>
+<ol class="arabic simple">
+<li><p><strong>Tuning fork:</strong> underdamped — oscillations persist for a long time with slow decay.</p></li>
+<li><p><strong>Worn suspension:</strong> underdamped — the car continues bouncing after hitting a bump.</p></li>
+<li><p><strong>Hydraulic door closer:</strong> close to critically damped — the door returns smoothly without oscillating.</p></li>
+</ol>
+</details>
+</div>
+</section>
+<hr class="docutils" />
+<section id="looking-ahead">
+<h2>Looking Ahead<a class="headerlink" href="#looking-ahead" title="Link to this heading">#</a></h2>
+<p>Damping removes energy from oscillators, but oscillations can also gain energy from external sources. When a system is <strong>periodically driven</strong>, the competition between damping and energy input leads to one of the most important phenomena in physics: <strong>resonance</strong>.</p>
+<p>In the next section we study <strong>driven oscillations</strong> and how resonance emerges when the driving frequency approaches the natural frequency of the oscillator.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Phys-Prof-Nielsen/modulearn",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-A4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="LOC-A4.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">A4.0 Learning Outcomes - Advanced Oscillations</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="driven.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">A4.2 Driven Oscillations</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-of-motion-for-a-damped-oscillator">Equation of Motion for a Damped Oscillator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristic-behavior">Characteristic Behavior</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-phase-plots">Interpreting Phase Plots</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-phase-plots-show">What Phase Plots Show</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underdamped-case-spiral-toward-the-origin">Underdamped Case — Spiral Toward the Origin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critically-damped-case-direct-approach">Critically Damped Case — Direct Approach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overdamped-case-slow-approach">Overdamped Case — Slow Approach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-phase-plots-are-useful">Why Phase Plots Are Useful</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-insight">Key Insight</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#energy-loss-in-oscillations">Energy Loss in Oscillations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#looking-ahead">Looking Ahead</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
