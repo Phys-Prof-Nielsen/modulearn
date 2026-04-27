@@ -1,0 +1,1098 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>D3.3 Central Forces &#8212; A Competency Approach to Classical Mechanics - Phase D</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-D3/central-forces';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="D3.4 Coordinate Transformations, Jacobians, and the Chain Rule" href="jacobian-chainrule.html" />
+    <link rel="prev" title="D3.2 Newton’s 2nd Law in Polar Coordinates" href="N2-polar.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-D.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Phase D - Home"/>
+    <script>document.write(`<img src="../_static/logo-D.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Phase D - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the D Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D1 - Constraints and Generalized Coordinates</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/LOC-D1.html">D1.0 Learning Outcomes — Constraints and Generalized Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/dof-constraints.html">D1.1 Constraints and Degrees of Freedom in Classical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/generalized-coordinates.html">D1.2 Generalized Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/coordinate-systems.html">D1.3 Coordinate Systems and Coordinate Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/invariance.html">D1.4 Invariance, Symmetry, and the Idea of Gauge Freedom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/problemsD1.html">D1.5 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D2 - Index Notation and Vector Operations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/LOC-D2.html">D2.0 Learning Outcomes — Index Notation and Vector Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/index-notation.html">D2.1 Vectors and Index Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/einstein-convention.html">D2.2 Einstein Summation Convention</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/kronecker.html">D2.3 The Kronecker Delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/levi-civita.html">D2.4 The Levi–Civita Symbol and the Cross Product</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/identities.html">D2.5 Vector Identities Using Index Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/problemsD2.html">D2.P Problems — Index Notation Practice</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D3 - Polar Coordinates and Central Forces</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="polar-coordinates.html">D3.1 Position, Velocity, and Acceleration in Polar Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="N2-polar.html">D3.2 Newton’s 2nd Law in Polar Coordinates</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">D3.3 Central Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jacobian-chainrule.html">D3.4 Coordinate Transformations, Jacobians, and the Chain Rule</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="problemsD3.html">D3.5 Problems</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/classical-mechanics-D/Module-D3/central-forces.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-D3/central-forces.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>D3.3 Central Forces</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-3-1-motivation-motion-under-radial-forces">D3.3.1 Motivation: Motion Under Radial Forces</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-3-2-definition-central-force">D3.3.2 Definition — Central Force</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-properties">Key properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-3-3-newtons-second-law-for-central-forces">D3.3.3 Newton’s Second Law For Central Forces</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#radial-equation">Radial equation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#angular-equation">Angular equation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-3-4-angular-equation-conservation-of-angular-momentum">D3.3.4 Angular Equation → Conservation of Angular Momentum</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task">Task</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-to-guide-your-reasoning">Steps to guide your reasoning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-3-5-physical-meaning-of-angular-momentum-conservation">D3.3.5 Physical Meaning of Angular Momentum Conservation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#motion-stays-in-a-plane">Motion stays in a plane</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-this-implies">What this implies</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-picture">Physical picture</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equal-areas-in-equal-times-keplers-second-law">Equal areas in equal times (Kepler’s Second Law)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#area-of-a-small-pie-slice">Area of a Small “Pie Slice”</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-formula">Why this formula?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#areal-velocity">Areal velocity</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#connection-to-angular-momentum">Connection to angular momentum</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-meaning">Physical meaning</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-3-6-example-gravitational-force">D3.3.6 Example — Gravitational Force</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-3-7-why-this-matters">D3.3.7 Why This Matters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-3-8-summary-central-forces-and-the-big-picture">D3.3.8 Summary — Central Forces and the Big Picture</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-results">Key results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#big-idea-symmetry-and-conservation">Big idea — Symmetry and conservation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#looking-ahead-effective-potential">Looking ahead — Effective potential</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#final-takeaway">Final takeaway</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#closing-insight">Closing insight</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="d3-3-central-forces">
+<h1>D3.3 Central Forces<a class="headerlink" href="#d3-3-central-forces" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="d3-3-1-motivation-motion-under-radial-forces">
+<h2>D3.3.1 Motivation: Motion Under Radial Forces<a class="headerlink" href="#d3-3-1-motivation-motion-under-radial-forces" title="Link to this heading">#</a></h2>
+<p>In many physical systems, the force acting on a particle depends only on its <strong>distance from a central point</strong>.</p>
+<p>Examples include:</p>
+<ul class="simple">
+<li><p>gravitational attraction between two masses</p></li>
+<li><p>electrostatic forces between charged particles</p></li>
+<li><p>motion of planets and satellites</p></li>
+<li><p>particles constrained to move around a center</p></li>
+</ul>
+<p>In these situations, the force always points <strong>toward or away from a fixed point</strong>.</p>
+<p>This naturally suggests using <strong>polar coordinates</strong>, where motion is already separated into:</p>
+<ul class="simple">
+<li><p>radial direction</p></li>
+<li><p>angular direction</p></li>
+</ul>
+<hr class="docutils" />
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Key Idea</h3>
+<p>Central forces are best described in coordinate systems that match their symmetry.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d3-3-2-definition-central-force">
+<h2>D3.3.2 Definition — Central Force<a class="headerlink" href="#d3-3-2-definition-central-force" title="Link to this heading">#</a></h2>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Definition — Central Force</h3>
+<p>A <strong>central force</strong> is a force that:</p>
+<ol class="arabic simple">
+<li><p>depends only on the distance <span class="math notranslate nohighlight">\(r\)</span> from a fixed point</p></li>
+<li><p>points along the radial direction</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\vec{F}(r) = F(r)\,\hat{r}
+\]</div>
+</div>
+<hr class="docutils" />
+<section id="key-properties">
+<h3>Key properties<a class="headerlink" href="#key-properties" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>No angular component:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+F_\theta = 0
+\]</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="d3-3-3-newtons-second-law-for-central-forces">
+<h2>D3.3.3 Newton’s Second Law For Central Forces<a class="headerlink" href="#d3-3-3-newtons-second-law-for-central-forces" title="Link to this heading">#</a></h2>
+<p>Recall:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{a} =
+(\ddot{r} - r\dot{\theta}^2)\hat{r}
++
+(2\dot{r}\dot{\theta} + r\ddot{\theta})\hat{\theta}
+\]</div>
+<p>Applying Newton’s second law:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{F} = m\vec{a}
+\]</div>
+<hr class="docutils" />
+<section id="radial-equation">
+<h3>Radial equation<a class="headerlink" href="#radial-equation" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+F(r) = m(\ddot{r} - r\dot{\theta}^2)
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="angular-equation">
+<h3>Angular equation<a class="headerlink" href="#angular-equation" title="Link to this heading">#</a></h3>
+<p>Since <span class="math notranslate nohighlight">\(F_\theta = 0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+0 = m(2\dot{r}\dot{\theta} + r\ddot{\theta})
+\]</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="d3-3-4-angular-equation-conservation-of-angular-momentum">
+<h2>D3.3.4 Angular Equation → Conservation of Angular Momentum<a class="headerlink" href="#d3-3-4-angular-equation-conservation-of-angular-momentum" title="Link to this heading">#</a></h2>
+<div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:12px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Show that Orbital Angular Momentum is Conserved</h3>
+<p>Consider a particle moving under a <strong>central force</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\vec{F}(r) = F(r)\,\hat{r}.
+\]</div>
+<hr class="docutils" />
+<section id="task">
+<h3>Task<a class="headerlink" href="#task" title="Link to this heading">#</a></h3>
+<p>Using Newton’s second law in polar coordinates, show that</p>
+<div class="math notranslate nohighlight">
+\[
+L = m r^2 \dot{\theta}
+\]</div>
+<p>is constant in time.</p>
+</section>
+<hr class="docutils" />
+<section id="steps-to-guide-your-reasoning">
+<h3>Steps to guide your reasoning<a class="headerlink" href="#steps-to-guide-your-reasoning" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Start with the angular component of acceleration:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+a_\theta = 2\dot{r}\dot{\theta} + r\ddot{\theta}
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p>Apply Newton’s second law in the <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> direction</p></li>
+<li><p>Use the fact that a central force has <strong>no angular component</strong></p></li>
+</ol>
+<hr class="docutils" />
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>From Newton’s second law:</p>
+<div class="math notranslate nohighlight">
+\[
+F_\theta = m a_\theta
+\]</div>
+<p>For a central force:</p>
+<div class="math notranslate nohighlight">
+\[
+F_\theta = 0
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+0 = m(2\dot{r}\dot{\theta} + r\ddot{\theta})
+\]</div>
+<p>Divide by <span class="math notranslate nohighlight">\(m\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+2\dot{r}\dot{\theta} + r\ddot{\theta} = 0
+\]</div>
+<hr class="docutils" />
+<p>Multiply by <span class="math notranslate nohighlight">\(r\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+2r\dot{r}\dot{\theta} + r^2\ddot{\theta} = 0
+\]</div>
+<p>Recognize this as a derivative:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dt}(r^2 \dot{\theta}) = 0
+\]</div>
+<hr class="docutils" />
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+r^2 \dot{\theta} = \text{constant}
+\]</div>
+<p>Multiplying by <span class="math notranslate nohighlight">\(m\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+L = m r^2 \dot{\theta} = \text{constant}
+}
+\]</div>
+<p>which we recognize as the <strong>orbital angular momentum for a point particle</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="interpretation">
+<h3>Interpretation<a class="headerlink" href="#interpretation" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Orbital Angular momentum is conserved</p></li>
+<li><p>This follows directly from the absence of angular force</p></li>
+<li><p>The result is purely a consequence of the <strong>symmetry of the force</strong></p></li>
+</ul>
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Result — Angular Momentum Conservation</h3>
+<div class="math notranslate nohighlight">
+\[
+L = m r^2 \dot{\theta} = \text{constant}
+\]</div>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="d3-3-5-physical-meaning-of-angular-momentum-conservation">
+<h2>D3.3.5 Physical Meaning of Angular Momentum Conservation<a class="headerlink" href="#d3-3-5-physical-meaning-of-angular-momentum-conservation" title="Link to this heading">#</a></h2>
+<p>From the previous activity, we found:</p>
+<div class="math notranslate nohighlight">
+\[
+L = m r^2 \dot{\theta} = \text{constant}.
+\]</div>
+<p>This result has two powerful physical consequences.</p>
+<hr class="docutils" />
+<section id="motion-stays-in-a-plane">
+<h3>Motion stays in a plane<a class="headerlink" href="#motion-stays-in-a-plane" title="Link to this heading">#</a></h3>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Key Idea — No Torque, No Change in Direction of $\vec{L}$</h3>
+<p>A central force always points along <span class="math notranslate nohighlight">\(\hat{r}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{F} = F(r)\hat{r}.
+\]</div>
+<p>This means the torque is</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{\tau} = \vec{r} \times \vec{F} = 0.
+\]</div>
+</div>
+<hr class="docutils" />
+<section id="what-this-implies">
+<h4>What this implies<a class="headerlink" href="#what-this-implies" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>No torque → angular momentum vector <span class="math notranslate nohighlight">\(\vec{L}\)</span> is <strong>constant in direction and magnitude</strong></p></li>
+<li><p>Since</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\vec{L} = \vec{r} \times \vec{p},
+\]</div>
+<p>the vectors <span class="math notranslate nohighlight">\(\vec{r}\)</span> and <span class="math notranslate nohighlight">\(\vec{v}\)</span> must always lie in a plane <strong>perpendicular to <span class="math notranslate nohighlight">\(\vec{L}\)</span></strong></p>
+<p>👉 Therefore, the motion is confined to a <strong>single plane</strong></p>
+</section>
+<hr class="docutils" />
+<section id="physical-picture">
+<h4>Physical picture<a class="headerlink" href="#physical-picture" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>The particle may move in complicated ways within the plane</p></li>
+<li><p>But it can never “tilt” out of that plane</p></li>
+<li><p>The plane is fixed by the initial position and velocity</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="equal-areas-in-equal-times-keplers-second-law">
+<h3>Equal areas in equal times (Kepler’s Second Law)<a class="headerlink" href="#equal-areas-in-equal-times-keplers-second-law" title="Link to this heading">#</a></h3>
+<p>From</p>
+<div class="math notranslate nohighlight">
+\[
+L = m r^2 \dot{\theta},
+\]</div>
+<p>we can interpret this geometrically.</p>
+<section id="area-of-a-small-pie-slice">
+<h4>Area of a Small “Pie Slice”<a class="headerlink" href="#area-of-a-small-pie-slice" title="Link to this heading">#</a></h4>
+<p>Over a small time interval <span class="math notranslate nohighlight">\(dt\)</span>, the particle moves through a small angle <span class="math notranslate nohighlight">\(d\theta\)</span> at a distance <span class="math notranslate nohighlight">\(r\)</span> from the origin.</p>
+<p>The area swept out is approximately a <strong>sector of a circle</strong> (a “pie slice”):</p>
+<div class="math notranslate nohighlight">
+\[
+dA = \frac{1}{2} r^2 d\theta
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="why-this-formula">
+<h4>Why this formula?<a class="headerlink" href="#why-this-formula" title="Link to this heading">#</a></h4>
+<p>The area of a full circle is:</p>
+<div class="math notranslate nohighlight">
+\[
+A = \pi r^2
+\]</div>
+<p>A full circle corresponds to an angle of <span class="math notranslate nohighlight">\(2\pi\)</span>, so a fraction of the circle with angle <span class="math notranslate nohighlight">\(d\theta\)</span> has area:</p>
+<div class="math notranslate nohighlight">
+\[
+dA = \frac{d\theta}{2\pi} \cdot \pi r^2 = \frac{1}{2} r^2 d\theta
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="areal-velocity">
+<h4>Areal velocity<a class="headerlink" href="#areal-velocity" title="Link to this heading">#</a></h4>
+<p>Divide by time:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dA}{dt} = \frac{1}{2} r^2 \dot{\theta}
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="connection-to-angular-momentum">
+<h4>Connection to angular momentum<a class="headerlink" href="#connection-to-angular-momentum" title="Link to this heading">#</a></h4>
+<p>Since</p>
+<div class="math notranslate nohighlight">
+\[
+L = m r^2 \dot{\theta},
+\]</div>
+<p>we get:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dA}{dt} = \frac{L}{2m} = \text{constant}
+\]</div>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Key Idea — Equal Areas in Equal Time</h3>
+<div class="math notranslate nohighlight">
+\[
+\frac{dA}{dt} = \text{constant}
+\]</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="physical-meaning">
+<h4>Physical meaning<a class="headerlink" href="#physical-meaning" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>When the particle is <strong>closer to the center</strong>:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(r\)</span> is small</p></li>
+<li><p><span class="math notranslate nohighlight">\(\dot{\theta}\)</span> must increase<br />
+→ motion speeds up</p></li>
+</ul>
+</li>
+<li><p>When the particle is <strong>farther away</strong>:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(r\)</span> is large</p></li>
+<li><p><span class="math notranslate nohighlight">\(\dot{\theta}\)</span> decreases<br />
+→ motion slows down</p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<div style="background-color:#fff8e1; border-left:6px solid #ffc20e; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Curiosity — Why This Happens</h3>
+<p>Angular momentum conservation forces a tradeoff:</p>
+<p>small radius → faster rotation
+large radius → slower rotation</p>
+</div>
+<p>👉 This is <strong>Kepler’s Second Law</strong></p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+</section>
+<section id="d3-3-6-example-gravitational-force">
+<h2>D3.3.6 Example — Gravitational Force<a class="headerlink" href="#d3-3-6-example-gravitational-force" title="Link to this heading">#</a></h2>
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Example — Inverse-Square Central Force</h3>
+<p>The gravitational force between two masses is:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{F}(r) = -\frac{GMm}{r^2}\hat{r}
+\]</div>
+<p>Substitute into the radial equation:</p>
+<div class="math notranslate nohighlight">
+\[
+-\frac{GMm}{r^2} = m(\ddot{r} - r\dot{\theta}^2)
+\]</div>
+<p>Cancel <span class="math notranslate nohighlight">\(m\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{r} - r\dot{\theta}^2 = -\frac{GM}{r^2}
+\]</div>
+<p>This equation governs planetary motion.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d3-3-7-why-this-matters">
+<h2>D3.3.7 Why This Matters<a class="headerlink" href="#d3-3-7-why-this-matters" title="Link to this heading">#</a></h2>
+<p>Central force problems are fundamental because they lead to:</p>
+<ul class="simple">
+<li><p>planetary motion</p></li>
+<li><p>orbital mechanics</p></li>
+<li><p>conservation laws</p></li>
+<li><p>deeper symmetry principles</p></li>
+</ul>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d3-3-8-summary-central-forces-and-the-big-picture">
+<h2>D3.3.8 Summary — Central Forces and the Big Picture<a class="headerlink" href="#d3-3-8-summary-central-forces-and-the-big-picture" title="Link to this heading">#</a></h2>
+<p>In this module, we have explored motion under <strong>central forces</strong>, where the force always points along the radial direction:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{F}(r) = F(r)\,\hat{r}.
+\]</div>
+<p>By expressing Newton’s second law in polar coordinates, we found that the motion naturally separates into:</p>
+<ul class="simple">
+<li><p>a <strong>radial equation</strong> (motion toward or away from the center)</p></li>
+<li><p>an <strong>angular equation</strong> (rotation about the center)</p></li>
+</ul>
+<hr class="docutils" />
+<section id="key-results">
+<h3>Key results<a class="headerlink" href="#key-results" title="Link to this heading">#</a></h3>
+<p>From the absence of angular force, we obtained:</p>
+<div class="math notranslate nohighlight">
+\[
+r^2 \dot{\theta} = \text{constant}
+\]</div>
+<p>or equivalently,</p>
+<div class="math notranslate nohighlight">
+\[
+L = m r^2 \dot{\theta} = \text{constant}.
+\]</div>
+<p>This leads to two important geometric consequences:</p>
+<ul class="simple">
+<li><p>Motion remains confined to a <strong>plane</strong></p></li>
+<li><p>The particle sweeps out <strong>equal areas in equal times</strong></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="big-idea-symmetry-and-conservation">
+<h3>Big idea — Symmetry and conservation<a class="headerlink" href="#big-idea-symmetry-and-conservation" title="Link to this heading">#</a></h3>
+<p>These results are not accidental. They arise from a deeper principle:</p>
+<blockquote>
+<div><p>Rotational symmetry → Conservation of angular momentum</p>
+</div></blockquote>
+<p>Because the force depends only on distance and not direction, the system looks the same under rotation. This symmetry leads directly to a conserved quantity.</p>
+<hr class="docutils" />
+<div style="background-color:#fff8e1; border-left:6px solid #ffc20e; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Curiosity — A Glimpse Ahead</h3>
+<p>This connection between symmetry and conservation is a general principle in physics:</p>
+<blockquote>
+<div><p>Symmetry → Conservation Law</p>
+</div></blockquote>
+<p>Later, this idea will be formalized in <strong>Noether’s theorem</strong>, which plays a central role in modern physics.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="looking-ahead-effective-potential">
+<h3>Looking ahead — Effective potential<a class="headerlink" href="#looking-ahead-effective-potential" title="Link to this heading">#</a></h3>
+<p>The radial equation can be rewritten as:</p>
+<div class="math notranslate nohighlight">
+\[
+m\ddot{r} = F(r) + m r\dot{\theta}^2
+\]</div>
+<p>Using angular momentum conservation, this becomes:</p>
+<div class="math notranslate nohighlight">
+\[
+m\ddot{r} = F(r) + \frac{L^2}{m r^3}.
+\]</div>
+<p>This reveals something powerful:</p>
+<ul class="simple">
+<li><p>the motion can be understood as a <strong>one-dimensional problem in <span class="math notranslate nohighlight">\(r\)</span></strong></p></li>
+<li><p>the second term acts like an additional “force” due to angular motion</p></li>
+</ul>
+<p>This leads to the concept of the <strong>effective potential</strong>, which allows us to:</p>
+<ul class="simple">
+<li><p>determine possible orbits</p></li>
+<li><p>understand stability</p></li>
+<li><p>classify motion (bound vs unbound)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="final-takeaway">
+<h3>Final takeaway<a class="headerlink" href="#final-takeaway" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><p>Central forces reveal a deep structure:<br />
+geometry (polar coordinates)<br />
+→ symmetry (rotational invariance)<br />
+→ conservation (angular momentum)<br />
+→ predictable motion (orbits)</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="closing-insight">
+<h3>Closing insight<a class="headerlink" href="#closing-insight" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><p>By choosing coordinates that match the symmetry of a problem, the physics becomes simpler—and deeper.</p>
+</div></blockquote>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Phys-Prof-Nielsen/modulearn",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-D3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="N2-polar.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">D3.2 Newton’s 2nd Law in Polar Coordinates</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="jacobian-chainrule.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">D3.4 Coordinate Transformations, Jacobians, and the Chain Rule</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-3-1-motivation-motion-under-radial-forces">D3.3.1 Motivation: Motion Under Radial Forces</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-3-2-definition-central-force">D3.3.2 Definition — Central Force</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-properties">Key properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-3-3-newtons-second-law-for-central-forces">D3.3.3 Newton’s Second Law For Central Forces</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#radial-equation">Radial equation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#angular-equation">Angular equation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-3-4-angular-equation-conservation-of-angular-momentum">D3.3.4 Angular Equation → Conservation of Angular Momentum</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task">Task</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-to-guide-your-reasoning">Steps to guide your reasoning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-3-5-physical-meaning-of-angular-momentum-conservation">D3.3.5 Physical Meaning of Angular Momentum Conservation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#motion-stays-in-a-plane">Motion stays in a plane</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-this-implies">What this implies</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-picture">Physical picture</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equal-areas-in-equal-times-keplers-second-law">Equal areas in equal times (Kepler’s Second Law)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#area-of-a-small-pie-slice">Area of a Small “Pie Slice”</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-formula">Why this formula?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#areal-velocity">Areal velocity</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#connection-to-angular-momentum">Connection to angular momentum</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-meaning">Physical meaning</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-3-6-example-gravitational-force">D3.3.6 Example — Gravitational Force</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-3-7-why-this-matters">D3.3.7 Why This Matters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-3-8-summary-central-forces-and-the-big-picture">D3.3.8 Summary — Central Forces and the Big Picture</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-results">Key results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#big-idea-symmetry-and-conservation">Big idea — Symmetry and conservation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#looking-ahead-effective-potential">Looking ahead — Effective potential</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#final-takeaway">Final takeaway</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#closing-insight">Closing insight</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

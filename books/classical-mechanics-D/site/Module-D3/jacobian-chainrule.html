@@ -1,0 +1,1246 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>D3.4 Coordinate Transformations, Jacobians, and the Chain Rule &#8212; A Competency Approach to Classical Mechanics - Phase D</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-D3/jacobian-chainrule';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="D3.5 Problems" href="problemsD3.html" />
+    <link rel="prev" title="D3.3 Central Forces" href="central-forces.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-D.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Phase D - Home"/>
+    <script>document.write(`<img src="../_static/logo-D.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Phase D - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the D Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D1 - Constraints and Generalized Coordinates</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/LOC-D1.html">D1.0 Learning Outcomes — Constraints and Generalized Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/dof-constraints.html">D1.1 Constraints and Degrees of Freedom in Classical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/generalized-coordinates.html">D1.2 Generalized Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/coordinate-systems.html">D1.3 Coordinate Systems and Coordinate Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/invariance.html">D1.4 Invariance, Symmetry, and the Idea of Gauge Freedom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/problemsD1.html">D1.5 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D2 - Index Notation and Vector Operations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/LOC-D2.html">D2.0 Learning Outcomes — Index Notation and Vector Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/index-notation.html">D2.1 Vectors and Index Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/einstein-convention.html">D2.2 Einstein Summation Convention</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/kronecker.html">D2.3 The Kronecker Delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/levi-civita.html">D2.4 The Levi–Civita Symbol and the Cross Product</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/identities.html">D2.5 Vector Identities Using Index Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/problemsD2.html">D2.P Problems — Index Notation Practice</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D3 - Polar Coordinates and Central Forces</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="polar-coordinates.html">D3.1 Position, Velocity, and Acceleration in Polar Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="N2-polar.html">D3.2 Newton’s 2nd Law in Polar Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="central-forces.html">D3.3 Central Forces</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">D3.4 Coordinate Transformations, Jacobians, and the Chain Rule</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="problemsD3.html">D3.5 Problems</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/classical-mechanics-D/Module-D3/jacobian-chainrule.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-D3/jacobian-chainrule.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>D3.4 Coordinate Transformations, Jacobians, and the Chain Rule</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">D3.4 Coordinate Transformations, Jacobians, and the Chain Rule</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-4-1-motivation-why-return-to-coordinate-transformations">D3.4.1 Motivation: Why Return to Coordinate Transformations?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-4-2-general-coordinate-transformation">D3.4.2 General Coordinate Transformation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-4-3-the-jacobian-matrix-matrix-form">D3.4.3 The Jacobian Matrix (Matrix Form)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-4-4-index-notation-einstein-notation">D3.4.4 Index Notation (Einstein Notation)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-4-5-differentials-and-the-chain-rule">D3.4.5 Differentials and the Chain Rule</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-4-6-velocity-transformation">D3.4.6 Velocity Transformation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-4-7-example-polar-velocity-via-jacobian">D3.4.7 Example — Polar Velocity via Jacobian</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-4-8-metric-from-the-jacobian">D3.4.8 Metric from the Jacobian</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-introduce-the-metric">Why introduce the metric?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-start-from-physical-space">Step 1 — Start from physical space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-express-velocity-using-the-jacobian">Step 2 — Express velocity using the Jacobian</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-rearranging-the-expression">Step 3 — Rearranging the expression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-what-is-the-metric">Step 4 — What is the metric?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-where-does-distance-come-in">Step 5 — Where does distance come in?</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-4-9-summary">D3.4.9 Summary</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="d3-4-coordinate-transformations-jacobians-and-the-chain-rule">
+<h1>D3.4 Coordinate Transformations, Jacobians, and the Chain Rule<a class="headerlink" href="#d3-4-coordinate-transformations-jacobians-and-the-chain-rule" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d3-4-1-motivation-why-return-to-coordinate-transformations">
+<h1>D3.4.1 Motivation: Why Return to Coordinate Transformations?<a class="headerlink" href="#d3-4-1-motivation-why-return-to-coordinate-transformations" title="Link to this heading">#</a></h1>
+<p>Earlier, we introduced generalized coordinates as a way to describe motion using variables that match the geometry of a system. In polar coordinates, for example, we describe motion using</p>
+<div class="math notranslate nohighlight">
+\[
+(r,\theta)
+\]</div>
+<p>instead of</p>
+<div class="math notranslate nohighlight">
+\[
+(x,y).
+\]</div>
+<p>The connection between these descriptions is a coordinate transformation:</p>
+<div class="math notranslate nohighlight">
+\[
+x = r\cos\theta, \qquad y = r\sin\theta.
+\]</div>
+<p>In this module, we take a more general view. Instead of treating polar coordinates as a special case, we ask:</p>
+<blockquote>
+<div><p>How do velocities and differentials transform when one set of coordinates depends on another?</p>
+</div></blockquote>
+<p>This leads to the <strong>Jacobian matrix</strong>, the <strong>chain rule</strong>, and a compact formulation using <strong>Einstein notation</strong>.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d3-4-2-general-coordinate-transformation">
+<h1>D3.4.2 General Coordinate Transformation<a class="headerlink" href="#d3-4-2-general-coordinate-transformation" title="Link to this heading">#</a></h1>
+<p>Let two coordinate systems describe the same point:</p>
+<div class="math notranslate nohighlight">
+\[
+(x_1,x_2,\dots,x_n), \qquad (q_1,q_2,\dots,q_n).
+\]</div>
+<p>A transformation relates them:</p>
+<div class="math notranslate nohighlight">
+\[
+x_i = x_i(q_1,q_2,\dots,q_n).
+\]</div>
+<hr class="docutils" />
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Definition — Coordinate Transformation</h3>
+<p>A <strong>coordinate transformation</strong> expresses one set of coordinates in terms of another:</p>
+<div class="math notranslate nohighlight">
+\[
+x_i = x_i(q_j).
+\]</div>
+<p>Both coordinate systems describe the same physical point.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d3-4-3-the-jacobian-matrix-matrix-form">
+<h1>D3.4.3 The Jacobian Matrix (Matrix Form)<a class="headerlink" href="#d3-4-3-the-jacobian-matrix-matrix-form" title="Link to this heading">#</a></h1>
+<p>The <strong>Jacobian matrix</strong> is defined as the matrix of partial derivatives:</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Definition — Jacobian Matrix</h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{J} =
+\begin{pmatrix}
+\dfrac{\partial x_1}{\partial q_1} &amp; \dfrac{\partial x_1}{\partial q_2} &amp; \cdots \\
+\dfrac{\partial x_2}{\partial q_1} &amp; \dfrac{\partial x_2}{\partial q_2} &amp; \cdots \\
+\vdots &amp; \vdots &amp; \ddots
+\end{pmatrix}.
+\end{split}\]</div>
+</div>
+<p>Each row corresponds to a Cartesian coordinate, and each column corresponds to a generalized coordinate.</p>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:12px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Jacobian Matrix for Polar Coordinates</h3>
+<p><strong>Problem</strong></p>
+<p>Given the transformation from polar to Cartesian coordinates:</p>
+<div class="math notranslate nohighlight">
+\[
+x = r\cos\theta, \qquad y = r\sin\theta,
+\]</div>
+<p>construct the Jacobian matrix</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{J} =
+\begin{pmatrix}
+\dfrac{\partial x}{\partial r} &amp; \dfrac{\partial x}{\partial \theta} \\
+\dfrac{\partial y}{\partial r} &amp; \dfrac{\partial y}{\partial \theta}
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Then interpret the geometric meaning of each column.</p>
+<hr class="docutils" />
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p><strong>Step 1 — Compute partial derivatives</strong></p>
+<p>For <span class="math notranslate nohighlight">\(x = r\cos\theta\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial x}{\partial r} = \cos\theta,
+\qquad
+\frac{\partial x}{\partial \theta} = -r\sin\theta
+\]</div>
+<p>For <span class="math notranslate nohighlight">\(y = r\sin\theta\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial y}{\partial r} = \sin\theta,
+\qquad
+\frac{\partial y}{\partial \theta} = r\cos\theta
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 2 — Construct the Jacobian matrix</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{J} =
+\begin{pmatrix}
+\cos\theta &amp; -r\sin\theta \\
+\sin\theta &amp; r\cos\theta
+\end{pmatrix}.
+\end{split}\]</div>
+<hr class="docutils" />
+<p><strong>Step 3 — Interpret the columns</strong></p>
+<p>First column:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \vec x}{\partial r}
+=
+(\cos\theta,\sin\theta)
+\]</div>
+<p>→ This vector points in the <strong>radial direction</strong>.</p>
+<p>Second column:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \vec x}{\partial \theta}
+=
+(-r\sin\theta, r\cos\theta)
+\]</div>
+<p>→ This vector points in the <strong>angular direction</strong>.</p>
+<p><strong>Conclusion</strong></p>
+<p>The columns of the Jacobian are the coordinate basis vectors expressed in Cartesian components. This is why the Jacobian naturally appears in velocity transformations and in defining distances.</p>
+</div>
+</details>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d3-4-4-index-notation-einstein-notation">
+<h1>D3.4.4 Index Notation (Einstein Notation)<a class="headerlink" href="#d3-4-4-index-notation-einstein-notation" title="Link to this heading">#</a></h1>
+<p>The same object can be written using index notation:</p>
+<div class="math notranslate nohighlight">
+\[
+J_{ij} = \frac{\partial x_i}{\partial q_j}.
+\]</div>
+<p>Here:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(i\)</span> labels the row (which <span class="math notranslate nohighlight">\(x_i\)</span>)</p></li>
+<li><p><span class="math notranslate nohighlight">\(j\)</span> labels the column (which <span class="math notranslate nohighlight">\(q_j\)</span>)</p></li>
+</ul>
+<p>This is <strong>not the Jacobian itself</strong>, but the <strong>component representation</strong> of the Jacobian matrix.</p>
+<hr class="docutils" />
+<div style="background-color:#fff8e1; border-left:6px solid #ffc20e; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Curiosity — Matrix vs Index Notation</h3>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbf{J}\)</span> is the matrix</p></li>
+<li><p><span class="math notranslate nohighlight">\(J_{ij}\)</span> are its components</p></li>
+</ul>
+<p>Index notation allows us to write matrix operations compactly without explicitly writing matrices.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d3-4-5-differentials-and-the-chain-rule">
+<h1>D3.4.5 Differentials and the Chain Rule<a class="headerlink" href="#d3-4-5-differentials-and-the-chain-rule" title="Link to this heading">#</a></h1>
+<p>A small change in the generalized coordinates produces a change in Cartesian coordinates:</p>
+<div class="math notranslate nohighlight">
+\[
+dx_i =
+\frac{\partial x_i}{\partial q_1}dq_1
++
+\frac{\partial x_i}{\partial q_2}dq_2
++\cdots
+\]</div>
+<p>In index notation:</p>
+<div class="math notranslate nohighlight">
+\[
+dx_i = J_{ij} dq_j.
+\]</div>
+<p>This is the chain rule written compactly.</p>
+<hr class="docutils" />
+</section>
+<section id="d3-4-6-velocity-transformation">
+<h1>D3.4.6 Velocity Transformation<a class="headerlink" href="#d3-4-6-velocity-transformation" title="Link to this heading">#</a></h1>
+<p>If <span class="math notranslate nohighlight">\(q_j = q_j(t)\)</span>, then</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{x}_i = \frac{dx_i}{dt}.
+\]</div>
+<p>Applying the chain rule:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{x}_i =
+\frac{\partial x_i}{\partial q_j}\dot{q}_j.
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{x}_i = J_{ij}\dot{q}_j.
+\]</div>
+<hr class="docutils" />
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Definition — Velocity Transformation</h3>
+<div class="math notranslate nohighlight">
+\[
+\dot{x}_i = J_{ij}\dot{q}_j
+\]</div>
+<p>This is the chain rule expressed in index notation.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d3-4-7-example-polar-velocity-via-jacobian">
+<h1>D3.4.7 Example — Polar Velocity via Jacobian<a class="headerlink" href="#d3-4-7-example-polar-velocity-via-jacobian" title="Link to this heading">#</a></h1>
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Example — Velocity Transformation</h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+\dot x \\
+\dot y
+\end{pmatrix}
+=
+\mathbf{J}
+\begin{pmatrix}
+\dot r \\
+\dot\theta
+\end{pmatrix}
+\end{split}\]</div>
+<p>Using</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{J} =
+\begin{pmatrix}
+\cos\theta &amp; -r\sin\theta \\
+\sin\theta &amp; r\cos\theta
+\end{pmatrix},
+\end{split}\]</div>
+<p>we obtain</p>
+<div class="math notranslate nohighlight">
+\[
+\dot x = \dot r\cos\theta - r\dot\theta\sin\theta
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\dot y = \dot r\sin\theta + r\dot\theta\cos\theta.
+\]</div>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Example — Velocity Transformation and Polar Velocity</h3>
+<p><strong>Key Question</strong></p>
+<p>How does the Jacobian result connect to the familiar polar velocity expression</p>
+<div class="math notranslate nohighlight">
+\[
+\vec v = \dot r\,\hat r + r\dot\theta\,\hat\theta \, ?
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 1 — Interpret the Jacobian columns</strong></p>
+<p>From the previous result,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{J} =
+\begin{pmatrix}
+\cos\theta &amp; -r\sin\theta \\
+\sin\theta &amp; r\cos\theta
+\end{pmatrix}.
+\end{split}\]</div>
+<p>We can rewrite this as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{J} =
+\begin{pmatrix}
+\;|\; &amp; \;|\; \\
+\displaystyle \frac{\partial \vec x}{\partial r} &amp; \displaystyle \frac{\partial \vec x}{\partial \theta} \\
+\;|\; &amp; \;|\;
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \vec x}{\partial r}
+=
+(\cos\theta,\sin\theta)
+=
+\hat r
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \vec x}{\partial \theta}
+=
+(-r\sin\theta, r\cos\theta)
+=
+r\,\hat\theta.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 2 — Apply the velocity transformation</strong></p>
+<p>The Jacobian transformation gives</p>
+<div class="math notranslate nohighlight">
+\[
+\vec v =
+\frac{\partial \vec x}{\partial r}\dot r
++
+\frac{\partial \vec x}{\partial \theta}\dot\theta.
+\]</div>
+<p>Substitute the results above:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec v =
+\hat r\,\dot r + (r\hat\theta)\dot\theta.
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\vec v = \dot r\,\hat r + r\dot\theta\,\hat\theta
+}
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 3 — Connection to Cartesian components</strong></p>
+<p>If we expand the unit vectors:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat r = \cos\theta\,\hat i + \sin\theta\,\hat j,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\hat\theta = -\sin\theta\,\hat i + \cos\theta\,\hat j,
+\]</div>
+<p>then</p>
+<div class="math notranslate nohighlight">
+\[
+\vec v =
+(\dot r\cos\theta - r\dot\theta\sin\theta)\hat i
++
+(\dot r\sin\theta + r\dot\theta\cos\theta)\hat j,
+\]</div>
+<p>which matches exactly:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot x, \dot y.
+\]</div>
+</div>
+<hr class="docutils" />
+<div style="background-color:#fff8e1; border-left:6px solid #ffc20e; padding:10px; border-radius:4px;">
+<strong>Key Insight</strong>  
+<p>The Jacobian columns are not just derivatives—they are the <strong>basis vectors of the coordinate system</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \vec x}{\partial r} = \hat r,
+\qquad
+\frac{\partial \vec x}{\partial \theta} = r\hat\theta.
+\]</div>
+<p>So the Jacobian transformation</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{x}_i = J_{ij}\dot q_j
+\]</div>
+<p>is exactly the polar velocity formula written in disguise.</p>
+</div>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d3-4-8-metric-from-the-jacobian">
+<h1>D3.4.8 Metric from the Jacobian<a class="headerlink" href="#d3-4-8-metric-from-the-jacobian" title="Link to this heading">#</a></h1>
+<section id="why-introduce-the-metric">
+<h2>Why introduce the metric?<a class="headerlink" href="#why-introduce-the-metric" title="Link to this heading">#</a></h2>
+<p>So far, we have learned how to transform <strong>coordinates</strong> and <strong>velocities</strong> using the Jacobian. But physics ultimately depends on measurable quantities such as:</p>
+<ul class="simple">
+<li><p>distance</p></li>
+<li><p>speed</p></li>
+<li><p>kinetic energy</p></li>
+</ul>
+<p>This raises a fundamental question:</p>
+<blockquote>
+<div><p>How do we measure distances and speeds when using generalized coordinates?</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="step-1-start-from-physical-space">
+<h2>Step 1 — Start from physical space<a class="headerlink" href="#step-1-start-from-physical-space" title="Link to this heading">#</a></h2>
+<p>In Cartesian coordinates, the squared speed is</p>
+<div class="math notranslate nohighlight">
+\[
+v^2 = \dot{x}_i \dot{x}_i.
+\]</div>
+<p>This is not a definition—it comes from the geometry of space (dot product).</p>
+</section>
+<hr class="docutils" />
+<section id="step-2-express-velocity-using-the-jacobian">
+<h2>Step 2 — Express velocity using the Jacobian<a class="headerlink" href="#step-2-express-velocity-using-the-jacobian" title="Link to this heading">#</a></h2>
+<p>From the chain rule:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{x}_i = J_{ij}\dot{q}_j.
+\]</div>
+<p>Substitute:</p>
+<div class="math notranslate nohighlight">
+\[
+v^2 =
+(J_{ij}\dot q_j)(J_{ik}\dot q_k).
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="step-3-rearranging-the-expression">
+<h2>Step 3 — Rearranging the expression<a class="headerlink" href="#step-3-rearranging-the-expression" title="Link to this heading">#</a></h2>
+<p>Group terms:</p>
+<div class="math notranslate nohighlight">
+\[
+v^2 =
+(J_{ij}J_{ik})\dot q_j \dot q_k.
+\]</div>
+<p>This suggests defining a new object:</p>
+<div class="math notranslate nohighlight">
+\[
+g_{jk} = J_{ij}J_{ik}.
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+v^2 = g_{jk}\dot q_j \dot q_k
+}
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="step-4-what-is-the-metric">
+<h2>Step 4 — What is the metric?<a class="headerlink" href="#step-4-what-is-the-metric" title="Link to this heading">#</a></h2>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Definition — Metric</h3>
+<div class="math notranslate nohighlight">
+\[
+g_{jk} =
+\frac{\partial x_i}{\partial q_j}
+\frac{\partial x_i}{\partial q_k}
+\]</div>
+<p>The <strong>metric</strong> determines how distances and speeds are measured in generalized coordinates.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="step-5-where-does-distance-come-in">
+<h2>Step 5 — Where does distance come in?<a class="headerlink" href="#step-5-where-does-distance-come-in" title="Link to this heading">#</a></h2>
+<p>A small displacement in Cartesian coordinates is</p>
+<div class="math notranslate nohighlight">
+\[
+dx_i = \frac{\partial x_i}{\partial q_j} dq_j.
+\]</div>
+<p>The squared distance is defined by the Euclidean metric:</p>
+<div class="math notranslate nohighlight">
+\[
+ds^2 = dx_i\,dx_i.
+\]</div>
+<p>Substitute the transformation:</p>
+<div class="math notranslate nohighlight">
+\[
+ds^2 =
+\left(\frac{\partial x_i}{\partial q_j} dq_j\right)
+\left(\frac{\partial x_i}{\partial q_k} dq_k\right).
+\]</div>
+<p>Rearranging:</p>
+<div class="math notranslate nohighlight">
+\[
+ds^2 =
+\left(
+\frac{\partial x_i}{\partial q_j}
+\frac{\partial x_i}{\partial q_k}
+\right)
+dq_j dq_k.
+\]</div>
+<p>Define</p>
+<div class="math notranslate nohighlight">
+\[
+g_{jk} =
+\frac{\partial x_i}{\partial q_j}
+\frac{\partial x_i}{\partial q_k}.
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+ds^2 = g_{jk}\,dq_j dq_k
+}
+\]</div>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:12px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Metric in Polar Coordinates</h3>
+<p><strong>Problem</strong></p>
+<p>Using the transformation</p>
+<div class="math notranslate nohighlight">
+\[
+x = r\cos\theta, \qquad y = r\sin\theta,
+\]</div>
+<p>compute the metric components</p>
+<div class="math notranslate nohighlight">
+\[
+g_{jk} =
+\frac{\partial x_i}{\partial q_j}
+\frac{\partial x_i}{\partial q_k},
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+q_1 = r, \qquad q_2 = \theta.
+\]</div>
+<p>Then:</p>
+<ol class="arabic simple">
+<li><p>Derive the expression for <span class="math notranslate nohighlight">\(ds^2\)</span></p></li>
+<li><p>Derive the expression for <span class="math notranslate nohighlight">\(v^2\)</span></p></li>
+<li><p>Interpret the physical meaning of the <span class="math notranslate nohighlight">\(r^2\)</span> term</p></li>
+</ol>
+<hr class="docutils" />
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p><strong>Step 1 — Compute partial derivatives</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial x}{\partial r} = \cos\theta,
+\qquad
+\frac{\partial x}{\partial \theta} = -r\sin\theta
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial y}{\partial r} = \sin\theta,
+\qquad
+\frac{\partial y}{\partial \theta} = r\cos\theta
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 2 — Compute metric components</strong></p>
+<div class="math notranslate nohighlight">
+\[
+g_{rr} =
+(\cos\theta)^2 + (\sin\theta)^2 = 1
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+g_{r\theta} =
+\cos\theta(-r\sin\theta) + \sin\theta(r\cos\theta) = 0
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+g_{\theta\theta} =
+r^2\sin^2\theta + r^2\cos^2\theta = r^2
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 3 — Distance formula</strong></p>
+<div class="math notranslate nohighlight">
+\[
+ds^2 = g_{jk} dq_j dq_k
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+ds^2 = dr^2 + r^2 d\theta^2
+}
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 4 — Speed formula</strong></p>
+<div class="math notranslate nohighlight">
+\[
+v^2 = g_{jk}\dot q_j \dot q_k
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+v^2 = \dot r^2 + r^2 \dot\theta^2
+}
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 5 — Interpretation</strong></p>
+<p>The factor <span class="math notranslate nohighlight">\(r^2\)</span> appears because a change in angle corresponds to an arc length:</p>
+<div class="math notranslate nohighlight">
+\[
+ds = rd\theta.
+\]</div>
+<p>Thus:</p>
+<blockquote>
+<div><p>Angular motion translates into physical distance only after scaling by <span class="math notranslate nohighlight">\(r\)</span></p>
+</div></blockquote>
+<p>This is why the metric is essential—it converts coordinate changes into real distances.</p>
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<div style="background-color:#fff8e1; border-left:6px solid #ffc20e; padding:10px; border-radius:4px;">
+<strong>Key Insight</strong>  
+<p>The Jacobian tells us <strong>how coordinates map into space</strong>, but the metric tells us <strong>how to measure geometry in those coordinates</strong>.</p>
+<ul class="simple">
+<li><p>Jacobian → directions (how coordinates change position)</p></li>
+<li><p>Metric → distances (how we measure length and speed)</p></li>
+</ul>
+<p>This is why the metric is essential: without it, coordinates alone have no physical meaning.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#fff8e1; border-left:6px solid #ffc20e; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Do We Really Need the Jacobian?</h3>
+<p>In this module, we introduced the Jacobian matrix as a way to transform velocities and derive the metric. However, strictly speaking, the Jacobian is <strong>not necessary</strong>.</p>
+<p>Everything we did follows directly from the chain rule written in index notation:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{x}_i = \frac{\partial x_i}{\partial q_j}\dot{q}_j.
+\]</div>
+<p>From this single relation, we can derive:</p>
+<ul class="simple">
+<li><p>velocity transformations</p></li>
+<li><p>expressions for <span class="math notranslate nohighlight">\(v^2\)</span></p></li>
+<li><p>the metric <span class="math notranslate nohighlight">\(g_{jk}\)</span></p></li>
+</ul>
+<p>without ever assembling a matrix.</p>
+<hr class="docutils" />
+<p>So why introduce the Jacobian?</p>
+<p>Most students are already familiar with matrices from Calculus III and/or linear algebra, so writing</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{x}_i = J_{ij}\dot{q}_j
+\]</div>
+<p>or in matrix form</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{\mathbf{x}} = \mathbf{J}\,\dot{\mathbf{q}}
+\]</div>
+<p>provides a <strong>clear and structured way</strong> to organize the transformation.</p>
+<hr class="docutils" />
+<p><strong>Key Insight</strong></p>
+<blockquote>
+<div><p>The Jacobian is not new physics—it is simply a convenient way of organizing the chain rule.</p>
+</div></blockquote>
+<hr class="docutils" />
+<p>In more advanced settings (such as differential geometry and relativity), the <strong>index notation becomes primary</strong>, and the Jacobian is understood as a representation of the transformation rather than the fundamental object.</p>
+<p>So:</p>
+<ul class="simple">
+<li><p>Chain rule → fundamental</p></li>
+<li><p>Jacobian → organizational tool</p></li>
+</ul>
+<p>Both describe the same underlying idea.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="d3-4-9-summary">
+<h1>D3.4.9 Summary<a class="headerlink" href="#d3-4-9-summary" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>The Jacobian is a <strong>matrix</strong> describing how coordinates transform</p></li>
+<li><p>Its components are written as <span class="math notranslate nohighlight">\(J_{ij}\)</span> in index notation</p></li>
+<li><p>The chain rule gives velocity transformation</p></li>
+<li><p>The metric arises naturally from the Jacobian</p></li>
+</ul>
+<blockquote>
+<div><p>Coordinates are labels, but the Jacobian tells us how those labels connect to physical space.</p>
+</div></blockquote>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Phys-Prof-Nielsen/modulearn",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-D3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="central-forces.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">D3.3 Central Forces</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="problemsD3.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">D3.5 Problems</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">D3.4 Coordinate Transformations, Jacobians, and the Chain Rule</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-4-1-motivation-why-return-to-coordinate-transformations">D3.4.1 Motivation: Why Return to Coordinate Transformations?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-4-2-general-coordinate-transformation">D3.4.2 General Coordinate Transformation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-4-3-the-jacobian-matrix-matrix-form">D3.4.3 The Jacobian Matrix (Matrix Form)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-4-4-index-notation-einstein-notation">D3.4.4 Index Notation (Einstein Notation)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-4-5-differentials-and-the-chain-rule">D3.4.5 Differentials and the Chain Rule</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-4-6-velocity-transformation">D3.4.6 Velocity Transformation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-4-7-example-polar-velocity-via-jacobian">D3.4.7 Example — Polar Velocity via Jacobian</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-4-8-metric-from-the-jacobian">D3.4.8 Metric from the Jacobian</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-introduce-the-metric">Why introduce the metric?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-start-from-physical-space">Step 1 — Start from physical space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-express-velocity-using-the-jacobian">Step 2 — Express velocity using the Jacobian</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-rearranging-the-expression">Step 3 — Rearranging the expression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-what-is-the-metric">Step 4 — What is the metric?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-where-does-distance-come-in">Step 5 — Where does distance come in?</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-4-9-summary">D3.4.9 Summary</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

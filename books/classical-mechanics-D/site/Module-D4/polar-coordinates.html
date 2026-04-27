@@ -1,0 +1,797 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>D4.1 Kinematics in Polar Coordinates &#8212; A Competency Approach to Classical Mechanics - Phase D</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-D4/polar-coordinates';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="D4.2 Newton’s 2nd Law in Polar Coordinates" href="N2-polar.html" />
+    <link rel="prev" title="D3.6 Problems" href="../Module-D3/problemsD3.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-D.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Phase D - Home"/>
+    <script>document.write(`<img src="../_static/logo-D.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Phase D - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the D Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://modulearn.academy/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D1 - Constraints and Equations of Constraints</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/constraint.html">D1.1 Constraints in Classical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/generalized-coordinates.html">D1.2 Generalized Coordinates</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D2 - Newtonian Linear Dynamics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/momentum-impulse.html">D2.1 Linear Momentum and Impulse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/newtons-laws.html">D2.2 Newton’s Laws - Linear Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/work-energy.html">D2.3 Work-Energy Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/line-integrals.html">D2.4 Introduction to Line Integrals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/parameterization-line-integrals.html">D2.5 Parameterization of Line Integrals</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/problemsD2.html">D2.3 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D3 - Linearly Accelerating Frames</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/galilean-relativity-coordinate.html">D3.1 Galilean Relativity: Coordinate Transformation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/galilean-relativity-length.html">D3.2 Galilean Relativity: Length Measurement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/galilean-relativity-displacement.html">D3.3 Galilean Relativity: Displacement Measurement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/galilean-relativity-velocity.html">D3.4 Galilean Relativity: Velocity Transformation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/accelerated-frames.html">D3.5 Transformation of Acceleration Between Linearly Accelerating Coordinate Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/problemsD3.html">D3.6 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D4 - Newton's Laws In Polar and Cylindrical Coordinates</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">D4.1 Kinematics in Polar Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="N2-polar.html">D4.2 Newton’s 2nd Law in Polar Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problemsD4.html">D4.3 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D5 - Rotational Dynamics - Fixed Axis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/basic-relations.html">D5.1 Rotational Kinematics - Basic Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/equations-kinematics.html">D5.2 Rotational Equations of Kinematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/translational-rotational.html">D5.3 A Note on Combined Translational and Rotational Angular Speed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/angular-momentum.html">D5.4 Angular Momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/angular-impulse.html">D5.5 Angular Impulse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/torque.html">D5.6 Angular Force - Torque</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/newton-rotational.html">D5.7 Newton’s 2nd Law - Rotational Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/rotational-work.html">D5.8 Work - Energy - Rotational Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/problemsD5.html">D5.9 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D6 - Introducing Lagrangian Dynamics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/intro-lagrangian.html">D6.1 Introduction to the Lagrangian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/problemsD6.html">D6.2 Problems</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Module-D4/polar-coordinates.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-D4/polar-coordinates.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>D4.1 Kinematics in Polar Coordinates</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-1-1-motivation">D4.1.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-1-2-set-up">D4.1.2 Set Up</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-derivative-of-hat-r">Time Derivative of <span class="math notranslate nohighlight">\(\hat{r}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-derivative-of-hat-theta">Time Derivative of <span class="math notranslate nohighlight">\(\hat{\theta}\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-1-3-velocity-vector-in-polar-coordinates">D4.1.3 Velocity Vector in Polar Coordinates</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">Discussion</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#radial-term">Radial Term</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#transverse-term">Transverse Term</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#circular-motion">Circular Motion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-1-4-acceleration-vector-in-polar-coordinates">D4.1.4 Acceleration Vector in Polar Coordinates</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Discussion</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#radial-terms">Radial Terms</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#transverse-terms">Transverse Terms</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-1-5-special-case-uniform-circular-motion">D4.1.5 Special Case: Uniform Circular Motion</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="d4-1-kinematics-in-polar-coordinates">
+<h1>D4.1 Kinematics in Polar Coordinates<a class="headerlink" href="#d4-1-kinematics-in-polar-coordinates" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><section id="d4-1-1-motivation">
+<h2>D4.1.1 Motivation<a class="headerlink" href="#d4-1-1-motivation" title="Link to this heading">#</a></h2>
+<p>When we first encounter kinematics, motion is almost always described in Cartesian coordinates: position along <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and sometimes <span class="math notranslate nohighlight">\(z\)</span> axes. This is natural, since many problems in introductory physics involve objects moving along straight lines or simple paths where Cartesian coordinates provide the most direct description. However, as soon as we begin to study motion that involves curvature—such as planets orbiting the Sun, particles in circular accelerators, or even a bead sliding along a curved wire—the Cartesian system becomes cumbersome. In these cases, the path of motion is better expressed relative to a <strong>radial distance</strong> and an <strong>angular direction</strong>, which naturally calls for polar coordinates.</p>
+<p>The power of polar coordinates lies in how they align with the geometry of circular and orbital motion. Instead of separately tracking <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> components, which must be continuously recombined to describe the actual path, we can describe motion directly through how the radius <span class="math notranslate nohighlight">\(r\)</span> and angle <span class="math notranslate nohighlight">\(\theta\)</span> change with time. This makes it straightforward to separate the kinematics into two intuitive parts: radial motion (inward or outward) and transverse motion (rotation around the origin). The resulting velocity and acceleration expressions reveal new terms—such as the centripetal and Coriolis-like contributions—that emerge naturally from the mathematics, and which are indispensable in understanding rotational and orbital systems.</p>
+<p>In short, polar coordinates provide a language that matches the symmetries of curved motion. They not only simplify the description of trajectories but also deepen our physical insight into why forces act the way they do in rotating systems. By mastering kinematics in polar coordinates, we equip ourselves with tools to handle a wide range of problems in mechanics, from the orbits of satellites to the dynamics of rotating machinery.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="d4-1-2-set-up">
+<h2>D4.1.2 Set Up<a class="headerlink" href="#d4-1-2-set-up" title="Link to this heading">#</a></h2>
+<p>Consider the figure below.</p>
+<img src="D4-fig1.png"  width="600"/>
+<p>The blue vector represents a position vector <span class="math notranslate nohighlight">\(\vec{r}\)</span>. The two red vectors are the cartesian unit vectors <span class="math notranslate nohighlight">\(\hat{i}\)</span> and <span class="math notranslate nohighlight">\(\hat{j}\)</span>, while the green vectors are the polar unit vectors <span class="math notranslate nohighlight">\(\hat{r}\)</span> and <span class="math notranslate nohighlight">\(\hat{\theta}\)</span>. In contrast to the cartesian unit vectors, the polar unit vectors are changing directions depending on the position vector. The radial unit vector <span class="math notranslate nohighlight">\(\hat{r}\)</span> is always pointing in the radial direction away from the origin, and the angular unit vector <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> is always pointing in the counterclockwise angular direction.</p>
+<p>The position vector is fully characterized by</p>
+<div class="math notranslate nohighlight">
+\[ \vec{r} = r\hat{r} \tag{1}\]</div>
+<p>This appears simpler than the cartesian version: <span class="math notranslate nohighlight">\(\vec{r} = x\hat{i} + y\hat{j}\)</span>, but do not be fooled. Whereas the cartesian unit vectors are constant, the <span class="math notranslate nohighlight">\(\hat{r}\)</span> unit vector is a function of <span class="math notranslate nohighlight">\(\theta\)</span> and makes it a lot more complex as we will see.</p>
+<p>From the sketch on the right, we can write the polar unit vectors in terms of the cartesian unit vectors:
+<br></p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+ \hat{r} &amp;=&amp; \cos\theta\hat{i} + \sin\theta\hat{j} \tag{2}
+\\
+ \hat{\theta} &amp;=&amp; -\sin\theta\hat{i} + \cos\theta\hat{j} \tag{3}
+\end{eqnarray*}\]</div>
+<p>In the following, we will need to know the time derivative of the polar unit vectors:</p>
+<section id="time-derivative-of-hat-r">
+<h3>Time Derivative of <span class="math notranslate nohighlight">\(\hat{r}\)</span><a class="headerlink" href="#time-derivative-of-hat-r" title="Link to this heading">#</a></h3>
+<p>We will be using the <em>dot</em> notation for time derivatives.</p>
+<p>Applying the sum, product, and chain rules on Equation(2):</p>
+<div class="math notranslate nohighlight">
+\[ \dot{\hat{r}} = -\dot{\theta}\sin\theta\hat{i} + \cos\theta\dot{\hat{i}} + \dot{\theta}\cos\theta\hat{j} + \cos\theta\dot{\hat{j}}\]</div>
+<p>Since the cartesian unit vectors are constants, their time-derivative is zero:</p>
+<div class="math notranslate nohighlight">
+\[ \dot{\hat{r}} = -\dot{\theta}\sin\theta\hat{i} + \dot{\theta}\cos\theta\hat{j} \]</div>
+<p>Pulling out the common factor of <span class="math notranslate nohighlight">\(\dot{\theta}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ \dot{\hat{r}} = \dot{\theta}\left(-\sin\theta\hat{i} + \cos\theta\hat{j}\right) \]</div>
+<p>The term in the parenthesis is the same as <span class="math notranslate nohighlight">\(\hat{\theta}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ \dot{\hat{r}} = \dot{\theta}\hat{\theta} \tag{4}\]</div>
+</section>
+<section id="time-derivative-of-hat-theta">
+<h3>Time Derivative of <span class="math notranslate nohighlight">\(\hat{\theta}\)</span><a class="headerlink" href="#time-derivative-of-hat-theta" title="Link to this heading">#</a></h3>
+<p>In a similar approach as above, we have</p>
+<div class="math notranslate nohighlight">
+\[ \dot{\hat{\theta}} = -\dot{\theta}\cos\theta\hat{i} -\sin\theta\dot{\hat{i}} - \dot{\theta}\sin\theta\hat{j} + \cos\theta\dot{\hat{j}}\]</div>
+<p>The terms with derivatives of cartesion unit vectors are zero:</p>
+<div class="math notranslate nohighlight">
+\[ \dot{\hat{\theta}} = -\dot{\theta}\cos\theta\hat{i} - \dot{\theta}\sin\theta\hat{j} \]</div>
+<p>Re-arranging:</p>
+<div class="math notranslate nohighlight">
+\[ \dot{\hat{\theta}} = -\dot{\theta}\left( \cos\theta\hat{i} + \sin\theta\hat{j}\right) \]</div>
+<p>and using the result from Equation (2):</p>
+<div class="math notranslate nohighlight">
+\[ \dot{\hat{\theta}} = -\dot{\theta}\hat{r} \tag{5}\]</div>
+<p>We are now ready to explore velocity and acceleration in polar coordinates.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="d4-1-3-velocity-vector-in-polar-coordinates">
+<h2>D4.1.3 Velocity Vector in Polar Coordinates<a class="headerlink" href="#d4-1-3-velocity-vector-in-polar-coordinates" title="Link to this heading">#</a></h2>
+<p>We take the time-derivate of the position vector in Equation (1):</p>
+<div class="math notranslate nohighlight">
+\[ \dot{\vec{r}} = \dot{r}\hat{r} + r\dot{\hat{r}} \]</div>
+<p>Insert Equation (4):</p>
+<div class="alert alert-success">
+<div class="math notranslate nohighlight">
+\[ \dot{\vec{r}} = \dot{r}\hat{r} + r\dot{\theta}\hat{\theta} \tag{6}\]</div>
+</div>
+<section id="discussion">
+<h3>Discussion<a class="headerlink" href="#discussion" title="Link to this heading">#</a></h3>
+<section id="radial-term">
+<h4>Radial Term<a class="headerlink" href="#radial-term" title="Link to this heading">#</a></h4>
+<p>The radial term is the one associated with <span class="math notranslate nohighlight">\(\hat{r}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ \vec{v}_r = \dot{r}\hat{r} \]</div>
+<p>This tells us that the radial velocity is the rate of change of the distance away from the origin. This is simply a straight line velocity as on object moves towards/away the origin in a straight line.</p>
+</section>
+<section id="transverse-term">
+<h4>Transverse Term<a class="headerlink" href="#transverse-term" title="Link to this heading">#</a></h4>
+<p>The transverse term is the one associated with <span class="math notranslate nohighlight">\(\hat{\theta}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ \vec{v}_{\theta} = r\dot{\theta}\hat{\theta} \]</div>
+<p>We may recognise <span class="math notranslate nohighlight">\(\dot\theta\)</span> is the angular speed <span class="math notranslate nohighlight">\(\omega\)</span> and we can rewrite</p>
+<div class="math notranslate nohighlight">
+\[ \vec{v}_{\theta} = r\omega\hat{\theta} \]</div>
+<p>with a magnitude of</p>
+<div class="math notranslate nohighlight">
+\[ v_{\theta} = r\omega \]</div>
+<p>What a hoot: this is what we called the tangential speed in the University Physics.</p>
+</section>
+<section id="circular-motion">
+<h4>Circular Motion<a class="headerlink" href="#circular-motion" title="Link to this heading">#</a></h4>
+<p>If we have circular motion, the radial component is zero and we are left with only the transverse velocity:</p>
+<div class="math notranslate nohighlight">
+\[ \vec{v} = r\dot\theta\hat{\theta}\]</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+</section>
+<section id="d4-1-4-acceleration-vector-in-polar-coordinates">
+<h2>D4.1.4 Acceleration Vector in Polar Coordinates<a class="headerlink" href="#d4-1-4-acceleration-vector-in-polar-coordinates" title="Link to this heading">#</a></h2>
+<p>We take the time-derivate of the velocity vector in Equation (6) using the sum and product rules:</p>
+<div class="math notranslate nohighlight">
+\[ \ddot{\vec{r}} = \ddot{r}\hat{r} + \dot{r}\dot{\hat{r}} + \dot{r}\dot{\theta}\hat{\theta} + r\ddot{\theta}\hat{\theta} + r\dot{\theta}\dot{\hat{\theta}}\]</div>
+<p>Insert Equations (4) and (5):</p>
+<div class="math notranslate nohighlight">
+\[ \ddot{\vec{r}} =  \ddot{r}\hat{r} + \dot{r}\dot{\theta}\hat{\theta} + \dot{r}\dot{\theta}\hat{\theta} + r\ddot{\theta}\hat{\theta} - r\dot{\theta}\dot{\theta}\hat{r} \]</div>
+<p>Re-arranging the terms:</p>
+<div class="alert alert-success">
+<div class="math notranslate nohighlight">
+\[ \ddot{\vec{r}} =  \left( \ddot{r} - r\dot{\theta}^2 \right)\hat{r} + \left( 2\dot{r}\dot{\theta} +  r\ddot{\theta} \right)\hat{\theta} \]</div>
+</div>
+<section id="id1">
+<h3>Discussion<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<section id="radial-terms">
+<h4>Radial Terms<a class="headerlink" href="#radial-terms" title="Link to this heading">#</a></h4>
+<p>The radial terms are the ones associated with <span class="math notranslate nohighlight">\(\hat{r}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ \vec{a}_r = \left( \ddot{r} - r\dot{\theta}^2 \right)\hat{r} \]</div>
+<p>We have two terms:</p>
+<p><em>Linear Acceleration</em></p>
+<p>The term</p>
+<div class="math notranslate nohighlight">
+\[ \ddot{r}\hat{r} \]</div>
+<p>is the <strong>linear acceleration</strong> as it describes the straigh line acceleration towards/away from the origin. For example, an object speeding up or slowing down as it moves towards/away in a straight line.</p>
+<p><em>Centripetal Acceleration</em></p>
+<p>The second radial term is</p>
+<div class="math notranslate nohighlight">
+\[- r\dot{\theta}^2\hat{r}\]</div>
+<p>and is known as the <strong>centripetal acceleration</strong>. Although in the radial direction, <strong>it does not change the radial speed of the object but causes it to change direction</strong>. This acceleration plays a major role in circular motion as we will see below. For now, it will be convenient to express it in different forms.</p>
+<p>We can write <span class="math notranslate nohighlight">\(\dot{\theta}\)</span> as <span class="math notranslate nohighlight">\(\omega\)</span> and the magnitude of the centripetal acceleration is then</p>
+<div class="alert alert-success">
+<div class="math notranslate nohighlight">
+\[ a_c = r\omega^2 \]</div>
+</div>
+which is one useful expression for it. Another useful expression is to implement the tangental speed:
+<div class="math notranslate nohighlight">
+\[ v_{\theta} = r\omega \]</div>
+<p>and the centripetal acceleration becomes:</p>
+<div class="alert alert-success">
+<div class="math notranslate nohighlight">
+\[ a_c = \frac{v_{\theta}^2}{r} \]</div>
+</div>
+which is the form we will use the most in this course.
+</section>
+<section id="transverse-terms">
+<h4>Transverse Terms<a class="headerlink" href="#transverse-terms" title="Link to this heading">#</a></h4>
+<p>The transverse terms are the ones associated with <span class="math notranslate nohighlight">\(\hat{\theta}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ \vec{a}_{\theta} = \left( 2\dot{r}\dot{\theta} +  r\ddot{\theta} \right)\hat{\theta} \]</div>
+<p><em>Tangential Acceleration</em></p>
+<p>The last term is the tangential acceleration:</p>
+<div class="math notranslate nohighlight">
+\[ r\ddot{\theta}\hat{\theta} \]</div>
+<p>as it is the term responsible for an object to rotate faster or slower. Using <span class="math notranslate nohighlight">\(\ddot{\theta} = \alpha\)</span> we have the magnitude as</p>
+<div class="math notranslate nohighlight">
+\[ r\alpha \]</div>
+<p>and recognize it as the tangential acceleration from previous notes.</p>
+<p><em>Coriolis Acceleration</em></p>
+<p>This term is known as the <strong>Coriolis acceleration</strong> and is the most complex of all the terms as it involves <strong>changes in both radial and angular velocity</strong>:</p>
+<div class="math notranslate nohighlight">
+\[2\dot{r}\dot{\theta}\hat{\theta}\]</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+</section>
+<section id="d4-1-5-special-case-uniform-circular-motion">
+<h2>D4.1.5 Special Case: Uniform Circular Motion<a class="headerlink" href="#d4-1-5-special-case-uniform-circular-motion" title="Link to this heading">#</a></h2>
+<p>A very important case is uniform circular motion, that is, motion in a <strong>circular path with a constant speed</strong>.</p>
+<p>In this case we have</p>
+<div class="math notranslate nohighlight">
+\[ \dot{r} = 0 \]</div>
+<div class="math notranslate nohighlight">
+\[ \ddot{\theta} = 0 \]</div>
+<p>and the acceleration in polar coordinates reduces to</p>
+<div class="alert alert-success">
+<div class="math notranslate nohighlight">
+\[ \dot{\vec{r}} =  - r\dot{\theta}^2\hat{r} \]</div>
+</div>
+<p>which is simply the <strong>centripetal acceleration</strong>. It is always directed towards the origin or the center of the circular motion: <strong>it is a center-seeking acceleration</strong>.</p>
+<p>It is more convenient to use it in the following form (magnitude):</p>
+<div class="alert alert-success">
+<div class="math notranslate nohighlight">
+\[ a_c = \frac{v_{\theta}^2}{r} \]</div>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-D4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Module-D3/problemsD3.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">D3.6 Problems</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="N2-polar.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">D4.2 Newton’s 2nd Law in Polar Coordinates</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-1-1-motivation">D4.1.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-1-2-set-up">D4.1.2 Set Up</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-derivative-of-hat-r">Time Derivative of <span class="math notranslate nohighlight">\(\hat{r}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-derivative-of-hat-theta">Time Derivative of <span class="math notranslate nohighlight">\(\hat{\theta}\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-1-3-velocity-vector-in-polar-coordinates">D4.1.3 Velocity Vector in Polar Coordinates</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">Discussion</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#radial-term">Radial Term</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#transverse-term">Transverse Term</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#circular-motion">Circular Motion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-1-4-acceleration-vector-in-polar-coordinates">D4.1.4 Acceleration Vector in Polar Coordinates</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Discussion</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#radial-terms">Radial Terms</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#transverse-terms">Transverse Terms</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d4-1-5-special-case-uniform-circular-motion">D4.1.5 Special Case: Uniform Circular Motion</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
