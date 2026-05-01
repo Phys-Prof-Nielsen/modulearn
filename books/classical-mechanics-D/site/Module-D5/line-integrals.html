@@ -1,0 +1,1094 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>D5.2 Introduction to Line Integrals &#8212; A Competency Approach to Classical Mechanics - Phase D</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-D5/line-integrals';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="D5.3 Parameterization of Line Integrals" href="parameterization.html" />
+    <link rel="prev" title="D5.1 Review — Work, Energy, and Conservative Forces (Physics I Foundations)" href="review.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-D.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Phase D - Home"/>
+    <script>document.write(`<img src="../_static/logo-D.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Phase D - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the D Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D1 - Constraints and Generalized Coordinates</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/LOC-D1.html">D1.0 Learning Outcomes — Constraints and Generalized Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/dof-constraints.html">D1.1 Constraints and Degrees of Freedom in Classical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/generalized-coordinates.html">D1.2 Generalized Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/coordinate-systems.html">D1.3 Coordinate Systems and Coordinate Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/invariance.html">D1.4 Invariance, Symmetry, and the Idea of Gauge Freedom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/problemsD1.html">D1.5 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D2 - Index Notation and Vector Operations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/LOC-D2.html">D2.0 Learning Outcomes — Index Notation and Vector Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/index-notation.html">D2.1 Vectors and Index Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/einstein-convention.html">D2.2 Einstein Summation Convention</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/kronecker.html">D2.3 The Kronecker Delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/levi-civita.html">D2.4 The Levi–Civita Symbol and the Cross Product</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/identities.html">D2.5 Vector Identities Using Index Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/problemsD2.html">D2.P Problems — Index Notation Practice</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D3 - Polar Coordinates and Central Forces</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/LOC-D3.html">D3.0 Learning Outcomes — Polar Coordinates and Central Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/polar-coordinates.html">D3.1 Position, Velocity, and Acceleration in Polar Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/N2-polar.html">D3.2 Newton’s 2nd Law in Polar Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/central-forces.html">D3.3 Central Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/jacobian-chainrule.html">D3.4 Coordinate Transformations, Jacobians, and the Chain Rule</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/problemsD3.html">D3.5 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D4 - Impulse, Momentum, and Momentum Methods</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/LOC-D4.html">D4.0 Learning Outcomes — Impulse, Momentum, and Momentum Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/review.html">D4.1 Impulse–Momentum: Review and Foundations</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/application.html">D4.2 Using Impulse–Momentum Instead of <span class="math notranslate nohighlight">\(F = ma\)</span></a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D5 - Work, Energy, and Conservative Forces</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-D5.html">D5.0 Learning Outcomes — Work, Energy, and Conservative Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="review.html">D5.1 Review — Work, Energy, and Conservative Forces (Physics I Foundations)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">D5.2 Introduction to Line Integrals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parameterization.html">D5.3 Parameterization of Line Integrals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conservative-forces.html">D5.4 Conservative Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problemsD5.html">D5.5 Problems</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/classical-mechanics-D/Module-D5/line-integrals.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-D5/line-integrals.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>D5.2 Introduction to Line Integrals</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d5-2-1-motivation">D5.2.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-changes-in-two-dimensions">What changes in two dimensions?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-first-step-motion-along-straight-segments">A first step: motion along straight segments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-matters">Why this matters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d5-2-2-line-integral-of-vector-fields">D5.2.2 Line Integral of Vector Fields</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-this-really-represents">What this really represents</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generalizing-to-arbitrary-paths">Generalizing to arbitrary paths</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-this-computable">Making this computable</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="d5-2-introduction-to-line-integrals">
+<h1>D5.2 Introduction to Line Integrals<a class="headerlink" href="#d5-2-introduction-to-line-integrals" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><section id="d5-2-1-motivation">
+<h2>D5.2.1 Motivation<a class="headerlink" href="#d5-2-1-motivation" title="Link to this heading">#</a></h2>
+<p>In Physics I, work was typically calculated in situations where motion occurred along a <strong>single direction</strong>, such as along the <span class="math notranslate nohighlight">\(x\)</span>-axis. In those cases, we could think of work as the force acting along the direction of motion, accumulated over distance.</p>
+<p>This worked well because:</p>
+<ul class="simple">
+<li><p>motion was effectively <strong>one-dimensional</strong></p></li>
+<li><p>forces were aligned with the motion</p></li>
+<li><p>the path taken was simple and often implicit</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="what-changes-in-two-dimensions">
+<h2>What changes in two dimensions?<a class="headerlink" href="#what-changes-in-two-dimensions" title="Link to this heading">#</a></h2>
+<p>In more realistic situations:</p>
+<ul class="simple">
+<li><p>objects can move in <strong>multiple directions</strong></p></li>
+<li><p>forces may act <strong>at angles</strong> or have components in different directions</p></li>
+<li><p>motion may occur along paths that are not straight lines</p></li>
+</ul>
+<p>This leads to an important question:</p>
+<blockquote>
+<div><p>How do we think about work when motion is not confined to a single direction?</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="a-first-step-motion-along-straight-segments">
+<h2>A first step: motion along straight segments<a class="headerlink" href="#a-first-step-motion-along-straight-segments" title="Link to this heading">#</a></h2>
+<p>Before developing a full mathematical framework, we begin with a simpler idea:</p>
+<ul class="simple">
+<li><p>break the motion into <strong>straight segments</strong></p></li>
+<li><p>for example: move along <span class="math notranslate nohighlight">\(x\)</span>, then along <span class="math notranslate nohighlight">\(y\)</span></p></li>
+</ul>
+<p>This allows us to:</p>
+<ul class="simple">
+<li><p>extend our understanding of work to <strong>two dimensions</strong></p></li>
+<li><p>isolate how different components of force contribute</p></li>
+<li><p>build intuition without introducing new mathematical tools</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="why-this-matters">
+<h2>Why this matters<a class="headerlink" href="#why-this-matters" title="Link to this heading">#</a></h2>
+<p>This approach reveals something new:</p>
+<ul class="simple">
+<li><p>work depends on <strong>how the object moves</strong>, not just where it starts and ends</p></li>
+<li><p>changing the path between the same two points can change the work</p></li>
+</ul>
+<hr class="docutils" />
+<div style="background-color:#fff8e1; border-left:6px solid #ffc20e; padding:10px; border-radius:4px;">
+<strong>Key Insight</strong>  
+<p>In one dimension, the path is essentially fixed.</p>
+<p>In two dimensions, the path becomes a choice—and that choice can affect the work.</p>
+<p>This is the first hint that work may depend on the path taken, a concept that will become central in the next module.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="d5-2-2-line-integral-of-vector-fields">
+<h2>D5.2.2 Line Integral of Vector Fields<a class="headerlink" href="#d5-2-2-line-integral-of-vector-fields" title="Link to this heading">#</a></h2>
+<p>From Calculus I, we learned how to evaluate integrals of functions that depend on a <strong>single variable</strong> (in physics, often position <span class="math notranslate nohighlight">\(x\)</span> or time <span class="math notranslate nohighlight">\(t\)</span>).</p>
+<p>When integrating with respect to position <span class="math notranslate nohighlight">\(x\)</span>, we are implicitly considering motion along a <strong>straight line segment</strong>. For example, the work done by a force <span class="math notranslate nohighlight">\(\vec{F}\)</span> acting on an object moving from <span class="math notranslate nohighlight">\(\vec{x}_1\)</span> to <span class="math notranslate nohighlight">\(\vec{x}_2\)</span> can be written as</p>
+<div class="math notranslate nohighlight">
+\[
+W = \int_{x_1}^{x_2} \vec{F} \cdot d\vec{x}.
+\]</div>
+<p>We can complete the dot product in either geometric or component forms:</p>
+<div class="math notranslate nohighlight">
+\[
+W = \int_{x_1}^{x_2} F \cos\theta \, dx,
+\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(F\)</span> and <span class="math notranslate nohighlight">\(dx\)</span> are the magnitudes of the force and differential displacement</p></li>
+<li><p><span class="math notranslate nohighlight">\(\theta\)</span> is the angle between <span class="math notranslate nohighlight">\(\vec{F}\)</span> and <span class="math notranslate nohighlight">\(d\vec{x}\)</span>,</p></li>
+</ul>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[
+W = \int_{x_1}^{x_2} F_x \, dx,
+\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(F_x\)</span> and <span class="math notranslate nohighlight">\(dx\)</span> are the components of the force and differential displacement</p></li>
+</ul>
+<p>Both expressions show that <strong>only the component of the force along the direction of motion contributes to the work</strong>.</p>
+<hr class="docutils" />
+<section id="what-this-really-represents">
+<h3>What this really represents<a class="headerlink" href="#what-this-really-represents" title="Link to this heading">#</a></h3>
+<p>Although this looks like a standard single-variable integral, it is actually a special case of something more general:</p>
+<blockquote>
+<div><p>It is a <strong>line integral of a vector field</strong>, evaluated along a straight path.</p>
+</div></blockquote>
+<p>In other words, even in Physics I, we were already doing line integrals—we just didn’t call them that because the path was simple.</p>
+</section>
+<hr class="docutils" />
+<section id="generalizing-to-arbitrary-paths">
+<h3>Generalizing to arbitrary paths<a class="headerlink" href="#generalizing-to-arbitrary-paths" title="Link to this heading">#</a></h3>
+<p>In general, motion does not occur along a straight line. Instead, an object may follow some path <span class="math notranslate nohighlight">\(C\)</span> through space.</p>
+<p>If we take a small segment of that path, we can represent it as a <strong>directional displacement vector</strong> <span class="math notranslate nohighlight">\(d\vec{l}\)</span>. The work done along the entire path is then</p>
+<div class="math notranslate nohighlight">
+\[
+W = \int_C \vec{F} \cdot d\vec{l},
+\]</div>
+<p>where the subscript <span class="math notranslate nohighlight">\(C\)</span> indicates that we are integrating <strong>along the path</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="making-this-computable">
+<h3>Making this computable<a class="headerlink" href="#making-this-computable" title="Link to this heading">#</a></h3>
+<p>Since we are not yet comfortable integrating vectors directly, we express the dot product in terms of components.</p>
+<p>In Cartesian coordinates:</p>
+<div class="math notranslate nohighlight">
+\[
+W = \int_C (F_x\,dx + F_y\,dy + F_z\,dz).
+\]</div>
+<p>This is a crucial step:</p>
+<blockquote>
+<div><p>We have converted a vector integral into a sum of scalar contributions.</p>
+</div></blockquote>
+<hr class="docutils" />
+<div style="background-color:#fff8e1; border-left:6px solid #ffc20e; padding:10px; border-radius:4px;">
+<strong>Key Insight</strong>  
+<p>A line integral is built from familiar one-dimensional integrals—but applied along a path in space.</p>
+<p>The key idea is simple:</p>
+<blockquote>
+<div><p>Work is accumulated from the component of the force along each small segment of the path.</p>
+</div></blockquote>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Example — Work Along a Piecewise Path</h3>
+<p><strong>Problem</strong></p>
+<p>Consider a massive physics textbook with a mass of <span class="math notranslate nohighlight">\(2.18~\text{kg}\)</span>. Its initial position is</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{r}_0 = (0,0).
+\]</div>
+<p>A constant push force of magnitude <span class="math notranslate nohighlight">\(5.0~\text{N}\)</span> is applied. The book is first moved along the <span class="math notranslate nohighlight">\(+x\)</span> direction, and then along the <span class="math notranslate nohighlight">\(+y\)</span> direction, ending at</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{r} = (0.3~\text{m},\,0.2~\text{m}).
+\]</div>
+<p>Thus, the path <span class="math notranslate nohighlight">\(L\)</span> consists of two straight segments forming two sides of a rectangle.</p>
+<p>Find the total work done by the applied force.</p>
+<hr class="docutils" />
+<p><strong>Solution</strong></p>
+<p>We begin with the definition of work:</p>
+<div class="math notranslate nohighlight">
+\[
+W = \int_C \vec{F}\cdot d\vec{l}.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 1 — Split the path</strong></p>
+<p>The motion occurs in two distinct stages:</p>
+<ul class="simple">
+<li><p>Path 1: motion along the <span class="math notranslate nohighlight">\(x\)</span>-direction from <span class="math notranslate nohighlight">\(0 \to 0.3\)</span></p></li>
+<li><p>Path 2: motion along the <span class="math notranslate nohighlight">\(y\)</span>-direction from <span class="math notranslate nohighlight">\(0 \to 0.2\)</span></p></li>
+</ul>
+<p>Thus, the total work is the sum of the work along each segment:</p>
+<div class="math notranslate nohighlight">
+\[
+W = W_1 + W_2.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 2 — Work along each segment</strong></p>
+<p>Along the <span class="math notranslate nohighlight">\(x\)</span>-direction:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(d\vec{l} = dx\,\hat{\mathbf{i}}\)</span></p></li>
+<li><p>Only the <span class="math notranslate nohighlight">\(x\)</span>-component of the force contributes</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+W_1 = \int_0^{0.3} F_x\,dx.
+\]</div>
+<p>Along the <span class="math notranslate nohighlight">\(y\)</span>-direction:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(d\vec{l} = dy\,\hat{\mathbf{j}}\)</span></p></li>
+<li><p>Only the <span class="math notranslate nohighlight">\(y\)</span>-component of the force contributes</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+W_2 = \int_0^{0.2} F_y\,dy.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 3 — Insert values</strong></p>
+<p>With a constant force of magnitude <span class="math notranslate nohighlight">\(5.0~\text{N}\)</span> along each segment:</p>
+<div class="math notranslate nohighlight">
+\[
+W = \int_0^{0.3} 5.0\,dx + \int_0^{0.2} 5.0\,dy.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 4 — Evaluate</strong></p>
+<div class="math notranslate nohighlight">
+\[
+W = (5.0)(0.3) + (5.0)(0.2)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+W = 1.5 + 1.0
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{W = 2.5~\text{J}}
+\]</div>
+<hr class="docutils" />
+<p><strong>Interpretation</strong></p>
+<p>The key idea is that we do not split the integral arbitrarily—we split it because the <strong>path itself is piecewise</strong>.</p>
+<p>Each segment contributes work based on the component of the force along that segment.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#ffe6e6; border-left:6px solid #990000; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Danger Zone — Components Are Not the Same as Path Segments</h3>
+<p>A common mistake is to take a straight-line displacement from</p>
+<div class="math notranslate nohighlight">
+\[
+(0,0) \to (0.3,0.2)
+\]</div>
+<p>and treat it as if the object moved first along <span class="math notranslate nohighlight">\(x\)</span> and then along <span class="math notranslate nohighlight">\(y\)</span>.</p>
+<p>These are <strong>not the same path</strong>.</p>
+<hr class="docutils" />
+<p><strong>Incorrect approach — treating components as path segments</strong></p>
+<p>Suppose we incorrectly write the work as</p>
+<div class="math notranslate nohighlight">
+\[
+W =
+\int_0^{0.3} F_x\,dx
++
+\int_0^{0.2} F_y\,dy.
+\]</div>
+<p>If we insert</p>
+<div class="math notranslate nohighlight">
+\[
+F_x = 5.0~\text{N},
+\qquad
+F_y = 5.0~\text{N},
+\]</div>
+<p>then</p>
+<div class="math notranslate nohighlight">
+\[
+W =
+\int_0^{0.3} 5.0\,dx
++
+\int_0^{0.2} 5.0\,dy.
+\]</div>
+<p>This gives</p>
+<div class="math notranslate nohighlight">
+\[
+W = (5.0)(0.3) + (5.0)(0.2)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+W = 1.5 + 1.0
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+W = 2.5~\text{J}.
+\]</div>
+<p>But this result corresponds to a <strong>two-segment path</strong>, not the straight-line path.</p>
+<hr class="docutils" />
+<p><strong>Correct idea — straight-line motion has a shorter path length</strong></p>
+<p>The straight-line distance from <span class="math notranslate nohighlight">\((0,0)\)</span> to <span class="math notranslate nohighlight">\((0.3,0.2)\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+s =
+\sqrt{(0.3)^2 + (0.2)^2}.
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+s =
+\sqrt{0.09 + 0.04}
+=
+\sqrt{0.13}
+\approx 0.36~\text{m}.
+\]</div>
+<p>If the applied force has constant magnitude</p>
+<div class="math notranslate nohighlight">
+\[
+F = 5.0~\text{N}
+\]</div>
+<p>and points along the straight-line displacement, then the actual work along the straight path is</p>
+<div class="math notranslate nohighlight">
+\[
+W_{\text{straight}} = Fs.
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+W_{\text{straight}} = (5.0)(0.36)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+W_{\text{straight}} \approx 1.8~\text{J}.
+\]</div>
+<hr class="docutils" />
+<p><strong>Comparison</strong></p>
+<p>Two-segment calculation:</p>
+<div class="math notranslate nohighlight">
+\[
+W_{\text{x-then-y}} = 2.5~\text{J}
+\]</div>
+<p>Straight-line path:</p>
+<div class="math notranslate nohighlight">
+\[
+W_{\text{straight}} \approx 1.8~\text{J}
+\]</div>
+<p>These are not the same because they correspond to <strong>different paths</strong>.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#ffe6e6; border-left:6px solid #990000; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Danger Zone — Infinitesimal vs Finite Motion</h3>
+<p>The expression</p>
+<div class="math notranslate nohighlight">
+\[
+d\vec{l} = dx\,\hat{\mathbf{i}} + dy\,\hat{\mathbf{j}}
+\]</div>
+<p>does <strong>not</strong> mean the object first moves in <span class="math notranslate nohighlight">\(x\)</span> and then moves in <span class="math notranslate nohighlight">\(y\)</span>.</p>
+<p>It means that each infinitesimal displacement along the actual path has components in the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> directions.</p>
+<hr class="docutils" />
+<p><strong>What this really means</strong></p>
+<p>At any given point along a path:</p>
+<ul class="simple">
+<li><p>the motion has a specific direction</p></li>
+<li><p>that direction can be decomposed into <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> components</p></li>
+</ul>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+d\vec{l}
+\]</div>
+<p>represents a <strong>single tiny step along the path</strong>, not two separate steps.</p>
+<hr class="docutils" />
+<p><strong>The subtle but important distinction</strong></p>
+<p>At the <strong>infinitesimal level</strong>:</p>
+<ul class="simple">
+<li><p>any small segment of a curve behaves like a straight line</p></li>
+<li><p>that tiny displacement can always be written as</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+d\vec{l} = dx\,\hat{\mathbf{i}} + dy\,\hat{\mathbf{j}}
+\]</div>
+<p>So locally, it <em>looks like</em> motion in both <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> directions.</p>
+<hr class="docutils" />
+<p>At the <strong>finite level</strong>:</p>
+<ul class="simple">
+<li><p>moving along a curve is not the same as moving first in <span class="math notranslate nohighlight">\(x\)</span> and then in <span class="math notranslate nohighlight">\(y\)</span></p></li>
+<li><p>different paths between the same points can give <strong>different work</strong></p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div style="background-color:#fff8e1; border-left:6px solid #ffc20e; padding:10px; border-radius:4px;">
+<strong>Key Insight</strong>  
+<p>Breaking a displacement into components is not the same as breaking the motion into separate path segments.</p>
+<blockquote>
+<div><p>Components describe direction.<br />
+Path segments describe the actual route taken.</p>
+</div></blockquote>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:12px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Path Dependence of Work</h3>
+<p><strong>Problem</strong></p>
+<p>Consider a force given by</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{F} = 5.0\,(xy\,\hat{\mathbf{i}} + y^2\,\hat{\mathbf{j}})
+\]</div>
+<p>acting on an object.</p>
+<p>In two separate experiments, the object moves from</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{r}_i = (0,0)
+\quad \text{to} \quad
+\vec{r}_f = (1,1)
+\]</div>
+<p>along two different paths:</p>
+<ul class="simple">
+<li><p><strong>Path 1:</strong> along <span class="math notranslate nohighlight">\(+x\)</span> followed by <span class="math notranslate nohighlight">\(+y\)</span></p></li>
+<li><p><strong>Path 2:</strong> along <span class="math notranslate nohighlight">\(+y\)</span> followed by <span class="math notranslate nohighlight">\(+x\)</span></p></li>
+</ul>
+<p>Compute the work done by the force along each path and compare the results.</p>
+<hr class="docutils" />
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p><strong>Path 1 — Move along <span class="math notranslate nohighlight">\(x\)</span>, then <span class="math notranslate nohighlight">\(y\)</span></strong></p>
+<p>First segment: <span class="math notranslate nohighlight">\((0,0) \to (1,0)\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+W_1^{(x)} =
+\int_{0}^{1} F_x(x,0)\,dx
+=
+\int_{0}^{1} 5.0\,(x\cdot 0)\,dx
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+W_1^{(x)} = 0
+\]</div>
+<p>Second segment: <span class="math notranslate nohighlight">\((1,0) \to (1,1)\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+W_1^{(y)} =
+\int_{0}^{1} F_y(1,y)\,dy
+=
+\int_{0}^{1} 5.0\,y^2\,dy
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+W_1^{(y)} = \frac{5}{3}
+\]</div>
+<p>Total work:</p>
+<div class="math notranslate nohighlight">
+\[
+W_{\text{Path 1}} = \frac{5}{3}
+\]</div>
+<hr class="docutils" />
+<p><strong>Path 2 — Move along <span class="math notranslate nohighlight">\(y\)</span>, then <span class="math notranslate nohighlight">\(x\)</span></strong></p>
+<p>First segment: <span class="math notranslate nohighlight">\((0,0) \to (0,1)\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+W_2^{(y)} =
+\int_{0}^{1} F_y(0,y)\,dy
+=
+\int_{0}^{1} 5.0\,y^2\,dy
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+W_2^{(y)} = \frac{5}{3}
+\]</div>
+<p>Second segment: <span class="math notranslate nohighlight">\((0,1) \to (1,1)\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+W_2^{(x)} =
+\int_{0}^{1} F_x(x,1)\,dx
+=
+\int_{0}^{1} 5.0\,x\,dx
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+W_2^{(x)} = \frac{5}{2}
+\]</div>
+<p>Total work:</p>
+<div class="math notranslate nohighlight">
+\[
+W_{\text{Path 2}} = \frac{5}{3} + \frac{5}{2} = \frac{25}{6}
+\]</div>
+<hr class="docutils" />
+<p><strong>Comparison</strong></p>
+<div class="math notranslate nohighlight">
+\[
+W_{\text{Path 1}} = \frac{5}{3},
+\qquad
+W_{\text{Path 2}} = \frac{25}{6}
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+W_{\text{Path 1}} \ne W_{\text{Path 2}}
+\]</div>
+</div>
+</details>
+</div><hr class="docutils" />
+<div style="background-color:#fff8e1; border-left:6px solid #ffc20e; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Conservative vs Non-Conservative Forces</h3>
+<p>From the previous example, we observed that the work done in moving an object from point <span class="math notranslate nohighlight">\(A\)</span> to point <span class="math notranslate nohighlight">\(B\)</span> depended on the <strong>path taken</strong>.</p>
+<p>This observation leads to an important classification of forces:</p>
+<hr class="docutils" />
+<p><strong>Non-conservative forces</strong></p>
+<p>If the work done by a force depends on the path taken between two points, the force is called a <strong>non-conservative force</strong>.</p>
+<p>Examples include:</p>
+<ul class="simple">
+<li><p>applied pushing or pulling forces</p></li>
+<li><p>friction</p></li>
+</ul>
+<p>These forces are typically associated with energy being transferred <strong>into or out of a system</strong>.</p>
+<hr class="docutils" />
+<p><strong>Conservative forces</strong></p>
+<p>If the work done by a force depends only on the initial and final positions—and not on the path taken—the force is called a <strong>conservative force</strong>.</p>
+<p>Examples include:</p>
+<ul class="simple">
+<li><p>gravitational forces</p></li>
+<li><p>spring forces</p></li>
+</ul>
+<p>These forces do not add or remove energy from the system. Instead, they <strong>transfer energy between different forms</strong>, such as kinetic and potential energy.</p>
+<hr class="docutils" />
+<p><strong>Why this matters</strong></p>
+<p>Conservative forces allow us to define a <strong>potential energy function</strong>, which leads to powerful tools such as energy conservation:</p>
+<div class="math notranslate nohighlight">
+\[
+K + U = \text{constant}.
+\]</div>
+<p>Non-conservative forces, on the other hand, require us to explicitly account for energy entering or leaving the system.</p>
+<hr class="docutils" />
+<p><strong>Big picture</strong></p>
+<blockquote>
+<div><p>Conservative forces reshape energy within a system.<br />
+Non-conservative forces exchange energy with the surroundings.</p>
+</div></blockquote>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Phys-Prof-Nielsen/modulearn",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-D5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="review.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">D5.1 Review — Work, Energy, and Conservative Forces (Physics I Foundations)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="parameterization.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">D5.3 Parameterization of Line Integrals</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d5-2-1-motivation">D5.2.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-changes-in-two-dimensions">What changes in two dimensions?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-first-step-motion-along-straight-segments">A first step: motion along straight segments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-matters">Why this matters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d5-2-2-line-integral-of-vector-fields">D5.2.2 Line Integral of Vector Fields</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-this-really-represents">What this really represents</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generalizing-to-arbitrary-paths">Generalizing to arbitrary paths</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-this-computable">Making this computable</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
