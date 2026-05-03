@@ -1,0 +1,1198 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>D10.2 Solving Strategy Using the Lagrangian &#8212; A Competency Approach to Classical Mechanics - Phase D</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-D10/strategy';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-D.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Phase D - Home"/>
+    <script>document.write(`<img src="../_static/logo-D.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Phase D - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the D Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D1 - Impulse, Momentum, and Momentum Methods</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/LOC-D1.html">D1.0 Learning Outcomes — Impulse, Momentum, and Momentum Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/review.html">D1.1 Impulse–Momentum: Review and Foundations</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/application.html">D1.2 Using Impulse–Momentum Instead of <span class="math notranslate nohighlight">\(F = ma\)</span></a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D2 - Work, Energy, and Conservative Forces</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/LOC-D2.html">D2.0 Learning Outcomes — Work, Energy, and Conservative Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/review.html">D2.1 Review — Work, Energy, and Conservative Forces (Physics I Foundations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/line-integrals.html">D2.2 Introduction to Line Integrals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/parameterization.html">D2.3 Parameterization of Line Integrals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/conservative-forces.html">D2.4 Conservative Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/problemsD2.html">D2.5 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D3 - Linearly Accelerating Frames</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/galilean-relativity-coordinate.html">D3.1 Galilean Relativity: Coordinate Transformation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/galilean-relativity-length.html">D3.2 Galilean Relativity: Length Measurement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/galilean-relativity-displacement.html">D3.3 Galilean Relativity: Displacement Measurement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/galilean-relativity-velocity.html">D3.4 Galilean Relativity: Velocity Transformation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/accelerated-frames.html">D3.5 Transformation of Acceleration Between Linearly Accelerating Coordinate Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/problemsD3.html">D3.6 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D4 - Polar Coordinates</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/LOC-D4.html">D4.0 Learning Outcomes — Polar Coordinates and Central Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/polar-coordinates.html">D4.1 Position, Velocity, and Acceleration in Polar Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/N2-polar.html">D4.2 Newton’s 2nd Law in Polar Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/problemsD4.html">D4.3 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D5 - Rotational Dynamics - Fixed Axis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/basic-relations.html">D5.1 Rotational Kinematics - Basic Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/equations-kinematics.html">D5.2 Rotational Equations of Kinematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/translational-rotational.html">D5.3 A Note on Combined Translational and Rotational Angular Speed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/angular-momentum.html">D5.4 Angular Momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/angular-impulse.html">D5.5 Angular Impulse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/torque.html">D5.6 Angular Force - Torque</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/newton-rotational.html">D5.7 Newton’s 2nd Law - Rotational Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/rotational-work.html">D5.8 Work - Energy - Rotational Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/problemsD5.html">D5.9 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D6 - Small Oscillations and Stability</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/LOC-D6.html">D6.0 Learning Outcomes — Small Oscillations and Stability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/review.html">D6.1 Review of Oscillatory Motion — From Springs to Resonance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/stability.html">D6.2 Stability and Potential Energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/linearization.html">D6.3 Linearization About Stable Equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/phase-space.html">D6.4 Phase Space</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D7 - Central Forces, Effective Potential, and Orbits</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/LOC-D7.html">D7.0 Learning Outcomes — Central Forces, Effective Potential, and Orbits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/central-forces.html">D7.1 Central Forces and Angular Momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/problemsD7.html">D7.3 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D8 - Constraints and Generalized Coordinates</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/LOC-D8.html">D8.0 Learning Outcomes — Constraints and Generalized Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/dof-constraints.html">D8.1 Constraints and Degrees of Freedom in Classical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/generalized-coordinates.html">D8.2 Generalized Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/coordinate-systems.html">D8.3 Coordinate Systems and Coordinate Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/jacobian-chainrule.html">D8.4 Coordinate Transformations, Jacobians, and the Chain Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/invariance.html">D8.5 Invariance, Symmetry, and the Idea of Gauge Freedom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/problemsD8.html">D8.6 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D9 - Index Notation and Vector Operations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/LOC-D9.html">D9.0 Learning Outcomes — Index Notation and Vector Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/index-notation.html">D9.1 Vectors and Index Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/einstein-convention.html">D9.2 Einstein Summation Convention</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/kronecker.html">D9.3 The Kronecker Delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/levi-civita.html">D9.4 The Levi–Civita Symbol and the Cross Product</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/identities.html">D9.5 Vector Identities Using Index Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/problemsD9.html">D9.6 Problems — Index Notation Practice</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/classical-mechanics-D/Module-D10/strategy.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-D10/strategy.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>D10.2 Solving Strategy Using the Lagrangian</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d10-2-1-why-a-strategy-matters">D10.2.1 Why a Strategy Matters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d10-2-2-general-solving-strategy">D10.2.2 General Solving Strategy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-1-no-lagrange-multipliers-this-module">Case 1 — No Lagrange multipliers (this module)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-2-with-lagrange-multipliers-later-modules">Case 2 — With Lagrange multipliers (later modules)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-distinction">Key distinction</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d10-2-3-example">D10.2.3 Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d10-2-4-key-observations">D10.2.4 Key Observations</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="d10-2-solving-strategy-using-the-lagrangian">
+<h1>D10.2 Solving Strategy Using the Lagrangian<a class="headerlink" href="#d10-2-solving-strategy-using-the-lagrangian" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="d10-2-1-why-a-strategy-matters">
+<h2>D10.2.1 Why a Strategy Matters<a class="headerlink" href="#d10-2-1-why-a-strategy-matters" title="Link to this heading">#</a></h2>
+<p>The Lagrangian method is powerful, but students often get lost in the complexity of a problem instead of focusing on the small steps towards the solution (the same can be said about problems involving Newton’s 2nd law).</p>
+<p>👉 The goal is to build good skills by starting with a <strong>consistent workflow</strong>:</p>
+<blockquote>
+<div><p>Build <span class="math notranslate nohighlight">\(L = T - U\)</span> → apply Lagrange’s equation → obtain the equation of motion.</p>
+</div></blockquote>
+<p>This section provides a <strong>repeatable procedure</strong> you can use on any problem.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d10-2-2-general-solving-strategy">
+<h2>D10.2.2 General Solving Strategy<a class="headerlink" href="#d10-2-2-general-solving-strategy" title="Link to this heading">#</a></h2>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:14px; border-radius:4px;">
+<p><strong>Solving Strategy: Lagrangian Mechanics</strong></p>
+<p>Given a system:</p>
+<hr class="docutils" />
+<p><strong>1. Sketch the system</strong></p>
+<ul class="simple">
+<li><p>Draw the physical setup</p></li>
+<li><p>Indicate:</p>
+<ul>
+<li><p>coordinates</p></li>
+<li><p>velocities</p></li>
+<li><p>constraints</p></li>
+</ul>
+</li>
+<li><p>This step is essential for organizing the problem</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>2. Choose coordinates</strong></p>
+<ul class="simple">
+<li><p>Select appropriate generalized coordinate(s) <span class="math notranslate nohighlight">\(q\)</span></p></li>
+<li><p>Identify:
+$<span class="math notranslate nohighlight">\(
+q, \quad \dot{q}
+\)</span>$</p></li>
+<li><p>Choose coordinates that match the geometry (e.g., <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(r\)</span>, <span class="math notranslate nohighlight">\(\theta\)</span>)</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>3. Write the kinetic energy</strong></p>
+<p>Start from:</p>
+<div class="math notranslate nohighlight">
+\[
+T = \frac{1}{2}m v^2.
+\]</div>
+<p>If motion is not purely Cartesian:</p>
+<ul class="simple">
+<li><p>Express position in terms of <span class="math notranslate nohighlight">\(q\)</span></p></li>
+<li><p>Then compute velocity using:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\dot{x} = \frac{dx}{dq}\dot{q}
+\]</div>
+<p>(or more generally using chain rule)</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{v} =
+\sum_{i=1}^{N}
+\frac{\partial \mathbf{r}}{\partial q_i}\dot q_i
++
+\frac{\partial \mathbf{r}}{\partial t}.
+\]</div>
+<hr class="docutils" />
+<p><strong>4. Write the potential energy</strong></p>
+<ul class="simple">
+<li><p>Identify all potential energy contributions:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+U(q)
+\]</div>
+<p>Examples:</p>
+<ul class="simple">
+<li><p>spring: <span class="math notranslate nohighlight">\(\frac{1}{2}kq^2\)</span></p></li>
+<li><p>gravity: <span class="math notranslate nohighlight">\(mg h(q)\)</span></p></li>
+</ul>
+<p>👉 Express everything in terms of the chosen coordinate(s)</p>
+<hr class="docutils" />
+<p><strong>5. Construct the Lagrangian</strong></p>
+<div class="math notranslate nohighlight">
+\[
+L(q,\dot{q}) = T - U
+\]</div>
+<hr class="docutils" />
+<p><strong>6. Apply constraint equations (see Danger Box below for more info)</strong></p>
+<ul class="simple">
+<li><p>If the system has constraints, write them as:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+f(q_1, q_2, \dots) = 0
+\]</div>
+<ul class="simple">
+<li><p>Use constraints to:</p>
+<ul>
+<li><p>eliminate variables</p></li>
+<li><p>reduce the number of coordinates</p></li>
+</ul>
+</li>
+</ul>
+<p>👉 In this module, constraints are typically used for substitution (not multipliers)</p>
+<hr class="docutils" />
+<p><strong>7. Compute derivatives</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial L}{\partial q},
+\qquad
+\frac{\partial L}{\partial \dot{q}}
+\]</div>
+<hr class="docutils" />
+<p><strong>8. Take the time derivative</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dt}
+\left(
+\frac{\partial L}{\partial \dot{q}}
+\right)
+\]</div>
+<hr class="docutils" />
+<p><strong>9. Apply Lagrange’s equation</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dt}
+\left(
+\frac{\partial L}{\partial \dot{q}}
+\right)
+-
+\frac{\partial L}{\partial q}
+= 0
+\]</div>
+<hr class="docutils" />
+<p><strong>10. Simplify and solve</strong></p>
+<ul class="simple">
+<li><p>Rearrange into a familiar equation of motion</p></li>
+<li><p>Solve if needed</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div style="background-color:#ffe6e6; border-left:6px solid #cc0000; padding:14px; border-radius:4px;">
+<p><strong>Danger:</strong><br></p>
+<p>It is important to understand <strong>when you are allowed to apply constraints</strong> in Lagrangian mechanics.</p>
+<hr class="docutils" />
+<section id="case-1-no-lagrange-multipliers-this-module">
+<h3>Case 1 — No Lagrange multipliers (this module)<a class="headerlink" href="#case-1-no-lagrange-multipliers-this-module" title="Link to this heading">#</a></h3>
+<p>If you are <strong>not using Lagrange multipliers</strong>, then:</p>
+<ul class="simple">
+<li><p>You may apply constraints <strong>before constructing the Lagrangian</strong></p></li>
+<li><p>You can reduce the system to the <strong>minimum number of coordinates</strong></p></li>
+<li><p>The Lagrangian is written directly in terms of independent coordinates</p></li>
+</ul>
+<p>👉 In this case, it does <strong>not matter</strong> whether you think of the constraint as being applied “before” or “after”—because you have already eliminated it.</p>
+</section>
+<hr class="docutils" />
+<section id="case-2-with-lagrange-multipliers-later-modules">
+<h3>Case 2 — With Lagrange multipliers (later modules)<a class="headerlink" href="#case-2-with-lagrange-multipliers-later-modules" title="Link to this heading">#</a></h3>
+<p>If you are using <strong>Lagrange multipliers</strong>, then:</p>
+<ul class="simple">
+<li><p>You must <strong>keep all coordinates independent</strong></p></li>
+<li><p>You must <strong>NOT substitute constraints into <span class="math notranslate nohighlight">\(L\)</span></strong></p></li>
+<li><p>You apply constraints only <strong>after</strong> deriving the equations of motion</p></li>
+</ul>
+<p>👉 Substituting constraints too early will not provide you with the essential information about the <strong>forces of constraint</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="key-distinction">
+<h3>Key distinction<a class="headerlink" href="#key-distinction" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Without multipliers → eliminate constraints early</p></li>
+<li><p>With multipliers → enforce constraints later</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Big idea:</strong><br>
+The timing of when you apply constraints depends on whether you treat them as substitutions (early) or as equations enforced through multipliers (late).</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="d10-2-3-example">
+<h2>D10.2.3 Example<a class="headerlink" href="#d10-2-3-example" title="Link to this heading">#</a></h2>
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Example — Block Sliding Horizontally at Constant Height</h3>
+<p>A block of mass <span class="math notranslate nohighlight">\(m\)</span> slides with constant velocity along the <span class="math notranslate nohighlight">\(+x\)</span> direction.<br />
+Find the equation of motion for the block in the <span class="math notranslate nohighlight">\(x\)</span>-direction using the Lagrangian method.</p>
+<p>Assume the block moves on a horizontal surface at constant height</p>
+<div class="math notranslate nohighlight">
+\[
+y = h.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 1 — Sketch the system</strong></p>
+<p>The block moves horizontally:</p>
+<div class="math notranslate nohighlight">
+\[
+x = x(t)
+\]</div>
+<p>while its vertical position remains fixed:</p>
+<div class="math notranslate nohighlight">
+\[
+y = h.
+\]</div>
+<p>So the motion is constrained to a horizontal line.</p>
+<hr class="docutils" />
+<p><strong>Step 2 — Choose coordinates</strong></p>
+<p>Start with Cartesian coordinates:</p>
+<div class="math notranslate nohighlight">
+\[
+(x,y).
+\]</div>
+<p>The velocity components are</p>
+<div class="math notranslate nohighlight">
+\[
+v_x = \dot{x},
+\qquad
+v_y = \dot{y}.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 3 — Write the kinetic energy</strong></p>
+<p>In two dimensions,</p>
+<div class="math notranslate nohighlight">
+\[
+v^2 = v_x^2 + v_y^2.
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+T = \frac{1}{2}m(v_x^2+v_y^2).
+\]</div>
+<p>Using</p>
+<div class="math notranslate nohighlight">
+\[
+v_x = \dot{x},
+\qquad
+v_y = \dot{y},
+\]</div>
+<p>we have</p>
+<div class="math notranslate nohighlight">
+\[
+T = \frac{1}{2}m(\dot{x}^2+\dot{y}^2).
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 4 — Write the potential energy</strong></p>
+<p>The gravitational potential energy is</p>
+<div class="math notranslate nohighlight">
+\[
+U = mgy.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 5 — Apply the constraint</strong></p>
+<p>The constraint is</p>
+<div class="math notranslate nohighlight">
+\[
+y = h.
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{y}=0.
+\]</div>
+<p>So the kinetic energy becomes</p>
+<div class="math notranslate nohighlight">
+\[
+T = \frac{1}{2}m\dot{x}^2.
+\]</div>
+<p>The potential energy becomes</p>
+<div class="math notranslate nohighlight">
+\[
+U = mgh.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 6 — Construct the Lagrangian</strong></p>
+<div class="math notranslate nohighlight">
+\[
+L = T - U.
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+L = \frac{1}{2}m\dot{x}^2 - mgh.
+\]</div>
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Insight:</strong><br>
+By applying the constraint</p>
+<div class="math notranslate nohighlight">
+\[
+y = h,
+\]</div>
+<p>we reduced the number of degrees of freedom from two <span class="math notranslate nohighlight">\((x,y)\)</span> to one <span class="math notranslate nohighlight">\((x)\)</span>.</p>
+<p>This means the system is now effectively a <strong>one-dimensional problem</strong> with generalized coordinate</p>
+<div class="math notranslate nohighlight">
+\[
+q = x.
+\]</div>
+<p>👉 This illustrates a key advantage of applying constraints early:<br />
+the Lagrangian becomes simpler, and we only work with independent coordinates before applying Lagrange’s equation.</p>
+</div>
+<hr class="docutils" />
+<p><strong>Step 7 — Compute the derivatives</strong></p>
+<p>Lagrange’s equation for <span class="math notranslate nohighlight">\(x\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dt}
+\left(
+\frac{\partial L}{\partial \dot{x}}
+\right)
+-
+\frac{\partial L}{\partial x}
+=0.
+\]</div>
+<p>First,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial L}{\partial \dot{x}}
+=
+m\dot{x}.
+\]</div>
+<p>Then,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dt}
+\left(
+\frac{\partial L}{\partial \dot{x}}
+\right)
+=
+m\ddot{x}.
+\]</div>
+<p>Also,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial L}{\partial x}=0.
+\]</div>
+<p>Notice that the constant term <span class="math notranslate nohighlight">\(mgh\)</span> disappears because it does not depend on <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<hr class="docutils" />
+<p><strong>Step 8 — Apply Lagrange’s equation</strong></p>
+<div class="math notranslate nohighlight">
+\[
+m\ddot{x} - 0 = 0.
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+m\ddot{x}=0.
+\]</div>
+<p>So,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\ddot{x}=0
+}
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 9 — Interpret the result</strong></p>
+<p>The equation</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{x}=0
+\]</div>
+<p>means that the horizontal velocity is constant:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{x}=v=\text{constant}.
+\]</div>
+<p>Thus, the motion is</p>
+<div class="math notranslate nohighlight">
+\[
+x(t)=x_0+vt.
+\]</div>
+<p>This agrees with the original description: the block slides with constant velocity in the <span class="math notranslate nohighlight">\(+x\)</span> direction.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Mass on a Spring Using the Lagrangian</h3>
+<p>A block of mass <span class="math notranslate nohighlight">\(m\)</span> is attached to a horizontal spring with spring constant <span class="math notranslate nohighlight">\(k\)</span>. The block moves without friction along a horizontal surface.</p>
+<p>The spring is unstretched when</p>
+<div class="math notranslate nohighlight">
+\[
+x=0.
+\]</div>
+<p>Use the Lagrangian method to find the equation of motion.</p>
+<p>Determine:</p>
+<ol class="arabic simple">
+<li><p>The starting coordinates</p></li>
+<li><p>The kinetic energy</p></li>
+<li><p>The potential energy</p></li>
+<li><p>The equation of constraint</p></li>
+<li><p>The reduced generalized coordinate</p></li>
+<li><p>The Lagrangian</p></li>
+<li><p>The equation of motion</p></li>
+</ol>
+</div>
+<hr class="docutils" />
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p><strong>Step 1 — Sketch the system</strong></p>
+<p>The block moves horizontally while remaining on a fixed horizontal surface.</p>
+<p>We begin by describing the motion in the plane using coordinates</p>
+<div class="math notranslate nohighlight">
+\[
+(x,y).
+\]</div>
+<p>At this stage, we do <strong>not</strong> reduce the system yet.</p>
+<hr class="docutils" />
+<p><strong>Step 2 — Write the kinetic energy</strong></p>
+<p>In two dimensions,</p>
+<div class="math notranslate nohighlight">
+\[
+v^2 = v_x^2 + v_y^2.
+\]</div>
+<p>Since</p>
+<div class="math notranslate nohighlight">
+\[
+v_x=\dot{x},
+\qquad
+v_y=\dot{y},
+\]</div>
+<p>the kinetic energy is</p>
+<div class="math notranslate nohighlight">
+\[
+T=
+\frac{1}{2}m(\dot{x}^2+\dot{y}^2).
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 3 — Write the potential energy</strong></p>
+<p>There are two potential energy contributions.</p>
+<p>The spring potential energy is</p>
+<div class="math notranslate nohighlight">
+\[
+U_s=\frac{1}{2}kx^2.
+\]</div>
+<p>The gravitational potential energy is</p>
+<div class="math notranslate nohighlight">
+\[
+U_g=mgy.
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+U=
+\frac{1}{2}kx^2+mgy.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 4 — State the equation of constraint</strong></p>
+<p>The block is constrained to remain on the horizontal surface.</p>
+<p>Choose the surface to be located at</p>
+<div class="math notranslate nohighlight">
+\[
+y=0.
+\]</div>
+<p>So the constraint is</p>
+<div class="math notranslate nohighlight">
+\[
+y=0.
+\]</div>
+<p>Since the block remains on this surface,</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{y}=0.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 5 — Construct the Lagrangian</strong></p>
+<p>Before applying the constraint, the Lagrangian would be</p>
+<div class="math notranslate nohighlight">
+\[
+L
+=
+\frac{1}{2}m(\dot{x}^2+\dot{y}^2)
+-
+\left(
+\frac{1}{2}kx^2+mgy
+\right).
+\]</div>
+<p>Now apply</p>
+<div class="math notranslate nohighlight">
+\[
+y=0,
+\qquad
+\dot{y}=0.
+\]</div>
+<p>This gives</p>
+<div class="math notranslate nohighlight">
+\[
+L
+=
+\frac{1}{2}m\dot{x}^2
+-
+\frac{1}{2}kx^2.
+\]</div>
+<p>The gravitational term disappears because the height is constant and reduces the original coordinate description from</p>
+<div class="math notranslate nohighlight">
+\[
+(x,y)
+\]</div>
+<p>to a single independent coordinate:</p>
+<div class="math notranslate nohighlight">
+\[
+q=x.
+\]</div>
+<p>The system is now a one-dimensional problem.</p>
+<hr class="docutils" />
+<p><strong>Step 6 — Compute the derivatives</strong></p>
+<p>Lagrange’s equation for the remaining coordinate <span class="math notranslate nohighlight">\(x\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dt}
+\left(
+\frac{\partial L}{\partial \dot{x}}
+\right)
+-
+\frac{\partial L}{\partial x}
+=0.
+\]</div>
+<p>First,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial L}{\partial \dot{x}}
+=
+m\dot{x}.
+\]</div>
+<p>Then,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dt}
+\left(
+\frac{\partial L}{\partial \dot{x}}
+\right)
+=
+m\ddot{x}.
+\]</div>
+<p>Also,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial L}{\partial x}
+=
+-kx.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 7 — Apply Lagrange’s equation</strong></p>
+<p>Substitute into Lagrange’s equation:</p>
+<div class="math notranslate nohighlight">
+\[
+m\ddot{x}-(-kx)=0.
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+m\ddot{x}+kx=0.
+\]</div>
+<hr class="docutils" />
+<p><strong>Final Result</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+m\ddot{x}+kx=0
+}
+\]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\ddot{x}+\frac{k}{m}x=0.
+}
+\]</div>
+<hr class="docutils" />
+<p><strong>Interpretation</strong></p>
+<p>The block undergoes simple harmonic motion:</p>
+<div class="math notranslate nohighlight">
+\[
+x(t)=A\cos(\omega t+\phi),
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+\omega=\sqrt{\frac{k}{m}}.
+\]</div>
+<p>The important habit is that we first wrote the system using the full coordinate description <span class="math notranslate nohighlight">\((x,y)\)</span>, included both kinetic and potential energy terms, and only then applied the constraint.</p>
+<p>This helps build the correct workflow for later problems involving Lagrange multipliers, where constraints must be handled more carefully.</p>
+</div>
+</details>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d10-2-4-key-observations">
+<h2>D10.2.4 Key Observations<a class="headerlink" href="#d10-2-4-key-observations" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Forces do not appear explicitly</p></li>
+<li><p>Everything comes from energy</p></li>
+<li><p>The method works even in non-Cartesian coordinates</p></li>
+<li><p>The structure of the equation is always the same</p></li>
+</ul>
+<hr class="docutils" />
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Big Picture:</strong><br>
+The Lagrangian provides a systematic way to generate equations of motion using energy, making it especially powerful for more complex systems.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Phys-Prof-Nielsen/modulearn",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-D10"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d10-2-1-why-a-strategy-matters">D10.2.1 Why a Strategy Matters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d10-2-2-general-solving-strategy">D10.2.2 General Solving Strategy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-1-no-lagrange-multipliers-this-module">Case 1 — No Lagrange multipliers (this module)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-2-with-lagrange-multipliers-later-modules">Case 2 — With Lagrange multipliers (later modules)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-distinction">Key distinction</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d10-2-3-example">D10.2.3 Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d10-2-4-key-observations">D10.2.4 Key Observations</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
