@@ -1,0 +1,958 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>D2.3 Parameterization of Line Integrals &#8212; A Competency Approach to Classical Mechanics - Phase D</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-D2/parameterization';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="D2.4 Conservative Forces" href="conservative-forces.html" />
+    <link rel="prev" title="D2.2 Introduction to Line Integrals" href="line-integrals.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-D.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Phase D - Home"/>
+    <script>document.write(`<img src="../_static/logo-D.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Phase D - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the D Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D1 - Impulse, Momentum, and Momentum Methods</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/LOC-D1.html">D1.0 Learning Outcomes — Impulse, Momentum, and Momentum Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/review.html">D1.1 Impulse–Momentum: Review and Foundations</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/application.html">D1.2 Using Impulse–Momentum Instead of <span class="math notranslate nohighlight">\(F = ma\)</span></a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D2 - Work, Energy, and Conservative Forces</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-D2.html">D2.0 Learning Outcomes — Work, Energy, and Conservative Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="review.html">D2.1 Review — Work, Energy, and Conservative Forces (Physics I Foundations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="line-integrals.html">D2.2 Introduction to Line Integrals</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">D2.3 Parameterization of Line Integrals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conservative-forces.html">D2.4 Conservative Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problemsD2.html">D2.5 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D3 - Linearly Accelerating Frames</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/galilean-relativity-coordinate.html">D3.1 Galilean Relativity: Coordinate Transformation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/galilean-relativity-length.html">D3.2 Galilean Relativity: Length Measurement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/galilean-relativity-displacement.html">D3.3 Galilean Relativity: Displacement Measurement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/galilean-relativity-velocity.html">D3.4 Galilean Relativity: Velocity Transformation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/accelerated-frames.html">D3.5 Transformation of Acceleration Between Linearly Accelerating Coordinate Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/problemsD3.html">D3.6 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D4 - Polar Coordinates</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/LOC-D4.html">D4.0 Learning Outcomes — Polar Coordinates and Central Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/polar-coordinates.html">D4.1 Position, Velocity, and Acceleration in Polar Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/N2-polar.html">D4.2 Newton’s 2nd Law in Polar Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/problemsD4.html">D4.3 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D5 - Rotational Dynamics - Fixed Axis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/basic-relations.html">D5.1 Rotational Kinematics - Basic Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/equations-kinematics.html">D5.2 Rotational Equations of Kinematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/translational-rotational.html">D5.3 A Note on Combined Translational and Rotational Angular Speed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/angular-momentum.html">D5.4 Angular Momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/angular-impulse.html">D5.5 Angular Impulse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/torque.html">D5.6 Angular Force - Torque</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/newton-rotational.html">D5.7 Newton’s 2nd Law - Rotational Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/rotational-work.html">D5.8 Work - Energy - Rotational Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/problemsD5.html">D5.9 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D6 - Small Oscillations and Stability</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/LOC-D6.html">D6.0 Learning Outcomes — Small Oscillations and Stability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/review.html">D6.1 Review of Oscillatory Motion — From Springs to Resonance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/stability.html">D6.2 Stability and Potential Energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/linearization.html">D6.3 Linearization About Stable Equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/phase-space.html">D6.4 Phase Space</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D7 - Central Forces, Effective Potential, and Orbits</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/LOC-D7.html">D7.0 Learning Outcomes — Central Forces, Effective Potential, and Orbits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/central-forces.html">D7.1 Central Forces and Angular Momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/problemsD7.html">D7.3 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D8 - Constraints and Generalized Coordinates</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/LOC-D8.html">D8.0 Learning Outcomes — Constraints and Generalized Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/dof-constraints.html">D8.1 Constraints and Degrees of Freedom in Classical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/generalized-coordinates.html">D8.2 Generalized Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/coordinate-systems.html">D8.3 Coordinate Systems and Coordinate Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/jacobian-chainrule.html">D8.4 Coordinate Transformations, Jacobians, and the Chain Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/invariance.html">D8.5 Invariance, Symmetry, and the Idea of Gauge Freedom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/problemsD8.html">D8.6 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D9 - Index Notation and Vector Operations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/LOC-D9.html">D9.0 Learning Outcomes — Index Notation and Vector Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/index-notation.html">D9.1 Vectors and Index Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/einstein-convention.html">D9.2 Einstein Summation Convention</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/kronecker.html">D9.3 The Kronecker Delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/levi-civita.html">D9.4 The Levi–Civita Symbol and the Cross Product</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/identities.html">D9.5 Vector Identities Using Index Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/problemsD9.html">D9.6 Problems — Index Notation Practice</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/classical-mechanics-D/Module-D2/parameterization.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-D2/parameterization.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>D2.3 Parameterization of Line Integrals</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d2-3-1-motivation">D2.3.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d2-3-2-parameterization">D2.3.2 Parameterization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameterizing-a-path">Parameterizing a path</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#differentials-along-the-path">Differentials along the path</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#work-along-a-parameterized-path">Work along a parameterized path</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d2-3-3-common-parameterizations">D2.3.3 Common Parameterizations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#straight-line">Straight Line</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#circle">Circle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ellipse">Ellipse</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-these-matter">Why these matter</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="d2-3-parameterization-of-line-integrals">
+<h1>D2.3 Parameterization of Line Integrals<a class="headerlink" href="#d2-3-parameterization-of-line-integrals" title="Link to this heading">#</a></h1>
+<hr style="border:1px solid gray"> </hr><section id="d2-3-1-motivation">
+<h2>D2.3.1 Motivation<a class="headerlink" href="#d2-3-1-motivation" title="Link to this heading">#</a></h2>
+<p>In the <em>Introduction to Line Integrals</em>, we have been so fortunate that our paths were aligned well with the <span class="math notranslate nohighlight">\(xy\)</span>-directions in a cartesian coordinate system. However, often the world is not as nice and will serve us some humble pie when applying the approach above. For example, what if the path was part of a circle? Already then it appears messy to evaluate the dot product between our force and the line element. This is where <strong>parameterization</strong> comes in and saves us from mathematical humiliation (well, we may still be humiliated but then it is at least because of our own inability to do math). The approach of parameterization is a general approach to solving line integrals (or higher orders such surface and volume integrals as well).</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="d2-3-2-parameterization">
+<h2>D2.3.2 Parameterization<a class="headerlink" href="#d2-3-2-parameterization" title="Link to this heading">#</a></h2>
+<p>For simplicity, we introduce parameterization for a path in the <span class="math notranslate nohighlight">\(xy\)</span>-plane. The same idea extends naturally to three dimensions.</p>
+<p>The starting point is that many paths can be described by an equation of the form</p>
+<div class="math notranslate nohighlight">
+\[
+g(x,y)=0.
+\]</div>
+<p>For example:</p>
+<ul class="simple">
+<li><p>Straight line:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+y - ax - b = 0
+\]</div>
+<ul class="simple">
+<li><p>Circle:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+g(x,y)=x^2+y^2-R^2=0
+\]</div>
+<p>This equation describes the full curve, but it does not always tell us how an object moves along the curve. For work, we need to follow the path point by point.</p>
+<hr class="docutils" />
+<section id="parameterizing-a-path">
+<h3>Parameterizing a path<a class="headerlink" href="#parameterizing-a-path" title="Link to this heading">#</a></h3>
+<p>To describe motion along a path, we introduce a parameter <span class="math notranslate nohighlight">\(s\)</span>. Each point on the path is then written as</p>
+<div class="math notranslate nohighlight">
+\[
+x=x(s), \qquad y=y(s).
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="differentials-along-the-path">
+<h3>Differentials along the path<a class="headerlink" href="#differentials-along-the-path" title="Link to this heading">#</a></h3>
+<p>As the parameter changes by a small amount <span class="math notranslate nohighlight">\(ds\)</span>, the position changes by</p>
+<div class="math notranslate nohighlight">
+\[
+dx=\frac{dx}{ds}ds
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+dy=\frac{dy}{ds}ds.
+\]</div>
+<p>These expressions tell us how changes in the parameter produce changes in position along the path.</p>
+</section>
+<hr class="docutils" />
+<section id="work-along-a-parameterized-path">
+<h3>Work along a parameterized path<a class="headerlink" href="#work-along-a-parameterized-path" title="Link to this heading">#</a></h3>
+<p>The work done by a force is</p>
+<div class="math notranslate nohighlight">
+\[
+W=\int_C \vec{F}\cdot d\vec{l}.
+\]</div>
+<p>In Cartesian components,</p>
+<div class="math notranslate nohighlight">
+\[
+W=\int_C (F_x\,dx+F_y\,dy).
+\]</div>
+<p>Substituting the parameterized differentials gives</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Definition — Work Along a Parameterized Path</h3>
+<p>If a path is parameterized by</p>
+<div class="math notranslate nohighlight">
+\[
+x=x(s), \qquad y=y(s),
+\]</div>
+<p>then the work is</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+W =
+\int_{s_1}^{s_2}
+\left[
+F_x(x(s),y(s))\frac{dx}{ds}
++
+F_y(x(s),y(s))\frac{dy}{ds}
+\right]ds
+}
+\]</div>
+</div>
+<p>This formula is the bridge between the piecewise straight-line examples and fully general line integrals.</p>
+<hr class="docutils" />
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Example — Parameterization from Physics I</h3>
+<p><strong>Problem</strong></p>
+<p>In Physics I, we often described motion along a straight line using time as a parameter.</p>
+<p>Consider motion with constant velocity <span class="math notranslate nohighlight">\(v_x\)</span> along the <span class="math notranslate nohighlight">\(x\)</span>-axis, starting from position <span class="math notranslate nohighlight">\(x_0\)</span>.</p>
+<p>Show how this is an example of <strong>parameterization</strong>, and relate it to the differential form used in line integrals.</p>
+<hr class="docutils" />
+<p><strong>Solution</strong></p>
+<p>In Physics I, we wrote the position as</p>
+<div class="math notranslate nohighlight">
+\[
+x = x_0 + v_x t.
+\]</div>
+<p>This means that the position is expressed as a function of a parameter:</p>
+<div class="math notranslate nohighlight">
+\[
+x = x(t).
+\]</div>
+<p>Here, time <span class="math notranslate nohighlight">\(t\)</span> plays the role of the parameter that traces out the path.</p>
+<hr class="docutils" />
+<p><strong>How the parameter evolves</strong></p>
+<p>As the particle moves, the parameter changes by a small amount <span class="math notranslate nohighlight">\(dt\)</span>. This produces a small change in position:</p>
+<div class="math notranslate nohighlight">
+\[
+dx = \frac{dx}{dt}dt.
+\]</div>
+<p>Since the velocity is constant,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dx}{dt} = v_x,
+\]</div>
+<p>so</p>
+<div class="math notranslate nohighlight">
+\[
+dx = v_x\,dt.
+\]</div>
+<hr class="docutils" />
+<p><strong>Interpretation</strong></p>
+<p>This is exactly the same structure used in parameterization:</p>
+<ul class="simple">
+<li><p>The path is described by a function <span class="math notranslate nohighlight">\(x(t)\)</span></p></li>
+<li><p>Motion along the path is described by how <span class="math notranslate nohighlight">\(t\)</span> changes</p></li>
+<li><p>Small displacements are obtained through the derivative</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Key Insight</strong></p>
+<p>We have already been using parameterization:</p>
+<blockquote>
+<div><p>Time is just one possible parameter.</p>
+</div></blockquote>
+<p>In general, we replace <span class="math notranslate nohighlight">\(t\)</span> with a parameter <span class="math notranslate nohighlight">\(s\)</span> to describe motion along any path, not just motion in time.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<strong>Example — Work Along a Parameterized Half-Circle</strong>
+<p><strong>Problem</strong></p>
+<p>Consider the force</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{F} = 5.0(xy\,\hat{\mathbf{i}} + y^2\,\hat{\mathbf{j}})
+\]</div>
+<p>acting on an object. The object moves along a half-circle, counterclockwise from <span class="math notranslate nohighlight">\((x,y)=(R,0)\)</span> to <span class="math notranslate nohighlight">\((x,y)=(-R,0)\)</span>.</p>
+<p>Find the work done by this force.</p>
+<hr class="docutils" />
+<p><strong>Step 1 — Choose a parameter</strong></p>
+<p>The geometry suggests using the angle <span class="math notranslate nohighlight">\(\theta\)</span> as the parameter:</p>
+<div class="math notranslate nohighlight">
+\[
+s \rightarrow \theta
+\]</div>
+<div style="text-align:center;">
+<img src="fig1.png" width="300">
+</div>
+<hr class="docutils" />
+<p><strong>Step 2 — Parameterize the path</strong></p>
+<div class="math notranslate nohighlight">
+\[
+x = R\cos\theta,
+\qquad
+y = R\sin\theta
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 3 — Compute derivatives</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dx}{d\theta} = -R\sin\theta,
+\qquad
+\frac{dy}{d\theta} = R\cos\theta
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 4 — Express the force in terms of <span class="math notranslate nohighlight">\(\theta\)</span></strong></p>
+<div class="math notranslate nohighlight">
+\[
+F_x = 5.0xy = 5.0R^2\sin\theta\cos\theta
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+F_y = 5.0y^2 = 5.0R^2\sin^2\theta
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 5 — Set up the line integral</strong></p>
+<div class="math notranslate nohighlight">
+\[
+W = \int_{\theta=0}^{\theta=\pi}
+\left[
+F_x(\theta)\frac{dx}{d\theta}
++
+F_y(\theta)\frac{dy}{d\theta}
+\right] d\theta
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+W = \int_{0}^{\pi}
+\left[
+(5.0R^2\sin\theta\cos\theta)(-R\sin\theta)
++
+(5.0R^2\sin^2\theta)(R\cos\theta)
+\right] d\theta
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 6 — Simplify and evaluate</strong></p>
+<div class="math notranslate nohighlight">
+\[
+W = 5.0R^3 \int_{0}^{\pi}
+\left[
+-\sin^2\theta\cos\theta
++
+\sin^2\theta\cos\theta
+\right] d\theta
+\]</div>
+<p>The integrand cancels:</p>
+<div class="math notranslate nohighlight">
+\[
+W = 0
+\]</div>
+<hr class="docutils" />
+<p><strong>Result</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{W = 0~\text{J}}
+\]</div>
+<hr class="docutils" />
+<p><strong>Interpretation</strong></p>
+<p>The contributions from different parts of the path cancel exactly.</p>
+<p>This example highlights two key ideas:</p>
+<ul class="simple">
+<li><p>Parameterization reduces a multi-variable problem to a <strong>single-variable integral</strong></p></li>
+<li><p>Even nontrivial paths can sometimes produce <strong>zero net work</strong> due to symmetry</p></li>
+</ul>
+</div><hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="d2-3-3-common-parameterizations">
+<h2>D2.3.3 Common Parameterizations<a class="headerlink" href="#d2-3-3-common-parameterizations" title="Link to this heading">#</a></h2>
+<p>In practice, choosing a good parameter is often the most important step in evaluating a line integral.</p>
+<p>While any path can, in principle, be parameterized, there are a few standard cases that appear repeatedly in physics. In this course, we will focus on three important types of paths:</p>
+<ul class="simple">
+<li><p>straight lines</p></li>
+<li><p>circles</p></li>
+<li><p>ellipses</p></li>
+</ul>
+<p>These capture a large number of physically relevant situations.</p>
+<hr class="docutils" />
+<section id="straight-line">
+<h3>Straight Line<a class="headerlink" href="#straight-line" title="Link to this heading">#</a></h3>
+<p>A straight line between two points</p>
+<div class="math notranslate nohighlight">
+\[
+(x_1,y_1) \rightarrow (x_2,y_2)
+\]</div>
+<p>can be parameterized using a parameter <span class="math notranslate nohighlight">\(s\)</span> that runs from <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(1\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+x(s) = x_1 + (x_2 - x_1)s
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+y(s) = y_1 + (y_2 - y_1)s
+\]</div>
+<p>with</p>
+<div class="math notranslate nohighlight">
+\[
+0 \le s \le 1.
+\]</div>
+<p>This parameterization has a clear interpretation:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(s=0\)</span> corresponds to the starting point</p></li>
+<li><p><span class="math notranslate nohighlight">\(s=1\)</span> corresponds to the ending point</p></li>
+<li><p>intermediate values trace the path smoothly between them</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="circle">
+<h3>Circle<a class="headerlink" href="#circle" title="Link to this heading">#</a></h3>
+<p>A circle of radius <span class="math notranslate nohighlight">\(R\)</span> centered at the origin is naturally parameterized using an angle <span class="math notranslate nohighlight">\(\theta\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+x(\theta) = R\cos\theta
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+y(\theta) = R\sin\theta
+\]</div>
+<p>The parameter <span class="math notranslate nohighlight">\(\theta\)</span> determines how far around the circle we move:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\theta = 0\)</span> corresponds to <span class="math notranslate nohighlight">\((R,0)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\theta = \pi/2\)</span> corresponds to <span class="math notranslate nohighlight">\((0,R)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\theta = 2\pi\)</span> completes a full revolution</p></li>
+</ul>
+<p>To describe a portion of a circle, we simply restrict the limits of <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+</section>
+<hr class="docutils" />
+<section id="ellipse">
+<h3>Ellipse<a class="headerlink" href="#ellipse" title="Link to this heading">#</a></h3>
+<p>An ellipse with semi-major axis <span class="math notranslate nohighlight">\(a\)</span> and semi-minor axis <span class="math notranslate nohighlight">\(b\)</span> can also be parameterized using an angle:</p>
+<div class="math notranslate nohighlight">
+\[
+x(\theta) = a\cos\theta
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+y(\theta) = b\sin\theta
+\]</div>
+<p>Even though the shape is not circular, the parameter <span class="math notranslate nohighlight">\(\theta\)</span> still “sweeps out” the curve.</p>
+<p>The limits on <span class="math notranslate nohighlight">\(\theta\)</span> determine how much of the ellipse is traced:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(0 \le \theta \le 2\pi\)</span> gives the full ellipse</p></li>
+<li><p>restricted intervals give arcs</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="why-these-matter">
+<h3>Why these matter<a class="headerlink" href="#why-these-matter" title="Link to this heading">#</a></h3>
+<p>These three parameterizations are especially useful because:</p>
+<ul class="simple">
+<li><p>they match common physical geometries</p></li>
+<li><p>they lead to manageable derivatives <span class="math notranslate nohighlight">\(dx/ds\)</span> and <span class="math notranslate nohighlight">\(dy/ds\)</span></p></li>
+<li><p>they allow us to reduce line integrals to <strong>single-variable integrals</strong></p></li>
+</ul>
+<p>In most problems in this course, identifying one of these standard forms will significantly simplify the work.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Phys-Prof-Nielsen/modulearn",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-D2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="line-integrals.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">D2.2 Introduction to Line Integrals</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="conservative-forces.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">D2.4 Conservative Forces</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d2-3-1-motivation">D2.3.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d2-3-2-parameterization">D2.3.2 Parameterization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameterizing-a-path">Parameterizing a path</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#differentials-along-the-path">Differentials along the path</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#work-along-a-parameterized-path">Work along a parameterized path</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d2-3-3-common-parameterizations">D2.3.3 Common Parameterizations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#straight-line">Straight Line</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#circle">Circle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ellipse">Ellipse</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-these-matter">Why these matter</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

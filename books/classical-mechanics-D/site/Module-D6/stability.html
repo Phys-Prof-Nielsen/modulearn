@@ -1,0 +1,896 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>D6.2 Stability and Potential Energy &#8212; A Competency Approach to Classical Mechanics - Phase D</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-D6/stability';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="D6.3 Linearization About Stable Equilibrium" href="linearization.html" />
+    <link rel="prev" title="D6.1 Review of Oscillatory Motion — From Springs to Resonance" href="review.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-D.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Phase D - Home"/>
+    <script>document.write(`<img src="../_static/logo-D.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Phase D - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the D Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D1 - Impulse, Momentum, and Momentum Methods</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/LOC-D1.html">D1.0 Learning Outcomes — Impulse, Momentum, and Momentum Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/review.html">D1.1 Impulse–Momentum: Review and Foundations</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/application.html">D1.2 Using Impulse–Momentum Instead of <span class="math notranslate nohighlight">\(F = ma\)</span></a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D2 - Work, Energy, and Conservative Forces</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/LOC-D2.html">D2.0 Learning Outcomes — Work, Energy, and Conservative Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/review.html">D2.1 Review — Work, Energy, and Conservative Forces (Physics I Foundations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/line-integrals.html">D2.2 Introduction to Line Integrals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/parameterization.html">D2.3 Parameterization of Line Integrals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/conservative-forces.html">D2.4 Conservative Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/problemsD2.html">D2.5 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D3 - Linearly Accelerating Frames</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/galilean-relativity-coordinate.html">D3.1 Galilean Relativity: Coordinate Transformation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/galilean-relativity-length.html">D3.2 Galilean Relativity: Length Measurement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/galilean-relativity-displacement.html">D3.3 Galilean Relativity: Displacement Measurement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/galilean-relativity-velocity.html">D3.4 Galilean Relativity: Velocity Transformation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/accelerated-frames.html">D3.5 Transformation of Acceleration Between Linearly Accelerating Coordinate Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/problemsD3.html">D3.6 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D4 - Polar Coordinates</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/LOC-D4.html">D4.0 Learning Outcomes — Polar Coordinates and Central Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/polar-coordinates.html">D4.1 Position, Velocity, and Acceleration in Polar Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/N2-polar.html">D4.2 Newton’s 2nd Law in Polar Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/problemsD4.html">D4.3 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D5 - Rotational Dynamics - Fixed Axis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/basic-relations.html">D5.1 Rotational Kinematics - Basic Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/equations-kinematics.html">D5.2 Rotational Equations of Kinematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/translational-rotational.html">D5.3 A Note on Combined Translational and Rotational Angular Speed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/angular-momentum.html">D5.4 Angular Momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/angular-impulse.html">D5.5 Angular Impulse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/torque.html">D5.6 Angular Force - Torque</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/newton-rotational.html">D5.7 Newton’s 2nd Law - Rotational Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/rotational-work.html">D5.8 Work - Energy - Rotational Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/problemsD5.html">D5.9 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D6 - Small Oscillations and Stability</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-D6.html">D6.0 Learning Outcomes — Small Oscillations and Stability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="review.html">D6.1 Review of Oscillatory Motion — From Springs to Resonance</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">D6.2 Stability and Potential Energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linearization.html">D6.3 Linearization About Stable Equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase-space.html">D6.4 Phase Space</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D7 - Central Forces, Effective Potential, and Orbits</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/LOC-D7.html">D7.0 Learning Outcomes — Central Forces, Effective Potential, and Orbits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/central-forces.html">D7.1 Central Forces and Angular Momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/problemsD7.html">D7.3 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D8 - Constraints and Generalized Coordinates</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/LOC-D8.html">D8.0 Learning Outcomes — Constraints and Generalized Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/dof-constraints.html">D8.1 Constraints and Degrees of Freedom in Classical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/generalized-coordinates.html">D8.2 Generalized Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/coordinate-systems.html">D8.3 Coordinate Systems and Coordinate Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/jacobian-chainrule.html">D8.4 Coordinate Transformations, Jacobians, and the Chain Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/invariance.html">D8.5 Invariance, Symmetry, and the Idea of Gauge Freedom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/problemsD8.html">D8.6 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D9 - Index Notation and Vector Operations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/LOC-D9.html">D9.0 Learning Outcomes — Index Notation and Vector Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/index-notation.html">D9.1 Vectors and Index Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/einstein-convention.html">D9.2 Einstein Summation Convention</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/kronecker.html">D9.3 The Kronecker Delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/levi-civita.html">D9.4 The Levi–Civita Symbol and the Cross Product</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/identities.html">D9.5 Vector Identities Using Index Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/problemsD9.html">D9.6 Problems — Index Notation Practice</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/classical-mechanics-D/Module-D6/stability.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-D6/stability.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>D6.2 Stability and Potential Energy</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-2-1-motivation">D6.2.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-2-2-taylor-expansion-of-the-potential-energy">D6.2.2 Taylor Expansion of the Potential Energy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-2-3-stability-criteria">D6.2.3 Stability Criteria</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-2-4-turning-points-and-motion-in-a-potential">D6.2.4 Turning Points and Motion in a Potential</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-2-5-fixed-points-and-phase-space">D6.2.5 Fixed Points and Phase Space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-2-6-example">D6.2.6 Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-2-7-beyond-the-harmonic-approximation">D6.2.7 Beyond the Harmonic Approximation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-2-8-broader-implications">D6.2.8 Broader Implications</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-2-9-summary">D6.2.9 Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="d6-2-stability-and-potential-energy">
+<h1>D6.2 Stability and Potential Energy<a class="headerlink" href="#d6-2-stability-and-potential-energy" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="d6-2-1-motivation">
+<h2>D6.2.1 Motivation<a class="headerlink" href="#d6-2-1-motivation" title="Link to this heading">#</a></h2>
+<p>The concept of <strong>stability</strong> lies at the core of all physical systems — it tells us whether a system will return to equilibrium after a small disturbance, or diverge away into new motion. By examining how <strong>potential energy varies with position</strong>, we can determine the <em>behavior near equilibrium</em> without solving the equations of motion directly.</p>
+<p>The <strong>graph of potential energy</strong>, <span class="math notranslate nohighlight">\(U(x)\)</span>, is a powerful visual tool. It reveals at a glance whether equilibrium points are <strong>stable</strong>, <strong>unstable</strong>, or <strong>neutral</strong>, and provides a direct connection between <strong>force</strong>, <strong>energy</strong>, and <strong>motion</strong>.<br />
+This same analysis helps us understand:</p>
+<ul class="simple">
+<li><p><strong>Planetary motion:</strong> why bound orbits (elliptical) correspond to potential wells and unbound orbits (hyperbolic) correspond to escape energies.</p></li>
+<li><p><strong>Engineering systems:</strong> how bridges, buildings, or suspension systems respond to small oscillations or large perturbations.</p></li>
+<li><p><strong>Chemistry:</strong> how atoms vibrate about equilibrium positions in molecular bonds.</p></li>
+<li><p><strong>Biology and physiology:</strong> how the body maintains balance, and how biological rhythms return to homeostasis after small deviations.</p></li>
+</ul>
+<p>In essence, stability analysis is the universal lens through which we understand equilibrium and motion — from molecular vibrations to galactic dynamics.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d6-2-2-taylor-expansion-of-the-potential-energy">
+<h2>D6.2.2 Taylor Expansion of the Potential Energy<a class="headerlink" href="#d6-2-2-taylor-expansion-of-the-potential-energy" title="Link to this heading">#</a></h2>
+<p>Near any equilibrium position <span class="math notranslate nohighlight">\(x_0\)</span>, we can approximate a smooth potential energy function using a <strong>Taylor expansion</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+U(x) = U(x_0) + \left.\frac{dU}{dx}\right|_{x_0}(x - x_0) + \frac{1}{2}\left.\frac{d^2U}{dx^2}\right|_{x_0}(x - x_0)^2 + \cdots
+\]</div>
+<p>At equilibrium, the <strong>net force is zero</strong> (or the slope of the potential energy vs. position is zero), so</p>
+<div class="math notranslate nohighlight">
+\[
+\left.\frac{dU}{dx}\right|_{x_0} = 0.
+\]</div>
+<p>Thus, near <span class="math notranslate nohighlight">\(x_0\)</span> we have:</p>
+<div class="math notranslate nohighlight">
+\[
+U(x) \approx U(x_0) + \frac{1}{2}k_{\text{eff}}(x - x_0)^2,
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+k_{\text{eff}} = \left.\frac{d^2U}{dx^2}\right|_{x_0}
+\]</div>
+<p>is the <strong>effective stiffness</strong> or <strong>curvature</strong> of the potential well.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d6-2-3-stability-criteria">
+<h2>D6.2.3 Stability Criteria<a class="headerlink" href="#d6-2-3-stability-criteria" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Stable equilibrium:</strong> <span class="math notranslate nohighlight">\(k_{\text{eff}} &gt; 0\)</span>, or <span class="math notranslate nohighlight">\(\dfrac{d^2U}{dx^2} &gt; 0\)</span>.<br />
+The potential has a <strong>minimum</strong>; the system oscillates about <span class="math notranslate nohighlight">\(x_0\)</span>.</p></li>
+<li><p><strong>Unstable equilibrium:</strong> <span class="math notranslate nohighlight">\(k_{\text{eff}} &lt; 0\)</span>, or <span class="math notranslate nohighlight">\(\dfrac{d^2U}{dx^2} &lt; 0\)</span>.<br />
+The potential has a <strong>maximum</strong>; small displacements grow over time.</p></li>
+<li><p><strong>Neutral equilibrium:</strong> <span class="math notranslate nohighlight">\(k_{\text{eff}} = 0\)</span>.<br />
+The potential is <strong>flat</strong> near <span class="math notranslate nohighlight">\(x_0\)</span>, and the system experiences no restoring force.</p></li>
+</ul>
+<p>These correspond to what we call <strong>fixed points</strong> — positions where the force (the slope of <span class="math notranslate nohighlight">\(U\)</span>) is zero.<br />
+Whether a fixed point is stable or unstable depends on the <em>curvature</em> of <span class="math notranslate nohighlight">\(U\)</span> at that point.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d6-2-4-turning-points-and-motion-in-a-potential">
+<h2>D6.2.4 Turning Points and Motion in a Potential<a class="headerlink" href="#d6-2-4-turning-points-and-motion-in-a-potential" title="Link to this heading">#</a></h2>
+<p>When total mechanical energy is conserved,</p>
+<div class="math notranslate nohighlight">
+\[
+E = K + U(x),
+\]</div>
+<p>the <strong>kinetic energy</strong> is</p>
+<div class="math notranslate nohighlight">
+\[
+K = E - U(x) = \tfrac{1}{2} m v^2.
+\]</div>
+<p>At points where <span class="math notranslate nohighlight">\(E = U(x)\)</span>, the velocity <span class="math notranslate nohighlight">\(v = 0\)</span>.<br />
+These are called <strong>turning points</strong> — the particle reverses direction there.</p>
+<ul class="simple">
+<li><p>For <strong>bound motion</strong>, <span class="math notranslate nohighlight">\(E &lt; U_{\text{max}}\)</span>, the particle oscillates between two turning points.</p></li>
+<li><p>For <strong>unbound motion</strong>, <span class="math notranslate nohighlight">\(E &gt; U_{\text{max}}\)</span>, it escapes the potential well.</p></li>
+</ul>
+<p>This simple graphical interpretation of <span class="math notranslate nohighlight">\(U(x)\)</span> versus <span class="math notranslate nohighlight">\(x\)</span> is extremely powerful — it lets us visualize dynamics without solving equations.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d6-2-5-fixed-points-and-phase-space">
+<h2>D6.2.5 Fixed Points and Phase Space<a class="headerlink" href="#d6-2-5-fixed-points-and-phase-space" title="Link to this heading">#</a></h2>
+<p>In one dimension, <strong>fixed points</strong> correspond to locations where both <span class="math notranslate nohighlight">\(v=0\)</span> and <span class="math notranslate nohighlight">\(F=-\dfrac{dU}{dx}=0\)</span>.<br />
+Plotting motion in <strong>phase space</strong> (position vs. velocity) reveals:</p>
+<ul class="simple">
+<li><p><strong>Stable points:</strong> small closed loops (oscillations).</p></li>
+<li><p><strong>Unstable points:</strong> diverging trajectories.</p></li>
+<li><p><strong>Saddle points:</strong> mixed behavior (stable in one direction, unstable in another).</p></li>
+</ul>
+<p>These patterns generalize beautifully to higher-dimensional systems.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d6-2-6-example">
+<h2>D6.2.6 Example<a class="headerlink" href="#d6-2-6-example" title="Link to this heading">#</a></h2>
+<div style="background-color:#d9d9d9; padding:15px; border-radius:10px;">
+<p><strong>Spring System</strong></p>
+<p>For a spring with potential energy</p>
+<div class="math notranslate nohighlight">
+\[
+U(x) = \tfrac{1}{2}k x^2,
+\]</div>
+<p>the equilibrium is at <span class="math notranslate nohighlight">\(x_0 = 0\)</span>.<br />
+Then,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dU}{dx} = kx, \quad \frac{d^2U}{dx^2} = k &gt; 0.
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\(k &gt; 0\)</span>, the equilibrium is <strong>stable</strong>, and we recover simple harmonic motion:</p>
+<div class="math notranslate nohighlight">
+\[
+m\ddot{x} = -k x.
+\]</div>
+<p>If instead <span class="math notranslate nohighlight">\(U(x) = -\tfrac{1}{2}k x^2\)</span>, then <span class="math notranslate nohighlight">\(k_{\text{eff}} &lt; 0\)</span> and equilibrium becomes <strong>unstable</strong> — any small displacement grows exponentially rather than oscillating.</p>
+</div><div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Spring potential example: U(x) = (1/2) k x^2</span>
+<span class="c1"># This script plots U vs x, annotates turning points for a chosen total energy E,</span>
+<span class="c1"># draws a horizontal dashed line at E, and shows vertical segments at an arbitrary</span>
+<span class="c1"># position x_star to indicate the partition into potential (U) and kinetic (K = E - U).</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># -----------------------</span>
+<span class="c1"># Parameters (edit freely)</span>
+<span class="c1"># -----------------------</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mf">1.0</span>          <span class="c1"># mass (kg)</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mf">4.0</span>          <span class="c1"># spring constant (N/m)</span>
+<span class="n">A</span> <span class="o">=</span> <span class="mf">1.2</span>          <span class="c1"># amplitude corresponding to energy E (m)</span>
+<span class="n">x_star</span> <span class="o">=</span> <span class="mf">0.6</span>     <span class="c1"># arbitrary position at which to show U and K bars (m)</span>
+
+<span class="n">E</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">k</span> <span class="o">*</span> <span class="n">A</span><span class="o">**</span><span class="mi">2</span>          <span class="c1"># total mechanical energy (J)</span>
+
+<span class="c1"># -------------</span>
+<span class="c1"># Computations</span>
+<span class="c1"># -------------</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">U</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> 
+    <span class="k">return</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">k</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="c1"># Turning points solve E = U(x) =&gt; x = ±sqrt(2E/k)</span>
+<span class="n">x_turn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">E</span> <span class="o">/</span> <span class="n">k</span><span class="p">)</span>
+<span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="o">=</span> <span class="o">-</span><span class="n">x_turn</span><span class="p">,</span> <span class="n">x_turn</span>
+
+<span class="c1"># Build plotting range that comfortably includes turning points</span>
+<span class="n">xmax</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x1</span><span class="p">),</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x2</span><span class="p">),</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x_star</span><span class="p">))</span> <span class="o">*</span> <span class="mf">1.25</span> <span class="o">+</span> <span class="mf">0.5</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">xmax</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="mi">800</span><span class="p">)</span>
+<span class="n">Ux</span> <span class="o">=</span> <span class="n">U</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">U_star</span> <span class="o">=</span> <span class="n">U</span><span class="p">(</span><span class="n">x_star</span><span class="p">)</span>
+<span class="n">K_star</span> <span class="o">=</span> <span class="n">E</span> <span class="o">-</span> <span class="n">U_star</span>  <span class="c1"># could be negative if x_star is classically forbidden</span>
+
+<span class="c1"># -------------</span>
+<span class="c1"># Plotting</span>
+<span class="c1"># -------------</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">))</span>
+
+<span class="c1"># Potential energy curve</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">Ux</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$U(x) = (1/2) k x^2$&quot;</span><span class="p">)</span>
+
+<span class="c1"># Total energy horizontal line</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">E</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Total energy $E$&quot;</span><span class="p">)</span>
+
+<span class="c1"># Turning points as vertical dotted lines with markers</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x1</span><span class="p">],</span> <span class="p">[</span><span class="n">E</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x2</span><span class="p">],</span> <span class="p">[</span><span class="n">E</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">)</span>
+
+<span class="c1"># Annotate turning points</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;Turning point&quot;</span><span class="p">,</span>
+            <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">E</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">x2</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">E</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">),</span>
+            <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;Turning point&quot;</span><span class="p">,</span>
+            <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">E</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="mf">0.9</span><span class="p">,</span> <span class="n">E</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">),</span>
+            <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Vertical bars at x_star to show U and K partition</span>
+<span class="c1"># Potential (from 0 up to U_star)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x_star</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">U_star</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x_star</span> <span class="o">+</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">U_star</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;U&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Kinetic (from U_star up to E), only if classically allowed (K_star &gt;= 0)</span>
+<span class="k">if</span> <span class="n">K_star</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x_star</span><span class="p">,</span> <span class="n">U_star</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x_star</span> <span class="o">+</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">U_star</span> <span class="o">+</span> <span class="n">K_star</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;K&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># Indicate forbidden region if E &lt; U(x_star)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;Classically forbidden</span><span class="se">\n</span><span class="s2">(E &lt; U)&quot;</span><span class="p">,</span>
+                <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">x_star</span><span class="p">,</span> <span class="n">U_star</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">x_star</span> <span class="o">+</span> <span class="mf">0.3</span><span class="p">,</span> <span class="n">U_star</span> <span class="o">+</span> <span class="mf">0.4</span><span class="p">),</span>
+                <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Labels, legend, and aesthetics</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x (m)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Energy (J)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Spring Potential, Turning Points, and Energy Partition&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+
+<span class="c1"># Axis limits and grid</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="n">xmax</span><span class="p">,</span> <span class="n">xmax</span><span class="p">)</span>
+<span class="n">ymax</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">E</span><span class="p">,</span> <span class="n">Ux</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="o">*</span> <span class="mf">1.15</span> <span class="o">+</span> <span class="mf">0.5</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+
+<span class="c1"># Helpful inline text</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span>
+        <span class="sa">rf</span><span class="s2">&quot;$E = (1/2) k A^2$   with   $A = </span><span class="si">{</span><span class="n">A</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">\ \mathrm</span><span class="se">{{</span><span class="s2">m</span><span class="se">}}</span><span class="s2">,\ k = </span><span class="si">{</span><span class="n">k</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">\ \mathrm</span><span class="se">{{</span><span class="s2">N/m</span><span class="se">}}</span><span class="s2">$&quot;</span><span class="p">,</span>
+        <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.88</span><span class="p">,</span>
+        <span class="sa">rf</span><span class="s2">&quot;Turning points:  $x = \pm\sqrt</span><span class="se">{{</span><span class="s2">2E/k</span><span class="se">}}</span><span class="s2"> = \pm</span><span class="si">{</span><span class="nb">abs</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">\ \mathrm</span><span class="se">{{</span><span class="s2">m</span><span class="se">}}</span><span class="s2">$&quot;</span><span class="p">,</span>
+        <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.81</span><span class="p">,</span>
+        <span class="sa">rf</span><span class="s2">&quot;At $x = </span><span class="si">{</span><span class="n">x_star</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">\ \mathrm</span><span class="se">{{</span><span class="s2">m</span><span class="se">}}</span><span class="s2">$:  $U = </span><span class="si">{</span><span class="n">U_star</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">\ \mathrm</span><span class="se">{{</span><span class="s2">J</span><span class="se">}}</span><span class="s2">,\ K = E - U = </span><span class="si">{</span><span class="n">K_star</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">\ \mathrm</span><span class="se">{{</span><span class="s2">J</span><span class="se">}}</span><span class="s2">$&quot;</span><span class="p">,</span>
+        <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/4a3b7ed2e87f7d3269335cf234b90c2f35830296f565c5aefc15870e300579b8.png" src="../_images/4a3b7ed2e87f7d3269335cf234b90c2f35830296f565c5aefc15870e300579b8.png" />
+</div>
+</div>
+<div style="background-color:#d9d9d9; padding:15px; border-radius:10px;">
+<p><strong>Interpretation of the <span class="math notranslate nohighlight">\(U(x)\)</span> vs. <span class="math notranslate nohighlight">\(x\)</span> Plot</strong></p>
+<p>The potential energy curve <span class="math notranslate nohighlight">\(U(x) = \tfrac{1}{2} k x^2\)</span> represents a <strong>parabolic potential well</strong> centered at the equilibrium position <span class="math notranslate nohighlight">\(x = 0\)</span>.<br />
+This shape is characteristic of all systems undergoing <strong>simple harmonic motion</strong> — the curvature of the parabola determines how strongly the system is pulled back toward equilibrium.</p>
+<p>The <strong>horizontal dashed line</strong> represents the system’s <strong>total mechanical energy</strong>, <span class="math notranslate nohighlight">\(E = \tfrac{1}{2}kA^2\)</span>, which remains constant throughout the motion.<br />
+The intersection points of this line with the potential curve mark the <strong>turning points</strong> (<span class="math notranslate nohighlight">\(x = \pm A\)</span>), where the particle momentarily stops before reversing direction.<br />
+At these points, the energy is entirely <strong>potential</strong>, and the <strong>kinetic energy</strong> is zero.</p>
+<p>At any other position <span class="math notranslate nohighlight">\(x\)</span> within this range:</p>
+<ul class="simple">
+<li><p>The <strong>potential energy</strong> <span class="math notranslate nohighlight">\(U(x)\)</span> is proportional to <span class="math notranslate nohighlight">\(x^2\)</span>, increasing as the mass moves away from equilibrium.</p></li>
+<li><p>The <strong>kinetic energy</strong> <span class="math notranslate nohighlight">\(K = E - U(x)\)</span> fills the remaining portion up to <span class="math notranslate nohighlight">\(E\)</span>, decreasing as potential energy increases.<br />
+The vertical bars at <span class="math notranslate nohighlight">\(x_*\)</span> in the plot illustrate this continuous <strong>exchange between <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(K\)</span></strong>.</p></li>
+</ul>
+<p>The shape of the curve and the horizontal energy line together provide a <strong>complete graphical picture of the dynamics</strong>:</p>
+<ul class="simple">
+<li><p>Motion is confined between the turning points (<span class="math notranslate nohighlight">\(E = U\)</span>).</p></li>
+<li><p>The slope of <span class="math notranslate nohighlight">\(U(x)\)</span>, <span class="math notranslate nohighlight">\(F = -dU/dx = -kx\)</span>, gives the <strong>restoring force</strong>, always directed toward equilibrium.</p></li>
+<li><p>The curvature of the potential determines the <strong>angular frequency</strong> of oscillation, <span class="math notranslate nohighlight">\(\omega = \sqrt{k/m}\)</span>.</p></li>
+</ul>
+<p>In short, this single graph encapsulates both <strong>energetic</strong> and <strong>dynamical</strong> information:<br />
+the system’s energy conservation, its limits of motion, and the linear restoring behavior that defines simple harmonic motion.</p>
+</div><hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d6-2-7-beyond-the-harmonic-approximation">
+<h2>D6.2.7 Beyond the Harmonic Approximation<a class="headerlink" href="#d6-2-7-beyond-the-harmonic-approximation" title="Link to this heading">#</a></h2>
+<p>For small displacements, the quadratic term dominates and motion is harmonic.<br />
+But when displacements grow large, the neglected higher-order terms in the Taylor series become important:</p>
+<div class="math notranslate nohighlight">
+\[
+U(x) = U(x_0) + \tfrac{1}{2}k_{\text{eff}}(x - x_0)^2 + \tfrac{1}{3!}\alpha(x - x_0)^3 + \tfrac{1}{4!}\beta(x - x_0)^4 + \cdots
+\]</div>
+<p>These nonlinear terms cause <strong>anharmonicity</strong> — oscillations whose frequency depends on amplitude — and can lead to complex phenomena such as <strong>bifurcations</strong>, <strong>resonances</strong>, and even <strong>chaotic motion</strong>.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d6-2-8-broader-implications">
+<h2>D6.2.8 Broader Implications<a class="headerlink" href="#d6-2-8-broader-implications" title="Link to this heading">#</a></h2>
+<p>The same stability framework extends far beyond simple mechanical systems:</p>
+<ul class="simple">
+<li><p>In <strong>engineering</strong>, it predicts the onset of failure or oscillation in mechanical and electrical systems.</p></li>
+<li><p>In <strong>chemistry</strong>, potential energy surfaces determine reaction stability and transition states.</p></li>
+<li><p>In <strong>biology</strong>, stable equilibria correspond to homeostasis, while unstable ones describe critical thresholds or tipping points in biological systems.</p></li>
+<li><p>In <strong>astrophysics</strong>, the gravitational potential explains the difference between circular, elliptical, and unbound orbits.</p></li>
+<li><p>And in <strong>nonlinear dynamics</strong>, studying small perturbations around equilibrium gives insight into how systems transition from regular to <strong>chaotic behavior</strong>.</p></li>
+</ul>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d6-2-9-summary">
+<h2>D6.2.9 Summary<a class="headerlink" href="#d6-2-9-summary" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Whenever the potential energy curve has a <strong>local minimum</strong>, small perturbations lead to <strong>stable, oscillatory motion</strong> (SHM).<br />
+A <strong>maximum</strong> leads to <strong>instability</strong>, and a <strong>flat</strong> potential gives <strong>neutral equilibrium</strong>.</p>
+<p>These simple principles — derived from the shape of <span class="math notranslate nohighlight">\(U(x)\)</span> — form the foundation for understanding stability, oscillations, and chaos across all of science and engineering.</p>
+</div></blockquote>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Phys-Prof-Nielsen/modulearn",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-D6"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="review.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">D6.1 Review of Oscillatory Motion — From Springs to Resonance</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="linearization.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">D6.3 Linearization About Stable Equilibrium</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-2-1-motivation">D6.2.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-2-2-taylor-expansion-of-the-potential-energy">D6.2.2 Taylor Expansion of the Potential Energy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-2-3-stability-criteria">D6.2.3 Stability Criteria</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-2-4-turning-points-and-motion-in-a-potential">D6.2.4 Turning Points and Motion in a Potential</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-2-5-fixed-points-and-phase-space">D6.2.5 Fixed Points and Phase Space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-2-6-example">D6.2.6 Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-2-7-beyond-the-harmonic-approximation">D6.2.7 Beyond the Harmonic Approximation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-2-8-broader-implications">D6.2.8 Broader Implications</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d6-2-9-summary">D6.2.9 Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

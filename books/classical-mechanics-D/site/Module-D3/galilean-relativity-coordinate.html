@@ -1,0 +1,870 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>D3.1 Galilean Relativity: Coordinate Transformation &#8212; A Competency Approach to Classical Mechanics - Phase D</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-D3/galilean-relativity-coordinate';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="D3.2 Galilean Relativity: Length Measurement" href="galilean-relativity-length.html" />
+    <link rel="prev" title="D2.5 Problems" href="../Module-D2/problemsD2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-D.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Phase D - Home"/>
+    <script>document.write(`<img src="../_static/logo-D.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Phase D - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the D Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D1 - Impulse, Momentum, and Momentum Methods</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/LOC-D1.html">D1.0 Learning Outcomes — Impulse, Momentum, and Momentum Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/review.html">D1.1 Impulse–Momentum: Review and Foundations</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/application.html">D1.2 Using Impulse–Momentum Instead of <span class="math notranslate nohighlight">\(F = ma\)</span></a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D2 - Work, Energy, and Conservative Forces</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/LOC-D2.html">D2.0 Learning Outcomes — Work, Energy, and Conservative Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/review.html">D2.1 Review — Work, Energy, and Conservative Forces (Physics I Foundations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/line-integrals.html">D2.2 Introduction to Line Integrals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/parameterization.html">D2.3 Parameterization of Line Integrals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/conservative-forces.html">D2.4 Conservative Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/problemsD2.html">D2.5 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D3 - Linearly Accelerating Frames</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">D3.1 Galilean Relativity: Coordinate Transformation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="galilean-relativity-length.html">D3.2 Galilean Relativity: Length Measurement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="galilean-relativity-displacement.html">D3.3 Galilean Relativity: Displacement Measurement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="galilean-relativity-velocity.html">D3.4 Galilean Relativity: Velocity Transformation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accelerated-frames.html">D3.5 Transformation of Acceleration Between Linearly Accelerating Coordinate Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problemsD3.html">D3.6 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D4 - Polar Coordinates</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/LOC-D4.html">D4.0 Learning Outcomes — Polar Coordinates and Central Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/polar-coordinates.html">D4.1 Position, Velocity, and Acceleration in Polar Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/N2-polar.html">D4.2 Newton’s 2nd Law in Polar Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/problemsD4.html">D4.3 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D5 - Rotational Dynamics - Fixed Axis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/basic-relations.html">D5.1 Rotational Kinematics - Basic Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/equations-kinematics.html">D5.2 Rotational Equations of Kinematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/translational-rotational.html">D5.3 A Note on Combined Translational and Rotational Angular Speed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/angular-momentum.html">D5.4 Angular Momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/angular-impulse.html">D5.5 Angular Impulse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/torque.html">D5.6 Angular Force - Torque</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/newton-rotational.html">D5.7 Newton’s 2nd Law - Rotational Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/rotational-work.html">D5.8 Work - Energy - Rotational Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/problemsD5.html">D5.9 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D6 - Small Oscillations and Stability</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/LOC-D6.html">D6.0 Learning Outcomes — Small Oscillations and Stability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/review.html">D6.1 Review of Oscillatory Motion — From Springs to Resonance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/stability.html">D6.2 Stability and Potential Energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/linearization.html">D6.3 Linearization About Stable Equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/phase-space.html">D6.4 Phase Space</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D7 - Central Forces, Effective Potential, and Orbits</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/LOC-D7.html">D7.0 Learning Outcomes — Central Forces, Effective Potential, and Orbits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/central-forces.html">D7.1 Central Forces and Angular Momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/problemsD7.html">D7.3 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D8 - Constraints and Generalized Coordinates</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/LOC-D8.html">D8.0 Learning Outcomes — Constraints and Generalized Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/dof-constraints.html">D8.1 Constraints and Degrees of Freedom in Classical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/generalized-coordinates.html">D8.2 Generalized Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/coordinate-systems.html">D8.3 Coordinate Systems and Coordinate Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/jacobian-chainrule.html">D8.4 Coordinate Transformations, Jacobians, and the Chain Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/invariance.html">D8.5 Invariance, Symmetry, and the Idea of Gauge Freedom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D8/problemsD8.html">D8.6 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D9 - Index Notation and Vector Operations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/LOC-D9.html">D9.0 Learning Outcomes — Index Notation and Vector Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/index-notation.html">D9.1 Vectors and Index Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/einstein-convention.html">D9.2 Einstein Summation Convention</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/kronecker.html">D9.3 The Kronecker Delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/levi-civita.html">D9.4 The Levi–Civita Symbol and the Cross Product</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/identities.html">D9.5 Vector Identities Using Index Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/problemsD9.html">D9.6 Problems — Index Notation Practice</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/classical-mechanics-D/Module-D3/galilean-relativity-coordinate.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-D3/galilean-relativity-coordinate.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>D3.1 Galilean Relativity: Coordinate Transformation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-1-1-motivation">D3.1.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-1-2-derivation-of-galilean-coordinate-transformation">D3.1.2 Derivation of Galilean Coordinate Transformation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-1-3-further-considerations">D3.1.3 Further Considerations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-1-4-toolbox-summary">D3.1.4 Toolbox Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#off-set">Off-set</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="d3-1-galilean-relativity-coordinate-transformation">
+<h1>D3.1 Galilean Relativity: Coordinate Transformation<a class="headerlink" href="#d3-1-galilean-relativity-coordinate-transformation" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><section id="d3-1-1-motivation">
+<h2>D3.1.1 Motivation<a class="headerlink" href="#d3-1-1-motivation" title="Link to this heading">#</a></h2>
+<p>Galilean Relativity is a way to relay events and coordinates in classical mechanics. It is the framework in which Newtonian dynamics exists and is what we are familiar with from everyday life.</p>
+<div class="alert alert-info">
+<p><strong>Example 1: Person Walking on Train</strong></p>
+<p>A person is standing still on the ground and observe a train passing by at 40.0 mph (it is always a train but at least it is not spherical). On–board the train a second person is sitting still while a third person is walking in the aisle. The person sitting on the train observes the person walking at a pace 3.00 mph in the same direction as the train is traveling. The person on the ground will observe the person walking at a rate at 43.0 mph. This is our common sense answer and is also the answer we will get if we apply Galilean relativity.</p>
+</div>
+<p>The mathematical frame work for Galilean Relativity is the 3D Euclidean space <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> where a point is described by 3 real numbers referred to as the <i>Cartesian coordinates</i>. In terms of linear algebra, our classical laws of physics are formulated within a vector space (more precisely: an inner product space) associated to the 3D Euclidean space and we can define the Euclidean norm which is the length of any vector in this vector space. This allows us to define the Euclidean distance as the length between two points and is equivalent to the magnitude of our displacement vector when thinking about an object being displaced from one location to another.</p>
+<p>In Newtonian physics, we are considering interactions (or lack of) acting on objects in both space and time, and we can refer to <b>events</b> to describe our observations. Hence, our events require three position coordinates (<span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, <span class="math notranslate nohighlight">\(z\)</span>) or a position vector <span class="math notranslate nohighlight">\(\vec{r}\)</span> with respect to a reference frame and a time coordinate <span class="math notranslate nohighlight">\(t\)</span> with respect to an observer clock.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="d3-1-2-derivation-of-galilean-coordinate-transformation">
+<h2>D3.1.2 Derivation of Galilean Coordinate Transformation<a class="headerlink" href="#d3-1-2-derivation-of-galilean-coordinate-transformation" title="Link to this heading">#</a></h2>
+<p>Consider to observers (<span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(S'\)</span>) standing still at the origin in each of their respective reference frames, and let <span class="math notranslate nohighlight">\(S'\)</span> travel with a constant velocity of <span class="math notranslate nohighlight">\(\vec{u}\)</span> relative to <span class="math notranslate nohighlight">\(S\)</span> (the choice of “u” will become evident later). Notice that <span class="math notranslate nohighlight">\(\vec{u}\)</span> is the velocity of <span class="math notranslate nohighlight">\(S'\)</span> <i>measured by</i> <span class="math notranslate nohighlight">\(S\)</span>. An event in <span class="math notranslate nohighlight">\(S\)</span> will be described by <span class="math notranslate nohighlight">\((\vec{r},t)\)</span> while the same event in <span class="math notranslate nohighlight">\(S'\)</span> is described by <span class="math notranslate nohighlight">\((\vec{r}',t')\)</span>.</p>
+<p>In this derivation, we will simplify the approach to focus on the important physics, but realize that in a practical situation there may be additional factors we must take into account (as we make our simplifications, we will know what those are).</p>
+<ul class="simple">
+<li><p>We consider a single event: the measurement of the position of a point <span class="math notranslate nohighlight">\(P\)</span>.</p></li>
+<li><p>The coordinate systems <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(S'\)</span> are aligned such that they have common <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span>-axes. (If there were not aligned, they could be aligned through rotations about the principal axes).</p></li>
+<li><p>We only consider linear motion and let <span class="math notranslate nohighlight">\(S'\)</span> travel with a constant velocity <span class="math notranslate nohighlight">\(\vec{u}\)</span> in the positive <span class="math notranslate nohighlight">\(x\)</span>-direction relative to <span class="math notranslate nohighlight">\(S\)</span>.</p></li>
+<li><p>When the two observers (or origins) pass each other (<span class="math notranslate nohighlight">\(x = x' = 0\)</span>) they synchronize their clock’s such that <span class="math notranslate nohighlight">\(t_0 = t'_0 =0\)</span> at that instant.</p></li>
+</ul>
+<p>The majority of the above simplifications/assumptions are simply removing constant off-sets from our analysis. For example, if the clocks are not synchronized, the two time measurements <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\(t'\)</span> would not be the same. Say, an observer in California makes an observation of a point <span class="math notranslate nohighlight">\(P\)</span> in Utah, while an Utah-based observer makes the same observation at the same instant. Their times would be off by 2 hour due to the time zones. It would not be an issue for the two observers to agree on the time when the off-set was taken into account. Similarly, synchronizing the clocks when the two origins coincide removes a spatial position off-set. Make sure you understand how these assumptions impacts our analysis. Now, on to the important stuff. The figure below illustrates the setup we are working with.</p>
+<img src="D3-fig1.1.png" width="400">
+<p>Observer <span class="math notranslate nohighlight">\(S\)</span> is going to measure a position vector <span class="math notranslate nohighlight">\(\vec{x}_S\)</span> at <span class="math notranslate nohighlight">\(t\)</span>, while observer <span class="math notranslate nohighlight">\(S'\)</span> is measuring a position vector <span class="math notranslate nohighlight">\(\vec{x}'_{S'}\)</span> at <span class="math notranslate nohighlight">\(t'\)</span>. Depending on the time of measurements, the two observers are separated in distance. In fact, observer <span class="math notranslate nohighlight">\(S\)</span> is going to see observe <span class="math notranslate nohighlight">\(S'\)</span> move away a displacement of <span class="math notranslate nohighlight">\(\vec{u}t\)</span>. The figure below sketch these displacements onto the sketch from above</p>
+<img src="D3-fig1.2.png" width="400">
+<p>By virtue of graphical vector addition (think of “head-to-tail”), we have that</p>
+<div class="alert alert-success">
+<div class="math notranslate nohighlight">
+\[\vec{x}_{S} = \vec{x}'_{S'} + \vec{u}t \tag{1}\]</div>
+</div>
+<p>This is our <b>Galilean coordinate transformation</b> for 1D motion!</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-warning">
+<b>Box 1</b><br>
+<p>Your teacher was waiting at Maibara Station to board the Kodama shinkansen for Osaka when the Nozomi shinkansen blasted through at <span class="math notranslate nohighlight">\(350.0\)</span> km/hr. Exactly twenty seconds later a bolt of lightning struck the rail road tracks <span class="math notranslate nohighlight">\(3.00\)</span> km from the station in the same direction as the train was traveling.</p>
+<ol class="arabic simple">
+<li><p>Identify the <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(S'\)</span> reference frames.</p></li>
+<li><p>Which variable in Equation (1) does the value <span class="math notranslate nohighlight">\(3.00\)</span> km corresponds to?</p></li>
+<li><p>Find the location coordinate of the lightning flash as observed by a stationary observer on-board the Nozomi.</p></li>
+</ol>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sym</span>
+
+<span class="c1"># Part 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Let S be the ground-based observer and S</span><span class="se">\&#39;</span><span class="s1"> be an observer at rest on the train&#39;</span><span class="p">)</span>
+
+<span class="c1"># Part 2</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The 3.00 km is the position of the event as measured in S&#39;</span><span class="p">)</span>
+
+<span class="c1"># Part 3</span>
+<span class="n">xs</span> <span class="o">=</span> <span class="mf">3.00e3</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mf">20.0</span>
+<span class="n">u</span> <span class="o">=</span> <span class="p">(</span><span class="mf">350.0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1000</span><span class="o">/</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3600</span><span class="p">)</span>
+
+<span class="n">xs_prime</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;xs_prime&#39;</span><span class="p">)</span>
+<span class="n">eq</span> <span class="o">=</span> <span class="n">xs</span> <span class="o">-</span> <span class="n">xs_prime</span> <span class="o">-</span> <span class="n">u</span><span class="o">*</span><span class="n">t</span>
+<span class="n">sol</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">eq</span><span class="p">,</span> <span class="n">xs_prime</span><span class="p">)</span>
+<span class="n">xs_prime</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">sol</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">xs_prime</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{:.2e}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">xs_prime</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Location in S</span><span class="se">\&#39;</span><span class="s1">: &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">xs_prime</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; m&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Let S be the ground-based observer and S&#39; be an observer at rest on the train
+ 
+The 3.00 km is the position of the event as measured in S
+ 
+Location in S&#39;: 1.06e+03 m
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="d3-1-3-further-considerations">
+<h2>D3.1.3 Further Considerations<a class="headerlink" href="#d3-1-3-further-considerations" title="Link to this heading">#</a></h2>
+<p>The principle of relativity requires that the form of the transformation from <span class="math notranslate nohighlight">\(S\)</span> to <span class="math notranslate nohighlight">\(S'\)</span> must be identical to that from <span class="math notranslate nohighlight">\(S'\)</span> to <span class="math notranslate nohighlight">\(S\)</span>. Let us take this as an opportunity of learning to go through the above process, but with the perspective from <span class="math notranslate nohighlight">\(S'\)</span>. I have been so kind as to prepare the sketch for you.</p>
+<img src="D3-fig1.3.png" width="400">
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-warning">
+<b>Box 2</b><br>
+<p>In this case, we consider a single event: the observation of a single point <span class="math notranslate nohighlight">\(P\)</span> along a common <span class="math notranslate nohighlight">\(x\)</span>-axis (pretty much restricting ourselves to 1D). Let <span class="math notranslate nohighlight">\(S\)</span> travel with a constant velocity <span class="math notranslate nohighlight">\(-\vec{u}\)</span> with respect to <span class="math notranslate nohighlight">\(S'\)</span>. For simplicity we will assume the two observers synchronize their clock’s such that when they pass each other they set <span class="math notranslate nohighlight">\(t_0 = t'_0 =0\)</span>. The above sketch shows the scenario. Following the same approach as we did earlier, complete the following:</p>
+<ol class="arabic simple">
+<li><p>Make a sketch like shown above and sketch in the following three vectors: <span class="math notranslate nohighlight">\(\vec{x}_s\)</span>, <span class="math notranslate nohighlight">\(\vec{x}'_{S'}\)</span>, and <span class="math notranslate nohighlight">\(\vec{u}'t'\)</span>.</p></li>
+<li><p>Perform vector addition of the three vectors to write an expression for <span class="math notranslate nohighlight">\(\vec{x}'_{S'}\)</span>. Comment on the form of the equation in comparison to Equation 1.</p></li>
+<li><p>Use your result in (2) but write the expression for  <span class="math notranslate nohighlight">\(\vec{x}_S\)</span> instead.</p></li>
+<li><p>Use the relation <span class="math notranslate nohighlight">\(\vec{u}' = -\vec{u}\)</span> to write the expression in (3) using <span class="math notranslate nohighlight">\(-\vec{u}\)</span> instead of <span class="math notranslate nohighlight">\(\vec{u}'\)</span>. Did you get the same as in Equation 1?</p></li>
+</ol>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><p>We can put down a few points of observations:</p>
+<ol class="arabic simple">
+<li><p>We recognize that the transformation equations (1) and Box 2 part (4) are of same form with <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(S'\)</span> switched and substituting the relative velocity <span class="math notranslate nohighlight">\(\vec{u}\)</span> with <span class="math notranslate nohighlight">\(-\vec{u}\)</span>. This is a consequence of the principle of relativity.</p></li>
+<li><p>If the point <span class="math notranslate nohighlight">\(P\)</span> was not restricted along the <span class="math notranslate nohighlight">\(x\)</span>-axis but had non-zero <span class="math notranslate nohighlight">\(y\)</span>- and <span class="math notranslate nohighlight">\(z\)</span>-components, we would have <span class="math notranslate nohighlight">\(y = y'\)</span> and <span class="math notranslate nohighlight">\(z = z'\)</span> since the relative motion was restricted to 1D motion of the <span class="math notranslate nohighlight">\(S'\)</span> frame relative to <span class="math notranslate nohighlight">\(S\)</span>. <strong>The transformation only affects coordinates in the direction of relative velocity</strong>.</p></li>
+<li><p>If we did not restrict ourselves to 1D relative motion, but allowed relative motion in 3D, we could break the analysis into three identical analyses in <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span> just as we did above to obtain similar answers for the respective directions.</p></li>
+<li><p>We actually have two events required here in order to transform the coordinate between the two observers. Since the displacement between the two observers depend on the <strong>elapsed time</strong> between the time of common origin <strong>and</strong> the time of observation of the point <span class="math notranslate nohighlight">\(P\)</span>. The time <span class="math notranslate nohighlight">\(t\)</span> in the equation is actually <span class="math notranslate nohighlight">\(\Delta t = t - t_0\)</span>, but we conveniently synchronized the clocks at <span class="math notranslate nohighlight">\(t = t' = 0\)</span> such that <span class="math notranslate nohighlight">\(t_0 = 0\)</span>.</p></li>
+<li><p>Based on the above observation, we assume that the elapsed time is the same in both reference frames. This is a valid assumption from every day life. If 10 seconds elapsed on your clock, I will assume 10 seconds elapsed on my clock as well (provided that both clocks are in good working conditions, of course ;) . Hence, we assume that <span class="math notranslate nohighlight">\(\Delta t = \Delta t'\)</span>. This is where Galilean relativity goes wrong and is corrected with special relativity.</p></li>
+<li><p>It may appear to extensive to use both superscripts and subscripts for <span class="math notranslate nohighlight">\(x'_{S'}\)</span> but the reason will hopefully become clear as you get into detailed special relativity.</p></li>
+</ol>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">                 </section>
+<section id="d3-1-4-toolbox-summary">
+<h2>D3.1.4 Toolbox Summary<a class="headerlink" href="#d3-1-4-toolbox-summary" title="Link to this heading">#</a></h2>
+<p>With these observations in mind, let us summarize the <b>Galilean Coordinate Transformations</b>:</p>
+<div class="alert alert-success">
+<div class="math notranslate nohighlight">
+\[ \vec{r}_{S} = \vec{r}'_{S'} + \vec{u}\Delta t \]</div>
+<div class="math notranslate nohighlight">
+\[ \vec{r}'_{S'} = \vec{r}_{S} + \vec{u}'\Delta t' \]</div>
+</div>
+<div class="alert alert-danger">
+<p>In the first transformation, <span class="math notranslate nohighlight">\(\vec{r}_S\)</span> is the position measured by observer in <span class="math notranslate nohighlight">\(S\)</span>, <span class="math notranslate nohighlight">\(\vec{r}_{S'}\)</span> is the position as seen by observer in <span class="math notranslate nohighlight">\(S'\)</span>, <span class="math notranslate nohighlight">\(\vec{u}\)</span> is the velocity of <span class="math notranslate nohighlight">\(S'\)</span> as seen by observer <span class="math notranslate nohighlight">\(S\)</span>, and <span class="math notranslate nohighlight">\(\Delta t\)</span> is the elapsed time as measured by <span class="math notranslate nohighlight">\(S\)</span>. For the second transformation, the point of views are switched around.</p>
+<p>We notice that we are mixing observations from two different reference frames. This is the result from Galilean transformation and works for most everyday events. We shall see that mixing these observation frames is what gives us the wrong results if we were to apply them to special relativity.</p>
+</div>
+<section id="off-set">
+<h3>Off-set<a class="headerlink" href="#off-set" title="Link to this heading">#</a></h3>
+<p>In the above, we assumed the origin of the reference frames coincided at <span class="math notranslate nohighlight">\( t = t' = 0\)</span>. If that is not the case, we will need to take into account an off-set at <span class="math notranslate nohighlight">\( t = t' = 0\)</span>:</p>
+<div class="alert alert-success">
+<div class="math notranslate nohighlight">
+\[ \vec{r}_{S} = \vec{r}'_{S,off} + \vec{r}'_{S'} + \vec{u}\Delta t \]</div>
+<div class="math notranslate nohighlight">
+\[ \vec{r}'_{S'} = \vec{r}_{S',off} + \vec{r}_{S} + \vec{u}'\Delta t' \]</div>
+</div>
+<p>where <span class="math notranslate nohighlight">\(\vec{r'}_{S,off}\)</span> is the offset of <span class="math notranslate nohighlight">\(O'\)</span> with respect to <span class="math notranslate nohighlight">\(O\)</span> and vice versa.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-warning">
+    <b>Box 3</b><br>
+<p>Your teacher was waiting at Maibara Station to board the Kodama shinkansen for Osaka when the Nozomi shinkansen blasted through at <span class="math notranslate nohighlight">\(350.0\)</span> km/hr. Exactly 3 seconds later a bird was seen tumbling through the air, due to the passage of the train, <span class="math notranslate nohighlight">\(30.0\)</span> m down the tracks in the direction of the train motion. From the station, the bird was estimated to be at a height of <span class="math notranslate nohighlight">\(20.0\)</span> m right above the tracks. From the passenger on-board the train, what was the position vector of the poor bird?</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">u_prime_x</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mf">350.0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1000</span><span class="o">/</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3600</span><span class="p">)</span>
+<span class="n">u_prime_y</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">u_prime</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">u_prime_x</span><span class="p">,</span> <span class="n">u_prime_y</span><span class="p">])</span>
+
+<span class="n">dt_prime</span> <span class="o">=</span> <span class="mf">3.0</span>
+
+<span class="n">rx</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">ry</span> <span class="o">=</span> <span class="mf">20.0</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">rx</span><span class="p">,</span><span class="n">ry</span><span class="p">])</span>
+
+<span class="n">r_prime</span> <span class="o">=</span> <span class="n">r</span> <span class="o">+</span> <span class="n">u_prime</span><span class="o">*</span><span class="n">dt_prime</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Bird position from S</span><span class="se">\&#39;</span><span class="s1">: &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">r_prime</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; m&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bird position from S&#39;: [-291.66666667   20.        ] m
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-warning">
+    <b>Box 4</b><br>
+<p>Your teacher was waiting at Maibara Station to board the Kodama shinkansen for Osaka when the Nozomi shinkansen blasted through at <span class="math notranslate nohighlight">\(350.0\)</span> km/hr eastward. At the same instant, an airplane was flying above the station at an altitude of <span class="math notranslate nohighlight">\(10.0\)</span> km with a speed of <span class="math notranslate nohighlight">\(700.0\)</span> km/hr and in a direction <span class="math notranslate nohighlight">\(20.0^\circ\)</span> north-of-east. Exactly twenty seconds later a bolt of lightning struck the rail road tracks <span class="math notranslate nohighlight">\(3.00\)</span> km from the station in the same direction as the train was traveling. What were the coordinates (in km) of the lightning strike as seen from the airplane?</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="c1">#station observer is S</span>
+<span class="c1">#airplane is S&#39;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mf">20.0</span><span class="p">)</span>
+<span class="n">u_prime_x</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mf">700.0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1000</span><span class="o">/</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3600</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+<span class="n">u_prime_y</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mf">700.0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1000</span><span class="o">/</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3600</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+<span class="n">u_prime_z</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="n">u_prime</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">u_prime_x</span><span class="p">,</span> <span class="n">u_prime_y</span><span class="p">,</span> <span class="n">u_prime_z</span><span class="p">])</span>
+
+<span class="n">rx</span> <span class="o">=</span> <span class="mf">3.00e3</span>
+<span class="n">ry</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">rz</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">rx</span><span class="p">,</span> <span class="n">ry</span><span class="p">,</span> <span class="n">rz</span><span class="p">])</span>
+
+<span class="n">r_off</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">10000</span><span class="p">])</span>
+
+<span class="n">dt_prime</span> <span class="o">=</span> <span class="mf">20.0</span>
+
+<span class="n">r_prime</span> <span class="o">=</span> <span class="n">r_off</span> <span class="o">+</span> <span class="n">r</span> <span class="o">+</span> <span class="n">u_prime</span><span class="o">*</span><span class="n">dt_prime</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Lightning position from plane: &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">r_prime</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; m&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lightning position from plane: [  -654.36019195  -1330.07833516 -10000.        ] m
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Phys-Prof-Nielsen/modulearn",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-D3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Module-D2/problemsD2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">D2.5 Problems</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="galilean-relativity-length.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">D3.2 Galilean Relativity: Length Measurement</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-1-1-motivation">D3.1.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-1-2-derivation-of-galilean-coordinate-transformation">D3.1.2 Derivation of Galilean Coordinate Transformation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-1-3-further-considerations">D3.1.3 Further Considerations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d3-1-4-toolbox-summary">D3.1.4 Toolbox Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#off-set">Off-set</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

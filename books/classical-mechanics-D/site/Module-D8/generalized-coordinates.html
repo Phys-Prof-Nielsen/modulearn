@@ -1,0 +1,1140 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>D8.2 Generalized Coordinates &#8212; A Competency Approach to Classical Mechanics - Phase D</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-D8/generalized-coordinates';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="D8.3 Coordinate Systems and Coordinate Transformations" href="coordinate-systems.html" />
+    <link rel="prev" title="D8.1 Constraints and Degrees of Freedom in Classical Mechanics" href="dof-constraints.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-D.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Phase D - Home"/>
+    <script>document.write(`<img src="../_static/logo-D.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Phase D - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the D Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D1 - Impulse, Momentum, and Momentum Methods</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/LOC-D1.html">D1.0 Learning Outcomes — Impulse, Momentum, and Momentum Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/review.html">D1.1 Impulse–Momentum: Review and Foundations</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/application.html">D1.2 Using Impulse–Momentum Instead of <span class="math notranslate nohighlight">\(F = ma\)</span></a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D2 - Work, Energy, and Conservative Forces</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/LOC-D2.html">D2.0 Learning Outcomes — Work, Energy, and Conservative Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/review.html">D2.1 Review — Work, Energy, and Conservative Forces (Physics I Foundations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/line-integrals.html">D2.2 Introduction to Line Integrals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/parameterization.html">D2.3 Parameterization of Line Integrals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/conservative-forces.html">D2.4 Conservative Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/problemsD2.html">D2.5 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D3 - Linearly Accelerating Frames</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/galilean-relativity-coordinate.html">D3.1 Galilean Relativity: Coordinate Transformation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/galilean-relativity-length.html">D3.2 Galilean Relativity: Length Measurement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/galilean-relativity-displacement.html">D3.3 Galilean Relativity: Displacement Measurement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/galilean-relativity-velocity.html">D3.4 Galilean Relativity: Velocity Transformation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/accelerated-frames.html">D3.5 Transformation of Acceleration Between Linearly Accelerating Coordinate Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/problemsD3.html">D3.6 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D4 - Polar Coordinates</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/LOC-D4.html">D4.0 Learning Outcomes — Polar Coordinates and Central Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/polar-coordinates.html">D4.1 Position, Velocity, and Acceleration in Polar Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/N2-polar.html">D4.2 Newton’s 2nd Law in Polar Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/problemsD4.html">D4.3 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D5 - Rotational Dynamics - Fixed Axis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/basic-relations.html">D5.1 Rotational Kinematics - Basic Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/equations-kinematics.html">D5.2 Rotational Equations of Kinematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/translational-rotational.html">D5.3 A Note on Combined Translational and Rotational Angular Speed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/angular-momentum.html">D5.4 Angular Momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/angular-impulse.html">D5.5 Angular Impulse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/torque.html">D5.6 Angular Force - Torque</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/newton-rotational.html">D5.7 Newton’s 2nd Law - Rotational Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/rotational-work.html">D5.8 Work - Energy - Rotational Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/problemsD5.html">D5.9 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D6 - Small Oscillations and Stability</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/LOC-D6.html">D6.0 Learning Outcomes — Small Oscillations and Stability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/review.html">D6.1 Review of Oscillatory Motion — From Springs to Resonance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/stability.html">D6.2 Stability and Potential Energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/linearization.html">D6.3 Linearization About Stable Equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/phase-space.html">D6.4 Phase Space</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D7 - Central Forces, Effective Potential, and Orbits</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/LOC-D7.html">D7.0 Learning Outcomes — Central Forces, Effective Potential, and Orbits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/central-forces.html">D7.1 Central Forces and Angular Momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/problemsD7.html">D7.3 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D8 - Constraints and Generalized Coordinates</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-D8.html">D8.0 Learning Outcomes — Constraints and Generalized Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dof-constraints.html">D8.1 Constraints and Degrees of Freedom in Classical Mechanics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">D8.2 Generalized Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coordinate-systems.html">D8.3 Coordinate Systems and Coordinate Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jacobian-chainrule.html">D8.4 Coordinate Transformations, Jacobians, and the Chain Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="invariance.html">D8.5 Invariance, Symmetry, and the Idea of Gauge Freedom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problemsD8.html">D8.6 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D9 - Index Notation and Vector Operations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/LOC-D9.html">D9.0 Learning Outcomes — Index Notation and Vector Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/index-notation.html">D9.1 Vectors and Index Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/einstein-convention.html">D9.2 Einstein Summation Convention</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/kronecker.html">D9.3 The Kronecker Delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/levi-civita.html">D9.4 The Levi–Civita Symbol and the Cross Product</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/identities.html">D9.5 Vector Identities Using Index Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/problemsD9.html">D9.6 Problems — Index Notation Practice</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/classical-mechanics-D/Module-D8/generalized-coordinates.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-D8/generalized-coordinates.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>D8.2 Generalized Coordinates</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d8-2-1-motivation-why-generalized-coordinates">D8.2.1 Motivation: Why Generalized Coordinates?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d8-2-2-coordinate-choice">D8.2.2 Coordinate Choice</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-simple-pendulum">Example 1: Simple Pendulum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-block-on-an-inclined-plane">Example 2: Block on an Inclined Plane</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d8-2-3-generalized-velocities">D8.2.3 Generalized Velocities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d8-2-4-configuration-space">D8.2.4 Configuration Space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d8-2-5-why-generalized-coordinates-are-powerful">D8.2.5 Why Generalized Coordinates Are Powerful</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d8-2-6-summary">D8.2.6 Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="d8-2-generalized-coordinates">
+<h1>D8.2 Generalized Coordinates<a class="headerlink" href="#d8-2-generalized-coordinates" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="d8-2-1-motivation-why-generalized-coordinates">
+<h2>D8.2.1 Motivation: Why Generalized Coordinates?<a class="headerlink" href="#d8-2-1-motivation-why-generalized-coordinates" title="Link to this heading">#</a></h2>
+<p>In introductory physics, motion is usually described using <strong>Cartesian coordinates</strong> <span class="math notranslate nohighlight">\((x, y, z)\)</span>.<br />
+However, when constraints are present, not all coordinates are independent.</p>
+<p>For example:</p>
+<ul class="simple">
+<li><p>A pendulum bob in the plane moves along a circle of fixed radius.</p></li>
+<li><p>A bead on a wire must follow the shape of the wire.</p></li>
+<li><p>A particle moving in polar coordinates is naturally described by <span class="math notranslate nohighlight">\((r,\theta)\)</span> rather than <span class="math notranslate nohighlight">\((x,y)\)</span>.</p></li>
+</ul>
+<p>Describing such systems with <strong>too many coordinates</strong> leads to redundant variables and unnecessarily complicated equations.</p>
+<p><strong>Generalized coordinates</strong> provide a systematic way to describe motion:</p>
+<ul class="simple">
+<li><p>They automatically respect the constraints of the system.</p></li>
+<li><p>They reduce the system to the <strong>minimum number of independent variables</strong> (the degrees of freedom).</p></li>
+<li><p>They allow us to choose variables that match the <strong>geometry of the problem</strong>.</p></li>
+</ul>
+<p>The guiding idea is simple:</p>
+<blockquote>
+<div><p>Choose coordinates that match the geometry and constraints of the system.</p>
+</div></blockquote>
+<p>This approach becomes the foundation of <strong>analytical mechanics</strong>.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d8-2-2-coordinate-choice">
+<h2>D8.2.2 Coordinate Choice<a class="headerlink" href="#d8-2-2-coordinate-choice" title="Link to this heading">#</a></h2>
+<p>A key advantage of generalized coordinates is that <strong>we are not restricted to Cartesian coordinates</strong>.<br />
+Instead, we can choose coordinates that simplify the description of the system.</p>
+<p>Good coordinate choices typically</p>
+<ul class="simple">
+<li><p>automatically satisfy constraints,</p></li>
+<li><p>reduce the number of variables,</p></li>
+<li><p>reflect the symmetry or geometry of the system.</p></li>
+</ul>
+<section id="example-1-simple-pendulum">
+<h3>Example 1: Simple Pendulum<a class="headerlink" href="#example-1-simple-pendulum" title="Link to this heading">#</a></h3>
+<p>Cartesian coordinates:</p>
+<div class="math notranslate nohighlight">
+\[
+(x,y)
+\]</div>
+<p>Constraint:</p>
+<div class="math notranslate nohighlight">
+\[
+x^2 + y^2 = l^2
+\]</div>
+<p>Instead, introduce a single coordinate</p>
+<div class="math notranslate nohighlight">
+\[
+q = \theta
+\]</div>
+<p>The position becomes</p>
+<div class="math notranslate nohighlight">
+\[
+x = l\sin\theta, \qquad y = -l\cos\theta
+\]</div>
+<p>The constraint is now automatically satisfied, and the motion is described by <strong>one coordinate instead of two</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="example-2-block-on-an-inclined-plane">
+<h3>Example 2: Block on an Inclined Plane<a class="headerlink" href="#example-2-block-on-an-inclined-plane" title="Link to this heading">#</a></h3>
+<p>Cartesian description:</p>
+<div class="math notranslate nohighlight">
+\[
+(x,y)
+\]</div>
+<p>Constraint:</p>
+<div class="math notranslate nohighlight">
+\[
+y - x\tan\alpha = 0
+\]</div>
+<p>A more natural coordinate is the <strong>distance along the incline</strong></p>
+<div class="math notranslate nohighlight">
+\[
+q = s
+\]</div>
+<p>The position becomes</p>
+<div class="math notranslate nohighlight">
+\[
+x = s\cos\alpha, \qquad y = s\sin\alpha
+\]</div>
+<p>Again, the motion is described by <strong>one coordinate instead of two</strong>.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="d8-2-3-generalized-velocities">
+<h2>D8.2.3 Generalized Velocities<a class="headerlink" href="#d8-2-3-generalized-velocities" title="Link to this heading">#</a></h2>
+<p>Once generalized coordinates are introduced, we also define their <strong>time derivatives</strong>, called <strong>generalized velocities</strong>.</p>
+<p>If</p>
+<div class="math notranslate nohighlight">
+\[
+q_i
+\]</div>
+<p>is a generalized coordinate, the generalized velocity is</p>
+<div class="math notranslate nohighlight">
+\[
+\dot q_i = \frac{dq_i}{dt}.
+\]</div>
+<p>These quantities describe <strong>how quickly the coordinates change with time</strong>.</p>
+<p>Generalized velocities are not necessarily ordinary Cartesian velocities.</p>
+<p>Example:</p>
+<p>Pendulum</p>
+<p>Generalized coordinate:</p>
+<div class="math notranslate nohighlight">
+\[
+q = \theta
+\]</div>
+<p>Generalized velocity:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot q = \dot\theta
+\]</div>
+<p>The physical speed of the mass is</p>
+<div class="math notranslate nohighlight">
+\[
+v = l\dot\theta.
+\]</div>
+<p>Thus generalized velocities describe <strong>rates of change of coordinates</strong>, not necessarily physical speeds.</p>
+<p>In general, the Cartesian position of a particle can be written as a function of generalized coordinates:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{r} = \mathbf{r}(q_1,q_2,\dots,q_N,t)
+\]</div>
+<p>The velocity then follows from the <strong>chain rule</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{v} =
+\sum_i
+\frac{\partial \mathbf{r}}{\partial q_i}\dot q_i
++
+\frac{\partial \mathbf{r}}{\partial t}
+\]</div>
+<p>This relation allows us to express velocities — and therefore kinetic energy — entirely in terms of generalized coordinates and generalized velocities.</p>
+<blockquote>
+<div><p>This chain-rule relationship between Cartesian and generalized velocities will be used repeatedly when expressing kinetic energy in new coordinate systems.</p>
+</div></blockquote>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d8-2-4-configuration-space">
+<h2>D8.2.4 Configuration Space<a class="headerlink" href="#d8-2-4-configuration-space" title="Link to this heading">#</a></h2>
+<p>When we describe a system using generalized coordinates</p>
+<div class="math notranslate nohighlight">
+\[
+(q_1, q_2, \dots, q_N)
+\]</div>
+<p>each possible set of coordinate values corresponds to a <strong>specific configuration of the system</strong>.</p>
+<p>The set of all possible configurations forms an abstract space called <strong>configuration space</strong>.</p>
+<p>Important idea:</p>
+<blockquote>
+<div><p>A point in configuration space represents the complete configuration of the system.</p>
+</div></blockquote>
+<p>Examples:</p>
+<p><strong>Pendulum</strong></p>
+<p>Configuration described by</p>
+<div class="math notranslate nohighlight">
+\[
+\theta
+\]</div>
+<p>Configuration space: a <strong>circle</strong>.</p>
+<hr class="docutils" />
+<p><strong>Particle moving in a plane</strong></p>
+<p>Coordinates:</p>
+<div class="math notranslate nohighlight">
+\[
+(x,y)
+\]</div>
+<p>Configuration space: a <strong>two-dimensional plane</strong>.</p>
+<hr class="docutils" />
+<p><strong>Double pendulum</strong></p>
+<p>Coordinates:</p>
+<div class="math notranslate nohighlight">
+\[
+(\theta_1,\theta_2)
+\]</div>
+<p>Configuration space: a <strong>two-dimensional surface</strong> (topologically a torus).</p>
+<p>In analytical mechanics, the motion of a system can be viewed as a <strong>trajectory through configuration space</strong>.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d8-2-5-why-generalized-coordinates-are-powerful">
+<h2>D8.2.5 Why Generalized Coordinates Are Powerful<a class="headerlink" href="#d8-2-5-why-generalized-coordinates-are-powerful" title="Link to this heading">#</a></h2>
+<p>Using generalized coordinates allows us to</p>
+<ul class="simple">
+<li><p>eliminate constraint equations,</p></li>
+<li><p>describe systems using the <strong>minimum number of independent variables</strong>,</p></li>
+<li><p>adapt coordinates to the geometry of the system,</p></li>
+<li><p>systematically construct equations of motion.</p></li>
+</ul>
+<p>These ideas become essential when developing <strong>Lagrangian mechanics</strong>, where the dynamics are expressed entirely in terms of</p>
+<div class="math notranslate nohighlight">
+\[
+q_i \quad \text{and} \quad \dot q_i.
+\]</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d8-2-6-summary">
+<h2>D8.2.6 Summary<a class="headerlink" href="#d8-2-6-summary" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Generalized coordinates</strong> are independent variables that uniquely describe the configuration of a system.</p></li>
+<li><p>The number of generalized coordinates equals the <strong>degrees of freedom</strong>.</p></li>
+<li><p>Coordinates should be chosen to match the <strong>geometry and constraints</strong> of the system.</p></li>
+<li><p>The time derivatives of generalized coordinates are called <strong>generalized velocities</strong>.</p></li>
+<li><p>The set of all possible configurations forms <strong>configuration space</strong>.</p></li>
+</ul>
+<p>These concepts provide the coordinate-based language used throughout <strong>analytical mechanics</strong>.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0; color:#000000;">Example – Generalized Coordinates for a Bead Sliding on a Circular Hoop</h3>
+<p><strong>Problem</strong></p>
+<p>A small bead of mass <span class="math notranslate nohighlight">\(m\)</span> slides without friction on a rigid circular hoop of radius <span class="math notranslate nohighlight">\(R\)</span>.<br />
+The hoop is fixed in a vertical plane.</p>
+<ol class="arabic simple">
+<li><p>Determine the <strong>degrees of freedom</strong> of the system.</p></li>
+<li><p>Choose a convenient <strong>generalized coordinate</strong>.</p></li>
+<li><p>Write the <strong>Cartesian coordinates</strong> of the bead in terms of the generalized coordinate.</p></li>
+<li><p>Determine the <strong>generalized velocity</strong> and the bead’s speed.</p></li>
+<li><p>Write the <strong>kinetic energy</strong> in terms of the generalized coordinate.</p></li>
+</ol>
+<hr class="docutils" />
+<p><strong>Solution</strong></p>
+<p><strong>1. Degrees of freedom</strong></p>
+<p>If we describe the bead using Cartesian coordinates in the plane,</p>
+<div class="math notranslate nohighlight">
+\[
+(x,y),
+\]</div>
+<p>two coordinates are required.</p>
+<p>However, the bead is constrained to remain on the circular hoop.</p>
+<p>The geometric constraint is</p>
+<div class="math notranslate nohighlight">
+\[
+x^2 + y^2 = R^2.
+\]</div>
+<p>Thus there is one constraint relating the two coordinates.</p>
+<p>The number of degrees of freedom is therefore</p>
+<div class="math notranslate nohighlight">
+\[
+\text{DOF} = 2 - 1 = 1.
+\]</div>
+<p>So the motion can be described using <strong>one independent coordinate</strong>.</p>
+<hr class="docutils" />
+<p><strong>2. Choosing a generalized coordinate</strong></p>
+<p>The natural coordinate describing motion around the hoop is the <strong>angle</strong> <span class="math notranslate nohighlight">\(\theta\)</span> measured from the vertical.</p>
+<p>Thus we define the generalized coordinate</p>
+<div class="math notranslate nohighlight">
+\[
+q = \theta.
+\]</div>
+<p>Using this coordinate automatically satisfies the circular constraint.</p>
+<hr class="docutils" />
+<p><strong>3. Cartesian coordinates in terms of the generalized coordinate</strong></p>
+<p>The position of the bead on the hoop is</p>
+<div class="math notranslate nohighlight">
+\[
+x = R\sin\theta
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+y = -R\cos\theta.
+\]</div>
+<p>Substituting these into the constraint equation gives</p>
+<div class="math notranslate nohighlight">
+\[
+x^2 + y^2 = R^2,
+\]</div>
+<p>so the constraint is automatically satisfied.</p>
+<p>This illustrates one of the main advantages of generalized coordinates:<br />
+the constraint is <strong>built into the coordinate choice</strong>.</p>
+<hr class="docutils" />
+<p><strong>4. Generalized velocity</strong></p>
+<p>The generalized velocity is the time derivative of the generalized coordinate:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot q = \dot\theta.
+\]</div>
+<p>To determine the physical velocity of the bead, differentiate the Cartesian coordinates.</p>
+<p>Horizontal velocity:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot x = R\cos\theta\,\dot\theta
+\]</div>
+<p>Vertical velocity:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot y = R\sin\theta\,\dot\theta.
+\]</div>
+<hr class="docutils" />
+<p><strong>5. Speed of the bead</strong></p>
+<p>The speed is</p>
+<div class="math notranslate nohighlight">
+\[
+v = \sqrt{\dot x^2 + \dot y^2}.
+\]</div>
+<p>Substituting the expressions above gives</p>
+<div class="math notranslate nohighlight">
+\[
+v =
+\sqrt{
+R^2\cos^2\theta\,\dot\theta^2
++
+R^2\sin^2\theta\,\dot\theta^2
+}.
+\]</div>
+<p>Factor out common terms:</p>
+<div class="math notranslate nohighlight">
+\[
+v =
+\sqrt{
+R^2\dot\theta^2(\cos^2\theta+\sin^2\theta)
+}.
+\]</div>
+<p>Using</p>
+<div class="math notranslate nohighlight">
+\[
+\cos^2\theta + \sin^2\theta = 1,
+\]</div>
+<p>we obtain</p>
+<div class="math notranslate nohighlight">
+\[
+v = R\dot\theta.
+\]</div>
+<hr class="docutils" />
+<p><strong>6. Kinetic energy in generalized coordinates</strong></p>
+<p>The kinetic energy of the bead is</p>
+<div class="math notranslate nohighlight">
+\[
+T = \frac{1}{2}mv^2.
+\]</div>
+<p>Substituting the expression for the speed,</p>
+<div class="math notranslate nohighlight">
+\[
+T = \frac{1}{2}mR^2\dot\theta^2.
+\]</div>
+<p>Thus the kinetic energy is written entirely in terms of the <strong>generalized coordinate</strong> <span class="math notranslate nohighlight">\(\theta\)</span> and the <strong>generalized velocity</strong> <span class="math notranslate nohighlight">\(\dot\theta\)</span>.</p>
+<hr class="docutils" />
+<p><strong>Conclusion</strong></p>
+<p>The bead initially appears to require two Cartesian coordinates <span class="math notranslate nohighlight">\((x,y)\)</span>, but the circular constraint reduces the motion to one degree of freedom.</p>
+<p>A natural generalized coordinate is</p>
+<div class="math notranslate nohighlight">
+\[
+q = \theta.
+\]</div>
+<p>The Cartesian coordinates are</p>
+<div class="math notranslate nohighlight">
+\[
+x = R\sin\theta, \qquad y = -R\cos\theta,
+\]</div>
+<p>the speed of the bead is</p>
+<div class="math notranslate nohighlight">
+\[
+v = R\dot\theta,
+\]</div>
+<p>and the kinetic energy becomes</p>
+<div class="math notranslate nohighlight">
+\[
+T = \frac{1}{2}mR^2\dot\theta^2.
+\]</div>
+<p>This example shows how generalized coordinates simplify the description of constrained motion.</p>
+</div><hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:12px; border-radius:4px;">
+<h3 style="margin-top:0; color:#000000;">Box Activity – Generalized Coordinate for a Block Sliding on an Inclined Plane</h3>
+<p>In the previous module, we described a block sliding on an incline using the <strong>Cartesian coordinates</strong> <span class="math notranslate nohighlight">\((x,y)\)</span> together with a <strong>constraint equation</strong>.</p>
+<p>In analytical mechanics, a more efficient approach is to choose a <strong>generalized coordinate that automatically satisfies the constraint</strong>.</p>
+<p>In this activity you will replace the redundant coordinates <span class="math notranslate nohighlight">\((x,y)\)</span> with a <strong>single generalized coordinate describing motion along the incline</strong>.</p>
+<hr class="docutils" />
+<p><strong>Problem</strong></p>
+<p>A block of mass <span class="math notranslate nohighlight">\(m\)</span> slides down a rough incline of angle <span class="math notranslate nohighlight">\(\alpha\)</span> with coefficient of kinetic friction <span class="math notranslate nohighlight">\(\mu_k\)</span>.</p>
+<p>Choose a coordinate system with</p>
+<ul class="simple">
+<li><p>the <strong><span class="math notranslate nohighlight">\(x\)</span>-axis horizontal</strong></p></li>
+<li><p>the <strong><span class="math notranslate nohighlight">\(y\)</span>-axis vertical (positive upward)</strong></p></li>
+</ul>
+<p>The top of the ramp is at height <span class="math notranslate nohighlight">\(H\)</span>.</p>
+<p>The block moves along the straight surface of the incline.</p>
+<hr class="docutils" />
+<p><strong>Task</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Constraint equation</strong></p></li>
+</ol>
+<p>Using the horizontal–vertical coordinate system, write the constraint equation relating <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> that ensures the block remains on the surface of the incline.</p>
+<hr class="docutils" />
+<ol class="arabic simple" start="2">
+<li><p><strong>Introduce a generalized coordinate</strong></p></li>
+</ol>
+<p>Instead of using <span class="math notranslate nohighlight">\((x,y)\)</span>, introduce a generalized coordinate</p>
+<div class="math notranslate nohighlight">
+\[
+q = s
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(s\)</span> represents the <strong>distance measured along the incline from the top of the ramp</strong>.</p>
+<p>Explain why this coordinate automatically satisfies the constraint.</p>
+<hr class="docutils" />
+<ol class="arabic simple" start="3">
+<li><p><strong>Express Cartesian coordinates in terms of the generalized coordinate</strong></p></li>
+</ol>
+<p>Write the Cartesian coordinates of the block as functions of <span class="math notranslate nohighlight">\(s\)</span>.</p>
+<p>(Hint: the motion follows the direction of the incline.)</p>
+<hr class="docutils" />
+<ol class="arabic simple" start="4">
+<li><p><strong>Generalized velocity</strong></p></li>
+</ol>
+<p>Determine the generalized velocity</p>
+<div class="math notranslate nohighlight">
+\[
+\dot q = \dot s
+\]</div>
+<p>and compute the <strong>Cartesian velocity components</strong> <span class="math notranslate nohighlight">\((\dot x,\dot y)\)</span>.</p>
+<hr class="docutils" />
+<ol class="arabic simple" start="5">
+<li><p><strong>Speed of the block</strong></p></li>
+</ol>
+<p>Use</p>
+<div class="math notranslate nohighlight">
+\[
+v = \sqrt{\dot x^2 + \dot y^2}
+\]</div>
+<p>to determine the speed of the block in terms of <span class="math notranslate nohighlight">\(\dot s\)</span>.</p>
+<hr class="docutils" />
+<ol class="arabic simple" start="6">
+<li><p><strong>Reflection</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p>Why does the generalized coordinate eliminate the need for the constraint equation?</p></li>
+<li><p>Why is the motion described by <strong>one coordinate instead of two</strong>?</p></li>
+<li><p>Why are generalized coordinates often chosen to follow the <strong>geometry of the system</strong>?</p></li>
+</ul>
+<hr class="docutils" />
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+A Possible Solution Guide
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p><strong>Step 1 – Constraint equation</strong></p>
+<p>The block remains on the incline.</p>
+<p>Using horizontal–vertical coordinates, the surface of the incline satisfies</p>
+<div class="math notranslate nohighlight">
+\[
+H - y = x\tan\alpha.
+\]</div>
+<p>This equation relates <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, restricting the motion to the surface.</p>
+<hr class="docutils" />
+<p><strong>Step 2 – Generalized coordinate</strong></p>
+<p>Define the generalized coordinate</p>
+<div class="math notranslate nohighlight">
+\[
+q = s,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(s\)</span> is the distance measured <strong>along the incline</strong> from the top.</p>
+<p>Since the block moves only along the surface, this coordinate uniquely determines its position.</p>
+<p>Thus the system has</p>
+<div class="math notranslate nohighlight">
+\[
+\text{DOF} = 1.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 3 – Cartesian coordinates</strong></p>
+<p>The block moves along a line inclined at angle <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+<p>Thus</p>
+<div class="math notranslate nohighlight">
+\[
+x = s\cos\alpha
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+y = H - s\sin\alpha.
+\]</div>
+<p>Substituting these into the constraint equation confirms it is automatically satisfied.</p>
+<hr class="docutils" />
+<p><strong>Step 4 – Velocity components</strong></p>
+<p>Differentiate with respect to time.</p>
+<p>Horizontal velocity</p>
+<div class="math notranslate nohighlight">
+\[
+\dot x = \dot s\cos\alpha
+\]</div>
+<p>Vertical velocity</p>
+<div class="math notranslate nohighlight">
+\[
+\dot y = -\dot s\sin\alpha.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 5 – Speed of the block</strong></p>
+<p>The speed is</p>
+<div class="math notranslate nohighlight">
+\[
+v = \sqrt{\dot x^2 + \dot y^2}.
+\]</div>
+<p>Substituting</p>
+<div class="math notranslate nohighlight">
+\[
+v =
+\sqrt{
+(\dot s\cos\alpha)^2 + (-\dot s\sin\alpha)^2
+}.
+\]</div>
+<p>Factor out <span class="math notranslate nohighlight">\(\dot s^2\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+v =
+\sqrt{
+\dot s^2(\cos^2\alpha + \sin^2\alpha)
+}.
+\]</div>
+<p>Using</p>
+<div class="math notranslate nohighlight">
+\[
+\cos^2\alpha + \sin^2\alpha = 1,
+\]</div>
+<p>we obtain</p>
+<div class="math notranslate nohighlight">
+\[
+v = \dot s.
+\]</div>
+<hr class="docutils" />
+<p><strong>Interpretation</strong></p>
+<p>The generalized coordinate <span class="math notranslate nohighlight">\(s\)</span> directly measures the <strong>distance traveled along the incline</strong>, so its time derivative is exactly the <strong>speed of the block</strong>.</p>
+<p>By choosing a coordinate aligned with the motion, the constraint is automatically satisfied and the dynamics become simpler.</p>
+</div>
+</details>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Phys-Prof-Nielsen/modulearn",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-D8"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="dof-constraints.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">D8.1 Constraints and Degrees of Freedom in Classical Mechanics</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="coordinate-systems.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">D8.3 Coordinate Systems and Coordinate Transformations</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d8-2-1-motivation-why-generalized-coordinates">D8.2.1 Motivation: Why Generalized Coordinates?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d8-2-2-coordinate-choice">D8.2.2 Coordinate Choice</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-simple-pendulum">Example 1: Simple Pendulum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-block-on-an-inclined-plane">Example 2: Block on an Inclined Plane</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d8-2-3-generalized-velocities">D8.2.3 Generalized Velocities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d8-2-4-configuration-space">D8.2.4 Configuration Space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d8-2-5-why-generalized-coordinates-are-powerful">D8.2.5 Why Generalized Coordinates Are Powerful</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d8-2-6-summary">D8.2.6 Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

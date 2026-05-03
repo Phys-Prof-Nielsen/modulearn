@@ -1,0 +1,1448 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>D8.1 Constraints and Degrees of Freedom in Classical Mechanics &#8212; A Competency Approach to Classical Mechanics - Phase D</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-D8/dof-constraints';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="D8.2 Generalized Coordinates" href="generalized-coordinates.html" />
+    <link rel="prev" title="D8.0 Learning Outcomes — Constraints and Generalized Coordinates" href="LOC-D8.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-D.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Phase D - Home"/>
+    <script>document.write(`<img src="../_static/logo-D.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Phase D - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the D Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D1 - Impulse, Momentum, and Momentum Methods</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/LOC-D1.html">D1.0 Learning Outcomes — Impulse, Momentum, and Momentum Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/review.html">D1.1 Impulse–Momentum: Review and Foundations</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Module-D1/application.html">D1.2 Using Impulse–Momentum Instead of <span class="math notranslate nohighlight">\(F = ma\)</span></a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D2 - Work, Energy, and Conservative Forces</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/LOC-D2.html">D2.0 Learning Outcomes — Work, Energy, and Conservative Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/review.html">D2.1 Review — Work, Energy, and Conservative Forces (Physics I Foundations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/line-integrals.html">D2.2 Introduction to Line Integrals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/parameterization.html">D2.3 Parameterization of Line Integrals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/conservative-forces.html">D2.4 Conservative Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D2/problemsD2.html">D2.5 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D3 - Linearly Accelerating Frames</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/galilean-relativity-coordinate.html">D3.1 Galilean Relativity: Coordinate Transformation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/galilean-relativity-length.html">D3.2 Galilean Relativity: Length Measurement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/galilean-relativity-displacement.html">D3.3 Galilean Relativity: Displacement Measurement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/galilean-relativity-velocity.html">D3.4 Galilean Relativity: Velocity Transformation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/accelerated-frames.html">D3.5 Transformation of Acceleration Between Linearly Accelerating Coordinate Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D3/problemsD3.html">D3.6 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D4 - Polar Coordinates</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/LOC-D4.html">D4.0 Learning Outcomes — Polar Coordinates and Central Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/polar-coordinates.html">D4.1 Position, Velocity, and Acceleration in Polar Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/N2-polar.html">D4.2 Newton’s 2nd Law in Polar Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D4/problemsD4.html">D4.3 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D5 - Rotational Dynamics - Fixed Axis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/basic-relations.html">D5.1 Rotational Kinematics - Basic Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/equations-kinematics.html">D5.2 Rotational Equations of Kinematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/translational-rotational.html">D5.3 A Note on Combined Translational and Rotational Angular Speed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/angular-momentum.html">D5.4 Angular Momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/angular-impulse.html">D5.5 Angular Impulse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/torque.html">D5.6 Angular Force - Torque</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/newton-rotational.html">D5.7 Newton’s 2nd Law - Rotational Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/rotational-work.html">D5.8 Work - Energy - Rotational Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D5/problemsD5.html">D5.9 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D6 - Small Oscillations and Stability</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/LOC-D6.html">D6.0 Learning Outcomes — Small Oscillations and Stability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/review.html">D6.1 Review of Oscillatory Motion — From Springs to Resonance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/stability.html">D6.2 Stability and Potential Energy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/linearization.html">D6.3 Linearization About Stable Equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D6/phase-space.html">D6.4 Phase Space</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D7 - Central Forces, Effective Potential, and Orbits</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/LOC-D7.html">D7.0 Learning Outcomes — Central Forces, Effective Potential, and Orbits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/central-forces.html">D7.1 Central Forces and Angular Momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D7/problemsD7.html">D7.3 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D8 - Constraints and Generalized Coordinates</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-D8.html">D8.0 Learning Outcomes — Constraints and Generalized Coordinates</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">D8.1 Constraints and Degrees of Freedom in Classical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generalized-coordinates.html">D8.2 Generalized Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coordinate-systems.html">D8.3 Coordinate Systems and Coordinate Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jacobian-chainrule.html">D8.4 Coordinate Transformations, Jacobians, and the Chain Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="invariance.html">D8.5 Invariance, Symmetry, and the Idea of Gauge Freedom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problemsD8.html">D8.6 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module D9 - Index Notation and Vector Operations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/LOC-D9.html">D9.0 Learning Outcomes — Index Notation and Vector Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/index-notation.html">D9.1 Vectors and Index Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/einstein-convention.html">D9.2 Einstein Summation Convention</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/kronecker.html">D9.3 The Kronecker Delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/levi-civita.html">D9.4 The Levi–Civita Symbol and the Cross Product</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/identities.html">D9.5 Vector Identities Using Index Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-D9/problemsD9.html">D9.6 Problems — Index Notation Practice</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/classical-mechanics-D/Module-D8/dof-constraints.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-D8/dof-constraints.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>D8.1 Constraints and Degrees of Freedom in Classical Mechanics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d8-1-1-motivation-why-constraints">D8.1.1 Motivation: Why Constraints?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d8-1-2-degrees-of-freedom">D8.1.2 Degrees of Freedom</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d8-1-3-examples-from-introductory-physics">D8.1.3 Examples from Introductory Physics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pendulum-rigid-rod-of-length-l">Pendulum (rigid rod of length <span class="math notranslate nohighlight">\(l\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#block-sliding-on-a-ramp">Block sliding on a ramp</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bead-on-a-circular-hoop">Bead on a circular hoop</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d8-1-4-constraint-equations-general-form">D8.1.4 Constraint Equations: General Form</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d8-1-5-holonomic-constraints">D8.1.5 Holonomic Constraints</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d8-1-6-non-holonomic-constraints">D8.1.6 Non-Holonomic Constraints</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d8-1-7-why-constraints-matter">D8.1.7 Why Constraints Matter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d8-1-8-summary">D8.1.8 Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="d8-1-constraints-and-degrees-of-freedom-in-classical-mechanics">
+<h1>D8.1 Constraints and Degrees of Freedom in Classical Mechanics<a class="headerlink" href="#d8-1-constraints-and-degrees-of-freedom-in-classical-mechanics" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="d8-1-1-motivation-why-constraints">
+<h2>D8.1.1 Motivation: Why Constraints?<a class="headerlink" href="#d8-1-1-motivation-why-constraints" title="Link to this heading">#</a></h2>
+<p>In introductory physics, we often solved problems by implicitly using <strong>constraints</strong>, even if we did not explicitly identify them. For example:</p>
+<ul class="simple">
+<li><p>A block on a ramp moves only along the slope, not perpendicular to it.</p></li>
+<li><p>A pendulum bob is forced to remain a fixed distance from its pivot.</p></li>
+<li><p>A bead sliding on a wire must stay on the wire at all times.</p></li>
+</ul>
+<p>In each of these cases, the motion of the system is <strong>restricted</strong> by a geometric or physical condition.</p>
+<p>In classical mechanics—particularly in the <strong>Lagrangian and Hamiltonian formulations</strong>—it becomes essential to <strong>identify these restrictions explicitly</strong> and express them mathematically.</p>
+<p>Constraints play two central roles:</p>
+<ol class="arabic simple">
+<li><p>They restrict the motion of a system.</p></li>
+<li><p>They reduce the number of <strong>independent variables</strong> required to describe that motion.</p></li>
+</ol>
+<p>This leads naturally to the concept of <strong>degrees of freedom</strong>, which tells us how many independent coordinates are required to specify the configuration of a system.</p>
+<p>Determining the degrees of freedom is therefore the <strong>first step in constructing a systematic description of motion</strong> in analytical mechanics.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d8-1-2-degrees-of-freedom">
+<h2>D8.1.2 Degrees of Freedom<a class="headerlink" href="#d8-1-2-degrees-of-freedom" title="Link to this heading">#</a></h2>
+<p>The <strong>degrees of freedom (DOF)</strong> of a mechanical system is the number of independent coordinates required to uniquely specify its configuration.</p>
+<p>For a system of <span class="math notranslate nohighlight">\(N\)</span> particles in three-dimensional space, the unconstrained configuration requires</p>
+<div class="math notranslate nohighlight">
+\[
+3N
+\]</div>
+<p>coordinates:</p>
+<div class="math notranslate nohighlight">
+\[
+(x_1,y_1,z_1), (x_2,y_2,z_2), \dots, (x_N,y_N,z_N)
+\]</div>
+<p>Each independent constraint reduces the number of independent coordinates by one.</p>
+<p>Thus, if the system has <span class="math notranslate nohighlight">\(k\)</span> independent constraints, the number of degrees of freedom is</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0; color:#000000;">Degrees of Freedom</h3>
+<div class="math notranslate nohighlight">
+\[
+\text{DOF} = 3N - k
+\]</div>
+</div>
+<p>This relation tells us the <strong>minimum number of independent variables needed to describe the motion</strong>.</p>
+<blockquote>
+<div><p>Once the degrees of freedom are known, we can choose generalized coordinates that describe the system using only these independent variables.</p>
+</div></blockquote>
+<section id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h3>
+<p><strong>Particle in free space</strong></p>
+<ul class="simple">
+<li><p>Coordinates: <span class="math notranslate nohighlight">\((x,y,z)\)</span></p></li>
+<li><p>Constraints: none</p></li>
+</ul>
+<p>DOF:</p>
+<div class="math notranslate nohighlight">
+\[
+3
+\]</div>
+<hr class="docutils" />
+<p><strong>Particle constrained to a plane</strong></p>
+<p>Constraint:</p>
+<div class="math notranslate nohighlight">
+\[
+z = 0
+\]</div>
+<p>DOF:</p>
+<div class="math notranslate nohighlight">
+\[
+3 - 1 = 2
+\]</div>
+<hr class="docutils" />
+<p><strong>Particle constrained to a circle</strong></p>
+<p>Constraint:</p>
+<div class="math notranslate nohighlight">
+\[
+x^2 + y^2 = R^2
+\]</div>
+<p>DOF:</p>
+<div class="math notranslate nohighlight">
+\[
+2 - 1 = 1
+\]</div>
+<p>The motion can then be described by a single coordinate such as the angle <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<p>Identifying the degrees of freedom allows us to introduce <strong>generalized coordinates</strong> that describe the system using only the independent variables.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="d8-1-3-examples-from-introductory-physics">
+<h2>D8.1.3 Examples from Introductory Physics<a class="headerlink" href="#d8-1-3-examples-from-introductory-physics" title="Link to this heading">#</a></h2>
+<p>Let us revisit familiar systems using the language of <strong>constraints and degrees of freedom</strong>.</p>
+<section id="pendulum-rigid-rod-of-length-l">
+<h3>Pendulum (rigid rod of length <span class="math notranslate nohighlight">\(l\)</span>)<a class="headerlink" href="#pendulum-rigid-rod-of-length-l" title="Link to this heading">#</a></h3>
+<p>Coordinates of the bob:</p>
+<div class="math notranslate nohighlight">
+\[
+(x,y)
+\]</div>
+<p>Constraint:</p>
+<div class="math notranslate nohighlight">
+\[
+x^2 + y^2 - l^2 = 0
+\]</div>
+<p>Originally two coordinates are needed to specify the position in the plane.<br />
+The constraint reduces this to</p>
+<div class="math notranslate nohighlight">
+\[
+\text{DOF} = 2 - 1 = 1
+\]</div>
+<p>A convenient coordinate describing the motion is the <strong>angle</strong> <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<p>In polar coordinates the constraint becomes</p>
+<div class="math notranslate nohighlight">
+\[
+r = l
+\]</div>
+<p>which automatically satisfies the constraint.</p>
+</section>
+<hr class="docutils" />
+<section id="block-sliding-on-a-ramp">
+<h3>Block sliding on a ramp<a class="headerlink" href="#block-sliding-on-a-ramp" title="Link to this heading">#</a></h3>
+<p>Coordinates of the block:</p>
+<div class="math notranslate nohighlight">
+\[
+(x,y)
+\]</div>
+<p>Constraint (equation of the ramp):</p>
+<div class="math notranslate nohighlight">
+\[
+y = 0
+\]</div>
+<p>The motion is restricted to one direction along the incline, so</p>
+<div class="math notranslate nohighlight">
+\[
+\text{DOF} = 2 - 1 = 1
+\]</div>
+<p>Thus the motion can be described using a single coordinate along the ramp.</p>
+</section>
+<hr class="docutils" />
+<section id="bead-on-a-circular-hoop">
+<h3>Bead on a circular hoop<a class="headerlink" href="#bead-on-a-circular-hoop" title="Link to this heading">#</a></h3>
+<p>Position coordinates:</p>
+<div class="math notranslate nohighlight">
+\[
+(x,y)
+\]</div>
+<p>Constraint:</p>
+<div class="math notranslate nohighlight">
+\[
+x^2 + y^2 = R^2
+\]</div>
+<p>Degrees of freedom:</p>
+<div class="math notranslate nohighlight">
+\[
+1
+\]</div>
+<p>The motion is fully described by the angular coordinate <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="d8-1-4-constraint-equations-general-form">
+<h2>D8.1.4 Constraint Equations: General Form<a class="headerlink" href="#d8-1-4-constraint-equations-general-form" title="Link to this heading">#</a></h2>
+<p>In classical mechanics, the coordinates describing a system are often written as</p>
+<div class="math notranslate nohighlight">
+\[
+q_1, q_2, \dots, q_n
+\]</div>
+<p>These coordinates may represent Cartesian coordinates or more general variables suited to the geometry of the system.</p>
+<p>A <strong>constraint</strong> is any condition that restricts the allowed values of these coordinates.</p>
+<p>Many constraints can be written in the form</p>
+<div class="math notranslate nohighlight">
+\[
+f(q_1, q_2, \dots, q_n, t) = 0
+\]</div>
+<p>Each independent equation of this type reduces the number of independent coordinates by one.</p>
+<p>Thus constraints determine the <strong>true degrees of freedom of the system</strong>.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d8-1-5-holonomic-constraints">
+<h2>D8.1.5 Holonomic Constraints<a class="headerlink" href="#d8-1-5-holonomic-constraints" title="Link to this heading">#</a></h2>
+<p>A <strong>holonomic constraint</strong> is one that can be written as</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0; color:#000000;">Holonomic Constraint Equation</h3>
+<div class="math notranslate nohighlight">
+\[
+f(q_1, q_2, \dots, q_n, t) = 0
+\]</div>
+</div>
+<p>These constraints depend only on the coordinates and possibly time.</p>
+<p>Example:</p>
+<p>Pendulum:</p>
+<div class="math notranslate nohighlight">
+\[
+x^2 + y^2 - l^2 = 0
+\]</div>
+<p>Each independent holonomic constraint <strong>reduces the number of degrees of freedom by one</strong>.</p>
+<p>Holonomic constraints are particularly useful because they allow us to introduce <strong>generalized coordinates</strong> that automatically satisfy the constraints.</p>
+<p>For example, instead of <span class="math notranslate nohighlight">\((x,y)\)</span> we may use</p>
+<div class="math notranslate nohighlight">
+\[
+q = \theta
+\]</div>
+<p>which uniquely specifies the configuration of the pendulum.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d8-1-6-non-holonomic-constraints">
+<h2>D8.1.6 Non-Holonomic Constraints<a class="headerlink" href="#d8-1-6-non-holonomic-constraints" title="Link to this heading">#</a></h2>
+<p>A <strong>non-holonomic constraint</strong> cannot be written purely as a relation among the coordinates.</p>
+<p>Instead, it may involve</p>
+<ul class="simple">
+<li><p>velocities,</p></li>
+<li><p>differential relations, or</p></li>
+<li><p>inequalities.</p></li>
+</ul>
+<p>Example:</p>
+<p><strong>Rolling without slipping</strong></p>
+<p>For a wheel of radius <span class="math notranslate nohighlight">\(R\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+v_{\text{cm}} = R\omega
+\]</div>
+<p>This relates translational velocity and angular velocity rather than positions alone.</p>
+<p>Another example is an inequality constraint describing a particle confined inside a sphere:</p>
+<div class="math notranslate nohighlight">
+\[
+x^2 + y^2 + z^2 \le R^2
+\]</div>
+<p>Such constraints cannot generally be eliminated by simply redefining coordinates and require more advanced methods.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d8-1-7-why-constraints-matter">
+<h2>D8.1.7 Why Constraints Matter<a class="headerlink" href="#d8-1-7-why-constraints-matter" title="Link to this heading">#</a></h2>
+<p>Constraints are fundamental in analytical mechanics because they allow us to</p>
+<ul class="simple">
+<li><p>determine the <strong>degrees of freedom</strong>,</p></li>
+<li><p>reduce the number of coordinates needed to describe motion,</p></li>
+<li><p>introduce <strong>generalized coordinates</strong> adapted to the geometry of the system,</p></li>
+<li><p>simplify the equations of motion.</p></li>
+</ul>
+<p>Rather than describing motion using redundant Cartesian coordinates, we focus only on the <strong>independent variables that truly describe the system</strong>.</p>
+<p>This idea will become central when we develop <strong>Lagrangian mechanics</strong>, where the equations of motion are written directly in terms of generalized coordinates.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="d8-1-8-summary">
+<h2>D8.1.8 Summary<a class="headerlink" href="#d8-1-8-summary" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Constraints restrict the motion of a system.</p></li>
+<li><p>They reduce the number of independent coordinates needed to describe motion.</p></li>
+<li><p>The <strong>degrees of freedom</strong> of a system is the number of independent coordinates required to specify its configuration.</p></li>
+<li><p>Holonomic constraints can be written as coordinate equations</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+f(q_1,q_2,\dots,t)=0
+\]</div>
+<ul class="simple">
+<li><p>Non-holonomic constraints involve velocities or inequalities and require more advanced treatment.</p></li>
+</ul>
+<p>Understanding constraints and degrees of freedom is the first step toward formulating the equations of motion using <strong>generalized coordinates and the Lagrangian formalism</strong>.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0; color:#000000;">Example – Degrees of Freedom of a Pendulum</h3>
+<p><strong>Problem</strong></p>
+<p>A particle of mass <span class="math notranslate nohighlight">\(m\)</span> is attached to a rigid, massless rod of length <span class="math notranslate nohighlight">\(l\)</span> and allowed to swing freely in a vertical plane.</p>
+<ol class="arabic simple">
+<li><p>Determine the number of <strong>degrees of freedom</strong> of the system if the position of the mass is described using Cartesian coordinates <span class="math notranslate nohighlight">\((x,y)\)</span>.</p></li>
+<li><p>Write the <strong>constraint equation</strong> imposed by the rigid rod.</p></li>
+<li><p>Show how the constraint reduces the system to one independent coordinate.</p></li>
+</ol>
+<hr class="docutils" />
+<p><strong>Solution</strong></p>
+<p><strong>1. Coordinates of the system</strong></p>
+<p>If we describe the position of the mass using Cartesian coordinates</p>
+<div class="math notranslate nohighlight">
+\[
+(x,y)
+\]</div>
+<p>then two coordinates are required to specify the position of the particle in the plane.</p>
+<p>Thus, before considering constraints, the system has</p>
+<div class="math notranslate nohighlight">
+\[
+2
+\]</div>
+<p>possible coordinates.</p>
+<hr class="docutils" />
+<p><strong>2. Constraint equation</strong></p>
+<p>The rigid rod forces the particle to remain at a constant distance <span class="math notranslate nohighlight">\(l\)</span> from the pivot.</p>
+<p>This gives the constraint</p>
+<div class="math notranslate nohighlight">
+\[
+x^2 + y^2 = l^2.
+\]</div>
+<p>This equation restricts the motion of the particle to a <strong>circle of radius <span class="math notranslate nohighlight">\(l\)</span></strong> centered at the pivot.</p>
+<hr class="docutils" />
+<p><strong>3. Determining the degrees of freedom</strong></p>
+<p>The number of degrees of freedom is</p>
+<div class="math notranslate nohighlight">
+\[
+\text{DOF} = \text{number of coordinates} - \text{number of constraints}.
+\]</div>
+<p>Here we have</p>
+<div class="math notranslate nohighlight">
+\[
+\text{DOF} = 2 - 1 = 1.
+\]</div>
+<p>Thus the motion of the pendulum can be completely described using a <strong>single independent variable</strong>.</p>
+<hr class="docutils" />
+<p><strong>4. Choosing a generalized coordinate</strong></p>
+<p>A convenient coordinate describing the motion is the angle <span class="math notranslate nohighlight">\(\theta\)</span> measured from the vertical.</p>
+<p>The Cartesian coordinates can then be written as</p>
+<div class="math notranslate nohighlight">
+\[
+x = l\sin\theta, \qquad y = -l\cos\theta.
+\]</div>
+<p>Using this coordinate automatically satisfies the constraint <span class="math notranslate nohighlight">\(x^2 + y^2 = l^2\)</span>.</p>
+<hr class="docutils" />
+<p><strong>Conclusion</strong></p>
+<p>Although the particle appears to require two coordinates <span class="math notranslate nohighlight">\((x,y)\)</span>, the constraint imposed by the rigid rod reduces the motion to</p>
+<div class="math notranslate nohighlight">
+\[
+\text{DOF} = 1.
+\]</div>
+<p>This single degree of freedom is naturally described by the generalized coordinate <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+</div><hr class="docutils" />
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0; color:#000000;">Example – Constraint Equation for a Simple Pulley</h3>
+<p><strong>Problem</strong></p>
+<p>Consider a simple pulley system:</p>
+<ul class="simple">
+<li><p>A frictionless pulley with a massless rope passes over it.</p></li>
+<li><p>On the left side of the rope hangs mass <span class="math notranslate nohighlight">\(m_1\)</span>, and on the right side hangs mass <span class="math notranslate nohighlight">\(m_2\)</span>.</p></li>
+<li><p>The rope is inextensible, so its total length remains constant.</p></li>
+</ul>
+<p>Consider the following figure:<br />
+<img src="D1.1-E1.png" width="400"/></p>
+<ol class="arabic simple">
+<li><p>Write down the <strong>constraint equation</strong> relating the coordinates of <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span>.</p></li>
+<li><p>Derive the relationship between their <strong>velocities</strong> and <strong>accelerations</strong>.</p></li>
+</ol>
+<hr class="docutils" />
+<p><strong>Solution</strong></p>
+<p><strong>1. Choosing coordinates</strong></p>
+<p>Let <span class="math notranslate nohighlight">\(y_1\)</span> and <span class="math notranslate nohighlight">\(y_2\)</span> be the vertical displacements of masses <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span>, each measured <strong>downward</strong> from a convenient reference level near the pulley.</p>
+<p>Because the rope is massless and inextensible, its total length must remain constant during the motion.</p>
+<p>The total rope length is made up of:</p>
+<ul class="simple">
+<li><p>the segment supporting <span class="math notranslate nohighlight">\(m_1\)</span>,</p></li>
+<li><p>the segment supporting <span class="math notranslate nohighlight">\(m_2\)</span>,</p></li>
+<li><p>and the small portion wrapped around the pulley.</p></li>
+</ul>
+<p>The wrapped portion does not change, so it can be absorbed into a constant. Therefore the changing part of the rope length is simply</p>
+<div class="math notranslate nohighlight">
+\[
+y_1 + y_2.
+\]</div>
+<p>Since the total length is fixed, we must have</p>
+<div class="math notranslate nohighlight">
+\[
+y_1 + y_2 = L,
+\]</div>
+<p>or equivalently,</p>
+<div class="math notranslate nohighlight">
+\[
+y_1 + y_2 - L = 0.
+\]</div>
+<p>This is the <strong>constraint equation</strong>.</p>
+<hr class="docutils" />
+<p><strong>2. Why this is a holonomic constraint</strong></p>
+<p>This constraint involves only the coordinates <span class="math notranslate nohighlight">\(y_1\)</span> and <span class="math notranslate nohighlight">\(y_2\)</span> and a constant <span class="math notranslate nohighlight">\(L\)</span>. It does not involve velocities or accelerations.</p>
+<p>Therefore it is a <strong>holonomic constraint</strong>.</p>
+<p>It also tells us that the two coordinates are not independent. Once <span class="math notranslate nohighlight">\(y_1\)</span> is known, <span class="math notranslate nohighlight">\(y_2\)</span> is determined:</p>
+<div class="math notranslate nohighlight">
+\[
+y_2 = L - y_1.
+\]</div>
+<p>So the system has only <strong>one independent degree of freedom</strong>.</p>
+<hr class="docutils" />
+<p><strong>3. Relationship between the velocities</strong></p>
+<p>To find how the velocities are related, differentiate the constraint equation with respect to time:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dt}(y_1 + y_2 - L) = 0.
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\(L\)</span> is constant, its derivative is zero, so we obtain</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{y}_1 + \dot{y}_2 = 0.
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{y}_1 = -\dot{y}_2.
+\]</div>
+<p>This means the two masses always move with equal speed in opposite directions.</p>
+<p>If one mass moves downward, the other must move upward at the same rate.</p>
+<hr class="docutils" />
+<p><strong>4. Relationship between the accelerations</strong></p>
+<p>Differentiate the velocity relation once more with respect to time:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dt}(\dot{y}_1 + \dot{y}_2) = 0.
+\]</div>
+<p>This gives</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{y}_1 + \ddot{y}_2 = 0.
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{y}_1 = -\ddot{y}_2.
+\]</div>
+<p>So the accelerations are also equal in magnitude and opposite in direction.</p>
+<hr class="docutils" />
+<p><strong>Conclusion</strong></p>
+<p>The inextensible rope imposes the holonomic constraint</p>
+<div class="math notranslate nohighlight">
+\[
+y_1 + y_2 - L = 0.
+\]</div>
+<p>Differentiating this gives the velocity relation</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{y}_1 = -\dot{y}_2,
+\]</div>
+<p>and differentiating again gives the acceleration relation</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{y}_1 = -\ddot{y}_2.
+\]</div>
+<p>Thus, the two masses cannot move independently: when one goes down, the other must go up with equal speed and equal-magnitude opposite acceleration.</p>
+</div><hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:12px; border-radius:4px;">
+<h3 style="margin-top:0; color:#000000;">Box Activity 1 – Constraint on a Block Sliding Down an Inclined Plane</h3>
+<p>In this activity, you will identify how a <strong>constraint restricts motion</strong> and see exactly <strong>where that constraint enters the equations of motion</strong>.</p>
+<p>Consider a block sliding down a rough inclined plane.</p>
+<p>An observer is positioned at the <strong>top of the incline</strong>, and the coordinate system is chosen so that:</p>
+<ul class="simple">
+<li><p>The <strong><span class="math notranslate nohighlight">\(x\)</span>-axis is aligned with the surface of the incline</strong>, pointing <strong>down the slope</strong>.</p></li>
+<li><p>The <strong><span class="math notranslate nohighlight">\(y\)</span>-axis is perpendicular to the surface</strong> of the incline.</p></li>
+</ul>
+<p>This coordinate choice naturally reflects the geometry of the constraint imposed by the surface.</p>
+<hr class="docutils" />
+<p><strong>Task:</strong> Complete the following steps.</p>
+<hr class="docutils" />
+<p><strong>1. Physical setup</strong></p>
+<p>A block of mass <span class="math notranslate nohighlight">\(m\)</span> slides down an incline of angle <span class="math notranslate nohighlight">\(\alpha\)</span> with coefficient of kinetic friction <span class="math notranslate nohighlight">\(\mu_k\)</span>.</p>
+<p>Forces acting on the block:</p>
+<ul class="simple">
+<li><p>gravitational force <span class="math notranslate nohighlight">\(mg\)</span></p></li>
+<li><p>normal force <span class="math notranslate nohighlight">\(N\)</span></p></li>
+<li><p>kinetic friction force <span class="math notranslate nohighlight">\(f_k\)</span></p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>2. Identify the constraint</strong></p>
+<p>Because the block remains in contact with the surface of the incline, its motion <strong>cannot occur perpendicular to the plane</strong>.</p>
+<p>Write the constraint equation describing this condition.</p>
+<p>(Hint: Think about the coordinate describing motion perpendicular to the surface.)</p>
+<hr class="docutils" />
+<p><strong>3. Determine the degrees of freedom</strong></p>
+<p>Using the coordinates <span class="math notranslate nohighlight">\((x,y)\)</span> defined above, determine:</p>
+<ul class="simple">
+<li><p>how many coordinates are required to describe the motion without constraints</p></li>
+<li><p>how the constraint reduces the system to a single independent coordinate</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>4. Apply Newton’s Second Law perpendicular to the plane</strong></p>
+<p>Write Newton’s Second Law in the <span class="math notranslate nohighlight">\(y\)</span> direction.</p>
+<p>Use the constraint you identified in Step 2 to simplify the equation.</p>
+<p>Solve for the normal force <span class="math notranslate nohighlight">\(N\)</span>.</p>
+<hr class="docutils" />
+<p><strong>5. Determine the friction force</strong></p>
+<p>Using</p>
+<div class="math notranslate nohighlight">
+\[
+f_k = \mu_k N,
+\]</div>
+<p>write an expression for the kinetic friction force acting on the block.</p>
+<p>Be careful with the <strong>direction</strong> of the force relative to the chosen coordinate system.</p>
+<hr class="docutils" />
+<p><strong>6. Apply Newton’s Second Law along the incline</strong></p>
+<p>Write Newton’s Second Law along the <span class="math notranslate nohighlight">\(x\)</span> direction.</p>
+<p>Include the gravitational component along the incline and the friction force.</p>
+<p>Solve for the acceleration of the block.</p>
+<hr class="docutils" />
+<p><strong>7. Reflection</strong></p>
+<ul class="simple">
+<li><p>Where exactly did the <strong>constraint equation</strong> enter the solution?</p></li>
+<li><p>Why does the constraint eliminate acceleration perpendicular to the plane?</p></li>
+<li><p>How did choosing coordinates aligned with the incline simplify the problem?</p></li>
+</ul>
+<hr class="docutils" />
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+A Possible Solution Guide
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p><strong>Step 2: Constraint equation</strong></p>
+<p>The block remains on the surface of the incline, so its perpendicular displacement from the surface is zero.</p>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+y = 0.
+\]</div>
+<p>This is a <strong>holonomic constraint</strong>.</p>
+<hr class="docutils" />
+<p><strong>Step 3: Degrees of freedom</strong></p>
+<p>Without constraints, the block would require two coordinates:</p>
+<div class="math notranslate nohighlight">
+\[
+(x,y).
+\]</div>
+<p>The constraint <span class="math notranslate nohighlight">\(y=0\)</span> removes one coordinate.</p>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+\text{DOF} = 2 - 1 = 1.
+\]</div>
+<p>The motion is fully described by the single coordinate</p>
+<div class="math notranslate nohighlight">
+\[
+x.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 4: Newton’s Second Law perpendicular to the plane</strong></p>
+<p>Forces perpendicular to the surface:</p>
+<ul class="simple">
+<li><p>normal force <span class="math notranslate nohighlight">\(N\)</span> (outward)</p></li>
+<li><p>component of gravity <span class="math notranslate nohighlight">\(mg\cos\alpha\)</span> (into the surface)</p></li>
+</ul>
+<p>Newton’s Second Law:</p>
+<div class="math notranslate nohighlight">
+\[
+\sum F_y = ma_y.
+\]</div>
+<p>But the constraint implies</p>
+<div class="math notranslate nohighlight">
+\[
+y = 0 \quad \Rightarrow \quad \dot y = 0 \quad \Rightarrow \quad \ddot y = 0.
+\]</div>
+<p>Thus</p>
+<div class="math notranslate nohighlight">
+\[
+a_y = 0.
+\]</div>
+<p>Therefore</p>
+<div class="math notranslate nohighlight">
+\[
+N - mg\cos\alpha = 0.
+\]</div>
+<p>Solving for the normal force:</p>
+<div class="math notranslate nohighlight">
+\[
+N = mg\cos\alpha.
+\]</div>
+<p>This is the <strong>exact step where the constraint is used</strong>.</p>
+<hr class="docutils" />
+<p><strong>Step 5: Friction force</strong></p>
+<p>The kinetic friction force is</p>
+<div class="math notranslate nohighlight">
+\[
+f_k = \mu_k N.
+\]</div>
+<p>Substituting the normal force:</p>
+<div class="math notranslate nohighlight">
+\[
+f_k = \mu_k mg\cos\alpha.
+\]</div>
+<p>The friction force acts <strong>up the incline</strong>, opposite the motion.</p>
+<hr class="docutils" />
+<p><strong>Step 6: Newton’s Second Law along the incline</strong></p>
+<p>Forces along the incline:</p>
+<ul class="simple">
+<li><p>gravitational component down the plane: <span class="math notranslate nohighlight">\(mg\sin\alpha\)</span></p></li>
+<li><p>friction up the plane: <span class="math notranslate nohighlight">\(f_k\)</span></p></li>
+</ul>
+<p>Newton’s Second Law:</p>
+<div class="math notranslate nohighlight">
+\[
+mg\sin\alpha - f_k = ma.
+\]</div>
+<p>Substitute the friction force:</p>
+<div class="math notranslate nohighlight">
+\[
+mg\sin\alpha - \mu_k mg\cos\alpha = ma.
+\]</div>
+<p>Divide by <span class="math notranslate nohighlight">\(m\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+a = g(\sin\alpha - \mu_k\cos\alpha).
+\]</div>
+<hr class="docutils" />
+<p><strong>Interpretation</strong></p>
+<p>The constraint <span class="math notranslate nohighlight">\(y=0\)</span> ensures that the block cannot accelerate perpendicular to the surface.</p>
+<p>This allowed us to set</p>
+<div class="math notranslate nohighlight">
+\[
+a_y = 0,
+\]</div>
+<p>which determines the normal force and ultimately the friction force.</p>
+<p>The entire dynamics of the system is therefore governed by the <strong>single coordinate <span class="math notranslate nohighlight">\(x\)</span></strong>, the distance along the incline.</p>
+</div>
+</details>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:12px; border-radius:4px;">
+<h3 style="margin-top:0; color:#000000;">Box Activity 2 – Constraint on a Block Sliding Down an Inclined Plane (Horizontal–Vertical Frame)</h3>
+<p>In the previous activity, we analyzed a block sliding down an incline using a coordinate system <strong>aligned with the incline</strong>.</p>
+<p>In this activity, we analyze the <strong>same physical system</strong>, but we describe it using the <strong>standard Cartesian coordinate system</strong>:</p>
+<ul class="simple">
+<li><p>The <strong><span class="math notranslate nohighlight">\(x\)</span>-axis is horizontal</strong></p></li>
+<li><p>The <strong><span class="math notranslate nohighlight">\(y\)</span>-axis is vertical</strong> (positive upward)</p></li>
+</ul>
+<p>The top of the incline is at height <span class="math notranslate nohighlight">\(H\)</span> above the base and the block starts at the point <span class="math notranslate nohighlight">\((0,H)\)</span>.</p>
+<hr class="docutils" />
+<p><strong>Problem</strong></p>
+<p>A block of mass <span class="math notranslate nohighlight">\(m\)</span> slides down a rough incline of angle <span class="math notranslate nohighlight">\(\alpha\)</span> with coefficient of kinetic friction <span class="math notranslate nohighlight">\(\mu_k\)</span>.</p>
+<p>Using the coordinate system described above:</p>
+<ol class="arabic simple">
+<li><p>Determine the <strong>constraint equation</strong> relating the coordinates <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> that ensures the block remains on the incline.</p></li>
+<li><p>Show that the constraint reduces the motion to <strong>one degree of freedom</strong>.</p></li>
+<li><p>Apply Newton’s Second Law in the horizontal and vertical directions and use the constraint to determine:</p>
+<ul class="simple">
+<li><p>the <strong>acceleration components relative to the observer</strong>, <span class="math notranslate nohighlight">\((a_x, a_y)\)</span>,</p></li>
+<li><p>the <strong>acceleration along the incline</strong>.</p></li>
+</ul>
+</li>
+</ol>
+<p>Follow the <strong>same reasoning used in Box Activity 1</strong>, but now using the horizontal–vertical coordinate system.</p>
+<hr class="docutils" />
+<p><strong>Important observation</strong></p>
+<p>Constraint equations are not unique.<br />
+We are free to <strong>add constants or rearrange terms</strong> without changing the physical constraint.</p>
+<p>For example</p>
+<div class="math notranslate nohighlight">
+\[
+H - y = x\tan\alpha
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+y = H - x\tan\alpha
+\]</div>
+<p>represent the <strong>same constraint</strong>.</p>
+<hr class="docutils" />
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+A Possible Solution Guide
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p><strong>Step 1: Constraint equation</strong></p>
+<p>The block remains on the surface of the incline.</p>
+<p>At the top of the ramp the coordinates are</p>
+<div class="math notranslate nohighlight">
+\[
+(x,y) = (0,H).
+\]</div>
+<p>As the block moves horizontally a distance <span class="math notranslate nohighlight">\(x\)</span>, its vertical height decreases according to the slope of the incline.</p>
+<p>Thus the geometric relation between <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+H - y = x\tan\alpha.
+\]</div>
+<p>or equivalently</p>
+<div class="math notranslate nohighlight">
+\[
+H - y - x\tan\alpha = 0.
+\]</div>
+<p>This is a <strong>holonomic constraint</strong>.</p>
+<hr class="docutils" />
+<p><strong>Step 2: Degrees of freedom</strong></p>
+<p>Without constraints the system requires</p>
+<div class="math notranslate nohighlight">
+\[
+(x,y)
+\]</div>
+<p>so there are two coordinates.</p>
+<p>The constraint reduces this to</p>
+<div class="math notranslate nohighlight">
+\[
+\text{DOF} = 2 - 1 = 1.
+\]</div>
+<p>Thus the motion can be described using a single independent coordinate.</p>
+<hr class="docutils" />
+<p><strong>Step 3: Velocity and acceleration relations</strong></p>
+<p>Differentiate the constraint equation.</p>
+<p>Starting from</p>
+<div class="math notranslate nohighlight">
+\[
+H - y = x\tan\alpha
+\]</div>
+<p>First derivative:</p>
+<div class="math notranslate nohighlight">
+\[
+-\dot y = \dot x\tan\alpha
+\]</div>
+<p>so</p>
+<div class="math notranslate nohighlight">
+\[
+\dot y = -\dot x\tan\alpha.
+\]</div>
+<p>Second derivative:</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot y = -\ddot x\tan\alpha.
+\]</div>
+<p>Thus the acceleration components are related by</p>
+<div class="math notranslate nohighlight">
+\[
+a_y = -a_x\tan\alpha.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 4: Forces acting on the block</strong></p>
+<p>Forces acting on the block:</p>
+<ul class="simple">
+<li><p>gravitational force <span class="math notranslate nohighlight">\(mg\)</span> (downward)</p></li>
+<li><p>normal force <span class="math notranslate nohighlight">\(N\)</span></p></li>
+<li><p>kinetic friction <span class="math notranslate nohighlight">\(f_k\)</span></p></li>
+</ul>
+<p>with</p>
+<div class="math notranslate nohighlight">
+\[
+f_k = \mu_k N.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 5: Force components</strong></p>
+<p>The normal force is perpendicular to the incline.</p>
+<p>Its components in the horizontal–vertical frame are</p>
+<p>Horizontal component</p>
+<div class="math notranslate nohighlight">
+\[
+N_x = N\sin\alpha
+\]</div>
+<p>Vertical component</p>
+<div class="math notranslate nohighlight">
+\[
+N_y = N\cos\alpha
+\]</div>
+<p>The friction force acts <strong>up the incline</strong>.</p>
+<p>Its components are</p>
+<p>Horizontal</p>
+<div class="math notranslate nohighlight">
+\[
+f_x = -f_k\cos\alpha
+\]</div>
+<p>Vertical</p>
+<div class="math notranslate nohighlight">
+\[
+f_y = f_k\sin\alpha.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 6: Newton’s Second Law</strong></p>
+<p>Horizontal direction</p>
+<div class="math notranslate nohighlight">
+\[
+\sum F_x = m a_x
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+N\sin\alpha - f_k\cos\alpha = m a_x.
+\]</div>
+<p>Vertical direction</p>
+<div class="math notranslate nohighlight">
+\[
+\sum F_y = m a_y
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+N\cos\alpha + f_k\sin\alpha - mg = m a_y.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 7: Use the constraint relation</strong></p>
+<p>From the constraint</p>
+<div class="math notranslate nohighlight">
+\[
+a_y = -a_x\tan\alpha.
+\]</div>
+<p>Substitute into the vertical equation</p>
+<div class="math notranslate nohighlight">
+\[
+N\cos\alpha + f_k\sin\alpha - mg = -m a_x\tan\alpha.
+\]</div>
+<p>Using</p>
+<div class="math notranslate nohighlight">
+\[
+f_k = \mu_k N,
+\]</div>
+<p>solve together with the horizontal equation.</p>
+<hr class="docutils" />
+<p><strong>Step 8: Acceleration relative to the observer</strong></p>
+<p>Solving the equations yields</p>
+<div class="math notranslate nohighlight">
+\[
+a_x = g(\sin\alpha\cos\alpha - \mu_k\cos^2\alpha)
+\]</div>
+<p>and using the constraint</p>
+<div class="math notranslate nohighlight">
+\[
+a_y = -a_x\tan\alpha.
+\]</div>
+<p>These are the <strong>horizontal and vertical acceleration components</strong> observed in this frame.</p>
+<hr class="docutils" />
+<p><strong>Step 9: Acceleration along the incline</strong></p>
+<p>The acceleration along the incline is obtained by projecting the acceleration vector onto the direction of the incline.</p>
+<p>This gives</p>
+<div class="math notranslate nohighlight">
+\[
+a = g(\sin\alpha - \mu_k\cos\alpha).
+\]</div>
+<hr class="docutils" />
+<p><strong>Interpretation</strong></p>
+<p>Although the coordinate system is different, the physical acceleration along the incline is the <strong>same result obtained in Box Activity 1</strong>.</p>
+<p>This illustrates a fundamental principle:</p>
+<blockquote>
+<div><p>The laws of mechanics are independent of the coordinate system used to describe the motion.</p>
+</div></blockquote>
+</div>
+</details>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Phys-Prof-Nielsen/modulearn",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-D8"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="LOC-D8.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">D8.0 Learning Outcomes — Constraints and Generalized Coordinates</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="generalized-coordinates.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">D8.2 Generalized Coordinates</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d8-1-1-motivation-why-constraints">D8.1.1 Motivation: Why Constraints?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d8-1-2-degrees-of-freedom">D8.1.2 Degrees of Freedom</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d8-1-3-examples-from-introductory-physics">D8.1.3 Examples from Introductory Physics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pendulum-rigid-rod-of-length-l">Pendulum (rigid rod of length <span class="math notranslate nohighlight">\(l\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#block-sliding-on-a-ramp">Block sliding on a ramp</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bead-on-a-circular-hoop">Bead on a circular hoop</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d8-1-4-constraint-equations-general-form">D8.1.4 Constraint Equations: General Form</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d8-1-5-holonomic-constraints">D8.1.5 Holonomic Constraints</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d8-1-6-non-holonomic-constraints">D8.1.6 Non-Holonomic Constraints</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d8-1-7-why-constraints-matter">D8.1.7 Why Constraints Matter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d8-1-8-summary">D8.1.8 Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
