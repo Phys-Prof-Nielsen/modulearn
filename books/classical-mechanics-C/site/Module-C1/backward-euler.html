@@ -1,0 +1,996 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>C1.2 — The Backward Euler Numerical Method &#8212; A Competency Approach to Classical Mechanics - Phase C</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-C1/backward-euler';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="C1.4 — Euler-Cromer Method (Symplectic Euler)" href="euler-cromer.html" />
+    <link rel="prev" title="C1.1 — The Forward Euler Numerical Method" href="forward-euler.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-C.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Phase C - Home"/>
+    <script>document.write(`<img src="../_static/logo-C.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Phase C - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the C Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C1 - Numerical Methods</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-C1.html">C1.0 Learning Outcomes — Numerical Methods and Finite Difference Techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="forward-euler.html">C1.1 — The Forward Euler Numerical Method</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">C1.2 — The Backward Euler Numerical Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="euler-cromer.html">C1.4 — Euler-Cromer Method (Symplectic Euler)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problemsC1.html">C1.5 Problems</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/classical-mechanics-C/Module-C1/backward-euler.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-C1/backward-euler.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>C1.2 — The Backward Euler Numerical Method</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-2-1-motivation">C1.2.1 — Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-2-2-the-backward-euler-method">C1.2.2 — The Backward Euler Method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-2-3-why-the-method-is-called-backward">C1.2.3 — Why the Method Is Called “Backward”</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-2-4-explicit-versus-implicit-methods">C1.2.4 — Explicit Versus Implicit Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-2-5-algorithmic-procedure">C1.2.5 — Algorithmic Procedure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-2-6-example-exponential-decay">C1.2.6 — Example: Exponential Decay</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-2-7-stability-comparison-with-forward-euler">C1.2.7 — Stability Comparison with Forward Euler</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-2-8-physical-interpretation">C1.2.8 — Physical Interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-2-9-box-activity-compare-forward-and-backward-euler">C1.2.9 — Box Activity: Compare Forward and Backward Euler</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-2-10-nonlinear-problems">C1.2.10 — Nonlinear Problems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-2-11-solving-the-implicit-equation-numerically">C1.2.11 — Solving the Implicit Equation Numerically</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-2-12-summary">C1.2.12 — Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="c1-2-the-backward-euler-numerical-method">
+<h1>C1.2 — The Backward Euler Numerical Method<a class="headerlink" href="#c1-2-the-backward-euler-numerical-method" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><section id="c1-2-1-motivation">
+<h2>C1.2.1 — Motivation<a class="headerlink" href="#c1-2-1-motivation" title="Link to this heading">#</a></h2>
+<p>In the previous section, we studied the Forward Euler method:</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1}=y_n+h f(t_n,y_n).
+\]</div>
+<p>Although simple and computationally efficient, Forward Euler can become unstable when:</p>
+<ul class="simple">
+<li><p>the step size is too large,</p></li>
+<li><p>the system evolves rapidly,</p></li>
+<li><p>the differential equation is stiff.</p></li>
+</ul>
+<p>For many physical systems, especially dissipative systems, unstable numerical behavior is unacceptable. A stable physical system should not artificially explode due to poor numerical approximation.</p>
+<p>To improve numerical stability, we introduce the <strong>Backward Euler Method</strong>.</p>
+<p>The central idea is:</p>
+<blockquote>
+<div><p>Instead of using the slope at the current point, we use the slope at the future point.</p>
+</div></blockquote>
+<p>This subtle modification dramatically improves stability properties.</p>
+<p>Backward Euler is especially important for:</p>
+<ul class="simple">
+<li><p>stiff differential equations,</p></li>
+<li><p>diffusion equations,</p></li>
+<li><p>heat flow,</p></li>
+<li><p>circuit simulation,</p></li>
+<li><p>fluid dynamics,</p></li>
+<li><p>implicit time-stepping methods.</p></li>
+</ul>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c1-2-2-the-backward-euler-method">
+<h2>C1.2.2 — The Backward Euler Method<a class="headerlink" href="#c1-2-2-the-backward-euler-method" title="Link to this heading">#</a></h2>
+<p>The Forward Euler method estimates the next value using the slope at the current point:</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1}=y_n+h f(t_n,y_n).
+\]</div>
+<p>The <strong>Backward Euler Method</strong> instead uses the slope at the future point:</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1}=y_n+h f(t_{n+1},y_{n+1}).
+\]</div>
+<p>This makes Backward Euler an <strong>implicit method</strong> because the unknown value <span class="math notranslate nohighlight">\(y_{n+1}\)</span> appears on both sides of the equation.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Backward Euler Method</strong>
+<p>For the differential equation</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dy}{dt}=f(t,y),
+\]</div>
+<p>the Backward Euler update is</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1}=y_n+h f(t_{n+1},y_{n+1}).
+\]</div>
+<p>Unlike Forward Euler, this usually requires solving an algebraic equation at every time step.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c1-2-3-why-the-method-is-called-backward">
+<h2>C1.2.3 — Why the Method Is Called “Backward”<a class="headerlink" href="#c1-2-3-why-the-method-is-called-backward" title="Link to this heading">#</a></h2>
+<p>The name <strong>Backward Euler</strong> comes from approximating the derivative using a backward difference at the future point:</p>
+<div class="math notranslate nohighlight">
+\[
+\left.\frac{dy}{dt}\right|_{t_{n+1}}
+\approx
+\frac{y_{n+1}-y_n}{h}.
+\]</div>
+<p>Since</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dy}{dt}=f(t,y),
+\]</div>
+<p>we evaluate the right-hand side at the future point:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{y_{n+1}-y_n}{h}=f(t_{n+1},y_{n+1}).
+\]</div>
+<p>Solving for <span class="math notranslate nohighlight">\(y_{n+1}\)</span> gives</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1}=y_n+h f(t_{n+1},y_{n+1}).
+\]</div>
+<p>The method looks backward because the derivative at <span class="math notranslate nohighlight">\(t_{n+1}\)</span> is approximated using the interval from <span class="math notranslate nohighlight">\(t_n\)</span> to <span class="math notranslate nohighlight">\(t_{n+1}\)</span>.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c1-2-4-explicit-versus-implicit-methods">
+<h2>C1.2.4 — Explicit Versus Implicit Methods<a class="headerlink" href="#c1-2-4-explicit-versus-implicit-methods" title="Link to this heading">#</a></h2>
+<p>Forward Euler is an <strong>explicit method</strong> because the next value is computed directly:</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1}=y_n+h f(t_n,y_n).
+\]</div>
+<p>Backward Euler is an <strong>implicit method</strong> because the next value is defined by an equation:</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1}=y_n+h f(t_{n+1},y_{n+1}).
+\]</div>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Explicit Method</strong>
+<p>A method is explicit if the next value <span class="math notranslate nohighlight">\(y_{n+1}\)</span> can be computed directly from known information.</p>
+<p><br><br></p>
+<p><strong>Implicit Method</strong></p>
+<p>A method is implicit if the next value <span class="math notranslate nohighlight">\(y_{n+1}\)</span> must be found by solving an equation involving <span class="math notranslate nohighlight">\(y_{n+1}\)</span> itself.</p>
+</div>
+<p>Implicit methods are usually more computationally expensive, but they often have much better stability properties.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c1-2-5-algorithmic-procedure">
+<h2>C1.2.5 — Algorithmic Procedure<a class="headerlink" href="#c1-2-5-algorithmic-procedure" title="Link to this heading">#</a></h2>
+<p>The Backward Euler algorithm follows these steps:</p>
+<ol class="arabic">
+<li><p>Define the differential equation:</p>
+<div class="math notranslate nohighlight">
+\[
+   \frac{dy}{dt}=f(t,y).
+   \]</div>
+</li>
+<li><p>Choose:</p>
+<ul class="simple">
+<li><p>initial condition <span class="math notranslate nohighlight">\((t_0,y_0)\)</span>,</p></li>
+<li><p>step size <span class="math notranslate nohighlight">\(h\)</span>,</p></li>
+<li><p>number of steps.</p></li>
+</ul>
+</li>
+<li><p>At each step, solve the implicit equation:</p>
+<div class="math notranslate nohighlight">
+\[
+   y_{n+1}=y_n+h f(t_{n+1},y_{n+1}).
+   \]</div>
+</li>
+<li><p>Advance time:</p>
+<div class="math notranslate nohighlight">
+\[
+   t_{n+1}=t_n+h.
+   \]</div>
+</li>
+<li><p>Repeat until the desired final time is reached.</p></li>
+</ol>
+<div style="background-color:#ffe6e6; border-left:6px solid #cc0000; padding:14px; border-radius:4px;">
+<strong>Danger:</strong><br>
+<p>Backward Euler is not usually a plug-in formula. In many problems, each step requires solving an algebraic equation. For nonlinear differential equations, this may require numerical root-finding.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c1-2-6-example-exponential-decay">
+<h2>C1.2.6 — Example: Exponential Decay<a class="headerlink" href="#c1-2-6-example-exponential-decay" title="Link to this heading">#</a></h2>
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Example — Backward Euler for Exponential Decay</h3>
+Consider the differential equation
+<div class="math notranslate nohighlight">
+\[
+\frac{dy}{dt}=-ky,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(k&gt;0\)</span>.</p>
+<p>This describes exponential decay, such as radioactive decay, cooling, or a simple dissipative system.</p>
+<p>Using Backward Euler,</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1}=y_n+h(-k y_{n+1}).
+\]</div>
+<p>Now solve for <span class="math notranslate nohighlight">\(y_{n+1}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1}=y_n-hk y_{n+1}.
+\]</div>
+<p>Move all <span class="math notranslate nohighlight">\(y_{n+1}\)</span> terms to one side:</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1}+hk y_{n+1}=y_n.
+\]</div>
+<p>Factor:</p>
+<div class="math notranslate nohighlight">
+\[
+(1+hk)y_{n+1}=y_n.
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1}=\frac{y_n}{1+hk}.
+\]</div>
+<p>For</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dy}{dt}=-ky,
+\]</div>
+<p>Backward Euler gives</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1}=\frac{y_n}{1+hk}.
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\(1+hk&gt;1\)</span>, each step reduces the magnitude of <span class="math notranslate nohighlight">\(y_n\)</span>. This means the numerical solution decays rather than artificially growing.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c1-2-7-stability-comparison-with-forward-euler">
+<h2>C1.2.7 — Stability Comparison with Forward Euler<a class="headerlink" href="#c1-2-7-stability-comparison-with-forward-euler" title="Link to this heading">#</a></h2>
+<p>For the same equation,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dy}{dt}=-ky,
+\]</div>
+<p>Forward Euler gives</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1}=y_n-hk y_n.
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1}=(1-hk)y_n.
+\]</div>
+<p>Backward Euler gives</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1}=\frac{1}{1+hk}y_n.
+\]</div>
+<p>The difference is important.</p>
+<p>For Forward Euler, the multiplier is</p>
+<div class="math notranslate nohighlight">
+\[
+1-hk.
+\]</div>
+<p>If <span class="math notranslate nohighlight">\(h\)</span> is too large, this factor can become negative or have magnitude larger than one, causing oscillation or growth.</p>
+<p>For Backward Euler, the multiplier is</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{1+hk}.
+\]</div>
+<p>For <span class="math notranslate nohighlight">\(h&gt;0\)</span> and <span class="math notranslate nohighlight">\(k&gt;0\)</span>, this factor always has magnitude less than one.</p>
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<strong>Numerical Insight</strong>
+<p>Backward Euler is especially useful for systems that physically decay. Even with large time steps, the method tends to preserve the qualitative behavior of decay.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c1-2-8-physical-interpretation">
+<h2>C1.2.8 — Physical Interpretation<a class="headerlink" href="#c1-2-8-physical-interpretation" title="Link to this heading">#</a></h2>
+<p>The Forward Euler method asks:</p>
+<blockquote>
+<div><p>What happens if the current slope continues forward for one step?</p>
+</div></blockquote>
+<p>The Backward Euler method asks:</p>
+<blockquote>
+<div><p>What value at the next time makes the future slope consistent with the step we just took?</p>
+</div></blockquote>
+<p>This makes Backward Euler more cautious. It uses information from the endpoint of the interval rather than the beginning.</p>
+<p>For rapidly changing or dissipative systems, this future-point evaluation often prevents runaway numerical behavior.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c1-2-9-box-activity-compare-forward-and-backward-euler">
+<h2>C1.2.9 — Box Activity: Compare Forward and Backward Euler<a class="headerlink" href="#c1-2-9-box-activity-compare-forward-and-backward-euler" title="Link to this heading">#</a></h2>
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Exponential Decay with a Large Step Size</h3>
+<p>Consider the differential equation</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dy}{dt}=-5y,
+\]</div>
+<p>with initial condition</p>
+<div class="math notranslate nohighlight">
+\[
+y(0)=1.
+\]</div>
+<p>Use a step size</p>
+<div class="math notranslate nohighlight">
+\[
+h=0.5.
+\]</div>
+<p>Answer the following:</p>
+<ol class="arabic simple">
+<li><p>Find the Forward Euler update formula.</p></li>
+<li><p>Find the Backward Euler update formula.</p></li>
+<li><p>Compute <span class="math notranslate nohighlight">\(y_1\)</span> using both methods.</p></li>
+<li><p>Which method better preserves the expected physical behavior?</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<p>For Forward Euler,</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1}=y_n+h(-5y_n).
+\]</div>
+<p>So</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1}=(1-5h)y_n.
+\]</div>
+<p>With <span class="math notranslate nohighlight">\(h=0.5\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1}=(1-2.5)y_n=-1.5y_n.
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\(y_0=1\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+y_1=-1.5.
+\]</div>
+<p>This is unphysical for a simple positive decay problem.</p>
+<p>For Backward Euler,</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1}=y_n+h(-5y_{n+1}).
+\]</div>
+<p>So</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1}+5h y_{n+1}=y_n.
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1}=\frac{y_n}{1+5h}.
+\]</div>
+<p>With <span class="math notranslate nohighlight">\(h=0.5\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+y_1=\frac{1}{1+2.5}.
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+y_1=\frac{1}{3.5}\approx 0.286.
+\]</div>
+<p>Backward Euler preserves the expected behavior: the solution remains positive and decays.</p>
+</details>
+</div>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Parameters</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mf">5.0</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">t_final</span> <span class="o">=</span> <span class="mf">5.0</span>
+
+<span class="c1"># Time array</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_final</span> <span class="o">+</span> <span class="n">h</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+
+<span class="c1"># Arrays</span>
+<span class="n">y_forward</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="n">y_backward</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="n">y_exact</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">k</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+
+<span class="c1"># Initial condition</span>
+<span class="n">y_forward</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">y_backward</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+<span class="c1"># Euler updates</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">y_forward</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_forward</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="n">k</span><span class="o">*</span><span class="n">y_forward</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
+    <span class="n">y_backward</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_backward</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">k</span><span class="p">)</span>
+
+<span class="c1"># Plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y_exact</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Exact solution&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y_forward</span><span class="p">,</span> <span class="s2">&quot;o--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Forward Euler&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y_backward</span><span class="p">,</span> <span class="s2">&quot;s--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Backward Euler&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y(t)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Forward Euler vs Backward Euler for Exponential Decay&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/b3fb492928e4e85932ee2774ce98466a2ca5dd366edf57d1f91c08b00096a333.png" src="../_images/b3fb492928e4e85932ee2774ce98466a2ca5dd366edf57d1f91c08b00096a333.png" />
+</div>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c1-2-10-nonlinear-problems">
+<h2>C1.2.10 — Nonlinear Problems<a class="headerlink" href="#c1-2-10-nonlinear-problems" title="Link to this heading">#</a></h2>
+<p>For simple linear equations, Backward Euler may be solved algebraically.</p>
+<p>However, for nonlinear equations, the implicit equation may be more difficult.</p>
+<p>For example, consider</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dy}{dt}=y^2-t.
+\]</div>
+<p>Backward Euler gives</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1}=y_n+h(y_{n+1}^2-t_{n+1}).
+\]</div>
+<p>This is not a direct formula for <span class="math notranslate nohighlight">\(y_{n+1}\)</span>. Instead, we must solve</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1}-y_n-h(y_{n+1}^2-t_{n+1})=0.
+\]</div>
+<p>This is a root-finding problem.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Implicit Equation Form</strong>
+<p>Backward Euler often leads to an equation of the form</p>
+<div class="math notranslate nohighlight">
+\[
+G(y_{n+1})=0.
+\]</div>
+<p>The goal at each step is to find the value of <span class="math notranslate nohighlight">\(y_{n+1}\)</span> that makes this equation true.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c1-2-11-solving-the-implicit-equation-numerically">
+<h2>C1.2.11 — Solving the Implicit Equation Numerically<a class="headerlink" href="#c1-2-11-solving-the-implicit-equation-numerically" title="Link to this heading">#</a></h2>
+<p>A common way to solve the implicit equation is to define</p>
+<div class="math notranslate nohighlight">
+\[
+G(y_{n+1})=y_{n+1}-y_n-h f(t_{n+1},y_{n+1}).
+\]</div>
+<p>Then we solve</p>
+<div class="math notranslate nohighlight">
+\[
+G(y_{n+1})=0.
+\]</div>
+<p>This can be done using numerical methods such as:</p>
+<ul class="simple">
+<li><p>fixed-point iteration,</p></li>
+<li><p>Newton’s method,</p></li>
+<li><p>bisection,</p></li>
+<li><p>built-in root solvers.</p></li>
+</ul>
+<p>For many physics applications, Newton’s method is especially common.</p>
+<div style="background-color:#ffe6e6; border-left:6px solid #cc0000; padding:14px; border-radius:4px;">
+<strong>Danger:</strong><br>
+<p>Backward Euler improves stability, but it does not remove all numerical challenges. If the implicit equation is solved poorly, the method can still give inaccurate results.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c1-2-12-summary">
+<h2>C1.2.12 — Summary<a class="headerlink" href="#c1-2-12-summary" title="Link to this heading">#</a></h2>
+<p>The Backward Euler Method is given by</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1}=y_n+h f(t_{n+1},y_{n+1}).
+\]</div>
+<p>Its key features are:</p>
+<ul class="simple">
+<li><p>it uses the slope at the future point,</p></li>
+<li><p>it is an implicit method,</p></li>
+<li><p>it usually requires solving an equation at each step,</p></li>
+<li><p>it is more stable than Forward Euler for many dissipative systems,</p></li>
+<li><p>it is especially useful for stiff differential equations.</p></li>
+</ul>
+<p>The main tradeoff is:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{better stability} \quad \longleftrightarrow \quad \text{more computational work}.
+\]</div>
+<p>Backward Euler is one of the simplest examples of an implicit numerical method, making it an important bridge between basic numerical methods and more advanced time-stepping algorithms.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Phys-Prof-Nielsen/modulearn",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-C1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="forward-euler.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">C1.1 — The Forward Euler Numerical Method</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="euler-cromer.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">C1.4 — Euler-Cromer Method (Symplectic Euler)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-2-1-motivation">C1.2.1 — Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-2-2-the-backward-euler-method">C1.2.2 — The Backward Euler Method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-2-3-why-the-method-is-called-backward">C1.2.3 — Why the Method Is Called “Backward”</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-2-4-explicit-versus-implicit-methods">C1.2.4 — Explicit Versus Implicit Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-2-5-algorithmic-procedure">C1.2.5 — Algorithmic Procedure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-2-6-example-exponential-decay">C1.2.6 — Example: Exponential Decay</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-2-7-stability-comparison-with-forward-euler">C1.2.7 — Stability Comparison with Forward Euler</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-2-8-physical-interpretation">C1.2.8 — Physical Interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-2-9-box-activity-compare-forward-and-backward-euler">C1.2.9 — Box Activity: Compare Forward and Backward Euler</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-2-10-nonlinear-problems">C1.2.10 — Nonlinear Problems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-2-11-solving-the-implicit-equation-numerically">C1.2.11 — Solving the Implicit Equation Numerically</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-2-12-summary">C1.2.12 — Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

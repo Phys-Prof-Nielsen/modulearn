@@ -1,0 +1,3059 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>C1.5 Problems &#8212; A Competency Approach to Classical Mechanics - Phase C</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-C1/problemsC1';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="C1.4 — Euler-Cromer Method (Symplectic Euler)" href="euler-cromer.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-C.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Phase C - Home"/>
+    <script>document.write(`<img src="../_static/logo-C.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Phase C - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the C Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C1 - Numerical Methods</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-C1.html">C1.0 Learning Outcomes — Numerical Methods and Finite Difference Techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="forward-euler.html">C1.1 — The Forward Euler Numerical Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backward-euler.html">C1.2 — The Backward Euler Numerical Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="euler-cromer.html">C1.4 — Euler-Cromer Method (Symplectic Euler)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">C1.5 Problems</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/classical-mechanics-C/Module-C1/problemsC1.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-C1/problemsC1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>C1.5 Problems</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-velocity-from-a-time-dependent-acceleration">Problem 1 — Velocity from a Time-Dependent Acceleration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1">Step 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2">Step 2</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-velocity-with-velocity-dependent-acceleration">Problem 2 — Velocity with Velocity-Dependent Acceleration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Step 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Step 2</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-position-from-a-tangled-velocity-equation">Problem 3 — Position from a Tangled Velocity Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4-simultaneous-position-and-velocity-updates">Problem 4 — Simultaneous Position and Velocity Updates</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Step 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Step 2</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5-combining-backward-time-euler-central-difference-and-forward-euler">Problem 5 — Combining Backward-Time Euler, Central Difference, and Forward Euler</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-6-projectile-motion-with-air-drag-using-many-central-difference-steps">Problem 6 — Projectile Motion with Air Drag Using Many Central Difference Steps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-7-avalanche-control-shell-with-air-drag">Problem 7 — Avalanche Control Shell with Air Drag</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-8-parachutist-with-air-drag-forward-euler-vs-backward-euler">Problem 8 — Parachutist with Air Drag: Forward Euler vs Backward Euler</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-9-muon-decay-forward-euler-vs-backward-euler">Problem 9 — Muon Decay: Forward Euler vs Backward Euler</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-10-moon-orbit-around-earth-forward-euler-backward-euler-and-euler-cromer">Problem 10 — Moon Orbit Around Earth: Forward Euler, Backward Euler, and Euler-Cromer</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="c1-5-problems">
+<h1>C1.5 Problems<a class="headerlink" href="#c1-5-problems" title="Link to this heading">#</a></h1>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"><section id="problem-1-velocity-from-a-time-dependent-acceleration">
+<h2>Problem 1 — Velocity from a Time-Dependent Acceleration<a class="headerlink" href="#problem-1-velocity-from-a-time-dependent-acceleration" title="Link to this heading">#</a></h2>
+<p>A particle moves along the x-axis with acceleration</p>
+<div class="math notranslate nohighlight">
+\[
+a(t)=vt+1
+\]</div>
+<p>in the positive x-direction.</p>
+<p>At time</p>
+<div class="math notranslate nohighlight">
+\[
+t=0~\text{s},
+\]</div>
+<p>the velocity is</p>
+<div class="math notranslate nohighlight">
+\[
+v_0=+1.00~\text{m/s}.
+\]</div>
+<p>Use the Forward Euler method to estimate the velocity at</p>
+<div class="math notranslate nohighlight">
+\[
+t=3.00~\text{s}
+\]</div>
+<p>using a step size of</p>
+<div class="math notranslate nohighlight">
+\[
+h=0.50~\text{s}.
+\]</div>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Problem solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>The Forward Euler velocity update equation is</p>
+<div class="math notranslate nohighlight">
+\[
+v_{n+1}=v_n+h a_n.
+\]</div>
+<p>The acceleration is</p>
+<div class="math notranslate nohighlight">
+\[
+a(t)=vt+1.
+\]</div>
+<p>We begin with</p>
+<div class="math notranslate nohighlight">
+\[
+t_0=0,
+\qquad
+v_0=1.00~\text{m/s}.
+\]</div>
+<p>The step size is</p>
+<div class="math notranslate nohighlight">
+\[
+h=0.50~\text{s}.
+\]</div>
+<hr class="docutils" />
+<section id="step-1">
+<h3>Step 1<a class="headerlink" href="#step-1" title="Link to this heading">#</a></h3>
+<p>At</p>
+<div class="math notranslate nohighlight">
+\[
+t_0=0,
+\]</div>
+<p>the acceleration is</p>
+<div class="math notranslate nohighlight">
+\[
+a_0=v(0)+1=1.
+\]</div>
+<p>Update velocity:</p>
+<div class="math notranslate nohighlight">
+\[
+v_1=v_0+h a_0.
+\]</div>
+<p>Substitute values:</p>
+<div class="math notranslate nohighlight">
+\[
+v_1=1.00+0.50(1).
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+v_1=1.50~\text{m/s}.
+\]</div>
+<p>Advance time:</p>
+<div class="math notranslate nohighlight">
+\[
+t_1=0.50~\text{s}.
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="step-2">
+<h3>Step 2<a class="headerlink" href="#step-2" title="Link to this heading">#</a></h3>
+<p>Acceleration:</p>
+<div class="math notranslate nohighlight">
+\[
+a_1=v(0.50)+1.
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+a_1=1.50v+1.
+\]</div>
+<p>Update velocity:</p>
+<div class="math notranslate nohighlight">
+\[
+v_2=v_1+0.50(1.50v+1).
+\]</div>
+<p>Continue this process until</p>
+<div class="math notranslate nohighlight">
+\[
+t=3.00~\text{s}.
+\]</div>
+<p>The repeated Euler updates produce the numerical estimate for the velocity at the final time.</p>
+</div>
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Parameters</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mf">0.50</span>          <span class="c1"># step size (s)</span>
+<span class="n">t_final</span> <span class="o">=</span> <span class="mf">3.0</span>     <span class="c1"># final time (s)</span>
+
+<span class="c1"># Initial conditions</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">v</span> <span class="o">=</span> <span class="mf">1.0</span>           <span class="c1"># initial velocity (m/s)</span>
+
+<span class="c1"># Lists for storing results</span>
+<span class="n">times</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="p">]</span>
+<span class="n">velocities</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span><span class="p">]</span>
+
+<span class="c1"># Forward Euler loop</span>
+<span class="k">while</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="n">t_final</span><span class="p">:</span>
+    
+    <span class="c1"># Acceleration function</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">v</span><span class="o">*</span><span class="n">t</span> <span class="o">+</span> <span class="mi">1</span>
+    
+    <span class="c1"># Euler update</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">a</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="n">h</span>
+    
+    <span class="c1"># Store results</span>
+    <span class="n">times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">velocities</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+
+<span class="c1"># Display results</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Forward Euler Results&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-------------------------&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;t = </span><span class="si">{</span><span class="n">times</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">4.2f</span><span class="si">}</span><span class="s2"> s    v = </span><span class="si">{</span><span class="n">velocities</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">8.4f</span><span class="si">}</span><span class="s2"> m/s&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Final estimate:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;v(</span><span class="si">{</span><span class="n">t_final</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> s) ≈ </span><span class="si">{</span><span class="n">velocities</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> m/s&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Forward Euler Results
+-------------------------
+t = 0.00 s    v =   1.0000 m/s
+t = 0.50 s    v =   1.5000 m/s
+t = 1.00 s    v =   2.3750 m/s
+t = 1.50 s    v =   4.0625 m/s
+t = 2.00 s    v =   7.6094 m/s
+t = 2.50 s    v =  15.7188 m/s
+t = 3.00 s    v =  35.8672 m/s
+
+Final estimate:
+v(3.0 s) ≈ 35.8672 m/s
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="problem-2-velocity-with-velocity-dependent-acceleration">
+<h2>Problem 2 — Velocity with Velocity-Dependent Acceleration<a class="headerlink" href="#problem-2-velocity-with-velocity-dependent-acceleration" title="Link to this heading">#</a></h2>
+<p>A particle moves along the x-axis with acceleration</p>
+<div class="math notranslate nohighlight">
+\[
+a(t)=\frac{1}{v}+1
+\]</div>
+<p>in the positive x-direction.</p>
+<p>At time</p>
+<div class="math notranslate nohighlight">
+\[
+t=0~\text{s},
+\]</div>
+<p>the velocity is</p>
+<div class="math notranslate nohighlight">
+\[
+v_0=+1.00~\text{m/s}.
+\]</div>
+<p>Use the Forward Euler method to estimate the velocity at</p>
+<div class="math notranslate nohighlight">
+\[
+t=3.00~\text{s}
+\]</div>
+<p>using a step size of</p>
+<div class="math notranslate nohighlight">
+\[
+h=0.50~\text{s}.
+\]</div>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Problem solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>The Forward Euler velocity update equation is</p>
+<div class="math notranslate nohighlight">
+\[
+v_{n+1}=v_n+h a_n.
+\]</div>
+<p>The acceleration is</p>
+<div class="math notranslate nohighlight">
+\[
+a=\frac{1}{v}+1.
+\]</div>
+<p>We begin with</p>
+<div class="math notranslate nohighlight">
+\[
+t_0=0,
+\qquad
+v_0=1.00~\text{m/s}.
+\]</div>
+<p>The step size is</p>
+<div class="math notranslate nohighlight">
+\[
+h=0.50~\text{s}.
+\]</div>
+<hr class="docutils" />
+<section id="id1">
+<h3>Step 1<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Initial acceleration:</p>
+<div class="math notranslate nohighlight">
+\[
+a_0=\frac{1}{1.00}+1=2.00~\text{m/s}^2.
+\]</div>
+<p>Update velocity:</p>
+<div class="math notranslate nohighlight">
+\[
+v_1=v_0+h a_0.
+\]</div>
+<p>Substitute values:</p>
+<div class="math notranslate nohighlight">
+\[
+v_1=1.00+0.50(2.00).
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+v_1=2.00~\text{m/s}.
+\]</div>
+<p>Advance time:</p>
+<div class="math notranslate nohighlight">
+\[
+t_1=0.50~\text{s}.
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="id2">
+<h3>Step 2<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Acceleration at the new step:</p>
+<div class="math notranslate nohighlight">
+\[
+a_1=\frac{1}{2.00}+1.
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+a_1=1.50~\text{m/s}^2.
+\]</div>
+<p>Update velocity:</p>
+<div class="math notranslate nohighlight">
+\[
+v_2=v_1+h a_1.
+\]</div>
+<p>Substitute values:</p>
+<div class="math notranslate nohighlight">
+\[
+v_2=2.00+0.50(1.50).
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+v_2=2.75~\text{m/s}.
+\]</div>
+<p>Continue this process until</p>
+<div class="math notranslate nohighlight">
+\[
+t=3.00~\text{s}.
+\]</div>
+<p>The repeated Euler updates produce the numerical estimate for the final velocity.</p>
+</div>
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Parameters</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mf">0.50</span>
+<span class="n">t_final</span> <span class="o">=</span> <span class="mf">3.0</span>
+
+<span class="c1"># Initial conditions</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">v</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+<span class="c1"># Lists for storing results</span>
+<span class="n">times</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="p">]</span>
+<span class="n">velocities</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span><span class="p">]</span>
+
+<span class="c1"># Forward Euler loop</span>
+<span class="k">while</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="n">t_final</span><span class="p">:</span>
+    
+    <span class="c1"># Acceleration function</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">v</span> <span class="o">+</span> <span class="mi">1</span>
+    
+    <span class="c1"># Euler update</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">a</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="n">h</span>
+    
+    <span class="c1"># Store values</span>
+    <span class="n">times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">velocities</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+
+<span class="c1"># Display results</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Forward Euler Results&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-------------------------&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;t = </span><span class="si">{</span><span class="n">times</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">4.2f</span><span class="si">}</span><span class="s2"> s    v = </span><span class="si">{</span><span class="n">velocities</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">8.4f</span><span class="si">}</span><span class="s2"> m/s&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Final estimate:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;v(</span><span class="si">{</span><span class="n">t_final</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> s) ≈ </span><span class="si">{</span><span class="n">velocities</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> m/s&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Forward Euler Results
+-------------------------
+t = 0.00 s    v =   1.0000 m/s
+t = 0.50 s    v =   2.0000 m/s
+t = 1.00 s    v =   2.7500 m/s
+t = 1.50 s    v =   3.4318 m/s
+t = 2.00 s    v =   4.0775 m/s
+t = 2.50 s    v =   4.7001 m/s
+t = 3.00 s    v =   5.3065 m/s
+
+Final estimate:
+v(3.0 s) ≈ 5.3065 m/s
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="problem-3-position-from-a-tangled-velocity-equation">
+<h2>Problem 3 — Position from a Tangled Velocity Equation<a class="headerlink" href="#problem-3-position-from-a-tangled-velocity-equation" title="Link to this heading">#</a></h2>
+<p>The velocity and position of a particle traveling in the <span class="math notranslate nohighlight">\(+x\)</span> direction are related by</p>
+<div class="math notranslate nohighlight">
+\[
+v+xt=t+t^2.
+\]</div>
+<p>At time</p>
+<div class="math notranslate nohighlight">
+\[
+t=0~\text{s},
+\]</div>
+<p>the position is</p>
+<div class="math notranslate nohighlight">
+\[
+x_0=0.00~\text{m}.
+\]</div>
+<p>Use the Forward Euler method to estimate the position at</p>
+<div class="math notranslate nohighlight">
+\[
+t=3.00~\text{s}
+\]</div>
+<p>using a step size of</p>
+<div class="math notranslate nohighlight">
+\[
+h=0.50~\text{s}.
+\]</div>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Problem solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>The Forward Euler position update equation is</p>
+<div class="math notranslate nohighlight">
+\[
+x_{n+1}=x_n+h v_n.
+\]</div>
+<p>We are given the relationship</p>
+<div class="math notranslate nohighlight">
+\[
+v+xt=t+t^2.
+\]</div>
+<p>Solve for the velocity:</p>
+<div class="math notranslate nohighlight">
+\[
+v=t+t^2-xt.
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+v=t+t^2-x t.
+\]</div>
+<p>We begin with</p>
+<div class="math notranslate nohighlight">
+\[
+t_0=0,
+\qquad
+x_0=0.00~\text{m}.
+\]</div>
+<p>The step size is</p>
+<div class="math notranslate nohighlight">
+\[
+h=0.50~\text{s}.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 1</strong></p>
+<p>At</p>
+<div class="math notranslate nohighlight">
+\[
+t_0=0,
+\qquad
+x_0=0,
+\]</div>
+<p>the velocity is</p>
+<div class="math notranslate nohighlight">
+\[
+v_0=0+0^2-(0)(0).
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+v_0=0.
+\]</div>
+<p>Update position:</p>
+<div class="math notranslate nohighlight">
+\[
+x_1=x_0+h v_0.
+\]</div>
+<p>Substitute values:</p>
+<div class="math notranslate nohighlight">
+\[
+x_1=0+0.50(0).
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+x_1=0.00~\text{m}.
+\]</div>
+<p>Advance time:</p>
+<div class="math notranslate nohighlight">
+\[
+t_1=0.50~\text{s}.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 2</strong></p>
+<p>At</p>
+<div class="math notranslate nohighlight">
+\[
+t_1=0.50,
+\qquad
+x_1=0.00,
+\]</div>
+<p>the velocity is</p>
+<div class="math notranslate nohighlight">
+\[
+v_1=0.50+(0.50)^2-(0.00)(0.50).
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+v_1=0.75~\text{m/s}.
+\]</div>
+<p>Update position:</p>
+<div class="math notranslate nohighlight">
+\[
+x_2=x_1+h v_1.
+\]</div>
+<p>Substitute values:</p>
+<div class="math notranslate nohighlight">
+\[
+x_2=0.00+0.50(0.75).
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+x_2=0.375~\text{m}.
+\]</div>
+<p>Continue this process until</p>
+<div class="math notranslate nohighlight">
+\[
+t=3.00~\text{s}.
+\]</div>
+<p>The repeated Euler updates produce the numerical estimate for the final position.</p>
+</div>
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Parameters</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mf">0.50</span>
+<span class="n">t_final</span> <span class="o">=</span> <span class="mf">3.0</span>
+
+<span class="c1"># Initial conditions</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="c1"># Lists for storing results</span>
+<span class="n">times</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="p">]</span>
+<span class="n">positions</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span>
+<span class="n">velocities</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Forward Euler loop</span>
+<span class="k">while</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="n">t_final</span><span class="p">:</span>
+    
+    <span class="c1"># Velocity from the given relationship:</span>
+    <span class="c1"># v + x*t = t + t^2</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="n">t</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">x</span><span class="o">*</span><span class="n">t</span>
+    
+    <span class="c1"># Store velocity used for this step</span>
+    <span class="n">velocities</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    
+    <span class="c1"># Euler update</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">v</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="n">h</span>
+    
+    <span class="c1"># Store updated values</span>
+    <span class="n">times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">positions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Compute final velocity value for table completeness</span>
+<span class="n">velocities</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">times</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">times</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">positions</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">times</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># Display results</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Forward Euler Results&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-------------------------&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;t = </span><span class="si">{</span><span class="n">times</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">4.2f</span><span class="si">}</span><span class="s2"> s    x = </span><span class="si">{</span><span class="n">positions</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">8.4f</span><span class="si">}</span><span class="s2"> m    v = </span><span class="si">{</span><span class="n">velocities</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">8.4f</span><span class="si">}</span><span class="s2"> m/s&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Final estimate:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x(</span><span class="si">{</span><span class="n">t_final</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> s) ≈ </span><span class="si">{</span><span class="n">positions</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> m&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Forward Euler Results
+-------------------------
+t = 0.00 s    x =   0.0000 m    v =   0.0000 m/s
+t = 0.50 s    x =   0.0000 m    v =   0.7500 m/s
+t = 1.00 s    x =   0.3750 m    v =   1.6250 m/s
+t = 1.50 s    x =   1.1875 m    v =   1.9688 m/s
+t = 2.00 s    x =   2.1719 m    v =   1.6562 m/s
+t = 2.50 s    x =   3.0000 m    v =   1.2500 m/s
+t = 3.00 s    x =   3.6250 m    v =   1.1250 m/s
+
+Final estimate:
+x(3.0 s) ≈ 3.6250 m
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"></section>
+<section id="problem-4-simultaneous-position-and-velocity-updates">
+<h2>Problem 4 — Simultaneous Position and Velocity Updates<a class="headerlink" href="#problem-4-simultaneous-position-and-velocity-updates" title="Link to this heading">#</a></h2>
+<p>Consider the particle problem from Box 1, where the acceleration is given by</p>
+<div class="math notranslate nohighlight">
+\[
+a(t)=vt+1.
+\]</div>
+<p>Assume the initial velocity is the same as in Box 1:</p>
+<div class="math notranslate nohighlight">
+\[
+v_0=+1.00~\text{m/s}.
+\]</div>
+<p>Now also assume the initial position is</p>
+<div class="math notranslate nohighlight">
+\[
+x_0=0.00~\text{m}.
+\]</div>
+<p>Use the Forward Euler method to estimate the position at</p>
+<div class="math notranslate nohighlight">
+\[
+t=3.00~\text{s}
+\]</div>
+<p>using a step size of</p>
+<div class="math notranslate nohighlight">
+\[
+h=0.50~\text{s}.
+\]</div>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Problem solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>We must update both velocity and position.</p>
+<p>The Forward Euler update equations are</p>
+<div class="math notranslate nohighlight">
+\[
+v_{n+1}=v_n+h a_n,
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+x_{n+1}=x_n+h v_n.
+\]</div>
+<p>The acceleration is</p>
+<div class="math notranslate nohighlight">
+\[
+a(t)=vt+1.
+\]</div>
+<p>We begin with</p>
+<div class="math notranslate nohighlight">
+\[
+t_0=0,
+\qquad
+v_0=1.00~\text{m/s},
+\qquad
+x_0=0.00~\text{m}.
+\]</div>
+<p>The step size is</p>
+<div class="math notranslate nohighlight">
+\[
+h=0.50~\text{s}.
+\]</div>
+<hr class="docutils" />
+<section id="id3">
+<h3>Step 1<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>Initial acceleration:</p>
+<div class="math notranslate nohighlight">
+\[
+a_0=v_0 t_0+1.
+\]</div>
+<p>Substitute values:</p>
+<div class="math notranslate nohighlight">
+\[
+a_0=(1.00)(0)+1.
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+a_0=1.00~\text{m/s}^2.
+\]</div>
+<p>Update velocity:</p>
+<div class="math notranslate nohighlight">
+\[
+v_1=v_0+h a_0.
+\]</div>
+<p>Substitute values:</p>
+<div class="math notranslate nohighlight">
+\[
+v_1=1.00+0.50(1.00).
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+v_1=1.50~\text{m/s}.
+\]</div>
+<p>Update position:</p>
+<div class="math notranslate nohighlight">
+\[
+x_1=x_0+h v_0.
+\]</div>
+<p>Substitute values:</p>
+<div class="math notranslate nohighlight">
+\[
+x_1=0.00+0.50(1.00).
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+x_1=0.50~\text{m}.
+\]</div>
+<p>Advance time:</p>
+<div class="math notranslate nohighlight">
+\[
+t_1=0.50~\text{s}.
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="id4">
+<h3>Step 2<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>Acceleration:</p>
+<div class="math notranslate nohighlight">
+\[
+a_1=v_1 t_1+1.
+\]</div>
+<p>Substitute values:</p>
+<div class="math notranslate nohighlight">
+\[
+a_1=(1.50)(0.50)+1.
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+a_1=1.75~\text{m/s}^2.
+\]</div>
+<p>Update velocity:</p>
+<div class="math notranslate nohighlight">
+\[
+v_2=v_1+h a_1.
+\]</div>
+<p>Update position:</p>
+<div class="math notranslate nohighlight">
+\[
+x_2=x_1+h v_1.
+\]</div>
+<p>Continue this process until</p>
+<div class="math notranslate nohighlight">
+\[
+t=3.00~\text{s}.
+\]</div>
+<p>The repeated Euler updates produce the numerical estimate for the final position.</p>
+</div>
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Parameters</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mf">0.50</span>
+<span class="n">t_final</span> <span class="o">=</span> <span class="mf">3.0</span>
+
+<span class="c1"># Initial conditions</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">v</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="c1"># Lists for storing results</span>
+<span class="n">times</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="p">]</span>
+<span class="n">velocities</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span><span class="p">]</span>
+<span class="n">positions</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span>
+
+<span class="c1"># Forward Euler loop</span>
+<span class="k">while</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="n">t_final</span><span class="p">:</span>
+    
+    <span class="c1"># Acceleration</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">v</span><span class="o">*</span><span class="n">t</span> <span class="o">+</span> <span class="mi">1</span>
+    
+    <span class="c1"># Store current velocity before updating</span>
+    <span class="n">v_old</span> <span class="o">=</span> <span class="n">v</span>
+    
+    <span class="c1"># Euler updates</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">a</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">v_old</span>
+    
+    <span class="c1"># Advance time</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="n">h</span>
+    
+    <span class="c1"># Store results</span>
+    <span class="n">times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">velocities</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="n">positions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Display results</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Forward Euler Results&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-----------------------------------------&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;t = </span><span class="si">{</span><span class="n">times</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">4.2f</span><span class="si">}</span><span class="s2"> s    x = </span><span class="si">{</span><span class="n">positions</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">8.4f</span><span class="si">}</span><span class="s2"> m    v = </span><span class="si">{</span><span class="n">velocities</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">8.4f</span><span class="si">}</span><span class="s2"> m/s&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Final estimate:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x(</span><span class="si">{</span><span class="n">t_final</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> s) ≈ </span><span class="si">{</span><span class="n">positions</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> m&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Forward Euler Results
+-----------------------------------------
+t = 0.00 s    x =   0.0000 m    v =   1.0000 m/s
+t = 0.50 s    x =   0.5000 m    v =   1.5000 m/s
+t = 1.00 s    x =   1.2500 m    v =   2.3750 m/s
+t = 1.50 s    x =   2.4375 m    v =   4.0625 m/s
+t = 2.00 s    x =   4.4688 m    v =   7.6094 m/s
+t = 2.50 s    x =   8.2734 m    v =  15.7188 m/s
+t = 3.00 s    x =  16.1328 m    v =  35.8672 m/s
+
+Final estimate:
+x(3.0 s) ≈ 16.1328 m
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="problem-5-combining-backward-time-euler-central-difference-and-forward-euler">
+<h2>Problem 5 — Combining Backward-Time Euler, Central Difference, and Forward Euler<a class="headerlink" href="#problem-5-combining-backward-time-euler-central-difference-and-forward-euler" title="Link to this heading">#</a></h2>
+<p>A particle moves along the <span class="math notranslate nohighlight">\(x\)</span>-axis with velocity described by</p>
+<div class="math notranslate nohighlight">
+\[
+v(t,x)=t^2-x.
+\]</div>
+<p>At time</p>
+<div class="math notranslate nohighlight">
+\[
+t=1.00~\text{s},
+\]</div>
+<p>the position is</p>
+<div class="math notranslate nohighlight">
+\[
+x(1.00)=2.00~\text{m}.
+\]</div>
+<p>Use a step size of</p>
+<div class="math notranslate nohighlight">
+\[
+h=0.50~\text{s}.
+\]</div>
+<p>Estimate the position at</p>
+<div class="math notranslate nohighlight">
+\[
+t=2.00~\text{s}
+\]</div>
+<p>using the following required sequence:</p>
+<ol class="arabic simple">
+<li><p>Use <strong>Forward Euler backward in time</strong> to estimate <span class="math notranslate nohighlight">\(x(0.50)\)</span>.</p></li>
+<li><p>Use the <strong>central difference method</strong> to estimate <span class="math notranslate nohighlight">\(x(1.50)\)</span>.</p></li>
+<li><p>Use <strong>Forward Euler forward in time</strong> to estimate <span class="math notranslate nohighlight">\(x(2.00)\)</span>.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Problem solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>The velocity is</p>
+<div class="math notranslate nohighlight">
+\[
+v(t,x)=t^2-x.
+\]</div>
+<p>Since</p>
+<div class="math notranslate nohighlight">
+\[
+v=\frac{dx}{dt},
+\]</div>
+<p>we have</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dx}{dt}=t^2-x.
+\]</div>
+<p>We are given</p>
+<div class="math notranslate nohighlight">
+\[
+x(1.00)=2.00~\text{m}.
+\]</div>
+<p>The step size is</p>
+<div class="math notranslate nohighlight">
+\[
+h=0.50~\text{s}.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 1: Forward Euler backward in time</strong></p>
+<p>Forward Euler is</p>
+<div class="math notranslate nohighlight">
+\[
+x_{n+1}=x_n+h f(t_n,x_n).
+\]</div>
+<p>To step backward in time, use</p>
+<div class="math notranslate nohighlight">
+\[
+h=-0.50~\text{s}.
+\]</div>
+<p>At</p>
+<div class="math notranslate nohighlight">
+\[
+t=1.00~\text{s},
+\qquad
+x=2.00~\text{m},
+\]</div>
+<p>the velocity is</p>
+<div class="math notranslate nohighlight">
+\[
+f(1.00,2.00)=(1.00)^2-2.00.
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+f(1.00,2.00)=-1.00~\text{m/s}.
+\]</div>
+<p>Now step backward:</p>
+<div class="math notranslate nohighlight">
+\[
+x(0.50)=x(1.00)+(-0.50)(-1.00).
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+x(0.50)=2.50~\text{m}.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 2: Central difference</strong></p>
+<p>The central difference update is</p>
+<div class="math notranslate nohighlight">
+\[
+x_{n+1}=x_{n-1}+2h f(t_n,x_n).
+\]</div>
+<p>Here,</p>
+<div class="math notranslate nohighlight">
+\[
+t_n=1.00~\text{s},
+\qquad
+x_n=x(1.00)=2.00~\text{m},
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+x_{n-1}=x(0.50)=2.50~\text{m}.
+\]</div>
+<p>Using</p>
+<div class="math notranslate nohighlight">
+\[
+f(1.00,2.00)=-1.00,
+\]</div>
+<p>we get</p>
+<div class="math notranslate nohighlight">
+\[
+x(1.50)=x(0.50)+2(0.50)(-1.00).
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+x(1.50)=1.50~\text{m}.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 3: Forward Euler forward in time</strong></p>
+<p>Now use Forward Euler from <span class="math notranslate nohighlight">\(t=1.50~\text{s}\)</span> to <span class="math notranslate nohighlight">\(t=2.00~\text{s}\)</span>.</p>
+<p>First compute the velocity:</p>
+<div class="math notranslate nohighlight">
+\[
+f(1.50,1.50)=(1.50)^2-1.50.
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+f(1.50,1.50)=2.25-1.50=0.75~\text{m/s}.
+\]</div>
+<p>Now update:</p>
+<div class="math notranslate nohighlight">
+\[
+x(2.00)=x(1.50)+0.50(0.75).
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+x(2.00)=1.875~\text{m}.
+\]</div>
+</div>
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Step size</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mf">0.50</span>
+
+<span class="c1"># Differential equation: dx/dt = f(t,x)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">t</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">x</span>
+
+<span class="c1"># Given value</span>
+<span class="n">t_center</span> <span class="o">=</span> <span class="mf">1.00</span>
+<span class="n">x_center</span> <span class="o">=</span> <span class="mf">2.00</span>
+
+<span class="c1"># Step 1: Forward Euler backward in time</span>
+<span class="n">h_back</span> <span class="o">=</span> <span class="o">-</span><span class="n">h</span>
+<span class="n">x_back</span> <span class="o">=</span> <span class="n">x_center</span> <span class="o">+</span> <span class="n">h_back</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">t_center</span><span class="p">,</span> <span class="n">x_center</span><span class="p">)</span>
+<span class="n">t_back</span> <span class="o">=</span> <span class="n">t_center</span> <span class="o">+</span> <span class="n">h_back</span>
+
+<span class="c1"># Step 2: Central difference</span>
+<span class="c1"># x_forward = x_back + 2h*f(t_center, x_center)</span>
+<span class="n">x_mid_forward</span> <span class="o">=</span> <span class="n">x_back</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">t_center</span><span class="p">,</span> <span class="n">x_center</span><span class="p">)</span>
+<span class="n">t_mid_forward</span> <span class="o">=</span> <span class="n">t_center</span> <span class="o">+</span> <span class="n">h</span>
+
+<span class="c1"># Step 3: Forward Euler forward in time</span>
+<span class="n">x_final</span> <span class="o">=</span> <span class="n">x_mid_forward</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">t_mid_forward</span><span class="p">,</span> <span class="n">x_mid_forward</span><span class="p">)</span>
+<span class="n">t_final</span> <span class="o">=</span> <span class="n">t_mid_forward</span> <span class="o">+</span> <span class="n">h</span>
+
+<span class="c1"># Display results</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mixed Method Results&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-------------------------&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x(</span><span class="si">{</span><span class="n">t_back</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> s) = </span><span class="si">{</span><span class="n">x_back</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> m   using Forward Euler backward in time&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x(</span><span class="si">{</span><span class="n">t_mid_forward</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> s) = </span><span class="si">{</span><span class="n">x_mid_forward</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> m   using Central Difference&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x(</span><span class="si">{</span><span class="n">t_final</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> s) = </span><span class="si">{</span><span class="n">x_final</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> m   using Forward Euler forward in time&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mixed Method Results
+-------------------------
+x(0.50 s) = 2.5000 m   using Forward Euler backward in time
+x(1.50 s) = 1.5000 m   using Central Difference
+x(2.00 s) = 1.8750 m   using Forward Euler forward in time
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"></section>
+<section id="problem-6-projectile-motion-with-air-drag-using-many-central-difference-steps">
+<h2>Problem 6 — Projectile Motion with Air Drag Using Many Central Difference Steps<a class="headerlink" href="#problem-6-projectile-motion-with-air-drag-using-many-central-difference-steps" title="Link to this heading">#</a></h2>
+<p>A small projectile is moving vertically through air. Choose upward as the positive direction.</p>
+<p>The projectile experiences gravity and linear air drag, so its acceleration is</p>
+<div class="math notranslate nohighlight">
+\[
+a(v)=-g-\frac{b}{m}v.
+\]</div>
+<p>The constants are</p>
+<div class="math notranslate nohighlight">
+\[
+g=9.81~\text{m/s}^2,
+\qquad
+m=0.20~\text{kg},
+\qquad
+b=0.04~\text{kg/s}.
+\]</div>
+<p>At time</p>
+<div class="math notranslate nohighlight">
+\[
+t=1.00~\text{s},
+\]</div>
+<p>the projectile has velocity</p>
+<div class="math notranslate nohighlight">
+\[
+v(1.00)=8.00~\text{m/s}.
+\]</div>
+<p>Use a step size of</p>
+<div class="math notranslate nohighlight">
+\[
+h=0.01~\text{s}.
+\]</div>
+<p>Estimate the velocity at</p>
+<div class="math notranslate nohighlight">
+\[
+t=2.00~\text{s}
+\]</div>
+<p>using the following required sequence:</p>
+<ol class="arabic simple">
+<li><p>Use <strong>Forward Euler backward in time</strong> to estimate <span class="math notranslate nohighlight">\(v(0.99)\)</span>.</p></li>
+<li><p>Use the <strong>central difference method</strong> to advance from <span class="math notranslate nohighlight">\(t=1.00~\text{s}\)</span> to <span class="math notranslate nohighlight">\(t=1.99~\text{s}\)</span>.</p></li>
+<li><p>Use <strong>Forward Euler forward in time</strong> to estimate <span class="math notranslate nohighlight">\(v(2.00)\)</span>.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Problem solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>The acceleration is</p>
+<div class="math notranslate nohighlight">
+\[
+a(v)=-g-\frac{b}{m}v.
+\]</div>
+<p>Since</p>
+<div class="math notranslate nohighlight">
+\[
+a=\frac{dv}{dt},
+\]</div>
+<p>we have</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dv}{dt}=-g-\frac{b}{m}v.
+\]</div>
+<p>We are given</p>
+<div class="math notranslate nohighlight">
+\[
+v(1.00)=8.00~\text{m/s},
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+h=0.01~\text{s}.
+\]</div>
+<p>First, compute</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{b}{m}=\frac{0.04}{0.20}=0.20~\text{s}^{-1}.
+\]</div>
+<p>So the differential equation is</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dv}{dt}=-9.81-0.20v.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 1: Forward Euler backward in time</strong></p>
+<p>Forward Euler is</p>
+<div class="math notranslate nohighlight">
+\[
+v_{n+1}=v_n+h a(v_n).
+\]</div>
+<p>To move backward in time, use a negative step size:</p>
+<div class="math notranslate nohighlight">
+\[
+h=-0.01~\text{s}.
+\]</div>
+<p>At</p>
+<div class="math notranslate nohighlight">
+\[
+v(1.00)=8.00~\text{m/s},
+\]</div>
+<p>the acceleration is</p>
+<div class="math notranslate nohighlight">
+\[
+a(8.00)=-9.81-0.20(8.00).
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+a(8.00)=-11.41~\text{m/s}^2.
+\]</div>
+<p>Now step backward:</p>
+<div class="math notranslate nohighlight">
+\[
+v(0.99)=v(1.00)-0.01a(8.00).
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+v(0.99)=8.00-0.01(-11.41).
+\]</div>
+<p>So</p>
+<div class="math notranslate nohighlight">
+\[
+v(0.99)=8.1141~\text{m/s}.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 2: Central difference method</strong></p>
+<p>The central difference update is</p>
+<div class="math notranslate nohighlight">
+\[
+v_{n+1}=v_{n-1}+2h a(v_n).
+\]</div>
+<p>This is repeated many times until reaching</p>
+<div class="math notranslate nohighlight">
+\[
+t=1.99~\text{s}.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 3: Forward Euler forward in time</strong></p>
+<p>Once <span class="math notranslate nohighlight">\(v(1.99)\)</span> is known, use Forward Euler one final time:</p>
+<div class="math notranslate nohighlight">
+\[
+v(2.00)=v(1.99)+h a(v(1.99)).
+\]</div>
+<p>Because this requires about 100 steps, the full calculation is best completed using Python.</p>
+</div>
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Parameters</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>       <span class="c1"># gravitational acceleration (m/s^2)</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mf">0.20</span>       <span class="c1"># mass (kg)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">0.04</span>       <span class="c1"># linear drag coefficient (kg/s)</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mf">0.01</span>       <span class="c1"># step size (s)</span>
+
+<span class="c1"># Acceleration function</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">acceleration</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+    <span class="k">return</span> <span class="o">-</span><span class="n">g</span> <span class="o">-</span> <span class="p">(</span><span class="n">b</span><span class="o">/</span><span class="n">m</span><span class="p">)</span><span class="o">*</span><span class="n">v</span>
+
+<span class="c1"># Given value</span>
+<span class="n">t_current</span> <span class="o">=</span> <span class="mf">1.00</span>
+<span class="n">v_current</span> <span class="o">=</span> <span class="mf">8.00</span>
+
+<span class="c1"># Step 1: Forward Euler backward in time</span>
+<span class="n">t_previous</span> <span class="o">=</span> <span class="n">t_current</span> <span class="o">-</span> <span class="n">h</span>
+<span class="n">v_previous</span> <span class="o">=</span> <span class="n">v_current</span> <span class="o">-</span> <span class="n">h</span><span class="o">*</span><span class="n">acceleration</span><span class="p">(</span><span class="n">v_current</span><span class="p">)</span>
+
+<span class="c1"># Store values</span>
+<span class="n">times</span> <span class="o">=</span> <span class="p">[</span><span class="n">t_previous</span><span class="p">,</span> <span class="n">t_current</span><span class="p">]</span>
+<span class="n">velocities</span> <span class="o">=</span> <span class="p">[</span><span class="n">v_previous</span><span class="p">,</span> <span class="n">v_current</span><span class="p">]</span>
+
+<span class="c1"># Step 2: Central difference steps from t = 1.00 to t = 1.99</span>
+<span class="k">while</span> <span class="n">t_current</span> <span class="o">&lt;</span> <span class="mf">1.99</span> <span class="o">-</span> <span class="mf">1e-12</span><span class="p">:</span>
+    
+    <span class="n">v_next</span> <span class="o">=</span> <span class="n">v_previous</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="o">*</span><span class="n">acceleration</span><span class="p">(</span><span class="n">v_current</span><span class="p">)</span>
+    <span class="n">t_next</span> <span class="o">=</span> <span class="n">t_current</span> <span class="o">+</span> <span class="n">h</span>
+    
+    <span class="n">times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t_next</span><span class="p">)</span>
+    <span class="n">velocities</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v_next</span><span class="p">)</span>
+    
+    <span class="n">v_previous</span> <span class="o">=</span> <span class="n">v_current</span>
+    <span class="n">v_current</span> <span class="o">=</span> <span class="n">v_next</span>
+    
+    <span class="n">t_previous</span> <span class="o">=</span> <span class="n">t_current</span>
+    <span class="n">t_current</span> <span class="o">=</span> <span class="n">t_next</span>
+
+<span class="c1"># Step 3: Forward Euler forward in time from t = 1.99 to t = 2.00</span>
+<span class="n">v_final</span> <span class="o">=</span> <span class="n">v_current</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">acceleration</span><span class="p">(</span><span class="n">v_current</span><span class="p">)</span>
+<span class="n">t_final</span> <span class="o">=</span> <span class="n">t_current</span> <span class="o">+</span> <span class="n">h</span>
+
+<span class="n">times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t_final</span><span class="p">)</span>
+<span class="n">velocities</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v_final</span><span class="p">)</span>
+
+<span class="c1"># Display results</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mixed Method Results&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-------------------------&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;v(0.99 s) = </span><span class="si">{</span><span class="n">velocities</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> m/s   using Forward Euler backward in time&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;v(1.00 s) = </span><span class="si">{</span><span class="n">velocities</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> m/s   given&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;v(1.99 s) = </span><span class="si">{</span><span class="n">v_current</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> m/s   after central difference steps&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;v(2.00 s) = </span><span class="si">{</span><span class="n">v_final</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> m/s   using Forward Euler forward in time&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Final estimate:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;v(2.00 s) ≈ </span><span class="si">{</span><span class="n">v_final</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> m/s&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mixed Method Results
+-------------------------
+v(0.99 s) = 8.114100 m/s   using Forward Euler backward in time
+v(1.00 s) = 8.000000 m/s   given
+v(1.99 s) = -2.248010 m/s   after central difference steps
+v(2.00 s) = -2.341614 m/s   using Forward Euler forward in time
+
+Final estimate:
+v(2.00 s) ≈ -2.341614 m/s
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"></section>
+<section id="problem-7-avalanche-control-shell-with-air-drag">
+<h2>Problem 7 — Avalanche Control Shell with Air Drag<a class="headerlink" href="#problem-7-avalanche-control-shell-with-air-drag" title="Link to this heading">#</a></h2>
+<p>Explosive cannon shells launched from small howitzers are sometimes used to reduce avalanche danger by intentionally triggering smaller avalanches in areas prone to serious avalanche hazards.</p>
+<img src="howitzer1.jpg" width="500">
+<p>Obviously, it is important that the shell lands in the intended target area. In one Utah incident, an avalanche-control shell missed its target and struck a home:</p>
+<p><a class="reference external" href="https://www.deseret.com/2005/3/29/19883755/shell-shocked-errant-avalanche-bomb-rips-pleasant-grove-home">Shell shocked: Errant avalanche bomb rips Pleasant Grove home</a></p>
+<p>Assume the shell is launched with muzzle speed</p>
+<div class="math notranslate nohighlight">
+\[
+v_0=1000.0~\text{m/s}.
+\]</div>
+<p>For this problem, ignore the height of the cannon above the ground and assume the shell starts at</p>
+<div class="math notranslate nohighlight">
+\[
+x_0=0,
+\qquad
+y_0=0.
+\]</div>
+<p>Use</p>
+<div class="math notranslate nohighlight">
+\[
+g=9.81~\text{m/s}^2.
+\]</div>
+<p>The drag acceleration has magnitude</p>
+<div class="math notranslate nohighlight">
+\[
+a_{\text{drag}}=\frac{B}{m}v^2,
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{B}{m}=4.00\times 10^{-5}~\text{m}^{-1}.
+\]</div>
+<p>Because drag always acts opposite the direction of motion, the acceleration components are</p>
+<div class="math notranslate nohighlight">
+\[
+a_x=-\frac{B}{m}v v_x,
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+a_y=-g-\frac{B}{m}v v_y,
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+v=\sqrt{v_x^2+v_y^2}.
+\]</div>
+<p>Use numerical methods to address the following objectives.</p>
+<hr class="docutils" />
+<p><strong>Objective 1</strong></p>
+<p>Ignoring air drag, determine:</p>
+<ul class="simple">
+<li><p>the launch angle that gives the maximum range,</p></li>
+<li><p>the maximum horizontal range,</p></li>
+<li><p>the maximum altitude.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Objective 2</strong></p>
+<p>Including quadratic air drag, determine:</p>
+<ul class="simple">
+<li><p>the launch angle that gives the maximum range,</p></li>
+<li><p>the maximum horizontal range,</p></li>
+<li><p>the maximum altitude.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Objective 3</strong></p>
+<p>The shell reaches a high altitude, so the changing density of the atmosphere may affect the drag force.</p>
+<p>Model the atmospheric density using the adiabatic approximation</p>
+<div class="math notranslate nohighlight">
+\[
+\rho(y)=\rho_0\left(1-\frac{ay}{T_0}\right)^\alpha,
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+a=6.5\times 10^{-3}~\text{K/m},
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\alpha=2.5,
+\]</div>
+<p>and use an appropriate sea-level temperature, such as</p>
+<div class="math notranslate nohighlight">
+\[
+T_0=288~\text{K}.
+\]</div>
+<p>The modified drag acceleration is</p>
+<div class="math notranslate nohighlight">
+\[
+a_{\text{drag}}(y)=\frac{\rho(y)}{\rho_0}a_{\text{drag},0}.
+\]</div>
+<p>Repeat the calculation with altitude-dependent air drag and determine:</p>
+<ul class="simple">
+<li><p>the launch angle that gives the maximum range,</p></li>
+<li><p>the maximum horizontal range,</p></li>
+<li><p>the maximum altitude</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Objective 4</strong></p>
+<p>For each of the three cases, make a trajectory plot of the shell:</p>
+<ol class="arabic simple">
+<li><p>no air drag,</p></li>
+<li><p>constant-density quadratic air drag,</p></li>
+<li><p>altitude-dependent quadratic air drag.</p></li>
+</ol>
+<p>Plot <span class="math notranslate nohighlight">\(y\)</span> versus <span class="math notranslate nohighlight">\(x.\)</span></p>
+<p>Use the launch angle that gives the maximum range for each case.</p>
+<p>Compare the three trajectories.</p>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Problem solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>Without air drag, the maximum range occurs at</p>
+<div class="math notranslate nohighlight">
+\[
+\theta=45^\circ.
+\]</div>
+<p>The ideal range is</p>
+<div class="math notranslate nohighlight">
+\[
+R=\frac{v_0^2\sin(2\theta)}{g}.
+\]</div>
+<p>At</p>
+<div class="math notranslate nohighlight">
+\[
+\theta=45^\circ,
+\]</div>
+<p>this becomes</p>
+<div class="math notranslate nohighlight">
+\[
+R_{\max}=\frac{v_0^2}{g}.
+\]</div>
+<p>Using</p>
+<div class="math notranslate nohighlight">
+\[
+v_0=1000.0~\text{m/s},
+\]</div>
+<p>we get</p>
+<div class="math notranslate nohighlight">
+\[
+R_{\max}=\frac{(1000.0)^2}{9.81}.
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+R_{\max}\approx 1.02\times 10^5~\text{m}.
+\]</div>
+<p>The maximum altitude is</p>
+<div class="math notranslate nohighlight">
+\[
+H=\frac{v_0^2\sin^2\theta}{2g}.
+\]</div>
+<p>At</p>
+<div class="math notranslate nohighlight">
+\[
+\theta=45^\circ,
+\]</div>
+<p>this gives</p>
+<div class="math notranslate nohighlight">
+\[
+H\approx 2.55\times 10^4~\text{m}.
+\]</div>
+<p>So without drag, the shell travels unrealistically far and high.</p>
+<p>With air drag, there is no simple closed-form range formula. We numerically integrate the equations of motion:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dx}{dt}=v_x,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\frac{dy}{dt}=v_y,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\frac{dv_x}{dt}=-\frac{B}{m}v v_x,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\frac{dv_y}{dt}=-g-\frac{B}{m}v v_y.
+\]</div>
+<p>With altitude-dependent drag, we multiply the drag terms by</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\rho(y)}{\rho_0}
+=
+\left(1-\frac{ay}{T_0}\right)^\alpha.
+\]</div>
+<p>Because the shell eventually returns to the ground, the numerical simulation stops when</p>
+<div class="math notranslate nohighlight">
+\[
+y=0
+\]</div>
+<p>on the way down.</p>
+</div>
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Constants</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>
+<span class="n">v0</span> <span class="o">=</span> <span class="mf">1000.0</span>
+<span class="n">B_over_m</span> <span class="o">=</span> <span class="mf">4.00e-5</span>
+
+<span class="c1"># Atmosphere parameters</span>
+<span class="n">lapse_rate</span> <span class="o">=</span> <span class="mf">6.5e-3</span>
+<span class="n">T0</span> <span class="o">=</span> <span class="mf">288.0</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">2.5</span>
+
+<span class="c1"># Time step</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">density_ratio</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+    <span class="n">factor</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">lapse_rate</span><span class="o">*</span><span class="n">y</span><span class="o">/</span><span class="n">T0</span>
+    
+    <span class="k">if</span> <span class="n">factor</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span>
+    
+    <span class="k">return</span> <span class="n">factor</span><span class="o">**</span><span class="n">alpha</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">simulate_projectile</span><span class="p">(</span><span class="n">theta_deg</span><span class="p">,</span> <span class="n">drag</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">variable_density</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">store</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">theta_deg</span><span class="p">)</span>
+    
+    <span class="n">x</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">vx</span> <span class="o">=</span> <span class="n">v0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="n">vy</span> <span class="o">=</span> <span class="n">v0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    
+    <span class="n">max_y</span> <span class="o">=</span> <span class="n">y</span>
+    
+    <span class="n">x_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span>
+    <span class="n">y_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">y</span><span class="p">]</span>
+    
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">x_old</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="n">y_old</span> <span class="o">=</span> <span class="n">y</span>
+        
+        <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">vx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">vy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">drag</span><span class="p">:</span>
+            <span class="n">density_factor</span> <span class="o">=</span> <span class="mf">1.0</span>
+            
+            <span class="k">if</span> <span class="n">variable_density</span><span class="p">:</span>
+                <span class="n">density_factor</span> <span class="o">=</span> <span class="n">density_ratio</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+            
+            <span class="n">ax</span> <span class="o">=</span> <span class="o">-</span><span class="n">density_factor</span><span class="o">*</span><span class="n">B_over_m</span><span class="o">*</span><span class="n">v</span><span class="o">*</span><span class="n">vx</span>
+            <span class="n">ay</span> <span class="o">=</span> <span class="o">-</span><span class="n">g</span> <span class="o">-</span> <span class="n">density_factor</span><span class="o">*</span><span class="n">B_over_m</span><span class="o">*</span><span class="n">v</span><span class="o">*</span><span class="n">vy</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ax</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="n">ay</span> <span class="o">=</span> <span class="o">-</span><span class="n">g</span>
+        
+        <span class="c1"># Euler-Cromer update</span>
+        <span class="n">vx</span> <span class="o">=</span> <span class="n">vx</span> <span class="o">+</span> <span class="n">ax</span><span class="o">*</span><span class="n">dt</span>
+        <span class="n">vy</span> <span class="o">=</span> <span class="n">vy</span> <span class="o">+</span> <span class="n">ay</span><span class="o">*</span><span class="n">dt</span>
+        
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">vx</span><span class="o">*</span><span class="n">dt</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">vy</span><span class="o">*</span><span class="n">dt</span>
+        
+        <span class="k">if</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="n">max_y</span><span class="p">:</span>
+            <span class="n">max_y</span> <span class="o">=</span> <span class="n">y</span>
+        
+        <span class="n">x_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">y_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">vy</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">frac</span> <span class="o">=</span> <span class="n">y_old</span><span class="o">/</span><span class="p">(</span><span class="n">y_old</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
+            <span class="n">x_ground</span> <span class="o">=</span> <span class="n">x_old</span> <span class="o">+</span> <span class="n">frac</span><span class="o">*</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x_old</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">store</span><span class="p">:</span>
+                <span class="n">x_values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x_ground</span>
+                <span class="n">y_values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+                <span class="k">return</span> <span class="n">x_ground</span><span class="p">,</span> <span class="n">max_y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x_values</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y_values</span><span class="p">)</span>
+            
+            <span class="k">return</span> <span class="n">x_ground</span><span class="p">,</span> <span class="n">max_y</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">scan_angles</span><span class="p">(</span><span class="n">drag</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">variable_density</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">angles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">881</span><span class="p">)</span>
+    
+    <span class="n">ranges</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">heights</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">for</span> <span class="n">angle</span> <span class="ow">in</span> <span class="n">angles</span><span class="p">:</span>
+        <span class="n">R</span><span class="p">,</span> <span class="n">H</span> <span class="o">=</span> <span class="n">simulate_projectile</span><span class="p">(</span>
+            <span class="n">angle</span><span class="p">,</span>
+            <span class="n">drag</span><span class="o">=</span><span class="n">drag</span><span class="p">,</span>
+            <span class="n">variable_density</span><span class="o">=</span><span class="n">variable_density</span>
+        <span class="p">)</span>
+        <span class="n">ranges</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+        <span class="n">heights</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+    
+    <span class="n">ranges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ranges</span><span class="p">)</span>
+    <span class="n">heights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">heights</span><span class="p">)</span>
+    
+    <span class="n">best_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">ranges</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">angles</span><span class="p">[</span><span class="n">best_index</span><span class="p">],</span> <span class="n">ranges</span><span class="p">[</span><span class="n">best_index</span><span class="p">],</span> <span class="n">heights</span><span class="p">[</span><span class="n">best_index</span><span class="p">]</span>
+
+<span class="c1"># Find best angles</span>
+<span class="n">angle_no_drag</span><span class="p">,</span> <span class="n">range_no_drag</span><span class="p">,</span> <span class="n">height_no_drag</span> <span class="o">=</span> <span class="n">scan_angles</span><span class="p">(</span>
+    <span class="n">drag</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">variable_density</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+
+<span class="n">angle_drag</span><span class="p">,</span> <span class="n">range_drag</span><span class="p">,</span> <span class="n">height_drag</span> <span class="o">=</span> <span class="n">scan_angles</span><span class="p">(</span>
+    <span class="n">drag</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">variable_density</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+
+<span class="n">angle_var_drag</span><span class="p">,</span> <span class="n">range_var_drag</span><span class="p">,</span> <span class="n">height_var_drag</span> <span class="o">=</span> <span class="n">scan_angles</span><span class="p">(</span>
+    <span class="n">drag</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">variable_density</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="c1"># Generate trajectories using best angles</span>
+<span class="n">R1</span><span class="p">,</span> <span class="n">H1</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">simulate_projectile</span><span class="p">(</span>
+    <span class="n">angle_no_drag</span><span class="p">,</span>
+    <span class="n">drag</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">variable_density</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">store</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="n">R2</span><span class="p">,</span> <span class="n">H2</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">simulate_projectile</span><span class="p">(</span>
+    <span class="n">angle_drag</span><span class="p">,</span>
+    <span class="n">drag</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">variable_density</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">store</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="n">R3</span><span class="p">,</span> <span class="n">H3</span><span class="p">,</span> <span class="n">x3</span><span class="p">,</span> <span class="n">y3</span> <span class="o">=</span> <span class="n">simulate_projectile</span><span class="p">(</span>
+    <span class="n">angle_var_drag</span><span class="p">,</span>
+    <span class="n">drag</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">variable_density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">store</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="c1"># Display results</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Projectile Results&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-----------------------------&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No air drag:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Best angle:        </span><span class="si">{</span><span class="n">angle_no_drag</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> degrees&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Maximum range:     </span><span class="si">{</span><span class="n">range_no_drag</span><span class="o">/</span><span class="mi">1000</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> km&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Maximum altitude:  </span><span class="si">{</span><span class="n">height_no_drag</span><span class="o">/</span><span class="mi">1000</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> km&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Constant-density quadratic drag:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Best angle:        </span><span class="si">{</span><span class="n">angle_drag</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> degrees&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Maximum range:     </span><span class="si">{</span><span class="n">range_drag</span><span class="o">/</span><span class="mi">1000</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> km&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Maximum altitude:  </span><span class="si">{</span><span class="n">height_drag</span><span class="o">/</span><span class="mi">1000</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> km&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Altitude-dependent quadratic drag:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Best angle:        </span><span class="si">{</span><span class="n">angle_var_drag</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> degrees&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Maximum range:     </span><span class="si">{</span><span class="n">range_var_drag</span><span class="o">/</span><span class="mi">1000</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> km&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Maximum altitude:  </span><span class="si">{</span><span class="n">height_var_drag</span><span class="o">/</span><span class="mi">1000</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> km&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot trajectories</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="n">y1</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;No drag&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x2</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="n">y2</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Constant-density drag&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x3</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="n">y3</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Altitude-dependent drag&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Horizontal position x (km)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Altitude y (km)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Howitzer Shell Trajectories&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Projectile Results
+-----------------------------
+No air drag:
+Best angle:        45.00 degrees
+Maximum range:     101.930 km
+Maximum altitude:  25.481 km
+
+Constant-density quadratic drag:
+Best angle:        36.10 degrees
+Maximum range:     30.594 km
+Maximum altitude:  8.473 km
+
+Altitude-dependent quadratic drag:
+Best angle:        47.10 degrees
+Maximum range:     38.449 km
+Maximum altitude:  13.798 km
+</pre></div>
+</div>
+<img alt="../_images/8faa5cb57d1a87c52f2d3d4086ae300da88080fd500f3b49b8afdcd5993c44d5.png" src="../_images/8faa5cb57d1a87c52f2d3d4086ae300da88080fd500f3b49b8afdcd5993c44d5.png" />
+</div>
+</details>
+</div>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"></section>
+<section id="problem-8-parachutist-with-air-drag-forward-euler-vs-backward-euler">
+<h2>Problem 8 — Parachutist with Air Drag: Forward Euler vs Backward Euler<a class="headerlink" href="#problem-8-parachutist-with-air-drag-forward-euler-vs-backward-euler" title="Link to this heading">#</a></h2>
+<p>A parachutist is falling vertically downward. Choose downward as the positive direction.</p>
+<p>The parachutist experiences gravity and linear air drag, so</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dv}{dt}=g-\frac{b}{m}v.
+\]</div>
+<p>The constants are</p>
+<div class="math notranslate nohighlight">
+\[
+g=9.81~\text{m/s}^2,
+\qquad
+m=80.0~\text{kg},
+\qquad
+b=24.0~\text{kg/s}.
+\]</div>
+<p>At time</p>
+<div class="math notranslate nohighlight">
+\[
+t=0,
+\]</div>
+<p>the parachutist starts from rest:</p>
+<div class="math notranslate nohighlight">
+\[
+v_0=0.
+\]</div>
+<p>Use a step size of</p>
+<div class="math notranslate nohighlight">
+\[
+h=1.00~\text{s}
+\]</div>
+<p>to estimate the velocity at</p>
+<div class="math notranslate nohighlight">
+\[
+t=10.0~\text{s}.
+\]</div>
+<p>Do this using both:</p>
+<ol class="arabic simple">
+<li><p>Forward Euler,</p></li>
+<li><p>Backward Euler.</p></li>
+</ol>
+<p>Then compare the two numerical results.</p>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Problem solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>For Forward Euler,</p>
+<div class="math notranslate nohighlight">
+\[
+v_{n+1}=v_n+h\left(g-\frac{b}{m}v_n\right).
+\]</div>
+<p>For Backward Euler,</p>
+<div class="math notranslate nohighlight">
+\[
+v_{n+1}=v_n+h\left(g-\frac{b}{m}v_{n+1}\right).
+\]</div>
+<p>Solving the Backward Euler equation for <span class="math notranslate nohighlight">\(v_{n+1}\)</span> gives</p>
+<div class="math notranslate nohighlight">
+\[
+v_{n+1}
+=
+\frac{v_n+hg}{1+h\frac{b}{m}}.
+\]</div>
+<p>Both methods should approach the terminal velocity</p>
+<div class="math notranslate nohighlight">
+\[
+v_T=\frac{mg}{b}.
+\]</div>
+</div>
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Constants</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mf">80.0</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">24.0</span>
+
+<span class="c1"># Time settings</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mf">1.00</span>
+<span class="n">t_final</span> <span class="o">=</span> <span class="mf">10.0</span>
+
+<span class="c1"># Time array</span>
+<span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_final</span> <span class="o">+</span> <span class="n">h</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+
+<span class="c1"># Arrays</span>
+<span class="n">v_forward</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">))</span>
+<span class="n">v_backward</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">))</span>
+
+<span class="c1"># Initial condition</span>
+<span class="n">v_forward</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">v_backward</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="c1"># Euler loops</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    
+    <span class="c1"># Forward Euler</span>
+    <span class="n">v_forward</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">v_forward</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="p">(</span><span class="n">g</span> <span class="o">-</span> <span class="p">(</span><span class="n">b</span><span class="o">/</span><span class="n">m</span><span class="p">)</span><span class="o">*</span><span class="n">v_forward</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
+    
+    <span class="c1"># Backward Euler</span>
+    <span class="n">v_backward</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">v_backward</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">g</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">b</span><span class="o">/</span><span class="n">m</span><span class="p">)</span>
+
+<span class="c1"># Exact solution</span>
+<span class="n">v_terminal</span> <span class="o">=</span> <span class="n">m</span><span class="o">*</span><span class="n">g</span><span class="o">/</span><span class="n">b</span>
+<span class="n">v_exact</span> <span class="o">=</span> <span class="n">v_terminal</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">b</span><span class="o">/</span><span class="n">m</span><span class="p">)</span><span class="o">*</span><span class="n">times</span><span class="p">))</span>
+
+<span class="c1"># Display results</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Forward Euler vs Backward Euler&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;----------------------------------------&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;t = </span><span class="si">{</span><span class="n">times</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">4.1f</span><span class="si">}</span><span class="s2"> s&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;    Forward = </span><span class="si">{</span><span class="n">v_forward</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">8.4f</span><span class="si">}</span><span class="s2"> m/s&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;    Backward = </span><span class="si">{</span><span class="n">v_backward</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">8.4f</span><span class="si">}</span><span class="s2"> m/s&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;    Exact = </span><span class="si">{</span><span class="n">v_exact</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">8.4f</span><span class="si">}</span><span class="s2"> m/s&quot;</span>
+    <span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Final estimates:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Forward Euler:   v(</span><span class="si">{</span><span class="n">t_final</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> s) ≈ </span><span class="si">{</span><span class="n">v_forward</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> m/s&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Backward Euler:  v(</span><span class="si">{</span><span class="n">t_final</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> s) ≈ </span><span class="si">{</span><span class="n">v_backward</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> m/s&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Exact:           v(</span><span class="si">{</span><span class="n">t_final</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> s) = </span><span class="si">{</span><span class="n">v_exact</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> m/s&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Terminal velocity:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;v_T = </span><span class="si">{</span><span class="n">v_terminal</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> m/s&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">v_forward</span><span class="p">,</span> <span class="s2">&quot;o-&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Forward Euler&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">v_backward</span><span class="p">,</span> <span class="s2">&quot;s-&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Backward Euler&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">v_exact</span><span class="p">,</span> <span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Exact solution&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Downward velocity (m/s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Parachutist with Linear Air Drag&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Forward Euler vs Backward Euler
+----------------------------------------
+t =  0.0 s    Forward =   0.0000 m/s    Backward =   0.0000 m/s    Exact =   0.0000 m/s
+t =  1.0 s    Forward =   9.8100 m/s    Backward =   7.5462 m/s    Exact =   8.4752 m/s
+t =  2.0 s    Forward =  16.6770 m/s    Backward =  13.3509 m/s    Exact =  14.7539 m/s
+t =  3.0 s    Forward =  21.4839 m/s    Backward =  17.8161 m/s    Exact =  19.4052 m/s
+t =  4.0 s    Forward =  24.8487 m/s    Backward =  21.2508 m/s    Exact =  22.8509 m/s
+t =  5.0 s    Forward =  27.2041 m/s    Backward =  23.8929 m/s    Exact =  25.4036 m/s
+t =  6.0 s    Forward =  28.8529 m/s    Backward =  25.9253 m/s    Exact =  27.2947 m/s
+t =  7.0 s    Forward =  30.0070 m/s    Backward =  27.4887 m/s    Exact =  28.6957 m/s
+t =  8.0 s    Forward =  30.8149 m/s    Backward =  28.6913 m/s    Exact =  29.7335 m/s
+t =  9.0 s    Forward =  31.3804 m/s    Backward =  29.6164 m/s    Exact =  30.5024 m/s
+t = 10.0 s    Forward =  31.7763 m/s    Backward =  30.3280 m/s    Exact =  31.0720 m/s
+
+Final estimates:
+Forward Euler:   v(10.0 s) ≈ 31.7763 m/s
+Backward Euler:  v(10.0 s) ≈ 30.3280 m/s
+Exact:           v(10.0 s) = 31.0720 m/s
+
+Terminal velocity:
+v_T = 32.7000 m/s
+</pre></div>
+</div>
+<img alt="../_images/7f3e7a16aaa4dc622eb679c67e2f75a98a43b24684f150d780f4db9f67af36d3.png" src="../_images/7f3e7a16aaa4dc622eb679c67e2f75a98a43b24684f150d780f4db9f67af36d3.png" />
+</div>
+</details>
+</div>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"></section>
+<section id="problem-9-muon-decay-forward-euler-vs-backward-euler">
+<h2>Problem 9 — Muon Decay: Forward Euler vs Backward Euler<a class="headerlink" href="#problem-9-muon-decay-forward-euler-vs-backward-euler" title="Link to this heading">#</a></h2>
+<p>Muons are unstable particles that decay with a mean lifetime of approximately</p>
+<div class="math notranslate nohighlight">
+\[
+\tau = 2.20~\mu\text{s}.
+\]</div>
+<p>If <span class="math notranslate nohighlight">\(N(t)\)</span> is the number of muons remaining at time <span class="math notranslate nohighlight">\(t\)</span>, then the decay equation is</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dN}{dt}=-\frac{1}{\tau}N.
+\]</div>
+<p>Suppose a detector initially contains</p>
+<div class="math notranslate nohighlight">
+\[
+N_0=10\,000
+\]</div>
+<p>muons at</p>
+<div class="math notranslate nohighlight">
+\[
+t=0.
+\]</div>
+<p>Use a step size of</p>
+<div class="math notranslate nohighlight">
+\[
+h=5.00~\mu\text{s}
+\]</div>
+<p>to estimate the number of muons remaining at</p>
+<div class="math notranslate nohighlight">
+\[
+t=25.0~\mu\text{s}.
+\]</div>
+<p>Do this using both:</p>
+<ol class="arabic simple">
+<li><p>Forward Euler,</p></li>
+<li><p>Backward Euler.</p></li>
+</ol>
+<p>Then compare the behavior of the two methods.</p>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Problem solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>The decay equation is</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dN}{dt}=-\frac{1}{\tau}N.
+\]</div>
+<p>Forward Euler gives</p>
+<div class="math notranslate nohighlight">
+\[
+N_{n+1}=N_n-h\frac{1}{\tau}N_n.
+\]</div>
+<p>So</p>
+<div class="math notranslate nohighlight">
+\[
+N_{n+1}=\left(1-\frac{h}{\tau}\right)N_n.
+\]</div>
+<p>With</p>
+<div class="math notranslate nohighlight">
+\[
+h=5.00~\mu\text{s},
+\qquad
+\tau=2.20~\mu\text{s},
+\]</div>
+<p>we get</p>
+<div class="math notranslate nohighlight">
+\[
+1-\frac{h}{\tau}
+=
+1-\frac{5.00}{2.20}
+\approx -1.27.
+\]</div>
+<p>This means Forward Euler predicts alternating positive and negative particle counts, which is unphysical.</p>
+<p>Backward Euler gives</p>
+<div class="math notranslate nohighlight">
+\[
+N_{n+1}=N_n-h\frac{1}{\tau}N_{n+1}.
+\]</div>
+<p>Move all future-value terms to one side:</p>
+<div class="math notranslate nohighlight">
+\[
+N_{n+1}+\frac{h}{\tau}N_{n+1}=N_n.
+\]</div>
+<p>Factor:</p>
+<div class="math notranslate nohighlight">
+\[
+\left(1+\frac{h}{\tau}\right)N_{n+1}=N_n.
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+N_{n+1}=\frac{N_n}{1+h/\tau}.
+\]</div>
+<p>This remains positive and decays smoothly.</p>
+</div>
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Parameters</span>
+<span class="n">tau</span> <span class="o">=</span> <span class="mf">2.20</span>      <span class="c1"># muon lifetime in microseconds</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mf">5.00</span>        <span class="c1"># step size in microseconds</span>
+<span class="n">t_final</span> <span class="o">=</span> <span class="mf">25.0</span>  <span class="c1"># final time in microseconds</span>
+
+<span class="c1"># Initial number of muons</span>
+<span class="n">N0</span> <span class="o">=</span> <span class="mf">10000.0</span>
+
+<span class="c1"># Time array</span>
+<span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_final</span> <span class="o">+</span> <span class="n">h</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+
+<span class="c1"># Arrays</span>
+<span class="n">N_forward</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">))</span>
+<span class="n">N_backward</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">))</span>
+
+<span class="c1"># Initial values</span>
+<span class="n">N_forward</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">N0</span>
+<span class="n">N_backward</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">N0</span>
+
+<span class="c1"># Numerical updates</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    
+    <span class="c1"># Forward Euler</span>
+    <span class="n">N_forward</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">N_forward</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">-</span> <span class="n">h</span><span class="o">*</span><span class="p">(</span><span class="n">N_forward</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">/</span><span class="n">tau</span><span class="p">)</span>
+    
+    <span class="c1"># Backward Euler</span>
+    <span class="n">N_backward</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">N_backward</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">h</span><span class="o">/</span><span class="n">tau</span><span class="p">)</span>
+
+<span class="c1"># Exact solution</span>
+<span class="n">N_exact</span> <span class="o">=</span> <span class="n">N0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">times</span><span class="o">/</span><span class="n">tau</span><span class="p">)</span>
+
+<span class="c1"># Display results</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Muon Decay: Forward Euler vs Backward Euler&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-------------------------------------------&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;t = </span><span class="si">{</span><span class="n">times</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">5.1f</span><span class="si">}</span><span class="s2"> microseconds&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;    Forward = </span><span class="si">{</span><span class="n">N_forward</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">12.2f</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;    Backward = </span><span class="si">{</span><span class="n">N_backward</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">12.2f</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;    Exact = </span><span class="si">{</span><span class="n">N_exact</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">12.2f</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Final estimates:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Forward Euler:   N(</span><span class="si">{</span><span class="n">t_final</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> microseconds) ≈ </span><span class="si">{</span><span class="n">N_forward</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Backward Euler:  N(</span><span class="si">{</span><span class="n">t_final</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> microseconds) ≈ </span><span class="si">{</span><span class="n">N_backward</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Exact:           N(</span><span class="si">{</span><span class="n">t_final</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> microseconds) = </span><span class="si">{</span><span class="n">N_exact</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">N_forward</span><span class="p">,</span> <span class="s2">&quot;o-&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Forward Euler&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">N_backward</span><span class="p">,</span> <span class="s2">&quot;s-&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Backward Euler&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">N_exact</span><span class="p">,</span> <span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Exact solution&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (microseconds)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Number of muons&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Muon Decay: Forward Euler vs Backward Euler&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Muon Decay: Forward Euler vs Backward Euler
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-------------------------------------------
+t =   0.0 microseconds    Forward =     10000.00    Backward =     10000.00    Exact =     10000.00
+t =   5.0 microseconds    Forward =    -12727.27    Backward =      3055.56    Exact =      1030.31
+t =  10.0 microseconds    Forward =     16198.35    Backward =       933.64    Exact =       106.15
+t =  15.0 microseconds    Forward =    -20616.08    Backward =       285.28    Exact =        10.94
+t =  20.0 microseconds    Forward =     26238.64    Backward =        87.17    Exact =         1.13
+t =  25.0 microseconds    Forward =    -33394.64    Backward =        26.63    Exact =         0.12
+
+Final estimates:
+Forward Euler:   N(25.0 microseconds) ≈ -33394.64
+Backward Euler:  N(25.0 microseconds) ≈ 26.63
+Exact:           N(25.0 microseconds) = 0.12
+</pre></div>
+</div>
+<img alt="../_images/9227061e4fe59cba5a8ba8a10862111720161c4c7e1ca38fab9a1c5af1fdfec5.png" src="../_images/9227061e4fe59cba5a8ba8a10862111720161c4c7e1ca38fab9a1c5af1fdfec5.png" />
+</div>
+</details>
+</div>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"></section>
+<section id="problem-10-moon-orbit-around-earth-forward-euler-backward-euler-and-euler-cromer">
+<h2>Problem 10 — Moon Orbit Around Earth: Forward Euler, Backward Euler, and Euler-Cromer<a class="headerlink" href="#problem-10-moon-orbit-around-earth-forward-euler-backward-euler-and-euler-cromer" title="Link to this heading">#</a></h2>
+<p>The Moon orbits Earth due to the gravitational force between them. In this problem, we model Earth as fixed at the origin and simulate the Moon’s motion in two dimensions.</p>
+<p>Use the gravitational acceleration</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{a}
+=
+-\frac{GM}{r^3}\vec{r},
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{r}=x\hat{i}+y\hat{j},
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+r=\sqrt{x^2+y^2}.
+\]</div>
+<p>Use</p>
+<div class="math notranslate nohighlight">
+\[
+G=6.67430\times 10^{-11}~\text{N m}^2/\text{kg}^2,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+M=5.972\times 10^{24}~\text{kg}.
+\]</div>
+<p>Assume the Moon begins at</p>
+<div class="math notranslate nohighlight">
+\[
+x_0=3.844\times 10^8~\text{m},
+\qquad
+y_0=0,
+\]</div>
+<p>with initial velocity</p>
+<div class="math notranslate nohighlight">
+\[
+v_{x,0}=0,
+\qquad
+v_{y,0}=1022~\text{m/s}.
+\]</div>
+<p>Use a time step of</p>
+<div class="math notranslate nohighlight">
+\[
+h=3600~\text{s},
+\]</div>
+<p>and simulate for</p>
+<div class="math notranslate nohighlight">
+\[
+30~\text{days}.
+\]</div>
+<p>Compare the orbit using:</p>
+<ol class="arabic simple">
+<li><p>Forward Euler,</p></li>
+<li><p>Backward Euler,</p></li>
+<li><p>Euler-Cromer.</p></li>
+</ol>
+<p>Make plots of the Moon’s trajectory for all three methods.</p>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Problem solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>The gravitational acceleration components are</p>
+<div class="math notranslate nohighlight">
+\[
+a_x=-\frac{GMx}{(x^2+y^2)^{3/2}},
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+a_y=-\frac{GMy}{(x^2+y^2)^{3/2}}.
+\]</div>
+<p>For Forward Euler, use</p>
+<div class="math notranslate nohighlight">
+\[
+v_{x,n+1}=v_{x,n}+h a_{x,n},
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+v_{y,n+1}=v_{y,n}+h a_{y,n},
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+x_{n+1}=x_n+h v_{x,n},
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1}=y_n+h v_{y,n}.
+\]</div>
+<p>For Euler-Cromer, update velocity first and then use the updated velocity:</p>
+<div class="math notranslate nohighlight">
+\[
+v_{x,n+1}=v_{x,n}+h a_{x,n},
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+v_{y,n+1}=v_{y,n}+h a_{y,n},
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+x_{n+1}=x_n+h v_{x,n+1},
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1}=y_n+h v_{y,n+1}.
+\]</div>
+<p>For Backward Euler, the acceleration must be evaluated at the future position:</p>
+<div class="math notranslate nohighlight">
+\[
+v_{x,n+1}=v_{x,n}+h a_x(x_{n+1},y_{n+1}),
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+v_{y,n+1}=v_{y,n}+h a_y(x_{n+1},y_{n+1}),
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+x_{n+1}=x_n+h v_{x,n+1},
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1}=y_n+h v_{y,n+1}.
+\]</div>
+<p>Because the future position appears inside the acceleration, Backward Euler requires solving an implicit system at every time step.</p>
+<p>In the Python implementation below, we solve this implicit step using fixed-point iteration.</p>
+<p>Forward Euler tends to add energy to the orbit.</p>
+<p>Backward Euler tends to remove energy from the orbit.</p>
+<p>Euler-Cromer usually gives the most physically reasonable long-term orbital behavior among these three methods.</p>
+</div>
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DIY Cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Constants</span>
+<span class="n">G</span> <span class="o">=</span> <span class="mf">6.67430e-11</span>
+<span class="n">M_earth</span> <span class="o">=</span> <span class="mf">5.972e24</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="n">G</span><span class="o">*</span><span class="n">M_earth</span>
+
+<span class="c1"># Initial conditions for Moon</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="mf">3.844e8</span>        <span class="c1"># m</span>
+<span class="n">y0</span> <span class="o">=</span> <span class="mf">0.0</span>            <span class="c1"># m</span>
+<span class="n">vx0</span> <span class="o">=</span> <span class="mf">0.0</span>           <span class="c1"># m/s</span>
+<span class="n">vy0</span> <span class="o">=</span> <span class="mf">1022.0</span>        <span class="c1"># m/s</span>
+
+<span class="c1"># Time settings</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mf">3600.0</span>          <span class="c1"># one hour in seconds</span>
+<span class="n">days</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">t_final</span> <span class="o">=</span> <span class="n">days</span><span class="o">*</span><span class="mi">24</span><span class="o">*</span><span class="mi">3600</span>
+<span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_final</span> <span class="o">+</span> <span class="n">h</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">acceleration</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="o">-</span><span class="n">mu</span><span class="o">*</span><span class="n">x</span><span class="o">/</span><span class="n">r</span><span class="o">**</span><span class="mi">3</span>
+    <span class="n">ay</span> <span class="o">=</span> <span class="o">-</span><span class="n">mu</span><span class="o">*</span><span class="n">y</span><span class="o">/</span><span class="n">r</span><span class="o">**</span><span class="mi">3</span>
+    <span class="k">return</span> <span class="n">ax</span><span class="p">,</span> <span class="n">ay</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">energy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">vx</span><span class="p">,</span> <span class="n">vy</span><span class="p">):</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">kinetic</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">vx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">vy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">potential</span> <span class="o">=</span> <span class="o">-</span><span class="n">mu</span><span class="o">/</span><span class="n">r</span>
+    <span class="k">return</span> <span class="n">kinetic</span> <span class="o">+</span> <span class="n">potential</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">forward_euler</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">))</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">))</span>
+    <span class="n">vx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">))</span>
+    <span class="n">vy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">))</span>
+    <span class="n">E</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">))</span>
+    
+    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span>
+    <span class="n">vx</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vy</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">vx0</span><span class="p">,</span> <span class="n">vy0</span>
+    <span class="n">E</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">energy</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vx</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vy</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">ax</span><span class="p">,</span> <span class="n">ay</span> <span class="o">=</span> <span class="n">acceleration</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
+        
+        <span class="n">vx</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">vx</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">ax</span>
+        <span class="n">vy</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">vy</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">ay</span>
+        
+        <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">vx</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+        <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">vy</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+        
+        <span class="n">E</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">energy</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">vx</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">vy</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+    
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">vx</span><span class="p">,</span> <span class="n">vy</span><span class="p">,</span> <span class="n">E</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">euler_cromer</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">))</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">))</span>
+    <span class="n">vx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">))</span>
+    <span class="n">vy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">))</span>
+    <span class="n">E</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">))</span>
+    
+    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span>
+    <span class="n">vx</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vy</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">vx0</span><span class="p">,</span> <span class="n">vy0</span>
+    <span class="n">E</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">energy</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vx</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vy</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">ax</span><span class="p">,</span> <span class="n">ay</span> <span class="o">=</span> <span class="n">acceleration</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
+        
+        <span class="n">vx</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">vx</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">ax</span>
+        <span class="n">vy</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">vy</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">ay</span>
+        
+        <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">vx</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">vy</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+        
+        <span class="n">E</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">energy</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">vx</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">vy</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+    
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">vx</span><span class="p">,</span> <span class="n">vy</span><span class="p">,</span> <span class="n">E</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">backward_euler</span><span class="p">(</span><span class="n">iterations</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">))</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">))</span>
+    <span class="n">vx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">))</span>
+    <span class="n">vy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">))</span>
+    <span class="n">E</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">))</span>
+    
+    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span>
+    <span class="n">vx</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vy</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">vx0</span><span class="p">,</span> <span class="n">vy0</span>
+    <span class="n">E</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">energy</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vx</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vy</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        
+        <span class="c1"># Initial guess using Euler-Cromer</span>
+        <span class="n">ax</span><span class="p">,</span> <span class="n">ay</span> <span class="o">=</span> <span class="n">acceleration</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
+        <span class="n">vx_guess</span> <span class="o">=</span> <span class="n">vx</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">ax</span>
+        <span class="n">vy_guess</span> <span class="o">=</span> <span class="n">vy</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">ay</span>
+        <span class="n">x_guess</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">vx_guess</span>
+        <span class="n">y_guess</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">vy_guess</span>
+        
+        <span class="c1"># Fixed-point iteration for implicit Backward Euler</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">iterations</span><span class="p">):</span>
+            <span class="n">ax_guess</span><span class="p">,</span> <span class="n">ay_guess</span> <span class="o">=</span> <span class="n">acceleration</span><span class="p">(</span><span class="n">x_guess</span><span class="p">,</span> <span class="n">y_guess</span><span class="p">)</span>
+            
+            <span class="n">vx_new</span> <span class="o">=</span> <span class="n">vx</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">ax_guess</span>
+            <span class="n">vy_new</span> <span class="o">=</span> <span class="n">vy</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">ay_guess</span>
+            
+            <span class="n">x_new</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">vx_new</span>
+            <span class="n">y_new</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">vy_new</span>
+            
+            <span class="n">x_guess</span> <span class="o">=</span> <span class="n">x_new</span>
+            <span class="n">y_guess</span> <span class="o">=</span> <span class="n">y_new</span>
+            <span class="n">vx_guess</span> <span class="o">=</span> <span class="n">vx_new</span>
+            <span class="n">vy_guess</span> <span class="o">=</span> <span class="n">vy_new</span>
+        
+        <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x_guess</span>
+        <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_guess</span>
+        <span class="n">vx</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">vx_guess</span>
+        <span class="n">vy</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">vy_guess</span>
+        
+        <span class="n">E</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">energy</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">vx</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">vy</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+    
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">vx</span><span class="p">,</span> <span class="n">vy</span><span class="p">,</span> <span class="n">E</span>
+
+<span class="c1"># Run simulations</span>
+<span class="n">x_fe</span><span class="p">,</span> <span class="n">y_fe</span><span class="p">,</span> <span class="n">vx_fe</span><span class="p">,</span> <span class="n">vy_fe</span><span class="p">,</span> <span class="n">E_fe</span> <span class="o">=</span> <span class="n">forward_euler</span><span class="p">()</span>
+<span class="n">x_ec</span><span class="p">,</span> <span class="n">y_ec</span><span class="p">,</span> <span class="n">vx_ec</span><span class="p">,</span> <span class="n">vy_ec</span><span class="p">,</span> <span class="n">E_ec</span> <span class="o">=</span> <span class="n">euler_cromer</span><span class="p">()</span>
+<span class="n">x_be</span><span class="p">,</span> <span class="n">y_be</span><span class="p">,</span> <span class="n">vx_be</span><span class="p">,</span> <span class="n">vy_be</span><span class="p">,</span> <span class="n">E_be</span> <span class="o">=</span> <span class="n">backward_euler</span><span class="p">()</span>
+
+<span class="c1"># Plot trajectories</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_fe</span><span class="o">/</span><span class="mf">1e8</span><span class="p">,</span> <span class="n">y_fe</span><span class="o">/</span><span class="mf">1e8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Forward Euler&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_be</span><span class="o">/</span><span class="mf">1e8</span><span class="p">,</span> <span class="n">y_be</span><span class="o">/</span><span class="mf">1e8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Backward Euler&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_ec</span><span class="o">/</span><span class="mf">1e8</span><span class="p">,</span> <span class="n">y_ec</span><span class="o">/</span><span class="mf">1e8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Euler-Cromer&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Earth&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$x$ position ($10^8$ m)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$y$ position ($10^8$ m)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Moon Orbit Around Earth&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Plot energy behavior</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="o">/</span><span class="p">(</span><span class="mi">24</span><span class="o">*</span><span class="mi">3600</span><span class="p">),</span> <span class="p">(</span><span class="n">E_fe</span> <span class="o">-</span> <span class="n">E_fe</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="nb">abs</span><span class="p">(</span><span class="n">E_fe</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Forward Euler&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="o">/</span><span class="p">(</span><span class="mi">24</span><span class="o">*</span><span class="mi">3600</span><span class="p">),</span> <span class="p">(</span><span class="n">E_be</span> <span class="o">-</span> <span class="n">E_be</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="nb">abs</span><span class="p">(</span><span class="n">E_be</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Backward Euler&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="o">/</span><span class="p">(</span><span class="mi">24</span><span class="o">*</span><span class="mi">3600</span><span class="p">),</span> <span class="p">(</span><span class="n">E_ec</span> <span class="o">-</span> <span class="n">E_ec</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="nb">abs</span><span class="p">(</span><span class="n">E_ec</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Euler-Cromer&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (days)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Relative energy change&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Numerical Energy Behavior&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Print final distances</span>
+<span class="n">r_fe</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x_fe</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y_fe</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">r_be</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x_be</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y_be</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">r_ec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x_ec</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y_ec</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Final Earth-Moon Distance&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-------------------------&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Forward Euler:   </span><span class="si">{</span><span class="n">r_fe</span><span class="o">/</span><span class="mf">1e8</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> x 10^8 m&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Backward Euler:  </span><span class="si">{</span><span class="n">r_be</span><span class="o">/</span><span class="mf">1e8</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> x 10^8 m&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Euler-Cromer:    </span><span class="si">{</span><span class="n">r_ec</span><span class="o">/</span><span class="mf">1e8</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> x 10^8 m&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<img alt="../_images/fd2e450338c8ac20144f9c7f4d462a5e233042793c4aa08b876468aa11794905.png" src="../_images/fd2e450338c8ac20144f9c7f4d462a5e233042793c4aa08b876468aa11794905.png" />
+<img alt="../_images/e504d3830c774ff487a63cd497bf7f93504c5de5f95a143b14debe6454c93924.png" src="../_images/e504d3830c774ff487a63cd497bf7f93504c5de5f95a143b14debe6454c93924.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Final Earth-Moon Distance
+-------------------------
+Forward Euler:   4.2837 x 10^8 m
+Backward Euler:  3.3328 x 10^8 m
+Euler-Cromer:    3.8386 x 10^8 m
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Phys-Prof-Nielsen/modulearn",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-C1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="euler-cromer.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">C1.4 — Euler-Cromer Method (Symplectic Euler)</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-velocity-from-a-time-dependent-acceleration">Problem 1 — Velocity from a Time-Dependent Acceleration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1">Step 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2">Step 2</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-velocity-with-velocity-dependent-acceleration">Problem 2 — Velocity with Velocity-Dependent Acceleration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Step 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Step 2</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-position-from-a-tangled-velocity-equation">Problem 3 — Position from a Tangled Velocity Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4-simultaneous-position-and-velocity-updates">Problem 4 — Simultaneous Position and Velocity Updates</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Step 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Step 2</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5-combining-backward-time-euler-central-difference-and-forward-euler">Problem 5 — Combining Backward-Time Euler, Central Difference, and Forward Euler</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-6-projectile-motion-with-air-drag-using-many-central-difference-steps">Problem 6 — Projectile Motion with Air Drag Using Many Central Difference Steps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-7-avalanche-control-shell-with-air-drag">Problem 7 — Avalanche Control Shell with Air Drag</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-8-parachutist-with-air-drag-forward-euler-vs-backward-euler">Problem 8 — Parachutist with Air Drag: Forward Euler vs Backward Euler</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-9-muon-decay-forward-euler-vs-backward-euler">Problem 9 — Muon Decay: Forward Euler vs Backward Euler</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-10-moon-orbit-around-earth-forward-euler-backward-euler-and-euler-cromer">Problem 10 — Moon Orbit Around Earth: Forward Euler, Backward Euler, and Euler-Cromer</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

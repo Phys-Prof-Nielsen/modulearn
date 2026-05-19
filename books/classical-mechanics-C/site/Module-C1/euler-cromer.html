@@ -1,0 +1,951 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>C1.4 — Euler-Cromer Method (Symplectic Euler) &#8212; A Competency Approach to Classical Mechanics - Phase C</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-C1/euler-cromer';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="C1.5 Problems" href="problemsC1.html" />
+    <link rel="prev" title="C1.2 — The Backward Euler Numerical Method" href="backward-euler.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-C.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Phase C - Home"/>
+    <script>document.write(`<img src="../_static/logo-C.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Phase C - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the C Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C1 - Numerical Methods</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-C1.html">C1.0 Learning Outcomes — Numerical Methods and Finite Difference Techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="forward-euler.html">C1.1 — The Forward Euler Numerical Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backward-euler.html">C1.2 — The Backward Euler Numerical Method</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">C1.4 — Euler-Cromer Method (Symplectic Euler)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problemsC1.html">C1.5 Problems</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/classical-mechanics-C/Module-C1/euler-cromer.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-C1/euler-cromer.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>C1.4 — Euler-Cromer Method (Symplectic Euler)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-4-1-motivation">C1.4.1 — Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-4-2-review-of-newtonian-dynamics">C1.4.2 — Review of Newtonian Dynamics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-4-3-the-forward-euler-method-for-mechanics">C1.4.3 — The Forward Euler Method for Mechanics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-4-4-the-euler-cromer-method">C1.4.4 — The Euler-Cromer Method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-4-5-why-the-method-works-better">C1.4.5 — Why the Method Works Better</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-4-6-example-simple-harmonic-oscillator">C1.4.6 — Example: Simple Harmonic Oscillator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-4-7-comparing-forward-euler-and-euler-cromer">C1.4.7 — Comparing Forward Euler and Euler-Cromer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-4-8-energy-behavior">C1.4.8 — Energy Behavior</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-4-9-symplectic-integrators">C1.4.9 — Symplectic Integrators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-4-10-summary">C1.4.10 — Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="c1-4-euler-cromer-method-symplectic-euler">
+<h1>C1.4 — Euler-Cromer Method (Symplectic Euler)<a class="headerlink" href="#c1-4-euler-cromer-method-symplectic-euler" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><section id="c1-4-1-motivation">
+<h2>C1.4.1 — Motivation<a class="headerlink" href="#c1-4-1-motivation" title="Link to this heading">#</a></h2>
+<p>The Forward Euler method works reasonably well for short-time simulations, but it performs poorly for many oscillatory systems.</p>
+<p>For example, when simulating:</p>
+<ul class="simple">
+<li><p>springs,</p></li>
+<li><p>pendulums,</p></li>
+<li><p>planetary motion,</p></li>
+<li><p>conservative systems,</p></li>
+</ul>
+<p>Forward Euler often causes the total energy to drift artificially over time.</p>
+<p>A stable oscillator may slowly gain energy and spiral outward, or lose energy and collapse inward.</p>
+<p>These effects are numerical artifacts rather than real physics.</p>
+<p>To better preserve the qualitative behavior of mechanical systems, we introduce the <strong>Euler-Cromer Method</strong>, also called the <strong>Symplectic Euler Method</strong>.</p>
+<p>The key idea is simple:</p>
+<blockquote>
+<div><p>Update velocity first, then use the updated velocity to update position.</p>
+</div></blockquote>
+<p>This small modification dramatically improves long-term behavior for many physical systems.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c1-4-2-review-of-newtonian-dynamics">
+<h2>C1.4.2 — Review of Newtonian Dynamics<a class="headerlink" href="#c1-4-2-review-of-newtonian-dynamics" title="Link to this heading">#</a></h2>
+<p>For many mechanics problems, Newton’s second law can be written as</p>
+<div class="math notranslate nohighlight">
+\[
+m\frac{d^2x}{dt^2}=F(x,t).
+\]</div>
+<p>We often rewrite this as two first-order equations:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dx}{dt}=v,
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dv}{dt}=a(x,t).
+\]</div>
+<p>The goal is to numerically update:</p>
+<ul class="simple">
+<li><p>position <span class="math notranslate nohighlight">\(x\)</span>,</p></li>
+<li><p>velocity <span class="math notranslate nohighlight">\(v\)</span>.</p></li>
+</ul>
+<p>Forward Euler updates both using information at the current step.</p>
+<p>Euler-Cromer modifies the order of updates.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c1-4-3-the-forward-euler-method-for-mechanics">
+<h2>C1.4.3 — The Forward Euler Method for Mechanics<a class="headerlink" href="#c1-4-3-the-forward-euler-method-for-mechanics" title="Link to this heading">#</a></h2>
+<p>Using Forward Euler,</p>
+<div class="math notranslate nohighlight">
+\[
+v_{n+1}=v_n+h a_n,
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+x_{n+1}=x_n+h v_n.
+\]</div>
+<p>Both updates use information from the current time step.</p>
+<p>Although simple, this method often produces poor long-term energy behavior in oscillatory systems.</p>
+<div style="background-color:#ffe6e6; border-left:6px solid #cc0000; padding:14px; border-radius:4px;">
+<strong>Danger:</strong><br>
+<p>For oscillatory systems, Forward Euler often causes energy to grow artificially with time, even when the true physical system conserves energy.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c1-4-4-the-euler-cromer-method">
+<h2>C1.4.4 — The Euler-Cromer Method<a class="headerlink" href="#c1-4-4-the-euler-cromer-method" title="Link to this heading">#</a></h2>
+<p>The Euler-Cromer method first updates velocity:</p>
+<div class="math notranslate nohighlight">
+\[
+v_{n+1}=v_n+h a_n.
+\]</div>
+<p>Then it uses the updated velocity to update position:</p>
+<div class="math notranslate nohighlight">
+\[
+x_{n+1}=x_n+h v_{n+1}.
+\]</div>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Euler-Cromer Method</strong>
+<p>Velocity update:</p>
+<div class="math notranslate nohighlight">
+\[
+v_{n+1}=v_n+h a_n
+\]</div>
+<p>Position update:</p>
+<div class="math notranslate nohighlight">
+\[
+x_{n+1}=x_n+h v_{n+1}
+\]</div>
+<p>The updated velocity is immediately used in the position step.</p>
+</div>
+<p>This slight asymmetry significantly improves the behavior of many mechanical simulations.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c1-4-5-why-the-method-works-better">
+<h2>C1.4.5 — Why the Method Works Better<a class="headerlink" href="#c1-4-5-why-the-method-works-better" title="Link to this heading">#</a></h2>
+<p>The Euler-Cromer method belongs to a class of methods called <strong>symplectic integrators</strong>.</p>
+<p>These methods are designed to better preserve geometric properties of mechanical systems.</p>
+<p>In particular, they tend to preserve:</p>
+<ul class="simple">
+<li><p>bounded energy behavior,</p></li>
+<li><p>phase-space structure,</p></li>
+<li><p>long-term oscillatory motion.</p></li>
+</ul>
+<p>Although Euler-Cromer is still only first-order accurate, its qualitative behavior is often much better than Forward Euler.</p>
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<strong>Physical Insight</strong>
+<p>In many conservative systems, exact numerical energy conservation is less important than preventing systematic energy drift over long times.</p>
+<p>Symplectic methods are designed to preserve the overall structure of the dynamics.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c1-4-6-example-simple-harmonic-oscillator">
+<h2>C1.4.6 — Example: Simple Harmonic Oscillator<a class="headerlink" href="#c1-4-6-example-simple-harmonic-oscillator" title="Link to this heading">#</a></h2>
+<p>Consider a mass on a spring.</p>
+<p>The equation of motion is</p>
+<div class="math notranslate nohighlight">
+\[
+m\frac{d^2x}{dt^2}=-kx.
+\]</div>
+<p>Define</p>
+<div class="math notranslate nohighlight">
+\[
+\omega^2=\frac{k}{m}.
+\]</div>
+<p>Then</p>
+<div class="math notranslate nohighlight">
+\[
+a=-\omega^2 x.
+\]</div>
+<p>The Euler-Cromer updates become</p>
+<div class="math notranslate nohighlight">
+\[
+v_{n+1}=v_n-h\omega^2 x_n,
+\]</div>
+<p>followed by</p>
+<div class="math notranslate nohighlight">
+\[
+x_{n+1}=x_n+h v_{n+1}.
+\]</div>
+<p>Unlike Forward Euler, the oscillation remains bounded for appropriate step sizes.</p>
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Example — Spring-Mass Oscillator</h3>
+<p>For the harmonic oscillator,</p>
+<div class="math notranslate nohighlight">
+\[
+a=-\omega^2 x,
+\]</div>
+<p>Euler-Cromer updates velocity first:</p>
+<div class="math notranslate nohighlight">
+\[
+v_{n+1}=v_n-h\omega^2 x_n.
+\]</div>
+<p>Then position:</p>
+<div class="math notranslate nohighlight">
+\[
+x_{n+1}=x_n+h v_{n+1}.
+\]</div>
+<p>The numerical motion tends to remain oscillatory rather than spiraling outward.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c1-4-7-comparing-forward-euler-and-euler-cromer">
+<h2>C1.4.7 — Comparing Forward Euler and Euler-Cromer<a class="headerlink" href="#c1-4-7-comparing-forward-euler-and-euler-cromer" title="Link to this heading">#</a></h2>
+<p>Forward Euler:</p>
+<div class="math notranslate nohighlight">
+\[
+x_{n+1}=x_n+h v_n
+\]</div>
+<p>Euler-Cromer:</p>
+<div class="math notranslate nohighlight">
+\[
+x_{n+1}=x_n+h v_{n+1}
+\]</div>
+<p>The difference appears small, but the behavior changes dramatically.</p>
+<p>For oscillatory systems:</p>
+<ul class="simple">
+<li><p>Forward Euler often gains energy,</p></li>
+<li><p>Euler-Cromer usually keeps energy bounded.</p></li>
+</ul>
+<p>This makes Euler-Cromer much more useful in computational mechanics.</p>
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Compare the Two Methods</h3>
+<p>Consider a harmonic oscillator with</p>
+<div class="math notranslate nohighlight">
+\[
+\omega=1,
+\]</div>
+<p>step size</p>
+<div class="math notranslate nohighlight">
+\[
+h=0.2,
+\]</div>
+<p>and initial conditions</p>
+<div class="math notranslate nohighlight">
+\[
+x_0=1,
+\qquad
+v_0=0.
+\]</div>
+<ol class="arabic simple">
+<li><p>Perform one Forward Euler step.</p></li>
+<li><p>Perform one Euler-Cromer step.</p></li>
+<li><p>Compare the resulting positions and velocities.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<p>The acceleration is</p>
+<div class="math notranslate nohighlight">
+\[
+a=-x.
+\]</div>
+<p>Initially,</p>
+<div class="math notranslate nohighlight">
+\[
+a_0=-1.
+\]</div>
+<p>Forward Euler:</p>
+<div class="math notranslate nohighlight">
+\[
+v_1=v_0+h a_0
+=
+0+0.2(-1)
+=
+-0.2.
+\]</div>
+<p>Position update:</p>
+<div class="math notranslate nohighlight">
+\[
+x_1=x_0+h v_0
+=
+1+0.2(0)
+=
+1.
+\]</div>
+<p>So Forward Euler gives</p>
+<div class="math notranslate nohighlight">
+\[
+x_1=1,
+\qquad
+v_1=-0.2.
+\]</div>
+<p>Euler-Cromer:</p>
+<p>Velocity update is the same:</p>
+<div class="math notranslate nohighlight">
+\[
+v_1=-0.2.
+\]</div>
+<p>Now use the updated velocity:</p>
+<div class="math notranslate nohighlight">
+\[
+x_1=x_0+h v_1
+=
+1+0.2(-0.2)
+=
+0.96.
+\]</div>
+<p>Thus Euler-Cromer gives</p>
+<div class="math notranslate nohighlight">
+\[
+x_1=0.96,
+\qquad
+v_1=-0.2.
+\]</div>
+<p>Euler-Cromer immediately moves the mass inward, consistent with the restoring force.</p>
+</details>
+</div>
+<hr class="docutils" />
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Parameters</span>
+<span class="n">omega</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">t_final</span> <span class="o">=</span> <span class="mi">40</span>
+
+<span class="c1"># Time array</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_final</span><span class="o">+</span><span class="n">h</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+
+<span class="c1"># Arrays</span>
+<span class="n">x_fe</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<span class="n">v_fe</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+
+<span class="n">x_ec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<span class="n">v_ec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+
+<span class="c1"># Initial conditions</span>
+<span class="n">x_fe</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">x_ec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+<span class="n">v_fe</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">v_ec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="c1"># Forward Euler</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="n">omega</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x_fe</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+    
+    <span class="n">v_fe</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">v_fe</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">a</span>
+    <span class="n">x_fe</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x_fe</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">v_fe</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+
+<span class="c1"># Euler-Cromer</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="n">omega</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x_ec</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+    
+    <span class="n">v_ec</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">v_ec</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">a</span>
+    <span class="n">x_ec</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x_ec</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">v_ec</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Exact solution</span>
+<span class="n">x_exact</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">omega</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+
+<span class="c1"># Plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x_exact</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Exact&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x_fe</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Forward Euler&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x_ec</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Euler-Cromer&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;x(t)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Forward Euler vs Euler-Cromer&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/3ce6885d1ab26842cf7556faec6b42a53d17b4e1ac7717709db8fd26caf07e95.png" src="../_images/3ce6885d1ab26842cf7556faec6b42a53d17b4e1ac7717709db8fd26caf07e95.png" />
+</div>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c1-4-8-energy-behavior">
+<h2>C1.4.8 — Energy Behavior<a class="headerlink" href="#c1-4-8-energy-behavior" title="Link to this heading">#</a></h2>
+<p>For the harmonic oscillator, the total energy is</p>
+<div class="math notranslate nohighlight">
+\[
+E=\frac{1}{2}mv^2+\frac{1}{2}kx^2.
+\]</div>
+<p>Forward Euler tends to increase energy over time.</p>
+<p>Euler-Cromer does not exactly conserve energy, but the energy usually oscillates around the correct value instead of drifting systematically upward.</p>
+<p>This makes Euler-Cromer much more physically realistic for long simulations.</p>
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<strong>Important Idea</strong>
+<p>A numerical method does not need to conserve energy exactly to produce good long-term behavior.</p>
+<p>Preventing systematic energy drift is often more important.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c1-4-9-symplectic-integrators">
+<h2>C1.4.9 — Symplectic Integrators<a class="headerlink" href="#c1-4-9-symplectic-integrators" title="Link to this heading">#</a></h2>
+<p>Euler-Cromer is the simplest example of a <strong>symplectic integrator</strong>.</p>
+<p>Symplectic methods are extremely important in:</p>
+<ul class="simple">
+<li><p>celestial mechanics,</p></li>
+<li><p>molecular dynamics,</p></li>
+<li><p>Hamiltonian mechanics,</p></li>
+<li><p>plasma physics,</p></li>
+<li><p>accelerator physics.</p></li>
+</ul>
+<p>These methods are specifically designed for systems where long-term geometric structure matters.</p>
+<p>More advanced symplectic methods include:</p>
+<ul class="simple">
+<li><p>Leapfrog integration,</p></li>
+<li><p>Velocity Verlet,</p></li>
+<li><p>Stormer-Verlet methods.</p></li>
+</ul>
+<p>Euler-Cromer serves as an important introduction to this broader class of numerical algorithms.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c1-4-10-summary">
+<h2>C1.4.10 — Summary<a class="headerlink" href="#c1-4-10-summary" title="Link to this heading">#</a></h2>
+<p>The Euler-Cromer method updates velocity first:</p>
+<div class="math notranslate nohighlight">
+\[
+v_{n+1}=v_n+h a_n,
+\]</div>
+<p>then updates position using the new velocity:</p>
+<div class="math notranslate nohighlight">
+\[
+x_{n+1}=x_n+h v_{n+1}.
+\]</div>
+<p>Key ideas:</p>
+<ul class="simple">
+<li><p>it is closely related to Forward Euler,</p></li>
+<li><p>it is still first-order accurate,</p></li>
+<li><p>it behaves much better for oscillatory systems,</p></li>
+<li><p>it reduces artificial energy drift,</p></li>
+<li><p>it is a symplectic method,</p></li>
+<li><p>it preserves qualitative motion more effectively.</p></li>
+</ul>
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<strong>Big Picture</strong>
+<p>Euler-Cromer demonstrates an important lesson in computational physics:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{numerical accuracy}
+\neq
+\text{physical realism}.
+\]</div>
+<p>Sometimes a method with the same formal accuracy can produce dramatically better physical behavior because it respects the underlying geometry of the system.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Phys-Prof-Nielsen/modulearn",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-C1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="backward-euler.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">C1.2 — The Backward Euler Numerical Method</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="problemsC1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">C1.5 Problems</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-4-1-motivation">C1.4.1 — Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-4-2-review-of-newtonian-dynamics">C1.4.2 — Review of Newtonian Dynamics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-4-3-the-forward-euler-method-for-mechanics">C1.4.3 — The Forward Euler Method for Mechanics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-4-4-the-euler-cromer-method">C1.4.4 — The Euler-Cromer Method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-4-5-why-the-method-works-better">C1.4.5 — Why the Method Works Better</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-4-6-example-simple-harmonic-oscillator">C1.4.6 — Example: Simple Harmonic Oscillator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-4-7-comparing-forward-euler-and-euler-cromer">C1.4.7 — Comparing Forward Euler and Euler-Cromer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-4-8-energy-behavior">C1.4.8 — Energy Behavior</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-4-9-symplectic-integrators">C1.4.9 — Symplectic Integrators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-4-10-summary">C1.4.10 — Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

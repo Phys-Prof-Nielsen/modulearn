@@ -1,0 +1,1020 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>C1.3 — The Central Difference Method &#8212; A Competency Approach to Classical Mechanics - Phase C</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-C1/central-difference';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-C.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Phase C - Home"/>
+    <script>document.write(`<img src="../_static/logo-C.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Phase C - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the C Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C1 - Numerical Methods</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-C1.html">C1.0 Learning Outcomes — Numerical Methods and Finite Difference Techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="forward-euler.html">C1.1 — The Forward Euler Numerical Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backward-euler.html">C1.2 — The Backward Euler Numerical Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="euler-cromer.html">C1.4 — Euler-Cromer Method (Symplectic Euler)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problemsC1.html">C1.5 Problems</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/classical-mechanics-C/Module-C1/central-difference.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-C1/central-difference.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>C1.3 — The Central Difference Method</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-3-1-motivation">C1.3.1 — Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-3-2-deriving-the-central-difference-approximation">C1.3.2 — Deriving the Central Difference Approximation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-3-3-accuracy-of-the-central-difference-method">C1.3.3 — Accuracy of the Central Difference Method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-3-4-central-difference-form-of-a-differential-equation">C1.3.4 — Central Difference Form of a Differential Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-3-5-why-two-initial-values-are-needed">C1.3.5 — Why Two Initial Values Are Needed</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-3-6-example-exponential-growth">C1.3.6 — Example: Exponential Growth</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-3-7-time-symmetry">C1.3.7 — Time Symmetry</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-3-8-central-difference-for-second-derivatives">C1.3.8 — Central Difference for Second Derivatives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-3-9-box-activity-harmonic-oscillator">C1.3.9 — Box Activity: Harmonic Oscillator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-3-10-summary">C1.3.10 — Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="c1-3-the-central-difference-method">
+<h1>C1.3 — The Central Difference Method<a class="headerlink" href="#c1-3-the-central-difference-method" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><section id="c1-3-1-motivation">
+<h2>C1.3.1 — Motivation<a class="headerlink" href="#c1-3-1-motivation" title="Link to this heading">#</a></h2>
+<p>The Forward Euler method uses information only from the current point:</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1}=y_n+h f(t_n,y_n).
+\]</div>
+<p>Although simple, this introduces an asymmetry in time because the derivative is approximated using information only from one side of the point.</p>
+<p>A more balanced approach is to use information from both sides of a point.</p>
+<p>This leads to the <strong>central difference approximation</strong>.</p>
+<p>The central difference method is important because it:</p>
+<ul class="simple">
+<li><p>improves derivative accuracy,</p></li>
+<li><p>treats past and future more symmetrically,</p></li>
+<li><p>appears naturally in many physics problems,</p></li>
+<li><p>forms the basis of many finite-difference methods,</p></li>
+<li><p>is widely used in wave equations and mechanics simulations.</p></li>
+</ul>
+<p>The central difference approximation is especially valuable in physics because many physical laws are naturally time-symmetric.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c1-3-2-deriving-the-central-difference-approximation">
+<h2>C1.3.2 — Deriving the Central Difference Approximation<a class="headerlink" href="#c1-3-2-deriving-the-central-difference-approximation" title="Link to this heading">#</a></h2>
+<p>Consider a function <span class="math notranslate nohighlight">\(y(t)\)</span>.</p>
+<p>We approximate the derivative at time <span class="math notranslate nohighlight">\(t_n\)</span> using the neighboring points:</p>
+<div class="math notranslate nohighlight">
+\[
+(t_{n-1},y_{n-1})
+\quad \text{and} \quad
+(t_{n+1},y_{n+1}).
+\]</div>
+<p>The slope between these points is</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{y_{n+1}-y_{n-1}}{2h}.
+\]</div>
+<p>This gives the <strong>central difference approximation</strong>:</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Central Difference Approximation</strong>
+<div class="math notranslate nohighlight">
+\[
+\left.\frac{dy}{dt}\right|_{t_n}
+\approx
+\frac{y_{n+1}-y_{n-1}}{2h}.
+\]</div>
+<p>This approximation uses information from both sides of the point.</p>
+</div>
+<p>Compared to Forward Euler,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{y_{n+1}-y_n}{h},
+\]</div>
+<p>the central difference method is more symmetric.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c1-3-3-accuracy-of-the-central-difference-method">
+<h2>C1.3.3 — Accuracy of the Central Difference Method<a class="headerlink" href="#c1-3-3-accuracy-of-the-central-difference-method" title="Link to this heading">#</a></h2>
+<p>The Forward Euler derivative approximation has truncation error proportional to</p>
+<div class="math notranslate nohighlight">
+\[
+h.
+\]</div>
+<p>The central difference approximation has truncation error proportional to</p>
+<div class="math notranslate nohighlight">
+\[
+h^2.
+\]</div>
+<p>This means the central difference method is generally much more accurate for the same step size.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Order of Accuracy</strong>
+<p>Forward difference:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{y_{n+1}-y_n}{h}
+\quad \rightarrow \quad
+\mathcal{O}(h)
+\]</div>
+<p>Central difference:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{y_{n+1}-y_{n-1}}{2h}
+\quad \rightarrow \quad
+\mathcal{O}(h^2)
+\]</div>
+<p>The central difference approximation is second-order accurate.</p>
+</div>
+<p>Reducing the step size improves both methods, but the central difference method converges faster.</p>
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Proving the Accuracy Using Taylor Expansions</h3>
+<p>Use Taylor expansions about the point <span class="math notranslate nohighlight">\(t_n\)</span> to show that the central difference approximation</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{y_{n+1}-y_{n-1}}{2h}
+\]</div>
+<p>has truncation error of order</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{O}(h^2).
+\]</div>
+<p>Hint:</p>
+<p>Expand both</p>
+<div class="math notranslate nohighlight">
+\[
+y(t_n+h)
+\quad \text{and} \quad
+y(t_n-h)
+\]</div>
+<p>about <span class="math notranslate nohighlight">\(t_n\)</span>.</p>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<p>Expand <span class="math notranslate nohighlight">\(y(t_n+h)\)</span> about <span class="math notranslate nohighlight">\(t_n\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1}
+=
+y_n
++
+h y_n'
++
+\frac{h^2}{2}y_n''
++
+\frac{h^3}{6}y_n'''
++
+\mathcal{O}(h^4).
+\]</div>
+<p>Now expand <span class="math notranslate nohighlight">\(y(t_n-h)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n-1}
+=
+y_n
+-
+h y_n'
++
+\frac{h^2}{2}y_n''
+-
+\frac{h^3}{6}y_n'''
++
+\mathcal{O}(h^4).
+\]</div>
+<p>Subtract the two expressions:</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1}-y_{n-1}
+=
+2h y_n'
++
+\frac{2h^3}{6}y_n'''
++
+\mathcal{O}(h^5).
+\]</div>
+<p>Simplify:</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1}-y_{n-1}
+=
+2h y_n'
++
+\frac{h^3}{3}y_n'''
++
+\mathcal{O}(h^5).
+\]</div>
+<p>Now divide by <span class="math notranslate nohighlight">\(2h\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{y_{n+1}-y_{n-1}}{2h}
+=
+y_n'
++
+\frac{h^2}{6}y_n'''
++
+\mathcal{O}(h^4).
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{y_{n+1}-y_{n-1}}{2h}
+=
+\left.\frac{dy}{dt}\right|_{t_n}
++
+\mathcal{O}(h^2).
+\]</div>
+<p>The leading truncation error is proportional to <span class="math notranslate nohighlight">\(h^2\)</span>, so the central difference approximation is second-order accurate.</p>
+</details>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c1-3-4-central-difference-form-of-a-differential-equation">
+<h2>C1.3.4 — Central Difference Form of a Differential Equation<a class="headerlink" href="#c1-3-4-central-difference-form-of-a-differential-equation" title="Link to this heading">#</a></h2>
+<p>Suppose we have</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dy}{dt}=f(t,y).
+\]</div>
+<p>Using the central difference approximation,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{y_{n+1}-y_{n-1}}{2h}
+=
+f(t_n,y_n).
+\]</div>
+<p>Solving for <span class="math notranslate nohighlight">\(y_{n+1}\)</span> gives</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1}=y_{n-1}+2h f(t_n,y_n).
+\]</div>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Central Difference Update Equation</strong>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1}=y_{n-1}+2h f(t_n,y_n).
+\]</div>
+<p>Unlike Forward Euler, this method requires two previous points.</p>
+</div>
+<p>Because the method uses both past and future neighboring points, it behaves differently from one-step methods like Euler.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c1-3-5-why-two-initial-values-are-needed">
+<h2>C1.3.5 — Why Two Initial Values Are Needed<a class="headerlink" href="#c1-3-5-why-two-initial-values-are-needed" title="Link to this heading">#</a></h2>
+<p>Forward Euler requires only one starting value:</p>
+<div class="math notranslate nohighlight">
+\[
+y_0.
+\]</div>
+<p>The central difference method requires</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n-1}
+\quad \text{and} \quad
+y_n.
+\]</div>
+<p>Therefore, we must somehow obtain two starting values before the method can proceed.</p>
+<p>Typically this is done by:</p>
+<ul class="simple">
+<li><p>using Forward Euler for the first step,</p></li>
+<li><p>using an exact initial derivative,</p></li>
+<li><p>using another numerical method to generate the second point.</p></li>
+</ul>
+<div style="background-color:#ffe6e6; border-left:6px solid #cc0000; padding:14px; border-radius:4px;">
+<strong>Danger:</strong><br>
+<p>The central difference method is not self-starting because the update equation depends on two previous values.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c1-3-6-example-exponential-growth">
+<h2>C1.3.6 — Example: Exponential Growth<a class="headerlink" href="#c1-3-6-example-exponential-growth" title="Link to this heading">#</a></h2>
+<p>Consider</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dy}{dt}=y,
+\]</div>
+<p>with initial condition</p>
+<div class="math notranslate nohighlight">
+\[
+y(0)=1.
+\]</div>
+<p>Using the central difference method,</p>
+<div class="math notranslate nohighlight">
+\[
+y_{n+1}=y_{n-1}+2h y_n.
+\]</div>
+<p>Suppose</p>
+<div class="math notranslate nohighlight">
+\[
+h=0.1.
+\]</div>
+<p>To begin, we need two starting values.</p>
+<p>We already know</p>
+<div class="math notranslate nohighlight">
+\[
+y_0=1.
+\]</div>
+<p>Use Forward Euler for the first step:</p>
+<div class="math notranslate nohighlight">
+\[
+y_1=y_0+h y_0.
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+y_1=1+0.1=1.1.
+\]</div>
+<p>Now apply the central difference update:</p>
+<div class="math notranslate nohighlight">
+\[
+y_2=y_0+2(0.1)y_1.
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+y_2=1+0.22=1.22.
+\]</div>
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Example — Starting the Central Difference Method</h3>
+<p>The central difference method requires two initial values.</p>
+<p>A common strategy is:</p>
+<ol class="arabic simple">
+<li><p>use the given initial condition for <span class="math notranslate nohighlight">\(y_0\)</span>,</p></li>
+<li><p>generate <span class="math notranslate nohighlight">\(y_1\)</span> using Forward Euler,</p></li>
+<li><p>continue using the central difference update equation.</p></li>
+</ol>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c1-3-7-time-symmetry">
+<h2>C1.3.7 — Time Symmetry<a class="headerlink" href="#c1-3-7-time-symmetry" title="Link to this heading">#</a></h2>
+<p>One reason the central difference method is important in physics is its symmetry in time.</p>
+<p>The derivative approximation uses points equally spaced around the current point:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{y_{n+1}-y_{n-1}}{2h}.
+\]</div>
+<p>This means the method treats forward and backward directions more equally than Forward Euler.</p>
+<p>This symmetry is especially important in:</p>
+<ul class="simple">
+<li><p>classical mechanics,</p></li>
+<li><p>wave equations,</p></li>
+<li><p>oscillatory systems,</p></li>
+<li><p>molecular dynamics,</p></li>
+<li><p>conservative systems.</p></li>
+</ul>
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<strong>Physical Insight</strong>
+<p>Many physical systems do not inherently prefer a forward direction in time. Central difference methods better reflect this symmetry than Forward Euler methods.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c1-3-8-central-difference-for-second-derivatives">
+<h2>C1.3.8 — Central Difference for Second Derivatives<a class="headerlink" href="#c1-3-8-central-difference-for-second-derivatives" title="Link to this heading">#</a></h2>
+<p>The central difference method is especially useful for second derivatives.</p>
+<p>Using Taylor expansions, we obtain</p>
+<div class="math notranslate nohighlight">
+\[
+\left.\frac{d^2 y}{dt^2}\right|_{t_n}
+\approx
+\frac{y_{n+1}-2y_n+y_{n-1}}{h^2}.
+\]</div>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Central Difference Approximation for Second Derivatives</strong>
+<div class="math notranslate nohighlight">
+\[
+\frac{d^2 y}{dt^2}
+\approx
+\frac{y_{n+1}-2y_n+y_{n-1}}{h^2}.
+\]</div>
+<p>This formula is fundamental in numerical physics.</p>
+</div>
+<p>This approximation appears in:</p>
+<ul class="simple">
+<li><p>Newton’s second law,</p></li>
+<li><p>oscillations,</p></li>
+<li><p>wave equations,</p></li>
+<li><p>diffusion equations,</p></li>
+<li><p>finite difference simulations.</p></li>
+</ul>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c1-3-9-box-activity-harmonic-oscillator">
+<h2>C1.3.9 — Box Activity: Harmonic Oscillator<a class="headerlink" href="#c1-3-9-box-activity-harmonic-oscillator" title="Link to this heading">#</a></h2>
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Central Difference for Oscillations</h3>
+<p>A simple harmonic oscillator satisfies</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d^2x}{dt^2}=-\omega^2 x.
+\]</div>
+<p>Using the central difference approximation for the second derivative,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{x_{n+1}-2x_n+x_{n-1}}{h^2},
+\]</div>
+<p>derive an update equation for <span class="math notranslate nohighlight">\(x_{n+1}\)</span>.</p>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<p>Substitute the central difference approximation into the differential equation:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{x_{n+1}-2x_n+x_{n-1}}{h^2}
+=
+-\omega^2 x_n.
+\]</div>
+<p>Multiply by <span class="math notranslate nohighlight">\(h^2\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+x_{n+1}-2x_n+x_{n-1}
+=
+-\omega^2 h^2 x_n.
+\]</div>
+<p>Solve for <span class="math notranslate nohighlight">\(x_{n+1}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+x_{n+1}
+=
+2x_n-x_{n-1}-\omega^2 h^2 x_n.
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+x_{n+1}
+=
+(2-\omega^2 h^2)x_n-x_{n-1}.
+\]</div>
+<p>This update equation is widely used in computational mechanics and wave simulations.</p>
+</details>
+</div>
+<hr class="docutils" />
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Parameters</span>
+<span class="n">omega</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="n">t_final</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="c1"># Time array</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_final</span><span class="o">+</span><span class="n">h</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+
+<span class="c1"># Arrays</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+
+<span class="c1"># Initial conditions</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">v0</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="c1"># Start using Taylor expansion</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">v0</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">omega</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">h</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Central difference update</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">-</span> <span class="n">omega</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Exact solution</span>
+<span class="n">x_exact</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">omega</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+
+<span class="c1"># Plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Central Difference&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x_exact</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Exact Solution&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;x(t)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Simple Harmonic Oscillator&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/dbba29733bebf5d5e1a42c197ddd628b84e6e5f593c3863584be17a0d5572725.png" src="../_images/dbba29733bebf5d5e1a42c197ddd628b84e6e5f593c3863584be17a0d5572725.png" />
+</div>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c1-3-10-summary">
+<h2>C1.3.10 — Summary<a class="headerlink" href="#c1-3-10-summary" title="Link to this heading">#</a></h2>
+<p>The central difference approximation is</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{y_{n+1}-y_{n-1}}{2h}.
+\]</div>
+<p>Key ideas:</p>
+<ul class="simple">
+<li><p>it uses information from both sides of a point,</p></li>
+<li><p>it is more symmetric than Forward Euler,</p></li>
+<li><p>it is second-order accurate,</p></li>
+<li><p>it requires two starting values,</p></li>
+<li><p>it is especially useful for oscillatory and wave systems,</p></li>
+<li><p>it forms the foundation of many finite-difference methods.</p></li>
+</ul>
+<p>The second-derivative approximation</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{y_{n+1}-2y_n+y_{n-1}}{h^2}
+\]</div>
+<p>is one of the most important formulas in computational physics.</p>
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<strong>Big Picture</strong>
+<p>The central difference method introduces one of the most important ideas in computational physics:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{local derivatives}
+\quad \longrightarrow \quad
+\text{algebraic relationships between neighboring grid points}.
+\]</div>
+<p>This idea underlies finite difference methods for mechanics, electromagnetism, fluid dynamics, and quantum mechanics.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Phys-Prof-Nielsen/modulearn",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-C1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-3-1-motivation">C1.3.1 — Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-3-2-deriving-the-central-difference-approximation">C1.3.2 — Deriving the Central Difference Approximation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-3-3-accuracy-of-the-central-difference-method">C1.3.3 — Accuracy of the Central Difference Method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-3-4-central-difference-form-of-a-differential-equation">C1.3.4 — Central Difference Form of a Differential Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-3-5-why-two-initial-values-are-needed">C1.3.5 — Why Two Initial Values Are Needed</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-3-6-example-exponential-growth">C1.3.6 — Example: Exponential Growth</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-3-7-time-symmetry">C1.3.7 — Time Symmetry</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-3-8-central-difference-for-second-derivatives">C1.3.8 — Central Difference for Second Derivatives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-3-9-box-activity-harmonic-oscillator">C1.3.9 — Box Activity: Harmonic Oscillator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c1-3-10-summary">C1.3.10 — Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
