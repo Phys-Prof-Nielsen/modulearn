@@ -1,0 +1,1462 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>C2.2 — The Rocket Equation &#8212; A Competency Approach to Classical Mechanics - Phase C</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-C2/rocket-equation';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="C2.3 Problems" href="problemsC2.html" />
+    <link rel="prev" title="C2.1 — Introduction to Variable Mass Systems" href="intro-variable-mass.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-C.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Phase C - Home"/>
+    <script>document.write(`<img src="../_static/logo-C.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Phase C - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the C Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C1 - Numerical Methods</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/LOC-C1.html">C1.0 Learning Outcomes — Numerical Methods and Finite Difference Techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/forward-euler.html">C1.1 — The Forward Euler Numerical Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/backward-euler.html">C1.2 — The Backward Euler Numerical Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/central-difference.html">C1.3 — The Central Difference Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/euler-cromer.html">C1.4 — Euler-Cromer Method (Symplectic Euler)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/problemsC1.html">C1.5 — Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C2 - Variable Mass Systems</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-C2.html">C2.0 Learning Outcomes — Variable Mass Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro-variable-mass.html">C2.1 — Introduction to Variable Mass Systems</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">C2.2 — The Rocket Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problemsC2.html">C2.3 Problems</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/classical-mechanics-C/Module-C2/rocket-equation.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-C2/rocket-equation.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>C2.2 — The Rocket Equation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-2-1-motivation">C2.2.1 — Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-2-2-physical-setup">C2.2.2 — Physical Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-2-3-derivation-of-the-rocket-equation">C2.2.3 — Derivation of the Rocket Equation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-momentum">Initial Momentum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#final-momentum">Final Momentum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#change-in-momentum">Change in Momentum</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-2-4-the-tsiolkovsky-rocket-equation">C2.2.4 — The Tsiolkovsky Rocket Equation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tasks">Tasks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-apply-the-rocket-equation">Step 1 — Apply the Rocket Equation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-determine-the-final-speed">Step 2 — Determine the Final Speed</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-physical-interpretation">Step 3 — Physical Interpretation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-2-5-physical-interpretation">C2.2.5 — Physical Interpretation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#momentum-conservation-produces-thrust">Momentum Conservation Produces Thrust</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-mass-ratio-is-critical">The Mass Ratio is Critical</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#velocity-depends-logarithmically-on-fuel">Velocity Depends Logarithmically on Fuel</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-2-6-special-cases">C2.2.6 — Special Cases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Tasks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-mass-loss-rate">Step 1 — Mass-Loss Rate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-thrust-force">Step 2 — Thrust Force</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-net-force-at-the-start">Step 3 — Net Force at the Start</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-velocity-change-with-tractor-field">Step 4 — Velocity Change with Tractor Field</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-escape-decision">Step 5 — Escape Decision</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-interpretation">Physical Interpretation</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="c2-2-the-rocket-equation">
+<h1>C2.2 — The Rocket Equation<a class="headerlink" href="#c2-2-the-rocket-equation" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><section id="c2-2-1-motivation">
+<h2>C2.2.1 — Motivation<a class="headerlink" href="#c2-2-1-motivation" title="Link to this heading">#</a></h2>
+<p>Rockets are among the most remarkable applications of classical mechanics.</p>
+<p>Unlike most systems studied in introductory mechanics, rockets continuously lose mass as fuel is expelled from the engine. This means that the rocket must be treated as a <strong>variable mass system</strong>.</p>
+<p>The rocket equation describes how the velocity of a rocket changes as it ejects fuel.</p>
+<p>This equation is fundamental in:</p>
+<ul class="simple">
+<li><p>spaceflight,</p></li>
+<li><p>satellite maneuvering,</p></li>
+<li><p>planetary landings,</p></li>
+<li><p>interplanetary missions,</p></li>
+<li><p>propulsion engineering.</p></li>
+</ul>
+<p>One of the most surprising aspects of rocket motion is that rockets do not require air to push against.</p>
+<p>Instead, propulsion occurs because momentum is carried away by the expelled exhaust gases.</p>
+<p>By conservation of momentum, the rocket gains momentum in the opposite direction.</p>
+<hr class="docutils" />
+<p>The standard rocket equation is often called the <strong>Tsiolkovsky Rocket Equation</strong>, named after Konstantin Tsiolkovsky, who first derived it in the late 1800s.</p>
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Curiosity</strong></p>
+<p>The rocket equation reveals one of the great engineering challenges of space travel:</p>
+<p>To gain additional velocity, a rocket must carry more fuel.</p>
+<p>But carrying more fuel increases the rocket’s mass, which itself requires even more fuel.</p>
+<p>This exponential relationship is one reason why multi-stage rockets are commonly used.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c2-2-2-physical-setup">
+<h2>C2.2.2 — Physical Setup<a class="headerlink" href="#c2-2-2-physical-setup" title="Link to this heading">#</a></h2>
+<p>We consider a rocket moving with velocity</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{v}
+\]</div>
+<p>relative to an inertial reference frame.</p>
+<p>At some instant, the rocket has mass</p>
+<div class="math notranslate nohighlight">
+\[
+M.
+\]</div>
+<p>During a small time interval <span class="math notranslate nohighlight">\(dt\)</span>, the rocket ejects a small amount of fuel with mass</p>
+<div class="math notranslate nohighlight">
+\[
+dm.
+\]</div>
+<p>The expelled exhaust moves with velocity</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{v}+\vec{u},
+\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\vec{u}\)</span> is the exhaust velocity relative to the rocket,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\vec{v}\)</span> is the rocket velocity relative to the inertial frame.</p></li>
+</ul>
+<p>We also allow for a possible external force</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{F}_{ext},
+\]</div>
+<p>which may represent:</p>
+<ul class="simple">
+<li><p>gravity,</p></li>
+<li><p>aerodynamic drag,</p></li>
+<li><p>or other environmental forces.</p></li>
+</ul>
+<hr class="docutils" />
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<p><strong>Important Sign Convention</strong></p>
+<p>We define:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(dM &lt; 0\)</span> for the rocket because the rocket loses mass,</p></li>
+<li><p><span class="math notranslate nohighlight">\(dm &gt; 0\)</span> for the expelled exhaust mass.</p></li>
+</ul>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+dm=-dM.
+\]</div>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c2-2-3-derivation-of-the-rocket-equation">
+<h2>C2.2.3 — Derivation of the Rocket Equation<a class="headerlink" href="#c2-2-3-derivation-of-the-rocket-equation" title="Link to this heading">#</a></h2>
+<p>We begin with the differential form of the impulse-momentum theorem:</p>
+<div class="math notranslate nohighlight">
+\[
+d\vec{P}
+=
+\vec{F}_{ext}\,dt.
+\]</div>
+<hr class="docutils" />
+<section id="initial-momentum">
+<h3>Initial Momentum<a class="headerlink" href="#initial-momentum" title="Link to this heading">#</a></h3>
+<p>Before fuel is expelled, the momentum is</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{P}_i
+=
+(M+dm)\vec{v}.
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="final-momentum">
+<h3>Final Momentum<a class="headerlink" href="#final-momentum" title="Link to this heading">#</a></h3>
+<p>After the fuel is expelled:</p>
+<ul class="simple">
+<li><p>the rocket mass is <span class="math notranslate nohighlight">\(M\)</span>,</p></li>
+<li><p>the rocket velocity becomes <span class="math notranslate nohighlight">\(\vec{v}+d\vec{v}\)</span>,</p></li>
+<li><p>the exhaust mass is <span class="math notranslate nohighlight">\(dm\)</span>,</p></li>
+<li><p>the exhaust velocity is <span class="math notranslate nohighlight">\(\vec{v}+d\vec{v}+\vec{u}\)</span>.</p></li>
+</ul>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{P}_f
+=
+M(\vec{v}+d\vec{v})
++
+dm(\vec{v}+d\vec{v}+\vec{u}).
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="change-in-momentum">
+<h3>Change in Momentum<a class="headerlink" href="#change-in-momentum" title="Link to this heading">#</a></h3>
+<p>The momentum change is</p>
+<div class="math notranslate nohighlight">
+\[
+d\vec{P}
+=
+\vec{P}_f-\vec{P}_i.
+\]</div>
+<p>Substituting the expressions above,</p>
+<div class="math notranslate nohighlight">
+\[
+d\vec{P}
+=
+M(\vec{v}+d\vec{v})
++
+dm(\vec{v}+d\vec{v}+\vec{u})
+-
+(M+dm)\vec{v}.
+\]</div>
+<p>Expanding,</p>
+<div class="math notranslate nohighlight">
+\[
+d\vec{P}
+=
+Md\vec{v}
++
+\vec{u}\,dm
++
+dm\,d\vec{v}.
+\]</div>
+<p>The term</p>
+<div class="math notranslate nohighlight">
+\[
+dm\,d\vec{v}
+\]</div>
+<p>is a second-order differential and is therefore neglected.</p>
+<p>This leaves</p>
+<div class="math notranslate nohighlight">
+\[
+d\vec{P}
+=
+Md\vec{v}
++
+\vec{u}\,dm.
+\]</div>
+<p>Applying the impulse-momentum theorem,</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{F}_{ext}\,dt
+=
+Md\vec{v}
++
+\vec{u}\,dm.
+\]</div>
+<p>Dividing by <span class="math notranslate nohighlight">\(dt\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{F}_{ext}
+=
+M\frac{d\vec{v}}{dt}
++
+\vec{u}\frac{dm}{dt}.
+\]</div>
+<p>Using</p>
+<div class="math notranslate nohighlight">
+\[
+dm=-dM,
+\]</div>
+<p>we obtain the general rocket equation:</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<p><strong>General Rocket Equation</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\vec{F}_{ext}
+=
+M\frac{d\vec{v}}{dt}
+-
+\vec{u}\frac{dM}{dt}
+}
+\]</div>
+</div>
+<p>The term</p>
+<div class="math notranslate nohighlight">
+\[
+-\vec{u}\frac{dM}{dt}
+\]</div>
+<p>is called the <strong>thrust force</strong>.</p>
+<div style="background-color:#ffe6e6; border-left:6px solid #cc0000; padding:14px; border-radius:4px;">
+<strong>Danger:</strong><br>
+<p>The exhaust velocity <span class="math notranslate nohighlight">\(\vec{u}\)</span> is measured relative to the rocket, not relative to the ground.</p>
+<p>This distinction is extremely important when applying the rocket equation correctly.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="c2-2-4-the-tsiolkovsky-rocket-equation">
+<h2>C2.2.4 — The Tsiolkovsky Rocket Equation<a class="headerlink" href="#c2-2-4-the-tsiolkovsky-rocket-equation" title="Link to this heading">#</a></h2>
+<p>We now consider the idealized case where there are no external forces:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{F}_{ext}=0.
+\]</div>
+<p>The rocket equation becomes</p>
+<div class="math notranslate nohighlight">
+\[
+M\frac{d\vec{v}}{dt}
+=
+\vec{u}\frac{dM}{dt}.
+\]</div>
+<p>Rearranging,</p>
+<div class="math notranslate nohighlight">
+\[
+d\vec{v}
+=
+\vec{u}\frac{dM}{M}.
+\]</div>
+<p>Integrating from:</p>
+<ul class="simple">
+<li><p>initial mass <span class="math notranslate nohighlight">\(M_i\)</span> to final mass <span class="math notranslate nohighlight">\(M_f\)</span>,</p></li>
+<li><p>initial velocity <span class="math notranslate nohighlight">\(\vec{v}_i\)</span> to final velocity <span class="math notranslate nohighlight">\(\vec{v}_f\)</span>,</p></li>
+</ul>
+<p>gives</p>
+<div class="math notranslate nohighlight">
+\[
+\int_{\vec{v}_i}^{\vec{v}_f} d\vec{v}
+=
+\vec{u}
+\int_{M_i}^{M_f}
+\frac{dM}{M}.
+\]</div>
+<p>Evaluating the integrals,</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{v}_f-\vec{v}_i
+=
+\vec{u}
+\ln\left(\frac{M_f}{M_i}\right).
+\]</div>
+<p>Rewriting,</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<p><strong>Tsiolkovsky Rocket Equation</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\Delta \vec{v}
+=
+\vec{u}
+\ln\left(\frac{M_i}{M_f}\right)
+}
+\]</div>
+</div>
+<p>This equation predicts the total velocity change achievable from a given fuel mass ratio.</p>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Escaping the Death Star</h3>
+<p>A Rebel pilot attempts to escape the Death Star using a small ion-drive starfighter.</p>
+<p>The spacecraft initially has total mass</p>
+<div class="math notranslate nohighlight">
+\[
+M_i
+=
+4.0\times10^4~\text{kg},
+\]</div>
+<p>including fuel.</p>
+<p>After a prolonged engine burn, the remaining mass is</p>
+<div class="math notranslate nohighlight">
+\[
+M_f
+=
+1.5\times10^4~\text{kg}.
+\]</div>
+<p>The ion exhaust leaves the spacecraft with constant speed</p>
+<div class="math notranslate nohighlight">
+\[
+u
+=
+2.8\times10^4~\text{m/s}
+\]</div>
+<p>relative to the spacecraft.</p>
+<p>Assume:</p>
+<ul class="simple">
+<li><p>motion occurs in deep space,</p></li>
+<li><p>external forces are negligible,</p></li>
+<li><p>the spacecraft initially starts from rest.</p></li>
+</ul>
+<hr class="docutils" />
+<section id="tasks">
+<h3>Tasks<a class="headerlink" href="#tasks" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Apply the Tsiolkovsky rocket equation to determine the final speed of the spacecraft.</p></li>
+<li><p>Determine the total change in velocity.</p></li>
+<li><p>If the spacecraft instead wanted to double its final speed, would it need:</p>
+<ul class="simple">
+<li><p>twice as much fuel,</p></li>
+<li><p>more than twice as much fuel,</p></li>
+<li><p>or less than twice as much fuel?</p></li>
+</ul>
+</li>
+</ol>
+<p>Explain physically.</p>
+<hr class="docutils" />
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+</section>
+<section id="step-1-apply-the-rocket-equation">
+<h3>Step 1 — Apply the Rocket Equation<a class="headerlink" href="#step-1-apply-the-rocket-equation" title="Link to this heading">#</a></h3>
+<p>For motion without external forces, the rocket equation is</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta v
+=
+u
+\ln\left(\frac{M_i}{M_f}\right).
+\]</div>
+<p>Substituting the given values,</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta v
+=
+(2.8\times10^4)
+\ln\left(
+\frac{4.0\times10^4}{1.5\times10^4}
+\right).
+\]</div>
+<p>First compute the mass ratio:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{M_i}{M_f}
+=
+2.667.
+\]</div>
+<p>Then,</p>
+<div class="math notranslate nohighlight">
+\[
+\ln(2.667)\approx0.981.
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta v
+=
+(2.8\times10^4)(0.981).
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\Delta v
+\approx
+2.75\times10^4~\text{m/s}
+}
+\]</div>
+<p>or approximately</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+27.5~\text{km/s}
+}
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="step-2-determine-the-final-speed">
+<h3>Step 2 — Determine the Final Speed<a class="headerlink" href="#step-2-determine-the-final-speed" title="Link to this heading">#</a></h3>
+<p>Since the spacecraft started from rest,</p>
+<div class="math notranslate nohighlight">
+\[
+v_i=0.
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+v_f=\Delta v.
+\]</div>
+<p>Hence,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+v_f
+\approx
+2.75\times10^4~\text{m/s}
+}
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="step-3-physical-interpretation">
+<h3>Step 3 — Physical Interpretation<a class="headerlink" href="#step-3-physical-interpretation" title="Link to this heading">#</a></h3>
+<p>The rocket equation contains a logarithm:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta v
+=
+u
+\ln\left(\frac{M_i}{M_f}\right).
+\]</div>
+<p>Because of this logarithmic dependence:</p>
+<ul class="simple">
+<li><p>doubling the desired speed does <strong>not</strong> require merely doubling the fuel,</p></li>
+<li><p>increasingly large fuel masses are required for additional velocity gains.</p></li>
+</ul>
+<p>Therefore, to double the final speed, the spacecraft would require</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{\text{more than twice as much fuel}.}
+\]</div>
+<p>This exponential fuel requirement is one of the major challenges in rocket engineering and interstellar travel.</p>
+<hr class="docutils" />
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Curiosity</strong></p>
+<p>Real spacecraft often use multiple rocket stages because carrying enormous fuel masses becomes impractical.</p>
+<p>As empty fuel tanks are discarded, the spacecraft mass decreases substantially, improving efficiency.</p>
+</div>
+</div>
+</details>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="c2-2-5-physical-interpretation">
+<h2>C2.2.5 — Physical Interpretation<a class="headerlink" href="#c2-2-5-physical-interpretation" title="Link to this heading">#</a></h2>
+<p>The rocket equation reveals several important physical ideas.</p>
+<hr class="docutils" />
+<section id="momentum-conservation-produces-thrust">
+<h3>Momentum Conservation Produces Thrust<a class="headerlink" href="#momentum-conservation-produces-thrust" title="Link to this heading">#</a></h3>
+<p>Rockets accelerate because exhaust gases carry momentum away from the rocket.</p>
+<p>As momentum leaves in one direction, the rocket gains momentum in the opposite direction.</p>
+<p>No atmosphere is required.</p>
+<p>This is why rockets function in space.</p>
+</section>
+<hr class="docutils" />
+<section id="the-mass-ratio-is-critical">
+<h3>The Mass Ratio is Critical<a class="headerlink" href="#the-mass-ratio-is-critical" title="Link to this heading">#</a></h3>
+<p>The quantity</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{M_i}{M_f}
+\]</div>
+<p>is called the <strong>mass ratio</strong>.</p>
+<p>Large velocity changes require large mass ratios.</p>
+<p>This means rockets must carry enormous amounts of fuel to achieve high speeds.</p>
+</section>
+<hr class="docutils" />
+<section id="velocity-depends-logarithmically-on-fuel">
+<h3>Velocity Depends Logarithmically on Fuel<a class="headerlink" href="#velocity-depends-logarithmically-on-fuel" title="Link to this heading">#</a></h3>
+<p>Notice the logarithm:</p>
+<div class="math notranslate nohighlight">
+\[
+\ln\left(\frac{M_i}{M_f}\right).
+\]</div>
+<p>This means:</p>
+<ul class="simple">
+<li><p>doubling the fuel does not double the velocity,</p></li>
+<li><p>increasingly large fuel amounts produce diminishing returns.</p></li>
+</ul>
+<p>This is one of the major engineering challenges in rocketry.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="c2-2-6-special-cases">
+<h2>C2.2.6 — Special Cases<a class="headerlink" href="#c2-2-6-special-cases" title="Link to this heading">#</a></h2>
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Special Case — Rocket Under Gravity</h3>
+<p>If the rocket moves vertically near Earth’s surface, then</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{F}_{ext}
+=
+-Mg\,\hat{k}.
+\]</div>
+<p>The rocket equation becomes</p>
+<div class="math notranslate nohighlight">
+\[
+M\frac{d\vec{v}}{dt}
+=
+\vec{u}\frac{dM}{dt}
+-
+Mg\,\hat{k}.
+\]</div>
+<p>Gravity therefore reduces the rocket’s achievable velocity.</p>
+<p>These losses are called <strong>gravity losses</strong>.</p>
+</div>
+<br>
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Special Case — Atmospheric Drag</h3>
+<p>If aerodynamic drag is present, then the external force may depend on velocity:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{F}_{drag}
+=
+-c_d v^2 \hat{v}.
+\]</div>
+<p>In such situations, the rocket equation usually cannot be solved analytically and numerical methods become necessary.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Escaping a Death Star Tractor Field</h3>
+<p>A Rebel transport attempts to escape from the Death Star, but the Death Star projects a tractor field that pulls backward on the ship.</p>
+<p>The transport moves in a straight line in the <span class="math notranslate nohighlight">\(+x\)</span> direction.</p>
+<p>The ship has initial mass</p>
+<div class="math notranslate nohighlight">
+\[
+M_i = 5.0\times 10^4~\text{kg},
+\]</div>
+<p>and the empty ship mass after all usable fuel is burned is</p>
+<div class="math notranslate nohighlight">
+\[
+M_f = 2.0\times 10^4~\text{kg}.
+\]</div>
+<p>The exhaust speed relative to the ship is</p>
+<div class="math notranslate nohighlight">
+\[
+u = 3.0\times 10^4~\text{m/s}.
+\]</div>
+<p>The Death Star tractor field exerts a constant backward force of magnitude</p>
+<div class="math notranslate nohighlight">
+\[
+F_T = 1.2\times 10^5~\text{N}.
+\]</div>
+<p>The Rebel ship must burn its engine for</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta t = 60~\text{s}.
+\]</div>
+<p>Assume:</p>
+<ul class="simple">
+<li><p>straight-line motion,</p></li>
+<li><p>constant exhaust speed,</p></li>
+<li><p>constant mass-loss rate,</p></li>
+<li><p>the tractor field is the only external force,</p></li>
+<li><p>the ship starts from rest.</p></li>
+</ul>
+<hr class="docutils" />
+<section id="id1">
+<h3>Tasks<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Determine the average mass-loss rate if the ship burns all usable fuel during the <span class="math notranslate nohighlight">\(60~\text{s}\)</span> escape burn.</p></li>
+<li><p>Determine the thrust force produced by the engine.</p></li>
+<li><p>Determine the net force on the ship at the start of the burn.</p></li>
+<li><p>Determine the velocity change using the rocket equation with an external force correction:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\Delta v
+=
+u\ln\left(\frac{M_i}{M_f}\right)
++
+\int_0^{\Delta t}\frac{F_{ext}}{M(t)}\,dt.
+\]</div>
+<ol class="arabic simple" start="5">
+<li><p>Determine whether the ship escapes if it needs at least</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\Delta v_{\text{escape}} = 2.0\times 10^4~\text{m/s}.
+\]</div>
+<hr class="docutils" />
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+</section>
+<section id="step-1-mass-loss-rate">
+<h3>Step 1 — Mass-Loss Rate<a class="headerlink" href="#step-1-mass-loss-rate" title="Link to this heading">#</a></h3>
+<p>The ship loses mass</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta M = M_i-M_f.
+\]</div>
+<p>Substituting,</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta M
+=
+5.0\times10^4-2.0\times10^4
+=
+3.0\times10^4~\text{kg}.
+\]</div>
+<p>Since the burn lasts <span class="math notranslate nohighlight">\(60~\text{s}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+k
+=
+\frac{\Delta M}{\Delta t}
+=
+\frac{3.0\times10^4}{60}.
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+k=500~\text{kg/s}
+}
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="step-2-thrust-force">
+<h3>Step 2 — Thrust Force<a class="headerlink" href="#step-2-thrust-force" title="Link to this heading">#</a></h3>
+<p>The thrust force is</p>
+<div class="math notranslate nohighlight">
+\[
+F_{\text{thrust}}
+=
+uk.
+\]</div>
+<p>Substituting,</p>
+<div class="math notranslate nohighlight">
+\[
+F_{\text{thrust}}
+=
+(3.0\times10^4)(500).
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+F_{\text{thrust}}
+=
+1.5\times10^7~\text{N}
+}
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="step-3-net-force-at-the-start">
+<h3>Step 3 — Net Force at the Start<a class="headerlink" href="#step-3-net-force-at-the-start" title="Link to this heading">#</a></h3>
+<p>The tractor field acts backward, so</p>
+<div class="math notranslate nohighlight">
+\[
+F_{ext}=-F_T.
+\]</div>
+<p>The net force at the start of the burn is</p>
+<div class="math notranslate nohighlight">
+\[
+F_{\text{net}}
+=
+F_{\text{thrust}}-F_T.
+\]</div>
+<p>Substituting,</p>
+<div class="math notranslate nohighlight">
+\[
+F_{\text{net}}
+=
+1.5\times10^7-1.2\times10^5.
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+F_{\text{net}}
+=
+1.488\times10^7~\text{N}
+}
+\]</div>
+<p>The initial acceleration is</p>
+<div class="math notranslate nohighlight">
+\[
+a_0
+=
+\frac{F_{\text{net}}}{M_i}.
+\]</div>
+<p>So,</p>
+<div class="math notranslate nohighlight">
+\[
+a_0
+=
+\frac{1.488\times10^7}{5.0\times10^4}.
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+a_0
+\approx
+298~\text{m/s}^2
+}
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="step-4-velocity-change-with-tractor-field">
+<h3>Step 4 — Velocity Change with Tractor Field<a class="headerlink" href="#step-4-velocity-change-with-tractor-field" title="Link to this heading">#</a></h3>
+<p>The mass decreases linearly:</p>
+<div class="math notranslate nohighlight">
+\[
+M(t)=M_i-kt.
+\]</div>
+<p>The rocket equation with the external force correction is</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta v
+=
+u\ln\left(\frac{M_i}{M_f}\right)
++
+\int_0^{\Delta t}\frac{F_{ext}}{M(t)}\,dt.
+\]</div>
+<p>Since the tractor field points backward,</p>
+<div class="math notranslate nohighlight">
+\[
+F_{ext}=-F_T.
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta v
+=
+u\ln\left(\frac{M_i}{M_f}\right)
+-
+\int_0^{\Delta t}\frac{F_T}{M_i-kt}\,dt.
+\]</div>
+<p>Evaluate the tractor-field correction:</p>
+<div class="math notranslate nohighlight">
+\[
+\int_0^{\Delta t}\frac{F_T}{M_i-kt}\,dt
+=
+-\frac{F_T}{k}
+\left[
+\ln(M_i-kt)
+\right]_0^{\Delta t}.
+\]</div>
+<p>Since</p>
+<div class="math notranslate nohighlight">
+\[
+M_i-k\Delta t=M_f,
+\]</div>
+<p>we get</p>
+<div class="math notranslate nohighlight">
+\[
+\int_0^{\Delta t}\frac{F_T}{M_i-kt}\,dt
+=
+\frac{F_T}{k}
+\ln\left(\frac{M_i}{M_f}\right).
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta v
+=
+\left(
+u-\frac{F_T}{k}
+\right)
+\ln\left(\frac{M_i}{M_f}\right).
+\]</div>
+<p>Now compute each term:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{F_T}{k}
+=
+\frac{1.2\times10^5}{500}
+=
+240~\text{m/s}.
+\]</div>
+<p>The mass ratio is</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{M_i}{M_f}
+=
+\frac{5.0\times10^4}{2.0\times10^4}
+=
+2.5.
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+\ln(2.5)\approx0.916.
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta v
+=
+(3.0\times10^4-240)(0.916).
+\]</div>
+<p>So,</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta v
+\approx
+(2.976\times10^4)(0.916).
+\]</div>
+<p>Hence,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\Delta v
+\approx
+2.73\times10^4~\text{m/s}
+}
+\]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\Delta v
+\approx
+27.3~\text{km/s}.
+}
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="step-5-escape-decision">
+<h3>Step 5 — Escape Decision<a class="headerlink" href="#step-5-escape-decision" title="Link to this heading">#</a></h3>
+<p>The required velocity change is</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta v_{\text{escape}}
+=
+2.0\times10^4~\text{m/s}.
+\]</div>
+<p>Since</p>
+<div class="math notranslate nohighlight">
+\[
+2.73\times10^4~\text{m/s}
+&gt;
+2.0\times10^4~\text{m/s},
+\]</div>
+<p>the ship escapes.</p>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\text{The Rebel transport escapes the tractor field.}
+}
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="physical-interpretation">
+<h3>Physical Interpretation<a class="headerlink" href="#physical-interpretation" title="Link to this heading">#</a></h3>
+<p>The tractor field reduces the final velocity by an amount determined by</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{F_T}{k}
+\ln\left(\frac{M_i}{M_f}\right).
+\]</div>
+<p>A stronger tractor field, a longer burn, or a smaller mass-loss rate would make escape harder.</p>
+<p>The key lesson is that the fuel does two jobs:</p>
+<ul class="simple">
+<li><p>it produces thrust,</p></li>
+<li><p>and it must overcome the external force field.</p></li>
+</ul>
+</div>
+</details>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Phys-Prof-Nielsen/modulearn",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-C2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro-variable-mass.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">C2.1 — Introduction to Variable Mass Systems</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="problemsC2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">C2.3 Problems</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-2-1-motivation">C2.2.1 — Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-2-2-physical-setup">C2.2.2 — Physical Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-2-3-derivation-of-the-rocket-equation">C2.2.3 — Derivation of the Rocket Equation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-momentum">Initial Momentum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#final-momentum">Final Momentum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#change-in-momentum">Change in Momentum</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-2-4-the-tsiolkovsky-rocket-equation">C2.2.4 — The Tsiolkovsky Rocket Equation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tasks">Tasks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-apply-the-rocket-equation">Step 1 — Apply the Rocket Equation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-determine-the-final-speed">Step 2 — Determine the Final Speed</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-physical-interpretation">Step 3 — Physical Interpretation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-2-5-physical-interpretation">C2.2.5 — Physical Interpretation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#momentum-conservation-produces-thrust">Momentum Conservation Produces Thrust</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-mass-ratio-is-critical">The Mass Ratio is Critical</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#velocity-depends-logarithmically-on-fuel">Velocity Depends Logarithmically on Fuel</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-2-6-special-cases">C2.2.6 — Special Cases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Tasks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-mass-loss-rate">Step 1 — Mass-Loss Rate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-thrust-force">Step 2 — Thrust Force</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-net-force-at-the-start">Step 3 — Net Force at the Start</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-velocity-change-with-tractor-field">Step 4 — Velocity Change with Tractor Field</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-escape-decision">Step 5 — Escape Decision</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-interpretation">Physical Interpretation</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
