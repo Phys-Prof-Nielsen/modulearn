@@ -1,0 +1,1067 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Faculty Implementation Guide &#8212; AI-Aware Project-Based Physics Education</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'faculty-implementation-guide';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Reflection &amp; Evaluation Summary" href="reflection-eval-summary.html" />
+    <link rel="prev" title="Responsible AI Use Guidelines" href="responsible-AI-use.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="AI-Aware Project-Based Physics Education - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="AI-Aware Project-Based Physics Education - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    AI-Aware Project-Based Physics Education: Computational Modeling, Scientific Reasoning, and Modern Assessment
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Physics Education Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/physics-education/physics-education.html">Physics Education Main Page</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://chatgpt.com/g/g-6a14fae6d7708191ad02344313d41931-university-physics-i-phase-a-proposal-architect">University Physics I PHASE A Project Architect</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapters</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="project-module.html">PHASE A RESEARCH PROJECT - Computational Physics Research Project</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="AI-mentor-framework.html">AI Research Mentor Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AI-assessment-framework.html">AI-Aware Assessment Framework</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="responsible-AI-use.html">Responsible AI Use Guidelines</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Faculty Implementation Guide</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="reflection-eval-summary.html">Reflection &amp; Evaluation Summary</a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="dissemination.html">Dissemination Outcomes</a></li>
+
+
+
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/lAI-Aware/faculty-implementation-guide.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/faculty-implementation-guide.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Faculty Implementation Guide</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Faculty Implementation Guide</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">Purpose</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#core-philosophy">Core Philosophy</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-project-based-computational-physics">Why Project-Based Computational Physics?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-integrate-ai">Why Integrate AI?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-course-placement">Recommended Course Placement</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-project-structure">Recommended Project Structure</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-computational-environment">Recommended Computational Environment</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-ai-workflow">Recommended AI Workflow</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preventing-ai-overreach">Preventing AI Overreach</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-assessment-philosophy">Recommended Assessment Philosophy</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oral-assessment-components">Oral Assessment Components</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#responsible-ai-reflection">Responsible AI Reflection</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-project-themes">Suggested Project Themes</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equity-accessibility-considerations">Equity &amp; Accessibility Considerations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#common-implementation-challenges">Common Implementation Challenges</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#students-asking-ai-to-complete-the-work">1. Students Asking AI To Complete the Work</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#students-trusting-incorrect-ai-output">2. Students Trusting Incorrect AI Output</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overemphasis-on-coding">3. Overemphasis on Coding</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-instructor-workflow">Suggested Instructor Workflow</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#long-term-educational-goals">Long-Term Educational Goals</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#final-perspective">Final Perspective</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="faculty-implementation-guide">
+<h1>Faculty Implementation Guide<a class="headerlink" href="#faculty-implementation-guide" title="Link to this heading">#</a></h1>
+<section id="purpose">
+<h2>Purpose<a class="headerlink" href="#purpose" title="Link to this heading">#</a></h2>
+<p>This guide provides practical recommendations for implementing AI-supported project-based learning within introductory STEM and physics courses.</p>
+<p>The framework was developed specifically for computational physics projects that integrate:</p>
+<ul class="simple">
+<li><p>Python programming,</p></li>
+<li><p>Jupyter Notebooks,</p></li>
+<li><p>numerical methods,</p></li>
+<li><p>uncertainty analysis,</p></li>
+<li><p>Monte Carlo simulations,</p></li>
+<li><p>and responsible AI-supported workflows.</p></li>
+</ul>
+<p>The central goal is to create learning environments where students engage in authentic scientific reasoning while using AI responsibly as a support tool rather than as a replacement for intellectual work.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="core-philosophy">
+<h1>Core Philosophy<a class="headerlink" href="#core-philosophy" title="Link to this heading">#</a></h1>
+<p>The framework is built around several key principles:</p>
+<ol class="arabic simple">
+<li><p>Students should remain the intellectual owners of their work.</p></li>
+<li><p>AI should support scientific reasoning rather than replace it.</p></li>
+<li><p>Assessment should emphasize process, reasoning, and synthesis rather than polished final products alone.</p></li>
+<li><p>Computational workflows should reflect authentic scientific and engineering practices.</p></li>
+<li><p>Students should learn to critically evaluate AI-generated output rather than blindly trust it.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="why-project-based-computational-physics">
+<h1>Why Project-Based Computational Physics?<a class="headerlink" href="#why-project-based-computational-physics" title="Link to this heading">#</a></h1>
+<p>Traditional physics assessments often emphasize:</p>
+<ul class="simple">
+<li><p>isolated problem solving,</p></li>
+<li><p>short analytical exercises,</p></li>
+<li><p>and highly constrained questions.</p></li>
+</ul>
+<p>While these remain valuable, they do not fully capture modern scientific workflows.</p>
+<p>Project-based computational physics allows students to:</p>
+<ul class="simple">
+<li><p>investigate open-ended systems,</p></li>
+<li><p>work with simulations and data,</p></li>
+<li><p>perform uncertainty analysis,</p></li>
+<li><p>develop computational reasoning,</p></li>
+<li><p>and engage in scientific communication.</p></li>
+</ul>
+<p>These projects more closely resemble real scientific and engineering practice.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="why-integrate-ai">
+<h1>Why Integrate AI?<a class="headerlink" href="#why-integrate-ai" title="Link to this heading">#</a></h1>
+<p>AI tools are increasingly becoming part of:</p>
+<ul class="simple">
+<li><p>scientific computing,</p></li>
+<li><p>software development,</p></li>
+<li><p>engineering workflows,</p></li>
+<li><p>data analysis,</p></li>
+<li><p>and technical communication.</p></li>
+</ul>
+<p>Ignoring AI in STEM education is therefore unrealistic.</p>
+<p>Instead of prohibiting AI entirely, this framework emphasizes:</p>
+<ul class="simple">
+<li><p>transparent AI usage,</p></li>
+<li><p>responsible computational workflows,</p></li>
+<li><p>verification of results,</p></li>
+<li><p>and preservation of intellectual ownership.</p></li>
+</ul>
+<p>Students should learn:</p>
+<ul class="simple">
+<li><p>what AI is useful for,</p></li>
+<li><p>what AI is unreliable at,</p></li>
+<li><p>and how to critically evaluate AI-supported workflows.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="recommended-course-placement">
+<h1>Recommended Course Placement<a class="headerlink" href="#recommended-course-placement" title="Link to this heading">#</a></h1>
+<p>This framework is especially well suited for:</p>
+<ul class="simple">
+<li><p>advanced introductory physics courses,</p></li>
+<li><p>computational physics modules,</p></li>
+<li><p>project-based learning environments,</p></li>
+<li><p>honors projects,</p></li>
+<li><p>capstone-style assessments,</p></li>
+<li><p>or higher-level synthesis components.</p></li>
+</ul>
+<p>In the tiered competency framework, these projects are particularly appropriate for:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Phase A}
+\]</div>
+<p>where students are expected to demonstrate:</p>
+<ul class="simple">
+<li><p>synthesis,</p></li>
+<li><p>evaluation,</p></li>
+<li><p>creation,</p></li>
+<li><p>and integration of multiple concepts.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="recommended-project-structure">
+<h1>Recommended Project Structure<a class="headerlink" href="#recommended-project-structure" title="Link to this heading">#</a></h1>
+<p>A staged workflow is strongly recommended.</p>
+<p>Breaking the project into phases helps:</p>
+<ul class="simple">
+<li><p>reduce student overwhelm,</p></li>
+<li><p>encourage iteration,</p></li>
+<li><p>improve feedback opportunities,</p></li>
+<li><p>and discourage last-minute AI outsourcing.</p></li>
+</ul>
+<p>A suggested structure is:</p>
+<ol class="arabic simple">
+<li><p>Topic Exploration</p></li>
+<li><p>Research Question Development</p></li>
+<li><p>Proposal Development</p></li>
+<li><p>Computational Model Development</p></li>
+<li><p>Data Analysis &amp; Visualization</p></li>
+<li><p>Monte Carlo Uncertainty Analysis</p></li>
+<li><p>Scientific Interpretation</p></li>
+<li><p>Final Communication Product</p></li>
+<li><p>Responsible AI Reflection</p></li>
+</ol>
+<p>Each stage should include:</p>
+<ul class="simple">
+<li><p>checkpoints,</p></li>
+<li><p>feedback opportunities,</p></li>
+<li><p>and reflection.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="recommended-computational-environment">
+<h1>Recommended Computational Environment<a class="headerlink" href="#recommended-computational-environment" title="Link to this heading">#</a></h1>
+<p>The framework was designed around:</p>
+<ul class="simple">
+<li><p>Python,</p></li>
+<li><p>Jupyter Notebook,</p></li>
+<li><p>and Google Colab.</p></li>
+</ul>
+<p>These environments are recommended because they:</p>
+<ul class="simple">
+<li><p>support iterative computational workflows,</p></li>
+<li><p>combine code with scientific documentation,</p></li>
+<li><p>allow visualization,</p></li>
+<li><p>encourage reproducibility,</p></li>
+<li><p>and are widely used in STEM fields.</p></li>
+</ul>
+<p>Recommended libraries include:</p>
+<ul class="simple">
+<li><p>numpy,</p></li>
+<li><p>matplotlib,</p></li>
+<li><p>scipy,</p></li>
+<li><p>pandas,</p></li>
+<li><p>and sympy.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="recommended-ai-workflow">
+<h1>Recommended AI Workflow<a class="headerlink" href="#recommended-ai-workflow" title="Link to this heading">#</a></h1>
+<p>Students should be required to use a constrained AI “research mentor” rather than unrestricted AI prompting.</p>
+<p>The AI mentor should:</p>
+<ul class="simple">
+<li><p>guide thinking,</p></li>
+<li><p>ask questions,</p></li>
+<li><p>critique reasoning,</p></li>
+<li><p>identify missing components,</p></li>
+<li><p>and encourage reflection.</p></li>
+</ul>
+<p>The AI mentor should NOT:</p>
+<ul class="simple">
+<li><p>write proposals,</p></li>
+<li><p>choose methodologies,</p></li>
+<li><p>select variables,</p></li>
+<li><p>generate polished submissions,</p></li>
+<li><p>or make scientific decisions for students.</p></li>
+</ul>
+<p>This distinction is essential for preserving:</p>
+<ul class="simple">
+<li><p>scientific reasoning,</p></li>
+<li><p>intellectual ownership,</p></li>
+<li><p>and assessment integrity.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="preventing-ai-overreach">
+<h1>Preventing AI Overreach<a class="headerlink" href="#preventing-ai-overreach" title="Link to this heading">#</a></h1>
+<p>One of the largest implementation challenges is preventing AI from taking over the intellectual work.</p>
+<p>Early testing showed that unconstrained AI systems tend to:</p>
+<ul class="simple">
+<li><p>generate proposal sections,</p></li>
+<li><p>choose research questions,</p></li>
+<li><p>select methodologies,</p></li>
+<li><p>and effectively complete projects for students.</p></li>
+</ul>
+<p>This undermines the educational goals of the project.</p>
+<p>To prevent this, the AI mentor should include:</p>
+<ul class="simple">
+<li><p>non-delegation rules,</p></li>
+<li><p>refusal behavior,</p></li>
+<li><p>question-driven interaction,</p></li>
+<li><p>and strict writing limitations.</p></li>
+</ul>
+<p>Students should remain responsible for:</p>
+<ul class="simple">
+<li><p>all major scientific decisions,</p></li>
+<li><p>methodology selection,</p></li>
+<li><p>interpretation,</p></li>
+<li><p>and final writing.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="recommended-assessment-philosophy">
+<h1>Recommended Assessment Philosophy<a class="headerlink" href="#recommended-assessment-philosophy" title="Link to this heading">#</a></h1>
+<p>Assessment should emphasize:</p>
+<ul class="simple">
+<li><p>reasoning,</p></li>
+<li><p>process,</p></li>
+<li><p>interpretation,</p></li>
+<li><p>uncertainty analysis,</p></li>
+<li><p>and scientific synthesis.</p></li>
+</ul>
+<p>Assessment should not primarily reward:</p>
+<ul class="simple">
+<li><p>polished writing,</p></li>
+<li><p>complexity for its own sake,</p></li>
+<li><p>or AI-generated sophistication.</p></li>
+</ul>
+<p>Projects should be evaluated based on:</p>
+<ul class="simple">
+<li><p>justification of decisions,</p></li>
+<li><p>interpretation of evidence,</p></li>
+<li><p>understanding of limitations,</p></li>
+<li><p>and integration of physics with computation.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="oral-assessment-components">
+<h1>Oral Assessment Components<a class="headerlink" href="#oral-assessment-components" title="Link to this heading">#</a></h1>
+<p>Short oral questioning can be extremely valuable in AI-supported environments.</p>
+<p>Possible oral components include:</p>
+<ul class="simple">
+<li><p>explaining methodology,</p></li>
+<li><p>describing numerical methods,</p></li>
+<li><p>interpreting plots,</p></li>
+<li><p>explaining uncertainty analysis,</p></li>
+<li><p>or discussing debugging decisions.</p></li>
+</ul>
+<p>These discussions help distinguish:</p>
+<ul class="simple">
+<li><p>genuine understanding,</p></li>
+<li><p>from superficial or AI-generated work.</p></li>
+</ul>
+<p>Oral components also encourage:</p>
+<ul class="simple">
+<li><p>accountability,</p></li>
+<li><p>conceptual understanding,</p></li>
+<li><p>and scientific communication skills.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="responsible-ai-reflection">
+<h1>Responsible AI Reflection<a class="headerlink" href="#responsible-ai-reflection" title="Link to this heading">#</a></h1>
+<p>Students should submit a reflection discussing:</p>
+<ul class="simple">
+<li><p>how AI was used,</p></li>
+<li><p>what decisions remained student-made,</p></li>
+<li><p>how correctness was verified,</p></li>
+<li><p>and how intellectual ownership was maintained.</p></li>
+</ul>
+<p>The reflection should not be treated as a formality.</p>
+<p>It should encourage students to think critically about:</p>
+<ul class="simple">
+<li><p>strengths of AI support,</p></li>
+<li><p>limitations of AI,</p></li>
+<li><p>and risks of overreliance.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="suggested-project-themes">
+<h1>Suggested Project Themes<a class="headerlink" href="#suggested-project-themes" title="Link to this heading">#</a></h1>
+<p>Possible computational physics project themes include:</p>
+<ul class="simple">
+<li><p>orbital dynamics,</p></li>
+<li><p>chaotic motion,</p></li>
+<li><p>projectile motion with drag,</p></li>
+<li><p>oscillatory systems,</p></li>
+<li><p>resonance,</p></li>
+<li><p>Monte Carlo simulations,</p></li>
+<li><p>diffusion models,</p></li>
+<li><p>heat transfer,</p></li>
+<li><p>population dynamics,</p></li>
+<li><p>or biomechanics.</p></li>
+</ul>
+<p>The emphasis should remain on:</p>
+<ul class="simple">
+<li><p>scientific reasoning,</p></li>
+<li><p>computational modeling,</p></li>
+<li><p>and uncertainty analysis.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="equity-accessibility-considerations">
+<h1>Equity &amp; Accessibility Considerations<a class="headerlink" href="#equity-accessibility-considerations" title="Link to this heading">#</a></h1>
+<p>Several implementation choices help improve accessibility:</p>
+<ul class="simple">
+<li><p>Google Colab removes the need for local software installation.</p></li>
+<li><p>Scaffolded project stages reduce barriers for novice programmers.</p></li>
+<li><p>AI-supported debugging can help students overcome programming frustration.</p></li>
+<li><p>Jupyter notebooks allow integration of code, explanation, and visualization in one environment.</p></li>
+</ul>
+<p>However, instructors should also discuss:</p>
+<ul class="simple">
+<li><p>risks of unequal AI familiarity,</p></li>
+<li><p>overreliance on AI,</p></li>
+<li><p>and verification of AI-generated content.</p></li>
+</ul>
+<p>Students should understand that:</p>
+<ul class="simple">
+<li><p>AI fluency does not replace scientific understanding.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="common-implementation-challenges">
+<h1>Common Implementation Challenges<a class="headerlink" href="#common-implementation-challenges" title="Link to this heading">#</a></h1>
+<section id="students-asking-ai-to-complete-the-work">
+<h2>1. Students Asking AI To Complete the Work<a class="headerlink" href="#students-asking-ai-to-complete-the-work" title="Link to this heading">#</a></h2>
+<p>This is extremely common.</p>
+<p>Students may attempt to:</p>
+<ul class="simple">
+<li><p>outsource proposal writing,</p></li>
+<li><p>delegate methodology choices,</p></li>
+<li><p>or copy AI-generated code.</p></li>
+</ul>
+<p>The constrained AI mentor framework is specifically designed to reduce this behavior.</p>
+</section>
+<hr class="docutils" />
+<section id="students-trusting-incorrect-ai-output">
+<h2>2. Students Trusting Incorrect AI Output<a class="headerlink" href="#students-trusting-incorrect-ai-output" title="Link to this heading">#</a></h2>
+<p>AI systems frequently:</p>
+<ul class="simple">
+<li><p>hallucinate,</p></li>
+<li><p>generate incorrect physics,</p></li>
+<li><p>misuse terminology,</p></li>
+<li><p>or produce unstable code.</p></li>
+</ul>
+<p>Students must be repeatedly reminded:</p>
+<ul class="simple">
+<li><p>verification is their responsibility.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="overemphasis-on-coding">
+<h2>3. Overemphasis on Coding<a class="headerlink" href="#overemphasis-on-coding" title="Link to this heading">#</a></h2>
+<p>Students may focus excessively on coding complexity rather than scientific reasoning.</p>
+<p>Projects should emphasize:</p>
+<ul class="simple">
+<li><p>interpretation,</p></li>
+<li><p>uncertainty,</p></li>
+<li><p>assumptions,</p></li>
+<li><p>and methodology.</p></li>
+</ul>
+<p>The goal is scientific synthesis, not software engineering.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="suggested-instructor-workflow">
+<h1>Suggested Instructor Workflow<a class="headerlink" href="#suggested-instructor-workflow" title="Link to this heading">#</a></h1>
+<p>A possible instructor workflow is:</p>
+<ol class="arabic simple">
+<li><p>Introduce the AI mentor framework</p></li>
+<li><p>Explain responsible AI use expectations</p></li>
+<li><p>Introduce the project stages</p></li>
+<li><p>Require checkpoint submissions</p></li>
+<li><p>Provide feedback at each stage</p></li>
+<li><p>Require AI reflection documentation</p></li>
+<li><p>Include oral questioning or presentation</p></li>
+<li><p>Evaluate scientific reasoning and synthesis</p></li>
+</ol>
+<p>This staged structure helps maintain:</p>
+<ul class="simple">
+<li><p>student ownership,</p></li>
+<li><p>accountability,</p></li>
+<li><p>and manageable project development.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="long-term-educational-goals">
+<h1>Long-Term Educational Goals<a class="headerlink" href="#long-term-educational-goals" title="Link to this heading">#</a></h1>
+<p>This framework is intended to help students develop:</p>
+<ul class="simple">
+<li><p>scientific reasoning,</p></li>
+<li><p>computational literacy,</p></li>
+<li><p>uncertainty analysis skills,</p></li>
+<li><p>methodological thinking,</p></li>
+<li><p>responsible AI usage,</p></li>
+<li><p>and authentic scientific communication.</p></li>
+</ul>
+<p>These skills align closely with modern workforce practices in:</p>
+<ul class="simple">
+<li><p>physics,</p></li>
+<li><p>engineering,</p></li>
+<li><p>computational science,</p></li>
+<li><p>and technical research environments.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="final-perspective">
+<h1>Final Perspective<a class="headerlink" href="#final-perspective" title="Link to this heading">#</a></h1>
+<p>AI-supported project-based learning should not simply make coursework easier.</p>
+<p>Instead, it should help students engage more deeply with:</p>
+<ul class="simple">
+<li><p>scientific thinking,</p></li>
+<li><p>computational workflows,</p></li>
+<li><p>uncertainty,</p></li>
+<li><p>and interpretation.</p></li>
+</ul>
+<p>The ultimate goal is not simply better projects.</p>
+<p>The ultimate goal is better scientific thinkers who can responsibly work within modern AI-supported scientific environments.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="responsible-AI-use.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Responsible AI Use Guidelines</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="reflection-eval-summary.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Reflection &amp; Evaluation Summary</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Faculty Implementation Guide</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">Purpose</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#core-philosophy">Core Philosophy</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-project-based-computational-physics">Why Project-Based Computational Physics?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-integrate-ai">Why Integrate AI?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-course-placement">Recommended Course Placement</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-project-structure">Recommended Project Structure</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-computational-environment">Recommended Computational Environment</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-ai-workflow">Recommended AI Workflow</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preventing-ai-overreach">Preventing AI Overreach</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-assessment-philosophy">Recommended Assessment Philosophy</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#oral-assessment-components">Oral Assessment Components</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#responsible-ai-reflection">Responsible AI Reflection</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-project-themes">Suggested Project Themes</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#equity-accessibility-considerations">Equity &amp; Accessibility Considerations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#common-implementation-challenges">Common Implementation Challenges</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#students-asking-ai-to-complete-the-work">1. Students Asking AI To Complete the Work</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#students-trusting-incorrect-ai-output">2. Students Trusting Incorrect AI Output</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overemphasis-on-coding">3. Overemphasis on Coding</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-instructor-workflow">Suggested Instructor Workflow</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#long-term-educational-goals">Long-Term Educational Goals</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#final-perspective">Final Perspective</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
