@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>C2.2 Angular Velocity &#8212; A Competency Approach to Classical Mechanics - Phase C</title>
+    <title>C3.1 Angular Velocity &#8212; A Competency Approach to Classical Mechanics - Phase C</title>
   
   
   
@@ -63,6 +63,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="C3.2 Angular Momentum" href="angular-momentum.html" />
+    <link rel="prev" title="C2.4 — Problems Problems" href="../Module-C2/problemsC2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -124,8 +126,6 @@
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -202,6 +202,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../Module-C2/rocket-equation.html">C2.2 — The Rocket Equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Module-C2/variable-mass-strategy.html">C2.3 — Initial Setup Strategy for Variable Mass Problems</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Module-C2/problemsC2.html">C2.4 — Problems Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C3 - General Rigid Body Rotation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">C3.1 Angular Velocity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="angular-momentum.html">C3.2 Angular Momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic-gyroscope.html">C3.3 Basic Gyroscope Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problemsC3.html">C3.4 Problems</a></li>
 </ul>
 
     </div>
@@ -389,7 +396,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>C2.2 Angular Velocity</h1>
+    <h1>C3.1 Angular Velocity</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -399,10 +406,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-2-1-motivation-from-fixed-axis-to-general-rotation">C2.2.1 Motivation: From Fixed Axis to General Rotation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-2-2-a-problem-with-finite-rotations">C2.2.2 A Problem with Finite Rotations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-2-3-infinitesimal-rotations-the-key-insight">C2.2.3 Infinitesimal Rotations: The Key Insight</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-2-4-deriving-the-angular-velocity-vector">C2.2.4 Deriving the Angular Velocity Vector</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c3-1-1-motivation-from-fixed-axis-to-general-rotation">C3.1.1 Motivation: From Fixed Axis to General Rotation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c3-1-2-a-problem-with-finite-rotations">C3.1.2 A Problem with Finite Rotations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c3-1-3-infinitesimal-rotations-the-key-insight">C3.1.3 Infinitesimal Rotations: The Key Insight</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c3-1-4-deriving-the-angular-velocity-vector">C3.1.4 Deriving the Angular Velocity Vector</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intuitive-approach">Intuitive Approach</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-rigorous-approach">More Rigorous Approach</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rotation-about-z-followed-by-y">Rotation about <span class="math notranslate nohighlight">\(z\)</span> followed by <span class="math notranslate nohighlight">\(y\)</span></a></li>
@@ -410,7 +417,8 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-2-5-key-takeaways">C2.2.5 Key Takeaways</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c3-1-5-velocity-and-angular-velocity">C3.1.5 — Velocity and Angular Velocity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c3-1-6-key-takeaways">C3.1.6 Key Takeaways</a></li>
 </ul>
             </nav>
         </div>
@@ -422,10 +430,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="c2-2-angular-velocity">
-<h1>C2.2 Angular Velocity<a class="headerlink" href="#c2-2-angular-velocity" title="Link to this heading">#</a></h1>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray"><section id="c2-2-1-motivation-from-fixed-axis-to-general-rotation">
-<h2>C2.2.1 Motivation: From Fixed Axis to General Rotation<a class="headerlink" href="#c2-2-1-motivation-from-fixed-axis-to-general-rotation" title="Link to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="c3-1-angular-velocity">
+<h1>C3.1 Angular Velocity<a class="headerlink" href="#c3-1-angular-velocity" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><section id="c3-1-1-motivation-from-fixed-axis-to-general-rotation">
+<h2>C3.1.1 Motivation: From Fixed Axis to General Rotation<a class="headerlink" href="#c3-1-1-motivation-from-fixed-axis-to-general-rotation" title="Link to this heading">#</a></h2>
 <p>Up to now, we’ve described rotation around a <strong>fixed axis</strong>, usually using a scalar angular velocity component (or speed) <span class="math notranslate nohighlight">\( \omega \)</span> and associating it with a unit vector along the axis (like <span class="math notranslate nohighlight">\( \hat{z} \)</span>) to label it as the angular velocoty. For example, a wheel spinning around the <span class="math notranslate nohighlight">\( z \)</span>-axis can be described by:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -434,8 +442,8 @@ document.write(`
 <p>But what happens if the object doesn’t spin around a fixed axis? Imagine a spinning book or a tumbling football. The rotation axis can shift from moment to moment, and might not align with a principal coordinate axis at all. In such cases, we need a <strong>full vector</strong> to describe the angular velocity—one that tells us <em>how fast</em> and <em>about which axis</em> the object is rotating <strong>at any instant</strong>.</p>
 <hr style="height:2px;border-width:0;color:gray;background-color:gray">
 </section>
-<section id="c2-2-2-a-problem-with-finite-rotations">
-<h2>C2.2.2 A Problem with Finite Rotations<a class="headerlink" href="#c2-2-2-a-problem-with-finite-rotations" title="Link to this heading">#</a></h2>
+<section id="c3-1-2-a-problem-with-finite-rotations">
+<h2>C3.1.2 A Problem with Finite Rotations<a class="headerlink" href="#c3-1-2-a-problem-with-finite-rotations" title="Link to this heading">#</a></h2>
 <p>Before we define angular velocity as a vector, we hit a conceptual snag: <strong>finite rotations do not commute</strong>.</p>
 <ul class="simple">
 <li><p>Rotating an object 90° about the <span class="math notranslate nohighlight">\(x\)</span>-axis and then 90° about the <span class="math notranslate nohighlight">\(y\)</span>-axis gives a different result than doing it in the reverse order.</p></li>
@@ -446,8 +454,8 @@ document.write(`
 <p>For those of you interested in Rubik’s Cube and permutations: <a class="reference external" href="https://en.wikipedia.org/wiki/Rubik%27s_Cube_group">Rukib’s Cube Group</a></p>
 <hr style="height:2px;border-width:0;color:gray;background-color:gray">
 </section>
-<section id="c2-2-3-infinitesimal-rotations-the-key-insight">
-<h2>C2.2.3 Infinitesimal Rotations: The Key Insight<a class="headerlink" href="#c2-2-3-infinitesimal-rotations-the-key-insight" title="Link to this heading">#</a></h2>
+<section id="c3-1-3-infinitesimal-rotations-the-key-insight">
+<h2>C3.1.3 Infinitesimal Rotations: The Key Insight<a class="headerlink" href="#c3-1-3-infinitesimal-rotations-the-key-insight" title="Link to this heading">#</a></h2>
 <p>While <strong>finite rotations</strong> don’t behave like vectors, <strong>infinitesimal rotations do</strong>.</p>
 <ul class="simple">
 <li><p>For very small time intervals <span class="math notranslate nohighlight">\( \Delta t \)</span>, the rotation is so slight that the non-commutativity becomes negligible.</p></li>
@@ -456,8 +464,8 @@ document.write(`
 <p>This leads us to define the <strong>angular velocity vector</strong> <span class="math notranslate nohighlight">\( \vec{\omega} \)</span> as the limit of rotation over time as the interval goes to zero.</p>
 <hr style="height:2px;border-width:0;color:gray;background-color:gray">
 </section>
-<section id="c2-2-4-deriving-the-angular-velocity-vector">
-<h2>C2.2.4 Deriving the Angular Velocity Vector<a class="headerlink" href="#c2-2-4-deriving-the-angular-velocity-vector" title="Link to this heading">#</a></h2>
+<section id="c3-1-4-deriving-the-angular-velocity-vector">
+<h2>C3.1.4 Deriving the Angular Velocity Vector<a class="headerlink" href="#c3-1-4-deriving-the-angular-velocity-vector" title="Link to this heading">#</a></h2>
 <section id="intuitive-approach">
 <h3>Intuitive Approach<a class="headerlink" href="#intuitive-approach" title="Link to this heading">#</a></h3>
 <p>In this approach, we’ll <em>pretend</em> (just a little) without justifications that we can treat angular displacement like a vector:</p>
@@ -520,53 +528,577 @@ document.write(`
 \[
 \vec{r}_{\alpha\beta} = r\cos\alpha\cos\beta~\hat{i} + r\sin\alpha~\hat{j} - r\cos\alpha\sin\beta~\hat{k} \tag{1}
 \]</div>
-<div class="alert alert-warning">
-    <b> Box 1 </b><br>
-<p>Repeat the process, but in reverse order to show</p>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity 1 — Order of Rotations Matters</h3>
+<p>Above, we first rotated the position vector about the <span class="math notranslate nohighlight">\(z\)</span>-axis by an angle <span class="math notranslate nohighlight">\(\alpha\)</span> and then about the <span class="math notranslate nohighlight">\(y\)</span>-axis by an angle <span class="math notranslate nohighlight">\(\beta\)</span>.</p>
+<p>Now repeat the process in the reverse order.</p>
+<p>Start with the vector</p>
 <div class="math notranslate nohighlight">
 \[
-\vec{r}_{\beta\alpha} = r\cos\alpha\cos\beta~\hat{i} + r\cos\beta\sin\alpha~\hat{j} - r\sin\beta~\hat{k} \tag{2}
+\vec{r}=r\hat{i}
 \]</div>
-<p>Compare this result to Equation (1)</p>
+<p>and perform the following sequence:</p>
+<ol class="arabic simple">
+<li><p>Rotate first about the <span class="math notranslate nohighlight">\(y\)</span>-axis by angle <span class="math notranslate nohighlight">\(\beta\)</span></p></li>
+<li><p>Then rotate about the <span class="math notranslate nohighlight">\(z\)</span>-axis by angle <span class="math notranslate nohighlight">\(\alpha\)</span></p></li>
+</ol>
+<p>Show that the final vector becomes</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{r}_{\beta\alpha}
+=
+r\cos\alpha\cos\beta~\hat{i}
++
+r\cos\beta\sin\alpha~\hat{j}
+-
+r\sin\beta~\hat{k}
+\tag{2}
+\]</div>
+<p>Compare this result to Equation (1) from the previous derivation.</p>
+<p>What differences do you observe?</p>
+<p>What does this suggest about the order of rotations in three-dimensional space?</p>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#f6fff6; padding:12px; border-radius:4px; margin-top:10px;">
+<p>We begin with the vector</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{r}=r\hat{i}
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 1 — Rotate About the <span class="math notranslate nohighlight">\(y\)</span>-Axis</strong></p>
+<p>A rotation about the <span class="math notranslate nohighlight">\(y\)</span>-axis changes the <span class="math notranslate nohighlight">\(x\)</span>- and <span class="math notranslate nohighlight">\(z\)</span>-components while leaving the <span class="math notranslate nohighlight">\(y\)</span>-component unchanged.</p>
+<p>After rotating by angle <span class="math notranslate nohighlight">\(\beta\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{r}'
+=
+r\cos\beta~\hat{i}
+-
+r\sin\beta~\hat{k}
+\]</div>
+<hr class="docutils" />
+<p><strong>Step 2 — Rotate About the <span class="math notranslate nohighlight">\(z\)</span>-Axis</strong></p>
+<p>A rotation about the <span class="math notranslate nohighlight">\(z\)</span>-axis mixes the <span class="math notranslate nohighlight">\(x\)</span>- and <span class="math notranslate nohighlight">\(y\)</span>-components:</p>
+<div class="math notranslate nohighlight">
+\[
+x'' = x'\cos\alpha
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+y'' = x'\sin\alpha
+\]</div>
+<p>Since</p>
+<div class="math notranslate nohighlight">
+\[
+x'=r\cos\beta
+\]</div>
+<p>we obtain</p>
+<div class="math notranslate nohighlight">
+\[
+x''
+=
+r\cos\alpha\cos\beta
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+y''
+=
+r\cos\beta\sin\alpha
+\]</div>
+<p>The <span class="math notranslate nohighlight">\(z\)</span>-component remains unchanged:</p>
+<div class="math notranslate nohighlight">
+\[
+z''
+=
+-r\sin\beta
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{r}_{\beta\alpha}
+=
+r\cos\alpha\cos\beta~\hat{i}
++
+r\cos\beta\sin\alpha~\hat{j}
+-
+r\sin\beta~\hat{k}
+\]</div>
+<p>which matches Equation (2).</p>
+<hr class="docutils" />
+<p><strong>Physical Interpretation</strong></p>
+<p>Comparing this result to Equation (1), we see that the final vector is generally different.</p>
+<p>This demonstrates an extremely important property of three-dimensional rotations:</p>
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:12px; border-radius:4px; margin-top:10px;">
+<p><strong>Key Idea:</strong></p>
+<p>Rotations in three dimensions generally do <em>not</em> commute.</p>
+<p>That is,</p>
+<div class="math notranslate nohighlight">
+\[
+R_y(\beta)R_z(\alpha)
+\neq
+R_z(\alpha)R_y(\beta)
+\]</div>
+<p>The final orientation depends on the order in which the rotations are applied.</p>
 </div>
-<div class="alert alert-warning">
-<p><strong>Box 2</strong></p>
-<p>In principle we are rotating the vector across the intervals <span class="math notranslate nohighlight">\(\Delta\alpha = \alpha - 0\)</span> and <span class="math notranslate nohighlight">\(\Delta\beta = \beta - 0\)</span>.</p>
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity 2 — Infinitesimal Rotations</h3>
+<p>In principle, we are rotating the vector across the intervals</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta\alpha=\alpha-0
+\qquad\text{and}\qquad
+\Delta\beta=\beta-0
+\]</div>
+<p>Investigate what happens when these rotations become very small.</p>
 <ol class="arabic simple">
 <li><p>Replace the angles in Equations (1) and (2) with <span class="math notranslate nohighlight">\(\Delta\alpha\)</span> and <span class="math notranslate nohighlight">\(\Delta\beta\)</span>.</p></li>
-<li><p>Apply the small-angle approximations for cosine and sine.</p></li>
-<li><p>Now compare <span class="math notranslate nohighlight">\(\vec{r}_{\alpha\beta}\)</span> and <span class="math notranslate nohighlight">\(\vec{r}_{\beta\alpha}\)</span></p></li>
+<li><p>Apply the small-angle approximations</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\cos\theta \approx 1
+\qquad\text{and}\qquad
+\sin\theta \approx \theta
+\]</div>
+<p>for sufficiently small <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<ol class="arabic simple" start="3">
+<li><p>Compare the resulting expressions for</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\vec{r}_{\alpha\beta}
+\qquad\text{and}\qquad
+\vec{r}_{\beta\alpha}
+\]</div>
+<ol class="arabic simple" start="4">
 <li><p>Is rotation commutative for infinitesimal rotations?</p></li>
 </ol>
-</div>
-<p>Hopefully, you concluded that infinitesimal rotations are indeed commutative and we can therefore define an <strong>angular displacement</strong> vector for our case as</p>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#f6fff6; padding:12px; border-radius:4px; margin-top:10px;">
+<p>Equation (1) is</p>
 <div class="math notranslate nohighlight">
-\[ \Delta\theta = \Delta\beta~\hat{j} + \Delta\alpha~\hat{k} \]</div>
+\[
+\vec{r}_{\alpha\beta}
+=
+r\cos\alpha\cos\beta~\hat{i}
++
+r\sin\alpha~\hat{j}
+-
+r\cos\alpha\sin\beta~\hat{k}
+\]</div>
+<p>Replacing <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> with <span class="math notranslate nohighlight">\(\Delta\alpha\)</span> and <span class="math notranslate nohighlight">\(\Delta\beta\)</span> gives</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{r}_{\alpha\beta}
+=
+r\cos(\Delta\alpha)\cos(\Delta\beta)~\hat{i}
++
+r\sin(\Delta\alpha)~\hat{j}
+-
+r\cos(\Delta\alpha)\sin(\Delta\beta)~\hat{k}
+\]</div>
+<p>Using</p>
+<div class="math notranslate nohighlight">
+\[
+\cos(\Delta\theta)\approx 1
+\qquad\text{and}\qquad
+\sin(\Delta\theta)\approx \Delta\theta
+\]</div>
+<p>we obtain, to first order,</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{r}_{\alpha\beta}
+\approx
+r\hat{i}
++
+r\Delta\alpha~\hat{j}
+-
+r\Delta\beta~\hat{k}
+\]</div>
+<p>Equation (2) is</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{r}_{\beta\alpha}
+=
+r\cos\alpha\cos\beta~\hat{i}
++
+r\cos\beta\sin\alpha~\hat{j}
+-
+r\sin\beta~\hat{k}
+\]</div>
+<p>Replacing <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> with <span class="math notranslate nohighlight">\(\Delta\alpha\)</span> and <span class="math notranslate nohighlight">\(\Delta\beta\)</span> gives</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{r}_{\beta\alpha}
+=
+r\cos(\Delta\alpha)\cos(\Delta\beta)~\hat{i}
++
+r\cos(\Delta\beta)\sin(\Delta\alpha)~\hat{j}
+-
+r\sin(\Delta\beta)~\hat{k}
+\]</div>
+<p>Using the same small-angle approximations gives, to first order,</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{r}_{\beta\alpha}
+\approx
+r\hat{i}
++
+r\Delta\alpha~\hat{j}
+-
+r\Delta\beta~\hat{k}
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{r}_{\alpha\beta}
+\approx
+\vec{r}_{\beta\alpha}
+\]</div>
+<p>to first order in the small angles.</p>
+<p>This means that infinitesimal rotations are effectively commutative.</p>
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:12px; border-radius:4px; margin-top:10px;">
+<p><strong>Important Result:</strong></p>
+<p>Although finite rotations in three dimensions generally do not commute, infinitesimal rotations commute to first order.</p>
+<p>This allows us to define an infinitesimal angular displacement vector:</p>
+<div class="math notranslate nohighlight">
+\[
+d\vec{\theta}
+=
+d\beta~\hat{j}
++
+d\alpha~\hat{k}
+\]</div>
+<p>representing rotations about the <span class="math notranslate nohighlight">\(y\)</span>- and <span class="math notranslate nohighlight">\(z\)</span>-axes, respectively.</p>
+<p>This is only true when the angles of rotation are small.</p>
+</div>
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<p>Hopefully, you concluded that infinitesimal rotations are indeed commutative and we can therefore define an <strong>infinitesimal angular displacement</strong> vector for our case as</p>
+<div class="math notranslate nohighlight">
+\[ d\theta = d\beta~\hat{j} + d\alpha~\hat{k} \]</div>
 <p>representing rotation about the <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(z\)</span> axes, respectively. Note: <strong>this is only true of the angles of rotation are small</strong>.</p>
-<div class="alert alert-warning">
-<p><strong>Box 3</strong></p>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity 3 — Displacement from Two Infinitesimal Rotations</h3>
+<p>For our case of two infinitesimal rotations, the rotated vector is approximately</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{r}_{\alpha\beta}
+\approx
+r\hat{i}
++
+r\,d\alpha~\hat{j}
+-
+r\,d\beta~\hat{k}
+\]</div>
+<p>The original vector is</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{r}
+=
+r\hat{i}
+\]</div>
 <p>Show that the displacement vector is</p>
 <div class="math notranslate nohighlight">
-\[ \Delta r = r\Delta\alpha~\hat{j} - r\Delta\beta~\hat{k} \tag{3}\]</div>
-</div>
-<div class="alert alert-warning">
-<p><strong>Box 4</strong></p>
-<p>Verify that Equation (3) is the same as</p>
+\[
+d\vec{r}
+=
+r\,d\alpha~\hat{j}
+-
+r\,d\beta~\hat{k}
+\tag{3}
+\]</div>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>The infinitesimal displacement vector is the change in the position vector:</p>
 <div class="math notranslate nohighlight">
-\[ \Delta\theta \times \vec{r} \]</div>
-</div>
-<div class="alert alert-warning">
-<p><strong>Box 5</strong></p>
-<p>Use the above results to prove that</p>
+\[
+d\vec{r}
+=
+\vec{r}_{\alpha\beta}
+-
+\vec{r}
+\]</div>
+<p>Substitute the approximate rotated vector and the original vector:</p>
 <div class="math notranslate nohighlight">
-\[ \vec{v} = \vec{\omega}\times\vec{r} \]</div>
+\[
+d\vec{r}
+=
+\left(
+r\hat{i}
++
+r\,d\alpha~\hat{j}
+-
+r\,d\beta~\hat{k}
+\right)
+-
+r\hat{i}
+\]</div>
+<p>The <span class="math notranslate nohighlight">\(r\hat{i}\)</span> terms cancel:</p>
+<div class="math notranslate nohighlight">
+\[
+d\vec{r}
+=
+r\,d\alpha~\hat{j}
+-
+r\,d\beta~\hat{k}
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+d\vec{r}
+=
+r\,d\alpha~\hat{j}
+-
+r\,d\beta~\hat{k}
+\tag{3}
+\]</div>
+<p>This shows that, to first order, the infinitesimal displacement is perpendicular to the original vector <span class="math notranslate nohighlight">\(r\hat{i}\)</span>.</p>
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity 4 — Infinitesimal Rotation as a Cross Product</h3>
+<p>For our case, the infinitesimal angular displacement vector is</p>
+<div class="math notranslate nohighlight">
+\[
+d\vec{\theta}
+=
+d\beta~\hat{j}
++
+d\alpha~\hat{k}
+\]</div>
+<p>and the original position vector is</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{r}
+=
+r\hat{i}
+\]</div>
+<p>Verify that Equation (3),</p>
+<div class="math notranslate nohighlight">
+\[
+d\vec{r}
+=
+r\,d\alpha~\hat{j}
+-
+r\,d\beta~\hat{k},
+\]</div>
+<p>is the same as</p>
+<div class="math notranslate nohighlight">
+\[
+d\vec{\theta}\times\vec{r}.
+\]</div>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>Start with</p>
+<div class="math notranslate nohighlight">
+\[
+d\vec{\theta}
+=
+d\beta~\hat{j}
++
+d\alpha~\hat{k}
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{r}
+=
+r\hat{i}.
+\]</div>
+<p>Then</p>
+<div class="math notranslate nohighlight">
+\[
+d\vec{\theta}\times\vec{r}
+=
+\left(d\beta~\hat{j}
++
+d\alpha~\hat{k}\right)
+\times
+\left(r\hat{i}\right).
+\]</div>
+<p>Distribute the cross product:</p>
+<div class="math notranslate nohighlight">
+\[
+d\vec{\theta}\times\vec{r}
+=
+r\,d\beta\left(\hat{j}\times\hat{i}\right)
++
+r\,d\alpha\left(\hat{k}\times\hat{i}\right).
+\]</div>
+<p>Using</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{j}\times\hat{i}
+=
+-\hat{k}
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{k}\times\hat{i}
+=
+\hat{j},
+\]</div>
+<p>we get</p>
+<div class="math notranslate nohighlight">
+\[
+d\vec{\theta}\times\vec{r}
+=
+-r\,d\beta~\hat{k}
++
+r\,d\alpha~\hat{j}.
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+d\vec{\theta}\times\vec{r}
+=
+r\,d\alpha~\hat{j}
+-
+r\,d\beta~\hat{k}
+=
+d\vec{r}.
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+d\vec{r}
+=
+d\vec{\theta}\times\vec{r}.
+\]</div>
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity 5 — Deriving the Velocity of a Rotating Body</h3>
+<p>Using the previous results, prove that the velocity of a point on a rotating rigid body is</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{v}
+=
+\vec{\omega}\times\vec{r}.
+\]</div>
+<p>Recall that we showed</p>
+<div class="math notranslate nohighlight">
+\[
+d\vec{r}
+=
+d\vec{\theta}\times\vec{r}.
+\]</div>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>We begin with the infinitesimal displacement relation:</p>
+<div class="math notranslate nohighlight">
+\[
+d\vec{r}
+=
+d\vec{\theta}\times\vec{r}.
+\]</div>
+<p>Divide both sides by the infinitesimal time interval <span class="math notranslate nohighlight">\(dt\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d\vec{r}}{dt}
+=
+\frac{d\vec{\theta}}{dt}
+\times
+\vec{r}.
+\]</div>
+<p>The left-hand side is the velocity:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d\vec{r}}{dt}
+=
+\vec{v}.
+\]</div>
+<p>The angular velocity vector is defined as</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{\omega}
+=
+\frac{d\vec{\theta}}{dt}.
+\]</div>
+<p>Substituting gives</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{v}
+=
+\vec{\omega}\times\vec{r}.
+\]</div>
+<p>Therefore, the velocity of a point on a rotating rigid body is perpendicular to both the angular velocity vector and the position vector.</p>
+</div>
+</details>
 </div>
 <hr style="height:2px;border-width:0;color:gray;background-color:gray">
 </section>
 </section>
 </section>
-<section id="c2-2-5-key-takeaways">
-<h2>C2.2.5 Key Takeaways<a class="headerlink" href="#c2-2-5-key-takeaways" title="Link to this heading">#</a></h2>
+<section id="c3-1-5-velocity-and-angular-velocity">
+<h2>C3.1.5 — Velocity and Angular Velocity<a class="headerlink" href="#c3-1-5-velocity-and-angular-velocity" title="Link to this heading">#</a></h2>
+<p>From our analysis of infinitesimal rotations, we found that the infinitesimal displacement of a point on a rotating rigid body can be written as</p>
+<div class="math notranslate nohighlight">
+\[
+d\vec{r}
+=
+d\vec{\theta}\times\vec{r}.
+\]</div>
+<p>Dividing by <span class="math notranslate nohighlight">\(dt\)</span> and defining the angular velocity vector as</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{\omega}
+=
+\frac{d\vec{\theta}}{dt},
+\]</div>
+<p>we obtain one of the fundamental equations of rotational kinematics.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<p><strong>Velocity of a Point on a Rotating Rigid Body</strong></p>
+<p>The linear velocity of a point located at position <span class="math notranslate nohighlight">\(\vec{r}\)</span> on a rotating rigid body is</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{v}
+=
+\vec{\omega}\times\vec{r}.
+\]</div>
+<p>In index notation, this becomes</p>
+<div class="math notranslate nohighlight">
+\[
+v_i
+=
+\epsilon_{ijk}\omega_j r_k.
+\]</div>
+<p>This relation shows that the velocity is perpendicular to both the angular velocity vector and the position vector.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="c3-1-6-key-takeaways">
+<h2>C3.1.6 Key Takeaways<a class="headerlink" href="#c3-1-6-key-takeaways" title="Link to this heading">#</a></h2>
 <ul>
 <li><p>Finite rotations are not vectors, but <strong>infinitesimal rotations</strong> are.</p></li>
 <li><p>This allows us to define the <strong>angular velocity vector</strong> <span class="math notranslate nohighlight">\( \vec{\omega} \)</span>.</p></li>
@@ -611,6 +1143,24 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../Module-C2/problemsC2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">C2.4 — Problems Problems</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="angular-momentum.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">C3.2 Angular Momentum</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -627,10 +1177,10 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-2-1-motivation-from-fixed-axis-to-general-rotation">C2.2.1 Motivation: From Fixed Axis to General Rotation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-2-2-a-problem-with-finite-rotations">C2.2.2 A Problem with Finite Rotations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-2-3-infinitesimal-rotations-the-key-insight">C2.2.3 Infinitesimal Rotations: The Key Insight</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-2-4-deriving-the-angular-velocity-vector">C2.2.4 Deriving the Angular Velocity Vector</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c3-1-1-motivation-from-fixed-axis-to-general-rotation">C3.1.1 Motivation: From Fixed Axis to General Rotation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c3-1-2-a-problem-with-finite-rotations">C3.1.2 A Problem with Finite Rotations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c3-1-3-infinitesimal-rotations-the-key-insight">C3.1.3 Infinitesimal Rotations: The Key Insight</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c3-1-4-deriving-the-angular-velocity-vector">C3.1.4 Deriving the Angular Velocity Vector</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intuitive-approach">Intuitive Approach</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-rigorous-approach">More Rigorous Approach</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rotation-about-z-followed-by-y">Rotation about <span class="math notranslate nohighlight">\(z\)</span> followed by <span class="math notranslate nohighlight">\(y\)</span></a></li>
@@ -638,7 +1188,8 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-2-5-key-takeaways">C2.2.5 Key Takeaways</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c3-1-5-velocity-and-angular-velocity">C3.1.5 — Velocity and Angular Velocity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c3-1-6-key-takeaways">C3.1.6 Key Takeaways</a></li>
 </ul>
   </nav></div>
 

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>C2.3 Angular Momentum &#8212; A Competency Approach to Classical Mechanics - Phase C</title>
+    <title>C3.2 Angular Momentum &#8212; A Competency Approach to Classical Mechanics - Phase C</title>
   
   
   
@@ -63,6 +63,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="C3.3 Basic Gyroscope Dynamics" href="basic-gyroscope.html" />
+    <link rel="prev" title="C3.1 Angular Velocity" href="angular-velocity.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -124,8 +126,6 @@
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -202,6 +202,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../Module-C2/rocket-equation.html">C2.2 — The Rocket Equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Module-C2/variable-mass-strategy.html">C2.3 — Initial Setup Strategy for Variable Mass Problems</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Module-C2/problemsC2.html">C2.4 — Problems Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C3 - General Rigid Body Rotation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="angular-velocity.html">C3.1 Angular Velocity</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">C3.2 Angular Momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic-gyroscope.html">C3.3 Basic Gyroscope Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problemsC3.html">C3.4 Problems</a></li>
 </ul>
 
     </div>
@@ -389,7 +396,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>C2.3 Angular Momentum</h1>
+    <h1>C3.2 Angular Momentum</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -399,13 +406,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-3-1-spin-and-orbital-angular-momentum-a-quick-recap">C2.3.1 Spin and Orbital Angular Momentum: A Quick Recap</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-3-2-objective">C2.3.2 Objective</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-3-3-total-angular-momentum-of-a-rigid-body">C2.3.3 Total Angular Momentum of a Rigid Body</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-3-4-modeling-the-spin-term-with-angular-velocity">C2.3.4 Modeling the Spin Term with Angular Velocity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-3-5-deriving-the-moment-of-inertia-tensor">C2.3.5 Deriving the Moment of Inertia Tensor</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-3-6-summary-what-you-now-know">C2.3.6 Summary: What You Now Know</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-3-7-up-next">C2.3.7 Up Next</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c3-2-1-spin-and-orbital-angular-momentum-a-quick-recap">C3.2.1 Spin and Orbital Angular Momentum: A Quick Recap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c3-2-2-objective">C3.2.2 Objective</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c3-2-3-total-angular-momentum-of-a-rigid-body">C3.2.3 Total Angular Momentum of a Rigid Body</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c3-2-4-modeling-the-spin-term-with-angular-velocity">C3.2.4 Modeling the Spin Term with Angular Velocity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c3-2-5-deriving-the-moment-of-inertia-tensor">C3.2.5 Deriving the Moment of Inertia Tensor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c3-2-6-summary-what-you-now-know">C3.2.6 Summary: What You Now Know</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c3-2-7-up-next">C3.2.7 Up Next</a></li>
 </ul>
             </nav>
         </div>
@@ -417,39 +424,51 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="c2-3-angular-momentum">
-<h1>C2.3 Angular Momentum<a class="headerlink" href="#c2-3-angular-momentum" title="Link to this heading">#</a></h1>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray"><section id="c2-3-1-spin-and-orbital-angular-momentum-a-quick-recap">
-<h2>C2.3.1 Spin and Orbital Angular Momentum: A Quick Recap<a class="headerlink" href="#c2-3-1-spin-and-orbital-angular-momentum-a-quick-recap" title="Link to this heading">#</a></h2>
-<p>In the previous phase, we introduced two types of angular motion:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="c3-2-angular-momentum">
+<h1>C3.2 Angular Momentum<a class="headerlink" href="#c3-2-angular-momentum" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><section id="c3-2-1-spin-and-orbital-angular-momentum-a-quick-recap">
+<h2>C3.2.1 Spin and Orbital Angular Momentum: A Quick Recap<a class="headerlink" href="#c3-2-1-spin-and-orbital-angular-momentum-a-quick-recap" title="Link to this heading">#</a></h2>
+<p>In the previous phase, we reviewed two types of angular motion:</p>
 <ul class="simple">
 <li><p><strong>Orbital angular momentum</strong>: From the motion of the center of mass (CM) of an object around an external point.</p></li>
 <li><p><strong>Spin angular momentum</strong>: From the rotation of the object around its own CM.</p></li>
 </ul>
-<p>Back then, we kept things simple—usually assuming fixed axes or symmetric shapes. But in the real world, objects can be <strong>asymmetric</strong>, spinning about <strong>arbitrary axes</strong>, while also <strong>moving through space</strong>. Time to go deeper.</p>
+<p>Back then, we kept things simple—assuming fixed axes or symmetric shapes. But in the real world, objects can be <strong>asymmetric</strong>, spinning about <strong>arbitrary axes</strong>, while also <strong>moving through space</strong>. Time to go deeper.</p>
 <hr style="height:2px;border-width:0;color:gray;background-color:gray">
 </section>
-<section id="c2-3-2-objective">
-<h2>C2.3.2 Objective<a class="headerlink" href="#c2-3-2-objective" title="Link to this heading">#</a></h2>
-<p>Our goal in this lesson is to understand how to describe the <strong>full angular momentum</strong> of a rigid body when it’s both <strong>translating through space</strong> and <strong>rotating</strong>—and not just in simple, symmetric cases.</p>
-<p>Up to now, we’ve worked mostly with spin around fixed axes, and occasionally mentioned orbital angular momentum. But to analyze real-world motion—whether it’s a spinning satellite tumbling in space or a football flying and spinning through the air—we need tools that go beyond simple scalar quantities.</p>
+<section id="c3-2-2-objective">
+<h2>C3.2.2 Objective<a class="headerlink" href="#c3-2-2-objective" title="Link to this heading">#</a></h2>
+<p>Our goal in this lesson is to understand how to describe the <strong>full angular momentum</strong> of a rigid body when it is both <strong>translating through space</strong> and <strong>rotating</strong>—and not just in simple, symmetric cases.</p>
+<p>Up to now, we have mostly worked with spin around fixed axes and occasionally discussed orbital angular momentum. However, real physical systems often involve simultaneous translation and rotation. Examples include spinning satellites, tumbling spacecraft, rotating molecules, and footballs flying through the air.</p>
+<p>To analyze such systems properly, we must move beyond simple scalar rotational quantities and develop a fully three-dimensional description of angular momentum.</p>
 <p>By the end of this lesson, you should be able to:</p>
-<ul>
+<ul class="simple">
 <li><p>Separate a rigid body’s angular momentum into <strong>orbital</strong> and <strong>spin</strong> components.</p></li>
-<li><p>Understand how <strong>angular velocity</strong> relates to the <strong>spin angular momentum</strong> of an object.</p></li>
-<li><p>Derive and use the <strong>moment of inertia tensor</strong>, which captures how mass is distributed relative to different axes of rotation.</p></li>
-<li><p>Express spin angular momentum as a matrix-vector product:</p>
+<li><p>Understand how <strong>angular velocity</strong> relates to the <strong>spin angular momentum</strong> of a rigid body.</p></li>
+<li><p>Derive and use the <strong>moment of inertia tensor</strong>, which describes how mass is distributed relative to different rotational axes.</p></li>
+<li><p>Express spin angular momentum in vector form as</p></li>
+</ul>
 <div class="math notranslate nohighlight">
 \[
-  \vec{L}_{\text{spin}} = \mathbf{I} \cdot \vec{\omega}
-  \]</div>
-</li>
+\vec{L}_{\text{spin}}
+=
+\mathbf{I}\cdot\vec{\omega}
+\]</div>
+<ul class="simple">
+<li><p>Express the same relationship in index notation as</p></li>
 </ul>
-<p>This sets the foundation for understanding complex rotation in 3D and leads directly into our upcoming work on <strong>principal axes</strong> and <strong>gyroscopic motion</strong>.</p>
+<div class="math notranslate nohighlight">
+\[
+L_i
+=
+I_{ij}\omega_j
+\]</div>
+<p>where repeated indices imply summation.</p>
+<p>This framework forms the foundation for modern rigid-body dynamics and provides the mathematical structure needed to analyze rotational motion in full three dimensions.</p>
 <hr style="height:2px;border-width:0;color:gray;background-color:gray">
 </section>
-<section id="c2-3-3-total-angular-momentum-of-a-rigid-body">
-<h2>C2.3.3 Total Angular Momentum of a Rigid Body<a class="headerlink" href="#c2-3-3-total-angular-momentum-of-a-rigid-body" title="Link to this heading">#</a></h2>
+<section id="c3-2-3-total-angular-momentum-of-a-rigid-body">
+<h2>C3.2.3 Total Angular Momentum of a Rigid Body<a class="headerlink" href="#c3-2-3-total-angular-momentum-of-a-rigid-body" title="Link to this heading">#</a></h2>
 <p>Let’s consider a rigid body made up of many particles. The total angular momentum about a fixed origin <span class="math notranslate nohighlight">\( O \)</span> is:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -600,8 +619,8 @@ document.write(`
 </ul>
 <hr style="height:2px;border-width:0;color:gray;background-color:gray">
 </section>
-<section id="c2-3-4-modeling-the-spin-term-with-angular-velocity">
-<h2>C2.3.4 Modeling the Spin Term with Angular Velocity<a class="headerlink" href="#c2-3-4-modeling-the-spin-term-with-angular-velocity" title="Link to this heading">#</a></h2>
+<section id="c3-2-4-modeling-the-spin-term-with-angular-velocity">
+<h2>C3.2.4 Modeling the Spin Term with Angular Velocity<a class="headerlink" href="#c3-2-4-modeling-the-spin-term-with-angular-velocity" title="Link to this heading">#</a></h2>
 <p>For a <strong>rigid body</strong>, the velocity of a point relative to the CM is (all particles will have the same angular velocity):</p>
 <div class="math notranslate nohighlight">
 \[
@@ -624,8 +643,8 @@ document.write(`
 <p>We now define a linear transformation that maps <span class="math notranslate nohighlight">\( \vec{\omega} \)</span> to <span class="math notranslate nohighlight">\( \vec{L}_{\text{spin}} \)</span>. This is done using a tensor object: the <strong>moment of inertia tensor</strong>.</p>
 <hr style="height:2px;border-width:0;color:gray;background-color:gray">
 </section>
-<section id="c2-3-5-deriving-the-moment-of-inertia-tensor">
-<h2>C2.3.5 Deriving the Moment of Inertia Tensor<a class="headerlink" href="#c2-3-5-deriving-the-moment-of-inertia-tensor" title="Link to this heading">#</a></h2>
+<section id="c3-2-5-deriving-the-moment-of-inertia-tensor">
+<h2>C3.2.5 Deriving the Moment of Inertia Tensor<a class="headerlink" href="#c3-2-5-deriving-the-moment-of-inertia-tensor" title="Link to this heading">#</a></h2>
 <p>Let’s write this transformation in component form:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -642,30 +661,247 @@ I_{jk} = \sum_i m_i \left( \delta_{jk} r_i'^2 - r'_{i,j} r'_{i,k} \right)
 \vec{L}_{\text{spin}} = \mathbf{I} \cdot \vec{\omega}
 \]</div>
 <p>This tensor captures how mass is distributed in <strong>all directions</strong>. It’s a 3×3 symmetric matrix and generalizes the scalar moment of inertia to arbitrary shapes and axes.</p>
-<div class="alert alert-warning">
-<p><strong>Box 1</strong></p>
-<p>Verify the above by calculating the x-component of the angular momentum using Equations 1 and 2 separately and compare the two results.</p>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity 1 — Verifying the Inertia Tensor Expression</h3>
+<p>Verify that Equations (1) and (2) are equivalent by calculating the <span class="math notranslate nohighlight">\(x\)</span>-component of the spin angular momentum using both expressions separately.</p>
+<p>Starting from Equation (1):</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{L}_{\text{spin}}
+=
+\sum_i m_i
+\left[
+(\vec{r}'_i\cdot\vec{r}'_i)\vec{\omega}
+-
+(\vec{r}'_i\cdot\vec{\omega})\vec{r}'_i
+\right]
+\]</div>
+<p>calculate the <span class="math notranslate nohighlight">\(x\)</span>-component explicitly.</p>
+<p>Then use Equation (2):</p>
+<div class="math notranslate nohighlight">
+\[
+L_j
+=
+\sum_k I_{jk}\omega_k
+\]</div>
+<p>together with</p>
+<div class="math notranslate nohighlight">
+\[
+I_{jk}
+=
+\sum_i m_i
+\left(
+\delta_{jk}r_i'^2
+-
+r'_{i,j}r'_{i,k}
+\right)
+\]</div>
+<p>to calculate <span class="math notranslate nohighlight">\(L_x\)</span> directly from the tensor form.</p>
+<p>Compare the two results.</p>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>We first compute the <span class="math notranslate nohighlight">\(x\)</span>-component from Equation (1).</p>
+<p>Since</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{\omega}
+=
+\omega_x\hat{i}
++
+\omega_y\hat{j}
++
+\omega_z\hat{k},
+\]</div>
+<p>the <span class="math notranslate nohighlight">\(x\)</span>-component becomes</p>
+<div class="math notranslate nohighlight">
+\[
+L_x
+=
+\sum_i m_i
+\left[
+r_i'^2\omega_x
+-
+(\vec{r}'_i\cdot\vec{\omega})x_i'
+\right].
+\]</div>
+<p>Now expand the dot product:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{r}'_i\cdot\vec{\omega}
+=
+x_i'\omega_x
++
+y_i'\omega_y
++
+z_i'\omega_z.
+\]</div>
+<p>Substitute this into the expression for <span class="math notranslate nohighlight">\(L_x\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+L_x
+=
+\sum_i m_i
+\left[
+r_i'^2\omega_x
+-
+x_i'^2\omega_x
+-
+x_i'y_i'\omega_y
+-
+x_i'z_i'\omega_z
+\right].
+\]</div>
+<p>Since</p>
+<div class="math notranslate nohighlight">
+\[
+r_i'^2
+=
+x_i'^2+y_i'^2+z_i'^2,
+\]</div>
+<p>we obtain</p>
+<div class="math notranslate nohighlight">
+\[
+L_x
+=
+\sum_i m_i
+\left[
+(y_i'^2+z_i'^2)\omega_x
+-
+x_i'y_i'\omega_y
+-
+x_i'z_i'\omega_z
+\right].
+\]</div>
+<p>Now compute the same result using Equation (2):</p>
+<div class="math notranslate nohighlight">
+\[
+L_x
+=
+I_{xx}\omega_x
++
+I_{xy}\omega_y
++
+I_{xz}\omega_z.
+\]</div>
+<p>Using the tensor definition,</p>
+<div class="math notranslate nohighlight">
+\[
+I_{xx}
+=
+\sum_i m_i(y_i'^2+z_i'^2),
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+I_{xy}
+=
+-\sum_i m_i x_i'y_i',
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+I_{xz}
+=
+-\sum_i m_i x_i'z_i'.
+\]</div>
+<p>Substituting these into the tensor expression gives</p>
+<div class="math notranslate nohighlight">
+\[
+L_x
+=
+\sum_i m_i(y_i'^2+z_i'^2)\omega_x
+-
+\sum_i m_i x_i'y_i'\omega_y
+-
+\sum_i m_i x_i'z_i'\omega_z.
+\]</div>
+<p>This is identical to the expression derived directly from Equation (1).</p>
+<p>Therefore, the tensor form correctly reproduces the component form of the spin angular momentum.</p>
 </div>
+</details>
+</div>
+<hr class="docutils" />
 <p>NOTE: The diagonal terms in the moment of inertia tensor are called <strong>moment of inertia</strong>, while the off-diagonal terms are called <strong>products of inertia</strong>.</p>
 <hr style="height:2px;border-width:0;color:gray;background-color:gray">
 </section>
-<section id="c2-3-6-summary-what-you-now-know">
-<h2>C2.3.6 Summary: What You Now Know<a class="headerlink" href="#c2-3-6-summary-what-you-now-know" title="Link to this heading">#</a></h2>
-<ul>
-<li><p>The <strong>total angular momentum</strong> of a rigid body is:</p>
+<section id="c3-2-6-summary-what-you-now-know">
+<h2>C3.2.6 Summary: What You Now Know<a class="headerlink" href="#c3-2-6-summary-what-you-now-know" title="Link to this heading">#</a></h2>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<p><strong>Total Angular Momentum of a Rigid Body</strong></p>
+<p>The total angular momentum of a rigid body can be written as the sum of:</p>
+<ul class="simple">
+<li><p>orbital angular momentum due to center-of-mass motion</p></li>
+<li><p>spin angular momentum due to internal rotation</p></li>
+</ul>
+<p>In vector form,</p>
 <div class="math notranslate nohighlight">
 \[
-  \vec{L} = M \vec{R} \times \vec{V} + \mathbf{I} \cdot \vec{\omega}
-  \]</div>
-</li>
-<li><p>The first term is from CM motion (orbital), the second from internal rotation (spin).</p></li>
-<li><p>The <strong>moment of inertia tensor</strong> maps angular velocity <span class="math notranslate nohighlight">\( \vec{\omega} \)</span> to angular momentum.</p></li>
-<li><p>For symmetric shapes and rotation about principal axes, the tensor becomes diagonal and easy to work with.</p></li>
+\vec{L}
+=
+M\vec{R}\times\vec{V}
++
+\mathbf{I}\cdot\vec{\omega}
+\]</div>
+<p>In index notation,</p>
+<div class="math notranslate nohighlight">
+\[
+L_i
+=
+M\epsilon_{ijk}R_jV_k
++
+I_{ij}\omega_j
+\]</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(M\)</span> is the total mass,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\vec{R}\)</span> and <span class="math notranslate nohighlight">\(\vec{V}\)</span> are the center-of-mass position and velocity,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{I}\)</span> is the moment of inertia tensor,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\vec{\omega}\)</span> is the angular velocity vector,</p></li>
+<li><p>and <span class="math notranslate nohighlight">\(\epsilon_{ijk}\)</span> is the Levi-Civita symbol.</p></li>
 </ul>
+</div>
+<ul class="simple">
+<li><p>The first term represents orbital angular momentum.</p></li>
+<li><p>The second term represents spin angular momentum.</p></li>
+<li><p>The moment of inertia tensor maps angular velocity to angular momentum.</p></li>
+<li><p>In general, angular momentum and angular velocity are not necessarily parallel.</p></li>
+<li><p>The inertia tensor depends on how mass is distributed relative to the rotational axes.</p></li>
+<li><p>For symmetric bodies and special coordinate choices, the tensor simplifies considerably.</p></li>
+</ul>
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Curiosity — Orbital vs. Intrinsic Angular Momentum</strong></p>
+<p>One of the deep conceptual differences between orbital and spin angular momentum is that orbital motion depends on the observer’s frame of reference, while intrinsic spin does not.</p>
+<p>For example, imagine observing a rotating object while moving alongside its center of mass. By changing to a different inertial frame (effectively “Doppler shifting” your perspective of the translational motion), you can always eliminate the center-of-mass velocity:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{V}\rightarrow 0.
+\]</div>
+<p>In this frame, the orbital angular momentum term</p>
+<div class="math notranslate nohighlight">
+\[
+M\vec{R}\times\vec{V}
+\]</div>
+<p>can vanish entirely.</p>
+<p>However, the intrinsic rotational motion remains. Even in the center-of-mass frame, the object may still be spinning internally with angular velocity</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{\omega}\neq 0.
+\]</div>
+<p>This is why spin angular momentum is called <em>intrinsic</em>:</p>
+<ul class="simple">
+<li><p>it is tied to the object’s internal rotational state,</p></li>
+<li><p>it cannot be removed simply by changing inertial frames,</p></li>
+<li><p>and it exists relative to the object’s own internal axes rather than external translational motion.</p></li>
+</ul>
+<p>This distinction becomes profoundly important in modern physics, especially in quantum mechanics, where particles possess intrinsic spin even though they are treated as point-like objects.</p>
+</div>
 <hr style="height:2px;border-width:0;color:gray;background-color:gray">
 </section>
-<section id="c2-3-7-up-next">
-<h2>C2.3.7 Up Next<a class="headerlink" href="#c2-3-7-up-next" title="Link to this heading">#</a></h2>
+<section id="c3-2-7-up-next">
+<h2>C3.2.7 Up Next<a class="headerlink" href="#c3-2-7-up-next" title="Link to this heading">#</a></h2>
 <p>In the next phase, we’ll explore how to <strong>diagonalize the inertia tensor</strong>, find <strong>principal axes</strong>, and understand why rotating bodies sometimes behave so weirdly (hello, <strong>intermediate axis theorem</strong> aka known as the <strong>tennis racket theorem</strong> 👀).</p>
 <hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
 </section>
@@ -700,6 +936,24 @@ I_{jk} = \sum_i m_i \left( \delta_{jk} r_i'^2 - r'_{i,j} r'_{i,k} \right)
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="angular-velocity.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">C3.1 Angular Velocity</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="basic-gyroscope.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">C3.3 Basic Gyroscope Dynamics</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -716,13 +970,13 @@ I_{jk} = \sum_i m_i \left( \delta_{jk} r_i'^2 - r'_{i,j} r'_{i,k} \right)
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-3-1-spin-and-orbital-angular-momentum-a-quick-recap">C2.3.1 Spin and Orbital Angular Momentum: A Quick Recap</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-3-2-objective">C2.3.2 Objective</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-3-3-total-angular-momentum-of-a-rigid-body">C2.3.3 Total Angular Momentum of a Rigid Body</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-3-4-modeling-the-spin-term-with-angular-velocity">C2.3.4 Modeling the Spin Term with Angular Velocity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-3-5-deriving-the-moment-of-inertia-tensor">C2.3.5 Deriving the Moment of Inertia Tensor</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-3-6-summary-what-you-now-know">C2.3.6 Summary: What You Now Know</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c2-3-7-up-next">C2.3.7 Up Next</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c3-2-1-spin-and-orbital-angular-momentum-a-quick-recap">C3.2.1 Spin and Orbital Angular Momentum: A Quick Recap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c3-2-2-objective">C3.2.2 Objective</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c3-2-3-total-angular-momentum-of-a-rigid-body">C3.2.3 Total Angular Momentum of a Rigid Body</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c3-2-4-modeling-the-spin-term-with-angular-velocity">C3.2.4 Modeling the Spin Term with Angular Velocity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c3-2-5-deriving-the-moment-of-inertia-tensor">C3.2.5 Deriving the Moment of Inertia Tensor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c3-2-6-summary-what-you-now-know">C3.2.6 Summary: What You Now Know</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c3-2-7-up-next">C3.2.7 Up Next</a></li>
 </ul>
   </nav></div>
 
