@@ -1,0 +1,853 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>C5.2 Constraints in Classical Mechanics &#8212; A Competency Approach to Classical Mechanics - Phase C</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-C5/constraints';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="C5.3 Function vs. Functional" href="functions-functionals.html" />
+    <link rel="prev" title="C5.1 Recall Configuration Space and Phase Space: Understanding the Foundations of Classical Mechanics" href="space.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-C.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Phase C - Home"/>
+    <script>document.write(`<img src="../_static/logo-C.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Phase C - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the C Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C1 - Numerical Methods</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/LOC-C1.html">C1.0 Learning Outcomes — Numerical Methods and Finite Difference Techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/forward-euler.html">C1.1 — The Forward Euler Numerical Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/backward-euler.html">C1.2 — The Backward Euler Numerical Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/central-difference.html">C1.3 — The Central Difference Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/euler-cromer.html">C1.4 — Euler-Cromer Method (Symplectic Euler)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/problemsC1.html">C1.5 — Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C2 - Variable Mass Systems</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/LOC-C2.html">C2.0 Learning Outcomes — Variable Mass Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/intro-variable-mass.html">C2.1 — Introduction to Variable Mass Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/rocket-equation.html">C2.2 — The Rocket Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/variable-mass-strategy.html">C2.3 — Initial Setup Strategy for Variable Mass Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/problemsC2.html">C2.4 — Problems Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C3 - General Rigid Body Rotation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C3/LOC-C3.html">C3.0 Learning Outcomes — General Rotation and the Inertia Tensor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C3/angular-velocity.html">C3.1 Angular Velocity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C3/angular-momentum.html">C3.2 Angular Momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C3/basic-gyroscope.html">C3.3 Basic Gyroscope Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C3/problemsC3.html">C3.4 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C - Rotating Reference Frame</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C4/LOC-C4.html">C4.0 Learning Outcomes - Rotating Frames of Reference and Fictitious Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C4/rotating-frame.html">C4.1 Vector Transformation in Rotating Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C4/N2-rotating.html">C4.2 Newton’s Second Law and Fictitious Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C4/problemsC4.html">C4.3 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C5 - Deriving Lagrangian And Lagrange Multipliers</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-C5.html">C5.0 Learning Outcomes - Lagrangian Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="space.html">C5.1 Recall Configuration Space and Phase Space: Understanding the Foundations of Classical Mechanics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">C5.2 Constraints in Classical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions-functionals.html">C5.3 Function vs. Functional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="euler-lagrange.html">C5.4 Calculus of Variations: Finding the Best Path - Euler-Lagrange Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="euler-lagrange-examples.html">C5.5 Applications of the Euler–Lagrange Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hamiltons-principle.html">C5.6 Hamilton’s Principle and Lagrange’s Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problemsC5.html">C5.8 Problems</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/classical-mechanics-C/Module-C5/constraints.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-C5/constraints.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>C5.2 Constraints in Classical Mechanics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c5-2-1-motivation-why-do-constraints-matter">C5.2.1 Motivation: Why Do Constraints Matter?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c5-2-2-types-of-constraints">C5.2.2 Types of Constraints</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#holonomic-vs-non-holonomic-constraints"><strong>Holonomic vs. Non-Holonomic Constraints</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#holonomic-constraints"><strong>Holonomic Constraints</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#examples"><strong>Examples:</strong></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#non-holonomic-constraints"><strong>Non-Holonomic Constraints</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Examples:</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scleronomic-vs-rheonomic-constraints"><strong>Scleronomic vs. Rheonomic Constraints</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#scleronomic-constraints"><strong>Scleronomic Constraints</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>Examples:</strong></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rheonomic-constraints"><strong>Rheonomic Constraints</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>Examples:</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equality-vs-inequality-constraints"><strong>Equality vs. Inequality Constraints</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#equality-constraints"><strong>Equality Constraints</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#example"><strong>Example:</strong></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#inequality-constraints"><strong>Inequality Constraints</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>Example:</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c5-2-3-effects-of-constraints-on-degrees-of-freedom">C5.2.3 Effects of Constraints on Degrees of Freedom</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><strong>Example:</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c5-2-4-constraints-in-lagrangian-and-hamiltonian-mechanics">C5.2.4 Constraints in Lagrangian and Hamiltonian Mechanics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constraints-in-lagrangian-mechanics"><strong>Constraints in Lagrangian Mechanics</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constraints-in-hamiltonian-mechanics"><strong>Constraints in Hamiltonian Mechanics</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c5-2-4-final-thoughts">C5.2.4 Final Thoughts</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="c5-2-constraints-in-classical-mechanics">
+<h1>C5.2 Constraints in Classical Mechanics<a class="headerlink" href="#c5-2-constraints-in-classical-mechanics" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="c5-2-1-motivation-why-do-constraints-matter">
+<h2>C5.2.1 Motivation: Why Do Constraints Matter?<a class="headerlink" href="#c5-2-1-motivation-why-do-constraints-matter" title="Link to this heading">#</a></h2>
+<p>We introduced constraints in Phase D, but let us re-enforce it here.</p>
+<p>In many real-world physical systems, objects are not completely free to move in space—they are <strong>subject to constraints</strong> that limit their possible motion. For example:</p>
+<ul class="simple">
+<li><p>A <strong>pendulum</strong> must remain at a fixed distance from its pivot.</p></li>
+<li><p>A <strong>block on an inclined plane</strong> cannot move freely in all directions; it must stay on the surface.</p></li>
+<li><p>A <strong>rolling wheel without slipping</strong> must maintain a specific relationship between its velocity and rotation.</p></li>
+</ul>
+<p>Understanding constraints is crucial because they:</p>
+<ul class="simple">
+<li><p><strong>Reduce the number of independent degrees of freedom</strong> in a system.</p></li>
+<li><p><strong>Influence the forces acting on a system</strong>, sometimes introducing non-trivial constraint forces.</p></li>
+<li><p><strong>Require systematic mathematical tools</strong>, such as <strong>Lagrange multipliers</strong>, to enforce them properly.</p></li>
+</ul>
+<p>In classical mechanics, we categorize constraints into different types based on their mathematical form and physical nature.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="c5-2-2-types-of-constraints">
+<h2>C5.2.2 Types of Constraints<a class="headerlink" href="#c5-2-2-types-of-constraints" title="Link to this heading">#</a></h2>
+<p>Constraints can be classified into several categories, each with unique characteristics. The primary classifications are:</p>
+<section id="holonomic-vs-non-holonomic-constraints">
+<h3><strong>Holonomic vs. Non-Holonomic Constraints</strong><a class="headerlink" href="#holonomic-vs-non-holonomic-constraints" title="Link to this heading">#</a></h3>
+<section id="holonomic-constraints">
+<h4><strong>Holonomic Constraints</strong><a class="headerlink" href="#holonomic-constraints" title="Link to this heading">#</a></h4>
+<p>A <strong>holonomic constraint</strong> is one that can be expressed as a function of the <strong>generalized coordinates</strong> and time:</p>
+<div class="math notranslate nohighlight">
+\[
+g(q_1, q_2, ..., q_n, t) = 0
+\]</div>
+<p>These constraints purely restrict the possible <strong>positions</strong> of a system but do not directly involve velocities or momenta.</p>
+<section id="examples">
+<h5><strong>Examples:</strong><a class="headerlink" href="#examples" title="Link to this heading">#</a></h5>
+<ul class="simple">
+<li><p><strong>Bead on a Wire:</strong> A bead moving along a circular wire of radius <span class="math notranslate nohighlight">\( R \)</span> satisfies the constraint:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+x^2 + y^2 - R^2 = 0
+\]</div>
+<ul class="simple">
+<li><p><strong>Double Pendulum:</strong> The two masses must be fixed at distances <span class="math notranslate nohighlight">\( L_1 \)</span> and <span class="math notranslate nohighlight">\( L_2 \)</span> from their pivots, leading to constraints like:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+x_1^2 + y_1^2 - L_1^2 = 0, \quad (x_2 - x_1)^2 + (y_2 - y_1)^2 - L_2^2 = 0
+\]</div>
+<p>Holonomic constraints <strong>reduce the number of independent coordinates</strong>, making it easier to analyze motion.</p>
+</section>
+</section>
+<section id="non-holonomic-constraints">
+<h4><strong>Non-Holonomic Constraints</strong><a class="headerlink" href="#non-holonomic-constraints" title="Link to this heading">#</a></h4>
+<p>A <strong>non-holonomic constraint</strong> cannot be written purely in terms of generalized coordinates—it involves <strong>velocities</strong> or even higher-order derivatives:</p>
+<div class="math notranslate nohighlight">
+\[
+g(q, \dot{q}, t) = 0
+\]</div>
+<p>These constraints limit possible <strong>paths</strong> in configuration space but do not necessarily reduce the number of independent coordinates.</p>
+<section id="id1">
+<h5><strong>Examples:</strong><a class="headerlink" href="#id1" title="Link to this heading">#</a></h5>
+<ul>
+<li><p><strong>Rolling Without Slipping:</strong> A rolling wheel must satisfy:</p>
+<div class="math notranslate nohighlight">
+\[
+  v = R\omega
+  \]</div>
+<p>which relates translational velocity <span class="math notranslate nohighlight">\(v \)</span> of the center of mass to angular velocity <span class="math notranslate nohighlight">\( \omega \)</span>.</p>
+</li>
+<li><p><strong>Constraint on a Car:</strong> A car moving in a plane cannot move sideways instantaneously, enforcing a constraint on its velocity.</p></li>
+</ul>
+<p>Non-holonomic constraints are generally <strong>more difficult to handle</strong> because they do not directly reduce the number of independent coordinates.</p>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="scleronomic-vs-rheonomic-constraints">
+<h3><strong>Scleronomic vs. Rheonomic Constraints</strong><a class="headerlink" href="#scleronomic-vs-rheonomic-constraints" title="Link to this heading">#</a></h3>
+<section id="scleronomic-constraints">
+<h4><strong>Scleronomic Constraints</strong><a class="headerlink" href="#scleronomic-constraints" title="Link to this heading">#</a></h4>
+<p>A <strong>scleronomic constraint</strong> does <strong>not</strong> depend explicitly on time:</p>
+<div class="math notranslate nohighlight">
+\[
+g(q_1, q_2, ..., q_n) = 0
+\]</div>
+<p>These are time-independent constraints that impose fixed geometric relationships.</p>
+<section id="id2">
+<h5><strong>Examples:</strong><a class="headerlink" href="#id2" title="Link to this heading">#</a></h5>
+<ul class="simple">
+<li><p><strong>Bead on a Fixed Circular Wire:</strong> The equation <span class="math notranslate nohighlight">\( x^2 + y^2 - R^2 = 0 \)</span> remains constant over time.</p></li>
+<li><p><strong>Pendulum with Fixed Length:</strong> The length constraint <span class="math notranslate nohighlight">\( x^2 + y^2 = L^2 \)</span> does not change.</p></li>
+</ul>
+</section>
+</section>
+<section id="rheonomic-constraints">
+<h4><strong>Rheonomic Constraints</strong><a class="headerlink" href="#rheonomic-constraints" title="Link to this heading">#</a></h4>
+<p>A <strong>rheonomic constraint</strong> <strong>explicitly</strong> depends on time:</p>
+<div class="math notranslate nohighlight">
+\[
+g(q_1, q_2, ..., q_n, t) = 0
+\]</div>
+<p>These constraints evolve over time, making the system’s motion dependent on external factors.</p>
+<section id="id3">
+<h5><strong>Examples:</strong><a class="headerlink" href="#id3" title="Link to this heading">#</a></h5>
+<ul class="simple">
+<li><p><strong>Bead on a Moving Wire:</strong> If the wire itself is rotating, the constraint may change over time.</p></li>
+<li><p><strong>Pendulum with a Moving Support:</strong> If the pivot point of a pendulum moves over time, the constraint is time-dependent.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="equality-vs-inequality-constraints">
+<h3><strong>Equality vs. Inequality Constraints</strong><a class="headerlink" href="#equality-vs-inequality-constraints" title="Link to this heading">#</a></h3>
+<section id="equality-constraints">
+<h4><strong>Equality Constraints</strong><a class="headerlink" href="#equality-constraints" title="Link to this heading">#</a></h4>
+<p>Most constraints in classical mechanics are <strong>equality constraints</strong>, meaning they strictly define an allowable surface in configuration or phase space:</p>
+<div class="math notranslate nohighlight">
+\[
+g(q_1, q_2, ..., q_n, t) = 0
+\]</div>
+<section id="example">
+<h5><strong>Example:</strong><a class="headerlink" href="#example" title="Link to this heading">#</a></h5>
+<ul class="simple">
+<li><p>A mass sliding on a sphere must always satisfy <span class="math notranslate nohighlight">\( x^2 + y^2 + z^2 - R^2 = 0 \)</span>.</p></li>
+</ul>
+</section>
+</section>
+<section id="inequality-constraints">
+<h4><strong>Inequality Constraints</strong><a class="headerlink" href="#inequality-constraints" title="Link to this heading">#</a></h4>
+<p>Some constraints <strong>only restrict the motion to a certain region</strong> without fixing it to a specific surface:</p>
+<div class="math notranslate nohighlight">
+\[
+g(q_1, q_2, ..., q_n, t) \geq 0
+\]</div>
+<section id="id4">
+<h5><strong>Example:</strong><a class="headerlink" href="#id4" title="Link to this heading">#</a></h5>
+<ul class="simple">
+<li><p>A <strong>block on or above a floor</strong> must satisfy <span class="math notranslate nohighlight">\( y \geq 0 \)</span>, meaning it cannot go below the surface but can move freely above it.</p></li>
+</ul>
+<p>Inequality constraints require additional methods like <strong>complementary conditions</strong> in mechanics.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+</section>
+</section>
+<section id="c5-2-3-effects-of-constraints-on-degrees-of-freedom">
+<h2>C5.2.3 Effects of Constraints on Degrees of Freedom<a class="headerlink" href="#c5-2-3-effects-of-constraints-on-degrees-of-freedom" title="Link to this heading">#</a></h2>
+<p>The presence of constraints <strong>reduces the number of independent coordinates</strong> in a system. If a system initially has <span class="math notranslate nohighlight">\( N \)</span> generalized coordinates and is subject to <span class="math notranslate nohighlight">\( C \)</span> <strong>holonomic</strong> constraints, the number of <strong>degrees of freedom (DOF)</strong> is:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{DOF} = N - C
+\]</div>
+<section id="id5">
+<h3><strong>Example:</strong><a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>A <strong>single particle in 3D</strong> has <span class="math notranslate nohighlight">\( N = 3 \)</span>.</p></li>
+<li><p>If it is constrained to move on a plane, it has <strong>one holonomic constraint</strong> <span class="math notranslate nohighlight">\( z = 0 \)</span>, reducing its degrees of freedom to <strong>2</strong>.</p></li>
+</ul>
+<p>For <strong>non-holonomic</strong> constraints, the number of degrees of freedom is not always straightforward, as the constraints involve velocities rather than just positions.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="c5-2-4-constraints-in-lagrangian-and-hamiltonian-mechanics">
+<h2>C5.2.4 Constraints in Lagrangian and Hamiltonian Mechanics<a class="headerlink" href="#c5-2-4-constraints-in-lagrangian-and-hamiltonian-mechanics" title="Link to this heading">#</a></h2>
+<section id="constraints-in-lagrangian-mechanics">
+<h3><strong>Constraints in Lagrangian Mechanics</strong><a class="headerlink" href="#constraints-in-lagrangian-mechanics" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Holonomic constraints</strong> are naturally handled in <strong>Lagrangian mechanics</strong> by choosing appropriate <strong>generalized coordinates</strong>.</p></li>
+<li><p><strong>Non-holonomic constraints</strong> require additional methods, such as <strong>Lagrange multipliers</strong> or non-holonomic equations of motion.</p></li>
+</ul>
+</section>
+<section id="constraints-in-hamiltonian-mechanics">
+<h3><strong>Constraints in Hamiltonian Mechanics</strong><a class="headerlink" href="#constraints-in-hamiltonian-mechanics" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Constraints appear as conditions on momenta</strong>, rather than just coordinates.</p></li>
+<li><p>The <strong>Poisson bracket formalism</strong> is often used to enforce constraints dynamically.</p></li>
+<li><p><strong>Primary and secondary constraints</strong> appear naturally in phase space.</p></li>
+</ul>
+<p><strong>Example:</strong></p>
+<ul class="simple">
+<li><p>A bead constrained to a wire in <strong>Lagrangian mechanics</strong> requires fewer coordinates.</p></li>
+<li><p>The same system in <strong>Hamiltonian mechanics</strong> requires enforcing the momentum constraint using <strong>Poisson brackets</strong>.</p></li>
+</ul>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="c5-2-4-final-thoughts">
+<h2>C5.2.4 Final Thoughts<a class="headerlink" href="#c5-2-4-final-thoughts" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Constraints limit the possible motion of a system</strong>, reducing its degrees of freedom.</p></li>
+<li><p><strong>Holonomic constraints</strong> restrict motion through coordinate relations, while <strong>non-holonomic constraints</strong> involve velocities.</p></li>
+<li><p><strong>Scleronomic constraints</strong> do not depend on time, while <strong>rheonomic constraints</strong> do.</p></li>
+<li><p><strong>Lagrangian mechanics handles constraints naturally</strong> through coordinate choices, while <strong>Hamiltonian mechanics</strong> enforces constraints in phase space.</p></li>
+<li><p><strong>Lagrange multipliers provide a powerful tool</strong> for handling constraints and computing constraint forces.</p></li>
+</ol>
+<p>Understanding constraints is crucial in <strong>mechanical engineering, robotics, and quantum mechanics</strong>, where constrained systems appear frequently. Mastering these concepts allows for <strong>systematic problem-solving in complex physical systems</strong>.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Phys-Prof-Nielsen/modulearn",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-C5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="space.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">C5.1 Recall Configuration Space and Phase Space: Understanding the Foundations of Classical Mechanics</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="functions-functionals.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">C5.3 Function vs. Functional</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c5-2-1-motivation-why-do-constraints-matter">C5.2.1 Motivation: Why Do Constraints Matter?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c5-2-2-types-of-constraints">C5.2.2 Types of Constraints</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#holonomic-vs-non-holonomic-constraints"><strong>Holonomic vs. Non-Holonomic Constraints</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#holonomic-constraints"><strong>Holonomic Constraints</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#examples"><strong>Examples:</strong></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#non-holonomic-constraints"><strong>Non-Holonomic Constraints</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Examples:</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scleronomic-vs-rheonomic-constraints"><strong>Scleronomic vs. Rheonomic Constraints</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#scleronomic-constraints"><strong>Scleronomic Constraints</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>Examples:</strong></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rheonomic-constraints"><strong>Rheonomic Constraints</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>Examples:</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equality-vs-inequality-constraints"><strong>Equality vs. Inequality Constraints</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#equality-constraints"><strong>Equality Constraints</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#example"><strong>Example:</strong></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#inequality-constraints"><strong>Inequality Constraints</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>Example:</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c5-2-3-effects-of-constraints-on-degrees-of-freedom">C5.2.3 Effects of Constraints on Degrees of Freedom</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><strong>Example:</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c5-2-4-constraints-in-lagrangian-and-hamiltonian-mechanics">C5.2.4 Constraints in Lagrangian and Hamiltonian Mechanics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constraints-in-lagrangian-mechanics"><strong>Constraints in Lagrangian Mechanics</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constraints-in-hamiltonian-mechanics"><strong>Constraints in Hamiltonian Mechanics</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c5-2-4-final-thoughts">C5.2.4 Final Thoughts</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

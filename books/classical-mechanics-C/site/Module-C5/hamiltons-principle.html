@@ -1,0 +1,1122 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>C5.6 Hamilton’s Principle and Lagrange’s Equations &#8212; A Competency Approach to Classical Mechanics - Phase C</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-C5/hamiltons-principle';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="C5.8 Problems" href="problemsC5.html" />
+    <link rel="prev" title="C5.5 Applications of the Euler–Lagrange Equation" href="euler-lagrange-examples.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-C.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Phase C - Home"/>
+    <script>document.write(`<img src="../_static/logo-C.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Phase C - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the C Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C1 - Numerical Methods</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/LOC-C1.html">C1.0 Learning Outcomes — Numerical Methods and Finite Difference Techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/forward-euler.html">C1.1 — The Forward Euler Numerical Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/backward-euler.html">C1.2 — The Backward Euler Numerical Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/central-difference.html">C1.3 — The Central Difference Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/euler-cromer.html">C1.4 — Euler-Cromer Method (Symplectic Euler)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/problemsC1.html">C1.5 — Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C2 - Variable Mass Systems</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/LOC-C2.html">C2.0 Learning Outcomes — Variable Mass Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/intro-variable-mass.html">C2.1 — Introduction to Variable Mass Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/rocket-equation.html">C2.2 — The Rocket Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/variable-mass-strategy.html">C2.3 — Initial Setup Strategy for Variable Mass Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/problemsC2.html">C2.4 — Problems Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C3 - General Rigid Body Rotation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C3/LOC-C3.html">C3.0 Learning Outcomes — General Rotation and the Inertia Tensor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C3/angular-velocity.html">C3.1 Angular Velocity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C3/angular-momentum.html">C3.2 Angular Momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C3/basic-gyroscope.html">C3.3 Basic Gyroscope Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C3/problemsC3.html">C3.4 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C - Rotating Reference Frame</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C4/LOC-C4.html">C4.0 Learning Outcomes - Rotating Frames of Reference and Fictitious Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C4/rotating-frame.html">C4.1 Vector Transformation in Rotating Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C4/N2-rotating.html">C4.2 Newton’s Second Law and Fictitious Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C4/problemsC4.html">C4.3 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C5 - Deriving Lagrangian And Lagrange Multipliers</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-C5.html">C5.0 Learning Outcomes - Lagrangian Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="space.html">C5.1 Recall Configuration Space and Phase Space: Understanding the Foundations of Classical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constraints.html">C5.2 Constraints in Classical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions-functionals.html">C5.3 Function vs. Functional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="euler-lagrange.html">C5.4 Calculus of Variations: Finding the Best Path - Euler-Lagrange Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="euler-lagrange-examples.html">C5.5 Applications of the Euler–Lagrange Equation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">C5.6 Hamilton’s Principle and Lagrange’s Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problemsC5.html">C5.8 Problems</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/classical-mechanics-C/Module-C5/hamiltons-principle.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-C5/hamiltons-principle.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>C5.6 Hamilton’s Principle and Lagrange’s Equations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c5-6-1-motivation">C5.6.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c5-6-2-the-action-functional">C5.6.2 The Action Functional</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c5-6-3-hamilton-s-principle">C5.6.3 Hamilton’s Principle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c5-6-4-why-is-the-lagrangian-l-t-u">C5.6.4 Why is the Lagrangian <span class="math notranslate nohighlight">\(L=T-U\)</span>?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c5-6-5-from-the-eulerlagrange-equation-to-lagrange-s-equation">C5.6.5 From the Euler–Lagrange Equation to Lagrange’s Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c5-6-6-lagrange-s-equations-for-multiple-coordinates">C5.6.6 Lagrange’s Equations for Multiple Coordinates</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="c5-6-hamilton-s-principle-and-lagrange-s-equations">
+<h1>C5.6 Hamilton’s Principle and Lagrange’s Equations<a class="headerlink" href="#c5-6-hamilton-s-principle-and-lagrange-s-equations" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="c5-6-1-motivation">
+<h2>C5.6.1 Motivation<a class="headerlink" href="#c5-6-1-motivation" title="Link to this heading">#</a></h2>
+<p>In the previous module, we developed the Euler–Lagrange equation,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dx}
+\left(
+\frac{\partial F}{\partial y'}
+\right)
+-
+\frac{\partial F}{\partial y}
+=
+0,
+\]</div>
+<p>as a general condition for a function to make a functional stationary.</p>
+<p>This result is mathematically powerful, but an important question remains:</p>
+<blockquote>
+<div><p>What functional does nature optimize in classical mechanics?</p>
+</div></blockquote>
+<p>Surprisingly, the motion of a particle can be determined without directly applying Newton’s laws. Instead, we define a special functional known as the <strong>action</strong> and require that it be stationary for the actual path taken by the system.</p>
+<p>This idea is known as <strong>Hamilton’s Principle</strong> and serves as the foundation of Lagrangian mechanics.</p>
+<p>Rather than beginning with forces, we begin with energy.</p>
+<p>Rather than asking how forces cause motion, we ask which path makes the action stationary.</p>
+<p>Remarkably, this alternative viewpoint leads to equations that are completely equivalent to Newton’s laws while often being easier to apply to complicated systems.</p>
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<strong>Historical Note</strong>
+<p>The variational principles developed by Euler and Lagrange were unified and expanded by William Rowan Hamilton during the nineteenth century.</p>
+<p>Hamilton’s formulation became one of the most influential frameworks in theoretical physics and ultimately played a major role in the development of quantum mechanics, field theory, and modern relativity.</p>
+</div>
+<p>In this module, we will define the action, introduce Hamilton’s Principle, and show how the Euler–Lagrange equation naturally leads to the Lagrange equations of motion used throughout classical mechanics.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c5-6-2-the-action-functional">
+<h2>C5.6.2 The Action Functional<a class="headerlink" href="#c5-6-2-the-action-functional" title="Link to this heading">#</a></h2>
+<p>In the previous module, we encountered a general functional of the form</p>
+<div class="math notranslate nohighlight">
+\[
+J[y]
+=
+\int_a^b F(y,y',x)\,dx.
+\]</div>
+<p>The Euler–Lagrange equation tells us how to determine the function that makes such a functional stationary.</p>
+<p>For classical mechanics, the corresponding functional is called the <strong>action</strong>.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Action</strong>
+<p>The action is a functional defined by</p>
+<div class="math notranslate nohighlight">
+\[
+S[q]
+=
+\int_{t_1}^{t_2}
+L(q,\dot q,t)\,dt,
+\]</div>
+<p>where:</p>
+<ul>
+<li>$q$ represents a generalized coordinate,</li>
+<li>$\dot q$ represents the corresponding generalized velocity,</li>
+<li>$L$ is the Lagrangian,</li>
+<li>$t_1$ and $t_2$ are the initial and final times.</li>
+</ul>
+<p>The action assigns a single number to an entire trajectory <span class="math notranslate nohighlight">\(q(t)\)</span>.</p>
+</div>
+<p>Notice the similarities between the action and the functional studied previously:</p>
+<div class="math notranslate nohighlight">
+\[
+J[y]
+=
+\int_a^b
+F(y,y',x)\,dx
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+S[q]
+=
+\int_{t_1}^{t_2}
+L(q,\dot q,t)\,dt.
+\]</div>
+<p>The correspondence is</p>
+<div class="math notranslate nohighlight">
+\[
+x
+\longrightarrow
+t,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+y
+\longrightarrow
+q,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+y'
+\longrightarrow
+\dot q,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+F
+\longrightarrow
+L.
+\]</div>
+<p>The action is therefore a special type of functional whose integrand is the Lagrangian.</p>
+<hr class="docutils" />
+<p>The action depends on the entire path followed by the system.</p>
+<p>For example, consider a particle moving from point A to point B.</p>
+<p>Many different trajectories are possible:</p>
+<div class="math notranslate nohighlight">
+\[
+q_1(t),
+\qquad
+q_2(t),
+\qquad
+q_3(t),
+\qquad
+\ldots
+\]</div>
+<p>Each trajectory produces a different value of the action:</p>
+<div class="math notranslate nohighlight">
+\[
+S[q_1],
+\qquad
+S[q_2],
+\qquad
+S[q_3],
+\qquad
+\ldots
+\]</div>
+<p>Nature somehow selects one of these paths.</p>
+<p>The question is:</p>
+<blockquote>
+<div><p>Which path does nature choose?</p>
+</div></blockquote>
+<p>The answer is provided by Hamilton’s Principle.</p>
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<strong>Important Observation</strong>
+<p>Newtonian mechanics determines motion by solving differential equations involving forces.</p>
+<p>Hamiltonian and Lagrangian mechanics determine motion by identifying which trajectory makes the action stationary.</p>
+<p>Although these viewpoints appear very different, they ultimately produce the same physical predictions.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c5-6-3-hamilton-s-principle">
+<h2>C5.6.3 Hamilton’s Principle<a class="headerlink" href="#c5-6-3-hamilton-s-principle" title="Link to this heading">#</a></h2>
+<p>Now that we have defined the action, we are ready to state one of the most important principles in classical mechanics.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Hamilton's Principle</strong>
+<p>The actual path followed by a mechanical system between two fixed times makes the action stationary.</p>
+<p>Mathematically,</p>
+<div class="math notranslate nohighlight">
+\[
+\delta S = 0.
+\]</div>
+<p>Equivalently,</p>
+<div class="math notranslate nohighlight">
+\[
+\delta
+\int_{t_1}^{t_2}
+L(q,\dot q,t)\,dt
+=
+0.
+\]</div>
+</div>
+<p>This statement is sometimes called the <strong>Principle of Stationary Action</strong>.</p>
+<p>The symbol</p>
+<div class="math notranslate nohighlight">
+\[
+\delta
+\]</div>
+<p>represents a variation, meaning a small change in the trajectory of the system.</p>
+<p>Just as we varied a function</p>
+<div class="math notranslate nohighlight">
+\[
+y(x)
+\rightarrow
+y(x)+\epsilon\eta(x)
+\]</div>
+<p>in the previous module, we now vary a trajectory</p>
+<div class="math notranslate nohighlight">
+\[
+q(t)
+\rightarrow
+q(t)+\epsilon\eta(t).
+\]</div>
+<p>The actual motion of the system is the trajectory for which the action remains stationary under all allowable variations.</p>
+<hr class="docutils" />
+<p>Historically, Hamilton’s Principle was often called the <strong>Principle of Least Action</strong>.</p>
+<p>Although this name is still widely used, it can sometimes be misleading.</p>
+<div style="background-color:#ffe6e6; border-left:6px solid #cc0000; padding:14px; border-radius:4px;">
+<strong>Common Misconception</strong><br>
+<p>Hamilton’s Principle does not necessarily require the action to be a minimum.</p>
+<p>The action may correspond to:</p>
+<ul>
+<li>a minimum,</li>
+<li>a maximum, or</li>
+<li>a stationary point that is neither.</li>
+</ul>
+<p>For this reason, the term <strong>stationary action</strong> is generally more accurate than <strong>least action</strong>.</p>
+</div>
+<hr class="docutils" />
+<p>The remarkable consequence of Hamilton’s Principle is that the equations of motion of classical mechanics emerge automatically from the requirement</p>
+<div class="math notranslate nohighlight">
+\[
+\delta S = 0.
+\]</div>
+<p>We already derived the general Euler–Lagrange equation in the previous module.</p>
+<p>The next step is simply to apply that result to the action functional.</p>
+<p>Doing so will lead directly to the Lagrange equations of motion.</p>
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<strong>Why This Is Remarkable</strong>
+<p>Newton’s laws describe motion in terms of forces and accelerations.</p>
+<p>Hamilton’s Principle describes motion in terms of an optimization principle involving energy.</p>
+<p>Although these viewpoints appear fundamentally different, they lead to exactly the same physical predictions.</p>
+<p>Many physicists regard Hamilton’s Principle as one of the deepest and most elegant principles in all of classical physics.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c5-6-4-why-is-the-lagrangian-l-t-u">
+<h2>C5.6.4 Why is the Lagrangian <span class="math notranslate nohighlight">\(L=T-U\)</span>?<a class="headerlink" href="#c5-6-4-why-is-the-lagrangian-l-t-u" title="Link to this heading">#</a></h2>
+<p>In the previous section, we introduced the action</p>
+<div class="math notranslate nohighlight">
+\[
+S[q]
+=
+\int_{t_1}^{t_2}
+L(q,\dot q,t)\,dt,
+\]</div>
+<p>and stated that the actual motion of a system makes the action stationary.</p>
+<p>A natural question immediately arises:</p>
+<blockquote>
+<div><p>Why do we choose the Lagrangian to be</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+L=T-U
+\]</div>
+<blockquote>
+<div><p>rather than some other combination of physical quantities?</p>
+</div></blockquote>
+<p>Historically, this form was not guessed arbitrarily. Physicists discovered that when the action is constructed using</p>
+<div class="math notranslate nohighlight">
+\[
+L=T-U,
+\]</div>
+<p>Hamilton’s Principle reproduces the equations of motion obtained from Newton’s laws.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Lagrangian</strong>
+<p>For many classical mechanical systems, the Lagrangian is defined as</p>
+<div class="math notranslate nohighlight">
+\[
+L=T-U,
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+T
+=
+\text{kinetic energy}
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+U
+=
+\text{potential energy}.
+\]</div>
+<p>The action is therefore</p>
+<div class="math notranslate nohighlight">
+\[
+S
+=
+\int_{t_1}^{t_2}
+(T-U)\,dt.
+\]</div>
+</div>
+<p>At first glance, this choice may seem unusual.</p>
+<p>Why subtract the potential energy?</p>
+<p>Why not use</p>
+<div class="math notranslate nohighlight">
+\[
+T+U,
+\]</div>
+<p>or perhaps</p>
+<div class="math notranslate nohighlight">
+\[
+T^2-U,
+\]</div>
+<p>or some entirely different expression?</p>
+<p>The answer is that the difference</p>
+<div class="math notranslate nohighlight">
+\[
+T-U
+\]</div>
+<p>captures a balance between motion and stored energy.</p>
+<p>Large kinetic energy tends to increase the Lagrangian, while large potential energy tends to decrease it. The actual trajectory of the system is the one that makes the action stationary when these competing effects are considered over the entire motion.</p>
+<p>Although this idea may seem abstract, the remarkable result is that it reproduces the familiar laws of mechanics.</p>
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<strong>An Important Observation</strong>
+<p>The quantity</p>
+<div class="math notranslate nohighlight">
+\[
+T+U
+\]</div>
+<p>is the total mechanical energy.</p>
+<p>The Lagrangian is not the total energy.</p>
+<p>Instead,</p>
+<div class="math notranslate nohighlight">
+\[
+L=T-U.
+\]</div>
+<p>The fact that the difference of kinetic and potential energy generates the correct equations of motion is one of the most remarkable discoveries in classical mechanics.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<strong>Can the Lagrangian Be Derived?</strong>
+<p>The form</p>
+<div class="math notranslate nohighlight">
+\[
+L=T-U
+\]</div>
+<p>is usually introduced as a postulate of classical mechanics because it correctly reproduces Newton’s laws when combined with Hamilton’s Principle.</p>
+<p>However, more advanced treatments show that the possible forms of the Lagrangian are strongly constrained by fundamental physical principles and symmetries. For example, requirements such as spatial homogeneity, spatial isotropy, and Galilean invariance restrict the mathematical form that the Lagrangian can take.</p>
+<p>In modern physics, symmetry considerations often play a central role in constructing Lagrangians. This idea culminates in Noether’s Theorem, which establishes a profound connection between symmetries and conservation laws such as the conservation of energy, momentum, and angular momentum.</p>
+</div>
+<p>In the next section, we will substitute</p>
+<div class="math notranslate nohighlight">
+\[
+L=T-U
+\]</div>
+<p>into the action and apply the Euler–Lagrange equation. Doing so will lead directly to the Lagrange equations of motion.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c5-6-5-from-the-eulerlagrange-equation-to-lagrange-s-equation">
+<h2>C5.6.5 From the Euler–Lagrange Equation to Lagrange’s Equation<a class="headerlink" href="#c5-6-5-from-the-eulerlagrange-equation-to-lagrange-s-equation" title="Link to this heading">#</a></h2>
+<p>In Module C5.4, we derived the Euler–Lagrange equation for a general functional</p>
+<div class="math notranslate nohighlight">
+\[
+J[y]
+=
+\int_a^b F(y,y',x)\,dx.
+\]</div>
+<p>The resulting condition for a stationary functional was</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dx}
+\left(
+\frac{\partial F}{\partial y'}
+\right)
+-
+\frac{\partial F}{\partial y}
+=
+0.
+\]</div>
+<p>To apply this result to classical mechanics, we simply recognize that the action</p>
+<div class="math notranslate nohighlight">
+\[
+S[q]
+=
+\int_{t_1}^{t_2}
+L(q,\dot q,t)\,dt
+\]</div>
+<p>has exactly the same mathematical structure.</p>
+<p>The correspondence is</p>
+<div class="math notranslate nohighlight">
+\[
+x
+\longrightarrow
+t,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+y
+\longrightarrow
+q,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+y'
+\longrightarrow
+\dot q,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+F
+\longrightarrow
+L.
+\]</div>
+<p>Substituting these quantities into the Euler–Lagrange equation immediately gives</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\frac{d}{dt}
+\left(
+\frac{\partial L}{\partial \dot q}
+\right)
+-
+\frac{\partial L}{\partial q}
+=
+0
+}
+\]</div>
+<p>which is the fundamental equation of Lagrangian mechanics.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Lagrange's Equation</strong>
+<p>For a system described by a generalized coordinate <span class="math notranslate nohighlight">\(q\)</span>, the equation of motion is</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\frac{d}{dt}
+\left(
+\frac{\partial L}{\partial \dot q}
+\right)
+-
+\frac{\partial L}{\partial q}
+=
+0
+}
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+L=T-U.
+\]</div>
+</div>
+<p>The remarkable consequence of Hamilton’s Principle is that Newton’s laws can be replaced by this single equation.</p>
+<p>Rather than beginning with forces, we begin with the action and require it to be stationary.</p>
+<p>The resulting equations of motion are completely equivalent to those obtained using Newtonian mechanics.</p>
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<strong>A Different View of Mechanics</strong>
+<p>Newtonian mechanics begins with forces and derives motion.</p>
+<p>Lagrangian mechanics begins with energy and derives motion.</p>
+<p>Although the mathematical approaches are very different, both formulations describe the same physical world.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c5-6-6-lagrange-s-equations-for-multiple-coordinates">
+<h2>C5.6.6 Lagrange’s Equations for Multiple Coordinates<a class="headerlink" href="#c5-6-6-lagrange-s-equations-for-multiple-coordinates" title="Link to this heading">#</a></h2>
+<p>Many physical systems cannot be described by a single coordinate.</p>
+<p>For example:</p>
+<ul class="simple">
+<li><p>A pendulum requires an angular coordinate <span class="math notranslate nohighlight">\(\theta\)</span>.</p></li>
+<li><p>A double pendulum requires two angular coordinates.</p></li>
+<li><p>A particle moving in three dimensions may require coordinates <span class="math notranslate nohighlight">\((x,y,z)\)</span>.</p></li>
+<li><p>A rigid body may require several coordinates to specify its orientation.</p></li>
+</ul>
+<p>In general, a mechanical system may require</p>
+<div class="math notranslate nohighlight">
+\[
+q_1,q_2,\ldots,q_n
+\]</div>
+<p>generalized coordinates.</p>
+<p>The Lagrangian then becomes a function of all coordinates, velocities, and possibly time:</p>
+<div class="math notranslate nohighlight">
+\[
+L
+=
+L(q_1,q_2,\ldots,q_n,
+\dot q_1,\dot q_2,\ldots,\dot q_n,
+t).
+\]</div>
+<p>Since each generalized coordinate can vary independently, Hamilton’s Principle must be satisfied for every coordinate.</p>
+<p>The result is a separate Lagrange equation for each generalized coordinate.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Lagrange's Equations for Multiple Coordinates</strong>
+<p>For a system described by generalized coordinates</p>
+<div class="math notranslate nohighlight">
+\[
+q_1,q_2,\ldots,q_n,
+\]</div>
+<p>the equations of motion are</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\frac{d}{dt}
+\left(
+\frac{\partial L}{\partial \dot q_i}
+\right)
+-
+\frac{\partial L}{\partial q_i}
+=
+0
+}
+\qquad
+(i=1,2,\ldots,n).
+\]</div>
+<p>There is one equation for each generalized coordinate.</p>
+</div>
+<p>For example, a system with two generalized coordinates</p>
+<div class="math notranslate nohighlight">
+\[
+q_1
+\quad\text{and}\quad
+q_2
+\]</div>
+<p>requires two equations:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dt}
+\left(
+\frac{\partial L}{\partial \dot q_1}
+\right)
+-
+\frac{\partial L}{\partial q_1}
+=
+0,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dt}
+\left(
+\frac{\partial L}{\partial \dot q_2}
+\right)
+-
+\frac{\partial L}{\partial q_2}
+=
+0.
+\]</div>
+<p>These equations are often coupled, meaning that the motion of one coordinate influences the motion of the others.</p>
+<hr class="docutils" />
+<p>The procedure for applying Lagrange’s equations is straightforward:</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>General Procedure</strong>
+<ol class="arabic simple">
+<li><p>Choose appropriate generalized coordinates.</p></li>
+<li><p>Determine the kinetic energy</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+T.
+\]</div>
+<ol class="arabic simple" start="3">
+<li><p>Determine the potential energy</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+U.
+\]</div>
+<ol class="arabic simple" start="4">
+<li><p>Construct the Lagrangian</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+L=T-U.
+\]</div>
+<ol class="arabic simple" start="5">
+<li><p>Apply Lagrange’s equation to each generalized coordinate.</p></li>
+<li><p>Simplify the resulting equations of motion.</p></li>
+</ol>
+</div>
+<p>This procedure allows us to derive equations of motion without explicitly analyzing all of the individual forces acting on the system.</p>
+<p>In the following examples, we will apply this procedure to several familiar mechanical systems.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Phys-Prof-Nielsen/modulearn",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-C5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="euler-lagrange-examples.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">C5.5 Applications of the Euler–Lagrange Equation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="problemsC5.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">C5.8 Problems</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c5-6-1-motivation">C5.6.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c5-6-2-the-action-functional">C5.6.2 The Action Functional</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c5-6-3-hamilton-s-principle">C5.6.3 Hamilton’s Principle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c5-6-4-why-is-the-lagrangian-l-t-u">C5.6.4 Why is the Lagrangian <span class="math notranslate nohighlight">\(L=T-U\)</span>?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c5-6-5-from-the-eulerlagrange-equation-to-lagrange-s-equation">C5.6.5 From the Euler–Lagrange Equation to Lagrange’s Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c5-6-6-lagrange-s-equations-for-multiple-coordinates">C5.6.6 Lagrange’s Equations for Multiple Coordinates</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

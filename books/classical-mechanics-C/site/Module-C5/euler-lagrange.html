@@ -1,0 +1,1236 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>C5.4 Calculus of Variations: Finding the Best Path - Euler-Lagrange Equation &#8212; A Competency Approach to Classical Mechanics - Phase C</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-C5/euler-lagrange';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="C5.5 Applications of the Euler–Lagrange Equation" href="euler-lagrange-examples.html" />
+    <link rel="prev" title="C5.3 Function vs. Functional" href="functions-functionals.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-C.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Phase C - Home"/>
+    <script>document.write(`<img src="../_static/logo-C.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Phase C - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the C Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C1 - Numerical Methods</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/LOC-C1.html">C1.0 Learning Outcomes — Numerical Methods and Finite Difference Techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/forward-euler.html">C1.1 — The Forward Euler Numerical Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/backward-euler.html">C1.2 — The Backward Euler Numerical Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/central-difference.html">C1.3 — The Central Difference Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/euler-cromer.html">C1.4 — Euler-Cromer Method (Symplectic Euler)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/problemsC1.html">C1.5 — Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C2 - Variable Mass Systems</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/LOC-C2.html">C2.0 Learning Outcomes — Variable Mass Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/intro-variable-mass.html">C2.1 — Introduction to Variable Mass Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/rocket-equation.html">C2.2 — The Rocket Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/variable-mass-strategy.html">C2.3 — Initial Setup Strategy for Variable Mass Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/problemsC2.html">C2.4 — Problems Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C3 - General Rigid Body Rotation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C3/LOC-C3.html">C3.0 Learning Outcomes — General Rotation and the Inertia Tensor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C3/angular-velocity.html">C3.1 Angular Velocity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C3/angular-momentum.html">C3.2 Angular Momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C3/basic-gyroscope.html">C3.3 Basic Gyroscope Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C3/problemsC3.html">C3.4 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C - Rotating Reference Frame</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C4/LOC-C4.html">C4.0 Learning Outcomes - Rotating Frames of Reference and Fictitious Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C4/rotating-frame.html">C4.1 Vector Transformation in Rotating Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C4/N2-rotating.html">C4.2 Newton’s Second Law and Fictitious Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C4/problemsC4.html">C4.3 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C5 - Deriving Lagrangian And Lagrange Multipliers</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-C5.html">C5.0 Learning Outcomes - Lagrangian Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="space.html">C5.1 Recall Configuration Space and Phase Space: Understanding the Foundations of Classical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constraints.html">C5.2 Constraints in Classical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions-functionals.html">C5.3 Function vs. Functional</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">C5.4 Calculus of Variations: Finding the Best Path - Euler-Lagrange Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="euler-lagrange-examples.html">C5.5 Applications of the Euler–Lagrange Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hamiltons-principle.html">C5.6 Hamilton’s Principle and Lagrange’s Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problemsC5.html">C5.8 Problems</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/classical-mechanics-C/Module-C5/euler-lagrange.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-C5/euler-lagrange.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>C5.4 Calculus of Variations: Finding the Best Path - Euler-Lagrange Equation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c5-4-1-motivation">C5.4.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c5-4-2-deriving-the-eulerlagrange-equation">C5.4.2 Deriving the Euler–Lagrange Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c5-4-3-summary-of-the-eulerlagrange-equation">C5.4.3 Summary of the Euler–Lagrange Equation</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="c5-4-calculus-of-variations-finding-the-best-path-euler-lagrange-equation">
+<h1>C5.4 Calculus of Variations: Finding the Best Path - Euler-Lagrange Equation<a class="headerlink" href="#c5-4-calculus-of-variations-finding-the-best-path-euler-lagrange-equation" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="c5-4-1-motivation">
+<h2>C5.4.1 Motivation<a class="headerlink" href="#c5-4-1-motivation" title="Link to this heading">#</a></h2>
+<p>In University Physics and previous modules, we often asked questions such as:</p>
+<ul class="simple">
+<li><p>What force causes a particular motion?</p></li>
+<li><p>What acceleration results from a given force?</p></li>
+<li><p>How can we derive equations of motion?</p></li>
+</ul>
+<p>These questions are the natural language of <strong>Newtonian mechanics</strong>.</p>
+<p>However, nature often appears to follow a different organizing principle. Instead of asking what force acts at every instant, we can ask a more global question:</p>
+<blockquote>
+<div><p>Out of all possible paths connecting two points in space and time, which path does nature choose?</p>
+</div></blockquote>
+<p>This seemingly simple question leads to one of the most powerful ideas in all of theoretical physics.</p>
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<strong>Curiosity:</strong><br>
+<p>Many of the most important theories in modern physics are built upon this idea of optimization.</p>
+<p>Examples include:</p>
+<ul>
+<li>Light choosing the path of least travel time.</li>
+<li>Particles following paths that make the action stationary.</li>
+<li>General relativity describing spacetime through an extremal principle.</li>
+<li>Quantum mechanics through path integrals involving all possible paths.</li>
+</ul>
+<p>The same mathematical framework underlies all of these seemingly unrelated subjects.</p>
+</div>
+<p>To motivate the problem, consider a particle traveling from point A to point B.</p>
+<p>There are infinitely many possible curves connecting the two points.</p>
+<p>Some curves are long.</p>
+<p>Some curves are short.</p>
+<p>Some are smooth.</p>
+<p>Some are highly irregular.</p>
+<p>If we wish to determine the shortest possible path, we are no longer trying to find a number that minimizes a function. Instead, we are trying to determine the <strong>entire function itself</strong>.</p>
+<p>This is the central idea behind the <strong>calculus of variations</strong>.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Calculus of Variations</strong>
+<p>Ordinary calculus finds the value of a variable that minimizes or maximizes a function.</p>
+<p>Calculus of variations finds the function that minimizes or maximizes a quantity called a functional.</p>
+<p>A functional maps an entire function into a single number.</p>
+</div>
+<p>The methods developed in this section will ultimately lead to the <strong>Euler–Lagrange equation</strong>, which forms the mathematical foundation of Lagrangian mechanics.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c5-4-2-deriving-the-eulerlagrange-equation">
+<h2>C5.4.2 Deriving the Euler–Lagrange Equation<a class="headerlink" href="#c5-4-2-deriving-the-eulerlagrange-equation" title="Link to this heading">#</a></h2>
+<p>The Euler–Lagrange equation is the central result of the calculus of variations. Rather than presenting the derivation as a sequence of algebraic steps, we will derive it ourselves by examining how a functional changes when the underlying function is varied slightly.</p>
+<p>Consider the functional</p>
+<div class="math notranslate nohighlight">
+\[
+J[y]
+=
+\int_a^b F(y,y',x)\,dx.
+\]</div>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<p>The quantity</p>
+<div class="math notranslate nohighlight">
+\[
+F(y,y',x)
+\]</div>
+<p>is called the <strong>integrand</strong> of the functional.</p>
+<p>In more advanced areas of physics, particularly field theory, analogous quantities are often called <strong>Lagrangian densities</strong> because they are integrated over space or spacetime to construct an action.</p>
+<p>The functional itself is</p>
+<div class="math notranslate nohighlight">
+\[
+J[y]
+=
+\int_a^b F(y,y',x)\,dx,
+\]</div>
+<p>which assigns a single number to the entire function <span class="math notranslate nohighlight">\(y(x)\)</span>.</p>
+</div>
+<p>Our goal is to determine what condition the function <span class="math notranslate nohighlight">\(y(x)\)</span> must satisfy in order for <span class="math notranslate nohighlight">\(J[y]\)</span> to be stationary.</p>
+<p>The derivation will proceed through a sequence of guided activities.</p>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Constructing a Nearby Function</h3>
+<p>Suppose that <span class="math notranslate nohighlight">\(y(x)\)</span> is the function that makes the functional stationary.</p>
+<p>To investigate whether this is true, we compare it with a nearby function</p>
+<div class="math notranslate nohighlight">
+\[
+\tilde y(x)
+=
+y(x)+\epsilon\eta(x),
+\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\epsilon\)</span> is a small parameter,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\eta(x)\)</span> is an arbitrary differentiable function,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\eta(a)=\eta(b)=0\)</span>.</p></li>
+</ul>
+<p>Answer the following:</p>
+<ol class="arabic simple">
+<li><p>Why must <span class="math notranslate nohighlight">\(\eta(a)=\eta(b)=0\)</span>?</p></li>
+<li><p>Show that</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\tilde y'(x)
+=
+y'(x)+\epsilon\eta'(x).
+\]</div>
+<ol class="arabic simple" start="3">
+<li><p>Explain the physical meaning of varying a function by a small amount.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>The endpoints are fixed, so any allowable variation must leave the endpoints unchanged. Therefore</p>
+<div class="math notranslate nohighlight">
+\[
+\eta(a)=\eta(b)=0.
+\]</div>
+<p>Differentiating gives</p>
+<div class="math notranslate nohighlight">
+\[
+\tilde y'
+=
+\frac{d}{dx}
+\left(
+y+\epsilon\eta
+\right)
+=
+y'
++
+\epsilon\eta'.
+\]</div>
+<p>The variation function <span class="math notranslate nohighlight">\(\eta(x)\)</span> represents an arbitrary deformation of the original path while keeping the endpoints fixed.</p>
+</div>
+</details>
+</div><hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Varying the Functional</h3>
+<p>In the previous activity, we introduced a nearby function</p>
+<div class="math notranslate nohighlight">
+\[
+\tilde y(x)
+=
+y(x)+\epsilon\eta(x),
+\]</div>
+<p>with</p>
+<div class="math notranslate nohighlight">
+\[
+\tilde y'(x)
+=
+y'(x)+\epsilon\eta'(x).
+\]</div>
+<p>We now substitute this perturbed function into the functional</p>
+<div class="math notranslate nohighlight">
+\[
+J[y]
+=
+\int_a^b F(y,y',x)\,dx.
+\]</div>
+<p>The functional evaluated along the nearby path becomes</p>
+<div class="math notranslate nohighlight">
+\[
+J(\epsilon)
+=
+\int_a^b
+F\!\left(
+y+\epsilon\eta,
+\,
+y'+\epsilon\eta',
+\,
+x
+\right)
+dx.
+\]</div>
+<p>Notice that the functional is now an ordinary function of the parameter <span class="math notranslate nohighlight">\(\epsilon\)</span>.</p>
+<p>Answer the following:</p>
+<ol class="arabic simple">
+<li><p>Explain why <span class="math notranslate nohighlight">\(J(\epsilon)\)</span> is now an ordinary function rather than a functional.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(y(x)\)</span> truly makes the functional stationary, what condition must be satisfied by <span class="math notranslate nohighlight">\(J(\epsilon)\)</span> at <span class="math notranslate nohighlight">\(\epsilon=0\)</span>?</p></li>
+<li><p>Compare this condition with the familiar condition for extrema in ordinary calculus.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>The family of functions</p>
+<div class="math notranslate nohighlight">
+\[
+\tilde y(x)
+=
+y(x)+\epsilon\eta(x)
+\]</div>
+<p>represents infinitely many possible curves near the original function <span class="math notranslate nohighlight">\(y(x)\)</span>.</p>
+<p>Once the variation function <span class="math notranslate nohighlight">\(\eta(x)\)</span> has been chosen, the only quantity that can vary is the parameter <span class="math notranslate nohighlight">\(\epsilon\)</span>. Consequently,</p>
+<div class="math notranslate nohighlight">
+\[
+J(\epsilon)
+=
+\int_a^b
+F\!\left(
+y+\epsilon\eta,
+\,
+y'+\epsilon\eta',
+\,
+x
+\right)
+dx
+\]</div>
+<p>is no longer a functional. It is now an ordinary function whose value depends only on the single variable <span class="math notranslate nohighlight">\(\epsilon\)</span>.</p>
+<p>Notice that when</p>
+<div class="math notranslate nohighlight">
+\[
+\epsilon=0,
+\]</div>
+<p>the variation disappears and we recover the original function:</p>
+<div class="math notranslate nohighlight">
+\[
+\tilde y(x)
+=
+y(x).
+\]</div>
+<p>Thus, the point <span class="math notranslate nohighlight">\(\epsilon=0\)</span> corresponds to the original path whose optimality we wish to test.</p>
+<p>If <span class="math notranslate nohighlight">\(y(x)\)</span> truly produces a minimum or maximum value of the functional, then small positive or negative changes in <span class="math notranslate nohighlight">\(\epsilon\)</span> should not produce a first-order change in the value of <span class="math notranslate nohighlight">\(J\)</span>.</p>
+<p>Graphically, we can imagine <span class="math notranslate nohighlight">\(J(\epsilon)\)</span> having a stationary point at <span class="math notranslate nohighlight">\(\epsilon=0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\epsilon &lt; 0
+\qquad
+\longleftarrow
+\qquad
+\epsilon=0
+\qquad
+\longrightarrow
+\qquad
+\epsilon &gt; 0
+\]</div>
+<p>where nearby variations produce only higher-order changes in the functional.</p>
+<p>Therefore, just as extrema of an ordinary function satisfy</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{df}{dx}=0,
+\]</div>
+<p>the stationary condition for the functional becomes</p>
+<div class="math notranslate nohighlight">
+\[
+\left.
+\frac{dJ}{d\epsilon}
+\right|_{\epsilon=0}
+=
+0.
+\]</div>
+<p>This is the variational analogue of the familiar condition from ordinary calculus.</p>
+<p>Our next goal is therefore to compute</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dJ}{d\epsilon}
+\]</div>
+<p>and determine the mathematical condition that must be satisfied for this derivative to vanish for every allowable variation <span class="math notranslate nohighlight">\(\eta(x)\)</span>.</p>
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Computing the First Variation</h3>
+<p>We have rewritten the functional as an ordinary function of the variation parameter <span class="math notranslate nohighlight">\(\epsilon\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+J(\epsilon)
+=
+\int_a^b
+F\!\left(
+y+\epsilon\eta,
+\,
+y'+\epsilon\eta',
+\,
+x
+\right)
+dx.
+\]</div>
+<p>For the original function <span class="math notranslate nohighlight">\(y(x)\)</span> to make the functional stationary, we require</p>
+<div class="math notranslate nohighlight">
+\[
+\left.
+\frac{dJ}{d\epsilon}
+\right|_{\epsilon=0}
+=
+0.
+\]</div>
+<p>Now compute this derivative.</p>
+<p>Use the chain rule to show that</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dJ}{d\epsilon}
+=
+\int_a^b
+\left[
+\frac{\partial F}{\partial y}\eta
++
+\frac{\partial F}{\partial y'}\eta'
+\right]dx.
+\]</div>
+<p>Then evaluate the result at <span class="math notranslate nohighlight">\(\epsilon=0\)</span>.</p>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>Since</p>
+<div class="math notranslate nohighlight">
+\[
+J(\epsilon)
+=
+\int_a^b
+F\!\left(
+y+\epsilon\eta,
+\,
+y'+\epsilon\eta',
+\,
+x
+\right)
+dx,
+\]</div>
+<p>we differentiate with respect to <span class="math notranslate nohighlight">\(\epsilon\)</span>.</p>
+<p>The function <span class="math notranslate nohighlight">\(F\)</span> depends on <span class="math notranslate nohighlight">\(\epsilon\)</span> through two quantities:</p>
+<div class="math notranslate nohighlight">
+\[
+y+\epsilon\eta
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+y'+\epsilon\eta'.
+\]</div>
+<p>Using the chain rule,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dF}{d\epsilon}
+=
+\frac{\partial F}{\partial y}
+\frac{d}{d\epsilon}
+\left(
+y+\epsilon\eta
+\right)
++
+\frac{\partial F}{\partial y'}
+\frac{d}{d\epsilon}
+\left(
+y'+\epsilon\eta'
+\right).
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\(y\)</span>, <span class="math notranslate nohighlight">\(y'\)</span>, <span class="math notranslate nohighlight">\(\eta\)</span>, and <span class="math notranslate nohighlight">\(\eta'\)</span> do not depend on <span class="math notranslate nohighlight">\(\epsilon\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{d\epsilon}
+\left(
+y+\epsilon\eta
+\right)
+=
+\eta
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{d\epsilon}
+\left(
+y'+\epsilon\eta'
+\right)
+=
+\eta'.
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dF}{d\epsilon}
+=
+\frac{\partial F}{\partial y}\eta
++
+\frac{\partial F}{\partial y'}\eta'.
+\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dJ}{d\epsilon}
+=
+\int_a^b
+\left[
+\frac{\partial F}{\partial y}\eta
++
+\frac{\partial F}{\partial y'}\eta'
+\right]dx.
+\]</div>
+<p>At the stationary path, we evaluate this expression at <span class="math notranslate nohighlight">\(\epsilon=0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\left.
+\frac{dJ}{d\epsilon}
+\right|_{\epsilon=0}
+=
+\int_a^b
+\left[
+\frac{\partial F}{\partial y}\eta
++
+\frac{\partial F}{\partial y'}\eta'
+\right]dx
+=
+0.
+\]</div>
+<p>This expression is called the <strong>first variation</strong> of the functional.</p>
+<p>The remaining difficulty is that the integral contains both <span class="math notranslate nohighlight">\(\eta\)</span> and <span class="math notranslate nohighlight">\(\eta'\)</span>. To obtain a condition on <span class="math notranslate nohighlight">\(y(x)\)</span> itself, we need to rewrite the integral so that only <span class="math notranslate nohighlight">\(\eta\)</span> appears. That is the purpose of the next step.</p>
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Eliminating the Derivative of the Variation</h3>
+<p>In the previous activity, we obtained</p>
+<div class="math notranslate nohighlight">
+\[
+\left.
+\frac{dJ}{d\epsilon}
+\right|_{\epsilon=0}
+=
+\int_a^b
+\left[
+\frac{\partial F}{\partial y}\eta
++
+\frac{\partial F}{\partial y'}\eta'
+\right]dx
+=
+0.
+\]</div>
+<p>Our goal is to obtain an expression involving only the variation function <span class="math notranslate nohighlight">\(\eta(x)\)</span> and not its derivative <span class="math notranslate nohighlight">\(\eta'(x)\)</span>.</p>
+<p>To accomplish this, we apply integration by parts to the term</p>
+<div class="math notranslate nohighlight">
+\[
+\int_a^b
+\frac{\partial F}{\partial y'}
+\eta'
+\,dx.
+\]</div>
+<p>Recall that</p>
+<div class="math notranslate nohighlight">
+\[
+\int_a^b u\,dv
+=
+\left.uv\right|_a^b
+-
+\int_a^b v\,du.
+\]</div>
+<p>Answer the following:</p>
+<ol class="arabic simple">
+<li><p>Let</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+u=\frac{\partial F}{\partial y'},
+\qquad
+dv=\eta' dx.
+\]</div>
+<p>Determine <span class="math notranslate nohighlight">\(du\)</span> and <span class="math notranslate nohighlight">\(v\)</span>.</p>
+<ol class="arabic simple" start="2">
+<li><p>Apply integration by parts to</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\int_a^b
+\frac{\partial F}{\partial y'}
+\eta'
+\,dx.
+\]</div>
+<ol class="arabic simple" start="3">
+<li><p>Use the endpoint conditions</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\eta(a)=\eta(b)=0
+\]</div>
+<p>to simplify the boundary term.</p>
+<ol class="arabic simple" start="4">
+<li><p>Substitute the result back into the expression for</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\left.\frac{dJ}{d\epsilon}\right|_{\epsilon=0}.
+\]</div>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>Choosing</p>
+<div class="math notranslate nohighlight">
+\[
+u=\frac{\partial F}{\partial y'},
+\qquad
+dv=\eta' dx,
+\]</div>
+<p>gives</p>
+<div class="math notranslate nohighlight">
+\[
+v=\eta,
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+du
+=
+\frac{d}{dx}
+\left(
+\frac{\partial F}{\partial y'}
+\right)
+dx.
+\]</div>
+<p>Applying integration by parts,</p>
+<div class="math notranslate nohighlight">
+\[
+\int_a^b
+\frac{\partial F}{\partial y'}
+\eta'
+\,dx
+=
+\left[
+\frac{\partial F}{\partial y'}
+\eta
+\right]_a^b
+-
+\int_a^b
+\eta
+\,
+\frac{d}{dx}
+\left(
+\frac{\partial F}{\partial y'}
+\right)
+dx.
+\]</div>
+<p>Because the endpoints are fixed,</p>
+<div class="math notranslate nohighlight">
+\[
+\eta(a)=\eta(b)=0,
+\]</div>
+<p>so the boundary term vanishes:</p>
+<div class="math notranslate nohighlight">
+\[
+\left[
+\frac{\partial F}{\partial y'}
+\eta
+\right]_a^b
+=
+0.
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+\int_a^b
+\frac{\partial F}{\partial y'}
+\eta'
+\,dx
+=
+-
+\int_a^b
+\eta
+\,
+\frac{d}{dx}
+\left(
+\frac{\partial F}{\partial y'}
+\right)
+dx.
+\]</div>
+<p>Substituting into the first variation yields</p>
+<div class="math notranslate nohighlight">
+\[
+\left.
+\frac{dJ}{d\epsilon}
+\right|_{\epsilon=0}
+=
+\int_a^b
+\left[
+\frac{\partial F}{\partial y}
+-
+\frac{d}{dx}
+\left(
+\frac{\partial F}{\partial y'}
+\right)
+\right]
+\eta
+\,dx
+=
+0.
+\]</div>
+<p>Notice that the derivative of the variation function has disappeared. The integral now contains only the arbitrary function <span class="math notranslate nohighlight">\(\eta(x)\)</span>.</p>
+<p>This expression is only one step away from the Euler–Lagrange equation.</p>
+</div>
+</details>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="c5-4-3-summary-of-the-eulerlagrange-equation">
+<h2>C5.4.3 Summary of the Euler–Lagrange Equation<a class="headerlink" href="#c5-4-3-summary-of-the-eulerlagrange-equation" title="Link to this heading">#</a></h2>
+<p>The calculus of variations provides a systematic method for determining the function that makes a functional stationary.</p>
+<p>Starting from the functional</p>
+<div class="math notranslate nohighlight">
+\[
+J[y]
+=
+\int_a^b F(y,y',x)\,dx,
+\]</div>
+<p>we introduced a small variation of the function,</p>
+<div class="math notranslate nohighlight">
+\[
+\tilde y(x)
+=
+y(x)+\epsilon\eta(x),
+\]</div>
+<p>and required that the functional remain stationary under all allowable variations.</p>
+<p>This procedure led to one of the most important equations in mathematical physics.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Euler–Lagrange Equation</strong>
+<p>A function <span class="math notranslate nohighlight">\(y(x)\)</span> produces a stationary value of the functional</p>
+<div class="math notranslate nohighlight">
+\[
+J[y]
+=
+\int_a^b F(y,y',x)\,dx
+\]</div>
+<p>if it satisfies</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\frac{d}{dx}
+\left(
+\frac{\partial F}{\partial y'}
+\right)
+-
+\frac{\partial F}{\partial y}
+=
+0
+}
+\]</div>
+<p>This equation is called the Euler–Lagrange equation.</p>
+</div>
+<br>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Stationary Functional</strong>
+<p>A functional is said to be stationary when small variations of the underlying function produce no first-order change in the value of the functional.</p>
+<p>Mathematically,</p>
+<div class="math notranslate nohighlight">
+\[
+\left.
+\frac{dJ}{d\epsilon}
+\right|_{\epsilon=0}
+=
+0.
+\]</div>
+<p>A stationary value may correspond to a minimum, maximum, or saddle point.</p>
+</div>
+<br>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Fundamental Idea of the Calculus of Variations</strong>
+<p>Ordinary calculus seeks the value of a variable that optimizes a function.</p>
+<p>Calculus of variations seeks the function that optimizes a functional.</p>
+<p>The Euler–Lagrange equation plays a role analogous to</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{df}{dx}=0
+\]</div>
+<p>in ordinary calculus.</p>
+</div>
+<br>
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<strong>Looking Ahead</strong>
+<p>The Euler–Lagrange equation appears throughout physics, engineering, mathematics, and optimization theory.</p>
+<p>In the next section, we will apply the Euler–Lagrange equation to a special functional known as the <em>action</em>. This leads directly to the Lagrange equations of motion used throughout classical mechanics.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Phys-Prof-Nielsen/modulearn",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-C5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="functions-functionals.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">C5.3 Function vs. Functional</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="euler-lagrange-examples.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">C5.5 Applications of the Euler–Lagrange Equation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c5-4-1-motivation">C5.4.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c5-4-2-deriving-the-eulerlagrange-equation">C5.4.2 Deriving the Euler–Lagrange Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c5-4-3-summary-of-the-eulerlagrange-equation">C5.4.3 Summary of the Euler–Lagrange Equation</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
