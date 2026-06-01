@@ -1,0 +1,859 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>C7.3 General Two-Mass System with Unequal Spring Constants &#8212; A Competency Approach to Classical Mechanics - Phase C</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-C7/general-two-mass';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="C7.4 Lagrangian Formulation and the Origin of the Mass Matrix" href="lagrange-oscillation.html" />
+    <link rel="prev" title="C7.2 Coupled Oscillators - Simple Case" href="coupled-oscillators-simple.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-C.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Phase C - Home"/>
+    <script>document.write(`<img src="../_static/logo-C.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Phase C - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the C Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C1 - Numerical Methods</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/LOC-C1.html">C1.0 Learning Outcomes — Numerical Methods and Finite Difference Techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/forward-euler.html">C1.1 — The Forward Euler Numerical Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/backward-euler.html">C1.2 — The Backward Euler Numerical Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/central-difference.html">C1.3 — The Central Difference Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/euler-cromer.html">C1.4 — Euler-Cromer Method (Symplectic Euler)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/problemsC1.html">C1.5 — Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C2 - Variable Mass Systems</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/LOC-C2.html">C2.0 Learning Outcomes — Variable Mass Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/intro-variable-mass.html">C2.1 — Introduction to Variable Mass Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/rocket-equation.html">C2.2 — The Rocket Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/variable-mass-strategy.html">C2.3 — Initial Setup Strategy for Variable Mass Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/problemsC2.html">C2.4 — Problems Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C3 - General Rigid Body Rotation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C3/LOC-C3.html">C3.0 Learning Outcomes — General Rotation and the Inertia Tensor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C3/angular-velocity.html">C3.1 Angular Velocity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C3/angular-momentum.html">C3.2 Angular Momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C3/basic-gyroscope.html">C3.3 Basic Gyroscope Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C3/problemsC3.html">C3.4 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C4 - Rotating Reference Frame</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C4/LOC-C4.html">C4.0 Learning Outcomes - Rotating Frames of Reference and Fictitious Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C4/rotating-frame.html">C4.1 Vector Transformation in Rotating Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C4/N2-rotating.html">C4.2 Newton’s Second Law and Fictitious Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C4/problemsC4.html">C4.3 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C5 - Deriving Lagrangian And Lagrange Multipliers</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C5/LOC-C5.html">C5.0 Learning Outcomes - Lagrangian Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C5/space.html">C5.1 Recall Configuration Space and Phase Space: Understanding the Foundations of Classical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C5/constraints.html">C5.2 Constraints in Classical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C5/functions-functionals.html">C5.3 Function vs. Functional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C5/euler-lagrange.html">C5.4 Calculus of Variations: Finding the Best Path - Euler-Lagrange Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C5/euler-lagrange-examples.html">C5.5 Applications of the Euler–Lagrange Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C5/hamiltons-principle.html">C5.6 Hamilton’s Principle and Lagrange’s Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C5/lagrangian-multipliers.html">C5.7 Lagrange Multipliers in Classical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C5/problemsC5.html">C5.8 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C7 - Coupled Oscillators</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-C7.html">C7.0 Learning Outcomes - Oscillations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="small-oscillations.html">C7.1 Small Oscillations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coupled-oscillators-simple.html">C7.2 Coupled Oscillators - Simple Case</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">C7.3 General Two-Mass System with Unequal Spring Constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lagrange-oscillation.html">C7.4 Lagrangian Formulation and the Origin of the Mass Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generalized.html">C7.5 Extension to Generalized Coordinates and Coordinate-Dependent Matrices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stability-hessian.html">C7.6 Stability and the Hessian</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/classical-mechanics-C/Module-C7/general-two-mass.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-C7/general-two-mass.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>C7.3 General Two-Mass System with Unequal Spring Constants</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-3-1-motivation">C7.3.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-3-2-setup">C7.3.2 Setup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equations-of-motion">Equations of motion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compact-matrix-form">Compact matrix form</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-3-3-discussion">C7.3.3 Discussion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symmetric-reference-case">Symmetric reference case</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-coupling-k-2-ll-k">Weak coupling: <span class="math notranslate nohighlight">\(k_2 \ll k\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strong-coupling-k-2-gtrsim-k">Strong coupling: <span class="math notranslate nohighlight">\(k_2 \gtrsim k\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asymmetry-and-generalization">Asymmetry and generalization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-coupling-strength-effects">Summary of coupling strength effects</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-3-4-physical-interpretation">C7.3.4 Physical interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-3-5-transition">C7.3.5 Transition</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="c7-3-general-two-mass-system-with-unequal-spring-constants">
+<h1>C7.3 General Two-Mass System with Unequal Spring Constants<a class="headerlink" href="#c7-3-general-two-mass-system-with-unequal-spring-constants" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="c7-3-1-motivation">
+<h2>C7.3.1 Motivation<a class="headerlink" href="#c7-3-1-motivation" title="Link to this heading">#</a></h2>
+<p>So far, we have studied two identical masses connected by identical springs.<br />
+In that symmetric case, the motion naturally separated into two normal modes with clear physical meaning: <strong>in-phase</strong> and <strong>out-of-phase</strong> motion.</p>
+<p>But what happens when the system is not symmetric—when the coupling spring is stiffer or weaker than the outer springs, or the two masses differ?<br />
+Such asymmetry breaks the simple mode structure, and direct analytical solutions become cumbersome.<br />
+This motivates a more systematic, compact formulation of the equations of motion using <strong>matrix notation</strong>, which will naturally lead us toward the ideas of <strong>mass matrices</strong> and <strong>stiffness matrices</strong>.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="c7-3-2-setup">
+<h2>C7.3.2 Setup<a class="headerlink" href="#c7-3-2-setup" title="Link to this heading">#</a></h2>
+<p>Consider two masses connected by three springs like in previous section, with possibly different spring constants:</p>
+<p>Let <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span> denote the displacements of <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> from their respective equilibrium positions (positive to the right).<br />
+At equilibrium, all springs are unstretched.</p>
+<hr class="docutils" />
+<section id="equations-of-motion">
+<h3>Equations of motion<a class="headerlink" href="#equations-of-motion" title="Link to this heading">#</a></h3>
+<p>For each mass, we apply Newton’s second law by summing the spring forces acting on it.</p>
+<ul>
+<li><p>For mass 1:</p>
+<div class="math notranslate nohighlight">
+\[
+  m_1 \ddot{x}_1 = -k_1 x_1 + k_2(x_2 - x_1)
+  \]</div>
+<p>or equivalently,</p>
+<div class="math notranslate nohighlight">
+\[
+  m_1 \ddot{x}_1 = - (k_1 + k_2) x_1 + k_2 x_2
+  \]</div>
+</li>
+<li><p>For mass 2:</p>
+<div class="math notranslate nohighlight">
+\[
+  m_2 \ddot{x}_2 = -k_3 x_2 + k_2(x_1 - x_2)
+  \]</div>
+<p>or equivalently,</p>
+<div class="math notranslate nohighlight">
+\[
+  m_2 \ddot{x}_2 = - (k_2 + k_3) x_2 + k_2 x_1
+  \]</div>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="compact-matrix-form">
+<h3>Compact matrix form<a class="headerlink" href="#compact-matrix-form" title="Link to this heading">#</a></h3>
+<p>We can write the two coupled equations together as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+m_1 &amp; 0 \\
+0 &amp; m_2
+\end{pmatrix}
+\begin{pmatrix}
+\ddot{x}_1 \\[4pt] \ddot{x}_2
+\end{pmatrix}
++
+\begin{pmatrix}
+k_1 + k_2 &amp; -k_2 \\[4pt]
+ -k_2 &amp; k_2 + k_3
+\end{pmatrix}
+\begin{pmatrix}
+x_1 \\[4pt] x_2
+\end{pmatrix}
+= 
+\begin{pmatrix}
+0 \\[4pt] 0
+\end{pmatrix}.
+\end{split}\]</div>
+<p>This form highlights two key objects:</p>
+<ul>
+<li><p>The <strong>mass matrix</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  M = 
+  \begin{pmatrix}
+  m_1 &amp; 0 \\
+  0 &amp; m_2
+  \end{pmatrix}
+  \end{split}\]</div>
+<p>which collects all the inertial properties of the system.</p>
+</li>
+<li><p>The <strong>stiffness (spring constant) matrix</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  K =
+  \begin{pmatrix}
+  k_1 + k_2 &amp; -k_2 \\[4pt]
+  -k_2 &amp; k_2 + k_3
+  \end{pmatrix}
+  \end{split}\]</div>
+<p>which encodes how the restoring forces depend linearly on the displacements.</p>
+</li>
+</ul>
+<p>The system can then be expressed compactly as:</p>
+<div class="math notranslate nohighlight">
+\[
+M\,\ddot{\mathbf{x}} + K\,\mathbf{x} = 0,
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{x} =
+\begin{pmatrix}
+x_1 \\[4pt] x_2
+\end{pmatrix}.
+\end{split}\]</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="c7-3-3-discussion">
+<h2>C7.3.3 Discussion<a class="headerlink" href="#c7-3-3-discussion" title="Link to this heading">#</a></h2>
+<p>The matrix form</p>
+<div class="math notranslate nohighlight">
+\[
+M\,\ddot{\mathbf{x}} + K\,\mathbf{x} = 0
+\]</div>
+<p>provides a compact and general way to represent both symmetric and asymmetric systems.<br />
+It also allows us to discuss the <strong>strength of coupling</strong> between the two oscillators in a clear and quantitative way.</p>
+<hr class="docutils" />
+<section id="symmetric-reference-case">
+<h3>Symmetric reference case<a class="headerlink" href="#symmetric-reference-case" title="Link to this heading">#</a></h3>
+<p>When <span class="math notranslate nohighlight">\(m_1 = m_2 = m\)</span> and <span class="math notranslate nohighlight">\(k_1 = k_3 = k\)</span>, the system simplifies to</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+M = mI, \qquad
+K =
+\begin{pmatrix}
+k + k_2 &amp; -k_2 \\[4pt]
+ -k_2 &amp; k + k_2
+\end{pmatrix}.
+\end{split}\]</div>
+<p>The parameter <span class="math notranslate nohighlight">\(k_2\)</span> — the <strong>coupling spring constant</strong> — controls how strongly the two masses influence one another.</p>
+</section>
+<hr class="docutils" />
+<section id="weak-coupling-k-2-ll-k">
+<h3>Weak coupling: <span class="math notranslate nohighlight">\(k_2 \ll k\)</span><a class="headerlink" href="#weak-coupling-k-2-ll-k" title="Link to this heading">#</a></h3>
+<p>When the coupling spring is much weaker than the outer springs:</p>
+<ul>
+<li><p>Each mass oscillates primarily with its <strong>own local spring</strong>, almost independently.</p></li>
+<li><p>The two natural frequencies are only slightly different:</p>
+<div class="math notranslate nohighlight">
+\[
+  \omega_1 \approx \sqrt{\tfrac{k}{m}}, \qquad
+  \omega_2 \approx \sqrt{\tfrac{k + 2k_2}{m}}.
+  \]</div>
+</li>
+<li><p>Because the frequencies are close, the superposition of the two modes leads to <strong>slow beats</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+  \Delta \omega = \omega_2 - \omega_1 \propto k_2.
+  \]</div>
+</li>
+<li><p>Physically, energy transfers slowly back and forth between the oscillators.</p></li>
+</ul>
+<p>This is the <strong>weak-coupling limit</strong>, typical of coupled pendulums or weakly interacting mechanical resonators.</p>
+</section>
+<hr class="docutils" />
+<section id="strong-coupling-k-2-gtrsim-k">
+<h3>Strong coupling: <span class="math notranslate nohighlight">\(k_2 \gtrsim k\)</span><a class="headerlink" href="#strong-coupling-k-2-gtrsim-k" title="Link to this heading">#</a></h3>
+<p>As the coupling spring becomes comparable to or stiffer than the outer springs:</p>
+<ul>
+<li><p>The two oscillators become <strong>strongly correlated</strong> — the motion of one immediately affects the other.</p></li>
+<li><p>The two frequencies separate widely:</p>
+<div class="math notranslate nohighlight">
+\[
+  \omega_1 \approx \sqrt{\tfrac{k}{m}} \quad (\text{in-phase mode}), \qquad
+  \omega_2 \approx \sqrt{\tfrac{k + 3k_2}{m}} \quad (\text{out-of-phase mode}).
+  \]</div>
+</li>
+<li><p>The <strong>in-phase mode</strong> involves nearly equal displacements <span class="math notranslate nohighlight">\(x_1 \approx x_2\)</span> — the coupling spring stretches little, so the frequency remains near <span class="math notranslate nohighlight">\(\sqrt{k/m}\)</span>.</p></li>
+<li><p>The <strong>out-of-phase mode</strong> stretches the coupling spring maximally, increasing the effective restoring force and producing a much higher frequency.</p></li>
+</ul>
+<p>In this regime, the oscillators behave almost like a single rigid pair at high frequency and a single combined mass at low frequency.</p>
+</section>
+<hr class="docutils" />
+<section id="asymmetry-and-generalization">
+<h3>Asymmetry and generalization<a class="headerlink" href="#asymmetry-and-generalization" title="Link to this heading">#</a></h3>
+<p>If <span class="math notranslate nohighlight">\(m_1 \neq m_2\)</span> or <span class="math notranslate nohighlight">\(k_1 \neq k_3\)</span>, the two oscillators no longer exchange energy symmetrically:</p>
+<ul class="simple">
+<li><p>The mode shapes <span class="math notranslate nohighlight">\(\mathbf{A}_1\)</span> and <span class="math notranslate nohighlight">\(\mathbf{A}_2\)</span> are no longer purely symmetric or antisymmetric.</p></li>
+<li><p>The eigenfrequencies are shifted differently for each side, depending on how inertia and stiffness are distributed.</p></li>
+</ul>
+<p>Nonetheless, the matrix equation</p>
+<div class="math notranslate nohighlight">
+\[
+(K - \omega^2 M)\,\mathbf{A} = 0
+\]</div>
+<p>still governs the dynamics, and the eigenvalues of the generalized problem determine the system’s frequencies regardless of asymmetry.</p>
+</section>
+<hr class="docutils" />
+<section id="summary-of-coupling-strength-effects">
+<h3>Summary of coupling strength effects<a class="headerlink" href="#summary-of-coupling-strength-effects" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Coupling regime</p></th>
+<th class="head"><p>Typical feature</p></th>
+<th class="head"><p>Frequency separation</p></th>
+<th class="head"><p>Energy transfer</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Weak coupling (<span class="math notranslate nohighlight">\(k_2 \ll k\)</span>)</p></td>
+<td><p>Nearly independent oscillators</p></td>
+<td><p>Small (<span class="math notranslate nohighlight">\(\omega_2 \approx \omega_1\)</span>)</p></td>
+<td><p>Slow beats</p></td>
+</tr>
+<tr class="row-odd"><td><p>Moderate coupling (<span class="math notranslate nohighlight">\(k_2 \sim k\)</span>)</p></td>
+<td><p>Distinct in/out of phase modes</p></td>
+<td><p>Noticeable</p></td>
+<td><p>Regular energy exchange</p></td>
+</tr>
+<tr class="row-even"><td><p>Strong coupling (<span class="math notranslate nohighlight">\(k_2 \gg k\)</span>)</p></td>
+<td><p>Nearly rigid pair motion</p></td>
+<td><p>Large</p></td>
+<td><p>Rapid, almost locked motion</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<p>This framework not only clarifies weak vs. strong coupling but also sets up a <strong>natural transition to the matrix eigenvalue problem</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+\det(K - \omega^2 M) = 0,
+\]</div>
+<p>whose solutions give the normal mode frequencies for any combination of <span class="math notranslate nohighlight">\(k_i\)</span> and <span class="math notranslate nohighlight">\(m_i\)</span>.</p>
+<p>In the next section, we will rederive this same structure using the <strong>Lagrangian formalism</strong>,<br />
+where the matrices <span class="math notranslate nohighlight">\(M\)</span> and <span class="math notranslate nohighlight">\(K\)</span> appear directly from the kinetic and potential energy expressions — a formulation that extends seamlessly to any number of degrees of freedom or coordinate system.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="c7-3-4-physical-interpretation">
+<h2>C7.3.4 Physical interpretation<a class="headerlink" href="#c7-3-4-physical-interpretation" title="Link to this heading">#</a></h2>
+<p>The two matrices have clear physical meaning:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(M\)</span> describes <strong>how inertia is distributed</strong> among the degrees of freedom.</p></li>
+<li><p><span class="math notranslate nohighlight">\(K\)</span> describes <strong>how restoring forces couple</strong> the coordinates.</p></li>
+</ul>
+<p>The matrix formulation elegantly handles both symmetric and asymmetric cases and provides a unified structure that will generalize directly to larger systems.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="c7-3-5-transition">
+<h2>C7.3.5 Transition<a class="headerlink" href="#c7-3-5-transition" title="Link to this heading">#</a></h2>
+<p>This formulation already anticipates what the <strong>Lagrangian method</strong> will give automatically:<br />
+from the quadratic forms of kinetic and potential energy,</p>
+<div class="math notranslate nohighlight">
+\[
+T = \tfrac{1}{2}\dot{\mathbf{x}}^T M \dot{\mathbf{x}}, \qquad
+U = \tfrac{1}{2}\mathbf{x}^T K \mathbf{x}.
+\]</div>
+<p>In the next section, we will derive <span class="math notranslate nohighlight">\(M\)</span> and <span class="math notranslate nohighlight">\(K\)</span> directly from the Lagrangian,<br />
+which naturally generalizes to non-Cartesian coordinates and coordinate-dependent mass matrices.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Phys-Prof-Nielsen/modulearn",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-C7"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="coupled-oscillators-simple.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">C7.2 Coupled Oscillators - Simple Case</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="lagrange-oscillation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">C7.4 Lagrangian Formulation and the Origin of the Mass Matrix</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-3-1-motivation">C7.3.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-3-2-setup">C7.3.2 Setup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equations-of-motion">Equations of motion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compact-matrix-form">Compact matrix form</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-3-3-discussion">C7.3.3 Discussion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symmetric-reference-case">Symmetric reference case</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-coupling-k-2-ll-k">Weak coupling: <span class="math notranslate nohighlight">\(k_2 \ll k\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strong-coupling-k-2-gtrsim-k">Strong coupling: <span class="math notranslate nohighlight">\(k_2 \gtrsim k\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asymmetry-and-generalization">Asymmetry and generalization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-coupling-strength-effects">Summary of coupling strength effects</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-3-4-physical-interpretation">C7.3.4 Physical interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-3-5-transition">C7.3.5 Transition</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

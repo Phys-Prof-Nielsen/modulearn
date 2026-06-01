@@ -1,0 +1,828 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>C7.6 Stability and the Hessian &#8212; A Competency Approach to Classical Mechanics - Phase C</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-C7/stability-hessian';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="C7.5 Extension to Generalized Coordinates and Coordinate-Dependent Matrices" href="generalized.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-C.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Phase C - Home"/>
+    <script>document.write(`<img src="../_static/logo-C.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Phase C - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the C Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C1 - Numerical Methods</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/LOC-C1.html">C1.0 Learning Outcomes — Numerical Methods and Finite Difference Techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/forward-euler.html">C1.1 — The Forward Euler Numerical Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/backward-euler.html">C1.2 — The Backward Euler Numerical Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/central-difference.html">C1.3 — The Central Difference Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/euler-cromer.html">C1.4 — Euler-Cromer Method (Symplectic Euler)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C1/problemsC1.html">C1.5 — Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C2 - Variable Mass Systems</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/LOC-C2.html">C2.0 Learning Outcomes — Variable Mass Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/intro-variable-mass.html">C2.1 — Introduction to Variable Mass Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/rocket-equation.html">C2.2 — The Rocket Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/variable-mass-strategy.html">C2.3 — Initial Setup Strategy for Variable Mass Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C2/problemsC2.html">C2.4 — Problems Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C3 - General Rigid Body Rotation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C3/LOC-C3.html">C3.0 Learning Outcomes — General Rotation and the Inertia Tensor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C3/angular-velocity.html">C3.1 Angular Velocity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C3/angular-momentum.html">C3.2 Angular Momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C3/basic-gyroscope.html">C3.3 Basic Gyroscope Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C3/problemsC3.html">C3.4 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C4 - Rotating Reference Frame</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C4/LOC-C4.html">C4.0 Learning Outcomes - Rotating Frames of Reference and Fictitious Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C4/rotating-frame.html">C4.1 Vector Transformation in Rotating Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C4/N2-rotating.html">C4.2 Newton’s Second Law and Fictitious Forces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C4/problemsC4.html">C4.3 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C5 - Deriving Lagrangian And Lagrange Multipliers</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-C5/LOC-C5.html">C5.0 Learning Outcomes - Lagrangian Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C5/space.html">C5.1 Recall Configuration Space and Phase Space: Understanding the Foundations of Classical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C5/constraints.html">C5.2 Constraints in Classical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C5/functions-functionals.html">C5.3 Function vs. Functional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C5/euler-lagrange.html">C5.4 Calculus of Variations: Finding the Best Path - Euler-Lagrange Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C5/euler-lagrange-examples.html">C5.5 Applications of the Euler–Lagrange Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C5/hamiltons-principle.html">C5.6 Hamilton’s Principle and Lagrange’s Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C5/lagrangian-multipliers.html">C5.7 Lagrange Multipliers in Classical Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-C5/problemsC5.html">C5.8 Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module C7 - Coupled Oscillators</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-C7.html">C7.0 Learning Outcomes - Oscillations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="small-oscillations.html">C7.1 Small Oscillations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coupled-oscillators-simple.html">C7.2 Coupled Oscillators - Simple Case</a></li>
+<li class="toctree-l1"><a class="reference internal" href="general-two-mass.html">C7.3 General Two-Mass System with Unequal Spring Constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lagrange-oscillation.html">C7.4 Lagrangian Formulation and the Origin of the Mass Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generalized.html">C7.5 Extension to Generalized Coordinates and Coordinate-Dependent Matrices</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">C7.6 Stability and the Hessian</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/classical-mechanics-C/Module-C7/stability-hessian.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-C7/stability-hessian.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>C7.6 Stability and the Hessian</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-6-1-motivation">C7.6.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-6-2-equilibrium-and-small-perturbations">C7.6.2 Equilibrium and small perturbations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-6-3-expansion-of-potential-energy-the-hessian">C7.6.3 Expansion of potential energy: The Hessian</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-6-4-equation-of-motion-near-equilibrium">C7.6.4 Equation of motion near equilibrium</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-6-5-stability-criterion">C7.6.5 Stability criterion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-6-6-geometric-interpretation">C7.6.6 Geometric interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-6-6-examples">C7.6.6 Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-6-7-energy-viewpoint">C7.6.7 Energy viewpoint</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-6-8-practical-stability-test">C7.6.8 Practical stability test</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-6-9-connection-to-normal-modes">C7.6.9 Connection to normal modes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-6-10-summary">C7.6.10 Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-6-11-concluding-remarks">C7.6.11 Concluding remarks</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="c7-6-stability-and-the-hessian">
+<h1>C7.6 Stability and the Hessian<a class="headerlink" href="#c7-6-stability-and-the-hessian" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="c7-6-1-motivation">
+<h2>C7.6.1 Motivation<a class="headerlink" href="#c7-6-1-motivation" title="Link to this heading">#</a></h2>
+<p>Not every equilibrium point of a mechanical system is stable.<br />
+A ball at the bottom of a bowl will return to equilibrium after a small displacement,<br />
+while a ball balanced on top of a hill will roll away at the slightest disturbance.</p>
+<p>The question of <strong>stability</strong> asks:</p>
+<blockquote>
+<div><p>“If we slightly perturb a system from its equilibrium position, will it return, remain nearby, or move away?”</p>
+</div></blockquote>
+<p>Stability analysis builds directly on our small-oscillation framework.<br />
+By expanding the potential energy near equilibrium and examining its <strong>curvature</strong>, we can determine whether motion is oscillatory (stable) or divergent (unstable).<br />
+The mathematical tool for this analysis is the <strong>Hessian matrix</strong> of second derivatives of the potential energy.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="c7-6-2-equilibrium-and-small-perturbations">
+<h2>C7.6.2 Equilibrium and small perturbations<a class="headerlink" href="#c7-6-2-equilibrium-and-small-perturbations" title="Link to this heading">#</a></h2>
+<p>Consider a conservative system with generalized coordinates <span class="math notranslate nohighlight">\(\mathbf{q} = (q_1, q_2, \dots, q_n)\)</span> and potential energy <span class="math notranslate nohighlight">\(U(\mathbf{q})\)</span>.<br />
+An equilibrium point <span class="math notranslate nohighlight">\(\mathbf{q}_0\)</span> satisfies:</p>
+<div class="math notranslate nohighlight">
+\[
+\left.\frac{\partial U}{\partial q_i}\right|_{\mathbf{q}_0} = 0.
+\]</div>
+<p>To study small motions near <span class="math notranslate nohighlight">\(\mathbf{q}_0\)</span>, define the small displacement</p>
+<div class="math notranslate nohighlight">
+\[
+\boldsymbol{\xi} = \mathbf{q} - \mathbf{q}_0.
+\]</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="c7-6-3-expansion-of-potential-energy-the-hessian">
+<h2>C7.6.3 Expansion of potential energy: The Hessian<a class="headerlink" href="#c7-6-3-expansion-of-potential-energy-the-hessian" title="Link to this heading">#</a></h2>
+<p>Perform a Taylor expansion of <span class="math notranslate nohighlight">\(U(\mathbf{q})\)</span> about <span class="math notranslate nohighlight">\(\mathbf{q}_0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+U(\mathbf{q}) = U(\mathbf{q}_0)
++ \tfrac{1}{2}\,\boldsymbol{\xi}^T K\,\boldsymbol{\xi}
++ \mathcal{O}(\xi^3),\]</div>
+<p>where the <strong>Hessian matrix</strong> <span class="math notranslate nohighlight">\(K\)</span> is defined as</p>
+<div class="math notranslate nohighlight">
+\[
+K_{ij} = 
+\left.\frac{\partial^2 U}{\partial q_i \partial q_j}\right|_{\mathbf{q}_0}.
+\]</div>
+<p>This quadratic term describes the local “shape” of the potential surface.<br />
+In one dimension, <span class="math notranslate nohighlight">\(K = U''(q_0)\)</span> represents the curvature of <span class="math notranslate nohighlight">\(U\)</span> at equilibrium.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="c7-6-4-equation-of-motion-near-equilibrium">
+<h2>C7.6.4 Equation of motion near equilibrium<a class="headerlink" href="#c7-6-4-equation-of-motion-near-equilibrium" title="Link to this heading">#</a></h2>
+<p>The Lagrangian near <span class="math notranslate nohighlight">\(\mathbf{q}_0\)</span> can be written as</p>
+<div class="math notranslate nohighlight">
+\[
+L = \tfrac{1}{2}\dot{\boldsymbol{\xi}}^T M(\mathbf{q}_0)\dot{\boldsymbol{\xi}}
+    - \tfrac{1}{2}\boldsymbol{\xi}^T K \boldsymbol{\xi}.
+\]</div>
+<p>The Euler–Lagrange equations give</p>
+<div class="math notranslate nohighlight">
+\[
+M(\mathbf{q}_0)\ddot{\boldsymbol{\xi}} + K\,\boldsymbol{\xi} = 0,
+\]</div>
+<p>which leads to the eigenvalue problem</p>
+<div class="math notranslate nohighlight">
+\[
+(K - \omega^2 M)\mathbf{A} = 0.
+\]</div>
+<p>The signs of the eigenvalues of <span class="math notranslate nohighlight">\(M^{-1}K\)</span> determine the nature of equilibrium.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="c7-6-5-stability-criterion">
+<h2>C7.6.5 Stability criterion<a class="headerlink" href="#c7-6-5-stability-criterion" title="Link to this heading">#</a></h2>
+<p>For a conservative system:</p>
+<ul class="simple">
+<li><p><strong>Stable equilibrium</strong> → all eigenvalues of <span class="math notranslate nohighlight">\(M^{-1}K\)</span> are <strong>positive</strong><br />
+⇒ all <span class="math notranslate nohighlight">\(\omega^2 &gt; 0\)</span> → small oscillations are sinusoidal and bounded.</p></li>
+<li><p><strong>Unstable equilibrium</strong> → at least one eigenvalue of <span class="math notranslate nohighlight">\(M^{-1}K\)</span> is <strong>negative</strong><br />
+⇒ some <span class="math notranslate nohighlight">\(\omega^2 &lt; 0\)</span> → motion grows exponentially in time.</p></li>
+<li><p><strong>Neutral equilibrium</strong> → at least one eigenvalue is <strong>zero</strong><br />
+⇒ motion is undetermined along that direction (flat potential valley).</p></li>
+</ul>
+<p>The stability thus depends on the <strong>definiteness</strong> of the Hessian matrix <span class="math notranslate nohighlight">\(K\)</span> at equilibrium.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="c7-6-6-geometric-interpretation">
+<h2>C7.6.6 Geometric interpretation<a class="headerlink" href="#c7-6-6-geometric-interpretation" title="Link to this heading">#</a></h2>
+<p>The potential <span class="math notranslate nohighlight">\(U(\mathbf{q})\)</span> defines a surface in configuration space.<br />
+The Hessian <span class="math notranslate nohighlight">\(K\)</span> measures the local curvature of this surface:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Shape of <span class="math notranslate nohighlight">\(U\)</span> near <span class="math notranslate nohighlight">\(\mathbf{q}_0\)</span></p></th>
+<th class="head"><p>Eigenvalues of <span class="math notranslate nohighlight">\(K\)</span></p></th>
+<th class="head"><p>Stability type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Local minimum (bowl)</p></td>
+<td><p>all positive</p></td>
+<td><p>Stable</p></td>
+<td><p>Restoring forces pull system back</p></td>
+</tr>
+<tr class="row-odd"><td><p>Local maximum (hill)</p></td>
+<td><p>all negative</p></td>
+<td><p>Unstable</p></td>
+<td><p>Forces push system further away</p></td>
+</tr>
+<tr class="row-even"><td><p>Saddle point</p></td>
+<td><p>mixed signs</p></td>
+<td><p>Unstable</p></td>
+<td><p>Stable in some directions, unstable in others</p></td>
+</tr>
+<tr class="row-odd"><td><p>Flat direction</p></td>
+<td><p>one or more zero</p></td>
+<td><p>Neutral</p></td>
+<td><p>No restoring force in that direction</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="c7-6-6-examples">
+<h2>C7.6.6 Examples<a class="headerlink" href="#c7-6-6-examples" title="Link to this heading">#</a></h2>
+<div style="background-color:#d9d9d9; padding:15px; border-radius:10px;">
+<p><strong>Simple pendulum</strong></p>
+<p>For a pendulum with potential <span class="math notranslate nohighlight">\(U = mgL(1 - \cos\theta)\)</span>:</p>
+<ul class="simple">
+<li><p>At <span class="math notranslate nohighlight">\(\theta = 0\)</span> (bottom):<br />
+<span class="math notranslate nohighlight">\(U''(0) = mgL &gt; 0\)</span> → <strong>stable</strong> small oscillations.</p></li>
+<li><p>At <span class="math notranslate nohighlight">\(\theta = \pi\)</span> (top):<br />
+<span class="math notranslate nohighlight">\(U''(\pi) = -mgL &lt; 0\)</span> → <strong>unstable</strong> equilibrium.</p></li>
+</ul>
+</div>
+<br>
+<div style="background-color:#d9d9d9; padding:15px; border-radius:10px;">
+<p><strong>Two-dimensional potential surface</strong></p>
+<p>Let</p>
+<div class="math notranslate nohighlight">
+\[
+U(x,y) = \tfrac{1}{2}(4x^2 + y^2 - 2xy).
+\]</div>
+<p>Then</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+K =
+\begin{pmatrix}
+4 &amp; -1 \\[4pt]
+-1 &amp; 1
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Compute the eigenvalues:</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda_{1,2} = \frac{5 \pm \sqrt{5^2 - 4(3)}}{2} = \frac{5 \pm \sqrt{13}}{2} &gt; 0.
+\]</div>
+<p>Since both are positive, the equilibrium at <span class="math notranslate nohighlight">\((x,y) = (0,0)\)</span> is <strong>stable</strong>.</p>
+<p>If one eigenvalue had been negative, it would have indicated a <strong>saddle point</strong>, unstable along that direction.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="c7-6-7-energy-viewpoint">
+<h2>C7.6.7 Energy viewpoint<a class="headerlink" href="#c7-6-7-energy-viewpoint" title="Link to this heading">#</a></h2>
+<p>The total energy near equilibrium is approximately quadratic:</p>
+<div class="math notranslate nohighlight">
+\[
+E = \tfrac{1}{2}\dot{\boldsymbol{\xi}}^T M \dot{\boldsymbol{\xi}}
+  + \tfrac{1}{2}\boldsymbol{\xi}^T K \boldsymbol{\xi}.
+\]</div>
+<p>If both <span class="math notranslate nohighlight">\(M\)</span> and <span class="math notranslate nohighlight">\(K\)</span> are <strong>positive definite</strong>, then <span class="math notranslate nohighlight">\(E\)</span> is positive definite —<br />
+the energy increases with displacement, so the system remains bounded.<br />
+If <span class="math notranslate nohighlight">\(K\)</span> is not positive definite, <span class="math notranslate nohighlight">\(E\)</span> can decrease indefinitely in some direction → instability.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="c7-6-8-practical-stability-test">
+<h2>C7.6.8 Practical stability test<a class="headerlink" href="#c7-6-8-practical-stability-test" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Compute the equilibrium positions by solving <span class="math notranslate nohighlight">\(\nabla U = 0\)</span>.</p></li>
+<li><p>Evaluate the Hessian <span class="math notranslate nohighlight">\(K\)</span> at each equilibrium.</p></li>
+<li><p>Determine the signs of its eigenvalues:</p>
+<ul class="simple">
+<li><p>All positive → stable</p></li>
+<li><p>Any negative → unstable</p></li>
+<li><p>Zero → neutral (check higher-order terms)</p></li>
+</ul>
+</li>
+</ol>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="c7-6-9-connection-to-normal-modes">
+<h2>C7.6.9 Connection to normal modes<a class="headerlink" href="#c7-6-9-connection-to-normal-modes" title="Link to this heading">#</a></h2>
+<p>Each positive eigenvalue <span class="math notranslate nohighlight">\(\lambda_i\)</span> of <span class="math notranslate nohighlight">\(M^{-1}K\)</span> corresponds to a <strong>normal mode</strong> with frequency</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_i = \sqrt{\lambda_i}.
+\]</div>
+<p>Thus, the stability problem and the oscillation problem are <strong>two aspects of the same linearized dynamics</strong>:</p>
+<ul class="simple">
+<li><p>Stability → sign of <span class="math notranslate nohighlight">\(\lambda_i\)</span></p></li>
+<li><p>Oscillation → magnitude of <span class="math notranslate nohighlight">\(\lambda_i\)</span></p></li>
+</ul>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="c7-6-10-summary">
+<h2>C7.6.10 Summary<a class="headerlink" href="#c7-6-10-summary" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Concept</p></th>
+<th class="head"><p>Mathematical condition</p></th>
+<th class="head"><p>Physical meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Stable equilibrium</p></td>
+<td><p><span class="math notranslate nohighlight">\(K\)</span> positive definite</p></td>
+<td><p>All small perturbations oscillate and remain bounded</p></td>
+</tr>
+<tr class="row-odd"><td><p>Unstable equilibrium</p></td>
+<td><p><span class="math notranslate nohighlight">\(K\)</span> indefinite (mixed signs)</p></td>
+<td><p>Some perturbations grow exponentially</p></td>
+</tr>
+<tr class="row-even"><td><p>Neutral equilibrium</p></td>
+<td><p><span class="math notranslate nohighlight">\(K\)</span> semidefinite</p></td>
+<td><p>Flat directions; no restoring force</p></td>
+</tr>
+<tr class="row-odd"><td><p>Small oscillations</p></td>
+<td><p><span class="math notranslate nohighlight">\(\omega_i^2 = \text{eigenvalues}(M^{-1}K)\)</span></p></td>
+<td><p>Frequencies of bounded motion</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="c7-6-11-concluding-remarks">
+<h2>C7.6.11 Concluding remarks<a class="headerlink" href="#c7-6-11-concluding-remarks" title="Link to this heading">#</a></h2>
+<p>The <strong>Hessian</strong> provides a local map of how potential energy curves in configuration space.<br />
+Its <strong>positive definiteness</strong> ensures small perturbations produce oscillatory motion—<br />
+the mathematical signature of stability.</p>
+<p>If time allows, we can extend this analysis to include <strong>damping</strong> and <strong>driving</strong>,<br />
+which modify the stability of equilibria in realistic systems.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Phys-Prof-Nielsen/modulearn",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-C7"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="generalized.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">C7.5 Extension to Generalized Coordinates and Coordinate-Dependent Matrices</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-6-1-motivation">C7.6.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-6-2-equilibrium-and-small-perturbations">C7.6.2 Equilibrium and small perturbations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-6-3-expansion-of-potential-energy-the-hessian">C7.6.3 Expansion of potential energy: The Hessian</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-6-4-equation-of-motion-near-equilibrium">C7.6.4 Equation of motion near equilibrium</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-6-5-stability-criterion">C7.6.5 Stability criterion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-6-6-geometric-interpretation">C7.6.6 Geometric interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-6-6-examples">C7.6.6 Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-6-7-energy-viewpoint">C7.6.7 Energy viewpoint</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-6-8-practical-stability-test">C7.6.8 Practical stability test</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-6-9-connection-to-normal-modes">C7.6.9 Connection to normal modes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-6-10-summary">C7.6.10 Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c7-6-11-concluding-remarks">C7.6.11 Concluding remarks</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
