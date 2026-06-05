@@ -1,0 +1,1005 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>B1.3 Euler Angles and Rigid Body Orientation &#8212; A Competency Approach to Classical Mechanics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-B1/euler-angles';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="B1.4 Body and Space Frames" href="body-space-frames.html" />
+    <link rel="prev" title="B1.2 Kinetic Energy in Rotational Dynamics" href="kinetic-energy.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-B.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Home"/>
+    <script>document.write(`<img src="../_static/logo-B.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the B Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B1 - Advanced Rotational Dynamics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="principal-axes.html">B1.1 Principal Axes in Rotational Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kinetic-energy.html">B1.2 Kinetic Energy in Rotational Dynamics</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">B1.3 Euler Angles and Rigid Body Orientation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="body-space-frames.html">B1.4 Body and Space Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eulers-equations-motion.html">B1.5 Euler’s Equations of Motion for Rigid Bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="euler-angles-equations.html">B1.6 Connecting Euler Angles and Euler’s Equations of Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quaternions.html">B1.7 Beyond Euler Angles: Quaternions, Axis-Angle, and Rotation Vectors for 3D Orientation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tennis-racket.html">B1.8 The Tennis Racket Problem and the Intermediate Axis Theorem</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Module-B1/euler-angles.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-B1/euler-angles.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>B1.3 Euler Angles and Rigid Body Orientation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-1-motivation-why-do-we-need-euler-angles">B1.3.1 Motivation: Why Do We Need Euler Angles?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-2-learning-objectives">B1.3.2 Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-3-what-are-euler-angles">B1.3.3 What Are Euler Angles?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-4-euler-rotation-sequence-zxz-convention">B1.3.4 Euler Rotation Sequence (ZXZ Convention)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-5-clarifying-the-z-axes-in-euler-angles-zxz-convention">B1.3.5 Clarifying the Z-Axes in Euler Angles (ZXZ Convention)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#whats-actually-happening">What’s Actually Happening?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-reuse-z">Why Reuse “Z”?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tip-for-clarity">Tip for Clarity</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-6-interpreting-the-euler-angles-physically">B1.3.6 Interpreting the Euler Angles Physically</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-7-gimbal-lock">B1.3.7 Gimbal Lock</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-8-angular-velocity-in-terms-of-euler-angles">B1.3.8 Angular Velocity in Terms of Euler Angles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-9-summary">B1.3.9 Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detailed-solutions-to-boxes">Detailed Solutions to Boxes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#box-1">Box 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#box-2">Box 2</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-rotation-by-phi-about-the-fixed-z-axis">Step 1: Rotation by <span class="math notranslate nohighlight">\( \phi \)</span> about the fixed Z-axis</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-rotation-by-theta-about-the-new-x-axis">Step 2: Rotation by <span class="math notranslate nohighlight">\( \theta \)</span> about the new X-axis</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-rotation-by-psi-about-the-new-z-axis">Step 3: Rotation by <span class="math notranslate nohighlight">\( \psi \)</span> about the new Z-axis</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#box-3">Box 3</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="b1-3-euler-angles-and-rigid-body-orientation">
+<h1>B1.3 Euler Angles and Rigid Body Orientation<a class="headerlink" href="#b1-3-euler-angles-and-rigid-body-orientation" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="b1-3-1-motivation-why-do-we-need-euler-angles">
+<h2>B1.3.1 Motivation: Why Do We Need Euler Angles?<a class="headerlink" href="#b1-3-1-motivation-why-do-we-need-euler-angles" title="Link to this heading">#</a></h2>
+<p>In classical mechanics and aerospace engineering, understanding how a <strong>rigid body rotates in 3D</strong> is crucial. Imagine a satellite, a robot arm, or even a spinning top — to fully describe how the body <strong>is oriented in space</strong>, we need more than just angular velocity:</p>
+<ul class="simple">
+<li><p>Vectors like angular velocity <span class="math notranslate nohighlight">\( \vec{\omega} \)</span> or angular momentum <span class="math notranslate nohighlight">\( \vec{L} \)</span> describe <strong>rates of change</strong>, not orientation.</p></li>
+<li><p>The <strong>rotation matrix</strong> tells us how the body is oriented relative to a fixed coordinate system, but it’s often too abstract or difficult to interpret physically.</p></li>
+<li><p>We need a <strong>minimal, interpretable way</strong> to describe orientation that aligns with real-world intuition (e.g. “pitch,” “yaw,” “roll”).</p></li>
+</ul>
+<p><strong>Euler angles</strong> provide exactly this:<br />
+A systematic way to express the orientation of a rigid body using just <strong>three angles</strong>, corresponding to <strong>three sequential rotations</strong>.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b1-3-2-learning-objectives">
+<h2>B1.3.2 Learning Objectives<a class="headerlink" href="#b1-3-2-learning-objectives" title="Link to this heading">#</a></h2>
+<p>By the end of this lesson, you should be able to:</p>
+<ul class="simple">
+<li><p>Define Euler angles and explain the purpose of each.</p></li>
+<li><p>Understand the difference between <strong>intrinsic</strong> and <strong>extrinsic</strong> rotations.</p></li>
+<li><p>Derive the full rotation matrix from Euler angles.</p></li>
+<li><p>Apply Euler angles to describe body orientation in dynamics problems.</p></li>
+<li><p>Recognize gimbal lock and interpret its meaning.</p></li>
+</ul>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b1-3-3-what-are-euler-angles">
+<h2>B1.3.3 What Are Euler Angles?<a class="headerlink" href="#b1-3-3-what-are-euler-angles" title="Link to this heading">#</a></h2>
+<p>Euler angles describe the orientation of a rigid body using <strong>three sequential rotations</strong> about specified axes. There are several conventions, but the most common (used in physics) is the <strong>ZXZ convention</strong>:</p>
+<ol class="arabic simple">
+<li><p><strong><span class="math notranslate nohighlight">\( \phi \)</span></strong> (phi): rotate about the <strong>Z-axis</strong> (precession)</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\( \theta \)</span></strong> (theta): rotate about the <strong>new X-axis</strong> (nutation)</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\( \psi \)</span></strong> (psi): rotate about the <strong>new Z-axis</strong> (spin)</p></li>
+</ol>
+<p>Each of these angles corresponds to a physically meaningful motion:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( \phi \)</span>: Orientation of the body around the fixed vertical axis.</p></li>
+<li><p><span class="math notranslate nohighlight">\( \theta \)</span>: Tilt angle from the vertical (zenith angle).</p></li>
+<li><p><span class="math notranslate nohighlight">\( \psi \)</span>: Rotation about the body’s own symmetry axis.</p></li>
+</ul>
+<img src="fig1-A2.3.png"  width="800"/>
+<p>Figure taken from <a class="reference external" href="https://mathworld.wolfram.com/EulerAngles.html">Wolfram Alpha</a></p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b1-3-4-euler-rotation-sequence-zxz-convention">
+<h2>B1.3.4 Euler Rotation Sequence (ZXZ Convention)<a class="headerlink" href="#b1-3-4-euler-rotation-sequence-zxz-convention" title="Link to this heading">#</a></h2>
+<p>Let’s define each step of the rotation:</p>
+<ol class="arabic simple">
+<li><p><strong>Rotate by <span class="math notranslate nohighlight">\( \phi \)</span> about the fixed Z-axis</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+R_z(\phi) =
+\begin{bmatrix}
+\cos \phi &amp; -\sin \phi &amp; 0 \\
+\sin \phi &amp; \cos \phi &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Rotate by <span class="math notranslate nohighlight">\( \theta \)</span> about the new X-axis</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+R_x(\theta) =
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 \\
+0 &amp; \cos \theta &amp; -\sin \theta \\
+0 &amp; \sin \theta &amp; \cos \theta
+\end{bmatrix}
+\end{split}\]</div>
+<ol class="arabic simple" start="3">
+<li><p><strong>Rotate by <span class="math notranslate nohighlight">\( \psi \)</span> about the new Z-axis</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+R_z(\psi) =
+\begin{bmatrix}
+\cos \psi &amp; -\sin \psi &amp; 0 \\
+\sin \psi &amp; \cos \psi &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+<p>The total rotation matrix is:</p>
+<div class="math notranslate nohighlight">
+\[
+R = R_z(\phi) \cdot R_x(\theta) \cdot R_z(\psi)
+\]</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b1-3-5-clarifying-the-z-axes-in-euler-angles-zxz-convention">
+<h2>B1.3.5 Clarifying the Z-Axes in Euler Angles (ZXZ Convention)<a class="headerlink" href="#b1-3-5-clarifying-the-z-axes-in-euler-angles-zxz-convention" title="Link to this heading">#</a></h2>
+<p>Euler angles can be confusing — especially because in the <strong>ZXZ</strong> convention, we use the <strong>Z-axis twice</strong>: once as a fixed axis and once as a body axis.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Step</p></th>
+<th class="head"><p>Axis Rotated About</p></th>
+<th class="head"><p>Type of Axis</p></th>
+<th class="head"><p>Angle</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Fixed Z</p></td>
+<td><p>Space frame axis</p></td>
+<td><p><span class="math notranslate nohighlight">\( \phi \)</span> (precession)</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>New X</p></td>
+<td><p>Intermediate frame</p></td>
+<td><p><span class="math notranslate nohighlight">\( \theta \)</span> (tilt)</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>New Z (body Z)</p></td>
+<td><p>Body frame axis</p></td>
+<td><p><span class="math notranslate nohighlight">\( \psi \)</span> (spin)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="whats-actually-happening">
+<h3>What’s Actually Happening?<a class="headerlink" href="#whats-actually-happening" title="Link to this heading">#</a></h3>
+<p>Euler angles describe how the <strong>coordinate system rotates</strong>. So at each step, the rotation axis may belong to a different frame:</p>
+<ul class="simple">
+<li><p><strong><span class="math notranslate nohighlight">\( \phi \)</span></strong>: Rotation about the <strong>fixed Z-axis</strong> in the space frame.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\( \theta \)</span></strong>: Rotation about the <strong>new X-axis</strong> (after the first rotation).</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\( \psi \)</span></strong>: Rotation about the <strong>new Z-axis</strong>, which is now aligned with the <strong>body’s own axis</strong>.</p></li>
+</ul>
+<p>While these axes are all labeled “Z” or “X”, they <strong>represent different directions</strong> at different stages of rotation.</p>
+</section>
+<section id="why-reuse-z">
+<h3>Why Reuse “Z”?<a class="headerlink" href="#why-reuse-z" title="Link to this heading">#</a></h3>
+<p>We reuse the letter “Z” because:</p>
+<ul class="simple">
+<li><p>In <strong>step 1</strong>, the Z-axis is part of the <strong>inertial space frame</strong>.</p></li>
+<li><p>In <strong>step 3</strong>, the Z-axis is part of the <strong>rotated body frame</strong>.</p></li>
+<li><p>The axes share a name because they are <strong>both aligned with Z at the start</strong>, but diverge after rotation.</p></li>
+</ul>
+</section>
+<section id="tip-for-clarity">
+<h3>Tip for Clarity<a class="headerlink" href="#tip-for-clarity" title="Link to this heading">#</a></h3>
+<p>To avoid confusion:</p>
+<ul class="simple">
+<li><p>Explicitly label the axes: <span class="math notranslate nohighlight">\( Z_{\text{space}} \)</span>, <span class="math notranslate nohighlight">\( X_{\text{intermediate}} \)</span>, <span class="math notranslate nohighlight">\( Z_{\text{body}} \)</span></p></li>
+<li><p>Visualize the process step-by-step:</p>
+<ul>
+<li><p>Start with the fixed (space) frame.</p></li>
+<li><p>Apply each rotation and track how the axes move.</p></li>
+</ul>
+</li>
+<li><p>Emphasize that <strong>the axes themselves rotate</strong> in intrinsic conventions.</p></li>
+</ul>
+<p>This distinction is crucial for understanding angular velocity decomposition and preventing mistakes in coordinate transformations.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="b1-3-6-interpreting-the-euler-angles-physically">
+<h2>B1.3.6 Interpreting the Euler Angles Physically<a class="headerlink" href="#b1-3-6-interpreting-the-euler-angles-physically" title="Link to this heading">#</a></h2>
+<p>Euler angles provide a way to describe <strong>attitude</strong>:</p>
+<ul class="simple">
+<li><p>A <strong>gyroscope</strong> spinning on its own axis exhibits all three:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\( \phi \)</span>: how the base spins on the table (precession)</p></li>
+<li><p><span class="math notranslate nohighlight">\( \theta \)</span>: the lean angle</p></li>
+<li><p><span class="math notranslate nohighlight">\( \psi \)</span>: spin around its own shaft</p></li>
+</ul>
+</li>
+</ul>
+<p>In spacecraft dynamics:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( \phi \)</span>: yaw (azimuth)</p></li>
+<li><p><span class="math notranslate nohighlight">\( \theta \)</span>: pitch (elevation)</p></li>
+<li><p><span class="math notranslate nohighlight">\( \psi \)</span>: roll (axial spin)</p></li>
+</ul>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b1-3-7-gimbal-lock">
+<h2>B1.3.7 Gimbal Lock<a class="headerlink" href="#b1-3-7-gimbal-lock" title="Link to this heading">#</a></h2>
+<p><strong>Gimbal lock</strong> occurs when two axes in the rotation sequence align, causing a loss of one degree of freedom.</p>
+<ul class="simple">
+<li><p>For ZXZ, this happens when <span class="math notranslate nohighlight">\( \theta = 0 \)</span> or <span class="math notranslate nohighlight">\( \pi \)</span>: the first and third rotations happen about the same axis.</p></li>
+<li><p>Physically, this means we cannot distinguish between changes in <span class="math notranslate nohighlight">\( \phi \)</span> and <span class="math notranslate nohighlight">\( \psi \)</span>.</p></li>
+</ul>
+<p>➡️ In such cases, alternative representations like <strong>quaternions</strong> are used in robotics and aerospace.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b1-3-8-angular-velocity-in-terms-of-euler-angles">
+<h2>B1.3.8 Angular Velocity in Terms of Euler Angles<a class="headerlink" href="#b1-3-8-angular-velocity-in-terms-of-euler-angles" title="Link to this heading">#</a></h2>
+<p>In the body-fixed frame, the angular velocity vector <span class="math notranslate nohighlight">\( \vec{\omega} \)</span> can be written as:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{\omega} = \dot{\phi} \, \hat{z} + \dot{\theta} \, \hat{x}' + \dot{\psi} \, \hat{z}''
+\]</div>
+<p>More precisely (in body coordinates):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\vec{\omega} =
+\begin{bmatrix}
+\dot{\theta} \cos \psi + \dot{\phi} \sin \theta \sin \psi \\
+\dot{\theta} \sin \psi - \dot{\phi} \sin \theta \cos \psi \\
+\dot{\psi} + \dot{\phi} \cos \theta
+\end{bmatrix}
+\end{split}\]</div>
+<p>This is crucial for expressing <strong>rotational kinetic energy</strong> and deriving <strong>Euler’s equations of motion</strong> in rigid body dynamics.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b1-3-9-summary">
+<h2>B1.3.9 Summary<a class="headerlink" href="#b1-3-9-summary" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol</p></th>
+<th class="head"><p>Meaning in ZXZ Convention</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\( \phi \)</span></p></td>
+<td><p>Rotation about fixed <strong>Z-axis</strong> (precession)</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\( \theta \)</span></p></td>
+<td><p>Rotation about new <strong>X-axis</strong> (tilt/nutation)</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\( \psi \)</span></p></td>
+<td><p>Rotation about new <strong>Z-axis</strong> (body spin)</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\( R \)</span></p></td>
+<td><p>Total rotation matrix from Euler angles</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\( \vec{\omega} \)</span></p></td>
+<td><p>Angular velocity in terms of <span class="math notranslate nohighlight">\( \phi, \theta, \psi \)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Gimbal Lock</p></td>
+<td><p>Loss of one degree of freedom when axes align</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div class="alert alert-warning">
+<p><strong>Box 1</strong></p>
+<p>Explain the physical meaning of the Euler angles <span class="math notranslate nohighlight">\( \phi \)</span>, <span class="math notranslate nohighlight">\( \theta \)</span>, and <span class="math notranslate nohighlight">\( \psi \)</span> in the ZXZ convention.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div class="alert alert-warning">
+<p><strong>Box 2</strong></p>
+<p>Write the total rotation matrix <span class="math notranslate nohighlight">\( R \)</span> for the Euler angle sequence ZXZ, using symbolic matrix multiplication of the three individual rotations.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div class="alert alert-warning">
+<p><strong>Box 3</strong></p>
+<p>A spinning top is precessing about a fixed vertical axis. Identify which Euler angle corresponds to:</p>
+<ul class="simple">
+<li><p>The spin of the top about its own axis.</p></li>
+<li><p>The cone-shaped precession of the axis.</p></li>
+<li><p>The lean angle of the axis.</p></li>
+</ul>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="detailed-solutions-to-boxes">
+<h2>Detailed Solutions to Boxes<a class="headerlink" href="#detailed-solutions-to-boxes" title="Link to this heading">#</a></h2>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="box-1">
+<h3>Box 1<a class="headerlink" href="#box-1" title="Link to this heading">#</a></h3>
+<p><strong>Solution</strong>:</p>
+<p>In the <strong>ZXZ Euler angle convention</strong>, the orientation of a rigid body is described by three successive rotations:</p>
+<ol class="arabic simple">
+<li><p><strong><span class="math notranslate nohighlight">\( \phi \)</span> — Precession</strong>:</p>
+<ul class="simple">
+<li><p>This is a rotation about the <strong>fixed Z-axis</strong>.</p></li>
+<li><p>It describes how the body turns horizontally in space — for example, the circular motion of a spinning top’s axis.</p></li>
+<li><p>Often associated with “yaw” in aerospace.</p></li>
+</ul>
+</li>
+<li><p><strong><span class="math notranslate nohighlight">\( \theta \)</span> — Nutation (Tilt)</strong>:</p>
+<ul class="simple">
+<li><p>This is a rotation about the <strong>new X-axis</strong> after the first rotation.</p></li>
+<li><p>It sets the tilt angle between the body’s symmetry axis and the vertical.</p></li>
+<li><p>Often interpreted as “pitch” — it tilts the axis away from vertical.</p></li>
+</ul>
+</li>
+<li><p><strong><span class="math notranslate nohighlight">\( \psi \)</span> — Spin</strong>:</p>
+<ul class="simple">
+<li><p>This is a rotation about the <strong>new Z-axis</strong> (now aligned with the body’s axis).</p></li>
+<li><p>It represents the body’s own rotation about its axis — for instance, how a top spins on itself.</p></li>
+<li><p>In aerospace, this is typically associated with “roll.”</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Summary</strong>:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Angle</p></th>
+<th class="head"><p>Axis Rotated About</p></th>
+<th class="head"><p>Physical Interpretation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\( \phi \)</span></p></td>
+<td><p>Fixed Z-axis</p></td>
+<td><p>Precession (azimuth)</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\( \theta \)</span></p></td>
+<td><p>New X-axis after <span class="math notranslate nohighlight">\( \phi \)</span></p></td>
+<td><p>Tilt/Nutation (inclination)</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\( \psi \)</span></p></td>
+<td><p>New Z-axis after <span class="math notranslate nohighlight">\( \theta \)</span></p></td>
+<td><p>Spin (axial rotation)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="box-2">
+<h3>Box 2<a class="headerlink" href="#box-2" title="Link to this heading">#</a></h3>
+<p><strong>Solution</strong>:</p>
+<p>We apply three successive rotations in the <strong>ZXZ</strong> convention:</p>
+<section id="step-1-rotation-by-phi-about-the-fixed-z-axis">
+<h4>Step 1: Rotation by <span class="math notranslate nohighlight">\( \phi \)</span> about the fixed Z-axis<a class="headerlink" href="#step-1-rotation-by-phi-about-the-fixed-z-axis" title="Link to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+R_z(\phi) =
+\begin{bmatrix}
+\cos \phi &amp; -\sin \phi &amp; 0 \\
+\sin \phi &amp; \cos \phi &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+</section>
+<section id="step-2-rotation-by-theta-about-the-new-x-axis">
+<h4>Step 2: Rotation by <span class="math notranslate nohighlight">\( \theta \)</span> about the new X-axis<a class="headerlink" href="#step-2-rotation-by-theta-about-the-new-x-axis" title="Link to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+R_x(\theta) =
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 \\
+0 &amp; \cos \theta &amp; -\sin \theta \\
+0 &amp; \sin \theta &amp; \cos \theta
+\end{bmatrix}
+\end{split}\]</div>
+</section>
+<section id="step-3-rotation-by-psi-about-the-new-z-axis">
+<h4>Step 3: Rotation by <span class="math notranslate nohighlight">\( \psi \)</span> about the new Z-axis<a class="headerlink" href="#step-3-rotation-by-psi-about-the-new-z-axis" title="Link to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+R_z(\psi) =
+\begin{bmatrix}
+\cos \psi &amp; -\sin \psi &amp; 0 \\
+\sin \psi &amp; \cos \psi &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+<p>The total rotation matrix is:</p>
+<div class="math notranslate nohighlight">
+\[
+R = R_z(\phi) \cdot R_x(\theta) \cdot R_z(\psi)
+\]</div>
+<p>Performing the matrix multiplication gives:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+R =
+\begin{bmatrix}
+\cos \phi \cos \psi - \sin \phi \cos \theta \sin \psi &amp;
+- \cos \phi \sin \psi - \sin \phi \cos \theta \cos \psi &amp;
+\sin \phi \sin \theta \\
+\sin \phi \cos \psi + \cos \phi \cos \theta \sin \psi &amp;
+- \sin \phi \sin \psi + \cos \phi \cos \theta \cos \psi &amp;
+- \cos \phi \sin \theta \\
+\sin \theta \sin \psi &amp; \sin \theta \cos \psi &amp; \cos \theta
+\end{bmatrix}
+\end{split}\]</div>
+<p><strong>This matrix</strong> transforms coordinates from the <strong>body frame to the fixed space frame</strong> using ZXZ Euler angles.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="box-3">
+<h3>Box 3<a class="headerlink" href="#box-3" title="Link to this heading">#</a></h3>
+<p><strong>Solution</strong>:</p>
+<p>We analyze the motion of a spinning top:</p>
+<ol class="arabic simple">
+<li><p><strong>Spin about its own axis</strong>:</p>
+<ul class="simple">
+<li><p>This corresponds to <strong><span class="math notranslate nohighlight">\( \psi \)</span></strong>.</p></li>
+<li><p>It describes how the top rotates around its own symmetry axis, which is not necessarily vertical.</p></li>
+</ul>
+</li>
+<li><p><strong>Cone-shaped precession</strong>:</p>
+<ul class="simple">
+<li><p>This corresponds to <strong><span class="math notranslate nohighlight">\( \phi \)</span></strong>.</p></li>
+<li><p>The top’s axis traces a cone as it rotates around the vertical (fixed Z-axis) — this is <strong>precession</strong>.</p></li>
+</ul>
+</li>
+<li><p><strong>Lean angle of the axis</strong>:</p>
+<ul class="simple">
+<li><p>This is the <strong>tilt</strong> of the top away from vertical and corresponds to <strong><span class="math notranslate nohighlight">\( \theta \)</span></strong>.</p></li>
+<li><p>It measures the angle between the symmetry axis of the top and the vertical axis.</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Angle Interpretations</strong>:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Description</p></th>
+<th class="head"><p>Euler Angle</p></th>
+<th class="head"><p>Axis Rotated About</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Spin of the top</p></td>
+<td><p><span class="math notranslate nohighlight">\( \psi \)</span></p></td>
+<td><p>Body Z-axis</p></td>
+</tr>
+<tr class="row-odd"><td><p>Precession (conical motion)</p></td>
+<td><p><span class="math notranslate nohighlight">\( \phi \)</span></p></td>
+<td><p>Fixed Z-axis</p></td>
+</tr>
+<tr class="row-even"><td><p>Lean or tilt from vertical</p></td>
+<td><p><span class="math notranslate nohighlight">\( \theta \)</span></p></td>
+<td><p>New X-axis after <span class="math notranslate nohighlight">\( \phi \)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-B1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="kinetic-energy.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">B1.2 Kinetic Energy in Rotational Dynamics</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="body-space-frames.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">B1.4 Body and Space Frames</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-1-motivation-why-do-we-need-euler-angles">B1.3.1 Motivation: Why Do We Need Euler Angles?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-2-learning-objectives">B1.3.2 Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-3-what-are-euler-angles">B1.3.3 What Are Euler Angles?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-4-euler-rotation-sequence-zxz-convention">B1.3.4 Euler Rotation Sequence (ZXZ Convention)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-5-clarifying-the-z-axes-in-euler-angles-zxz-convention">B1.3.5 Clarifying the Z-Axes in Euler Angles (ZXZ Convention)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#whats-actually-happening">What’s Actually Happening?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-reuse-z">Why Reuse “Z”?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tip-for-clarity">Tip for Clarity</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-6-interpreting-the-euler-angles-physically">B1.3.6 Interpreting the Euler Angles Physically</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-7-gimbal-lock">B1.3.7 Gimbal Lock</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-8-angular-velocity-in-terms-of-euler-angles">B1.3.8 Angular Velocity in Terms of Euler Angles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-9-summary">B1.3.9 Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detailed-solutions-to-boxes">Detailed Solutions to Boxes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#box-1">Box 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#box-2">Box 2</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-rotation-by-phi-about-the-fixed-z-axis">Step 1: Rotation by <span class="math notranslate nohighlight">\( \phi \)</span> about the fixed Z-axis</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-rotation-by-theta-about-the-new-x-axis">Step 2: Rotation by <span class="math notranslate nohighlight">\( \theta \)</span> about the new X-axis</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-rotation-by-psi-about-the-new-z-axis">Step 3: Rotation by <span class="math notranslate nohighlight">\( \psi \)</span> about the new Z-axis</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#box-3">Box 3</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

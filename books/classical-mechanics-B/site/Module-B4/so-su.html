@@ -1,0 +1,855 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>B4.6 SO(3) and SU(2): Rotations, Lie Algebras, and Spin Representations &#8212; A Competency Approach to Classical Mechanics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-B4/so-su';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-B.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Home"/>
+    <script>document.write(`<img src="../_static/logo-B.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the B Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B1 - Advanced Rotational Dynamics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/principal-axes.html">B1.1 Principal Axes in Rotational Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/kinetic-energy.html">B1.2 Kinetic Energy in Rotational Dynamics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/euler-angles.html">B1.3 Euler Angles and Rigid Body Orientation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/body-space-frames.html">B1.4 Body and Space Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/eulers-equations-motion.html">B1.5 Euler’s Equations of Motion for Rigid Bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/euler-angles-equations.html">B1.6 Connecting Euler Angles and Euler’s Equations of Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/quaternions.html">B1.7 Beyond Euler Angles: Quaternions, Axis-Angle, and Rotation Vectors for 3D Orientation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/tennis-racket.html">B1.8 The Tennis Racket Problem and the Intermediate Axis Theorem</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Module-B4/so-su.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-B4/so-su.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>B4.6 SO(3) and SU(2): Rotations, Lie Algebras, and Spin Representations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b4-6-1-the-group-so-3">B4.6.1 The Group SO(3)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lie-algebra-mathfrak-so-3">Lie Algebra <span class="math notranslate nohighlight">\(\mathfrak{so}(3)\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b4-6-2-the-group-su-2">B4.6.2 The Group SU(2)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lie-algebra-mathfrak-su-2">Lie Algebra <span class="math notranslate nohighlight">\(\mathfrak{su}(2)\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b4-6-3-understanding-the-relationship-between-su-2-and-so-3">B4.6.3 Understanding the Relationship Between SU(2) and SO(3)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-we-comparing">What Are We Comparing?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#same-local-structure-isomorphic-lie-algebras">Same Local Structure: Isomorphic Lie Algebras</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#but-not-the-same-globally-su-2-is-a-double-cover-of-so-3">But Not the Same Globally: SU(2) is a Double Cover of SO(3)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-matters-physically">Why This Matters Physically</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#final-picture">Final Picture</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b4-6-4-matrix-representations-and-exponentiation">B4.6.4 Matrix Representations and Exponentiation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b4-6-5-summary-table">B4.6.5 Summary Table</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="b4-6-so-3-and-su-2-rotations-lie-algebras-and-spin-representations">
+<h1>B4.6 SO(3) and SU(2): Rotations, Lie Algebras, and Spin Representations<a class="headerlink" href="#b4-6-so-3-and-su-2-rotations-lie-algebras-and-spin-representations" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="b4-6-1-the-group-so-3">
+<h2>B4.6.1 The Group SO(3)<a class="headerlink" href="#b4-6-1-the-group-so-3" title="Link to this heading">#</a></h2>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(SO(3)\)</span> is the <strong>special orthogonal group</strong> in 3D:</p>
+<div class="math notranslate nohighlight">
+\[
+  SO(3) = \{ R \in \mathbb{R}^{3 \times 3} \mid R^T R = I, \ \det(R) = 1 \}
+  \]</div>
+</li>
+<li><p>These matrices represent <strong>real, proper rotations</strong> in 3D Euclidean space.</p></li>
+<li><p>Elements act on vectors: <span class="math notranslate nohighlight">\(\vec{v} \to R \vec{v}\)</span>.</p></li>
+</ul>
+<hr class="docutils" />
+<section id="lie-algebra-mathfrak-so-3">
+<h3>Lie Algebra <span class="math notranslate nohighlight">\(\mathfrak{so}(3)\)</span><a class="headerlink" href="#lie-algebra-mathfrak-so-3" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>It consists of <strong>real <span class="math notranslate nohighlight">\(3 \times 3\)</span> antisymmetric matrices</strong>.</p></li>
+<li><p>A general element:</p>
+<div class="math notranslate nohighlight">
+\[
+  A = \theta_1 J_x + \theta_2 J_y + \theta_3 J_z
+  \]</div>
+<p>with generators:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  \begin{align*}
+  J_x &amp;= 
+  \begin{pmatrix}
+  0 &amp; 0 &amp; 0 \\
+  0 &amp; 0 &amp; -1 \\
+  0 &amp; 1 &amp; 0
+  \end{pmatrix}, \quad
+  J_y = 
+  \begin{pmatrix}
+  0 &amp; 0 &amp; 1 \\
+  0 &amp; 0 &amp; 0 \\
+  -1 &amp; 0 &amp; 0
+  \end{pmatrix}, \quad
+  J_z = 
+  \begin{pmatrix}
+  0 &amp; -1 &amp; 0 \\
+  1 &amp; 0 &amp; 0 \\
+  0 &amp; 0 &amp; 0
+  \end{pmatrix}
+  \end{align*}
+  \end{split}\]</div>
+</li>
+<li><p>Commutation relations:</p>
+<div class="math notranslate nohighlight">
+\[
+  [J_i, J_j] = \varepsilon_{ijk} J_k
+  \]</div>
+</li>
+</ul>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="b4-6-2-the-group-su-2">
+<h2>B4.6.2 The Group SU(2)<a class="headerlink" href="#b4-6-2-the-group-su-2" title="Link to this heading">#</a></h2>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(SU(2)\)</span> is the group of <strong>unitary <span class="math notranslate nohighlight">\(2 \times 2\)</span> complex matrices</strong> with determinant 1:</p>
+<div class="math notranslate nohighlight">
+\[
+  SU(2) = \{ U \in \mathbb{C}^{2 \times 2} \mid U^\dagger U = I, \ \det U = 1 \}
+  \]</div>
+</li>
+<li><p>This group arises naturally in <strong>quantum mechanics</strong> as the symmetry group of <strong>spin-½ systems</strong>.</p></li>
+</ul>
+<hr class="docutils" />
+<section id="lie-algebra-mathfrak-su-2">
+<h3>Lie Algebra <span class="math notranslate nohighlight">\(\mathfrak{su}(2)\)</span><a class="headerlink" href="#lie-algebra-mathfrak-su-2" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>The Lie algebra <span class="math notranslate nohighlight">\(\mathfrak{su}(2)\)</span> consists of <strong>traceless anti-Hermitian <span class="math notranslate nohighlight">\(2 \times 2\)</span> matrices</strong>.</p></li>
+<li><p>A standard basis (up to normalization) is given by the <strong>Pauli matrices</strong>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  \begin{align*}
+  \sigma_x &amp;= 
+  \begin{pmatrix}
+  0 &amp; 1 \\
+  1 &amp; 0
+  \end{pmatrix}, \quad
+  \sigma_y = 
+  \begin{pmatrix}
+  0 &amp; -i \\
+  i &amp; 0
+  \end{pmatrix}, \quad
+  \sigma_z = 
+  \begin{pmatrix}
+  1 &amp; 0 \\
+  0 &amp; -1
+  \end{pmatrix}
+  \end{align*}
+\end{split}\]</div>
+<p>Define:</p>
+<div class="math notranslate nohighlight">
+\[
+T_i = \frac{1}{2} \sigma_i
+\]</div>
+<p>Then the commutation relations are:</p>
+<div class="math notranslate nohighlight">
+\[
+[T_i, T_j] = i \varepsilon_{ijk} T_k
+\]</div>
+<p>So <span class="math notranslate nohighlight">\(\mathfrak{su}(2)\)</span> and <span class="math notranslate nohighlight">\(\mathfrak{so}(3)\)</span> share <strong>the same structure constants</strong>.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="b4-6-3-understanding-the-relationship-between-su-2-and-so-3">
+<h2>B4.6.3 Understanding the Relationship Between SU(2) and SO(3)<a class="headerlink" href="#b4-6-3-understanding-the-relationship-between-su-2-and-so-3" title="Link to this heading">#</a></h2>
+<section id="what-are-we-comparing">
+<h3>What Are We Comparing?<a class="headerlink" href="#what-are-we-comparing" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(SO(3)\)</span> is the group of all <strong>rotations in 3D space</strong>.</p>
+<ul>
+<li><p>It acts on real 3D vectors.</p></li>
+<li><p>Used in <strong>classical mechanics</strong> (e.g., rotating a rigid body).</p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\(SU(2)\)</span> is the group of <strong>special unitary <span class="math notranslate nohighlight">\(2 \times 2\)</span> complex matrices</strong>.</p>
+<ul>
+<li><p>It acts on complex vectors (spinors).</p></li>
+<li><p>Used in <strong>quantum mechanics</strong> (e.g., spin-½ particles like electrons).</p></li>
+</ul>
+</li>
+</ul>
+<p>So at first glance, they seem very different:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(SO(3)\)</span> is real, <span class="math notranslate nohighlight">\(3 \times 3\)</span>, and geometric.</p></li>
+<li><p><span class="math notranslate nohighlight">\(SU(2)\)</span> is complex, <span class="math notranslate nohighlight">\(2 \times 2\)</span>, and more abstract.</p></li>
+</ul>
+<p>But — surprisingly — they are deeply connected.</p>
+</section>
+<hr class="docutils" />
+<section id="same-local-structure-isomorphic-lie-algebras">
+<h3>Same Local Structure: Isomorphic Lie Algebras<a class="headerlink" href="#same-local-structure-isomorphic-lie-algebras" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>The <strong>Lie algebras</strong> <span class="math notranslate nohighlight">\(\mathfrak{so}(3)\)</span> and <span class="math notranslate nohighlight">\(\mathfrak{su}(2)\)</span> are <strong>isomorphic</strong>.</p>
+<ul>
+<li><p>Both are 3-dimensional vector spaces.</p></li>
+<li><p>Both have the <strong>same commutation relations</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+    [T_i, T_j] = \varepsilon_{ijk} T_k
+    \]</div>
+</li>
+<li><p>So locally, they describe the <strong>same infinitesimal symmetries</strong>.</p></li>
+</ul>
+</li>
+</ul>
+<p>✅ This means they are <strong>algebraically identical</strong> at the infinitesimal level.</p>
+</section>
+<hr class="docutils" />
+<section id="but-not-the-same-globally-su-2-is-a-double-cover-of-so-3">
+<h3>But Not the Same Globally: SU(2) is a Double Cover of SO(3)<a class="headerlink" href="#but-not-the-same-globally-su-2-is-a-double-cover-of-so-3" title="Link to this heading">#</a></h3>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(SU(2)\)</span> and <span class="math notranslate nohighlight">\(SO(3)\)</span> are <strong>not isomorphic as groups</strong>.</p></li>
+<li><p>There is a special map:</p>
+<div class="math notranslate nohighlight">
+\[
+  f: SU(2) \longrightarrow SO(3)
+  \]</div>
+<p>that is:</p>
+<ul>
+<li><p>A <strong>group homomorphism</strong> (it respects multiplication),</p></li>
+<li><p><strong>Onto</strong> (every rotation in <span class="math notranslate nohighlight">\(SO(3)\)</span> comes from some element in <span class="math notranslate nohighlight">\(SU(2)\)</span>),</p></li>
+<li><p>But <strong>not one-to-one</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+    f(U) = f(-U)
+    \]</div>
+</li>
+</ul>
+</li>
+<li><p>This means:<br />
+<strong>Two distinct elements</strong> in <span class="math notranslate nohighlight">\(SU(2)\)</span> correspond to <strong>the same rotation</strong> in <span class="math notranslate nohighlight">\(SO(3)\)</span>.</p></li>
+</ul>
+<p>This makes <span class="math notranslate nohighlight">\(SU(2)\)</span> a <strong>double cover</strong> of <span class="math notranslate nohighlight">\(SO(3)\)</span>.</p>
+</section>
+<hr class="docutils" />
+<section id="why-this-matters-physically">
+<h3>Why This Matters Physically<a class="headerlink" href="#why-this-matters-physically" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>In classical mechanics (rotating a ball), <span class="math notranslate nohighlight">\(SO(3)\)</span> is enough.</p></li>
+<li><p>In quantum mechanics (spinors), <span class="math notranslate nohighlight">\(SU(2)\)</span> is required.</p></li>
+</ul>
+<p>For example:</p>
+<ul class="simple">
+<li><p>A spin-½ particle <strong>does not return to its original state after a <span class="math notranslate nohighlight">\(2\pi\)</span> rotation</strong>.</p>
+<ul>
+<li><p>Instead, it <strong>picks up a minus sign</strong>.</p></li>
+<li><p>Only after a full <span class="math notranslate nohighlight">\(4\pi\)</span> rotation does it return to its original state.</p></li>
+</ul>
+</li>
+</ul>
+<p>This can only be described by <span class="math notranslate nohighlight">\(SU(2)\)</span>, not <span class="math notranslate nohighlight">\(SO(3)\)</span>. Thus <span class="math notranslate nohighlight">\(SU(2)\)</span> is the <strong>true rotation group</strong> for quantum mechanics.</p>
+</section>
+<hr class="docutils" />
+<section id="summary">
+<h3>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Concept</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(SO(3)\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(SU(2)\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Type</p></td>
+<td><p>Rotation group</p></td>
+<td><p>Unitary group</p></td>
+</tr>
+<tr class="row-odd"><td><p>Action</p></td>
+<td><p>On real vectors</p></td>
+<td><p>On spinors</p></td>
+</tr>
+<tr class="row-even"><td><p>Matrix size</p></td>
+<td><p><span class="math notranslate nohighlight">\(3 \times 3\)</span> real</p></td>
+<td><p><span class="math notranslate nohighlight">\(2 \times 2\)</span> complex</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lie algebra</p></td>
+<td><p><span class="math notranslate nohighlight">\(\mathfrak{so}(3)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\mathfrak{su}(2)\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Algebraic structure</p></td>
+<td><p>Same (isomorphic)</p></td>
+<td><p>Same (isomorphic)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global structure</p></td>
+<td><p>Simple (no sign ambiguity)</p></td>
+<td><p>Double cover of <span class="math notranslate nohighlight">\(SO(3)\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Physical use</p></td>
+<td><p>Classical rotation</p></td>
+<td><p>Quantum spin-½</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="final-picture">
+<h3>Final Picture<a class="headerlink" href="#final-picture" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Infinitesimally</strong>: <span class="math notranslate nohighlight">\(SU(2)\)</span> and <span class="math notranslate nohighlight">\(SO(3)\)</span> look the same.</p></li>
+<li><p><strong>Globally</strong>: <span class="math notranslate nohighlight">\(SU(2)\)</span> “wraps around” <span class="math notranslate nohighlight">\(SO(3)\)</span> twice.</p></li>
+<li><p>In quantum mechanics, the “double-valued” nature of spinor states makes <span class="math notranslate nohighlight">\(SU(2)\)</span> the right group.</p></li>
+</ul>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="b4-6-4-matrix-representations-and-exponentiation">
+<h2>B4.6.4 Matrix Representations and Exponentiation<a class="headerlink" href="#b4-6-4-matrix-representations-and-exponentiation" title="Link to this heading">#</a></h2>
+<ul>
+<li><p>Finite rotations can be built from the Lie algebra by <strong>exponentiating</strong>:</p>
+<p>For <span class="math notranslate nohighlight">\(SO(3)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+  R(\hat{n}, \theta) = e^{\theta \hat{n} \cdot \vec{J}}
+  \]</div>
+<p>For <span class="math notranslate nohighlight">\(SU(2)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+  U(\hat{n}, \theta) = e^{i \theta \hat{n} \cdot \vec{T}} = \cos\left(\frac{\theta}{2}\right) I + i \sin\left(\frac{\theta}{2}\right) (\hat{n} \cdot \vec{\sigma})
+  \]</div>
+</li>
+<li><p>Note the <strong>factor of ½</strong> in the <span class="math notranslate nohighlight">\(SU(2)\)</span> version — this is why spinors “come back” only after <span class="math notranslate nohighlight">\(4\pi\)</span>.</p></li>
+</ul>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b4-6-5-summary-table">
+<h2>B4.6.5 Summary Table<a class="headerlink" href="#b4-6-5-summary-table" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Quantity</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(SO(3)\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(SU(2)\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Group elements</p></td>
+<td><p><span class="math notranslate nohighlight">\(3\times3\)</span> real orthogonal, <span class="math notranslate nohighlight">\(\det=1\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(2\times2\)</span> unitary, <span class="math notranslate nohighlight">\(\det=1\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Lie algebra</p></td>
+<td><p><span class="math notranslate nohighlight">\(\mathfrak{so}(3)\)</span> (real, antisymmetric)</p></td>
+<td><p><span class="math notranslate nohighlight">\(\mathfrak{su}(2)\)</span> (complex, traceless, anti-Hermitian)</p></td>
+</tr>
+<tr class="row-even"><td><p>Structure constants</p></td>
+<td><p><span class="math notranslate nohighlight">\(\varepsilon_{ijk}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\varepsilon_{ijk}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Covers</p></td>
+<td><p>—</p></td>
+<td><p>Double cover of <span class="math notranslate nohighlight">\(SO(3)\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Key role</p></td>
+<td><p>Classical 3D rotations</p></td>
+<td><p>Quantum spin and angular momentum</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-B4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b4-6-1-the-group-so-3">B4.6.1 The Group SO(3)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lie-algebra-mathfrak-so-3">Lie Algebra <span class="math notranslate nohighlight">\(\mathfrak{so}(3)\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b4-6-2-the-group-su-2">B4.6.2 The Group SU(2)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lie-algebra-mathfrak-su-2">Lie Algebra <span class="math notranslate nohighlight">\(\mathfrak{su}(2)\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b4-6-3-understanding-the-relationship-between-su-2-and-so-3">B4.6.3 Understanding the Relationship Between SU(2) and SO(3)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-we-comparing">What Are We Comparing?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#same-local-structure-isomorphic-lie-algebras">Same Local Structure: Isomorphic Lie Algebras</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#but-not-the-same-globally-su-2-is-a-double-cover-of-so-3">But Not the Same Globally: SU(2) is a Double Cover of SO(3)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-matters-physically">Why This Matters Physically</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#final-picture">Final Picture</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b4-6-4-matrix-representations-and-exponentiation">B4.6.4 Matrix Representations and Exponentiation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b4-6-5-summary-table">B4.6.5 Summary Table</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,909 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>B1.2 Kinetic Energy in Rotational Dynamics &#8212; A Competency Approach to Classical Mechanics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-B1/kinetic-energy';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="B1.3 Euler Angles and Rigid Body Orientation" href="euler-angles.html" />
+    <link rel="prev" title="B1.1 Principal Axes in Rotational Dynamics" href="principal-axes.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-B.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Home"/>
+    <script>document.write(`<img src="../_static/logo-B.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the B Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B1 - Advanced Rotational Dynamics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="principal-axes.html">B1.1 Principal Axes in Rotational Dynamics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">B1.2 Kinetic Energy in Rotational Dynamics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="euler-angles.html">B1.3 Euler Angles and Rigid Body Orientation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="body-space-frames.html">B1.4 Body and Space Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eulers-equations-motion.html">B1.5 Euler’s Equations of Motion for Rigid Bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="euler-angles-equations.html">B1.6 Connecting Euler Angles and Euler’s Equations of Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quaternions.html">B1.7 Beyond Euler Angles: Quaternions, Axis-Angle, and Rotation Vectors for 3D Orientation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tennis-racket.html">B1.8 The Tennis Racket Problem and the Intermediate Axis Theorem</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Module-B1/kinetic-energy.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-B1/kinetic-energy.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>B1.2 Kinetic Energy in Rotational Dynamics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">B1.2 Kinetic Energy in Rotational Dynamics</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-2-1-motivation">B1.2.1 Motivation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-2-2-learning-objectives">B1.2.2 Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-2-3-conceptual-foundation">B1.2.3 Conceptual Foundation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#total-kinetic-energy">Total Kinetic Energy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-2-4-tensor-form-of-kinetic-energy">B1.2.4 Tensor Form of Kinetic Energy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-form-boldsymbol-omega-cdot-mathbf-l">Alternative Form: <span class="math notranslate nohighlight">\( \boldsymbol{\omega} \cdot \mathbf{L} \)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#special-case-principal-axes">Special Case: Principal Axes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-2-5-derivation">B1.2.5 Derivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-2-6-example-diagonal-tensor-with-principal-axes">B1.2.6 Example: Diagonal Tensor with Principal Axes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-example-point-masses">Python Example: Point Masses</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-2-7-summary">B1.2.7 Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detailed-solutions-to-boxes">Detailed Solutions to Boxes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#box-1-rotating-rod">Box 1: Rotating Rod</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#box-2-tensor-form">Box 2: Tensor Form</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#box-3-energy-minimization-and-principal-axes">Box 3: Energy Minimization and Principal Axes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="b1-2-kinetic-energy-in-rotational-dynamics">
+<h1>B1.2 Kinetic Energy in Rotational Dynamics<a class="headerlink" href="#b1-2-kinetic-energy-in-rotational-dynamics" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="b1-2-1-motivation">
+<h1>B1.2.1 Motivation<a class="headerlink" href="#b1-2-1-motivation" title="Link to this heading">#</a></h1>
+<p>Rotational motion is governed not only by torque and angular momentum but also by <strong>kinetic energy</strong>. This lesson explores how to compute and interpret the kinetic energy of rotating rigid bodies using the <strong>moment of inertia tensor</strong> and angular velocity.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="b1-2-2-learning-objectives">
+<h2>B1.2.2 Learning Objectives<a class="headerlink" href="#b1-2-2-learning-objectives" title="Link to this heading">#</a></h2>
+<p>By the end of this lesson, you should be able to:</p>
+<ul class="simple">
+<li><p>Write the general expression for rotational kinetic energy.</p></li>
+<li><p>Interpret the scalar and tensor forms of kinetic energy.</p></li>
+<li><p>Derive kinetic energy using point masses and the inertia tensor.</p></li>
+<li><p>Express kinetic energy in terms of <span class="math notranslate nohighlight">\( \boldsymbol{\omega} \cdot \mathbf{L} \)</span>.</p></li>
+<li><p>Apply the formulas to simple and asymmetric rigid bodies.</p></li>
+<li><p>Use Python to compute rotational kinetic energy for a system of point masses.</p></li>
+</ul>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b1-2-3-conceptual-foundation">
+<h2>B1.2.3 Conceptual Foundation<a class="headerlink" href="#b1-2-3-conceptual-foundation" title="Link to this heading">#</a></h2>
+<section id="total-kinetic-energy">
+<h3>Total Kinetic Energy<a class="headerlink" href="#total-kinetic-energy" title="Link to this heading">#</a></h3>
+<p>For a rigid body undergoing <strong>pure rotation</strong> (no translation), the total kinetic energy is the sum of the kinetic energy of all mass elements:</p>
+<div class="math notranslate nohighlight">
+\[
+T = \frac{1}{2} \sum_i m_i v_i^2
+\]</div>
+<p>Since each point moves in a circle about the axis of rotation, its velocity is related to the angular velocity <span class="math notranslate nohighlight">\( \vec{\omega} \)</span> by:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{v}_i = \vec{\omega} \times \vec{r}_i
+\]</div>
+<p>So,</p>
+<div class="math notranslate nohighlight">
+\[
+T = \frac{1}{2} \sum_i m_i \left\| \vec{\omega} \times \vec{r}_i \right\|^2
+\]</div>
+<p>This leads to a more compact and general form:</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="b1-2-4-tensor-form-of-kinetic-energy">
+<h2>B1.2.4 Tensor Form of Kinetic Energy<a class="headerlink" href="#b1-2-4-tensor-form-of-kinetic-energy" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[
+T = \frac{1}{2} \vec{\omega}^T \mathbf{I} \vec{\omega}
+\]</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( \vec{\omega} \)</span> is the angular velocity vector</p></li>
+<li><p><span class="math notranslate nohighlight">\( \mathbf{I} \)</span> is the <strong>inertia tensor</strong></p></li>
+<li><p><span class="math notranslate nohighlight">\( \vec{\omega}^T \)</span> is the transpose of <span class="math notranslate nohighlight">\( \vec{\omega} \)</span></p></li>
+</ul>
+<section id="alternative-form-boldsymbol-omega-cdot-mathbf-l">
+<h3>Alternative Form: <span class="math notranslate nohighlight">\( \boldsymbol{\omega} \cdot \mathbf{L} \)</span><a class="headerlink" href="#alternative-form-boldsymbol-omega-cdot-mathbf-l" title="Link to this heading">#</a></h3>
+<p>We define angular momentum as:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{L} = \mathbf{I} \vec{\omega}
+\]</div>
+<p>Then kinetic energy becomes:</p>
+<div class="math notranslate nohighlight">
+\[
+T = \frac{1}{2} \vec{\omega} \cdot \vec{L}
+\]</div>
+<p>This form is particularly useful when <span class="math notranslate nohighlight">\( \vec{L} \)</span> is known (e.g., conserved) but the moment of inertia is complex or variable.</p>
+</section>
+<hr class="docutils" />
+<section id="special-case-principal-axes">
+<h3>Special Case: Principal Axes<a class="headerlink" href="#special-case-principal-axes" title="Link to this heading">#</a></h3>
+<p>If rotation is about a <strong>principal axis</strong>, the inertia tensor is diagonal, and the angular velocity aligns with one of the axes. Then:</p>
+<div class="math notranslate nohighlight">
+\[
+T = \frac{1}{2} I_1 \omega_1^2 + \frac{1}{2} I_2 \omega_2^2 + \frac{1}{2} I_3 \omega_3^2
+\]</div>
+<p>Only the component(s) of <span class="math notranslate nohighlight">\( \vec{\omega} \)</span> along the rotation axis contribute.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="b1-2-5-derivation">
+<h2>B1.2.5 Derivation<a class="headerlink" href="#b1-2-5-derivation" title="Link to this heading">#</a></h2>
+<p>Given:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{v}_i = \vec{\omega} \times \vec{r}_i
+\Rightarrow
+\| \vec{v}_i \|^2 = (\vec{\omega} \times \vec{r}_i) \cdot (\vec{\omega} \times \vec{r}_i)
+\]</div>
+<p>Using the identity:</p>
+<div class="math notranslate nohighlight">
+\[
+\| \vec{\omega} \times \vec{r}_i \|^2 = \omega^2 r_i^2 - (\vec{\omega} \cdot \vec{r}_i)^2
+\]</div>
+<p>Substitute into the total kinetic energy:</p>
+<div class="math notranslate nohighlight">
+\[
+T = \frac{1}{2} \sum m_i (\omega^2 r_i^2 - (\vec{\omega} \cdot \vec{r}_i)^2)
+\]</div>
+<p>This expands into the inertia tensor form:</p>
+<div class="math notranslate nohighlight">
+\[
+T = \frac{1}{2} \vec{\omega}^T \mathbf{I} \vec{\omega}
+\]</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b1-2-6-example-diagonal-tensor-with-principal-axes">
+<h2>B1.2.6 Example: Diagonal Tensor with Principal Axes<a class="headerlink" href="#b1-2-6-example-diagonal-tensor-with-principal-axes" title="Link to this heading">#</a></h2>
+<p>Suppose a body rotates about the <span class="math notranslate nohighlight">\( z \)</span>-axis with angular velocity <span class="math notranslate nohighlight">\( \vec{\omega} = (0, 0, \omega) \)</span>, and the inertia tensor is diagonal:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{I} =
+\begin{bmatrix}
+I_{xx} &amp; 0 &amp; 0 \\
+0 &amp; I_{yy} &amp; 0 \\
+0 &amp; 0 &amp; I_{zz}
+\end{bmatrix}
+\end{split}\]</div>
+<p>Then the kinetic energy becomes:</p>
+<div class="math notranslate nohighlight">
+\[
+T = \frac{1}{2} I_{zz} \omega^2
+\]</div>
+<p>This is the classic scalar formula you know from simpler systems.</p>
+<section id="python-example-point-masses">
+<h3>Python Example: Point Masses<a class="headerlink" href="#python-example-point-masses" title="Link to this heading">#</a></h3>
+<p>Let’s compute kinetic energy for a rotating set of point masses:</p>
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_inertia_tensor</span><span class="p">(</span><span class="n">masses</span><span class="p">,</span> <span class="n">positions</span><span class="p">):</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">m</span><span class="p">,</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">masses</span><span class="p">,</span> <span class="n">positions</span><span class="p">):</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+        <span class="n">I</span> <span class="o">+=</span> <span class="n">m</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">r</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">I</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">rotational_kinetic_energy</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="n">omega</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">omega</span><span class="p">,</span> <span class="n">I</span> <span class="o">@</span> <span class="n">omega</span><span class="p">)</span>
+
+<span class="c1"># Masses and positions (e.g. cube corners)</span>
+<span class="n">masses</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">positions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="c1"># Angular velocity vector (e.g. about z-axis)</span>
+<span class="n">omega</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+
+<span class="c1"># Compute inertia tensor and kinetic energy</span>
+<span class="n">I</span> <span class="o">=</span> <span class="n">compute_inertia_tensor</span><span class="p">(</span><span class="n">masses</span><span class="p">,</span> <span class="n">positions</span><span class="p">)</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">rotational_kinetic_energy</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="n">omega</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inertia Tensor:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">I</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rotational Kinetic Energy:&quot;</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Inertia Tensor:
+ [[8. 0. 0.]
+ [0. 8. 0.]
+ [0. 0. 8.]]
+Rotational Kinetic Energy: 16.0
+</pre></div>
+</div>
+</div>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="b1-2-7-summary">
+<h2>B1.2.7 Summary<a class="headerlink" href="#b1-2-7-summary" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Quantity</p></th>
+<th class="head"><p>Expression</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Translational KE</p></td>
+<td><p><span class="math notranslate nohighlight">\( T = \frac{1}{2} M v^2 \)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Rotational KE (scalar)</p></td>
+<td><p><span class="math notranslate nohighlight">\( T = \frac{1}{2} I \omega^2 \)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Rotational KE (tensor)</p></td>
+<td><p><span class="math notranslate nohighlight">\( T = \frac{1}{2} \vec{\omega}^T \mathbf{I} \vec{\omega} \)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Rotational KE (alt. form)</p></td>
+<td><p><span class="math notranslate nohighlight">\( T = \frac{1}{2} \vec{\omega} \cdot \vec{L} \)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Principal axis rotation</p></td>
+<td><p><span class="math notranslate nohighlight">\( T = \frac{1}{2} \sum I_i \omega_i^2 \)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="alert alert-warning">
+<p><strong>Box 1</strong></p>
+<p>A uniform thin rod of length <span class="math notranslate nohighlight">\( L \)</span> and mass <span class="math notranslate nohighlight">\( M \)</span> rotates about one end perpendicular to its length at angular speed <span class="math notranslate nohighlight">\( \omega \)</span>. Find the rotational kinetic energy.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div class="alert alert-warning">
+<p><strong>Box 2</strong></p>
+<p>A rigid body has an inertia tensor:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{I} =
+\begin{bmatrix}
+3 &amp; 0 &amp; 0 \\
+0 &amp; 2 &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+<p>and an angular velocity <span class="math notranslate nohighlight">\( \vec{\omega} = [1, 2, 3] \)</span>. Compute:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\( \vec{L} = \mathbf{I} \vec{\omega} \)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\( T = \frac{1}{2} \vec{\omega} \cdot \vec{L} \)</span></p></li>
+</ol>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div class="alert alert-warning">
+<p><strong>Box 3</strong></p>
+<p>Explain why the kinetic energy is minimized when the angular velocity vector <span class="math notranslate nohighlight">\( \vec{\omega} \)</span> aligns with a principal axis, for a given angular momentum vector <span class="math notranslate nohighlight">\( \vec{L} \)</span>.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="detailed-solutions-to-boxes">
+<h2>Detailed Solutions to Boxes<a class="headerlink" href="#detailed-solutions-to-boxes" title="Link to this heading">#</a></h2>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="box-1-rotating-rod">
+<h3>Box 1: Rotating Rod<a class="headerlink" href="#box-1-rotating-rod" title="Link to this heading">#</a></h3>
+<p>The moment of inertia of a uniform rod about one end is:</p>
+<div class="math notranslate nohighlight">
+\[
+I = \frac{1}{3} M L^2
+\]</div>
+<p>The angular speed is <span class="math notranslate nohighlight">\( \omega \)</span>, so the kinetic energy is:</p>
+<div class="math notranslate nohighlight">
+\[
+T = \frac{1}{2} I \omega^2 = \frac{1}{2} \left( \frac{1}{3} M L^2 \right) \omega^2
+= \frac{1}{6} M L^2 \omega^2
+\]</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="box-2-tensor-form">
+<h3>Box 2: Tensor Form<a class="headerlink" href="#box-2-tensor-form" title="Link to this heading">#</a></h3>
+<p><strong>Solution Part 1</strong>: Angular momentum</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\vec{L} = \mathbf{I} \vec{\omega} =
+\begin{bmatrix}
+3 &amp; 0 &amp; 0 \\
+0 &amp; 2 &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{bmatrix}
+\begin{bmatrix}
+1 \\
+2 \\
+3
+\end{bmatrix}
+=
+\begin{bmatrix}
+3 \cdot 1 \\
+2 \cdot 2 \\
+1 \cdot 3
+\end{bmatrix}
+=
+\begin{bmatrix}
+3 \\
+4 \\
+3
+\end{bmatrix}
+\end{split}\]</div>
+<hr class="docutils" />
+<p><strong>Solution Part 2</strong>: Kinetic energy</p>
+<div class="math notranslate nohighlight">
+\[
+T = \frac{1}{2} \vec{\omega} \cdot \vec{L} =
+\frac{1}{2}
+\left(1 \cdot 3 + 2 \cdot 4 + 3 \cdot 3\right)
+=
+\frac{1}{2}(3 + 8 + 9) = \frac{1}{2}(20) = 10
+\]</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="box-3-energy-minimization-and-principal-axes">
+<h3>Box 3: Energy Minimization and Principal Axes<a class="headerlink" href="#box-3-energy-minimization-and-principal-axes" title="Link to this heading">#</a></h3>
+<p>Given:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( \vec{L} = \mathbf{I} \vec{\omega} \)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\( T = \frac{1}{2} \vec{\omega} \cdot \vec{L} \)</span></p></li>
+</ul>
+<p>Let’s suppose we keep <span class="math notranslate nohighlight">\( \vec{L} \)</span> constant and vary <span class="math notranslate nohighlight">\( \vec{\omega} \)</span>. This corresponds to seeking the orientation of <span class="math notranslate nohighlight">\( \vec{\omega} \)</span> that minimizes <span class="math notranslate nohighlight">\( T \)</span> under the constraint <span class="math notranslate nohighlight">\( \vec{L} = \text{constant} \)</span>.</p>
+<p>We interpret <span class="math notranslate nohighlight">\( T \)</span> as:</p>
+<div class="math notranslate nohighlight">
+\[
+T = \frac{1}{2} \vec{\omega}^T \mathbf{I} \vec{\omega}
+\]</div>
+<p>Subject to:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{L} = \mathbf{I} \vec{\omega} \Rightarrow \vec{\omega} = \mathbf{I}^{-1} \vec{L}
+\]</div>
+<p>Substituting:</p>
+<div class="math notranslate nohighlight">
+\[
+T = \frac{1}{2} \vec{L}^T \mathbf{I}^{-1} \vec{L}
+\]</div>
+<p>So for fixed <span class="math notranslate nohighlight">\( \vec{L} \)</span>, the <strong>kinetic energy is minimized when <span class="math notranslate nohighlight">\( \mathbf{I}^{-1} \)</span> is smallest in the direction of <span class="math notranslate nohighlight">\( \vec{L} \)</span></strong> — that is, when <span class="math notranslate nohighlight">\( \vec{L} \)</span> lies along the eigenvector of <span class="math notranslate nohighlight">\( \mathbf{I} \)</span> with the <strong>largest eigenvalue</strong> (smallest inverse).</p>
+<p>But for a given <span class="math notranslate nohighlight">\( \vec{L} \)</span>, the <strong>smallest <span class="math notranslate nohighlight">\( T \)</span></strong> occurs when <span class="math notranslate nohighlight">\( \vec{\omega} \)</span> is <strong>parallel to</strong> <span class="math notranslate nohighlight">\( \vec{L} \)</span>, which only happens when <span class="math notranslate nohighlight">\( \vec{\omega} \)</span> is aligned with a <strong>principal axis</strong>, since only then is <span class="math notranslate nohighlight">\( \mathbf{I} \vec{\omega} = \lambda \vec{\omega} \)</span>.</p>
+<p><strong>Conclusion</strong>:
+The kinetic energy is minimized for a given angular momentum when the body rotates about a <strong>principal axis</strong>.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-B1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="principal-axes.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">B1.1 Principal Axes in Rotational Dynamics</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="euler-angles.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">B1.3 Euler Angles and Rigid Body Orientation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">B1.2 Kinetic Energy in Rotational Dynamics</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-2-1-motivation">B1.2.1 Motivation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-2-2-learning-objectives">B1.2.2 Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-2-3-conceptual-foundation">B1.2.3 Conceptual Foundation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#total-kinetic-energy">Total Kinetic Energy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-2-4-tensor-form-of-kinetic-energy">B1.2.4 Tensor Form of Kinetic Energy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-form-boldsymbol-omega-cdot-mathbf-l">Alternative Form: <span class="math notranslate nohighlight">\( \boldsymbol{\omega} \cdot \mathbf{L} \)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#special-case-principal-axes">Special Case: Principal Axes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-2-5-derivation">B1.2.5 Derivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-2-6-example-diagonal-tensor-with-principal-axes">B1.2.6 Example: Diagonal Tensor with Principal Axes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-example-point-masses">Python Example: Point Masses</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-2-7-summary">B1.2.7 Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detailed-solutions-to-boxes">Detailed Solutions to Boxes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#box-1-rotating-rod">Box 1: Rotating Rod</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#box-2-tensor-form">Box 2: Tensor Form</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#box-3-energy-minimization-and-principal-axes">Box 3: Energy Minimization and Principal Axes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

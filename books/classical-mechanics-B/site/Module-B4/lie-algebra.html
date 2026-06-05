@@ -1,0 +1,1173 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>B4.5 Lie Algebras: Structure, Motivation, and Physical Applications &#8212; A Competency Approach to Classical Mechanics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-B4/lie-algebra';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-B.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Home"/>
+    <script>document.write(`<img src="../_static/logo-B.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the B Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B1 - Advanced Rotational Dynamics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/principal-axes.html">B1.1 Principal Axes in Rotational Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/kinetic-energy.html">B1.2 Kinetic Energy in Rotational Dynamics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/euler-angles.html">B1.3 Euler Angles and Rigid Body Orientation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/body-space-frames.html">B1.4 Body and Space Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/eulers-equations-motion.html">B1.5 Euler’s Equations of Motion for Rigid Bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/euler-angles-equations.html">B1.6 Connecting Euler Angles and Euler’s Equations of Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/quaternions.html">B1.7 Beyond Euler Angles: Quaternions, Axis-Angle, and Rotation Vectors for 3D Orientation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/tennis-racket.html">B1.8 The Tennis Racket Problem and the Intermediate Axis Theorem</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Module-B4/lie-algebra.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-B4/lie-algebra.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>B4.5 Lie Algebras: Structure, Motivation, and Physical Applications</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b4-5-1-motivation-and-background">B4.5.1 Motivation and Background</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b4-5-2-what-is-a-lie-algebra">B4.5.2 What Is a Lie Algebra?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b4-5-3-example">B4.5.3 Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-1-bilinearity-of-the-lie-bracket">Check 1: Bilinearity of the Lie Bracket</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#first-argument-linearity-in-the-first-slot">➤ First Argument: Linearity in the First Slot</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#second-argument-linearity-in-the-second-slot">➤ Second Argument: Linearity in the Second Slot</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">✅ Conclusion</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-2-antisymmetry">Check 2: Antisymmetry</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-3-jacobi-identity">Check 3: Jacobi Identity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b4-5-4-the-commutator-as-a-lie-bracket-on-operators">B4.5.4 The Commutator as a Lie Bracket on Operators</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#commutator-as-a-lie-bracket">Commutator as a Lie Bracket</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bilinearity">1. Bilinearity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#antisymmetry">2. Antisymmetry</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jacobi-identity-idea">3. Jacobi Identity (Idea)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-matters-in-physics">Why This Matters in Physics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-2-times-2-example">Simple <span class="math notranslate nohighlight">\(2\times 2\)</span> Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bridge-to-mathfrak-so-3-and-angular-momentum">Bridge to <span class="math notranslate nohighlight">\(\mathfrak{so}(3)\)</span> and Angular Momentum</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b4-5-5-physical-example-rotations-in-3d-and-the-lie-algebra-mathfrak-so-3">B4.5.5 Physical Example: Rotations in 3D and the Lie Algebra <span class="math notranslate nohighlight">\(\mathfrak{so}(3)\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-lie-group-so-3">The Lie Group <span class="math notranslate nohighlight">\(SO(3)\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infinitesimal-rotations-and-the-lie-algebra-mathfrak-so-3">Infinitesimal Rotations and the Lie Algebra <span class="math notranslate nohighlight">\(\mathfrak{so}(3)\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-lie-algebra-mathfrak-so-3">The Lie Algebra <span class="math notranslate nohighlight">\(\mathfrak{so}(3)\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-meaning">Physical Meaning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-classical-to-quantum">From Classical to Quantum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">✅ Summary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b4-5-6-general-structure-constants-in-a-lie-algebra">B4.5.6 General Structure Constants in a Lie Algebra</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basis-for-a-lie-algebra">Basis for a Lie Algebra</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-structure-constants">Properties of Structure Constants</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-mathfrak-so-3">Example: <span class="math notranslate nohighlight">\(\mathfrak{so}(3)\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Physical Meaning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Summary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b4-5-7-classical-mechanics-application-poisson-brackets">B4.5.7 Classical Mechanics Application: Poisson Brackets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b4-5-8-summary-and-outlook">B4.5.8 Summary and Outlook</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="b4-5-lie-algebras-structure-motivation-and-physical-applications">
+<h1>B4.5 Lie Algebras: Structure, Motivation, and Physical Applications<a class="headerlink" href="#b4-5-lie-algebras-structure-motivation-and-physical-applications" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="b4-5-1-motivation-and-background">
+<h2>B4.5.1 Motivation and Background<a class="headerlink" href="#b4-5-1-motivation-and-background" title="Link to this heading">#</a></h2>
+<p>In the previous module, we learned how <strong>continuous symmetries</strong> of the action give rise to <strong>conserved quantities</strong> via Noether’s theorem.</p>
+<p>These symmetries are often represented by <strong>Lie groups</strong> — continuous groups parameterized by real variables (e.g., rotations, translations, boosts).</p>
+<p>However, <strong>to study the local structure of a Lie group</strong>, especially near the identity, we introduce the concept of a <strong>Lie algebra</strong>.</p>
+<p>This algebraic structure captures how infinitesimal transformations behave and combine.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b4-5-2-what-is-a-lie-algebra">
+<h2>B4.5.2 What Is a Lie Algebra?<a class="headerlink" href="#b4-5-2-what-is-a-lie-algebra" title="Link to this heading">#</a></h2>
+<p>A <strong>Lie algebra</strong> is a vector space <span class="math notranslate nohighlight">\(\mathfrak{g}\)</span> over <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> or <span class="math notranslate nohighlight">\(\mathbb{C}\)</span> equipped with a bilinear operation:</p>
+<div class="math notranslate nohighlight">
+\[
+[ \cdot , \cdot ] : \mathfrak{g} \times \mathfrak{g} \to \mathfrak{g}
+\]</div>
+<p>called the <strong>Lie bracket</strong>, satisfying:</p>
+<ol class="arabic">
+<li><p><strong>Bilinearity:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+   [aX + bY, Z] = a[X, Z] + b[Y, Z] \quad \text{and similarly in second argument}
+   \]</div>
+</li>
+<li><p><strong>Antisymmetry:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+   [X, Y] = -[Y, X]
+   \]</div>
+</li>
+<li><p><strong>Jacobi identity:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+   [X, [Y, Z]] + [Y, [Z, X]] + [Z, [X, Y]] = 0
+   \]</div>
+</li>
+</ol>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b4-5-3-example">
+<h2>B4.5.3 Example<a class="headerlink" href="#b4-5-3-example" title="Link to this heading">#</a></h2>
+<div style="background-color: #D0D0D0 ; padding: 10px; border: 1px solid black;"> 
+<p><strong><span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> as a Lie Algebra</strong></p>
+<p>Let’s define a Lie algebra on the vector space <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> — that is, on ordinary 2D vectors:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\vec{v} = \begin{pmatrix} x \\ y \end{pmatrix}
+\end{split}\]</div>
+<p>We define a <strong>Lie bracket</strong> between two vectors <span class="math notranslate nohighlight">\(\vec{v}_1 = (x_1, y_1)\)</span> and <span class="math notranslate nohighlight">\(\vec{v}_2 = (x_2, y_2)\)</span> as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+[\vec{v}_1, \vec{v}_2] = \begin{pmatrix} 0 \\ x_1 y_2 - x_2 y_1 \end{pmatrix}
+\end{split}\]</div>
+<p>This is a <strong>custom rule</strong> — not matrix multiplication, not cross product — but we will check that it satisfies the three Lie algebra properties.</p>
+<hr class="docutils" />
+<section id="check-1-bilinearity-of-the-lie-bracket">
+<h3>Check 1: Bilinearity of the Lie Bracket<a class="headerlink" href="#check-1-bilinearity-of-the-lie-bracket" title="Link to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(\vec{u} = \begin{pmatrix} u_1 \\ u_2 \end{pmatrix}\)</span>, <span class="math notranslate nohighlight">\(\vec{v} = \begin{pmatrix} v_1 \\ v_2 \end{pmatrix}\)</span>, <span class="math notranslate nohighlight">\(\vec{w} = \begin{pmatrix} w_1 \\ w_2 \end{pmatrix}\)</span>, and <span class="math notranslate nohighlight">\(a, b \in \mathbb{R}\)</span>.</p>
+<p>We defined the bracket as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+[\vec{x}, \vec{y}] = 
+\begin{pmatrix} 
+0 \\ x_1 y_2 - x_2 y_1 
+\end{pmatrix}
+\end{split}\]</div>
+<hr class="docutils" />
+<section id="first-argument-linearity-in-the-first-slot">
+<h4>➤ First Argument: Linearity in the First Slot<a class="headerlink" href="#first-argument-linearity-in-the-first-slot" title="Link to this heading">#</a></h4>
+<p>We want to verify:</p>
+<div class="math notranslate nohighlight">
+\[
+[a\vec{u} + b\vec{v}, \vec{w}] = a[\vec{u}, \vec{w}] + b[\vec{v}, \vec{w}]
+\]</div>
+<p>Compute the left-hand side:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+[a\vec{u} + b\vec{v}, \vec{w}] 
+&amp;= \left[
+\begin{pmatrix} a u_1 + b v_1 \\ a u_2 + b v_2 \end{pmatrix},
+\begin{pmatrix} w_1 \\ w_2 \end{pmatrix}
+\right] \\
+&amp;= \begin{pmatrix} 
+0 \\
+(a u_1 + b v_1) w_2 - w_1 (a u_2 + b v_2)
+\end{pmatrix} \\
+&amp;= \begin{pmatrix}
+0 \\
+a(u_1 w_2 - u_2 w_1) + b(v_1 w_2 - v_2 w_1)
+\end{pmatrix} \\
+&amp;= a[\vec{u}, \vec{w}] + b[\vec{v}, \vec{w}]
+\end{align*}
+\end{split}\]</div>
+<p>So the bracket is linear in the first argument.</p>
+</section>
+<hr class="docutils" />
+<section id="second-argument-linearity-in-the-second-slot">
+<h4>➤ Second Argument: Linearity in the Second Slot<a class="headerlink" href="#second-argument-linearity-in-the-second-slot" title="Link to this heading">#</a></h4>
+<p>We want to verify:</p>
+<div class="math notranslate nohighlight">
+\[
+[\vec{w}, a\vec{u} + b\vec{v}] = a[\vec{w}, \vec{u}] + b[\vec{w}, \vec{v}]
+\]</div>
+<p>Compute the left-hand side:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+[\vec{w}, a\vec{u} + b\vec{v}] 
+&amp;= \left[
+\begin{pmatrix} w_1 \\ w_2 \end{pmatrix},
+\begin{pmatrix} a u_1 + b v_1 \\ a u_2 + b v_2 \end{pmatrix}
+\right] \\
+&amp;= \begin{pmatrix}
+0 \\
+w_1 (a u_2 + b v_2) - (a u_1 + b v_1) w_2
+\end{pmatrix} \\
+&amp;= \begin{pmatrix}
+0 \\
+a(w_1 u_2 - u_1 w_2) + b(w_1 v_2 - v_1 w_2)
+\end{pmatrix} \\
+&amp;= a[\vec{w}, \vec{u}] + b[\vec{w}, \vec{v}]
+\end{align*}
+\end{split}\]</div>
+<p>So the bracket is linear in the second argument as well.</p>
+</section>
+<hr class="docutils" />
+<section id="conclusion">
+<h4>✅ Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h4>
+<p>The bracket</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+[\vec{v}_1, \vec{v}_2] = 
+\begin{pmatrix} 0 \\ x_1 y_2 - x_2 y_1 \end{pmatrix}
+\end{split}\]</div>
+<p>is <strong>bilinear in both arguments</strong>, satisfying the first required property of a Lie bracket.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="check-2-antisymmetry">
+<h3>Check 2: Antisymmetry<a class="headerlink" href="#check-2-antisymmetry" title="Link to this heading">#</a></h3>
+<p>Swap the inputs:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+[\vec{v}_2, \vec{v}_1] = \begin{pmatrix} 0 \\ x_2 y_1 - x_1 y_2 \end{pmatrix} = -[\vec{v}_1, \vec{v}_2]
+\end{split}\]</div>
+<p>So it is antisymmetric ✅.</p>
+</section>
+<hr class="docutils" />
+<section id="check-3-jacobi-identity">
+<h3>Check 3: Jacobi Identity<a class="headerlink" href="#check-3-jacobi-identity" title="Link to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(\vec{v}_1 = (x_1, y_1), \vec{v}_2 = (x_2, y_2), \vec{v}_3 = (x_3, y_3)\)</span>.</p>
+<p>Compute:</p>
+<div class="math notranslate nohighlight">
+\[
+[\vec{v}_1, [\vec{v}_2, \vec{v}_3]] + [\vec{v}_2, [\vec{v}_3, \vec{v}_1]] + [\vec{v}_3, [\vec{v}_1, \vec{v}_2]]
+\]</div>
+<p>Each of these is of the form <span class="math notranslate nohighlight">\(\begin{pmatrix} 0 \\ \cdot \end{pmatrix}\)</span>, and when you compute the full sum, the second components cancel out.</p>
+<p>✅ The Jacobi identity holds!</p>
+</section>
+<hr class="docutils" />
+<section id="interpretation">
+<h3>Interpretation<a class="headerlink" href="#interpretation" title="Link to this heading">#</a></h3>
+<p>This is a Lie algebra where:</p>
+<ul class="simple">
+<li><p>The “bracket” operation is just a custom rule on pairs of 2D vectors.</p></li>
+<li><p>The result always lies along the <span class="math notranslate nohighlight">\(y\)</span>-axis.</p></li>
+<li><p>The output depends on the <strong>signed area</strong> of the parallelogram formed by the vectors — it’s proportional to <span class="math notranslate nohighlight">\(x_1 y_2 - x_2 y_1\)</span>.</p></li>
+</ul>
+<p>We should understand:</p>
+<ul class="simple">
+<li><p>The Lie bracket is <strong>defined</strong>, not assumed.</p></li>
+<li><p>The structure is in the <strong>rules</strong>, not the objects.</p></li>
+</ul>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="b4-5-4-the-commutator-as-a-lie-bracket-on-operators">
+<h2>B4.5.4 The Commutator as a Lie Bracket on Operators<a class="headerlink" href="#b4-5-4-the-commutator-as-a-lie-bracket-on-operators" title="Link to this heading">#</a></h2>
+<p>Up to now, we have treated the <strong>Lie bracket</strong> <span class="math notranslate nohighlight">\([X,Y]\)</span> as an abstract operation that merely satisfies three axioms.</p>
+<p>In physics, however, Lie algebras are most often realized by <strong>linear operators</strong> (or matrices).<br />
+In that setting, the natural Lie bracket is the <strong>commutator</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+[A,B] \equiv AB - BA.
+\]</div>
+<p>This commutator turns the space of linear operators into a Lie algebra.</p>
+<hr class="docutils" />
+<section id="commutator-as-a-lie-bracket">
+<h3>Commutator as a Lie Bracket<a class="headerlink" href="#commutator-as-a-lie-bracket" title="Link to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(\mathcal{L}(V)\)</span> be the vector space of all linear maps <span class="math notranslate nohighlight">\(A : V \to V\)</span>.<br />
+Define the bracket:</p>
+<div class="math notranslate nohighlight">
+\[
+[A,B] = AB - BA.
+\]</div>
+<p>We now verify that this satisfies the three Lie algebra axioms.</p>
+</section>
+<hr class="docutils" />
+<section id="bilinearity">
+<h3>1. Bilinearity<a class="headerlink" href="#bilinearity" title="Link to this heading">#</a></h3>
+<p>For scalars <span class="math notranslate nohighlight">\(a,b\)</span> and operators <span class="math notranslate nohighlight">\(A,B,C\)</span>:</p>
+<ul class="simple">
+<li><p><strong>First slot:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+[aA + bB,\, C] = (aA + bB)C - C(aA + bB)
+= a(AC - CA) + b(BC - CB)
+= a[A,C] + b[B,C].
+\]</div>
+<ul class="simple">
+<li><p><strong>Second slot:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+[A,\, aB + bC] = A(aB + bC) - (aB + bC)A
+= a(AB - BA) + b(AC - CA)
+= a[A,B] + b[A,C].
+\]</div>
+<p>Thus the commutator is bilinear.</p>
+</section>
+<hr class="docutils" />
+<section id="antisymmetry">
+<h3>2. Antisymmetry<a class="headerlink" href="#antisymmetry" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+[B,A] = BA - AB = - (AB - BA) = -[A,B].
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="jacobi-identity-idea">
+<h3>3. Jacobi Identity (Idea)<a class="headerlink" href="#jacobi-identity-idea" title="Link to this heading">#</a></h3>
+<p>The Jacobi identity requires:</p>
+<div class="math notranslate nohighlight">
+\[
+[A,[B,C]] + [B,[C,A]] + [C,[A,B]] = 0.
+\]</div>
+<p>Expanding each bracket as a difference of products shows that every term cancels pairwise.<br />
+Thus the commutator obeys the Jacobi identity.</p>
+<p>Therefore, the commutator is a <strong>valid Lie bracket</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="why-this-matters-in-physics">
+<h3>Why This Matters in Physics<a class="headerlink" href="#why-this-matters-in-physics" title="Link to this heading">#</a></h3>
+<p>Many Lie algebras you encounter arise from operators:</p>
+<ul>
+<li><p><strong>Classical rotations:</strong></p>
+<div class="math notranslate nohighlight">
+\[[J_i, J_j] = J_i J_j - J_j J_i.\]</div>
+</li>
+<li><p><strong>Quantum observables:</strong></p>
+<div class="math notranslate nohighlight">
+\[[\hat{A},\hat{B}] = \hat{A}\hat{B} - \hat{B}\hat{A}.\]</div>
+</li>
+</ul>
+<p>In these settings, the Lie bracket <em>is</em> the commutator.</p>
+</section>
+<hr class="docutils" />
+<section id="simple-2-times-2-example">
+<h3>Simple <span class="math notranslate nohighlight">\(2\times 2\)</span> Example<a class="headerlink" href="#simple-2-times-2-example" title="Link to this heading">#</a></h3>
+<p>Let</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A =
+\begin{pmatrix}
+0 &amp; 1 \\
+0 &amp; 0
+\end{pmatrix},
+\qquad
+B =
+\begin{pmatrix}
+0 &amp; 0 \\
+1 &amp; 0
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Compute:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+AB =
+\begin{pmatrix}
+1 &amp; 0 \\
+0 &amp; 0
+\end{pmatrix},
+\qquad
+BA =
+\begin{pmatrix}
+0 &amp; 0 \\
+0 &amp; 1
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+[A,B] = AB - BA =
+\begin{pmatrix}
+1 &amp; 0 \\
+0 &amp; -1
+\end{pmatrix}.
+\end{split}\]</div>
+<p>This shows:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> do <strong>not</strong> commute.</p></li>
+<li><p>The commutator <span class="math notranslate nohighlight">\([A,B]\)</span> is another operator in the same space.</p></li>
+<li><p>The set of matrices is <strong>closed</strong> under the commutator.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="bridge-to-mathfrak-so-3-and-angular-momentum">
+<h3>Bridge to <span class="math notranslate nohighlight">\(\mathfrak{so}(3)\)</span> and Angular Momentum<a class="headerlink" href="#bridge-to-mathfrak-so-3-and-angular-momentum" title="Link to this heading">#</a></h3>
+<p>In the next section, we apply this to infinitesimal rotation generators <span class="math notranslate nohighlight">\(J_x, J_y, J_z\)</span>, with:</p>
+<div class="math notranslate nohighlight">
+\[
+[J_i, J_j] = \varepsilon_{ijk} J_k.
+\]</div>
+<p>Here the Lie bracket is <strong>exactly</strong> the matrix commutator. This connects the abstract axioms of Lie algebras with physically meaningful symmetry generators.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="b4-5-5-physical-example-rotations-in-3d-and-the-lie-algebra-mathfrak-so-3">
+<h2>B4.5.5 Physical Example: Rotations in 3D and the Lie Algebra <span class="math notranslate nohighlight">\(\mathfrak{so}(3)\)</span><a class="headerlink" href="#b4-5-5-physical-example-rotations-in-3d-and-the-lie-algebra-mathfrak-so-3" title="Link to this heading">#</a></h2>
+<p>Let’s explore a very important and physically motivated Lie algebra: <strong>rotations in 3D space</strong>.</p>
+<hr class="docutils" />
+<section id="the-lie-group-so-3">
+<h3>The Lie Group <span class="math notranslate nohighlight">\(SO(3)\)</span><a class="headerlink" href="#the-lie-group-so-3" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>The group <span class="math notranslate nohighlight">\(SO(3)\)</span> consists of all <strong>real <span class="math notranslate nohighlight">\(3 \times 3\)</span> orthogonal matrices with determinant 1</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+  R^T R = I, \quad \det(R) = 1
+  \]</div>
+</li>
+<li><p>These represent <strong>proper rotations</strong> of vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> that preserve length and orientation.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\vec{v}\)</span> is a position vector in 3D, then applying a rotation <span class="math notranslate nohighlight">\(R \in SO(3)\)</span> transforms it as:</p>
+<div class="math notranslate nohighlight">
+\[
+  \vec{v} \to R \vec{v}
+  \]</div>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="infinitesimal-rotations-and-the-lie-algebra-mathfrak-so-3">
+<h3>Infinitesimal Rotations and the Lie Algebra <span class="math notranslate nohighlight">\(\mathfrak{so}(3)\)</span><a class="headerlink" href="#infinitesimal-rotations-and-the-lie-algebra-mathfrak-so-3" title="Link to this heading">#</a></h3>
+<p>We now look <strong>very close to the identity</strong> matrix and consider infinitesimal rotations:</p>
+<div class="math notranslate nohighlight">
+\[
+R(\boldsymbol{\theta}) \approx I + \varepsilon A
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\varepsilon \ll 1\)</span> and <span class="math notranslate nohighlight">\(A\)</span> is a real <span class="math notranslate nohighlight">\(3 \times 3\)</span> matrix.</p>
+<p>To stay within <span class="math notranslate nohighlight">\(SO(3)\)</span>, <span class="math notranslate nohighlight">\(R\)</span> must satisfy:</p>
+<div class="math notranslate nohighlight">
+\[
+R^T R = I \quad \Rightarrow \quad (I + \varepsilon A)^T (I + \varepsilon A) = I + \varepsilon (A + A^T) + \mathcal{O}(\varepsilon^2)
+\]</div>
+<p>So we must have:</p>
+<div class="math notranslate nohighlight">
+\[
+A^T = -A
+\]</div>
+<p>That is, <span class="math notranslate nohighlight">\(A\)</span> must be <strong>antisymmetric</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="the-lie-algebra-mathfrak-so-3">
+<h3>The Lie Algebra <span class="math notranslate nohighlight">\(\mathfrak{so}(3)\)</span><a class="headerlink" href="#the-lie-algebra-mathfrak-so-3" title="Link to this heading">#</a></h3>
+<p>So the <strong>Lie algebra <span class="math notranslate nohighlight">\(\mathfrak{so}(3)\)</span></strong> consists of all real <span class="math notranslate nohighlight">\(3 \times 3\)</span> <strong>antisymmetric</strong> matrices.</p>
+<p>A general element looks like:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+X = 
+\begin{pmatrix}
+0 &amp; -\theta_3 &amp; \theta_2 \\
+\theta_3 &amp; 0 &amp; -\theta_1 \\
+-\theta_2 &amp; \theta_1 &amp; 0
+\end{pmatrix}
+\end{split}\]</div>
+<p>where the components <span class="math notranslate nohighlight">\(\theta_1, \theta_2, \theta_3\)</span> represent the <strong>infinitesimal rotation angles</strong> around the <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span> axes, respectively.</p>
+<p>We define the <strong>basis generators</strong> of <span class="math notranslate nohighlight">\(\mathfrak{so}(3)\)</span> as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+J_x &amp;= 
+\begin{pmatrix}
+0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; -1 \\
+0 &amp; 1 &amp; 0
+\end{pmatrix}, \quad
+J_y = 
+\begin{pmatrix}
+0 &amp; 0 &amp; 1 \\
+0 &amp; 0 &amp; 0 \\
+-1 &amp; 0 &amp; 0
+\end{pmatrix}, \quad
+J_z = 
+\begin{pmatrix}
+0 &amp; -1 &amp; 0 \\
+1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0
+\end{pmatrix}
+\end{align*}
+\end{split}\]</div>
+<p>These satisfy the commutation relations:</p>
+<div class="math notranslate nohighlight">
+\[
+[J_x, J_y] = J_z, \quad [J_y, J_z] = J_x, \quad [J_z, J_x] = J_y
+\]</div>
+<p>Or more generally:</p>
+<div class="math notranslate nohighlight">
+\[
+[J_i, J_j] = \varepsilon_{ijk} J_k
+\]</div>
+<p>These are the <strong>structure constants</strong> of the algebra <span class="math notranslate nohighlight">\(\mathfrak{so}(3)\)</span>.</p>
+</section>
+<hr class="docutils" />
+<section id="physical-meaning">
+<h3>Physical Meaning<a class="headerlink" href="#physical-meaning" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>The <span class="math notranslate nohighlight">\(J_i\)</span> matrices <strong>generate infinitesimal rotations</strong> about the coordinate axes.</p></li>
+<li><p>A finite rotation about axis <span class="math notranslate nohighlight">\(\hat{n}\)</span> by angle <span class="math notranslate nohighlight">\(\theta\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[
+  R(\theta \hat{n}) = e^{\theta (n_1 J_x + n_2 J_y + n_3 J_z)}
+  \]</div>
+</li>
+<li><p>The Lie algebra encodes the <strong>local, infinitesimal behavior</strong>, and the Lie group is built by exponentiating these generators.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="from-classical-to-quantum">
+<h3>From Classical to Quantum<a class="headerlink" href="#from-classical-to-quantum" title="Link to this heading">#</a></h3>
+<p>In <strong>quantum mechanics</strong>, the same commutation relations reappear:</p>
+<div class="math notranslate nohighlight">
+\[
+[L_i, L_j] = i\hbar \varepsilon_{ijk} L_k
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(L_i\)</span> are angular momentum operators.</p>
+<p>This shows that <span class="math notranslate nohighlight">\(\mathfrak{so}(3)\)</span> is deeply connected to the quantum theory of angular momentum.</p>
+<p>Later, we will see how <strong><span class="math notranslate nohighlight">\(\mathfrak{su}(2)\)</span></strong>, which has the same Lie algebra structure, plays an even more fundamental role due to its richer representation theory (e.g., spin-½ particles).</p>
+</section>
+<hr class="docutils" />
+<section id="summary">
+<h3>✅ Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>The group <span class="math notranslate nohighlight">\(SO(3)\)</span> describes finite 3D rotations.</p></li>
+<li><p>Its Lie algebra <span class="math notranslate nohighlight">\(\mathfrak{so}(3)\)</span> consists of <strong>antisymmetric <span class="math notranslate nohighlight">\(3 \times 3\)</span> matrices</strong>.</p></li>
+<li><p>The generators <span class="math notranslate nohighlight">\(J_x, J_y, J_z\)</span> satisfy the Lie bracket:</p>
+<div class="math notranslate nohighlight">
+\[
+  [J_i, J_j] = \varepsilon_{ijk} J_k
+  \]</div>
+</li>
+<li><p>These same commutation rules govern <strong>angular momentum</strong> in classical and quantum mechanics.</p></li>
+</ul>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="b4-5-6-general-structure-constants-in-a-lie-algebra">
+<h2>B4.5.6 General Structure Constants in a Lie Algebra<a class="headerlink" href="#b4-5-6-general-structure-constants-in-a-lie-algebra" title="Link to this heading">#</a></h2>
+<p>A <strong>Lie algebra</strong> is not just a vector space with a bracket — it has an internal structure defined by how its elements “interact” via the Lie bracket.</p>
+<p>To understand this structure more clearly, we introduce the concept of <strong>structure constants</strong>.</p>
+<hr class="docutils" />
+<section id="basis-for-a-lie-algebra">
+<h3>Basis for a Lie Algebra<a class="headerlink" href="#basis-for-a-lie-algebra" title="Link to this heading">#</a></h3>
+<p>Suppose a Lie algebra <span class="math notranslate nohighlight">\(\mathfrak{g}\)</span> has a <strong>finite dimension</strong> <span class="math notranslate nohighlight">\(n\)</span>, and let <span class="math notranslate nohighlight">\(\{T_1, T_2, \dots, T_n\}\)</span> be a basis for <span class="math notranslate nohighlight">\(\mathfrak{g}\)</span>.</p>
+<p>Any element <span class="math notranslate nohighlight">\(X \in \mathfrak{g}\)</span> can be written as a linear combination:</p>
+<div class="math notranslate nohighlight">
+\[
+X = \sum_{a=1}^n x^a T_a
+\]</div>
+<p>To understand the bracket <span class="math notranslate nohighlight">\([X, Y]\)</span>, we only need to know the brackets between the <strong>basis elements</strong> <span class="math notranslate nohighlight">\(T_a\)</span>.</p>
+<p>We define:</p>
+<div class="math notranslate nohighlight">
+\[
+[T_a, T_b] = \sum_{c=1}^n f_{abc} T_c
+\]</div>
+<p>The real (or complex) numbers <span class="math notranslate nohighlight">\(f_{abc}\)</span> are called the <strong>structure constants</strong> of the Lie algebra.</p>
+<p>They encode <strong>everything</strong> about the bracket structure.</p>
+</section>
+<hr class="docutils" />
+<section id="properties-of-structure-constants">
+<h3>Properties of Structure Constants<a class="headerlink" href="#properties-of-structure-constants" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Antisymmetry</strong> in the first two indices:
+$<span class="math notranslate nohighlight">\(
+f_{abc} = -f_{bac}
+\)</span>$</p></li>
+<li><p><strong>Jacobi identity</strong> imposes algebraic constraints:
+$<span class="math notranslate nohighlight">\(
+\sum_d \left( f_{abd} f_{dce} + f_{bcd} f_{dae} + f_{cad} f_{dbe} \right) = 0
+\)</span>$</p></li>
+</ul>
+<p>These are not random constants — they are <strong>tightly constrained</strong> by the Lie algebra axioms.</p>
+</section>
+<hr class="docutils" />
+<section id="example-mathfrak-so-3">
+<h3>Example: <span class="math notranslate nohighlight">\(\mathfrak{so}(3)\)</span><a class="headerlink" href="#example-mathfrak-so-3" title="Link to this heading">#</a></h3>
+<p>The Lie algebra <span class="math notranslate nohighlight">\(\mathfrak{so}(3)\)</span> has generators <span class="math notranslate nohighlight">\(J_1, J_2, J_3\)</span> (or <span class="math notranslate nohighlight">\(J_x, J_y, J_z\)</span>), and the commutators:</p>
+<div class="math notranslate nohighlight">
+\[
+[J_i, J_j] = \varepsilon_{ijk} J_k
+\]</div>
+<p>This means the <strong>structure constants</strong> are:</p>
+<div class="math notranslate nohighlight">
+\[
+f_{ijk} = \varepsilon_{ijk}
+\]</div>
+<p>The Levi-Civita symbol <span class="math notranslate nohighlight">\(\varepsilon_{ijk}\)</span> is totally antisymmetric and defined by:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\varepsilon_{123} = 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\varepsilon_{ijk} = -\varepsilon_{jik}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\varepsilon_{ijk} = 0\)</span> if any two indices are equal</p></li>
+</ul>
+<p>Thus, for example:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\([J_1, J_2] = J_3 \Rightarrow f_{123} = 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\([J_2, J_1] = -J_3 \Rightarrow f_{213} = -1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\([J_1, J_1] = 0 \Rightarrow f_{11c} = 0\)</span></p></li>
+</ul>
+<p>The <strong>entire structure of <span class="math notranslate nohighlight">\(\mathfrak{so}(3)\)</span></strong> is captured by these constants.</p>
+</section>
+<hr class="docutils" />
+<section id="id1">
+<h3>Physical Meaning<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>In physics:</p>
+<ul class="simple">
+<li><p>The <strong>generators</strong> <span class="math notranslate nohighlight">\(T_a\)</span> represent <strong>infinitesimal symmetries</strong> (e.g., rotations, translations).</p></li>
+<li><p>The <strong>structure constants</strong> tell you how these generators <strong>combine and interact</strong>.</p></li>
+</ul>
+<p>In quantum mechanics, the structure constants determine how observables like angular momentum or isospin obey specific commutation relations.</p>
+</section>
+<hr class="docutils" />
+<section id="id2">
+<h3>Summary<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>A Lie algebra <span class="math notranslate nohighlight">\(\mathfrak{g}\)</span> has a basis <span class="math notranslate nohighlight">\(\{T_a\}\)</span> and structure constants <span class="math notranslate nohighlight">\(f_{abc}\)</span> defined by:
+$<span class="math notranslate nohighlight">\(
+[T_a, T_b] = f_{abc} T_c
+\)</span>$</p></li>
+<li><p>These constants obey:</p>
+<ul>
+<li><p>Antisymmetry: <span class="math notranslate nohighlight">\(f_{abc} = -f_{bac}\)</span></p></li>
+<li><p>Jacobi identity constraints</p></li>
+</ul>
+</li>
+<li><p>In <span class="math notranslate nohighlight">\(\mathfrak{so}(3)\)</span>, the structure constants are <span class="math notranslate nohighlight">\(\varepsilon_{ijk}\)</span>, encoding the geometry of 3D space.</p></li>
+</ul>
+<p>➡️ Next: We apply these ideas to <span class="math notranslate nohighlight">\(\mathfrak{su}(2)\)</span>, which shares the same structure constants but has different matrix representations and richer representation theory.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="b4-5-7-classical-mechanics-application-poisson-brackets">
+<h2>B4.5.7 Classical Mechanics Application: Poisson Brackets<a class="headerlink" href="#b4-5-7-classical-mechanics-application-poisson-brackets" title="Link to this heading">#</a></h2>
+<p>In classical mechanics, the Poisson bracket plays the role of the Lie bracket.</p>
+<p>For example, angular momentum components <span class="math notranslate nohighlight">\(L_x, L_y, L_z\)</span> satisfy:</p>
+<div class="math notranslate nohighlight">
+\[
+\{L_x, L_y\} = L_z \quad \text{(cyclic)}
+\]</div>
+<p>The <strong>Poisson bracket algebra</strong> of observables can be a <strong>classical Lie algebra</strong>, with the bracket <span class="math notranslate nohighlight">\(\{f, g\}\)</span> instead of the commutator.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b4-5-8-summary-and-outlook">
+<h2>B4.5.8 Summary and Outlook<a class="headerlink" href="#b4-5-8-summary-and-outlook" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Lie algebras describe <strong>infinitesimal symmetries</strong> and underlie much of physics, from classical mechanics to quantum field theory.</p></li>
+<li><p>We introduced the Lie algebra axioms and saw their role in <strong><span class="math notranslate nohighlight">\(SO(3)\)</span> rotations</strong> and <strong>angular momentum</strong>.</p></li>
+<li><p>Next, we’ll explore specific Lie algebras:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(\mathfrak{so}(3)\)</span> and <span class="math notranslate nohighlight">\(\mathfrak{su}(2)\)</span></p></li>
+<li><p>Representations and ladder operators</p></li>
+<li><p>The role of Lie groups in quantum state spaces</p></li>
+</ul>
+</li>
+</ul>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-B4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b4-5-1-motivation-and-background">B4.5.1 Motivation and Background</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b4-5-2-what-is-a-lie-algebra">B4.5.2 What Is a Lie Algebra?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b4-5-3-example">B4.5.3 Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-1-bilinearity-of-the-lie-bracket">Check 1: Bilinearity of the Lie Bracket</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#first-argument-linearity-in-the-first-slot">➤ First Argument: Linearity in the First Slot</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#second-argument-linearity-in-the-second-slot">➤ Second Argument: Linearity in the Second Slot</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">✅ Conclusion</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-2-antisymmetry">Check 2: Antisymmetry</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-3-jacobi-identity">Check 3: Jacobi Identity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b4-5-4-the-commutator-as-a-lie-bracket-on-operators">B4.5.4 The Commutator as a Lie Bracket on Operators</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#commutator-as-a-lie-bracket">Commutator as a Lie Bracket</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bilinearity">1. Bilinearity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#antisymmetry">2. Antisymmetry</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jacobi-identity-idea">3. Jacobi Identity (Idea)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-matters-in-physics">Why This Matters in Physics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-2-times-2-example">Simple <span class="math notranslate nohighlight">\(2\times 2\)</span> Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bridge-to-mathfrak-so-3-and-angular-momentum">Bridge to <span class="math notranslate nohighlight">\(\mathfrak{so}(3)\)</span> and Angular Momentum</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b4-5-5-physical-example-rotations-in-3d-and-the-lie-algebra-mathfrak-so-3">B4.5.5 Physical Example: Rotations in 3D and the Lie Algebra <span class="math notranslate nohighlight">\(\mathfrak{so}(3)\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-lie-group-so-3">The Lie Group <span class="math notranslate nohighlight">\(SO(3)\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infinitesimal-rotations-and-the-lie-algebra-mathfrak-so-3">Infinitesimal Rotations and the Lie Algebra <span class="math notranslate nohighlight">\(\mathfrak{so}(3)\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-lie-algebra-mathfrak-so-3">The Lie Algebra <span class="math notranslate nohighlight">\(\mathfrak{so}(3)\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-meaning">Physical Meaning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-classical-to-quantum">From Classical to Quantum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">✅ Summary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b4-5-6-general-structure-constants-in-a-lie-algebra">B4.5.6 General Structure Constants in a Lie Algebra</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basis-for-a-lie-algebra">Basis for a Lie Algebra</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-structure-constants">Properties of Structure Constants</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-mathfrak-so-3">Example: <span class="math notranslate nohighlight">\(\mathfrak{so}(3)\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Physical Meaning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Summary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b4-5-7-classical-mechanics-application-poisson-brackets">B4.5.7 Classical Mechanics Application: Poisson Brackets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b4-5-8-summary-and-outlook">B4.5.8 Summary and Outlook</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

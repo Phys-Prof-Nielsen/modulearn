@@ -1,0 +1,1033 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>B1.8 The Tennis Racket Problem and the Intermediate Axis Theorem &#8212; A Competency Approach to Classical Mechanics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-B1/tennis-racket';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="B1.7 Beyond Euler Angles: Quaternions, Axis-Angle, and Rotation Vectors for 3D Orientation" href="quaternions.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-B.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Home"/>
+    <script>document.write(`<img src="../_static/logo-B.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the B Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B1 - Advanced Rotational Dynamics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="principal-axes.html">B1.1 Principal Axes in Rotational Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kinetic-energy.html">B1.2 Kinetic Energy in Rotational Dynamics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="euler-angles.html">B1.3 Euler Angles and Rigid Body Orientation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="body-space-frames.html">B1.4 Body and Space Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eulers-equations-motion.html">B1.5 Euler’s Equations of Motion for Rigid Bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="euler-angles-equations.html">B1.6 Connecting Euler Angles and Euler’s Equations of Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quaternions.html">B1.7 Beyond Euler Angles: Quaternions, Axis-Angle, and Rotation Vectors for 3D Orientation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">B1.8 The Tennis Racket Problem and the Intermediate Axis Theorem</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Module-B1/tennis-racket.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-B1/tennis-racket.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>B1.8 The Tennis Racket Problem and the Intermediate Axis Theorem</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-8-1-learning-objectives">B1.8.1 Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-8-2-introduction-the-tennis-racket-phenomenon">B1.8.2 Introduction: The Tennis Racket Phenomenon</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-8-3-setup-rigid-body-and-principal-axes">B1.8.3 Setup: Rigid Body and Principal Axes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-8-4-eulers-equations-torque-free">B1.8.4 Euler’s Equations (Torque-Free)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-8-5-conserved-quantities">B1.8.5 Conserved Quantities</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rotational-kinetic-energy">1. Rotational Kinetic Energy:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#angular-momentum-magnitude">2. Angular Momentum Magnitude:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-8-6-stability-analysis">B1.8.6 Stability Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-1-rotation-about-axis-1-long-axis">Case 1: Rotation about axis 1 (long axis)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-2-rotation-about-axis-2-intermediate-axis">Case 2: Rotation about axis 2 (intermediate axis)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-3-rotation-about-axis-3-short-axis">Case 3: Rotation about axis 3 (short axis)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-8-7-simulation">B1.8.7 Simulation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-the-angular-velocity-simulation">Interpreting the Angular Velocity Simulation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#observations-from-the-plot">Observations from the Plot</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#connection-to-stability-theory">Connection to Stability Theory</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-interpretation">Physical Interpretation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-table">Summary Table</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#final-insight">Final Insight</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-8-8-geometry-of-the-motion">B1.8.8 Geometry of the Motion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-motion-really-doing">What Is the Motion Really Doing?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lissajous-like-behavior">Lissajous-Like Behavior</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saddle-geometry-and-instability">Saddle Geometry and Instability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-summary">Visualization Summary</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#still-a-conservative-system">Still a Conservative System</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="b1-8-the-tennis-racket-problem-and-the-intermediate-axis-theorem">
+<h1>B1.8 The Tennis Racket Problem and the Intermediate Axis Theorem<a class="headerlink" href="#b1-8-the-tennis-racket-problem-and-the-intermediate-axis-theorem" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="b1-8-1-learning-objectives">
+<h2>B1.8.1 Learning Objectives<a class="headerlink" href="#b1-8-1-learning-objectives" title="Link to this heading">#</a></h2>
+<p>By the end of this lesson, you will be able to:</p>
+<ul class="simple">
+<li><p>Analyze the dynamics of the tennis racket problem using Euler’s equations</p></li>
+<li><p>Derive and interpret the stability conditions for rotation about each principal axis</p></li>
+<li><p>Compute the time evolution of the angular velocity vector for small perturbations</p></li>
+<li><p>Understand the geometric structure of energy and angular momentum conservation</p></li>
+<li><p>Appreciate how this problem illustrates fundamental nonlinear dynamics</p></li>
+</ul>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b1-8-2-introduction-the-tennis-racket-phenomenon">
+<h2>B1.8.2 Introduction: The Tennis Racket Phenomenon<a class="headerlink" href="#b1-8-2-introduction-the-tennis-racket-phenomenon" title="Link to this heading">#</a></h2>
+<p>Imagine tossing a tennis racket (or a smartphone, book, or screwdriver) into the air so that it spins around one of its three principal axes. You observe:</p>
+<ul class="simple">
+<li><p>Rotation around the long axis: stable</p></li>
+<li><p>Rotation around the short axis: stable</p></li>
+<li><p>Rotation around the intermediate axis: <strong>unstable</strong> — it flips midair!</p></li>
+</ul>
+<p>This is the <strong>Intermediate Axis Theorem</strong>, also known as the <strong>Tennis Racket Theorem</strong> or <strong>Dzhanibekov Effect</strong>. It’s a striking example of nonlinear dynamics and rigid body instability.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b1-8-3-setup-rigid-body-and-principal-axes">
+<h2>B1.8.3 Setup: Rigid Body and Principal Axes<a class="headerlink" href="#b1-8-3-setup-rigid-body-and-principal-axes" title="Link to this heading">#</a></h2>
+<p>Let a rigid body have principal moments of inertia:</p>
+<div class="math notranslate nohighlight">
+\[ I_1 &lt; I_2 &lt; I_3 \]</div>
+<p>and a corresponding body-fixed frame with angular velocity components:</p>
+<div class="math notranslate nohighlight">
+\[ \vec{\omega} = (\omega_1, \omega_2, \omega_3) \]</div>
+<p>We’ll assume <strong>no external torques</strong>: <span class="math notranslate nohighlight">\(\vec{N} = 0\)</span>. This means the angular momentum <span class="math notranslate nohighlight">\(\vec{L}\)</span> and total kinetic energy <span class="math notranslate nohighlight">\(T\)</span> are conserved.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b1-8-4-eulers-equations-torque-free">
+<h2>B1.8.4 Euler’s Equations (Torque-Free)<a class="headerlink" href="#b1-8-4-eulers-equations-torque-free" title="Link to this heading">#</a></h2>
+<p>The equations of motion for a rigid body with principal axes are:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+I_1 \dot{\omega}_1 &amp;= (I_2 - I_3) \omega_2 \omega_3 \\
+I_2 \dot{\omega}_2 &amp;= (I_3 - I_1) \omega_3 \omega_1 \\
+I_3 \dot{\omega}_3 &amp;= (I_1 - I_2) \omega_1 \omega_2
+\end{aligned}
+\end{split}\]</div>
+<p>These nonlinear differential equations govern the evolution of the angular velocity components in the body frame.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b1-8-5-conserved-quantities">
+<h2>B1.8.5 Conserved Quantities<a class="headerlink" href="#b1-8-5-conserved-quantities" title="Link to this heading">#</a></h2>
+<section id="rotational-kinetic-energy">
+<h3>1. Rotational Kinetic Energy:<a class="headerlink" href="#rotational-kinetic-energy" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[ T = \frac{1}{2} (I_1 \omega_1^2 + I_2 \omega_2^2 + I_3 \omega_3^2) \]</div>
+<p>This describes an <strong>ellipsoidal surface</strong> in <span class="math notranslate nohighlight">\(\omega\)</span>-space. Each point on the surface corresponds to a combination of angular velocity components that yield the same total kinetic energy.</p>
+</section>
+<section id="angular-momentum-magnitude">
+<h3>2. Angular Momentum Magnitude:<a class="headerlink" href="#angular-momentum-magnitude" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[ L^2 = (I_1 \omega_1)^2 + (I_2 \omega_2)^2 + (I_3 \omega_3)^2 \]</div>
+<p>This defines a <strong>sphere</strong> in <span class="math notranslate nohighlight">\(L\)</span>-space, assuming we fix the magnitude of angular momentum. But since we often express <span class="math notranslate nohighlight">\(L_i = I_i \omega_i\)</span>, this becomes a <strong>quadratic surface in <span class="math notranslate nohighlight">\(\omega\)</span>-space</strong>, often equivalent to an ellipsoid <strong>embedded within a spherical constraint</strong> when visualized geometrically.</p>
+<p>So, depending on perspective:</p>
+<ul class="simple">
+<li><p>The kinetic energy constraint is an <strong>ellipsoid in <span class="math notranslate nohighlight">\(\omega\)</span>-space</strong></p></li>
+<li><p>The angular momentum magnitude constraint appears as a <strong>sphere</strong> (or another ellipsoid)</p></li>
+</ul>
+<p>The system evolves along the <strong>intersection</strong> of these two surfaces, which restricts how <span class="math notranslate nohighlight">\(\vec{\omega}\)</span> can move.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="b1-8-6-stability-analysis">
+<h2>B1.8.6 Stability Analysis<a class="headerlink" href="#b1-8-6-stability-analysis" title="Link to this heading">#</a></h2>
+<p>Let’s linearize the Euler equations around steady rotation solutions to analyze stability. This gives insight into what happens when the rotation is nearly aligned with one of the principal axes and we introduce a small perturbation.</p>
+<hr class="docutils" />
+<section id="case-1-rotation-about-axis-1-long-axis">
+<h3>Case 1: Rotation about axis 1 (long axis)<a class="headerlink" href="#case-1-rotation-about-axis-1-long-axis" title="Link to this heading">#</a></h3>
+<p>Assume:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\omega_1 = \Omega\)</span> (constant),</p></li>
+<li><p><span class="math notranslate nohighlight">\(\omega_2, \omega_3 \approx 0\)</span> (small perturbations)</p></li>
+</ul>
+<p>Linearized Euler equations:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+I_2 \dot{\omega}_2 &amp;= (I_3 - I_1) \Omega \omega_3 \\
+I_3 \dot{\omega}_3 &amp;= (I_1 - I_2) \Omega \omega_2
+\end{aligned}
+\end{split}\]</div>
+<p>Differentiate the first and substitute the second:</p>
+<div class="math notranslate nohighlight">
+\[
+I_2 \ddot{\omega}_2 = (I_3 - I_1)(I_1 - I_2) \Omega^2 \frac{\omega_2}{I_3}
+\]</div>
+<p>Or:</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{\omega}_2 = \lambda^2 \omega_2 \quad \text{where} \quad \lambda^2 = \frac{(I_3 - I_1)(I_1 - I_2)}{I_2 I_3} \Omega^2
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\(I_1 &lt; I_2 &lt; I_3\)</span>, both <span class="math notranslate nohighlight">\((I_3 - I_1)\)</span> and <span class="math notranslate nohighlight">\((I_1 - I_2)\)</span> have opposite signs ⇒ <span class="math notranslate nohighlight">\(\lambda^2 &lt; 0\)</span></p>
+<p>✅ <strong>Stable</strong> — the motion is oscillatory.</p>
+</section>
+<hr class="docutils" />
+<section id="case-2-rotation-about-axis-2-intermediate-axis">
+<h3>Case 2: Rotation about axis 2 (intermediate axis)<a class="headerlink" href="#case-2-rotation-about-axis-2-intermediate-axis" title="Link to this heading">#</a></h3>
+<p>Assume:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\omega_2 = \Omega\)</span> (constant),</p></li>
+<li><p><span class="math notranslate nohighlight">\(\omega_1, \omega_3 \approx 0\)</span> (small perturbations)</p></li>
+</ul>
+<p>Linearized Euler equations:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+I_1 \dot{\omega}_1 &amp;= (I_2 - I_3) \Omega \omega_3 \\
+I_3 \dot{\omega}_3 &amp;= (I_1 - I_2) \Omega \omega_1
+\end{aligned}
+\end{split}\]</div>
+<p>Substitute to get a second-order equation:</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{\omega}_1 = \frac{(I_2 - I_3)(I_1 - I_2)}{I_1 I_3} \Omega^2 \omega_1
+\]</div>
+<p>Now, both terms in the numerator are <strong>negative</strong>, so:</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda^2 &gt; 0
+\]</div>
+<p>❌ <strong>Unstable</strong> — the solution grows exponentially.</p>
+<p>What does this mean physically? If a rigid body is set spinning perfectly around its intermediate axis, it may initially appear stable. However, any small perturbation in the direction of rotation — even from numerical error or the tiniest asymmetry — can grow exponentially over time.</p>
+<p>This does not necessarily mean that the body will always visibly “flip” — instead, it means the rotation direction gradually shifts away from the intermediate axis toward a combination of the other two axes. In practice, this often manifests as a dramatic rotation reversal (or flip) because the angular velocity vector traces out a complex trajectory on the angular momentum sphere.</p>
+<p>The “flip” occurs due to how angular momentum and energy constraints interact: the body can’t simply drift arbitrarily in orientation. It must conserve total angular momentum and energy, so the only available path that satisfies both is a trajectory where the intermediate axis rotation flips back and forth.</p>
+<p>This behavior is especially evident in symmetric or nearly symmetric objects (like books or tennis rackets), where the intermediate axis is clearly distinct from the others.</p>
+</section>
+<hr class="docutils" />
+<section id="case-3-rotation-about-axis-3-short-axis">
+<h3>Case 3: Rotation about axis 3 (short axis)<a class="headerlink" href="#case-3-rotation-about-axis-3-short-axis" title="Link to this heading">#</a></h3>
+<p>Assume:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\omega_3 = \Omega\)</span> (constant),</p></li>
+<li><p><span class="math notranslate nohighlight">\(\omega_1, \omega_2 \approx 0\)</span> (small perturbations)</p></li>
+</ul>
+<p>By symmetry and the same procedure as above:</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{\omega}_1 = \frac{(I_2 - I_1)(I_3 - I_2)}{I_1 I_2} \Omega^2 \omega_1
+\]</div>
+<p>Since both terms are positive: <span class="math notranslate nohighlight">\(\lambda^2 &lt; 0\)</span></p>
+<p>✅ <strong>Stable</strong></p>
+<hr class="docutils" />
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="summary">
+<h3>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Axis</p></th>
+<th class="head"><p>Inertia</p></th>
+<th class="head"><p>Stability</p></th>
+<th class="head"><p>Behavior</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(I_1\)</span> (long axis)</p></td>
+<td><p>Smallest</p></td>
+<td><p>✅ Stable</p></td>
+<td><p>Precession</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(I_2\)</span> (intermediate)</p></td>
+<td><p>Middle</p></td>
+<td><p>❌ Unstable</p></td>
+<td><p>Flipping, complex</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(I_3\)</span> (short axis)</p></td>
+<td><p>Largest</p></td>
+<td><p>✅ Stable</p></td>
+<td><p>Precession</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="b1-8-7-simulation">
+<h2>B1.8.7 Simulation<a class="headerlink" href="#b1-8-7-simulation" title="Link to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">solve_ivp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Moments of inertia (I1 &lt; I2 &lt; I3)</span>
+<span class="n">I1</span><span class="p">,</span> <span class="n">I2</span><span class="p">,</span> <span class="n">I3</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span>
+
+<span class="c1"># Euler&#39;s equations of motion (torque-free case)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">euler_equations</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">omega</span><span class="p">):</span>
+    <span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">w3</span> <span class="o">=</span> <span class="n">omega</span>
+    <span class="n">dw1</span> <span class="o">=</span> <span class="p">((</span><span class="n">I2</span> <span class="o">-</span> <span class="n">I3</span><span class="p">)</span> <span class="o">*</span> <span class="n">w2</span> <span class="o">*</span> <span class="n">w3</span><span class="p">)</span> <span class="o">/</span> <span class="n">I1</span>
+    <span class="n">dw2</span> <span class="o">=</span> <span class="p">((</span><span class="n">I3</span> <span class="o">-</span> <span class="n">I1</span><span class="p">)</span> <span class="o">*</span> <span class="n">w3</span> <span class="o">*</span> <span class="n">w1</span><span class="p">)</span> <span class="o">/</span> <span class="n">I2</span>
+    <span class="n">dw3</span> <span class="o">=</span> <span class="p">((</span><span class="n">I1</span> <span class="o">-</span> <span class="n">I2</span><span class="p">)</span> <span class="o">*</span> <span class="n">w1</span> <span class="o">*</span> <span class="n">w2</span><span class="p">)</span> <span class="o">/</span> <span class="n">I3</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">dw1</span><span class="p">,</span> <span class="n">dw2</span><span class="p">,</span> <span class="n">dw3</span><span class="p">]</span>
+
+<span class="c1"># Initial conditions: spin about intermediate axis with slight perturbation</span>
+<span class="n">omega0</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">]</span>  <span class="c1"># [ω1, ω2, ω3]</span>
+<span class="n">t_span</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">t_eval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">t_span</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">t_span</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="c1"># Integrate the system</span>
+<span class="n">solution</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">euler_equations</span><span class="p">,</span> <span class="n">t_span</span><span class="p">,</span> <span class="n">omega0</span><span class="p">,</span> <span class="n">t_eval</span><span class="o">=</span><span class="n">t_eval</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-9</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-9</span><span class="p">)</span>
+
+<span class="c1"># Extract results</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">solution</span><span class="o">.</span><span class="n">t</span>
+<span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">w3</span> <span class="o">=</span> <span class="n">solution</span><span class="o">.</span><span class="n">y</span>
+
+<span class="c1"># Plot results</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">w1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$\omega_1$ (long axis)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$\omega_2$ (intermediate axis)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">w3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$\omega_3$ (short axis)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Tennis Racket Problem: Angular Velocity Evolution&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Angular Velocity&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/72144a88238e7c6854ea3197c3a511f65ea52156957eb4f159ccd332f6c6cb67.png" src="../_images/72144a88238e7c6854ea3197c3a511f65ea52156957eb4f159ccd332f6c6cb67.png" />
+</div>
+</div>
+<section id="interpreting-the-angular-velocity-simulation">
+<h3>Interpreting the Angular Velocity Simulation<a class="headerlink" href="#interpreting-the-angular-velocity-simulation" title="Link to this heading">#</a></h3>
+<p>After solving Euler’s equations numerically, we obtained the time evolution of the angular velocity components:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\omega_1(t)\)</span>: rotation about the long axis</p></li>
+<li><p><span class="math notranslate nohighlight">\(\omega_2(t)\)</span>: rotation about the intermediate axis</p></li>
+<li><p><span class="math notranslate nohighlight">\(\omega_3(t)\)</span>: rotation about the short axis</p></li>
+</ul>
+<p>We initialized the system with:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\omega_2(0) = 1.0\)</span> (dominant rotation about the <strong>intermediate axis</strong>)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\omega_1(0), \omega_3(0) = 0.01\)</span> (small perturbations)</p></li>
+</ul>
+<hr class="docutils" />
+<section id="observations-from-the-plot">
+<h4>Observations from the Plot<a class="headerlink" href="#observations-from-the-plot" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p><strong><span class="math notranslate nohighlight">\(\omega_2(t)\)</span> (intermediate axis)</strong>:</p>
+<ul class="simple">
+<li><p>Begins at 1.0 but <strong>does not stay near 1</strong>.</p></li>
+<li><p>It exhibits <strong>sudden reversals</strong>, sharply flipping from +1 to -1 and back.</p></li>
+<li><p>These flips occur periodically — the hallmark of the <strong>tennis racket instability</strong>.</p></li>
+<li><p>This does not mean the system flips chaotically — the flip is a <strong>predictable, geometric outcome</strong> of angular momentum conservation.</p></li>
+</ul>
+</li>
+<li><p><strong><span class="math notranslate nohighlight">\(\omega_1(t)\)</span> (long axis)</strong>:</p>
+<ul class="simple">
+<li><p>Starts near zero but grows into <strong>large, smooth oscillations</strong>.</p></li>
+<li><p>These oscillations remain <strong>bounded</strong> and periodic.</p></li>
+<li><p>This growth is a result of the instability in <span class="math notranslate nohighlight">\(\omega_2\)</span> causing the system to temporarily favor long-axis rotation.</p></li>
+<li><p>Axis 1 is <strong>stable</strong>, so once the system moves into this regime, the motion becomes regular again.</p></li>
+</ul>
+</li>
+<li><p><strong><span class="math notranslate nohighlight">\(\omega_3(t)\)</span> (short axis)</strong>:</p>
+<ul class="simple">
+<li><p>Remains small and oscillatory throughout.</p></li>
+<li><p>Its amplitude is consistently smaller than that of <span class="math notranslate nohighlight">\(\omega_1\)</span> and shows no runaway growth.</p></li>
+<li><p>This is consistent with axis 3 being <strong>stable</strong>.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="connection-to-stability-theory">
+<h4>Connection to Stability Theory<a class="headerlink" href="#connection-to-stability-theory" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>The system starts in an <strong>unstable equilibrium</strong>: rotation about the intermediate axis.</p></li>
+<li><p>The initial small perturbations in <span class="math notranslate nohighlight">\(\omega_1\)</span> and <span class="math notranslate nohighlight">\(\omega_3\)</span> grow.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\omega_2\)</span> doesn’t decay gradually — instead, it <strong>flips sharply</strong>, reversing sign.</p></li>
+<li><p>These flips are geometric consequences of how the angular velocity vector moves on the <strong>intersection of the energy ellipsoid and momentum sphere</strong>.</p></li>
+</ul>
+<p>Importantly:</p>
+<ul class="simple">
+<li><p><strong>Axis 1 and axis 3 remain stable</strong> throughout.</p></li>
+<li><p>The large amplitude of <span class="math notranslate nohighlight">\(\omega_1\)</span> and the reversals in <span class="math notranslate nohighlight">\(\omega_2\)</span> are <strong>responses to instability</strong>, not signs that axis 1 is itself unstable.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="physical-interpretation">
+<h4>Physical Interpretation<a class="headerlink" href="#physical-interpretation" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>The body begins spinning about its unstable intermediate axis.</p></li>
+<li><p>It begins to wobble, and this wobble grows — not randomly, but due to predictable instability.</p></li>
+<li><p>Eventually, the angular velocity vector <span class="math notranslate nohighlight">\(\vec{\omega}\)</span> swings to favor axis 1, and the body <strong>flips in orientation</strong>.</p></li>
+<li><p>The system then reorients and returns to spin about the intermediate axis — repeating the cycle.</p></li>
+</ul>
+<p>This is the precise behavior observed in videos of the tennis racket or book flip in microgravity.</p>
+</section>
+<hr class="docutils" />
+<section id="summary-table">
+<h4>Summary Table<a class="headerlink" href="#summary-table" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Behavior</p></th>
+<th class="head"><p>Interpretation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\omega_1\)</span></p></td>
+<td><p>Large, bounded oscillations</p></td>
+<td><p>Long axis is stable; <span class="math notranslate nohighlight">\(\omega_1\)</span> grows as <span class="math notranslate nohighlight">\(\omega_2\)</span> decays</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\omega_2\)</span></p></td>
+<td><p>Sudden reversals (flip)</p></td>
+<td><p>Intermediate axis is unstable → flips sign periodically</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\omega_3\)</span></p></td>
+<td><p>Small, bounded oscillations</p></td>
+<td><p>Short axis is stable; perturbations remain bounded</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="final-insight">
+<h4>Final Insight<a class="headerlink" href="#final-insight" title="Link to this heading">#</a></h4>
+<p>This simulation vividly illustrates:</p>
+<ul class="simple">
+<li><p>The <strong>intermediate axis theorem</strong> in action</p></li>
+<li><p>The precise mechanism of <strong>flipping</strong> as a geometric constraint</p></li>
+<li><p>How <strong>stability of rotation axes</strong> governs which angular velocity components grow or remain bounded</p></li>
+</ul>
+<p>It’s not chaos — it’s <strong>constrained nonlinear motion</strong>.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+</section>
+<section id="b1-8-8-geometry-of-the-motion">
+<h2>B1.8.8 Geometry of the Motion<a class="headerlink" href="#b1-8-8-geometry-of-the-motion" title="Link to this heading">#</a></h2>
+<p>The motion of a torque-free rigid body is not arbitrary — it is <strong>geometrically confined</strong> by two fundamental conserved quantities:</p>
+<ol class="arabic simple">
+<li><p><strong>Rotational Kinetic Energy</strong>:
+$<span class="math notranslate nohighlight">\(
+T = \frac{1}{2}(I_1 \omega_1^2 + I_2 \omega_2^2 + I_3 \omega_3^2)
+\)</span><span class="math notranslate nohighlight">\(
+This defines an **ellipsoidal surface** in \)</span>\omega$-space: the set of angular velocity vectors with constant kinetic energy.</p></li>
+<li><p><strong>Angular Momentum Magnitude</strong>:
+$<span class="math notranslate nohighlight">\(
+L^2 = (I_1 \omega_1)^2 + (I_2 \omega_2)^2 + (I_3 \omega_3)^2
+\)</span><span class="math notranslate nohighlight">\(
+This defines another quadratic surface — typically a **spheroid** or distorted ellipsoid — depending on the values of \)</span>I_1, I_2, I_3$.</p></li>
+</ol>
+<hr class="docutils" />
+<section id="what-is-the-motion-really-doing">
+<h3>What Is the Motion Really Doing?<a class="headerlink" href="#what-is-the-motion-really-doing" title="Link to this heading">#</a></h3>
+<p>The angular velocity vector <span class="math notranslate nohighlight">\(\vec{\omega}(t)\)</span> must lie on the <strong>intersection of these two surfaces</strong>.</p>
+<p>Mathematically, this intersection is a <strong>1-dimensional manifold</strong> embedded in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.<br />
+Physically, it forms a <strong>closed or open loop</strong> along which <span class="math notranslate nohighlight">\(\vec{\omega}\)</span> travels over time.</p>
+<p>This is a very rich structure:</p>
+<ul class="simple">
+<li><p>It’s the result of <strong>conservation laws</strong> reducing the degrees of freedom from 3 to 1.</p></li>
+<li><p>The angular velocity vector “slides” along this 1D path without deviation — because there’s no room to deviate!</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="lissajous-like-behavior">
+<h3>Lissajous-Like Behavior<a class="headerlink" href="#lissajous-like-behavior" title="Link to this heading">#</a></h3>
+<p>In the <strong>stable cases</strong> (rotation about <span class="math notranslate nohighlight">\(I_1\)</span> or <span class="math notranslate nohighlight">\(I_3\)</span>):</p>
+<ul class="simple">
+<li><p>The motion of <span class="math notranslate nohighlight">\(\vec{\omega}(t)\)</span> is <strong>oscillatory</strong> in the perpendicular directions.</p></li>
+<li><p>The components of angular velocity <span class="math notranslate nohighlight">\((\omega_1, \omega_2, \omega_3)\)</span> trace out <strong>Lissajous-like curves</strong> in time — though not strictly sinusoidal due to nonlinear coupling.</p></li>
+</ul>
+<p>These look like <strong>distorted figure-8 or elliptical loops</strong> when projected into 2D planes, e.g., <span class="math notranslate nohighlight">\((\omega_1, \omega_2)\)</span>.</p>
+</section>
+<hr class="docutils" />
+<section id="saddle-geometry-and-instability">
+<h3>Saddle Geometry and Instability<a class="headerlink" href="#saddle-geometry-and-instability" title="Link to this heading">#</a></h3>
+<p>In the <strong>unstable intermediate axis case</strong>:</p>
+<ul class="simple">
+<li><p>The point <span class="math notranslate nohighlight">\(\vec{\omega} = \Omega \hat{e}_2\)</span> lies at a <strong>saddle point</strong> on the intersection curve.</p></li>
+<li><p>Small perturbations grow because the geometry of the manifold channels motion <strong>away from</strong> the intermediate axis.</p></li>
+<li><p>This creates dramatic “flips” in physical orientation — even though <span class="math notranslate nohighlight">\(\vec{\omega}(t)\)</span> simply continues on its allowed curve.</p></li>
+</ul>
+<p>So, the flipping is not chaotic. It’s a <strong>predictable, geometric consequence</strong> of where the angular velocity lives.</p>
+</section>
+<hr class="docutils" />
+<section id="visualization-summary">
+<h3>Visualization Summary<a class="headerlink" href="#visualization-summary" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constraint</p></th>
+<th class="head"><p>Equation</p></th>
+<th class="head"><p>Surface Type</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Kinetic Energy</p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{1}{2}(I_1 \omega_1^2 + I_2 \omega_2^2 + I_3 \omega_3^2) = T\)</span></p></td>
+<td><p>Ellipsoid</p></td>
+</tr>
+<tr class="row-odd"><td><p>Angular Momentum</p></td>
+<td><p><span class="math notranslate nohighlight">\((I_1 \omega_1)^2 + (I_2 \omega_2)^2 + (I_3 \omega_3)^2 = L^2\)</span></p></td>
+<td><p>Sphere-like surface</p></td>
+</tr>
+<tr class="row-even"><td><p>Trajectory</p></td>
+<td><p><span class="math notranslate nohighlight">\(\vec{\omega}(t)\)</span> lives on the intersection of both</p></td>
+<td><p>1D manifold in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Stable motion</p></td>
+<td><p>Lissajous-like closed loops around <span class="math notranslate nohighlight">\(I_1\)</span> or <span class="math notranslate nohighlight">\(I_3\)</span></p></td>
+<td><p>Oscillatory</p></td>
+</tr>
+<tr class="row-even"><td><p>Unstable motion</p></td>
+<td><p>Manifold curves away from <span class="math notranslate nohighlight">\(I_2\)</span> → flipping trajectory</p></td>
+<td><p>Exponential deviation</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="still-a-conservative-system">
+<h3>Still a Conservative System<a class="headerlink" href="#still-a-conservative-system" title="Link to this heading">#</a></h3>
+<p>Despite the appearance of flipping, the motion:</p>
+<ul class="simple">
+<li><p>Is <strong>completely deterministic</strong></p></li>
+<li><p>Conserves both energy and angular momentum</p></li>
+<li><p>Is <strong>geometrically constrained</strong>, not chaotic</p></li>
+</ul>
+<p>The path of <span class="math notranslate nohighlight">\(\vec{\omega}(t)\)</span> is like a bead sliding frictionlessly on a 1D wire wrapped around a complicated surface — once perturbed, it can’t help but move along the wire, flipping the body as it does.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-B1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="quaternions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">B1.7 Beyond Euler Angles: Quaternions, Axis-Angle, and Rotation Vectors for 3D Orientation</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-8-1-learning-objectives">B1.8.1 Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-8-2-introduction-the-tennis-racket-phenomenon">B1.8.2 Introduction: The Tennis Racket Phenomenon</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-8-3-setup-rigid-body-and-principal-axes">B1.8.3 Setup: Rigid Body and Principal Axes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-8-4-eulers-equations-torque-free">B1.8.4 Euler’s Equations (Torque-Free)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-8-5-conserved-quantities">B1.8.5 Conserved Quantities</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rotational-kinetic-energy">1. Rotational Kinetic Energy:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#angular-momentum-magnitude">2. Angular Momentum Magnitude:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-8-6-stability-analysis">B1.8.6 Stability Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-1-rotation-about-axis-1-long-axis">Case 1: Rotation about axis 1 (long axis)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-2-rotation-about-axis-2-intermediate-axis">Case 2: Rotation about axis 2 (intermediate axis)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-3-rotation-about-axis-3-short-axis">Case 3: Rotation about axis 3 (short axis)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-8-7-simulation">B1.8.7 Simulation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-the-angular-velocity-simulation">Interpreting the Angular Velocity Simulation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#observations-from-the-plot">Observations from the Plot</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#connection-to-stability-theory">Connection to Stability Theory</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-interpretation">Physical Interpretation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-table">Summary Table</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#final-insight">Final Insight</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-8-8-geometry-of-the-motion">B1.8.8 Geometry of the Motion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-motion-really-doing">What Is the Motion Really Doing?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lissajous-like-behavior">Lissajous-Like Behavior</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saddle-geometry-and-instability">Saddle Geometry and Instability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-summary">Visualization Summary</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#still-a-conservative-system">Still a Conservative System</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

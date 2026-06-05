@@ -1,0 +1,1021 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>B1.7 Beyond Euler Angles: Quaternions, Axis-Angle, and Rotation Vectors for 3D Orientation &#8212; A Competency Approach to Classical Mechanics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-B1/quaternions';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="B1.8 The Tennis Racket Problem and the Intermediate Axis Theorem" href="tennis-racket.html" />
+    <link rel="prev" title="B1.6 Connecting Euler Angles and Euler’s Equations of Motion" href="euler-angles-equations.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-B.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Home"/>
+    <script>document.write(`<img src="../_static/logo-B.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the B Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B1 - Advanced Rotational Dynamics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="principal-axes.html">B1.1 Principal Axes in Rotational Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kinetic-energy.html">B1.2 Kinetic Energy in Rotational Dynamics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="euler-angles.html">B1.3 Euler Angles and Rigid Body Orientation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="body-space-frames.html">B1.4 Body and Space Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eulers-equations-motion.html">B1.5 Euler’s Equations of Motion for Rigid Bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="euler-angles-equations.html">B1.6 Connecting Euler Angles and Euler’s Equations of Motion</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">B1.7 Beyond Euler Angles: Quaternions, Axis-Angle, and Rotation Vectors for 3D Orientation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tennis-racket.html">B1.8 The Tennis Racket Problem and the Intermediate Axis Theorem</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Module-B1/quaternions.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-B1/quaternions.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>B1.7 Beyond Euler Angles: Quaternions, Axis-Angle, and Rotation Vectors for 3D Orientation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-7-1-learning-objectives">B1.7.1 Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-7-2-why-look-beyond-euler-angles">B1.7.2 Why Look Beyond Euler Angles?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-7-3-rotation-representations-overview">B1.7.3 Rotation Representations Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-7-4-axis-angle-representation">B1.7.4 Axis-Angle Representation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-it">What is it?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-7-5-rotation-vector">B1.7.5 Rotation Vector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-7-6-quaternions-for-3d-rotation">B1.7.6 Quaternions for 3D Rotation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-quaternion">What Is a Quaternion?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-imaginary-units-i-j-and-k">The Imaginary Units: <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(j\)</span>, and <span class="math notranslate nohighlight">\(k\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#component-view">Component View</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-unit-quaternion">What Is a Unit Quaternion?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-a-quaternion-to-represent-a-rotation">Using a Quaternion to Represent a Rotation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rotating-a-vector-using-a-quaternion">Rotating a Vector Using a Quaternion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-interpretation">Visual Interpretation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-quaternion-anatomy">Summary: Quaternion Anatomy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-axis-angle-to-quaternion">From Axis-Angle to Quaternion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-quaternion-to-axis-angle-rotation-vector">From Quaternion to Axis-Angle / Rotation Vector</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-7-7-quaternion-operations">B1.7.7 Quaternion Operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rotating-a-vector">Rotating a Vector</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#composing-rotations">Composing Rotations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-7-8-euler-angles-to-quaternion-zxz">B1.7.8 Euler Angles to Quaternion (ZXZ)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-7-9-quaternion-to-rotation-matrix">B1.7.9 Quaternion to Rotation Matrix</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-7-10-comparison-summary">B1.7.10 Comparison Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-7-11-final-insight">B1.7.11 Final Insight</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="b1-7-beyond-euler-angles-quaternions-axis-angle-and-rotation-vectors-for-3d-orientation">
+<h1>B1.7 Beyond Euler Angles: Quaternions, Axis-Angle, and Rotation Vectors for 3D Orientation<a class="headerlink" href="#b1-7-beyond-euler-angles-quaternions-axis-angle-and-rotation-vectors-for-3d-orientation" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="b1-7-1-learning-objectives">
+<h2>B1.7.1 Learning Objectives<a class="headerlink" href="#b1-7-1-learning-objectives" title="Link to this heading">#</a></h2>
+<p>By the end of this lesson, you will be able to:</p>
+<ul class="simple">
+<li><p>Understand why Euler angles are limited for robust 3D orientation</p></li>
+<li><p>Define and compare quaternions, axis-angle, and rotation vectors</p></li>
+<li><p>Rotate vectors using quaternions</p></li>
+<li><p>Compose multiple 3D rotations with quaternion multiplication</p></li>
+<li><p>Convert between all major rotation representations</p></li>
+<li><p>Choose the right representation for use in physics, simulation, robotics, or graphics</p></li>
+</ul>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b1-7-2-why-look-beyond-euler-angles">
+<h2>B1.7.2 Why Look Beyond Euler Angles?<a class="headerlink" href="#b1-7-2-why-look-beyond-euler-angles" title="Link to this heading">#</a></h2>
+<p>Euler angles — typically written as a sequence like <span class="math notranslate nohighlight">\((\phi, \theta, \psi)\)</span> — are widely used because they align well with our human intuition: we think in terms of pitch, yaw, and roll.</p>
+<p>However, Euler angles suffer from <strong>three critical limitations</strong>:</p>
+<ol class="arabic simple">
+<li><p><strong>Gimbal Lock</strong>: When two rotation axes align, one degree of freedom is lost. This makes smooth or arbitrary rotation problematic.</p></li>
+<li><p><strong>Order Sensitivity</strong>: Changing the order of applying Euler rotations changes the result — it’s not commutative.</p></li>
+<li><p><strong>Discontinuities</strong>: Interpolating between two orientations represented as Euler angles can lead to awkward jumps or flips.</p></li>
+</ol>
+<p>To overcome these issues, we use <strong>rotation representations</strong> that are:</p>
+<ul class="simple">
+<li><p>Geometrically meaningful</p></li>
+<li><p>Free from singularities</p></li>
+<li><p>Smooth and continuous</p></li>
+<li><p>Efficient for computation and storage</p></li>
+</ul>
+<p>These include:</p>
+<ul class="simple">
+<li><p><strong>Quaternions</strong>: the go-to solution in aerospace, robotics, and game engines</p></li>
+<li><p><strong>Axis-angle</strong>: geometrically intuitive and compact</p></li>
+<li><p><strong>Rotation vectors</strong>: minimal and common in optimization</p></li>
+</ul>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b1-7-3-rotation-representations-overview">
+<h2>B1.7.3 Rotation Representations Overview<a class="headerlink" href="#b1-7-3-rotation-representations-overview" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Representation</p></th>
+<th class="head"><p>Parameters</p></th>
+<th class="head"><p>Key Advantages</p></th>
+<th class="head"><p>Main Limitations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Euler Angles</p></td>
+<td><p>3 angles</p></td>
+<td><p>Easy to understand; minimal</p></td>
+<td><p>Gimbal lock; not robust</p></td>
+</tr>
+<tr class="row-odd"><td><p>Rotation Matrix</p></td>
+<td><p>3×3 = 9 values</p></td>
+<td><p>Linear algebra compatible</p></td>
+<td><p>Redundant; non-minimal</p></td>
+</tr>
+<tr class="row-even"><td><p>Quaternion</p></td>
+<td><p>4 values</p></td>
+<td><p>Compact, no gimbal lock, smooth SLERP</p></td>
+<td><p>Less intuitive</p></td>
+</tr>
+<tr class="row-odd"><td><p>Axis-Angle</p></td>
+<td><p>1 unit vector + 1 angle</p></td>
+<td><p>Geometrically meaningful</p></td>
+<td><p>Requires conversion to apply</p></td>
+</tr>
+<tr class="row-even"><td><p>Rotation Vector</p></td>
+<td><p>3 values</p></td>
+<td><p>Minimal version of axis-angle</p></td>
+<td><p>Slightly less intuitive</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b1-7-4-axis-angle-representation">
+<h2>B1.7.4 Axis-Angle Representation<a class="headerlink" href="#b1-7-4-axis-angle-representation" title="Link to this heading">#</a></h2>
+<section id="what-is-it">
+<h3>What is it?<a class="headerlink" href="#what-is-it" title="Link to this heading">#</a></h3>
+<p>Every 3D rotation can be described by <strong>rotating around a single axis</strong> by a given angle. This is the basis of <strong>axis-angle</strong> representation.</p>
+<p>It uses:</p>
+<ul class="simple">
+<li><p>A <strong>unit vector</strong> <span class="math notranslate nohighlight">\(\hat{n} = (n_x, n_y, n_z)\)</span>: the <strong>axis</strong> of rotation</p></li>
+<li><p>An <strong>angle</strong> <span class="math notranslate nohighlight">\(\theta\)</span>: the <strong>amount</strong> of rotation around that axis</p></li>
+</ul>
+<p>Together, this describes any 3D rotation unambiguously and intuitively.</p>
+<p><strong>Example</strong>: “Rotate 90° around the X-axis” →<br />
+<span class="math notranslate nohighlight">\(\hat{n} = (1, 0, 0)\)</span>, <span class="math notranslate nohighlight">\(\theta = \frac{\pi}{2}\)</span></p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="b1-7-5-rotation-vector">
+<h2>B1.7.5 Rotation Vector<a class="headerlink" href="#b1-7-5-rotation-vector" title="Link to this heading">#</a></h2>
+<p>The <strong>rotation vector</strong> is a compressed version of axis-angle:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{\theta} = \theta \, \hat{n}
+\]</div>
+<ul class="simple">
+<li><p>It encodes <strong>direction</strong> (axis) and <strong>magnitude</strong> (angle) in a single 3D vector.</p></li>
+<li><p>It’s used in applications requiring compact or differentiable representations (robotics, computer vision, optimization).</p></li>
+</ul>
+<p>✅ Efficient to store<br />
+✅ Easy to linearize for small-angle approximations<br />
+✅ Used in <code class="docutils literal notranslate"><span class="pre">cv2.Rodrigues()</span></code> in OpenCV</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b1-7-6-quaternions-for-3d-rotation">
+<h2>B1.7.6 Quaternions for 3D Rotation<a class="headerlink" href="#b1-7-6-quaternions-for-3d-rotation" title="Link to this heading">#</a></h2>
+<section id="what-is-a-quaternion">
+<h3>What Is a Quaternion?<a class="headerlink" href="#what-is-a-quaternion" title="Link to this heading">#</a></h3>
+<p>A <strong>quaternion</strong> is an extension of complex numbers to <strong>four dimensions</strong>, developed by William Rowan Hamilton in 1843.</p>
+<p>A quaternion is typically written as:</p>
+<div class="math notranslate nohighlight">
+\[
+q = w + xi + yj + zk
+\]</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(w\)</span>: the <strong>scalar part</strong> (real number)</p></li>
+<li><p><span class="math notranslate nohighlight">\((x, y, z)\)</span>: the <strong>vector part</strong> (imaginary components)</p></li>
+<li><p><span class="math notranslate nohighlight">\(i, j, k\)</span>: the <strong>imaginary units</strong> of quaternion algebra</p></li>
+</ul>
+</section>
+<section id="the-imaginary-units-i-j-and-k">
+<h3>The Imaginary Units: <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(j\)</span>, and <span class="math notranslate nohighlight">\(k\)</span><a class="headerlink" href="#the-imaginary-units-i-j-and-k" title="Link to this heading">#</a></h3>
+<p>These units behave differently from real numbers:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(i^2 = j^2 = k^2 = -1\)</span></p></li>
+<li><p>They obey <strong>non-commutative multiplication rules</strong>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  ij = k, \quad jk = i, \quad ki = j \\
+  ji = -k, \quad kj = -i, \quad ik = -j
+  \end{split}\]</div>
+</li>
+</ul>
+<p>This structure allows quaternions to <strong>encode rotations</strong>, where the vector part behaves like an axis of rotation and the scalar part encodes the angle.</p>
+</section>
+<section id="component-view">
+<h3>Component View<a class="headerlink" href="#component-view" title="Link to this heading">#</a></h3>
+<p>We usually represent quaternions as a 4D vector:</p>
+<div class="math notranslate nohighlight">
+\[
+q = [w, x, y, z]
+\]</div>
+<p>Or:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(w\)</span>: <strong>scalar part</strong>, related to the angle of rotation</p></li>
+<li><p><span class="math notranslate nohighlight">\((x, y, z)\)</span>: <strong>vector part</strong>, points along the <strong>axis of rotation</strong></p></li>
+</ul>
+<p>Together, they form a <strong>rotation</strong> when the quaternion has <strong>unit length</strong>:</p>
+</section>
+<section id="what-is-a-unit-quaternion">
+<h3>What Is a Unit Quaternion?<a class="headerlink" href="#what-is-a-unit-quaternion" title="Link to this heading">#</a></h3>
+<p>A <strong>unit quaternion</strong> has a norm (magnitude) equal to 1:</p>
+<div class="math notranslate nohighlight">
+\[
+|q| = \sqrt{w^2 + x^2 + y^2 + z^2} = 1
+\]</div>
+<p>Only <strong>unit quaternions</strong> represent <strong>pure 3D rotations</strong>.</p>
+<p>Non-unit quaternions can represent scaling or distortion — but in rotational dynamics, we use <strong>unit quaternions exclusively</strong> to describe orientation.</p>
+<p>Just like unit vectors describe direction only (not magnitude), unit quaternions describe <strong>orientation only</strong>, not how far something rotates.</p>
+</section>
+<section id="using-a-quaternion-to-represent-a-rotation">
+<h3>Using a Quaternion to Represent a Rotation<a class="headerlink" href="#using-a-quaternion-to-represent-a-rotation" title="Link to this heading">#</a></h3>
+<p>To represent a rotation of angle <span class="math notranslate nohighlight">\(\theta\)</span> about a <strong>unit axis</strong> <span class="math notranslate nohighlight">\(\hat{n} = (n_x, n_y, n_z)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+q = \left[\cos \frac{\theta}{2},\,
+n_x \sin \frac{\theta}{2},\,
+n_y \sin \frac{\theta}{2},\,
+n_z \sin \frac{\theta}{2} \right]
+\]</div>
+<p>Interpretation:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\cos(\theta/2)\)</span>: scalar part → encodes the <strong>rotation amount</strong></p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat{n} \sin(\theta/2)\)</span>: vector part → encodes the <strong>axis and direction</strong></p></li>
+</ul>
+<p>So a quaternion compactly encodes both the <strong>rotation axis and rotation angle</strong>.</p>
+</section>
+<section id="rotating-a-vector-using-a-quaternion">
+<h3>Rotating a Vector Using a Quaternion<a class="headerlink" href="#rotating-a-vector-using-a-quaternion" title="Link to this heading">#</a></h3>
+<p>To rotate a 3D vector <span class="math notranslate nohighlight">\(\vec{v}\)</span> using a quaternion <span class="math notranslate nohighlight">\(q\)</span>:</p>
+<ol class="arabic">
+<li><p>Convert <span class="math notranslate nohighlight">\(\vec{v}\)</span> into a <strong>pure quaternion</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+   v_q = [0,\, \vec{v}] = [0,\, v_x, v_y, v_z]
+   \]</div>
+</li>
+<li><p>Compute the rotated vector using:</p>
+<div class="math notranslate nohighlight">
+\[
+   v_{\text{rotated}} = q \cdot v_q \cdot q^{-1}
+   \]</div>
+</li>
+</ol>
+<p>This uses <strong>quaternion multiplication</strong> (not matrix multiplication). The result is another quaternion — its <strong>vector part</strong> is the rotated vector.</p>
+</section>
+<section id="visual-interpretation">
+<h3>Visual Interpretation<a class="headerlink" href="#visual-interpretation" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>The <strong>axis</strong> of rotation is the direction of the vector part <span class="math notranslate nohighlight">\((x, y, z)\)</span>.</p></li>
+<li><p>The <strong>amount</strong> of rotation is encoded in the scalar <span class="math notranslate nohighlight">\(w\)</span>:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(w = \cos(\theta/2)\)</span>, so <span class="math notranslate nohighlight">\(\theta = 2 \cos^{-1}(w)\)</span></p></li>
+</ul>
+</li>
+<li><p>The quaternion essentially <strong>“twists” space</strong> around its vector part</p></li>
+</ul>
+</section>
+<section id="summary-quaternion-anatomy">
+<h3>Summary: Quaternion Anatomy<a class="headerlink" href="#summary-quaternion-anatomy" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Symbol</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Scalar part</p></td>
+<td><p><span class="math notranslate nohighlight">\(w\)</span></p></td>
+<td><p>Related to rotation angle <span class="math notranslate nohighlight">\(\theta\)</span> via <span class="math notranslate nohighlight">\(w = \cos(\theta/2)\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Vector part</p></td>
+<td><p><span class="math notranslate nohighlight">\((x, y, z)\)</span></p></td>
+<td><p>Direction of axis × <span class="math notranslate nohighlight">\(\sin(\theta/2)\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Full quaternion</p></td>
+<td><p><span class="math notranslate nohighlight">\([w, x, y, z]\)</span></p></td>
+<td><p>Encodes axis-angle rotation</p></td>
+</tr>
+<tr class="row-odd"><td><p>Norm</p></td>
+<td><p>$</p></td>
+<td><p>q</p></td>
+</tr>
+<tr class="row-even"><td><p>Conjugate</p></td>
+<td><p><span class="math notranslate nohighlight">\(q^* = [w, -x, -y, -z]\)</span></p></td>
+<td><p>Used for inverse rotation</p></td>
+</tr>
+<tr class="row-odd"><td><p>Inverse</p></td>
+<td><p><span class="math notranslate nohighlight">\(q^{-1} = q^*\)</span> (if unit)</p></td>
+<td><p>Rotation in opposite direction</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This makes quaternions ideal for:</p>
+<ul class="simple">
+<li><p>3D simulations</p></li>
+<li><p>Orientation tracking</p></li>
+<li><p>Smooth interpolation (SLERP)</p></li>
+<li><p>Spacecraft and drone attitude control</p></li>
+<li><p>Anywhere rotation must be robust, continuous, and gimbal-lock-free</p></li>
+</ul>
+</section>
+<section id="from-axis-angle-to-quaternion">
+<h3>From Axis-Angle to Quaternion<a class="headerlink" href="#from-axis-angle-to-quaternion" title="Link to this heading">#</a></h3>
+<p>Given axis <span class="math notranslate nohighlight">\(\hat{n} = (n_x, n_y, n_z)\)</span> and angle <span class="math notranslate nohighlight">\(\theta\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+q = \left[\cos \frac{\theta}{2},\, n_x \sin \frac{\theta}{2},\, n_y \sin \frac{\theta}{2},\, n_z \sin \frac{\theta}{2} \right]
+\]</div>
+<p>This quaternion represents rotation around <span class="math notranslate nohighlight">\(\hat{n}\)</span> by angle <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+</section>
+<section id="from-quaternion-to-axis-angle-rotation-vector">
+<h3>From Quaternion to Axis-Angle / Rotation Vector<a class="headerlink" href="#from-quaternion-to-axis-angle-rotation-vector" title="Link to this heading">#</a></h3>
+<p>Given a unit quaternion <span class="math notranslate nohighlight">\(q = [w, x, y, z]\)</span>:</p>
+<ul class="simple">
+<li><p>Compute angle:
+$<span class="math notranslate nohighlight">\(
+\theta = 2 \cos^{-1}(w)
+\)</span>$</p></li>
+<li><p>Compute axis:
+$<span class="math notranslate nohighlight">\(
+\hat{n} = \frac{(x, y, z)}{\sin(\theta/2)} \quad \text{(if } \sin(\theta/2) \ne 0 \text{)}
+\)</span>$</p></li>
+<li><p>Then rotation vector:
+$<span class="math notranslate nohighlight">\(
+\vec{\theta} = \theta \hat{n}
+\)</span>$</p></li>
+</ul>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="b1-7-7-quaternion-operations">
+<h2>B1.7.7 Quaternion Operations<a class="headerlink" href="#b1-7-7-quaternion-operations" title="Link to this heading">#</a></h2>
+<section id="rotating-a-vector">
+<h3>Rotating a Vector<a class="headerlink" href="#rotating-a-vector" title="Link to this heading">#</a></h3>
+<p>To rotate a vector <span class="math notranslate nohighlight">\(\vec{v}\)</span> using a unit quaternion <span class="math notranslate nohighlight">\(q\)</span>:</p>
+<ol class="arabic simple">
+<li><p>Convert to a pure quaternion:
+$<span class="math notranslate nohighlight">\(
+v_q = [0, \vec{v}]
+\)</span>$</p></li>
+<li><p>Apply rotation:
+$<span class="math notranslate nohighlight">\(
+v_{\text{rotated}} = q \cdot v_q \cdot q^{-1}
+\)</span>$</p></li>
+</ol>
+<p>The result’s <strong>vector part</strong> is the rotated vector.</p>
+</section>
+<section id="composing-rotations">
+<h3>Composing Rotations<a class="headerlink" href="#composing-rotations" title="Link to this heading">#</a></h3>
+<p>If <span class="math notranslate nohighlight">\(q_1\)</span> and <span class="math notranslate nohighlight">\(q_2\)</span> are unit quaternions representing two rotations:</p>
+<div class="math notranslate nohighlight">
+\[
+q_{\text{combined}} = q_2 \cdot q_1
+\]</div>
+<ul class="simple">
+<li><p>First apply <span class="math notranslate nohighlight">\(q_1\)</span>, then <span class="math notranslate nohighlight">\(q_2\)</span></p></li>
+<li><p>Quaternion multiplication is <strong>non-commutative</strong></p></li>
+</ul>
+<p>This is <strong>cleaner and faster</strong> than composing rotation matrices or Euler angles.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="b1-7-8-euler-angles-to-quaternion-zxz">
+<h2>B1.7.8 Euler Angles to Quaternion (ZXZ)<a class="headerlink" href="#b1-7-8-euler-angles-to-quaternion-zxz" title="Link to this heading">#</a></h2>
+<p>In the <strong>ZXZ convention</strong>, to convert Euler angles <span class="math notranslate nohighlight">\((\phi, \theta, \psi)\)</span> to quaternion:</p>
+<ol class="arabic simple">
+<li><p>Construct elementary quaternions:</p></li>
+</ol>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(q_z(\phi) = \left[\cos \frac{\phi}{2},\, 0, 0, \sin \frac{\phi}{2} \right]\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(q_x(\theta) = \left[\cos \frac{\theta}{2},\, \sin \frac{\theta}{2}, 0, 0 \right]\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(q_z(\psi) = \left[\cos \frac{\psi}{2},\, 0, 0, \sin \frac{\psi}{2} \right]\)</span></p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>Combine:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+q = q_z(\phi) \cdot q_x(\theta) \cdot q_z(\psi)
+\]</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b1-7-9-quaternion-to-rotation-matrix">
+<h2>B1.7.9 Quaternion to Rotation Matrix<a class="headerlink" href="#b1-7-9-quaternion-to-rotation-matrix" title="Link to this heading">#</a></h2>
+<p>Given unit quaternion <span class="math notranslate nohighlight">\(q = [w, x, y, z]\)</span>, the corresponding rotation matrix is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+R =
+\begin{bmatrix}
+1 - 2y^2 - 2z^2 &amp; 2xy - 2zw &amp; 2xz + 2yw \\
+2xy + 2zw &amp; 1 - 2x^2 - 2z^2 &amp; 2yz - 2xw \\
+2xz - 2yw &amp; 2yz + 2xw &amp; 1 - 2x^2 - 2y^2
+\end{bmatrix}
+\end{split}\]</div>
+<p>Use this if you need to apply the quaternion rotation to many vectors using matrix multiplication.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b1-7-10-comparison-summary">
+<h2>B1.7.10 Comparison Summary<a class="headerlink" href="#b1-7-10-comparison-summary" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Representation</p></th>
+<th class="head"><p>Components</p></th>
+<th class="head"><p>Intuitive?</p></th>
+<th class="head"><p>Avoids Gimbal Lock</p></th>
+<th class="head"><p>Composable</p></th>
+<th class="head"><p>Interpolatable</p></th>
+<th class="head"><p>Best For</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Euler Angles</p></td>
+<td><p>3 angles</p></td>
+<td><p>✅ Yes</p></td>
+<td><p>❌ No</p></td>
+<td><p>❌ No</p></td>
+<td><p>❌ No</p></td>
+<td><p>Human input, basic UI</p></td>
+</tr>
+<tr class="row-odd"><td><p>Rotation Matrix</p></td>
+<td><p>9 values</p></td>
+<td><p>❌ Low</p></td>
+<td><p>✅ Yes</p></td>
+<td><p>✅ Yes</p></td>
+<td><p>❌ Linear only</p></td>
+<td><p>Physics, transforms, rendering</p></td>
+</tr>
+<tr class="row-even"><td><p>Quaternion</p></td>
+<td><p>4 values</p></td>
+<td><p>⚠ Medium</p></td>
+<td><p>✅ Yes</p></td>
+<td><p>✅ Fast</p></td>
+<td><p>✅ SLERP</p></td>
+<td><p>Robotics, animation, simulation</p></td>
+</tr>
+<tr class="row-odd"><td><p>Axis-Angle</p></td>
+<td><p>1 axis + θ</p></td>
+<td><p>✅ High</p></td>
+<td><p>✅ Yes</p></td>
+<td><p>✅ (via q)</p></td>
+<td><p>✅ (via q)</p></td>
+<td><p>Geometry, visualization</p></td>
+</tr>
+<tr class="row-even"><td><p>Rotation Vector</p></td>
+<td><p>3 values</p></td>
+<td><p>✅ Medium</p></td>
+<td><p>✅ Yes</p></td>
+<td><p>✅ Yes</p></td>
+<td><p>✅ Yes</p></td>
+<td><p>Optimization, CV, controls</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b1-7-11-final-insight">
+<h2>B1.7.11 Final Insight<a class="headerlink" href="#b1-7-11-final-insight" title="Link to this heading">#</a></h2>
+<p>Euler angles are a great starting point — but:</p>
+<ul class="simple">
+<li><p><strong>Quaternions</strong> are the most robust, smooth, and efficient rotation representation in 3D.</p></li>
+<li><p><strong>Axis-angle</strong> is intuitive and connects to real-world physical rotation.</p></li>
+<li><p><strong>Rotation vectors</strong> are compact and ideal for control, estimation, and optimization.</p></li>
+</ul>
+<p>They all connect through the same geometry:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Rotation Vector} \leftrightarrow \text{Axis-Angle} \leftrightarrow \text{Quaternion} \leftrightarrow \text{Rotation Matrix}
+\]</div>
+<p>The right tool depends on the task: interpretability, interpolation, performance, or compactness.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-B1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="euler-angles-equations.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">B1.6 Connecting Euler Angles and Euler’s Equations of Motion</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="tennis-racket.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">B1.8 The Tennis Racket Problem and the Intermediate Axis Theorem</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-7-1-learning-objectives">B1.7.1 Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-7-2-why-look-beyond-euler-angles">B1.7.2 Why Look Beyond Euler Angles?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-7-3-rotation-representations-overview">B1.7.3 Rotation Representations Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-7-4-axis-angle-representation">B1.7.4 Axis-Angle Representation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-it">What is it?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-7-5-rotation-vector">B1.7.5 Rotation Vector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-7-6-quaternions-for-3d-rotation">B1.7.6 Quaternions for 3D Rotation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-quaternion">What Is a Quaternion?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-imaginary-units-i-j-and-k">The Imaginary Units: <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(j\)</span>, and <span class="math notranslate nohighlight">\(k\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#component-view">Component View</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-unit-quaternion">What Is a Unit Quaternion?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-a-quaternion-to-represent-a-rotation">Using a Quaternion to Represent a Rotation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rotating-a-vector-using-a-quaternion">Rotating a Vector Using a Quaternion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-interpretation">Visual Interpretation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-quaternion-anatomy">Summary: Quaternion Anatomy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-axis-angle-to-quaternion">From Axis-Angle to Quaternion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-quaternion-to-axis-angle-rotation-vector">From Quaternion to Axis-Angle / Rotation Vector</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-7-7-quaternion-operations">B1.7.7 Quaternion Operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rotating-a-vector">Rotating a Vector</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#composing-rotations">Composing Rotations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-7-8-euler-angles-to-quaternion-zxz">B1.7.8 Euler Angles to Quaternion (ZXZ)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-7-9-quaternion-to-rotation-matrix">B1.7.9 Quaternion to Rotation Matrix</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-7-10-comparison-summary">B1.7.10 Comparison Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-7-11-final-insight">B1.7.11 Final Insight</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

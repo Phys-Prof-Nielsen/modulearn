@@ -1,0 +1,1139 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>B1.5 Euler’s Equations of Motion for Rigid Bodies &#8212; A Competency Approach to Classical Mechanics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-B1/eulers-equations-motion';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="B1.6 Connecting Euler Angles and Euler’s Equations of Motion" href="euler-angles-equations.html" />
+    <link rel="prev" title="B1.4 Body and Space Frames" href="body-space-frames.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-B.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Home"/>
+    <script>document.write(`<img src="../_static/logo-B.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the B Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B1 - Advanced Rotational Dynamics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="principal-axes.html">B1.1 Principal Axes in Rotational Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kinetic-energy.html">B1.2 Kinetic Energy in Rotational Dynamics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="euler-angles.html">B1.3 Euler Angles and Rigid Body Orientation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="body-space-frames.html">B1.4 Body and Space Frames</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">B1.5 Euler’s Equations of Motion for Rigid Bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="euler-angles-equations.html">B1.6 Connecting Euler Angles and Euler’s Equations of Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quaternions.html">B1.7 Beyond Euler Angles: Quaternions, Axis-Angle, and Rotation Vectors for 3D Orientation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tennis-racket.html">B1.8 The Tennis Racket Problem and the Intermediate Axis Theorem</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Module-B1/eulers-equations-motion.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-B1/eulers-equations-motion.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>B1.5 Euler’s Equations of Motion for Rigid Bodies</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-5-1-learning-objectives">B1.5.1 Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-5-2-motivation-why-do-we-need-eulers-equations">B1.5.2 Motivation: Why Do We Need Euler’s Equations?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-5-3-setup-and-assumptions">B1.5.3 Setup and Assumptions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-5-4-derivation-of-eulers-equations">B1.5.4 Derivation of Euler’s Equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-5-5-eulers-equations-final-form">B1.5.5 Euler’s Equations (Final Form)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-5-6-special-case-torque-free-motion">B1.5.6 Special Case: Torque-Free Motion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-5-7-example-symmetric-top">B1.5.7 Example: Symmetric Top</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-5-8-summary">B1.5.8 Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#future-stuff">Future Stuff</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solutions-to-box-problems">Solutions to Box Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#box-1">Box 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-eulers-equations">Step 1: Euler’s Equations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-plug-in-i-1-i-2-i-3-i">Step 2: Plug in <span class="math notranslate nohighlight">\(I_1 = I_2 = I_3 = I\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-interpretation">Step 3: Interpretation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#box-2">Box 2</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-eulers-equations-torque-free">Step 1: Euler’s Equations (Torque-Free)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-plug-in-given-values">Step 2: Plug in Given Values</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#final-answer">Final Answer</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#box-3">Box 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptual-background">Conceptual Background</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-by-step-stability-argument">Step-by-Step Stability Argument</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#detailed-linearization-case-a-rotation-about-the-minimum-axis-i-1">Detailed Linearization: Case A — Rotation About the Minimum Axis <span class="math notranslate nohighlight">\(I_1\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Step 1: Euler’s Equations (Torque-Free)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-plug-in-assumptions">Step 2: Plug in Assumptions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-derive-a-second-order-equation">Step 3: Derive a Second-Order Equation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-determine-stability">Step 4: Determine Stability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-procedure">Summary of Procedure</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#case-b-rotation-about-the-maximum-inertia-axis-i-3">Case B: Rotation about the <strong>maximum inertia axis</strong> (<span class="math notranslate nohighlight">\(I_3\)</span>)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#case-c-rotation-about-the-intermediate-axis-i-2">Case C: Rotation about the <strong>intermediate axis</strong> (<span class="math notranslate nohighlight">\(I_2\)</span>)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-the-tennis-racket-theorem">Interpretation: The Tennis Racket Theorem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#final-insight">Final Insight</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="b1-5-eulers-equations-of-motion-for-rigid-bodies">
+<h1>B1.5 Euler’s Equations of Motion for Rigid Bodies<a class="headerlink" href="#b1-5-eulers-equations-of-motion-for-rigid-bodies" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="b1-5-1-learning-objectives">
+<h2>B1.5.1 Learning Objectives<a class="headerlink" href="#b1-5-1-learning-objectives" title="Link to this heading">#</a></h2>
+<p>By the end of this lesson, you should be able to:</p>
+<ul class="simple">
+<li><p>Understand the need for Euler’s equations in rotational dynamics.</p></li>
+<li><p>Derive the equations from first principles.</p></li>
+<li><p>Apply them to rigid bodies in the body frame.</p></li>
+<li><p>Analyze torque-free and torque-driven motion in asymmetric objects.</p></li>
+<li><p>Connect Euler’s equations with angular momentum and conservation laws.</p></li>
+</ul>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b1-5-2-motivation-why-do-we-need-eulers-equations">
+<h2>B1.5.2 Motivation: Why Do We Need Euler’s Equations?<a class="headerlink" href="#b1-5-2-motivation-why-do-we-need-eulers-equations" title="Link to this heading">#</a></h2>
+<p>When analyzing a <strong>rotating rigid body</strong>, Newton’s second law for rotation is:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d\vec{L}}{dt} = \vec{N}
+\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( \vec{L} \)</span> is angular momentum</p></li>
+<li><p><span class="math notranslate nohighlight">\( \vec{N} \)</span> is torque</p></li>
+<li><p>The derivative is taken <strong>in the inertial (space) frame</strong></p></li>
+</ul>
+<p>But in most real problems (like analyzing a rotating spacecraft or top), it’s far more convenient to work in a <strong>body-fixed coordinate system</strong> — one that rotates with the object.</p>
+<p>❗ The complication: in a rotating frame, the derivative of a vector isn’t just <span class="math notranslate nohighlight">\( \frac{d}{dt} \)</span>, but includes the effect of the rotation of the frame itself.</p>
+<p>Euler’s equations provide a way to write the dynamics in the <strong>body frame</strong> using the <strong>principal axes</strong>, where the inertia tensor is diagonal.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b1-5-3-setup-and-assumptions">
+<h2>B1.5.3 Setup and Assumptions<a class="headerlink" href="#b1-5-3-setup-and-assumptions" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The body is rotating with angular velocity <span class="math notranslate nohighlight">\( \vec{\omega} \)</span> in its <strong>own (body-fixed) frame</strong>.</p></li>
+<li><p>The coordinate axes are aligned with the <strong>principal axes</strong> of the rigid body.</p></li>
+<li><p>The inertia tensor is <strong>diagonal</strong>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{I} =
+\begin{bmatrix}
+I_1 &amp; 0 &amp; 0 \\
+0 &amp; I_2 &amp; 0 \\
+0 &amp; 0 &amp; I_3
+\end{bmatrix}
+\end{split}\]</div>
+<ul class="simple">
+<li><p>Torque <span class="math notranslate nohighlight">\( \vec{N} \)</span> is expressed in the body frame.</p></li>
+</ul>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b1-5-4-derivation-of-eulers-equations">
+<h2>B1.5.4 Derivation of Euler’s Equations<a class="headerlink" href="#b1-5-4-derivation-of-eulers-equations" title="Link to this heading">#</a></h2>
+<p>We start with:</p>
+<div class="math notranslate nohighlight">
+\[
+\left( \frac{d\vec{L}}{dt} \right)_{\text{space}} = \vec{N}
+\]</div>
+<p>But in the rotating (body) frame:</p>
+<div class="math notranslate nohighlight">
+\[
+\left( \frac{d\vec{L}}{dt} \right)_{\text{space}} =
+\left( \frac{d\vec{L}}{dt} \right)_{\text{body}} + \vec{\omega} \times \vec{L}
+\]</div>
+<p>So:</p>
+<div class="math notranslate nohighlight">
+\[
+\left( \frac{d\vec{L}}{dt} \right)_{\text{body}} = \vec{N} - \vec{\omega} \times \vec{L}
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\( \vec{L} = \mathbf{I} \vec{\omega} \)</span> and <span class="math notranslate nohighlight">\( \mathbf{I} \)</span> is diagonal in the principal frame:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+L_1 &amp;= I_1 \omega_1 \\
+L_2 &amp;= I_2 \omega_2 \\
+L_3 &amp;= I_3 \omega_3
+\end{aligned}
+\end{split}\]</div>
+<p>Then compute componentwise:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+I_1 \dot{\omega}_1 &amp;= N_1 + (I_2 - I_3)\omega_2 \omega_3 \\
+I_2 \dot{\omega}_2 &amp;= N_2 + (I_3 - I_1)\omega_3 \omega_1 \\
+I_3 \dot{\omega}_3 &amp;= N_3 + (I_1 - I_2)\omega_1 \omega_2
+\end{aligned}
+\end{split}\]</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b1-5-5-eulers-equations-final-form">
+<h2>B1.5.5 Euler’s Equations (Final Form)<a class="headerlink" href="#b1-5-5-eulers-equations-final-form" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+\begin{aligned}
+I_1 \dot{\omega}_1 &amp;= N_1 + (I_2 - I_3) \omega_2 \omega_3 \\
+I_2 \dot{\omega}_2 &amp;= N_2 + (I_3 - I_1) \omega_3 \omega_1 \\
+I_3 \dot{\omega}_3 &amp;= N_3 + (I_1 - I_2) \omega_1 \omega_2
+\end{aligned}
+}
+\end{split}\]</div>
+<p>These are <strong>Euler’s equations of motion</strong>, describing how the angular velocity vector evolves in the <strong>body frame</strong>.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b1-5-6-special-case-torque-free-motion">
+<h2>B1.5.6 Special Case: Torque-Free Motion<a class="headerlink" href="#b1-5-6-special-case-torque-free-motion" title="Link to this heading">#</a></h2>
+<p>If <span class="math notranslate nohighlight">\( \vec{N} = 0 \)</span>, then:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+I_1 \dot{\omega}_1 &amp;= (I_2 - I_3) \omega_2 \omega_3 \\
+I_2 \dot{\omega}_2 &amp;= (I_3 - I_1) \omega_3 \omega_1 \\
+I_3 \dot{\omega}_3 &amp;= (I_1 - I_2) \omega_1 \omega_2
+\end{aligned}
+\end{split}\]</div>
+<ul class="simple">
+<li><p>The angular velocity components are <strong>non-constant</strong>, even though no external torque is acting.</p></li>
+<li><p>The motion can be <strong>periodic</strong>, <strong>chaotic</strong>, or <strong>stable</strong>, depending on the body’s symmetry.</p></li>
+</ul>
+<p>This is the situation for a freely spinning satellite or an isolated asteroid.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b1-5-7-example-symmetric-top">
+<h2>B1.5.7 Example: Symmetric Top<a class="headerlink" href="#b1-5-7-example-symmetric-top" title="Link to this heading">#</a></h2>
+<p>If <span class="math notranslate nohighlight">\( I_1 = I_2 \neq I_3 \)</span>, then:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+I_1 \dot{\omega}_1 &amp;= (I_1 - I_3) \omega_2 \omega_3 \\
+I_1 \dot{\omega}_2 &amp;= (I_3 - I_1) \omega_1 \omega_3 \\
+I_3 \dot{\omega}_3 &amp;= 0
+\end{aligned}
+\end{split}\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( \omega_3 \)</span> is constant.</p></li>
+<li><p><span class="math notranslate nohighlight">\( \omega_1 \)</span> and <span class="math notranslate nohighlight">\( \omega_2 \)</span> oscillate.</p></li>
+<li><p>This leads to <strong>precession</strong> of the angular velocity vector about the symmetry axis.</p></li>
+</ul>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b1-5-8-summary">
+<h2>B1.5.8 Summary<a class="headerlink" href="#b1-5-8-summary" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Concept</p></th>
+<th class="head"><p>Expression</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Angular momentum</p></td>
+<td><p><span class="math notranslate nohighlight">\( \vec{L} = \mathbf{I} \vec{\omega} \)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Time derivative in body frame</p></td>
+<td><p><span class="math notranslate nohighlight">\( \left( \frac{d\vec{L}}{dt} \right)_{\text{space}} = \left( \frac{d\vec{L}}{dt} \right)_{\text{body}} + \vec{\omega} \times \vec{L} \)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Euler’s equations</p></td>
+<td><p><span class="math notranslate nohighlight">\( I_i \dot{\omega}_i = N_i + (I_j - I_k) \omega_j \omega_k \)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Torque-free case</p></td>
+<td><p>Euler’s equations with ( \vec{N} = 0 )</p></td>
+</tr>
+<tr class="row-even"><td><p>Stability insight</p></td>
+<td><p>Rotation about largest or smallest inertia axis is stable</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="future-stuff">
+<h2>Future Stuff<a class="headerlink" href="#future-stuff" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Solve Euler’s equations numerically using Runge-Kutta methods.</p></li>
+<li><p>Explore chaotic motion of rigid bodies using phase space plots.</p></li>
+<li><p>Connect Euler’s equations with Lagrangian mechanics and the kinetic energy term.</p></li>
+<li><p>Analyze attitude dynamics in spacecraft with reaction wheels or control torques.</p></li>
+</ul>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div class="alert alert-warning">
+<p><strong>Box 1</strong></p>
+<p>Show that when <span class="math notranslate nohighlight">\( I_1 = I_2 = I_3 \)</span>, the angular velocity vector <span class="math notranslate nohighlight">\( \vec{\omega} \)</span> remains constant in both the body and space frames for torque-free motion.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div class="alert alert-warning">
+<p><strong>Box 2</strong></p>
+<p>A rigid body has moments of inertia <span class="math notranslate nohighlight">\( I_1 = 2 \)</span>, <span class="math notranslate nohighlight">\( I_2 = 3 \)</span>, <span class="math notranslate nohighlight">\( I_3 = 4 \)</span>. It spins freely (no torque), with initial condition:</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_1 = 1, \quad \omega_2 = 0, \quad \omega_3 = 2
+\]</div>
+<p>Compute <span class="math notranslate nohighlight">\( \dot{\omega}_1 \)</span>, <span class="math notranslate nohighlight">\( \dot{\omega}_2 \)</span>, and <span class="math notranslate nohighlight">\( \dot{\omega}_3 \)</span> at this instant.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div class="alert alert-warning">
+<p><strong>Box 3</strong></p>
+<p>Explain why rotation about the axis with <strong>maximum or minimum moment of inertia</strong> is stable, but rotation about the <strong>intermediate axis</strong> is unstable (the “tennis racket theorem”).</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="solutions-to-box-problems">
+<h2>Solutions to Box Problems<a class="headerlink" href="#solutions-to-box-problems" title="Link to this heading">#</a></h2>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="box-1">
+<h3>Box 1<a class="headerlink" href="#box-1" title="Link to this heading">#</a></h3>
+<section id="step-1-eulers-equations">
+<h4>Step 1: Euler’s Equations<a class="headerlink" href="#step-1-eulers-equations" title="Link to this heading">#</a></h4>
+<p>Euler’s equations for torque-free motion are:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+I_1 \dot{\omega}_1 &amp;= (I_2 - I_3) \omega_2 \omega_3 \\
+I_2 \dot{\omega}_2 &amp;= (I_3 - I_1) \omega_3 \omega_1 \\
+I_3 \dot{\omega}_3 &amp;= (I_1 - I_2) \omega_1 \omega_2
+\end{aligned}
+\end{split}\]</div>
+</section>
+<hr class="docutils" />
+<section id="step-2-plug-in-i-1-i-2-i-3-i">
+<h4>Step 2: Plug in <span class="math notranslate nohighlight">\(I_1 = I_2 = I_3 = I\)</span><a class="headerlink" href="#step-2-plug-in-i-1-i-2-i-3-i" title="Link to this heading">#</a></h4>
+<p>Substitute into each equation:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+I \dot{\omega}_1 &amp;= (I - I) \omega_2 \omega_3 = 0 \\
+I \dot{\omega}_2 &amp;= (I - I) \omega_3 \omega_1 = 0 \\
+I \dot{\omega}_3 &amp;= (I - I) \omega_1 \omega_2 = 0
+\end{aligned}
+\end{split}\]</div>
+<p>This simplifies to:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{\omega}_1 = \dot{\omega}_2 = \dot{\omega}_3 = 0
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="step-3-interpretation">
+<h4>Step 3: Interpretation<a class="headerlink" href="#step-3-interpretation" title="Link to this heading">#</a></h4>
+<p>Since all derivatives are zero:</p>
+<ul>
+<li><p>The components of <span class="math notranslate nohighlight">\(\vec{\omega}\)</span> in the <strong>body frame</strong> are constant:</p>
+<div class="math notranslate nohighlight">
+\[
+  \vec{\omega}_\text{body}(t) = \vec{\omega}_\text{body}(0)
+  \]</div>
+</li>
+<li><p>But if <span class="math notranslate nohighlight">\(\vec{\omega}\)</span> is <strong>constant in the body frame</strong>, and the body is rotating, then the vector must also point in a <strong>fixed direction</strong> in space.</p></li>
+</ul>
+<p>Hence, <span class="math notranslate nohighlight">\(\vec{\omega}\)</span> is also constant in the <strong>space (inertial) frame</strong>:</p>
+<ul class="simple">
+<li><p>This means the <strong>rotation axis does not precess</strong>.</p></li>
+<li><p>The body spins uniformly about a fixed axis in space — like a <strong>perfect sphere</strong> or symmetric</p></li>
+</ul>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="box-2">
+<h3>Box 2<a class="headerlink" href="#box-2" title="Link to this heading">#</a></h3>
+<section id="step-1-eulers-equations-torque-free">
+<h4>Step 1: Euler’s Equations (Torque-Free)<a class="headerlink" href="#step-1-eulers-equations-torque-free" title="Link to this heading">#</a></h4>
+<p>For a rigid body with no external torque, Euler’s equations are:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+I_1 \dot{\omega}_1 &amp;= (I_2 - I_3) \omega_2 \omega_3 \\
+I_2 \dot{\omega}_2 &amp;= (I_3 - I_1) \omega_3 \omega_1 \\
+I_3 \dot{\omega}_3 &amp;= (I_1 - I_2) \omega_1 \omega_2
+\end{aligned}
+\end{split}\]</div>
+</section>
+<hr class="docutils" />
+<section id="step-2-plug-in-given-values">
+<h4>Step 2: Plug in Given Values<a class="headerlink" href="#step-2-plug-in-given-values" title="Link to this heading">#</a></h4>
+<p>Substitute values:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(I_1 = 2\)</span>, <span class="math notranslate nohighlight">\(I_2 = 3\)</span>, <span class="math notranslate nohighlight">\(I_3 = 4\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\omega_1 = 1\)</span>, <span class="math notranslate nohighlight">\(\omega_2 = 0\)</span>, <span class="math notranslate nohighlight">\(\omega_3 = 2\)</span></p></li>
+</ul>
+<p><strong>Equation 1</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+2 \dot{\omega}_1 = (3 - 4)(0)(2) = (-1)(0) = 0 \quad \Rightarrow \quad \dot{\omega}_1 = 0
+\]</div>
+<p><strong>Equation 2</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+3 \dot{\omega}_2 = (4 - 2)(2)(1) = (2)(2)(1) = 4 \quad \Rightarrow \quad \dot{\omega}_2 = \frac{4}{3}
+\]</div>
+<p><strong>Equation 3</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+4 \dot{\omega}_3 = (2 - 3)(1)(0) = (-1)(1)(0) = 0 \quad \Rightarrow \quad \dot{\omega}_3 = 0
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="final-answer">
+<h4>Final Answer<a class="headerlink" href="#final-answer" title="Link to this heading">#</a></h4>
+<p>At <span class="math notranslate nohighlight">\(t = 0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{\omega}_1 = 0, \quad \dot{\omega}_2 = \frac{4}{3}, \quad \dot{\omega}_3 = 0
+\]</div>
+<ul class="simple">
+<li><p>The body is momentarily gaining angular velocity about axis 2.</p></li>
+<li><p>Axes 1 and 3 show no instantaneous acceleration at this instant.</p></li>
+</ul>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="box-3">
+<h3>Box 3<a class="headerlink" href="#box-3" title="Link to this heading">#</a></h3>
+</section>
+<section id="conceptual-background">
+<h3>Conceptual Background<a class="headerlink" href="#conceptual-background" title="Link to this heading">#</a></h3>
+<p>Let a rigid body have three distinct principal moments of inertia:</p>
+<div class="math notranslate nohighlight">
+\[
+I_1 &lt; I_2 &lt; I_3
+\]</div>
+<p>with corresponding principal axes.</p>
+<p>Euler’s equations (torque-free) in the body frame are:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+I_1 \dot{\omega}_1 &amp;= (I_2 - I_3) \omega_2 \omega_3 \\
+I_2 \dot{\omega}_2 &amp;= (I_3 - I_1) \omega_3 \omega_1 \\
+I_3 \dot{\omega}_3 &amp;= (I_1 - I_2) \omega_1 \omega_2
+\end{aligned}
+\end{split}\]</div>
+<p>We examine the <strong>stability</strong> of pure rotation about each axis by <strong>linearizing</strong> these equations under small perturbations.</p>
+</section>
+<hr class="docutils" />
+<section id="step-by-step-stability-argument">
+<h3>Step-by-Step Stability Argument<a class="headerlink" href="#step-by-step-stability-argument" title="Link to this heading">#</a></h3>
+<section id="detailed-linearization-case-a-rotation-about-the-minimum-axis-i-1">
+<h4>Detailed Linearization: Case A — Rotation About the Minimum Axis <span class="math notranslate nohighlight">\(I_1\)</span><a class="headerlink" href="#detailed-linearization-case-a-rotation-about-the-minimum-axis-i-1" title="Link to this heading">#</a></h4>
+<p>Let’s carefully analyze the <strong>stability of rotation about the principal axis with the smallest moment of inertia</strong>, <span class="math notranslate nohighlight">\(I_1\)</span>.</p>
+<p>We assume the body is <strong>initially spinning only about axis 1</strong>, and that the other two angular velocity components are <strong>small perturbations</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_1(t) = \Omega \quad (\text{constant}), \qquad \omega_2(t),\, \omega_3(t) \ll 1
+\]</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id1">
+<h3>Step 1: Euler’s Equations (Torque-Free)<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Recall:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+I_1 \dot{\omega}_1 &amp;= (I_2 - I_3) \omega_2 \omega_3 \\
+I_2 \dot{\omega}_2 &amp;= (I_3 - I_1) \omega_3 \omega_1 \\
+I_3 \dot{\omega}_3 &amp;= (I_1 - I_2) \omega_1 \omega_2
+\end{aligned}
+\end{split}\]</div>
+</section>
+<hr class="docutils" />
+<section id="step-2-plug-in-assumptions">
+<h3>Step 2: Plug in Assumptions<a class="headerlink" href="#step-2-plug-in-assumptions" title="Link to this heading">#</a></h3>
+<p>Since <span class="math notranslate nohighlight">\(\omega_1 = \Omega\)</span> is constant and <span class="math notranslate nohighlight">\(\omega_2, \omega_3\)</span> are small:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(\omega_2 \omega_3\)</span> is second-order small, so we <strong>neglect</strong> it in the first equation:</p>
+<div class="math notranslate nohighlight">
+\[
+  \dot{\omega}_1 \approx 0
+  \]</div>
+</li>
+<li><p>The other two equations become:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  \begin{aligned}
+  I_2 \dot{\omega}_2 &amp;= (I_3 - I_1) \Omega \omega_3 \\
+  I_3 \dot{\omega}_3 &amp;= (I_1 - I_2) \Omega \omega_2
+  \end{aligned}
+  \end{split}\]</div>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="step-3-derive-a-second-order-equation">
+<h3>Step 3: Derive a Second-Order Equation<a class="headerlink" href="#step-3-derive-a-second-order-equation" title="Link to this heading">#</a></h3>
+<p>Differentiate the first equation:</p>
+<div class="math notranslate nohighlight">
+\[
+I_2 \ddot{\omega}_2 = (I_3 - I_1) \Omega \dot{\omega}_3
+\]</div>
+<p>Now substitute <span class="math notranslate nohighlight">\(\dot{\omega}_3\)</span> from the second equation:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{\omega}_3 = \frac{(I_1 - I_2) \Omega}{I_3} \omega_2
+\]</div>
+<p>Plug into the equation for <span class="math notranslate nohighlight">\(\ddot{\omega}_2\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+I_2 \ddot{\omega}_2 = (I_3 - I_1) \Omega \cdot \frac{(I_1 - I_2) \Omega}{I_3} \omega_2
+\]</div>
+<p>Simplify:</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{\omega}_2 = \left[ \frac{(I_3 - I_1)(I_1 - I_2)}{I_2 I_3} \Omega^2 \right] \omega_2
+= \lambda^2 \omega_2
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="step-4-determine-stability">
+<h3>Step 4: Determine Stability<a class="headerlink" href="#step-4-determine-stability" title="Link to this heading">#</a></h3>
+<p>Now examine the sign of:</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda^2 = \frac{(I_3 - I_1)(I_1 - I_2)}{I_2 I_3} \Omega^2
+\]</div>
+<p>We assume <span class="math notranslate nohighlight">\(I_1 &lt; I_2 &lt; I_3\)</span>:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\((I_3 - I_1) &gt; 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\((I_1 - I_2) &lt; 0\)</span></p></li>
+</ul>
+<p>So the numerator is negative ⇒</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda^2 &lt; 0
+\]</div>
+<p>This leads to the differential equation:</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{\omega}_2 = -|\lambda^2| \omega_2
+\]</div>
+<p>✅ <strong>Solution is oscillatory</strong> ⇒ the perturbation <span class="math notranslate nohighlight">\(\omega_2\)</span> stays bounded.</p>
+<p>✅ <strong>Conclusion</strong>: rotation about axis 1 is <strong>stable</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="summary-of-procedure">
+<h3>Summary of Procedure<a class="headerlink" href="#summary-of-procedure" title="Link to this heading">#</a></h3>
+<p>This is the general method:</p>
+<ol class="arabic simple">
+<li><p>Assume pure rotation about one axis, perturb the other two.</p></li>
+<li><p>Linearize Euler’s equations by dropping second-order small terms.</p></li>
+<li><p>Derive a second-order differential equation for the perturbation.</p></li>
+<li><p>Analyze the sign of <span class="math notranslate nohighlight">\(\lambda^2\)</span>:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\lambda^2 &lt; 0\)</span> ⇒ stable</p></li>
+<li><p><span class="math notranslate nohighlight">\(\lambda^2 &gt; 0\)</span> ⇒ unstable</p></li>
+</ul>
+</li>
+</ol>
+<p>The same steps can be applied to Cases B and C (rotation about axes <span class="math notranslate nohighlight">\(I_2\)</span> and <span class="math notranslate nohighlight">\(I_3\)</span>).</p>
+<hr class="docutils" />
+<section id="case-b-rotation-about-the-maximum-inertia-axis-i-3">
+<h4>Case B: Rotation about the <strong>maximum inertia axis</strong> (<span class="math notranslate nohighlight">\(I_3\)</span>)<a class="headerlink" href="#case-b-rotation-about-the-maximum-inertia-axis-i-3" title="Link to this heading">#</a></h4>
+<p>Assume:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\omega_3 = \Omega\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\omega_1, \omega_2 \approx 0\)</span></p></li>
+</ul>
+<p>Similarly:</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda^2 = \frac{(I_2 - I_1)(I_3 - I_2)}{I_1 I_2} \Omega^2
+\]</div>
+<p>Here both terms are <strong>positive</strong> ⇒ <span class="math notranslate nohighlight">\(\lambda^2 &lt; 0\)</span> again ⇒ <strong>stable</strong></p>
+</section>
+<hr class="docutils" />
+<section id="case-c-rotation-about-the-intermediate-axis-i-2">
+<h4>Case C: Rotation about the <strong>intermediate axis</strong> (<span class="math notranslate nohighlight">\(I_2\)</span>)<a class="headerlink" href="#case-c-rotation-about-the-intermediate-axis-i-2" title="Link to this heading">#</a></h4>
+<p>Assume:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\omega_2 = \Omega\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\omega_1, \omega_3 \approx 0\)</span></p></li>
+</ul>
+<p>Then:</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda^2 = \frac{(I_2 - I_3)(I_1 - I_2)}{I_1 I_3} \Omega^2
+\]</div>
+<p>Now both terms in the numerator are <strong>negative</strong>:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(I_2 - I_3 &lt; 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(I_1 - I_2 &lt; 0\)</span></p></li>
+</ul>
+<p>Product is <strong>positive</strong> ⇒ <span class="math notranslate nohighlight">\(\lambda^2 &gt; 0\)</span> ⇒ <strong>exponential growth</strong> ⇒ <strong>unstable</strong></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="interpretation-the-tennis-racket-theorem">
+<h3>Interpretation: The Tennis Racket Theorem<a class="headerlink" href="#interpretation-the-tennis-racket-theorem" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>An object thrown spinning about its <strong>intermediate axis</strong> will flip — not because of external forces, but because that axis is <strong>dynamically unstable</strong>.</p></li>
+<li><p>Even tiny perturbations in the other components grow, causing a dramatic shift in the orientation of the body.</p></li>
+<li><p>This is <strong>not chaos</strong>, but a <strong>geometrically constrained instability</strong>.</p></li>
+</ul>
+<p>In contrast:</p>
+<ul class="simple">
+<li><p>Rotating about the <strong>shortest or longest axis</strong> leads to bounded, periodic deviations — these axes are <strong>dynamically stable</strong>.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="final-insight">
+<h3>Final Insight<a class="headerlink" href="#final-insight" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Axis</p></th>
+<th class="head"><p>Moment of Inertia</p></th>
+<th class="head"><p>Stability</p></th>
+<th class="head"><p>Behavior</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(I_1\)</span> (short)</p></td>
+<td><p>Minimum</p></td>
+<td><p>✅ Stable</p></td>
+<td><p>Oscillatory, bounded</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(I_2\)</span> (intermediate)</p></td>
+<td><p>Intermediate</p></td>
+<td><p>❌ Unstable</p></td>
+<td><p>Exponential divergence → flips</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(I_3\)</span> (long)</p></td>
+<td><p>Maximum</p></td>
+<td><p>✅ Stable</p></td>
+<td><p>Oscillatory, bounded</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Conclusion</strong>:<br />
+Stability arises when energy and angular momentum surfaces intersect in closed loops. The intermediate axis corresponds to a <strong>saddle point</strong> — perturbations grow because the angular velocity vector <span class="math notranslate nohighlight">\(\vec{\omega}\)</span> is geometrically “pushed away” from that configuration.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-B1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="body-space-frames.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">B1.4 Body and Space Frames</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="euler-angles-equations.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">B1.6 Connecting Euler Angles and Euler’s Equations of Motion</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-5-1-learning-objectives">B1.5.1 Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-5-2-motivation-why-do-we-need-eulers-equations">B1.5.2 Motivation: Why Do We Need Euler’s Equations?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-5-3-setup-and-assumptions">B1.5.3 Setup and Assumptions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-5-4-derivation-of-eulers-equations">B1.5.4 Derivation of Euler’s Equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-5-5-eulers-equations-final-form">B1.5.5 Euler’s Equations (Final Form)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-5-6-special-case-torque-free-motion">B1.5.6 Special Case: Torque-Free Motion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-5-7-example-symmetric-top">B1.5.7 Example: Symmetric Top</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-5-8-summary">B1.5.8 Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#future-stuff">Future Stuff</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solutions-to-box-problems">Solutions to Box Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#box-1">Box 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-eulers-equations">Step 1: Euler’s Equations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-plug-in-i-1-i-2-i-3-i">Step 2: Plug in <span class="math notranslate nohighlight">\(I_1 = I_2 = I_3 = I\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-interpretation">Step 3: Interpretation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#box-2">Box 2</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-eulers-equations-torque-free">Step 1: Euler’s Equations (Torque-Free)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-plug-in-given-values">Step 2: Plug in Given Values</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#final-answer">Final Answer</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#box-3">Box 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptual-background">Conceptual Background</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-by-step-stability-argument">Step-by-Step Stability Argument</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#detailed-linearization-case-a-rotation-about-the-minimum-axis-i-1">Detailed Linearization: Case A — Rotation About the Minimum Axis <span class="math notranslate nohighlight">\(I_1\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Step 1: Euler’s Equations (Torque-Free)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-plug-in-assumptions">Step 2: Plug in Assumptions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-derive-a-second-order-equation">Step 3: Derive a Second-Order Equation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-determine-stability">Step 4: Determine Stability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-procedure">Summary of Procedure</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#case-b-rotation-about-the-maximum-inertia-axis-i-3">Case B: Rotation about the <strong>maximum inertia axis</strong> (<span class="math notranslate nohighlight">\(I_3\)</span>)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#case-c-rotation-about-the-intermediate-axis-i-2">Case C: Rotation about the <strong>intermediate axis</strong> (<span class="math notranslate nohighlight">\(I_2\)</span>)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-the-tennis-racket-theorem">Interpretation: The Tennis Racket Theorem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#final-insight">Final Insight</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
