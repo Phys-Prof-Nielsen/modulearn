@@ -1,0 +1,2011 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>B2.5 Parametric Resonance &#8212; A Competency Approach to Classical Mechanics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-B2/parametric-resonance';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="B2.6 — Problems" href="problemsB2.html" />
+    <link rel="prev" title="B2.4 Example Applications of Lissajous Figures" href="applications.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-B.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Home"/>
+    <script>document.write(`<img src="../_static/logo-B.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the B Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B1 - Advanced Rotational Dynamics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/principal-axes.html">B1.1 Principal Axes in Rotational Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/kinetic-energy.html">B1.2 Kinetic Energy in Rotational Dynamics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/euler-angles.html">B1.3 Euler Angles and Rigid Body Orientation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/body-space-frames.html">B1.4 Body and Space Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/eulers-equations-motion.html">B1.5 Euler’s Equations of Motion for Rigid Bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/euler-angles-equations.html">B1.6 Connecting Euler Angles and Euler’s Equations of Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/quaternions.html">B1.7 Beyond Euler Angles: Quaternions, Axis-Angle, and Rotation Vectors for 3D Orientation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/tennis-racket.html">B1.8 The Tennis Racket Problem and the Intermediate Axis Theorem</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B2 - Extensions of Coupled Oscillations</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-B2.html">B2.0 Learning Outcomes: Extensions of Coupled Oscillations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oscillator-to-wave.html">B2.1 Oscillator Chains and the Wave Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="construction.html">B2.2 Constructing Lissajous Figures: Two Perpendicular SHM Motions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frequency-ratios.html">B2.3 Frequency Ratios, Phase Difference, and Closure Conditions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="applications.html">B2.4 Example Applications of Lissajous Figures</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">B2.5 Parametric Resonance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problemsB2.html">B2.6 — Problems</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Module-B2/parametric-resonance.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-B2/parametric-resonance.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>B2.5 Parametric Resonance</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b2-5-1-motivation">B2.5.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b2-5-2-ordinary-resonance-vs-parametric-resonance">B2.5.2 Ordinary Resonance vs Parametric Resonance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b2-5-3-example-pumping-a-swing">B2.5.3 Example: Pumping a Swing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b2-5-4-the-mathieu-equation">B2.5.4 The Mathieu Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b2-5-5-resonance-condition-and-exponential-growth">B2.5.5 Resonance Condition and Exponential Growth</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resonance-condition">Resonance Condition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slowly-growing-amplitudes">Slowly Growing Amplitudes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b2-5-6-stability-and-instability-regions">B2.5.6 Stability and Instability Regions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-first-instability-region">The First Instability Region</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arnold-tongues">Arnold Tongues</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b2-5-7-applications-of-parametric-resonance">B2.5.7 Applications of Parametric Resonance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#faraday-waves">Faraday Waves</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#electrical-circuits">Electrical Circuits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ion-traps">Ion Traps</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mechanical-systems">Mechanical Systems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cosmology">Cosmology</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="b2-5-parametric-resonance">
+<h1>B2.5 Parametric Resonance<a class="headerlink" href="#b2-5-parametric-resonance" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><section id="b2-5-1-motivation">
+<h2>B2.5.1 Motivation<a class="headerlink" href="#b2-5-1-motivation" title="Link to this heading">#</a></h2>
+<p>In Phase D, we encountered <strong>ordinary resonance</strong>, where a system is driven by an external periodic force. When the driving frequency matches the natural frequency of the system, energy is transferred efficiently and large oscillations can result.</p>
+<p>However, resonance can occur even without an external driving force.</p>
+<p>Suppose instead that one of the properties of the oscillator itself varies periodically with time. For example,</p>
+<ul class="simple">
+<li><p>a pendulum whose length changes periodically,</p></li>
+<li><p>a child pumping a swing by standing and crouching,</p></li>
+<li><p>a spring whose stiffness changes with time,</p></li>
+<li><p>waves forming on the surface of a vertically oscillating fluid,</p></li>
+<li><p>vibrating structures subjected to periodic loading.</p></li>
+</ul>
+<p>Remarkably, these systems can exhibit rapidly growing oscillations even though no periodic force acts directly on them.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Parametric Resonance</strong>
+<p>Parametric resonance occurs when a parameter of an oscillatory system varies periodically in time, allowing energy to be transferred into the oscillation and causing its amplitude to increase.</p>
+</div>
+<p>Unlike ordinary resonance, which occurs when an external force oscillates near the natural frequency, parametric resonance typically occurs when the parameter oscillates near twice the natural frequency:</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_{\rm parameter}
+\approx
+2\omega_0.
+\]</div>
+<p>This phenomenon plays important roles in</p>
+<ul class="simple">
+<li><p>playground swings,</p></li>
+<li><p>Faraday waves,</p></li>
+<li><p>electrical circuits,</p></li>
+<li><p>engineering instabilities,</p></li>
+<li><p>quantum systems,</p></li>
+<li><p>and even cosmology.</p></li>
+</ul>
+<p>In this section, we will discover how periodically varying the properties of an oscillator can produce instability and exponential growth, providing one of the first examples of behavior that begins to move beyond simple harmonic motion and toward nonlinear dynamics.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b2-5-2-ordinary-resonance-vs-parametric-resonance">
+<h2>B2.5.2 Ordinary Resonance vs Parametric Resonance<a class="headerlink" href="#b2-5-2-ordinary-resonance-vs-parametric-resonance" title="Link to this heading">#</a></h2>
+<p>In ordinary resonance, energy is supplied to an oscillator by an external periodic force. The equation of motion has the form</p>
+<div class="math notranslate nohighlight">
+\[
+m\ddot x+b\dot x+kx=F_0\cos(\omega t),
+\]</div>
+<p>where the oscillatory driving force</p>
+<div class="math notranslate nohighlight">
+\[
+F(t)=F_0\cos(\omega t)
+\]</div>
+<p>acts directly on the mass.</p>
+<p>Large amplitudes occur when the driving frequency approaches the natural frequency,</p>
+<div class="math notranslate nohighlight">
+\[
+\omega\approx\omega_0,
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_0=\sqrt{\frac{k}{m}}.
+\]</div>
+<p>The energy input comes from the external force itself.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Ordinary Resonance</strong>
+<p>In ordinary resonance, a periodic external force transfers energy into the system.</p>
+</div>
+<hr class="docutils" />
+<p>Parametric resonance is fundamentally different. No external force acts directly on the oscillator. Instead, one of the parameters describing the system varies periodically in time.</p>
+<p>For example, the spring constant might vary according to</p>
+<div class="math notranslate nohighlight">
+\[
+k(t)
+=
+k_0\left(1+h\cos(\Omega t)\right),
+\]</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(k_0\)</span> is the average spring constant,</p></li>
+<li><p><span class="math notranslate nohighlight">\(h\)</span> determines the strength of the modulation,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Omega\)</span> is the modulation frequency.</p></li>
+</ul>
+<p>Newton’s second law then gives</p>
+<div class="math notranslate nohighlight">
+\[
+m\ddot x+k(t)x=0,
+\]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[
+m\ddot x+
+k_0\left(1+h\cos(\Omega t)\right)x
+=
+0.
+\]</div>
+<p>Dividing by <span class="math notranslate nohighlight">\(m\)</span> and defining</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_0^2=\frac{k_0}{m},
+\]</div>
+<p>we obtain</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot x
++
+\omega_0^2
+\left(1+h\cos(\Omega t)\right)x
+=
+0.
+\]</div>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Parametric Oscillator</strong>
+<p>A parametrically driven oscillator satisfies</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\ddot x
++
+\omega_0^2
+\left(1+h\cos(\Omega t)\right)x
+=
+0
+}
+\]</div>
+<p>Unlike ordinary resonance, the energy input arises from a periodic variation of one of the system parameters rather than from an external force.</p>
+</div>
+<p>The two situations are therefore fundamentally different:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Ordinary Resonance</p></th>
+<th class="head text-left"><p>Parametric Resonance</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>External force oscillates</p></td>
+<td class="text-left"><p>System parameter oscillates</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Equation contains a forcing term</p></td>
+<td class="text-left"><p>Equation contains time-dependent coefficients</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Largest response near <span class="math notranslate nohighlight">\(\omega\approx\omega_0\)</span></p></td>
+<td class="text-left"><p>Largest response near <span class="math notranslate nohighlight">\(\Omega\approx2\omega_0\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Example: pushing a swing</p></td>
+<td class="text-left"><p>Example: standing and crouching on a swing</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Although both mechanisms transfer energy into the oscillator, they do so in entirely different ways.</p>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Why Does Parametric Resonance Occur at Twice the Natural Frequency?</h3>
+<p>Consider the parametrically driven oscillator</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{x}
++
+\omega_0^2\left(1+h\cos(\Omega t)\right)x
+=
+0,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(h\ll1\)</span>.</p>
+<p>Since the modulation is weak, assume the motion is approximately</p>
+<div class="math notranslate nohighlight">
+\[
+x(t)\approx A\cos(\omega_0 t).
+\]</div>
+<ol class="arabic">
+<li><p>Rewrite the equation as</p>
+<div class="math notranslate nohighlight">
+\[
+   \ddot{x}+\omega_0^2x
+   =
+   -h\omega_0^2\cos(\Omega t)x.
+   \]</div>
+</li>
+<li><p>Interpret the right-hand side as an effective driving term.</p></li>
+<li><p>Substitute</p>
+<div class="math notranslate nohighlight">
+\[
+   x(t)\approx A\cos(\omega_0 t)
+   \]</div>
+<p>into the right-hand side.</p>
+</li>
+<li><p>Use the trigonometric identity</p>
+<div class="math notranslate nohighlight">
+\[
+   \cos\alpha\cos\beta
+   =
+   \frac12
+   \left[
+   \cos(\alpha+\beta)
+   +
+   \cos(\alpha-\beta)
+   \right]
+   \]</div>
+<p>to show that the effective driving term contains frequencies</p>
+<div class="math notranslate nohighlight">
+\[
+   \Omega+\omega_0
+   \qquad\text{and}\qquad
+   \Omega-\omega_0.
+   \]</div>
+</li>
+<li><p>Determine the condition under which one of these frequencies equals the natural frequency <span class="math notranslate nohighlight">\(\omega_0\)</span>.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>Substituting</p>
+<div class="math notranslate nohighlight">
+\[
+x(t)\approx A\cos(\omega_0 t)
+\]</div>
+<p>into the right-hand side gives</p>
+<div class="math notranslate nohighlight">
+\[
+F_{\rm eff}(t)
+\propto
+-\cos(\Omega t)\cos(\omega_0 t).
+\]</div>
+<p>Using</p>
+<div class="math notranslate nohighlight">
+\[
+\cos\alpha\cos\beta
+=
+\frac12
+\left[
+\cos(\alpha+\beta)
++
+\cos(\alpha-\beta)
+\right],
+\]</div>
+<p>we obtain</p>
+<div class="math notranslate nohighlight">
+\[
+F_{\rm eff}(t)
+\propto
+-\frac12
+\left[
+\cos((\Omega+\omega_0)t)
++
+\cos((\Omega-\omega_0)t)
+\right].
+\]</div>
+<p>For resonance to occur, one of these frequencies must equal the natural frequency <span class="math notranslate nohighlight">\(\omega_0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\Omega-\omega_0=\omega_0.
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\Omega=2\omega_0.
+}
+\]</div>
+<p>Thus, although no external force acts directly on the oscillator, the periodic variation of a parameter generates an effective driving term whose frequency content leads naturally to the resonance condition</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\Omega\approx2\omega_0.
+}
+\]</div>
+</div>
+</details>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b2-5-3-example-pumping-a-swing">
+<h2>B2.5.3 Example: Pumping a Swing<a class="headerlink" href="#b2-5-3-example-pumping-a-swing" title="Link to this heading">#</a></h2>
+<p>One of the most familiar examples of parametric resonance is a child pumping a playground swing.</p>
+<p>If someone standing outside the swing periodically pushes the child, the motion is an example of <strong>ordinary resonance</strong>. The external force acts directly on the system, and maximum energy transfer occurs when the pushing frequency matches the natural frequency of the swing.</p>
+<p>However, a child can also increase the amplitude without any external pushes. By periodically standing and crouching, the child changes the position of the center of mass and effectively changes the length of the pendulum.</p>
+<p>Since the period of a pendulum is</p>
+<div class="math notranslate nohighlight">
+\[
+T
+=
+2\pi\sqrt{\frac{L}{g}},
+\]</div>
+<p>the natural frequency is</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_0
+=
+\sqrt{\frac{g}{L}}.
+\]</div>
+<p>Therefore, if the length varies with time,</p>
+<div class="math notranslate nohighlight">
+\[
+L(t)
+=
+L_0\left(1+h\cos(\Omega t)\right),
+\]</div>
+<p>then the natural frequency also becomes time dependent:</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_0(t)
+=
+\sqrt{\frac{g}{L(t)}}.
+\]</div>
+<p>Consequently, the equation of motion becomes</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot\theta
++
+\omega_0^2(t)\theta
+=
+0,
+\]</div>
+<p>which is a parametrically driven oscillator.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Physical Mechanism</strong>
+<p>In parametric resonance, energy is transferred to the oscillator not by an external force, but by periodically changing one of the properties of the system itself.</p>
+</div>
+<p>Surprisingly, the most effective way to pump the swing is not to stand and crouch once per cycle. Instead, maximum energy transfer occurs when the parameter oscillates at approximately twice the natural frequency:</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\Omega
+\approx
+2\omega_0
+}
+\]</div>
+<p>This means that during one complete oscillation of the swing, the rider performs two motions:</p>
+<ul class="simple">
+<li><p>stand up while passing through the bottom,</p></li>
+<li><p>crouch near the turning points.</p></li>
+</ul>
+<p>Under these conditions, the amplitude grows steadily from cycle to cycle.</p>
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Curiosity: Why Twice the Frequency?</strong></p>
+<p>Ordinary resonance occurs when the driving force oscillates at the natural frequency,</p>
+<div class="math notranslate nohighlight">
+\[
+\omega\approx\omega_0.
+\]</div>
+<p>Parametric resonance is different because the system receives energy whenever the parameter changes at the appropriate phase of the motion. Since there are two favorable points during each oscillation, the strongest amplification occurs when the parameter oscillates at roughly twice the natural frequency:</p>
+<div class="math notranslate nohighlight">
+\[
+\Omega\approx2\omega_0.
+\]</div>
+<p>This factor of two is one of the characteristic signatures of parametric resonance.</p>
+</div>
+<p>The mathematical explanation for this phenomenon will emerge naturally when we study the equation governing parametrically driven oscillators, known as the <strong>Mathieu equation</strong>.</p>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Build a Simulation of Parametric Resonance</h3>
+<p>In this activity, you will develop your own Python simulation of the parametrically driven oscillator</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{x}
++
+\omega_0^2\left(1+h\cos(\Omega t)\right)x
+=
+0.
+\]</div>
+<p>The goal is to determine whether the numerical solution supports the predicted resonance condition</p>
+<div class="math notranslate nohighlight">
+\[
+\Omega\approx2\omega_0.
+\]</div>
+<p>Use a numerical method such as Euler-Cromer to evolve the system forward in time.</p>
+<p>Your simulation should:</p>
+<ol class="arabic">
+<li><p>Define the parameters <span class="math notranslate nohighlight">\(\omega_0\)</span>, <span class="math notranslate nohighlight">\(h\)</span>, <span class="math notranslate nohighlight">\(\Omega\)</span>, <span class="math notranslate nohighlight">\(dt\)</span>, and the total simulation time.</p></li>
+<li><p>Store the time, position, and velocity values in arrays.</p></li>
+<li><p>Use the acceleration</p>
+<div class="math notranslate nohighlight">
+\[
+   a_x
+   =
+   -\omega_0^2\left(1+h\cos(\Omega t)\right)x
+   \]</div>
+<p>to update the velocity and position.</p>
+</li>
+<li><p>Run the simulation for at least three modulation frequencies, such as</p>
+<div class="math notranslate nohighlight">
+\[
+   \Omega=1.7\omega_0,
+   \qquad
+   \Omega=2.0\omega_0,
+   \qquad
+   \Omega=2.3\omega_0.
+   \]</div>
+</li>
+<li><p>Plot <span class="math notranslate nohighlight">\(x(t)\)</span> for each case on the same graph.</p></li>
+<li><p>Identify which value of <span class="math notranslate nohighlight">\(\Omega\)</span> produces the strongest amplitude growth.</p></li>
+<li><p>Repeat the simulation for a different value of <span class="math notranslate nohighlight">\(h\)</span> and describe how the growth changes.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>A successful simulation should show that the largest amplitude growth occurs when</p>
+<div class="math notranslate nohighlight">
+\[
+\Omega\approx2\omega_0.
+\]</div>
+<p>For values of <span class="math notranslate nohighlight">\(\Omega\)</span> noticeably below or above this value, the motion should grow much more slowly or remain approximately bounded.</p>
+<p>The oscillator must begin with a small nonzero displacement, such as</p>
+<div class="math notranslate nohighlight">
+\[
+x(0)=0.01,
+\]</div>
+<p>because the equation is homogeneous. If</p>
+<div class="math notranslate nohighlight">
+\[
+x(0)=0,
+\qquad
+\dot{x}(0)=0,
+\]</div>
+<p>then the solution remains</p>
+<div class="math notranslate nohighlight">
+\[
+x(t)=0
+\]</div>
+<p>for all time.</p>
+<p>Increasing <span class="math notranslate nohighlight">\(h\)</span> strengthens the time-dependent variation of the parameter and generally increases the growth rate near resonance.</p>
+<p>Unlike ordinary resonance, where the driving force is strongest near</p>
+<div class="math notranslate nohighlight">
+\[
+\omega\approx\omega_0,
+\]</div>
+<p>parametric resonance occurs when the system parameter varies near</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{\Omega\approx2\omega_0.}
+\]</div>
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Parametric resonance near Omega = 2*omega0</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="c1"># Natural frequency</span>
+<span class="n">omega0</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+<span class="c1"># Modulation strength</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mf">0.08</span>
+
+<span class="c1"># Time settings</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">t_max</span> <span class="o">=</span> <span class="mi">250</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_max</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+
+<span class="c1"># Frequencies to compare</span>
+<span class="n">Omega_values</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.7</span><span class="o">*</span><span class="n">omega0</span><span class="p">,</span> <span class="mf">2.0</span><span class="o">*</span><span class="n">omega0</span><span class="p">,</span> <span class="mf">2.3</span><span class="o">*</span><span class="n">omega0</span><span class="p">]</span>
+
+<span class="c1"># Initial conditions</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">v0</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">Omega</span> <span class="ow">in</span> <span class="n">Omega_values</span><span class="p">:</span>
+    
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+    
+    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
+    <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">v0</span>
+    
+    <span class="c1"># Euler-Cromer integration</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        
+        <span class="c1"># x&#39;&#39; + omega0^2(1 + h cos(Omega t))x = 0</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="n">omega0</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">Omega</span><span class="o">*</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        
+        <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="o">*</span><span class="n">dt</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">rf</span><span class="s2">&quot;$\Omega=</span><span class="si">{</span><span class="n">Omega</span><span class="o">/</span><span class="n">omega0</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">\omega_0$&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Displacement&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Parametric Resonance Near $\Omega=2\omega_0$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<img alt="../_images/3590b8b593a26164ce3d7f198e3271909cd411b7c10e285f1ba9e91f8852aa26.png" src="../_images/3590b8b593a26164ce3d7f198e3271909cd411b7c10e285f1ba9e91f8852aa26.png" />
+</div>
+</details>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b2-5-4-the-mathieu-equation">
+<h2>B2.5.4 The Mathieu Equation<a class="headerlink" href="#b2-5-4-the-mathieu-equation" title="Link to this heading">#</a></h2>
+<p>To understand parametric resonance quantitatively, consider an oscillator whose spring constant varies periodically with time:</p>
+<div class="math notranslate nohighlight">
+\[
+k(t)
+=
+k_0\left(1+h\cos(\Omega t)\right),
+\]</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(k_0\)</span> is the average spring constant,</p></li>
+<li><p><span class="math notranslate nohighlight">\(h\)</span> is a dimensionless modulation amplitude,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Omega\)</span> is the modulation frequency.</p></li>
+</ul>
+<p>Applying Newton’s second law gives</p>
+<div class="math notranslate nohighlight">
+\[
+m\ddot x
++
+k(t)x
+=
+0,
+\]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[
+m\ddot x
++
+k_0\left(1+h\cos(\Omega t)\right)x
+=
+0.
+\]</div>
+<p>Dividing by <span class="math notranslate nohighlight">\(m\)</span> and defining</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_0^2
+=
+\frac{k_0}{m},
+\]</div>
+<p>we obtain</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\ddot x
++
+\omega_0^2
+\left(1+h\cos(\Omega t)\right)x
+=
+0.
+}
+\]</div>
+<p>Unlike the ordinary driven oscillator, there is no forcing term on the right-hand side. Instead, the coefficient multiplying <span class="math notranslate nohighlight">\(x\)</span> varies with time.</p>
+<hr class="docutils" />
+<p>It is convenient to introduce the dimensionless variable</p>
+<div class="math notranslate nohighlight">
+\[
+\tau
+=
+\frac{\Omega t}{2},
+\]</div>
+<p>so that</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dt}
+=
+\frac{\Omega}{2}
+\frac{d}{d\tau},
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d^2}{dt^2}
+=
+\frac{\Omega^2}{4}
+\frac{d^2}{d\tau^2}.
+\]</div>
+<p>Substituting into the equation gives</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\Omega^2}{4}
+\frac{d^2x}{d\tau^2}
++
+\omega_0^2
+\left(1+h\cos(2\tau)\right)x
+=
+0.
+\]</div>
+<p>Multiplying through by</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{4}{\Omega^2},
+\]</div>
+<p>we find</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d^2x}{d\tau^2}
++
+\left(
+\frac{4\omega_0^2}{\Omega^2}
++
+\frac{4h\omega_0^2}{\Omega^2}
+\cos(2\tau)
+\right)x
+=
+0.
+\]</div>
+<p>Defining</p>
+<div class="math notranslate nohighlight">
+\[
+a
+=
+\frac{4\omega_0^2}{\Omega^2},
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+q
+=
+-\frac{2h\omega_0^2}{\Omega^2},
+\]</div>
+<p>the equation becomes</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\frac{d^2x}{d\tau^2}
++
+(a-2q\cos2\tau)x
+=
+0.
+}
+\]</div>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Mathieu Equation</strong>
+<p>The differential equation</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\frac{d^2x}{d\tau^2}
++
+(a-2q\cos2\tau)x
+=
+0
+}
+\]</div>
+<p>is called the <strong>Mathieu equation</strong>.</p>
+<p>Its solutions determine whether the oscillation remains bounded or grows without limit. Parametric resonance occurs in regions of parameter space where the solutions become unstable.</p>
+</div>
+<p>Unlike ordinary simple harmonic motion, the Mathieu equation does not possess a single natural frequency. Instead, its behavior depends on the parameters <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(q\)</span>, leading to alternating regions of stability and instability.</p>
+<p>These instability regions are responsible for the dramatic amplitude growth characteristic of parametric resonance.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b2-5-5-resonance-condition-and-exponential-growth">
+<h2>B2.5.5 Resonance Condition and Exponential Growth<a class="headerlink" href="#b2-5-5-resonance-condition-and-exponential-growth" title="Link to this heading">#</a></h2>
+<p>The Mathieu equation is difficult to solve exactly, but much insight can be gained by examining the original equation</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot x
++
+\omega_0^2
+\left(1+h\cos(\Omega t)\right)x
+=
+0.
+\]</div>
+<p>Suppose the modulation amplitude is small,</p>
+<div class="math notranslate nohighlight">
+\[
+h\ll1,
+\]</div>
+<p>so that the system behaves approximately like an ordinary oscillator with natural frequency <span class="math notranslate nohighlight">\(\omega_0\)</span>.</p>
+<hr class="docutils" />
+<section id="resonance-condition">
+<h3>Resonance Condition<a class="headerlink" href="#resonance-condition" title="Link to this heading">#</a></h3>
+<p>Recall that</p>
+<div class="math notranslate nohighlight">
+\[
+\cos(\Omega t)
+=
+\cos(2\omega_0t)
+\]</div>
+<p>when</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\Omega
+=
+2\omega_0.
+}
+\]</div>
+<p>In this case, the equation becomes</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot x
++
+\omega_0^2
+\left(1+h\cos(2\omega_0t)\right)x
+=
+0.
+\]</div>
+<p>The coefficient multiplying <span class="math notranslate nohighlight">\(x\)</span> oscillates at twice the natural frequency.</p>
+<p>This frequency is special because the spring becomes alternately stiffer and weaker exactly twice during each oscillation. If these changes occur at the proper phase, energy is transferred into the motion during every cycle.</p>
+</section>
+<hr class="docutils" />
+<section id="slowly-growing-amplitudes">
+<h3>Slowly Growing Amplitudes<a class="headerlink" href="#slowly-growing-amplitudes" title="Link to this heading">#</a></h3>
+<p>To understand the resulting motion, suppose the solution has the form</p>
+<div class="math notranslate nohighlight">
+\[
+x(t)
+=
+A(t)\cos(\omega_0t)
++
+B(t)\sin(\omega_0t),
+\]</div>
+<p>where the amplitudes <span class="math notranslate nohighlight">\(A(t)\)</span> and <span class="math notranslate nohighlight">\(B(t)\)</span> change slowly compared with the oscillation itself.</p>
+<p>Substituting this expression into the equation of motion and neglecting rapidly oscillating terms yields coupled equations for the amplitudes:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot A
+=
+-\frac{h\omega_0}{4}B,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\dot B
+=
+-\frac{h\omega_0}{4}A.
+\]</div>
+<p>Differentiating once more gives</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot A
+=
+\left(
+\frac{h\omega_0}{4}
+\right)^2A,
+\]</div>
+<p>and similarly,</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot B
+=
+\left(
+\frac{h\omega_0}{4}
+\right)^2B.
+\]</div>
+<p>These equations have exponentially growing solutions:</p>
+<div class="math notranslate nohighlight">
+\[
+A(t)
+\propto
+e^{\lambda t},
+\qquad
+B(t)
+\propto
+e^{\lambda t},
+\]</div>
+<p>with growth rate</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\lambda
+=
+\frac{h\omega_0}{4}.
+}
+\]</div>
+<p>Consequently,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+x(t)
+\propto
+e^{\lambda t}
+\cos(\omega_0t).
+}
+\]</div>
+<hr class="docutils" />
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Exponential Growth During Parametric Resonance</strong>
+<p>When the modulation frequency satisfies</p>
+<div class="math notranslate nohighlight">
+\[
+\Omega\approx2\omega_0,
+\]</div>
+<p>small oscillations do not merely become large—they grow exponentially:</p>
+<div class="math notranslate nohighlight">
+\[
+x(t)
+\propto
+e^{\lambda t}
+\cos(\omega_0t),
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda
+=
+\frac{h\omega_0}{4}.
+\]</div>
+<p>This exponential growth is a signature of instability.</p>
+</div>
+<hr class="docutils" />
+<p>Unlike ordinary resonance, where the amplitude increases linearly with time in the absence of damping, parametric resonance can produce much more dramatic growth.</p>
+<p>Eventually, nonlinear effects, damping, or energy limitations become important and prevent the amplitude from increasing indefinitely.</p>
+<p>Thus, parametric resonance provides one of the first examples of how small perturbations can lead to instabilities and behavior that moves beyond simple harmonic motion.</p>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Estimate the Parametric Growth Rate Numerically</h3>
+<p>In the previous section, we found that when</p>
+<div class="math notranslate nohighlight">
+\[
+\Omega\approx2\omega_0,
+\]</div>
+<p>the amplitude of the parametrically driven oscillator may grow approximately as</p>
+<div class="math notranslate nohighlight">
+\[
+x(t)\sim e^{\lambda t}\cos(\omega_0 t),
+\]</div>
+<p>where, for weak modulation,</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda\approx\frac{h\omega_0}{4}.
+\]</div>
+<p>In this activity, you will develop a Python simulation to estimate <span class="math notranslate nohighlight">\(\lambda\)</span> numerically and compare it with the theoretical prediction.</p>
+<p>Use the parametrically driven oscillator</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{x}
++
+\omega_0^2\left(1+h\cos(\Omega t)\right)x
+=
+0,
+\]</div>
+<p>with</p>
+<div class="math notranslate nohighlight">
+\[
+\Omega=2\omega_0.
+\]</div>
+<p>Your simulation should:</p>
+<ol class="arabic">
+<li><p>Choose values for <span class="math notranslate nohighlight">\(\omega_0\)</span>, <span class="math notranslate nohighlight">\(h\)</span>, <span class="math notranslate nohighlight">\(dt\)</span>, and the total simulation time.</p></li>
+<li><p>Use a small nonzero initial displacement, such as</p>
+<div class="math notranslate nohighlight">
+\[
+   x(0)=0.01,
+   \qquad
+   \dot{x}(0)=0.
+   \]</div>
+</li>
+<li><p>Numerically solve the equation of motion using Euler-Cromer or another suitable method.</p></li>
+<li><p>Estimate the amplitude envelope of <span class="math notranslate nohighlight">\(x(t)\)</span>.</p></li>
+<li><p>Plot</p>
+<div class="math notranslate nohighlight">
+\[
+   \ln(\text{envelope})
+   \]</div>
+<p>versus time.</p>
+</li>
+<li><p>Fit a straight line to the approximately linear region of the plot.</p></li>
+<li><p>Interpret the slope of the line as the numerical growth rate</p>
+<div class="math notranslate nohighlight">
+\[
+   \lambda_{\rm num}.
+   \]</div>
+</li>
+<li><p>Compare your result with</p>
+<div class="math notranslate nohighlight">
+\[
+   \lambda_{\rm theory}
+   =
+   \frac{h\omega_0}{4}.
+   \]</div>
+</li>
+<li><p>Repeat for at least two different values of <span class="math notranslate nohighlight">\(h\)</span> and describe how the growth rate changes.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>Near parametric resonance, the oscillator amplitude should grow approximately exponentially:</p>
+<div class="math notranslate nohighlight">
+\[
+x(t)\sim e^{\lambda t}\cos(\omega_0 t).
+\]</div>
+<p>Taking the logarithm of the envelope gives</p>
+<div class="math notranslate nohighlight">
+\[
+\ln(\text{envelope})
+\approx
+\lambda t+\text{constant}.
+\]</div>
+<p>Therefore, a plot of <span class="math notranslate nohighlight">\(\ln(\text{envelope})\)</span> versus <span class="math notranslate nohighlight">\(t\)</span> should be approximately linear during the exponential-growth stage.</p>
+<p>The slope of this line gives the numerical estimate</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda_{\rm num}.
+\]</div>
+<p>For weak modulation and exact resonance,</p>
+<div class="math notranslate nohighlight">
+\[
+\Omega=2\omega_0,
+\]</div>
+<p>the expected growth rate is</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda_{\rm theory}
+=
+\frac{h\omega_0}{4}.
+\]</div>
+<p>Thus, increasing <span class="math notranslate nohighlight">\(h\)</span> should increase the slope of the logarithmic envelope plot. Deviations from the theoretical value may occur because of numerical error, finite time effects, imperfect envelope extraction, or because the approximation assumes</p>
+<div class="math notranslate nohighlight">
+\[
+h\ll1.
+\]</div>
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Estimate the growth rate for parametric resonance</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="c1"># Parameters</span>
+<span class="n">omega0</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mf">0.08</span>
+<span class="n">Omega</span> <span class="o">=</span> <span class="mf">2.0</span><span class="o">*</span><span class="n">omega0</span>
+
+<span class="c1"># Theoretical growth rate</span>
+<span class="n">lambda_theory</span> <span class="o">=</span> <span class="n">h</span><span class="o">*</span><span class="n">omega0</span><span class="o">/</span><span class="mi">4</span>
+
+<span class="c1"># Time settings</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">t_max</span> <span class="o">=</span> <span class="mi">250</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_max</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+
+<span class="c1"># Initial conditions</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Euler-Cromer integration</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="n">omega0</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">Omega</span><span class="o">*</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    
+    <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="o">*</span><span class="n">dt</span>
+    <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Estimate envelope using local maxima</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">peak_times</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">peak_values</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&gt;</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="ow">and</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&gt;</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]):</span>
+        <span class="n">peak_times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">peak_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+
+<span class="n">peak_times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">peak_times</span><span class="p">)</span>
+<span class="n">peak_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">peak_values</span><span class="p">)</span>
+
+<span class="c1"># Avoid log of zero</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">peak_values</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<span class="n">peak_times</span> <span class="o">=</span> <span class="n">peak_times</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+<span class="n">peak_values</span> <span class="o">=</span> <span class="n">peak_values</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+
+<span class="n">log_envelope</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">peak_values</span><span class="p">)</span>
+
+<span class="c1"># Choose fitting region</span>
+<span class="n">fit_min</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">fit_max</span> <span class="o">=</span> <span class="mi">180</span>
+
+<span class="n">fit_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">peak_times</span> <span class="o">&gt;</span> <span class="n">fit_min</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">peak_times</span> <span class="o">&lt;</span> <span class="n">fit_max</span><span class="p">)</span>
+
+<span class="n">fit_times</span> <span class="o">=</span> <span class="n">peak_times</span><span class="p">[</span><span class="n">fit_mask</span><span class="p">]</span>
+<span class="n">fit_logs</span> <span class="o">=</span> <span class="n">log_envelope</span><span class="p">[</span><span class="n">fit_mask</span><span class="p">]</span>
+
+<span class="c1"># Linear fit: log(envelope) = lambda*t + constant</span>
+<span class="n">coefficients</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">fit_times</span><span class="p">,</span> <span class="n">fit_logs</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">lambda_num</span> <span class="o">=</span> <span class="n">coefficients</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">intercept</span> <span class="o">=</span> <span class="n">coefficients</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">fit_line</span> <span class="o">=</span> <span class="n">lambda_num</span><span class="o">*</span><span class="n">fit_times</span> <span class="o">+</span> <span class="n">intercept</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Theoretical growth rate: lambda = </span><span class="si">{</span><span class="n">lambda_theory</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Numerical growth rate:   lambda = </span><span class="si">{</span><span class="n">lambda_num</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Plot displacement</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Displacement&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Parametric Resonance at $\Omega=2\omega_0$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Plot logarithm of envelope</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">peak_times</span><span class="p">,</span> <span class="n">log_envelope</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Numerical envelope peaks&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fit_times</span><span class="p">,</span> <span class="n">fit_line</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">rf</span><span class="s2">&quot;Linear fit: $\lambda=</span><span class="si">{</span><span class="n">lambda_num</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\ln(\mathrm</span><span class="si">{envelope}</span><span class="s2">)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Estimating the Exponential Growth Rate&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Theoretical growth rate: lambda = 0.02000
+Numerical growth rate:   lambda = 0.01977
+</pre></div>
+</div>
+<img alt="../_images/aee4233eaec12ed38a360c8c5dc6aa9209532a71746d389c5ad18f199b162aa5.png" src="../_images/aee4233eaec12ed38a360c8c5dc6aa9209532a71746d389c5ad18f199b162aa5.png" />
+<img alt="../_images/7488734c2ec58b227af98320308e91a05921ad68248088e1d2f161225f079dab.png" src="../_images/7488734c2ec58b227af98320308e91a05921ad68248088e1d2f161225f079dab.png" />
+</div>
+</details>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="b2-5-6-stability-and-instability-regions">
+<h2>B2.5.6 Stability and Instability Regions<a class="headerlink" href="#b2-5-6-stability-and-instability-regions" title="Link to this heading">#</a></h2>
+<p>In ordinary simple harmonic motion, all solutions are stable. Small oscillations remain small, and the amplitude remains bounded for all time.</p>
+<p>Parametric oscillators behave differently. Depending on the values of the parameters, the solutions of the Mathieu equation may be either stable or unstable.</p>
+<p>Recall that the Mathieu equation has the form</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d^2x}{d\tau^2}
++
+(a-2q\cos2\tau)x
+=
+0,
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+a=\frac{4\omega_0^2}{\Omega^2},
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+q=-\frac{2h\omega_0^2}{\Omega^2}.
+\]</div>
+<p>For certain combinations of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(q\)</span>, the oscillations remain bounded:</p>
+<div class="math notranslate nohighlight">
+\[
+|x(t)|&lt;\infty.
+\]</div>
+<p>These correspond to <strong>stable solutions</strong>.</p>
+<p>For other combinations, small perturbations grow exponentially:</p>
+<div class="math notranslate nohighlight">
+\[
+x(t)\propto e^{\lambda t},
+\]</div>
+<p>and the motion becomes unstable.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Stability and Instability</strong>
+<p>A parametrically driven oscillator may possess either stable or unstable solutions.</p>
+<p>Stable solutions remain bounded, whereas unstable solutions exhibit exponential growth.</p>
+</div>
+<hr class="docutils" />
+<section id="the-first-instability-region">
+<h3>The First Instability Region<a class="headerlink" href="#the-first-instability-region" title="Link to this heading">#</a></h3>
+<p>The strongest parametric resonance occurs when</p>
+<div class="math notranslate nohighlight">
+\[
+\Omega\approx2\omega_0.
+\]</div>
+<p>Equivalently,</p>
+<div class="math notranslate nohighlight">
+\[
+a\approx1.
+\]</div>
+<p>This region is called the <strong>principal instability region</strong>.</p>
+<p>Additional instability regions occur when</p>
+<div class="math notranslate nohighlight">
+\[
+\Omega
+\approx
+\frac{2\omega_0}{n},
+\qquad
+n=2,3,4,\dots
+\]</div>
+<p>or equivalently</p>
+<div class="math notranslate nohighlight">
+\[
+a\approx n^2.
+\]</div>
+<p>These higher-order resonances are generally much weaker than the principal resonance.</p>
+</section>
+<hr class="docutils" />
+<section id="arnold-tongues">
+<h3>Arnold Tongues<a class="headerlink" href="#arnold-tongues" title="Link to this heading">#</a></h3>
+<p>If we plot the stable and unstable regions in the <span class="math notranslate nohighlight">\((a,q)\)</span> parameter space, we obtain a pattern known as <strong>Arnold tongues</strong>.</p>
+<p>Small values of the modulation amplitude <span class="math notranslate nohighlight">\(q\)</span> produce narrow instability regions, while larger values cause the unstable regions to widen.</p>
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Curiosity: Arnold Tongues</strong></p>
+<p>The characteristic wedge-shaped instability regions of the Mathieu equation are called <strong>Arnold tongues</strong>, after the Russian mathematician Vladimir Arnold.</p>
+<p>Similar patterns appear throughout nonlinear dynamics, synchronization theory, fluid mechanics, electrical circuits, lasers, biological oscillators, and chaotic systems.</p>
+<p>The study of Arnold tongues forms an important bridge between linear oscillations and the onset of chaos.</p>
+</div>
+<hr class="docutils" />
+<p>The existence of alternating stable and unstable regions is one of the most remarkable features of parametric resonance.</p>
+<p>Unlike ordinary oscillators, whose behavior changes smoothly with frequency, parametrically driven systems may undergo abrupt transitions from bounded motion to exponentially growing oscillations.</p>
+<p>These instabilities provide one of the earliest examples of the rich and sometimes unexpected behavior encountered in nonlinear dynamics.</p>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Mapping Stability and Instability Regions</h3>
+<p>In the previous section, we learned that solutions of the Mathieu equation may be stable or unstable depending on the system parameters.</p>
+<p>For the parametrically driven oscillator</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{x}
++
+\omega_0^2\left(1+h\cos(\Omega t)\right)x
+=
+0,
+\]</div>
+<p>the strongest instability occurs near</p>
+<div class="math notranslate nohighlight">
+\[
+\Omega\approx2\omega_0.
+\]</div>
+<p>However, instability does not occur at only one exact frequency. Instead, there is a finite region of parameter space where small disturbances grow.</p>
+<p>In this activity, you will develop a Python simulation that scans over values of the modulation frequency <span class="math notranslate nohighlight">\(\Omega\)</span> and modulation strength <span class="math notranslate nohighlight">\(h\)</span>. For each pair <span class="math notranslate nohighlight">\((\Omega,h)\)</span>, determine whether the amplitude remains bounded or grows significantly.</p>
+<p>Your simulation should (NOTE: it may take a little bit to run it on a laptop):</p>
+<ol class="arabic">
+<li><p>Choose a fixed value of <span class="math notranslate nohighlight">\(\omega_0\)</span>.</p></li>
+<li><p>Scan over a range of modulation frequencies, for example</p>
+<div class="math notranslate nohighlight">
+\[
+   0.5\omega_0 \le \Omega \le 3.0\omega_0.
+   \]</div>
+</li>
+<li><p>Scan over a range of modulation strengths, for example</p>
+<div class="math notranslate nohighlight">
+\[
+   0 \le h \le 0.5.
+   \]</div>
+</li>
+<li><p>For each pair <span class="math notranslate nohighlight">\((\Omega,h)\)</span>, solve</p>
+<div class="math notranslate nohighlight">
+\[
+   \ddot{x}
+   +
+   \omega_0^2\left(1+h\cos(\Omega t)\right)x
+   =
+   0.
+   \]</div>
+</li>
+<li><p>Use a small nonzero initial displacement, such as</p>
+<div class="math notranslate nohighlight">
+\[
+   x(0)=0.01,
+   \qquad
+   \dot{x}(0)=0.
+   \]</div>
+</li>
+<li><p>Record a measure of growth, such as</p>
+<div class="math notranslate nohighlight">
+\[
+   \max |x(t)|.
+   \]</div>
+</li>
+<li><p>Create a heat map showing which regions of parameter space lead to large amplitude growth.</p></li>
+<li><p>Identify the principal instability region near</p>
+<div class="math notranslate nohighlight">
+\[
+   \Omega=2\omega_0.
+   \]</div>
+</li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>The heat map should show a prominent instability region centered near</p>
+<div class="math notranslate nohighlight">
+\[
+\Omega=2\omega_0.
+\]</div>
+<p>This is the principal parametric resonance region.</p>
+<p>For small modulation strength <span class="math notranslate nohighlight">\(h\)</span>, the unstable region is narrow. As <span class="math notranslate nohighlight">\(h\)</span> increases, the unstable region widens, forming a tongue-shaped region in parameter space.</p>
+<p>These tongue-shaped regions are commonly called <strong>Arnold tongues</strong>.</p>
+<p>Additional, weaker instability regions may appear near</p>
+<div class="math notranslate nohighlight">
+\[
+\Omega\approx\frac{2\omega_0}{n},
+\qquad
+n=2,3,4,\dots
+\]</div>
+<p>although these may require longer simulations or stronger modulation to observe clearly.</p>
+<p>The result shows that parametric resonance is not restricted to one exact frequency; instead, it occupies regions of instability in parameter space.</p>
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Arnold tongue heat map for parametric resonance</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="c1"># Natural frequency</span>
+<span class="n">omega0</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+<span class="c1"># Parameter ranges</span>
+<span class="n">Omega_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">omega0</span><span class="p">,</span> <span class="mf">3.0</span><span class="o">*</span><span class="n">omega0</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+<span class="n">h_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span>
+
+<span class="c1"># Time settings</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.02</span>
+<span class="n">t_max</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_max</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+
+<span class="c1"># Initial conditions</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">v0</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="c1"># Array to store growth measure</span>
+<span class="n">growth</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">h_values</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">Omega_values</span><span class="p">)))</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Scan parameter space</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">h_values</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">Omega</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">Omega_values</span><span class="p">):</span>
+        
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x0</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">v0</span>
+        <span class="n">max_amp</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        
+        <span class="k">for</span> <span class="n">time</span> <span class="ow">in</span> <span class="n">t</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="c1"># x&#39;&#39; + omega0^2(1 + h cos(Omega t))x = 0</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="n">omega0</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">Omega</span><span class="o">*</span><span class="n">time</span><span class="p">))</span><span class="o">*</span><span class="n">x</span>
+            
+            <span class="c1"># Euler-Cromer update</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">a</span><span class="o">*</span><span class="n">dt</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span><span class="o">*</span><span class="n">dt</span>
+            
+            <span class="n">max_amp</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_amp</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+            
+            <span class="c1"># Prevent extremely large values from slowing the scan</span>
+            <span class="k">if</span> <span class="n">max_amp</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+                <span class="k">break</span>
+        
+        <span class="n">growth</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">max_amp</span>
+
+<span class="c1"># Use log scale for clearer visualization</span>
+<span class="n">log_growth</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">growth</span><span class="o">/</span><span class="n">x0</span><span class="p">)</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Plot heat map</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span>
+    <span class="n">log_growth</span><span class="p">,</span>
+    <span class="n">extent</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">Omega_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">omega0</span><span class="p">,</span>
+        <span class="n">Omega_values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">omega0</span><span class="p">,</span>
+        <span class="n">h_values</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">h_values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="p">],</span>
+    <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span>
+    <span class="n">aspect</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span>
+<span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\log_</span><span class="si">{10}</span><span class="s2">\left(\max|x|/x_0\right)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Modulation frequency $\Omega/\omega_0$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Modulation strength $h$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Arnold Tongue Heat Map for Parametric Resonance&quot;</span><span class="p">)</span>
+
+<span class="c1"># Mark principal resonance condition</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\Omega=2\omega_0$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">46</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">a</span><span class="o">*</span><span class="n">dt</span>
+<span class="g g-Whitespace">     </span><span class="mi">44</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span><span class="o">*</span><span class="n">dt</span>
+<span class="ne">---&gt; </span><span class="mi">46</span> <span class="n">max_amp</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_amp</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">48</span> <span class="c1"># Prevent extremely large values from slowing the scan</span>
+<span class="g g-Whitespace">     </span><span class="mi">49</span> <span class="k">if</span> <span class="n">max_amp</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="b2-5-7-applications-of-parametric-resonance">
+<h2>B2.5.7 Applications of Parametric Resonance<a class="headerlink" href="#b2-5-7-applications-of-parametric-resonance" title="Link to this heading">#</a></h2>
+<p>Although parametric resonance can be illustrated by a playground swing, the phenomenon appears throughout physics, engineering, and applied mathematics. In many systems, periodic variations of a parameter can transfer energy into an oscillation and lead to instability, amplification, or synchronization.</p>
+<hr class="docutils" />
+<section id="faraday-waves">
+<h3>Faraday Waves<a class="headerlink" href="#faraday-waves" title="Link to this heading">#</a></h3>
+<p>One of the most striking examples occurs when a container of fluid is oscillated vertically. Above a critical driving amplitude, standing waves spontaneously appear on the surface of the liquid.</p>
+<p>These patterns, known as <strong>Faraday waves</strong>, arise through parametric resonance.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Faraday Waves</strong>
+<p>A vertically oscillating fluid can exhibit standing surface waves due to parametric resonance. The pattern formation results from the periodic modulation of the effective gravitational acceleration.</p>
+</div>
+<br>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=yAnbj4spS4s">Example Video of Faraday Wave in a Singing Bowl</a></p>
+</section>
+<hr class="docutils" />
+<section id="electrical-circuits">
+<h3>Electrical Circuits<a class="headerlink" href="#electrical-circuits" title="Link to this heading">#</a></h3>
+<p>Parametric resonance also occurs in electrical circuits whose capacitance or inductance varies with time.</p>
+<p>Such systems are used in</p>
+<ul class="simple">
+<li><p>parametric amplifiers,</p></li>
+<li><p>microwave electronics,</p></li>
+<li><p>quantum information devices,</p></li>
+<li><p>low-noise signal amplification.</p></li>
+</ul>
+<p>Because energy is transferred through varying circuit parameters rather than through a direct driving voltage, extremely sensitive amplification can be achieved.</p>
+</section>
+<hr class="docutils" />
+<section id="ion-traps">
+<h3>Ion Traps<a class="headerlink" href="#ion-traps" title="Link to this heading">#</a></h3>
+<p>Charged particles can be confined using oscillating electric fields.</p>
+<p>In a <strong>Paul trap</strong> (aka quadrupole ion trap), the electric potential varies periodically, producing equations of motion that are mathematically equivalent to the Mathieu equation.</p>
+<p>This technique is widely used in</p>
+<ul class="simple">
+<li><p>mass spectrometry,</p></li>
+<li><p>atomic clocks,</p></li>
+<li><p>quantum computing,</p></li>
+<li><p>precision measurements.</p></li>
+</ul>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=c2JgMaz974M&amp;amp;t=86s">Paul Trap Rap</a></p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=Xb-zpM0UOzk">Paul Trap UCLA Physics</a></p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=aV1wL5jsfRU">Paul Trap Quantum Computer</a></p>
+</section>
+<hr class="docutils" />
+<section id="mechanical-systems">
+<h3>Mechanical Systems<a class="headerlink" href="#mechanical-systems" title="Link to this heading">#</a></h3>
+<p>Periodic changes in stiffness or loading can cause large oscillations in engineering structures.</p>
+<p>Examples include</p>
+<ul class="simple">
+<li><p>rotating machinery,</p></li>
+<li><p>vibrating shafts,</p></li>
+<li><p>suspension systems,</p></li>
+<li><p>aerospace structures,</p></li>
+<li><p>flexible beams.</p></li>
+</ul>
+<p>Engineers must carefully avoid operating conditions that lie within instability regions.</p>
+</section>
+<hr class="docutils" />
+<section id="cosmology">
+<h3>Cosmology<a class="headerlink" href="#cosmology" title="Link to this heading">#</a></h3>
+<p>Parametric resonance even appears in modern cosmology.</p>
+<p>According to inflationary models, the early universe underwent a brief period of extremely rapid expansion known as <strong>cosmic inflation</strong>. After inflation ended, the field responsible for this expansion—the <strong>inflaton field</strong>—did not simply disappear. Instead, it oscillated about its equilibrium value.</p>
+<p>These oscillations periodically altered the properties of other quantum fields, allowing energy to be transferred extremely efficiently through a process known as <strong>preheating</strong>. Many models suggest that this energy transfer occurred through a mechanism closely related to parametric resonance, producing enormous numbers of particles and helping to populate the universe with ordinary matter and radiation.</p>
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Curiosity: Parametric Resonance and Dark Matter</strong></p>
+<p>Some modern theories suggest that parametric resonance may also have played a role in the production of dark matter.</p>
+<p>If dark matter particles interact with oscillating fields in the early universe, these oscillations could have amplified tiny quantum fluctuations and generated large numbers of dark matter particles. Similar mechanisms have been proposed for the production of axions and other hypothetical dark matter candidates.</p>
+<p>Although the nature of dark matter remains unknown, the same physical principles underlying a child pumping a swing may have influenced the composition of the universe itself.</p>
+</div>
+<p>Thus, the mathematics describing parametric resonance is relevant not only to playground swings and engineering systems, but also to some of the most profound questions in modern cosmology, including how the universe became filled with matter and possibly even how dark matter was created.</p>
+<hr class="docutils" />
+<p>Parametric resonance provides one of the earliest examples of how simple oscillatory systems can exhibit instability and rich behavior. In the next module, we will discover that introducing nonlinearities into oscillatory systems leads to even more surprising phenomena, including sensitivity to initial conditions and the onset of chaos.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-B2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="applications.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">B2.4 Example Applications of Lissajous Figures</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="problemsB2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">B2.6 — Problems</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b2-5-1-motivation">B2.5.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b2-5-2-ordinary-resonance-vs-parametric-resonance">B2.5.2 Ordinary Resonance vs Parametric Resonance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b2-5-3-example-pumping-a-swing">B2.5.3 Example: Pumping a Swing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b2-5-4-the-mathieu-equation">B2.5.4 The Mathieu Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b2-5-5-resonance-condition-and-exponential-growth">B2.5.5 Resonance Condition and Exponential Growth</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resonance-condition">Resonance Condition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slowly-growing-amplitudes">Slowly Growing Amplitudes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b2-5-6-stability-and-instability-regions">B2.5.6 Stability and Instability Regions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-first-instability-region">The First Instability Region</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arnold-tongues">Arnold Tongues</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b2-5-7-applications-of-parametric-resonance">B2.5.7 Applications of Parametric Resonance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#faraday-waves">Faraday Waves</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#electrical-circuits">Electrical Circuits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ion-traps">Ion Traps</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mechanical-systems">Mechanical Systems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cosmology">Cosmology</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
