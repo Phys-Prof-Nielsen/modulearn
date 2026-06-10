@@ -1,0 +1,2749 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>B3.5 Chaos and Sensitive Dependence on Initial Conditions &#8212; A Competency Approach to Classical Mechanics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-B3/chaos';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="B3.6 The Spring Pendulum: A Capstone Project in Nonlinear Dynamics" href="spring-pendulum.html" />
+    <link rel="prev" title="B3.4 Synchronization" href="sync.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-B.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Home"/>
+    <script>document.write(`<img src="../_static/logo-B.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the B Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://gemini.google.com/gem/10l7TNMxLkYkxP1cGjSu5uEvK_RAC-A9n?usp=sharing">Physics Coding Architect (PyAIGem)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B1 - Advanced Rotational Dynamics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/principal-axes.html">B1.1 Principal Axes in Rotational Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/kinetic-energy.html">B1.2 Kinetic Energy in Rotational Dynamics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/euler-angles.html">B1.3 Euler Angles and Rigid Body Orientation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/body-space-frames.html">B1.4 Body and Space Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/eulers-equations-motion.html">B1.5 Euler’s Equations of Motion for Rigid Bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/euler-angles-equations.html">B1.6 Connecting Euler Angles and Euler’s Equations of Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/quaternions.html">B1.7 Beyond Euler Angles: Quaternions, Axis-Angle, and Rotation Vectors for 3D Orientation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/tennis-racket.html">B1.8 The Tennis Racket Problem and the Intermediate Axis Theorem</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B2 - Extensions of Coupled Oscillations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/LOC-B2.html">B2.0 Learning Outcomes: Extensions of Coupled Oscillations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/oscillator-to-wave.html">B2.1 Oscillator Chains and the Wave Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/construction.html">B2.2 Constructing Lissajous Figures: Two Perpendicular SHM Motions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/frequency-ratios.html">B2.3 Frequency Ratios, Phase Difference, and Closure Conditions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/applications.html">B2.4 Example Applications of Lissajous Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/parametric-resonance.html">B2.5 Parametric Resonance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/problemsB2.html">B2.6 — Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B3 - Nonlinear Oscillations and Onset of Chaos</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-B3.html">B3.0 Learning Outcomes: Nonlinear Oscillations and Onset of Chaos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">B3.1 Introduction to Nonlinear Oscillations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="duffing.html">B3.2 The Duffing Oscillator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vanderpol.html">B3.3 Self-Sustained Oscillations and the Van der Pol Oscillator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sync.html">B3.4 Synchronization</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">B3.5 Chaos and Sensitive Dependence on Initial Conditions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spring-pendulum.html">B3.6 The Spring Pendulum: A Capstone Project in Nonlinear Dynamics</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Module-B3/chaos.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-B3/chaos.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>B3.5 Chaos and Sensitive Dependence on Initial Conditions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-5-1-motivation">B3.5.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-5-2-the-double-pendulum">B3.5.2 The Double Pendulum</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#low-energy-motion">Low-Energy Motion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intermediate-energies">Intermediate Energies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#high-energies">High Energies</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-5-3-sensitive-dependence-on-initial-conditions">B3.5.3 Sensitive Dependence on Initial Conditions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-5-4-lyapunov-exponents">B3.5.4 Lyapunov Exponents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#negative-lyapunov-exponent">Negative Lyapunov Exponent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-lyapunov-exponent">Zero Lyapunov Exponent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#positive-lyapunov-exponent">Positive Lyapunov Exponent</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-5-5-poincare-sections">B3.5.5 Poincaré Sections</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#periodic-motion">Periodic Motion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quasiperiodic-motion">Quasiperiodic Motion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chaotic-motion">Chaotic Motion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-5-6-strange-attractors">B3.5.6 Strange Attractors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed-points-and-limit-cycles">Fixed Points and Limit Cycles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strange-attractors">Strange Attractors</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-5-7-applications-of-chaos">B3.5.7 Applications of Chaos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weather-and-climate">Weather and Climate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#celestial-mechanics">Celestial Mechanics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fluid-dynamics-and-turbulence">Fluid Dynamics and Turbulence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#biology-and-medicine">Biology and Medicine</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineering-and-technology">Engineering and Technology</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-5-8-summary-and-looking-ahead">B3.5.8 Summary and Looking Ahead</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="b3-5-chaos-and-sensitive-dependence-on-initial-conditions">
+<h1>B3.5 Chaos and Sensitive Dependence on Initial Conditions<a class="headerlink" href="#b3-5-chaos-and-sensitive-dependence-on-initial-conditions" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="b3-5-1-motivation">
+<h2>B3.5.1 Motivation<a class="headerlink" href="#b3-5-1-motivation" title="Link to this heading">#</a></h2>
+<p>Throughout this module, we have encountered increasingly rich forms of oscillatory behavior.</p>
+<p>We began with simple harmonic motion, where the motion is perfectly periodic and completely predictable. We then explored nonlinear oscillators, self-sustained oscillations, limit cycles, and synchronization, discovering how interacting systems can spontaneously organize themselves into coherent patterns.</p>
+<p>One might naturally expect that sufficiently complicated systems simply become disordered or random. Surprisingly, however, many nonlinear systems remain governed by completely deterministic equations while exhibiting behavior that appears irregular and unpredictable.</p>
+<p>This phenomenon is known as <strong>chaos</strong>.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Chaos</strong>
+<p>Chaos is the irregular behavior of a deterministic system that exhibits extreme sensitivity to its initial conditions.</p>
+<p>Although the governing equations are completely deterministic, the long-term behavior may become practically unpredictable.</p>
+</div>
+<hr class="docutils" />
+<p>At first glance, this definition may seem contradictory. If the equations are deterministic, why should the future become unpredictable?</p>
+<p>The answer lies in the fact that tiny uncertainties in the initial conditions can grow dramatically with time. Eventually, these small differences become so large that long-term prediction becomes impossible in practice.</p>
+<p>Consequently, deterministic systems need not be predictable.</p>
+<p>Examples of chaotic systems include:</p>
+<ul class="simple">
+<li><p>weather patterns,</p></li>
+<li><p>planetary motion,</p></li>
+<li><p>turbulent fluids,</p></li>
+<li><p>biological populations,</p></li>
+<li><p>electrical circuits,</p></li>
+<li><p>the double pendulum.</p></li>
+</ul>
+<div style="background-color:#ffe6e6; border-left:6px solid #cc0000; padding:14px; border-radius:4px;">
+<strong>Important:</strong><br>
+<p>Chaos should not be confused with randomness.</p>
+<p>Chaotic systems obey deterministic equations. Their apparent unpredictability arises from extreme sensitivity to initial conditions rather than from the absence of physical laws.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Example — Weather Prediction</h3>
+<p>Modern weather forecasts are based on deterministic equations describing atmospheric motion.</p>
+<p>Nevertheless, because tiny uncertainties in the current state of the atmosphere grow with time, accurate weather prediction becomes increasingly difficult beyond roughly one or two weeks.</p>
+<p>Thus, practical unpredictability can arise even when the governing equations are completely known.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Curiosity</strong></p>
+<p>The modern study of chaos originated largely from the work of Edward Lorenz in the 1960s. While studying simplified models of atmospheric convection, Lorenz discovered that extremely small differences in initial conditions could lead to dramatically different outcomes.</p>
+<p>This discovery eventually inspired the famous phrase</p>
+<center>
+<p><em>“Does the flap of a butterfly’s wings in Brazil set off a tornado in Texas?”</em></p>
+</center>
+<p>Although intended metaphorically, this idea became known as the <strong>butterfly effect</strong>.</p>
+</div>
+<p>In the next section, we will investigate one of the most famous examples of chaotic motion: the double pendulum.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b3-5-2-the-double-pendulum">
+<h2>B3.5.2 The Double Pendulum<a class="headerlink" href="#b3-5-2-the-double-pendulum" title="Link to this heading">#</a></h2>
+<p>One of the most famous examples of chaotic motion is the <strong>double pendulum</strong>, consisting of one pendulum attached to the end of another.</p>
+<p>Unlike the simple pendulum, which has a single degree of freedom, the double pendulum possesses two angular coordinates,</p>
+<div class="math notranslate nohighlight">
+\[
+\theta_1
+\quad\text{and}\quad
+\theta_2.
+\]</div>
+<p>Consequently, the motion is considerably more complicated and exhibits a rich variety of behaviors.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Double Pendulum</strong>
+<p>A double pendulum consists of two pendulums connected in series and possesses two degrees of freedom.</p>
+<p>Because the equations of motion are nonlinear and coupled, the system can exhibit both regular and chaotic behavior.</p>
+</div>
+<hr class="docutils" />
+<p>For sufficiently small oscillations, the motion is nearly periodic and can be understood using the normal-mode techniques developed earlier in this module.</p>
+<p>As the energy increases, however, the nonlinear coupling between the two pendulums becomes increasingly important. Energy is continually exchanged between the two arms, producing motions that appear highly irregular.</p>
+<p>Although the equations remain deterministic, the resulting trajectories may become extremely sensitive to the initial conditions.</p>
+<section id="low-energy-motion">
+<h3>Low-Energy Motion<a class="headerlink" href="#low-energy-motion" title="Link to this heading">#</a></h3>
+<p>For small angular displacements,</p>
+<div class="math notranslate nohighlight">
+\[
+\theta_1,\theta_2\ll1,
+\]</div>
+<p>the equations may be linearized.</p>
+<p>The system then behaves similarly to the coupled oscillators studied in Module B2 and exhibits normal modes and periodic motion.</p>
+</section>
+<section id="intermediate-energies">
+<h3>Intermediate Energies<a class="headerlink" href="#intermediate-energies" title="Link to this heading">#</a></h3>
+<p>As the amplitudes increase, nonlinear effects become more pronounced.</p>
+<p>The motion remains bounded but becomes increasingly complicated. Energy flows back and forth between the two pendulums, and the trajectories in phase space begin to deviate from simple closed curves.</p>
+</section>
+<section id="high-energies">
+<h3>High Energies<a class="headerlink" href="#high-energies" title="Link to this heading">#</a></h3>
+<p>At sufficiently high energies, the motion becomes chaotic.</p>
+<p>The pendulums execute complicated motions that are difficult to predict over long times. Tiny differences in the initial conditions eventually lead to dramatically different trajectories.</p>
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Example — Two Nearly Identical Double Pendulums</h3>
+<p>Suppose two double pendulums are released from almost identical initial conditions.</p>
+<p>Initially, the motions are nearly indistinguishable. After some time, however, small differences begin to grow, and the trajectories gradually diverge.</p>
+<p>Eventually, the motions become completely different, even though the initial conditions differed only slightly.</p>
+<p>This sensitivity to initial conditions is one of the defining characteristics of chaos.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Exploring the Dynamics of the Double Pendulum</h3>
+<p>In this activity, you will investigate one of the most famous examples of chaotic motion: the double pendulum.</p>
+<p>The system consists of two pendulums connected in series and possesses two degrees of freedom,</p>
+<div class="math notranslate nohighlight">
+\[
+\theta_1
+\quad\text{and}\quad
+\theta_2.
+\]</div>
+<p>Using Lagrange’s equations, derive the equations of motion for the double pendulum and solve them numerically.</p>
+<p>Assume</p>
+<div class="math notranslate nohighlight">
+\[
+m_1=m_2=1.0~\mathrm{kg},
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\ell_1=\ell_2=1.0~\mathrm{m},
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+g=9.81~\mathrm{m/s^2}.
+\]</div>
+<p>Use the initial conditions</p>
+<div class="math notranslate nohighlight">
+\[
+\theta_1(0)=120^\circ,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\theta_2(0)=-10^\circ,
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{\theta}_1(0)=
+\dot{\theta}_2(0)=0.
+\]</div>
+<p>Your script should:</p>
+<ol class="arabic">
+<li><p>Numerically solve for</p>
+<div class="math notranslate nohighlight">
+\[
+   \theta_1(t)
+   \quad\text{and}\quad
+   \theta_2(t)
+   \]</div>
+<p>over a sufficiently long time interval.</p>
+</li>
+<li><p>Plot the angular displacements</p>
+<div class="math notranslate nohighlight">
+\[
+   \theta_1(t)
+   \quad\text{and}\quad
+   \theta_2(t)
+   \]</div>
+<p>as functions of time.</p>
+</li>
+<li><p>Construct the phase portraits</p>
+<div class="math notranslate nohighlight">
+\[
+   \dot{\theta}_1
+   \text{ versus }
+   \theta_1
+   \]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+   \dot{\theta}_2
+   \text{ versus }
+   \theta_2.
+   \]</div>
+</li>
+<li><p>Repeat the simulation using</p>
+<div class="math notranslate nohighlight">
+\[
+   \theta_1(0)=10^\circ,
+   \qquad
+   \theta_2(0)=5^\circ,
+   \]</div>
+<p>while keeping the initial angular velocities equal to zero.</p>
+</li>
+<li><p>Compare the two sets of plots and determine which initial conditions produce more regular motion.</p></li>
+<li><p>Describe how the phase portraits differ from the elliptical trajectories of the simple harmonic oscillator.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p><strong>Part 1 — Deriving the Equations of Motion</strong></p>
+<p>The double pendulum has two generalized coordinates,</p>
+<div class="math notranslate nohighlight">
+\[
+\theta_1
+\qquad\text{and}\qquad
+\theta_2.
+\]</div>
+<p>For equal masses and equal lengths,</p>
+<div class="math notranslate nohighlight">
+\[
+m_1=m_2=m,
+\qquad
+\ell_1=\ell_2=\ell.
+\]</div>
+<p>The position of the first mass is</p>
+<div class="math notranslate nohighlight">
+\[
+x_1=\ell\sin\theta_1,
+\qquad
+y_1=-\ell\cos\theta_1.
+\]</div>
+<p>The position of the second mass is</p>
+<div class="math notranslate nohighlight">
+\[
+x_2=\ell\sin\theta_1+\ell\sin\theta_2,
+\qquad
+y_2=-\ell\cos\theta_1-\ell\cos\theta_2.
+\]</div>
+<p>Using these coordinates, the Lagrangian is</p>
+<div class="math notranslate nohighlight">
+\[
+L=T-U,
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+T=
+\frac12m\ell^2\dot{\theta}_1^2
++
+\frac12m\ell^2
+\left[
+\dot{\theta}_1^2
++
+\dot{\theta}_2^2
++
+2\dot{\theta}_1\dot{\theta}_2\cos(\theta_1-\theta_2)
+\right],
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+U=
+-mg\ell\cos\theta_1
+-
+mg\ell(\cos\theta_1+\cos\theta_2).
+\]</div>
+<p>Applying Lagrange’s equations,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{\theta}_i}\right)
+-
+\frac{\partial L}{\partial \theta_i}
+=
+0,
+\qquad
+i=1,2,
+\]</div>
+<p>gives the coupled nonlinear equations</p>
+<div class="math notranslate nohighlight">
+\[
+2\ddot{\theta}_1
++
+\ddot{\theta}_2\cos(\theta_1-\theta_2)
++
+\dot{\theta}_2^2\sin(\theta_1-\theta_2)
++
+\frac{2g}{\ell}\sin\theta_1
+=
+0,
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{\theta}_2
++
+\ddot{\theta}_1\cos(\theta_1-\theta_2)
+-
+\dot{\theta}_1^2\sin(\theta_1-\theta_2)
++
+\frac{g}{\ell}\sin\theta_2
+=
+0.
+\]</div>
+<p>These equations are coupled because each equation contains both coordinates and both angular accelerations. They are nonlinear because they contain terms such as</p>
+<div class="math notranslate nohighlight">
+\[
+\sin(\theta_1-\theta_2),
+\qquad
+\cos(\theta_1-\theta_2),
+\qquad
+\dot{\theta}_1^2,
+\qquad
+\dot{\theta}_2^2.
+\]</div>
+<p>To solve the double pendulum numerically, we rewrite the two second-order equations as four first-order equations.</p>
+<p>Let</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_1=\dot{\theta}_1,
+\qquad
+\omega_2=\dot{\theta}_2.
+\]</div>
+<p>Then</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{\theta}_1=\omega_1,
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{\theta}_2=\omega_2.
+\]</div>
+<p>The remaining two equations give the angular accelerations. For the equal-mass, equal-length double pendulum used in the script, define</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta=\theta_2-\theta_1.
+\]</div>
+<p>Then the first-order system is</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{\theta}_1=\omega_1,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\dot{\omega}_1
+=
+\frac{
+\omega_1^2\sin\Delta\cos\Delta
++
+\frac{g}{\ell}\sin\theta_2\cos\Delta
++
+\omega_2^2\sin\Delta
+-
+2\frac{g}{\ell}\sin\theta_1
+}{
+2-\cos^2\Delta
+},
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\dot{\theta}_2=\omega_2,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\dot{\omega}_2
+=
+\frac{
+-\omega_2^2\sin\Delta\cos\Delta
++
+2\frac{g}{\ell}\sin\theta_1\cos\Delta
+-
+2\omega_1^2\sin\Delta
+-
+2\frac{g}{\ell}\sin\theta_2
+}{
+2-\cos^2\Delta
+}.
+\]</div>
+<p>These four first-order equations are what enter the numerical solver.</p>
+<p>In the Python script, the state vector is</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{y}
+=
+(\theta_1,\omega_1,\theta_2,\omega_2),
+\]</div>
+<p>and the derivative function returns</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d\mathbf{y}}{dt}
+=
+(\dot{\theta}_1,\dot{\omega}_1,\dot{\theta}_2,\dot{\omega}_2).
+\]</div>
+<p>That is why the script uses</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">omega1</span><span class="p">,</span> <span class="n">domega1</span><span class="p">,</span> <span class="n">omega2</span><span class="p">,</span> <span class="n">domega2</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>inside the derivative function.</p>
+<hr class="docutils" />
+<p><strong>Part 2 — Small-Angle Motion</strong></p>
+<p>For the smaller initial angles,</p>
+<div class="math notranslate nohighlight">
+\[
+\theta_1(0)=10^\circ,
+\qquad
+\theta_2(0)=5^\circ,
+\]</div>
+<p>the pendulum remains close to the small-angle regime.</p>
+<p>In this case,</p>
+<div class="math notranslate nohighlight">
+\[
+\sin\theta\approx\theta,
+\qquad
+\cos\theta\approx1.
+\]</div>
+<p>The system behaves approximately like the coupled oscillators studied earlier in Module B2. The motion is fairly regular, and the plots of</p>
+<div class="math notranslate nohighlight">
+\[
+\theta_1(t)
+\qquad\text{and}\qquad
+\theta_2(t)
+\]</div>
+<p>should show relatively smooth oscillatory behavior.</p>
+<p>The phase portraits,</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{\theta}_1\text{ versus }\theta_1
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{\theta}_2\text{ versus }\theta_2,
+\]</div>
+<p>should also appear relatively organized.</p>
+<hr class="docutils" />
+<p><strong>Part 3 — Large-Angle Motion</strong></p>
+<p>For the larger initial angles,</p>
+<div class="math notranslate nohighlight">
+\[
+\theta_1(0)=120^\circ,
+\qquad
+\theta_2(0)=-10^\circ,
+\]</div>
+<p>the small-angle approximation is no longer valid.</p>
+<p>The nonlinear terms in the equations of motion become important, and energy is exchanged between the two pendulums in a much more complicated way.</p>
+<p>The plots of</p>
+<div class="math notranslate nohighlight">
+\[
+\theta_1(t)
+\qquad\text{and}\qquad
+\theta_2(t)
+\]</div>
+<p>should appear less regular than in the small-angle case. The phase portraits should no longer resemble the simple closed ellipses associated with simple harmonic motion.</p>
+<p>Instead, the trajectories may appear tangled, irregular, or highly sensitive to the initial state.</p>
+<hr class="docutils" />
+<p><strong>Part 4 — Interpretation</strong></p>
+<p>The small-angle double pendulum behaves much like a linear coupled oscillator. Its motion is approximately periodic and can be understood using normal-mode ideas.</p>
+<p>The large-angle double pendulum behaves differently. Its nonlinear coupling causes irregular energy exchange between the two coordinates, and the motion can become chaotic.</p>
+<p>This illustrates the main lesson of this section:</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\text{A deterministic mechanical system can become practically unpredictable when nonlinear effects are strong.}
+}
+\]</div>
+<p>The double pendulum will therefore serve as our main example throughout the rest of this chapter as we discuss sensitive dependence on initial conditions, Lyapunov exponents, and Poincaré sections.</p>
+</div>
+</details>
+</div><div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Double pendulum dynamics</span>
+<span class="c1"># Equal masses and equal lengths</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="c1"># Physical parameters</span>
+<span class="n">m1</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">m2</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">L1</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">L2</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>
+
+<span class="c1"># Time settings</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.001</span>
+<span class="n">t_max</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_max</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">derivatives</span><span class="p">(</span><span class="n">state</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return time derivatives for the double pendulum.</span>
+<span class="sd">    state = [theta1, omega1, theta2, omega2]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">theta1</span><span class="p">,</span> <span class="n">omega1</span><span class="p">,</span> <span class="n">theta2</span><span class="p">,</span> <span class="n">omega2</span> <span class="o">=</span> <span class="n">state</span>
+    
+    <span class="n">delta</span> <span class="o">=</span> <span class="n">theta2</span> <span class="o">-</span> <span class="n">theta1</span>
+    
+    <span class="n">den1</span> <span class="o">=</span> <span class="p">(</span><span class="n">m1</span> <span class="o">+</span> <span class="n">m2</span><span class="p">)</span><span class="o">*</span><span class="n">L1</span> <span class="o">-</span> <span class="n">m2</span><span class="o">*</span><span class="n">L1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">den2</span> <span class="o">=</span> <span class="p">(</span><span class="n">L2</span><span class="o">/</span><span class="n">L1</span><span class="p">)</span><span class="o">*</span><span class="n">den1</span>
+    
+    <span class="n">domega1</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">m2</span><span class="o">*</span><span class="n">L1</span><span class="o">*</span><span class="n">omega1</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">m2</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta2</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">m2</span><span class="o">*</span><span class="n">L2</span><span class="o">*</span><span class="n">omega2</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span>
+        <span class="o">-</span> <span class="p">(</span><span class="n">m1</span> <span class="o">+</span> <span class="n">m2</span><span class="p">)</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta1</span><span class="p">)</span>
+    <span class="p">)</span> <span class="o">/</span> <span class="n">den1</span>
+    
+    <span class="n">domega2</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="o">-</span><span class="n">m2</span><span class="o">*</span><span class="n">L2</span><span class="o">*</span><span class="n">omega2</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span>
+        <span class="o">+</span> <span class="p">(</span><span class="n">m1</span> <span class="o">+</span> <span class="n">m2</span><span class="p">)</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta1</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span>
+        <span class="o">-</span> <span class="p">(</span><span class="n">m1</span> <span class="o">+</span> <span class="n">m2</span><span class="p">)</span><span class="o">*</span><span class="n">L1</span><span class="o">*</span><span class="n">omega1</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span>
+        <span class="o">-</span> <span class="p">(</span><span class="n">m1</span> <span class="o">+</span> <span class="n">m2</span><span class="p">)</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta2</span><span class="p">)</span>
+    <span class="p">)</span> <span class="o">/</span> <span class="n">den2</span>
+    
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">omega1</span><span class="p">,</span> <span class="n">domega1</span><span class="p">,</span> <span class="n">omega2</span><span class="p">,</span> <span class="n">domega2</span><span class="p">])</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">rk4_step</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    One fourth-order Runge-Kutta step.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">k1</span> <span class="o">=</span> <span class="n">derivatives</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+    <span class="n">k2</span> <span class="o">=</span> <span class="n">derivatives</span><span class="p">(</span><span class="n">state</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="n">k1</span><span class="p">)</span>
+    <span class="n">k3</span> <span class="o">=</span> <span class="n">derivatives</span><span class="p">(</span><span class="n">state</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="n">k2</span><span class="p">)</span>
+    <span class="n">k4</span> <span class="o">=</span> <span class="n">derivatives</span><span class="p">(</span><span class="n">state</span> <span class="o">+</span> <span class="n">dt</span><span class="o">*</span><span class="n">k3</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">state</span> <span class="o">+</span> <span class="p">(</span><span class="n">dt</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">k1</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">k2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">k3</span> <span class="o">+</span> <span class="n">k4</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">simulate_double_pendulum</span><span class="p">(</span><span class="n">theta1_deg</span><span class="p">,</span> <span class="n">theta2_deg</span><span class="p">,</span> <span class="n">omega1_0</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">omega2_0</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Simulate the double pendulum for given initial angles in degrees.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">theta1_deg</span><span class="p">),</span>
+        <span class="n">omega1_0</span><span class="p">,</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">theta2_deg</span><span class="p">),</span>
+        <span class="n">omega2_0</span>
+    <span class="p">])</span>
+    
+    <span class="n">theta1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+    <span class="n">omega1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+    <span class="n">theta2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+    <span class="n">omega2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)):</span>
+        <span class="n">theta1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">omega1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">theta2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">omega2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+        
+        <span class="n">state</span> <span class="o">=</span> <span class="n">rk4_step</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">theta1</span><span class="p">,</span> <span class="n">omega1</span><span class="p">,</span> <span class="n">theta2</span><span class="p">,</span> <span class="n">omega2</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Case 1: small-angle motion</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">theta1_small</span><span class="p">,</span> <span class="n">omega1_small</span><span class="p">,</span> <span class="n">theta2_small</span><span class="p">,</span> <span class="n">omega2_small</span> <span class="o">=</span> <span class="n">simulate_double_pendulum</span><span class="p">(</span>
+    <span class="n">theta1_deg</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">theta2_deg</span><span class="o">=</span><span class="mi">5</span>
+<span class="p">)</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Case 2: large-angle motion</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">theta1_large</span><span class="p">,</span> <span class="n">omega1_large</span><span class="p">,</span> <span class="n">theta2_large</span><span class="p">,</span> <span class="n">omega2_large</span> <span class="o">=</span> <span class="n">simulate_double_pendulum</span><span class="p">(</span>
+    <span class="n">theta1_deg</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span>
+    <span class="n">theta2_deg</span><span class="o">=-</span><span class="mi">10</span>
+<span class="p">)</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Plot theta(t) for small-angle case</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">theta1_small</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\theta_1(t)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">theta2_small</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\theta_2(t)$&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Angle (degrees)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Double Pendulum: Small-Angle Motion&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Plot theta(t) for large-angle case</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">theta1_large</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\theta_1(t)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">theta2_large</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\theta_2(t)$&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Angle (degrees)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Double Pendulum: Large-Angle Motion&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Phase portraits: small-angle case</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">theta1_small</span><span class="p">,</span> <span class="n">omega1_small</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$(\theta_1,\dot{\theta}_1)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">theta2_small</span><span class="p">,</span> <span class="n">omega2_small</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$(\theta_2,\dot{\theta}_2)$&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Angle (radians)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Angular velocity (rad/s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Phase Portraits: Small-Angle Motion&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Phase portraits: large-angle case</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">theta1_large</span><span class="p">,</span> <span class="n">omega1_large</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$(\theta_1,\dot{\theta}_1)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">theta2_large</span><span class="p">,</span> <span class="n">omega2_large</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$(\theta_2,\dot{\theta}_2)$&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Angle (radians)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Angular velocity (rad/s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Phase Portraits: Large-Angle Motion&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<img alt="../_images/3be21cce57eb24849750d1bb96637ccf83a180511e4542aa1cd9820f4918e6fe.png" src="../_images/3be21cce57eb24849750d1bb96637ccf83a180511e4542aa1cd9820f4918e6fe.png" />
+<img alt="../_images/a9db096fbeac225346b0ccef08e5f6381f003823237e4c78ff783ca44b245797.png" src="../_images/a9db096fbeac225346b0ccef08e5f6381f003823237e4c78ff783ca44b245797.png" />
+<img alt="../_images/6ff149f41496914c75da6c7c3f33d11cd129faf5a170fd7f336aed9ce199a2c3.png" src="../_images/6ff149f41496914c75da6c7c3f33d11cd129faf5a170fd7f336aed9ce199a2c3.png" />
+<img alt="../_images/e24a6bcdecdcd360222d31dad11a591054881c039c8ef170759808a59f406fc9.png" src="../_images/e24a6bcdecdcd360222d31dad11a591054881c039c8ef170759808a59f406fc9.png" />
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<div style="background-color:#ffe6e6; border-left:6px solid #cc0000; padding:14px; border-radius:4px;">
+<strong>Important:</strong><br>
+<p>The motion of a chaotic double pendulum is not random.</p>
+<p>If the experiment could be repeated with exactly the same initial conditions, the pendulum would follow exactly the same trajectory.</p>
+<p>The apparent unpredictability arises because infinitesimal differences in the initial conditions become amplified with time.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Curiosity</strong></p>
+<p>Double pendulums have become one of the most recognizable examples of chaos and are frequently used in museums and science demonstrations.</p>
+<p>Their mesmerizing motion beautifully illustrates how simple deterministic systems can generate extraordinarily complicated behavior.</p>
+</div>
+<p>In the next section, we will investigate the fundamental mechanism responsible for chaos: the extreme sensitivity of trajectories to their initial conditions.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="b3-5-3-sensitive-dependence-on-initial-conditions">
+<h2>B3.5.3 Sensitive Dependence on Initial Conditions<a class="headerlink" href="#b3-5-3-sensitive-dependence-on-initial-conditions" title="Link to this heading">#</a></h2>
+<p>The double pendulum illustrates one of the defining features of chaotic systems: <strong>sensitive dependence on initial conditions</strong>.</p>
+<p>In a non-chaotic system, two trajectories that begin close together usually remain close together, at least for a reasonably long time. In a chaotic system, however, two nearly identical initial states may eventually produce dramatically different motions.</p>
+<p>For example, consider two double pendulums with initial angles differing by only a tiny amount:</p>
+<div class="math notranslate nohighlight">
+\[
+\theta_1(0)=120^\circ,
+\qquad
+\theta_2(0)=-10^\circ,
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\theta_1(0)=120.001^\circ,
+\qquad
+\theta_2(0)=-10^\circ.
+\]</div>
+<p>At first, the two motions may appear indistinguishable. After enough time, however, the small initial difference grows, and the trajectories eventually separate.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Sensitive Dependence on Initial Conditions</strong>
+<p>A system exhibits sensitive dependence on initial conditions if two trajectories that start arbitrarily close together eventually separate significantly.</p>
+<p>This is one of the defining signatures of chaotic motion.</p>
+</div>
+<p>Mathematically, the separation between nearby trajectories often grows approximately as</p>
+<div class="math notranslate nohighlight">
+\[
+\delta(t)\sim \delta_0 e^{\lambda t},
+\]</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\delta_0\)</span> is the initial separation,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\delta(t)\)</span> is the separation at time <span class="math notranslate nohighlight">\(t\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\lambda\)</span> measures the rate at which nearby trajectories diverge.</p></li>
+</ul>
+<p>If</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda&gt;0,
+\]</div>
+<p>then small initial differences grow exponentially, making long-term prediction practically impossible.</p>
+<div style="background-color:#ffe6e6; border-left:6px solid #cc0000; padding:14px; border-radius:4px;">
+<strong>Important:</strong><br>
+<p>Sensitive dependence does not mean that the system is random.</p>
+<p>If the initial conditions were specified with infinite precision, the future motion would be completely determined.</p>
+<p>The problem is that real measurements always contain finite uncertainty, and in chaotic systems those uncertainties grow rapidly with time.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Example — Two Nearly Identical Double Pendulums</h3>
+<p>Suppose two double pendulums are released with nearly identical initial conditions. For the first pendulum, use</p>
+<div class="math notranslate nohighlight">
+\[
+\theta_1(0)=120^\circ,
+\qquad
+\theta_2(0)=-10^\circ,
+\]</div>
+<p>with</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{\theta}_1(0)=\dot{\theta}_2(0)=0.
+\]</div>
+<p>For the second pendulum, change only the first initial angle by a tiny amount:</p>
+<div class="math notranslate nohighlight">
+\[
+\theta_1(0)=120.001^\circ,
+\qquad
+\theta_2(0)=-10^\circ,
+\]</div>
+<p>with the same initial angular velocities.</p>
+<p>At the beginning, the two simulations should appear almost identical. However, after enough time, the tiny initial difference becomes amplified by the nonlinear dynamics, and the two motions begin to separate.</p>
+<p>Using the double-pendulum code from the previous box activity, modify the initial value of</p>
+<div class="math notranslate nohighlight">
+\[
+\theta_1(0)
+\]</div>
+<p>by only</p>
+<div class="math notranslate nohighlight">
+\[
+0.001^\circ.
+\]</div>
+<p>Then plot both versions of</p>
+<div class="math notranslate nohighlight">
+\[
+\theta_1(t)
+\]</div>
+<p>on the same graph. You should also plot the difference</p>
+<div class="math notranslate nohighlight">
+\[
+|\Delta\theta_1(t)|
+=
+|\theta_{1,B}(t)-\theta_{1,A}(t)|.
+\]</div>
+<p>The first plot shows when the two motions visibly separate, while the second plot makes the growth of the initial difference easier to see.</p>
+<p>This is the mechanical analogue of the <strong>butterfly effect</strong>: a tiny difference in initial conditions can eventually lead to dramatically different motion.</p>
+</div><div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Double pendulum: sensitive dependence on initial conditions</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="c1"># Physical parameters</span>
+<span class="n">m1</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">m2</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">L1</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">L2</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>
+
+<span class="c1"># Time settings</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.001</span>
+<span class="n">t_max</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_max</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">derivatives</span><span class="p">(</span><span class="n">state</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return time derivatives for the double pendulum.</span>
+<span class="sd">    state = [theta1, omega1, theta2, omega2]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">theta1</span><span class="p">,</span> <span class="n">omega1</span><span class="p">,</span> <span class="n">theta2</span><span class="p">,</span> <span class="n">omega2</span> <span class="o">=</span> <span class="n">state</span>
+    
+    <span class="n">delta</span> <span class="o">=</span> <span class="n">theta2</span> <span class="o">-</span> <span class="n">theta1</span>
+    
+    <span class="n">den1</span> <span class="o">=</span> <span class="p">(</span><span class="n">m1</span> <span class="o">+</span> <span class="n">m2</span><span class="p">)</span><span class="o">*</span><span class="n">L1</span> <span class="o">-</span> <span class="n">m2</span><span class="o">*</span><span class="n">L1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">den2</span> <span class="o">=</span> <span class="p">(</span><span class="n">L2</span><span class="o">/</span><span class="n">L1</span><span class="p">)</span><span class="o">*</span><span class="n">den1</span>
+    
+    <span class="n">domega1</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">m2</span><span class="o">*</span><span class="n">L1</span><span class="o">*</span><span class="n">omega1</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">m2</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta2</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">m2</span><span class="o">*</span><span class="n">L2</span><span class="o">*</span><span class="n">omega2</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span>
+        <span class="o">-</span> <span class="p">(</span><span class="n">m1</span> <span class="o">+</span> <span class="n">m2</span><span class="p">)</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta1</span><span class="p">)</span>
+    <span class="p">)</span> <span class="o">/</span> <span class="n">den1</span>
+    
+    <span class="n">domega2</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="o">-</span><span class="n">m2</span><span class="o">*</span><span class="n">L2</span><span class="o">*</span><span class="n">omega2</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span>
+        <span class="o">+</span> <span class="p">(</span><span class="n">m1</span> <span class="o">+</span> <span class="n">m2</span><span class="p">)</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta1</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span>
+        <span class="o">-</span> <span class="p">(</span><span class="n">m1</span> <span class="o">+</span> <span class="n">m2</span><span class="p">)</span><span class="o">*</span><span class="n">L1</span><span class="o">*</span><span class="n">omega1</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span>
+        <span class="o">-</span> <span class="p">(</span><span class="n">m1</span> <span class="o">+</span> <span class="n">m2</span><span class="p">)</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta2</span><span class="p">)</span>
+    <span class="p">)</span> <span class="o">/</span> <span class="n">den2</span>
+    
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">omega1</span><span class="p">,</span> <span class="n">domega1</span><span class="p">,</span> <span class="n">omega2</span><span class="p">,</span> <span class="n">domega2</span><span class="p">])</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">rk4_step</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    One fourth-order Runge-Kutta step.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">k1</span> <span class="o">=</span> <span class="n">derivatives</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+    <span class="n">k2</span> <span class="o">=</span> <span class="n">derivatives</span><span class="p">(</span><span class="n">state</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="n">k1</span><span class="p">)</span>
+    <span class="n">k3</span> <span class="o">=</span> <span class="n">derivatives</span><span class="p">(</span><span class="n">state</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="n">k2</span><span class="p">)</span>
+    <span class="n">k4</span> <span class="o">=</span> <span class="n">derivatives</span><span class="p">(</span><span class="n">state</span> <span class="o">+</span> <span class="n">dt</span><span class="o">*</span><span class="n">k3</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">state</span> <span class="o">+</span> <span class="p">(</span><span class="n">dt</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">k1</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">k2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">k3</span> <span class="o">+</span> <span class="n">k4</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">simulate_double_pendulum</span><span class="p">(</span><span class="n">theta1_deg</span><span class="p">,</span> <span class="n">theta2_deg</span><span class="p">,</span> <span class="n">omega1_0</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">omega2_0</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Simulate the double pendulum for given initial angles in degrees.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">theta1_deg</span><span class="p">),</span>
+        <span class="n">omega1_0</span><span class="p">,</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">theta2_deg</span><span class="p">),</span>
+        <span class="n">omega2_0</span>
+    <span class="p">])</span>
+    
+    <span class="n">theta1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+    <span class="n">omega1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+    <span class="n">theta2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+    <span class="n">omega2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)):</span>
+        <span class="n">theta1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">omega1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">theta2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">omega2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+        
+        <span class="n">state</span> <span class="o">=</span> <span class="n">rk4_step</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">theta1</span><span class="p">,</span> <span class="n">omega1</span><span class="p">,</span> <span class="n">theta2</span><span class="p">,</span> <span class="n">omega2</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Initial conditions</span>
+<span class="c1"># Case A and Case B differ only by 0.001 degrees in theta1(0)</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">theta1_A</span><span class="p">,</span> <span class="n">omega1_A</span><span class="p">,</span> <span class="n">theta2_A</span><span class="p">,</span> <span class="n">omega2_A</span> <span class="o">=</span> <span class="n">simulate_double_pendulum</span><span class="p">(</span>
+    <span class="n">theta1_deg</span><span class="o">=</span><span class="mf">120.000</span><span class="p">,</span>
+    <span class="n">theta2_deg</span><span class="o">=-</span><span class="mf">10.000</span>
+<span class="p">)</span>
+
+<span class="n">theta1_B</span><span class="p">,</span> <span class="n">omega1_B</span><span class="p">,</span> <span class="n">theta2_B</span><span class="p">,</span> <span class="n">omega2_B</span> <span class="o">=</span> <span class="n">simulate_double_pendulum</span><span class="p">(</span>
+    <span class="n">theta1_deg</span><span class="o">=</span><span class="mf">120.001</span><span class="p">,</span>
+    <span class="n">theta2_deg</span><span class="o">=-</span><span class="mf">10.000</span>
+<span class="p">)</span>
+
+<span class="c1"># Difference between theta1 values</span>
+<span class="n">delta_theta1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">theta1_B</span> <span class="o">-</span> <span class="n">theta1_A</span><span class="p">)</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Plot theta1(t) for both cases</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">theta1_A</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;Case A: $\theta_1(0)=120.000^\circ$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">theta1_B</span><span class="p">),</span> <span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;Case B: $\theta_1(0)=120.001^\circ$&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\theta_1(t)$ (degrees)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Double Pendulum: Tiny Change in Initial Condition&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Phase portraits for theta1</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">theta1_A</span><span class="p">,</span> <span class="n">omega1_A</span><span class="p">,</span>
+         <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;Case A: $\theta_1(0)=120.000^\circ$&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">theta1_B</span><span class="p">,</span> <span class="n">omega1_B</span><span class="p">,</span> <span class="s2">&quot;--&quot;</span><span class="p">,</span>
+         <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;Case B: $\theta_1(0)=120.001^\circ$&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\theta_1$ (rad)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\dot{\theta}_1$ (rad/s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Phase Portrait: Tiny Change in Initial Conditions&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Plot the difference |Delta theta1(t)|</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">delta_theta1</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$|\Delta \theta_1(t)|$ (degrees)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Growth of Initial Difference: $|\theta_{1,B}(t)-\theta_{1,A}(t)|$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Optional: semilog plot to reveal approximate exponential growth</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">delta_theta1</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1e-12</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$|\Delta \theta_1(t)|$ (degrees)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Sensitive Dependence on Initial Conditions&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<img alt="../_images/59d27c458b7199b4cd08f462f2cdcb7bf332f42ea157badaf4573df87d607b2d.png" src="../_images/59d27c458b7199b4cd08f462f2cdcb7bf332f42ea157badaf4573df87d607b2d.png" />
+<img alt="../_images/9f06a3f9eb555257f27509a7c92e2c7b6abc157c4614e2c91aee7b70c97e9d08.png" src="../_images/9f06a3f9eb555257f27509a7c92e2c7b6abc157c4614e2c91aee7b70c97e9d08.png" />
+<img alt="../_images/6a424c7419b2678d2f7985ad87a03cfaef4521242afecf984996163982e4104c.png" src="../_images/6a424c7419b2678d2f7985ad87a03cfaef4521242afecf984996163982e4104c.png" />
+<img alt="../_images/7c120ec6b3b7ca6ce11973e168e88d3a31acc7587df86cbf410259c2c8920f1f.png" src="../_images/7c120ec6b3b7ca6ce11973e168e88d3a31acc7587df86cbf410259c2c8920f1f.png" />
+</div>
+</details>
+</div>
+<p>In the next section, we will introduce a quantitative measure of this divergence: the Lyapunov exponent.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b3-5-4-lyapunov-exponents">
+<h2>B3.5.4 Lyapunov Exponents<a class="headerlink" href="#b3-5-4-lyapunov-exponents" title="Link to this heading">#</a></h2>
+<p>In the previous section, we observed that two nearly identical double pendulums may eventually follow very different trajectories. To describe this behavior quantitatively, we introduce the <strong>Lyapunov exponent</strong>.</p>
+<p>Suppose two trajectories begin with a very small initial separation</p>
+<div class="math notranslate nohighlight">
+\[
+\delta_0.
+\]</div>
+<p>As the system evolves, the separation between the trajectories becomes</p>
+<div class="math notranslate nohighlight">
+\[
+\delta(t).
+\]</div>
+<p>For many chaotic systems, this separation grows approximately exponentially for some interval of time:</p>
+<div class="math notranslate nohighlight">
+\[
+\delta(t)
+\approx
+\delta_0 e^{\lambda t}.
+\]</div>
+<p>The number</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda
+\]</div>
+<p>is called the <strong>Lyapunov exponent</strong>.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Lyapunov Exponent</strong>
+<p>A Lyapunov exponent measures the average exponential rate at which nearby trajectories separate or converge.</p>
+<p>If</p>
+<div class="math notranslate nohighlight">
+\[
+\delta(t)
+\approx
+\delta_0 e^{\lambda t},
+\]</div>
+<p>then</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda
+\]</div>
+<p>determines how rapidly the separation changes with time.</p>
+</div>
+<hr class="docutils" />
+<p>The sign of the Lyapunov exponent provides important information about the motion.</p>
+<section id="negative-lyapunov-exponent">
+<h3>Negative Lyapunov Exponent<a class="headerlink" href="#negative-lyapunov-exponent" title="Link to this heading">#</a></h3>
+<p>If</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda&lt;0,
+\]</div>
+<p>nearby trajectories converge.</p>
+<p>This behavior is associated with stable fixed points or attracting motion.</p>
+</section>
+<section id="zero-lyapunov-exponent">
+<h3>Zero Lyapunov Exponent<a class="headerlink" href="#zero-lyapunov-exponent" title="Link to this heading">#</a></h3>
+<p>If</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda=0,
+\]</div>
+<p>nearby trajectories neither grow nor decay exponentially.</p>
+<p>This occurs in many periodic or quasi-periodic systems.</p>
+</section>
+<section id="positive-lyapunov-exponent">
+<h3>Positive Lyapunov Exponent<a class="headerlink" href="#positive-lyapunov-exponent" title="Link to this heading">#</a></h3>
+<p>If</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda&gt;0,
+\]</div>
+<p>nearby trajectories separate exponentially.</p>
+<p>A positive Lyapunov exponent is one of the strongest indicators of chaotic motion.</p>
+<hr class="docutils" />
+<p>Taking the natural logarithm of</p>
+<div class="math notranslate nohighlight">
+\[
+\delta(t)
+\approx
+\delta_0 e^{\lambda t}
+\]</div>
+<p>gives</p>
+<div class="math notranslate nohighlight">
+\[
+\ln\delta(t)
+\approx
+\ln\delta_0+\lambda t.
+\]</div>
+<p>Therefore, if a plot of</p>
+<div class="math notranslate nohighlight">
+\[
+\ln\delta(t)
+\]</div>
+<p>versus</p>
+<div class="math notranslate nohighlight">
+\[
+t
+\]</div>
+<p>contains an approximately linear region, the slope of that region estimates the Lyapunov exponent.</p>
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Example — Estimating the Lyapunov Exponent from Two Double Pendulums</h3>
+<p>In the previous section, we simulated two double pendulums whose initial conditions differed only by</p>
+<div class="math notranslate nohighlight">
+\[
+0.001^\circ
+\]</div>
+<p>in the initial value of</p>
+<div class="math notranslate nohighlight">
+\[
+\theta_1.
+\]</div>
+<p>Specifically, we used</p>
+<div class="math notranslate nohighlight">
+\[
+\theta_{1,A}(0)=120.000^\circ,
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\theta_{1,B}(0)=120.001^\circ,
+\]</div>
+<p>while keeping all other initial conditions identical.</p>
+<p>At first, the two trajectories are nearly indistinguishable. As time progresses, however, the small difference in the initial conditions becomes amplified by the nonlinear dynamics.</p>
+<p>To quantify this divergence, define the separation between the trajectories by</p>
+<div class="math notranslate nohighlight">
+\[
+\delta(t)
+=
+\sqrt{
+(\theta_{1,B}-\theta_{1,A})^2
++
+(\theta_{2,B}-\theta_{2,A})^2
+}.
+\]</div>
+<p>If the system exhibits chaotic behavior, the separation initially grows approximately as</p>
+<div class="math notranslate nohighlight">
+\[
+\delta(t)
+\approx
+\delta_0e^{\lambda t},
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda
+\]</div>
+<p>is the Lyapunov exponent.</p>
+<p>Taking the natural logarithm gives</p>
+<div class="math notranslate nohighlight">
+\[
+\ln\delta(t)
+=
+\ln\delta_0+\lambda t.
+\]</div>
+<p>Therefore, a plot of</p>
+<div class="math notranslate nohighlight">
+\[
+\ln\delta(t)
+\]</div>
+<p>versus</p>
+<div class="math notranslate nohighlight">
+\[
+t
+\]</div>
+<p>should contain a region that is approximately linear.</p>
+<p>The slope of this line is an estimate of the Lyapunov exponent:</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\lambda
+=
+\frac{d}{dt}
+\left(
+\ln\delta
+\right)
+}
+\]</div>
+<p>A positive slope indicates that nearby trajectories separate exponentially and therefore provides evidence of chaotic motion.</p>
+<p>For example, if the graph contains a linear region satisfying</p>
+<div class="math notranslate nohighlight">
+\[
+\ln\delta
+\approx
+-10+0.8t,
+\]</div>
+<p>then the estimated Lyapunov exponent is</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda
+\approx
+0.8~\mathrm{s^{-1}}.
+\]</div>
+<p>This means that the separation between the two trajectories increases approximately as</p>
+<div class="math notranslate nohighlight">
+\[
+\delta(t)
+\propto
+e^{0.8t}.
+\]</div>
+<div style="background-color:#ffe6e6; border-left:6px solid #cc0000; padding:14px; border-radius:4px;">
+<strong>Practical Consideration</strong><br>
+<p>The exponential growth does not continue indefinitely.</p>
+<p>Eventually, the separation becomes comparable to the size of the accessible phase space, causing the growth to saturate. Consequently, only the early portion of the graph should be used when estimating the Lyapunov exponent.</p>
+</div>
+<p>Thus, by studying the divergence of two nearly identical double pendulums, we obtain a quantitative measure of chaos rather than relying solely on visual impressions of complicated motion.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#ffe6e6; border-left:6px solid #cc0000; padding:14px; border-radius:4px;">
+<strong>Caution: Estimating Lyapunov Exponents</strong><br>
+<p>Although the definition of a Lyapunov exponent is simple, obtaining accurate values is often challenging.</p>
+<p>For systems such as the double pendulum, exponential growth occurs only over a limited interval, and several Lyapunov exponents are possible because the system has multiple degrees of freedom.</p>
+<p>Consequently, practical computations usually focus on estimating the largest Lyapunov exponent rather than determining all exponents exactly.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#ffe6e6; border-left:6px solid #cc0000; padding:14px; border-radius:4px;">
+<strong>Important:</strong><br>
+<p>In a bounded physical system, the separation between two trajectories cannot grow exponentially forever.</p>
+<p>Eventually, the separation becomes comparable to the size of the accessible phase space and the exponential-growth approximation breaks down.</p>
+<p>Therefore, Lyapunov exponents are estimated from the early-to-intermediate interval where the separation grows approximately exponentially.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Curiosity</strong></p>
+<p>The largest Lyapunov exponent is often used as a practical diagnostic for chaos.</p>
+<p>A positive largest Lyapunov exponent means that nearby trajectories diverge exponentially, while a negative value indicates convergence toward an attracting state.</p>
+<p>For this reason, Lyapunov exponents are widely used in studies of weather prediction, celestial mechanics, turbulence, biological rhythms, and nonlinear circuits.</p>
+</div>
+<p>In the next section, we will introduce another important tool for visualizing complicated motion: the Poincaré section.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="b3-5-5-poincare-sections">
+<h2>B3.5.5 Poincaré Sections<a class="headerlink" href="#b3-5-5-poincare-sections" title="Link to this heading">#</a></h2>
+<p>As we have seen, phase portraits provide a powerful way to visualize the motion of dynamical systems. However, for systems with more than one degree of freedom, the phase space becomes multidimensional and increasingly difficult to interpret.</p>
+<p>For example, the double pendulum possesses four phase-space coordinates:</p>
+<div class="math notranslate nohighlight">
+\[
+\theta_1,
+\qquad
+\omega_1,
+\qquad
+\theta_2,
+\qquad
+\omega_2.
+\]</div>
+<p>Visualizing trajectories in four dimensions is impossible, and even two-dimensional projections may become extremely complicated.</p>
+<p>To overcome this difficulty, Henri Poincaré introduced one of the most important tools in nonlinear dynamics: the <strong>Poincaré section</strong>.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Poincaré Section</strong>
+<p>A Poincaré section is obtained by recording the state of a dynamical system whenever a specified condition is satisfied.</p>
+<p>Instead of displaying the entire trajectory, the motion is represented by a collection of points corresponding to repeated crossings of a lower-dimensional surface in phase space.</p>
+</div>
+<hr class="docutils" />
+<p>One may think of a Poincaré section as analogous to taking snapshots of a moving object at regular intervals. Although much information is discarded, the resulting picture often reveals important features that are hidden in the full trajectory.</p>
+<p>For the double pendulum, for example, we might record</p>
+<div class="math notranslate nohighlight">
+\[
+(\theta_1,\omega_1)
+\]</div>
+<p>whenever</p>
+<div class="math notranslate nohighlight">
+\[
+\theta_2=0
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_2&gt;0.
+\]</div>
+<p>Each time this condition is satisfied, one point is plotted.</p>
+<p>Over time, a pattern gradually emerges.</p>
+<section id="periodic-motion">
+<h3>Periodic Motion<a class="headerlink" href="#periodic-motion" title="Link to this heading">#</a></h3>
+<p>If the motion is periodic, the trajectory returns to the same state repeatedly.</p>
+<p>Consequently, the Poincaré section consists of only a few isolated points.</p>
+</section>
+<section id="quasiperiodic-motion">
+<h3>Quasiperiodic Motion<a class="headerlink" href="#quasiperiodic-motion" title="Link to this heading">#</a></h3>
+<p>If the motion contains several incommensurate frequencies, the trajectory never exactly repeats itself.</p>
+<p>Instead, the points lie on smooth closed curves.</p>
+</section>
+<section id="chaotic-motion">
+<h3>Chaotic Motion<a class="headerlink" href="#chaotic-motion" title="Link to this heading">#</a></h3>
+<p>In a chaotic system, neighboring trajectories continually diverge and the motion never repeats exactly.</p>
+<p>As a result, the Poincaré section contains a complicated cloud of points rather than isolated points or smooth curves.</p>
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Example — Poincaré Section of a Driven Damped Pendulum</h3>
+<p>Consider the driven damped pendulum described by</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{\theta}
++
+\beta\dot{\theta}
++
+\omega_0^2\sin\theta
+=
+A\cos(\Omega t),
+\]</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\beta\)</span> is the damping coefficient,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\omega_0\)</span> is the natural frequency,</p></li>
+<li><p><span class="math notranslate nohighlight">\(A\)</span> is the driving amplitude, and</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Omega\)</span> is the driving frequency.</p></li>
+</ul>
+<p>Because the external force is periodic, the system possesses a natural time scale given by the driving period</p>
+<div class="math notranslate nohighlight">
+\[
+T=\frac{2\pi}{\Omega}.
+\]</div>
+<p>Instead of examining the entire trajectory, we record the state of the pendulum once every driving period. Thus, we plot the points</p>
+<div class="math notranslate nohighlight">
+\[
+(\theta,\dot{\theta})
+\]</div>
+<p>at times</p>
+<div class="math notranslate nohighlight">
+\[
+t_n=nT,
+\qquad
+n=0,1,2,\ldots
+\]</div>
+<p>This stroboscopic sampling produces a Poincaré section.</p>
+<hr class="docutils" />
+<p><strong>Period-One Motion</strong></p>
+<p>Suppose the pendulum oscillates with the same period as the external drive.</p>
+<p>In that case,</p>
+<div class="math notranslate nohighlight">
+\[
+\theta(t+T)=\theta(t),
+\]</div>
+<p>and the system returns to the same state after each driving cycle. Consequently, every sample produces the same point, and the Poincaré section consists of a single point.</p>
+<hr class="docutils" />
+<p><strong>Period-Doubled Motion</strong></p>
+<p>Suppose the pendulum requires two driving periods to repeat its motion. Then</p>
+<div class="math notranslate nohighlight">
+\[
+\theta(t+2T)=\theta(t),
+\]</div>
+<p>and two distinct points appear in the Poincaré section.</p>
+<p>More generally, if the motion repeats after</p>
+<div class="math notranslate nohighlight">
+\[
+n
+\]</div>
+<p>driving periods, the Poincaré section contains</p>
+<div class="math notranslate nohighlight">
+\[
+n
+\]</div>
+<p>points.</p>
+<hr class="docutils" />
+<p><strong>Quasiperiodic Motion</strong></p>
+<p>If the motion never exactly repeats itself but remains regular, the sampled points lie on smooth closed curves.</p>
+<hr class="docutils" />
+<p><strong>Chaotic Motion</strong></p>
+<p>For sufficiently strong driving, the motion becomes chaotic.</p>
+<p>Although the equations remain deterministic, the state no longer repeats itself. Consequently, the Poincaré section contains a complicated cloud of points rather than isolated points or smooth curves.</p>
+<p>Thus, the Poincaré section provides a simple visual method for distinguishing between periodic, quasiperiodic, and chaotic motion.</p>
+<div style="background-color:#ffe6e6; border-left:6px solid #cc0000; padding:14px; border-radius:4px;">
+<strong>Important:</strong><br>
+<p>The points of a Poincaré section do not represent a trajectory.</p>
+<p>Each point corresponds to the state of the system at a particular instant separated by one driving period.</p>
+<p>The geometric pattern formed by these points reveals the underlying structure of the dynamics.</p>
+</div>
+<p>By varying the driving amplitude</p>
+<div class="math notranslate nohighlight">
+\[
+A,
+\]</div>
+<p>one may observe the progression</p>
+<div class="math notranslate nohighlight">
+\[
+1\text{ point}
+\rightarrow
+2\text{ points}
+\rightarrow
+4\text{ points}
+\rightarrow
+8\text{ points}
+\rightarrow
+\cdots
+\rightarrow
+\text{chaos},
+\]</div>
+<p>a phenomenon known as the <strong>period-doubling route to chaos</strong>.</p>
+<p>In modern nonlinear dynamics, Poincaré sections are among the most important tools for identifying periodic, quasiperiodic, and chaotic motion.</p>
+</div>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Poincaré section of a driven damped pendulum</span>
+<span class="c1">#</span>
+<span class="c1"># theta&#39;&#39; + beta theta&#39; + omega0^2 sin(theta) = A cos(Omega t)</span>
+<span class="c1">#</span>
+<span class="c1"># We record (theta, omega) once every driving period:</span>
+<span class="c1">#</span>
+<span class="c1"># T = 2*pi/Omega</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="c1"># Parameters</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">omega0</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">Omega</span> <span class="o">=</span> <span class="mi">2</span><span class="o">/</span><span class="mi">3</span>
+
+<span class="c1"># Try changing A to see different behavior</span>
+<span class="n">A</span> <span class="o">=</span> <span class="mf">1.2</span>
+
+<span class="c1"># Time settings</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">t_max</span> <span class="o">=</span> <span class="mi">4000</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_max</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+
+<span class="c1"># Driving period</span>
+<span class="n">T_drive</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">Omega</span>
+
+<span class="c1"># Initial conditions</span>
+<span class="n">theta0</span> <span class="o">=</span> <span class="mf">0.2</span>
+<span class="n">omega_initial</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="c1"># Arrays</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<span class="n">omega</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+
+<span class="n">theta</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">theta0</span>
+<span class="n">omega</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">omega_initial</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">wrap_angle</span><span class="p">(</span><span class="n">angle</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Wrap angle to the interval [-pi, pi].</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">angle</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">%</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Euler-Cromer integration</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+
+    <span class="c1"># theta&#39;&#39; = A cos(Omega t) - beta theta&#39; - omega0^2 sin(theta)</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">A</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">Omega</span><span class="o">*</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="o">-</span> <span class="n">beta</span><span class="o">*</span><span class="n">omega</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="o">-</span> <span class="n">omega0</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="p">)</span>
+
+    <span class="n">omega</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">omega</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">alpha</span><span class="o">*</span><span class="n">dt</span>
+    <span class="n">theta</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">theta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">omega</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Stroboscopic sampling once every driving period</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">theta_section</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">omega_section</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Ignore early transient behavior</span>
+<span class="n">transient_time</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">n_start</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">transient_time</span> <span class="o">/</span> <span class="n">T_drive</span><span class="p">)</span>
+
+<span class="c1"># Number of samples</span>
+<span class="n">n_max</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">t_max</span> <span class="o">/</span> <span class="n">T_drive</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_start</span><span class="p">,</span> <span class="n">n_max</span><span class="p">):</span>
+
+    <span class="n">sample_time</span> <span class="o">=</span> <span class="n">n</span><span class="o">*</span><span class="n">T_drive</span>
+    <span class="n">sample_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sample_time</span> <span class="o">/</span> <span class="n">dt</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">sample_index</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+        <span class="n">theta_section</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">wrap_angle</span><span class="p">(</span><span class="n">theta</span><span class="p">[</span><span class="n">sample_index</span><span class="p">]))</span>
+        <span class="n">omega_section</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">omega</span><span class="p">[</span><span class="n">sample_index</span><span class="p">])</span>
+
+<span class="n">theta_section</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">theta_section</span><span class="p">)</span>
+<span class="n">omega_section</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">omega_section</span><span class="p">)</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Plot theta(t) over a short time window</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plot_time_max</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">plot_index_max</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">plot_time_max</span> <span class="o">/</span> <span class="n">dt</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">t</span><span class="p">[:</span><span class="n">plot_index_max</span><span class="p">],</span>
+    <span class="p">[</span><span class="n">wrap_angle</span><span class="p">(</span><span class="n">th</span><span class="p">)</span> <span class="k">for</span> <span class="n">th</span> <span class="ow">in</span> <span class="n">theta</span><span class="p">[:</span><span class="n">plot_index_max</span><span class="p">]]</span>
+<span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\theta(t)$ (rad)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Driven Damped Pendulum: Short-Time Motion&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Plot Poincaré section</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">theta_section</span><span class="p">,</span> <span class="n">omega_section</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\theta$ (rad)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\dot{\theta}$ (rad/s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Poincaré Section of the Driven Damped Pendulum&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/461b05ecaaf754e757c858cf4187f250f2e2db2d7e42eda74b074c67c2c8c1c8.png" src="../_images/461b05ecaaf754e757c858cf4187f250f2e2db2d7e42eda74b074c67c2c8c1c8.png" />
+<img alt="../_images/83bba389545644803572b04b284d71d80556655fe9390107a18d142797064d72.png" src="../_images/83bba389545644803572b04b284d71d80556655fe9390107a18d142797064d72.png" />
+</div>
+</div>
+<hr class="docutils" />
+<div style="background-color:#ffe6e6; border-left:6px solid #cc0000; padding:14px; border-radius:4px;">
+<strong>Important:</strong><br>
+<p>A Poincaré section is not a trajectory.</p>
+<p>Each point corresponds to a different instant in time when the chosen crossing condition is satisfied.</p>
+<p>The pattern formed by these points reveals the geometric structure of the motion.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Curiosity</strong></p>
+<p>Henri Poincaré introduced these ideas while studying the three-body problem in celestial mechanics.</p>
+<p>His work revealed that even simple deterministic systems can exhibit extraordinarily complicated behavior and laid the foundations for modern chaos theory.</p>
+</div>
+<p>In the next section, we will encounter an even more remarkable concept: strange attractors, whose intricate geometry reflects the underlying chaotic dynamics.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="b3-5-6-strange-attractors">
+<h2>B3.5.6 Strange Attractors<a class="headerlink" href="#b3-5-6-strange-attractors" title="Link to this heading">#</a></h2>
+<p>In previous sections, we encountered several types of long-term behavior.</p>
+<ul class="simple">
+<li><p>Stable equilibrium points correspond to fixed-point attractors.</p></li>
+<li><p>Self-sustained oscillations lead to limit cycles.</p></li>
+<li><p>Synchronization causes oscillators to converge toward common rhythms.</p></li>
+</ul>
+<p>Chaotic systems may also possess attractors. However, unlike fixed points and limit cycles, these attractors have extraordinarily complicated geometric structures and are known as <strong>strange attractors</strong>.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Strange Attractor</strong>
+<p>A strange attractor is an attractor associated with chaotic motion whose geometric structure is highly intricate and often exhibits fractal properties.</p>
+<p>Although trajectories remain confined to a bounded region of phase space, they never repeat exactly.</p>
+</div>
+<hr class="docutils" />
+<p>At first glance, this behavior may seem contradictory. If the motion is chaotic, one might expect trajectories to wander indefinitely throughout phase space.</p>
+<p>Instead, dissipation often causes trajectories to converge toward a particular region of phase space. Once inside this region, the motion remains bounded, but the trajectory never closes upon itself.</p>
+<p>Thus, a strange attractor combines two seemingly opposite ideas:</p>
+<ul class="simple">
+<li><p>attraction toward a bounded region,</p></li>
+<li><p>perpetual irregular motion within that region.</p></li>
+</ul>
+<section id="fixed-points-and-limit-cycles">
+<h3>Fixed Points and Limit Cycles<a class="headerlink" href="#fixed-points-and-limit-cycles" title="Link to this heading">#</a></h3>
+<p>For ordinary attractors, the long-term motion is simple.</p>
+<ul class="simple">
+<li><p>A fixed point corresponds to a stationary state.</p></li>
+<li><p>A limit cycle corresponds to a repeating oscillation.</p></li>
+</ul>
+<p>In both cases, nearby trajectories eventually converge to a relatively simple geometric object.</p>
+</section>
+<section id="strange-attractors">
+<h3>Strange Attractors<a class="headerlink" href="#strange-attractors" title="Link to this heading">#</a></h3>
+<p>In chaotic systems, trajectories may still converge toward a bounded set, but the resulting structure is much more complicated.</p>
+<p>The trajectory never intersects itself and never exactly repeats. Instead, it winds endlessly through phase space, producing patterns of extraordinary complexity.</p>
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Example — The Lorenz Attractor</h3>
+<p>One of the most famous examples of a strange attractor is the Lorenz attractor, which arose from Edward Lorenz’s simplified model of atmospheric convection.</p>
+<p>Trajectories spiral around one lobe of the attractor for a time before suddenly switching to the other lobe. This process repeats indefinitely, producing the characteristic butterfly-shaped structure.</p>
+<p>Although the motion appears random, every trajectory remains confined to the same bounded region of phase space.</p>
+<p>Consequently, the Lorenz attractor illustrates how deterministic equations can generate complex and unpredictable behavior without allowing trajectories to escape to infinity.</p>
+</div>
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Exploring the Lorenz Attractor</h3>
+<p>The equations are</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{x}
+=
+\sigma(y-x),
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\dot{y}
+=
+x(\rho-z)-y,
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{z}
+=
+xy-\beta z,
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma,
+\qquad
+\rho,
+\qquad
+\beta
+\]</div>
+<p>are positive constants.</p>
+<p>Use the standard Lorenz parameters</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma=10,
+\qquad
+\rho=28,
+\qquad
+\beta=\frac83.
+\]</div>
+<p>and initial conditions</p>
+<div class="math notranslate nohighlight">
+\[
+x(0)=1,
+\qquad
+y(0)=1,
+\qquad
+z(0)=1.
+\]</div>
+<p>Your script should:</p>
+<ol class="arabic">
+<li><p>Numerically solve the Lorenz equations.</p></li>
+<li><p>Plot</p>
+<div class="math notranslate nohighlight">
+\[
+   x(t),
+   \qquad
+   y(t),
+   \qquad
+   z(t)
+   \]</div>
+<p>as functions of time.</p>
+</li>
+<li><p>Construct the phase portrait</p>
+<div class="math notranslate nohighlight">
+\[
+   y
+   \text{ versus }
+   x.
+   \]</div>
+</li>
+<li><p>Construct the three-dimensional trajectory</p>
+<div class="math notranslate nohighlight">
+\[
+   (x,y,z).
+   \]</div>
+</li>
+<li><p>Describe the shape of the attractor.</p></li>
+<li><p>Compare the Lorenz attractor with the limit cycles encountered earlier in the Van der Pol oscillator.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>Unlike the Van der Pol oscillator, whose trajectories converge to a simple closed curve, the Lorenz system approaches a strange attractor.</p>
+<p>The trajectory remains confined to a bounded region of phase space, but it never repeats exactly.</p>
+<p>The motion alternates irregularly between two lobes, producing the famous butterfly-shaped structure.</p>
+<p>Consequently, nearby trajectories may diverge rapidly while remaining confined to the same attractor.</p>
+<p>Thus, the Lorenz system illustrates two of the defining properties of chaotic motion:</p>
+<ul>
+<li>sensitive dependence on initial conditions, and</li>
+<li>bounded but non-periodic motion.</li>
+</ul>
+<p>The Lorenz attractor therefore provides one of the most striking examples of how simple deterministic equations can generate extraordinarily complicated behavior.</p>
+</div>
+</details>
+</div><div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Lorenz attractor</span>
+<span class="c1">#</span>
+<span class="c1"># x&#39; = sigma(y - x)</span>
+<span class="c1"># y&#39; = x(rho - z) - y</span>
+<span class="c1"># z&#39; = xy - beta z</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="c1"># Lorenz parameters</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mf">10.0</span>
+<span class="n">rho</span> <span class="o">=</span> <span class="mf">28.0</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="mf">8.0</span><span class="o">/</span><span class="mf">3.0</span>
+
+<span class="c1"># Time settings</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">t_max</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_max</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+
+<span class="c1"># Initial conditions</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">y0</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">z0</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+<span class="c1"># Arrays</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
+<span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">y0</span>
+<span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">z0</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">derivatives</span><span class="p">(</span><span class="n">state</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">state</span>
+
+    <span class="n">dxdt</span> <span class="o">=</span> <span class="n">sigma</span><span class="o">*</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">dydt</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="n">rho</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span> <span class="o">-</span> <span class="n">y</span>
+    <span class="n">dzdt</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span> <span class="o">-</span> <span class="n">beta</span><span class="o">*</span><span class="n">z</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">dxdt</span><span class="p">,</span> <span class="n">dydt</span><span class="p">,</span> <span class="n">dzdt</span><span class="p">])</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">rk4_step</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+    <span class="n">k1</span> <span class="o">=</span> <span class="n">derivatives</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+    <span class="n">k2</span> <span class="o">=</span> <span class="n">derivatives</span><span class="p">(</span><span class="n">state</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="n">k1</span><span class="p">)</span>
+    <span class="n">k3</span> <span class="o">=</span> <span class="n">derivatives</span><span class="p">(</span><span class="n">state</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="n">k2</span><span class="p">)</span>
+    <span class="n">k4</span> <span class="o">=</span> <span class="n">derivatives</span><span class="p">(</span><span class="n">state</span> <span class="o">+</span> <span class="n">dt</span><span class="o">*</span><span class="n">k3</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">state</span> <span class="o">+</span> <span class="p">(</span><span class="n">dt</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">k1</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">k2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">k3</span> <span class="o">+</span> <span class="n">k4</span><span class="p">)</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Numerical integration</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">z0</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+
+    <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+    <span class="n">state</span> <span class="o">=</span> <span class="n">rk4_step</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+
+<span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">z</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Plot x(t), y(t), and z(t)</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$x(t)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$y(t)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$z(t)$&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;State variables&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Lorenz System Time Series&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Phase portrait: y versus x</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$x$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$y$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Lorenz Attractor: Projection onto the $xy$-Plane&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># 3D trajectory</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">&quot;3d&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$x$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$y$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$z$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Lorenz Attractor&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<img alt="../_images/5bc80c9b4c5ea758e0cfcff9fffda44c299debc373dd7ca9bee595d0920b0350.png" src="../_images/5bc80c9b4c5ea758e0cfcff9fffda44c299debc373dd7ca9bee595d0920b0350.png" />
+<img alt="../_images/e62c6bee412ce147c26143b084e22fb61bc641b521c367c576daf7f15dfbccd7.png" src="../_images/e62c6bee412ce147c26143b084e22fb61bc641b521c367c576daf7f15dfbccd7.png" />
+<img alt="../_images/0dbe1fe514c8cd2b0c6e746e02e48418a46a9b443551f132d0bbf745b5697df5.png" src="../_images/0dbe1fe514c8cd2b0c6e746e02e48418a46a9b443551f132d0bbf745b5697df5.png" />
+</div>
+</details>
+</div>
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — The Butterfly Effect in the Lorenz System</h3>
+<p>One of the most remarkable features of chaotic systems is their extreme sensitivity to initial conditions. This phenomenon is often referred to as the <strong>butterfly effect</strong>, a term introduced by Edward Lorenz.</p>
+<p>Using the Lorenz equations,</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{x}
+=
+\sigma(y-x),
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\dot{y}
+=
+x(\rho-z)-y,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\dot{z}
+=
+xy-\beta z,
+\]</div>
+<p>with</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma=10,
+\qquad
+\rho=28,
+\qquad
+\beta=\frac83,
+\]</div>
+<p>consider two trajectories having almost identical initial conditions.</p>
+<p>For the first trajectory, use</p>
+<div class="math notranslate nohighlight">
+\[
+x(0)=1.0000,
+\qquad
+y(0)=1.0,
+\qquad
+z(0)=1.0.
+\]</div>
+<p>For the second trajectory, change only the initial value of <span class="math notranslate nohighlight">\(x\)</span> slightly:</p>
+<div class="math notranslate nohighlight">
+\[
+x(0)=1.0001,
+\qquad
+y(0)=1.0,
+\qquad
+z(0)=1.0.
+\]</div>
+<p>Your script should:</p>
+<ol class="arabic simple">
+<li><p>Solve both systems numerically.</p></li>
+<li><p>Plot</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+x_1(t)
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+x_2(t)
+\]</div>
+<p>on the same graph.</p>
+<ol class="arabic simple" start="3">
+<li><p>Plot the difference</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+|x_2(t)-x_1(t)|
+\]</div>
+<p>as a function of time.</p>
+<ol class="arabic simple" start="4">
+<li><p>Construct the two trajectories in three-dimensional phase space.</p></li>
+<li><p>Determine approximately when the two trajectories begin to separate noticeably.</p></li>
+<li><p>Explain why the long-term behavior becomes impossible to predict accurately, despite the fact that the equations themselves are deterministic.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>Initially, the two trajectories are nearly indistinguishable because their initial conditions differ by only</p>
+<div class="math notranslate nohighlight">
+\[
+0.0001.
+\]</div>
+<p>For some time, the corresponding solutions remain extremely close together. However, the nonlinear dynamics amplify the tiny difference, causing the trajectories to diverge rapidly.</p>
+<p>Eventually, the solutions become completely different, even though the governing equations are identical and the initial conditions differed only slightly.</p>
+<p>This sensitive dependence on initial conditions is one of the defining characteristics of chaos.</p>
+<p>Importantly, the motion is not random. If the initial conditions could be specified with infinite precision, the future evolution would be uniquely determined. In practice, however, every measurement contains some uncertainty, and these uncertainties grow with time.</p>
+<p>Consequently, long-term prediction becomes impossible even though the system itself remains completely deterministic.</p>
+<p>This phenomenon is known as the <strong>butterfly effect</strong> and is one of the reasons why accurate long-term weather forecasting is fundamentally difficult.</p>
+</div>
+</details>
+</div><div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Butterfly effect in the Lorenz system</span>
+<span class="c1">#</span>
+<span class="c1"># x&#39; = sigma(y - x)</span>
+<span class="c1"># y&#39; = x(rho - z) - y</span>
+<span class="c1"># z&#39; = xy - beta z</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="c1"># Lorenz parameters</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mf">10.0</span>
+<span class="n">rho</span> <span class="o">=</span> <span class="mf">28.0</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="mf">8.0</span><span class="o">/</span><span class="mf">3.0</span>
+
+<span class="c1"># Time settings</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">t_max</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_max</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">derivatives</span><span class="p">(</span><span class="n">state</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">state</span>
+
+    <span class="n">dxdt</span> <span class="o">=</span> <span class="n">sigma</span><span class="o">*</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">dydt</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="n">rho</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span> <span class="o">-</span> <span class="n">y</span>
+    <span class="n">dzdt</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span> <span class="o">-</span> <span class="n">beta</span><span class="o">*</span><span class="n">z</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">dxdt</span><span class="p">,</span> <span class="n">dydt</span><span class="p">,</span> <span class="n">dzdt</span><span class="p">])</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">rk4_step</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+    <span class="n">k1</span> <span class="o">=</span> <span class="n">derivatives</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+    <span class="n">k2</span> <span class="o">=</span> <span class="n">derivatives</span><span class="p">(</span><span class="n">state</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="n">k1</span><span class="p">)</span>
+    <span class="n">k3</span> <span class="o">=</span> <span class="n">derivatives</span><span class="p">(</span><span class="n">state</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="n">k2</span><span class="p">)</span>
+    <span class="n">k4</span> <span class="o">=</span> <span class="n">derivatives</span><span class="p">(</span><span class="n">state</span> <span class="o">+</span> <span class="n">dt</span><span class="o">*</span><span class="n">k3</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">state</span> <span class="o">+</span> <span class="p">(</span><span class="n">dt</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">k1</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">k2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">k3</span> <span class="o">+</span> <span class="n">k4</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">solve_lorenz</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">z0</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+
+    <span class="n">state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">z0</span><span class="p">])</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)):</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+        <span class="n">state</span> <span class="o">=</span> <span class="n">rk4_step</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Two nearly identical initial conditions</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">z1</span> <span class="o">=</span> <span class="n">solve_lorenz</span><span class="p">(</span><span class="mf">1.0000</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">z2</span> <span class="o">=</span> <span class="n">solve_lorenz</span><span class="p">(</span><span class="mf">1.0001</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+
+<span class="c1"># Difference in x-coordinate</span>
+<span class="n">delta_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x2</span> <span class="o">-</span> <span class="n">x1</span><span class="p">)</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Plot x1(t) and x2(t)</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$x_1(t)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$x_2(t)$&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$x(t)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Lorenz System: Two Nearly Identical Initial Conditions&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Plot |x2(t) - x1(t)|</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">delta_x</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$|x_2(t)-x_1(t)|$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Growth of a Tiny Initial Difference&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Semilog plot of |x2(t) - x1(t)|</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">delta_x</span> <span class="o">+</span> <span class="mf">1e-12</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$|x_2(t)-x_1(t)|$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Exponential Divergence of Nearby Trajectories&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># 3D trajectories</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">&quot;3d&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">z1</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Trajectory 1&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">z2</span><span class="p">,</span> <span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Trajectory 2&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$x$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$y$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$z$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Butterfly Effect in the Lorenz System&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<img alt="../_images/ace9afc887b8b36abe4925f3f4b5f953f641f0d3ade8e79933eab5e2bd8ebcff.png" src="../_images/ace9afc887b8b36abe4925f3f4b5f953f641f0d3ade8e79933eab5e2bd8ebcff.png" />
+<img alt="../_images/21727057f6f396341059e072f88c08ece7580648fb443234348accb7d7145a7d.png" src="../_images/21727057f6f396341059e072f88c08ece7580648fb443234348accb7d7145a7d.png" />
+<img alt="../_images/48f169e58d4b9ebfc660d87ce6862a1009379da7528fbcd03b0696cff12adb39.png" src="../_images/48f169e58d4b9ebfc660d87ce6862a1009379da7528fbcd03b0696cff12adb39.png" />
+<img alt="../_images/26b2beacdb1b4d5898c2f2f945df549e05b380756e3f9473f6b8642cc0663c2b.png" src="../_images/26b2beacdb1b4d5898c2f2f945df549e05b380756e3f9473f6b8642cc0663c2b.png" />
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<div style="background-color:#ffe6e6; border-left:6px solid #cc0000; padding:14px; border-radius:4px;">
+<strong>Important:</strong><br>
+<p>A strange attractor is not a random collection of points.</p>
+<p>The motion is governed entirely by deterministic equations, and every trajectory remains confined to a particular region of phase space.</p>
+<p>The apparent disorder arises from the extreme sensitivity of the motion to initial conditions.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Curiosity</strong></p>
+<p>Strange attractors often possess self-similar structures that are closely related to fractals.</p>
+<p>If one magnifies certain regions of the attractor, similar patterns may reappear on smaller scales. This connection between chaos and fractal geometry became one of the major discoveries of twentieth-century mathematics and physics.</p>
+</div>
+<p>In the next section, we will explore some of the many applications of chaos in physics, engineering, biology, and everyday life.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="b3-5-7-applications-of-chaos">
+<h2>B3.5.7 Applications of Chaos<a class="headerlink" href="#b3-5-7-applications-of-chaos" title="Link to this heading">#</a></h2>
+<p>Chaos appears in many physical, biological, and engineering systems. Although these systems may look very different, they share a common feature: deterministic equations can produce motion that is highly sensitive to initial conditions.</p>
+<section id="weather-and-climate">
+<h3>Weather and Climate<a class="headerlink" href="#weather-and-climate" title="Link to this heading">#</a></h3>
+<p>Weather prediction is one of the most famous examples of chaos. The atmosphere is governed by deterministic fluid equations, but tiny uncertainties in temperature, pressure, humidity, and wind speed grow rapidly with time.</p>
+<p>As a result, accurate long-term weather prediction is fundamentally limited.</p>
+</section>
+<section id="celestial-mechanics">
+<h3>Celestial Mechanics<a class="headerlink" href="#celestial-mechanics" title="Link to this heading">#</a></h3>
+<p>Chaos also appears in planetary and orbital dynamics.</p>
+<p>Examples include:</p>
+<ul class="simple">
+<li><p>asteroid motion,</p></li>
+<li><p>the three-body problem,</p></li>
+<li><p>resonances among moons,</p></li>
+<li><p>and long-term stability of planetary systems.</p></li>
+</ul>
+<p>Even though Newton’s laws are deterministic, gravitational interactions among several bodies can produce extremely complicated trajectories.</p>
+</section>
+<section id="fluid-dynamics-and-turbulence">
+<h3>Fluid Dynamics and Turbulence<a class="headerlink" href="#fluid-dynamics-and-turbulence" title="Link to this heading">#</a></h3>
+<p>Fluid flows often become chaotic when the flow speed is sufficiently large.</p>
+<p>Turbulence involves swirling, mixing, and unpredictable motion across many length scales. Although the fluid obeys deterministic equations, predicting the detailed motion of every eddy is practically impossible.</p>
+</section>
+<section id="biology-and-medicine">
+<h3>Biology and Medicine<a class="headerlink" href="#biology-and-medicine" title="Link to this heading">#</a></h3>
+<p>Biological systems often involve nonlinear feedback mechanisms.</p>
+<p>Examples include:</p>
+<ul class="simple">
+<li><p>population dynamics,</p></li>
+<li><p>neural activity,</p></li>
+<li><p>heart rhythms,</p></li>
+<li><p>disease spread,</p></li>
+<li><p>and ecological systems.</p></li>
+</ul>
+<p>In medicine, chaotic dynamics can appear in irregular heartbeats, neural oscillations, and other physiological rhythms.</p>
+</section>
+<section id="engineering-and-technology">
+<h3>Engineering and Technology<a class="headerlink" href="#engineering-and-technology" title="Link to this heading">#</a></h3>
+<p>Chaos appears in many engineered systems, including:</p>
+<ul class="simple">
+<li><p>nonlinear electrical circuits,</p></li>
+<li><p>lasers,</p></li>
+<li><p>mechanical vibrations,</p></li>
+<li><p>control systems,</p></li>
+<li><p>plasma confinement,</p></li>
+<li><p>and power grids.</p></li>
+</ul>
+<p>In some cases, chaos is undesirable and must be suppressed. In other cases, chaotic behavior can be useful, such as in secure communication or random-like signal generation.</p>
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Example — Chaos in the Solar System</h3>
+<p>The solar system is governed by Newtonian gravity, yet its long-term behavior is not perfectly predictable.</p>
+<p>Small gravitational interactions among planets, moons, and asteroids can gradually amplify tiny differences in initial conditions. Over short times, planetary motion is highly regular, but over very long timescales, certain orbital details may become chaotic.</p>
+<p>This does not mean that the planets suddenly move randomly. Rather, it means that exact long-term prediction becomes impossible beyond a sufficiently long time horizon.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Curiosity</strong></p>
+<p>Chaos can be both a problem and a resource.</p>
+<p>Engineers may try to suppress chaos in bridges, aircraft, power grids, and plasma devices. At the same time, chaotic systems can be used to create secure communication signals, generate random-like sequences, improve mixing in fluids, and model complex natural behavior.</p>
+<p>Thus, chaos is not merely a complication. It is a fundamental part of how many real systems behave.</p>
+</div>
+<p>In the next section, we will compare chaos with randomness and clarify why chaotic systems can be deterministic yet practically unpredictable.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="b3-5-8-summary-and-looking-ahead">
+<h2>B3.5.8 Summary and Looking Ahead<a class="headerlink" href="#b3-5-8-summary-and-looking-ahead" title="Link to this heading">#</a></h2>
+<p>Throughout this module, we have discovered that oscillatory systems can exhibit behaviors far richer than the simple harmonic motion encountered earlier in the course.</p>
+<p>Beginning with nonlinear restoring forces, we introduced amplitude-dependent frequencies and the Duffing oscillator. We then studied self-sustained oscillations through the Van der Pol oscillator and learned how nonlinear systems may possess stable limit cycles.</p>
+<p>Moving beyond isolated oscillators, we explored synchronization and saw how interactions between many oscillators can lead to the spontaneous emergence of collective behavior.</p>
+<p>Finally, we entered the realm of chaos. Through examples such as the double pendulum and the Lorenz system, we found that deterministic equations can produce motion that is highly sensitive to initial conditions. We introduced Lyapunov exponents, Poincaré sections, and strange attractors as tools for understanding this complex behavior.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Big Picture</strong>
+<p>Nonlinear systems can display an astonishing variety of behaviors, including</p>
+<ul>
+<li>periodic motion,</li>
+<li>quasiperiodic motion,</li>
+<li>self-sustained oscillations,</li>
+<li>synchronization,</li>
+<li>bifurcations, and</li>
+<li>chaotic dynamics.</li>
+</ul>
+<p>These phenomena emerge naturally from deterministic equations and occur throughout physics, engineering, biology, chemistry, and many other fields.</p>
+</div>
+<p>One of the central lessons of nonlinear dynamics is that simple equations do not necessarily produce simple behavior. Even systems governed by Newton’s laws may exhibit motion that is extraordinarily rich and, over sufficiently long times, practically unpredictable.</p>
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Looking Ahead</strong></p>
+<p>The ideas introduced in this module represent only a small glimpse into the broader field of nonlinear dynamics.</p>
+<p>Modern research continues to explore topics such as</p>
+<ul>
+<li>pattern formation,</li>
+<li>solitons and nonlinear waves,</li>
+<li>fractals and complex geometry,</li>
+<li>turbulence,</li>
+<li>network synchronization,</li>
+<li>biological oscillations, and</li>
+<li>the dynamics of coupled mechanical systems.</li>
+</ul>
+<p>Many of these subjects remain active areas of research and continue to reveal new connections between mathematics, physics, and the natural world.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-B3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="sync.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">B3.4 Synchronization</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="spring-pendulum.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">B3.6 The Spring Pendulum: A Capstone Project in Nonlinear Dynamics</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-5-1-motivation">B3.5.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-5-2-the-double-pendulum">B3.5.2 The Double Pendulum</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#low-energy-motion">Low-Energy Motion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intermediate-energies">Intermediate Energies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#high-energies">High Energies</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-5-3-sensitive-dependence-on-initial-conditions">B3.5.3 Sensitive Dependence on Initial Conditions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-5-4-lyapunov-exponents">B3.5.4 Lyapunov Exponents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#negative-lyapunov-exponent">Negative Lyapunov Exponent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-lyapunov-exponent">Zero Lyapunov Exponent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#positive-lyapunov-exponent">Positive Lyapunov Exponent</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-5-5-poincare-sections">B3.5.5 Poincaré Sections</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#periodic-motion">Periodic Motion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quasiperiodic-motion">Quasiperiodic Motion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chaotic-motion">Chaotic Motion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-5-6-strange-attractors">B3.5.6 Strange Attractors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed-points-and-limit-cycles">Fixed Points and Limit Cycles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strange-attractors">Strange Attractors</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-5-7-applications-of-chaos">B3.5.7 Applications of Chaos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weather-and-climate">Weather and Climate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#celestial-mechanics">Celestial Mechanics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fluid-dynamics-and-turbulence">Fluid Dynamics and Turbulence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#biology-and-medicine">Biology and Medicine</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineering-and-technology">Engineering and Technology</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-5-8-summary-and-looking-ahead">B3.5.8 Summary and Looking Ahead</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

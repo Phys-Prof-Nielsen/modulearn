@@ -1,0 +1,686 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>B3.0 Learning Outcomes: Nonlinear Oscillations and Onset of Chaos &#8212; A Competency Approach to Classical Mechanics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-B3/LOC-B3';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="B3.1 Introduction to Nonlinear Oscillations" href="intro.html" />
+    <link rel="prev" title="B2.6 — Problems" href="../Module-B2/problemsB2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-B.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Home"/>
+    <script>document.write(`<img src="../_static/logo-B.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the B Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://gemini.google.com/gem/10l7TNMxLkYkxP1cGjSu5uEvK_RAC-A9n?usp=sharing">Physics Coding Architect (PyAIGem)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B1 - Advanced Rotational Dynamics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/principal-axes.html">B1.1 Principal Axes in Rotational Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/kinetic-energy.html">B1.2 Kinetic Energy in Rotational Dynamics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/euler-angles.html">B1.3 Euler Angles and Rigid Body Orientation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/body-space-frames.html">B1.4 Body and Space Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/eulers-equations-motion.html">B1.5 Euler’s Equations of Motion for Rigid Bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/euler-angles-equations.html">B1.6 Connecting Euler Angles and Euler’s Equations of Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/quaternions.html">B1.7 Beyond Euler Angles: Quaternions, Axis-Angle, and Rotation Vectors for 3D Orientation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/tennis-racket.html">B1.8 The Tennis Racket Problem and the Intermediate Axis Theorem</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B2 - Extensions of Coupled Oscillations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/LOC-B2.html">B2.0 Learning Outcomes: Extensions of Coupled Oscillations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/oscillator-to-wave.html">B2.1 Oscillator Chains and the Wave Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/construction.html">B2.2 Constructing Lissajous Figures: Two Perpendicular SHM Motions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/frequency-ratios.html">B2.3 Frequency Ratios, Phase Difference, and Closure Conditions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/applications.html">B2.4 Example Applications of Lissajous Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/parametric-resonance.html">B2.5 Parametric Resonance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/problemsB2.html">B2.6 — Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B3 - Nonlinear Oscillations and Onset of Chaos</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">B3.0 Learning Outcomes: Nonlinear Oscillations and Onset of Chaos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">B3.1 Introduction to Nonlinear Oscillations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="duffing.html">B3.2 The Duffing Oscillator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vanderpol.html">B3.3 Self-Sustained Oscillations and the Van der Pol Oscillator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sync.html">B3.4 Synchronization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chaos.html">B3.5 Chaos and Sensitive Dependence on Initial Conditions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spring-pendulum.html">B3.6 The Spring Pendulum: A Capstone Project in Nonlinear Dynamics</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Module-B3/LOC-B3.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-B3/LOC-B3.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>B3.0 Learning Outcomes: Nonlinear Oscillations and Onset of Chaos</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-module-matters">Why this module matters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning Outcomes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-nonlinear-oscillators">A. Nonlinear Oscillators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-self-sustained-oscillations-and-synchronization">B. Self-Sustained Oscillations and Synchronization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-nonlinear-coupled-oscillators">C. Nonlinear Coupled Oscillators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-chaos-and-sensitive-dependence-on-initial-conditions">D. Chaos and Sensitive Dependence on Initial Conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-characterizing-chaotic-motion">E. Characterizing Chaotic Motion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-applications-and-physical-interpretation">F. Applications and Physical Interpretation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-computational-and-analytical-skills">G. Computational and Analytical Skills</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-criteria">Performance Criteria</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="b3-0-learning-outcomes-nonlinear-oscillations-and-onset-of-chaos">
+<h1>B3.0 Learning Outcomes: Nonlinear Oscillations and Onset of Chaos<a class="headerlink" href="#b3-0-learning-outcomes-nonlinear-oscillations-and-onset-of-chaos" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="why-this-module-matters">
+<h2>Why this module matters<a class="headerlink" href="#why-this-module-matters" title="Link to this heading">#</a></h2>
+<p>In the previous module, we extended the theory of coupled oscillations to many-body systems, explored Lissajous figures, and investigated parametric resonance. These topics revealed that even complicated oscillatory systems often possess underlying order and structure.</p>
+<p>However, most real physical systems are not perfectly linear. At sufficiently large amplitudes, under strong driving, or when oscillators interact in more complicated ways, nonlinear effects become important. In such systems, entirely new phenomena emerge that have no analogue in simple harmonic motion.</p>
+<p>In this module, we study several important examples of nonlinear oscillators. We begin with systems whose restoring forces or damping are nonlinear, leading to amplitude-dependent frequencies, bistability, and self-sustained oscillations. We then investigate synchronization, one of the most remarkable manifestations of collective behavior, which appears in systems ranging from fireflies and heart cells to lasers and Josephson junctions.</p>
+<p>Next, we return to coupled oscillators through the spring-pendulum system, where vertical and swinging motions exchange energy and interact through nonlinear coupling. Increasing complexity eventually leads us to driven oscillators whose behavior transitions from regular motion to period doubling and ultimately to chaos.</p>
+<p>Finally, we explore some of the tools used to characterize chaotic motion. Poincaré sections reveal hidden structure in seemingly irregular motion, while Lyapunov exponents quantify the sensitive dependence on initial conditions that makes chaotic systems fundamentally unpredictable.</p>
+<p>Together, these topics demonstrate that deterministic equations can produce extraordinarily rich behavior. They provide a bridge between the orderly world of linear oscillations and the fascinating realm of nonlinear dynamics and chaos.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="learning-outcomes">
+<h2>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Link to this heading">#</a></h2>
+<div align="center">
+<img src="loc.png" width="200">
+</div>
+<p>By the end of this module, you will be able to:</p>
+<hr class="docutils" />
+<section id="a-nonlinear-oscillators">
+<h3>A. Nonlinear Oscillators<a class="headerlink" href="#a-nonlinear-oscillators" title="Link to this heading">#</a></h3>
+<p><em>Introduces oscillatory systems for which superposition no longer applies.</em></p>
+<ul class="simple">
+<li><p><strong>A1.</strong> Distinguish between linear and nonlinear oscillators.</p></li>
+<li><p><strong>A2.</strong> Explain how nonlinear restoring forces lead to amplitude-dependent motion.</p></li>
+<li><p><strong>A3.</strong> Describe the behavior of the Duffing oscillator and interpret hardening and softening springs.</p></li>
+<li><p><strong>A4.</strong> Recognize bistability and hysteresis as characteristic features of nonlinear systems.</p></li>
+<li><p><strong>A5.</strong> Identify examples of nonlinear oscillators in physical and engineering systems.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="b-self-sustained-oscillations-and-synchronization">
+<h3>B. Self-Sustained Oscillations and Synchronization<a class="headerlink" href="#b-self-sustained-oscillations-and-synchronization" title="Link to this heading">#</a></h3>
+<p><em>Explores oscillators that maintain their own motion and may synchronize with one another.</em></p>
+<ul class="simple">
+<li><p><strong>B1.</strong> Explain how nonlinear damping gives rise to self-sustained oscillations.</p></li>
+<li><p><strong>B2.</strong> Describe the concept of a limit cycle and its stability.</p></li>
+<li><p><strong>B3.</strong> Explain how coupled oscillators can spontaneously synchronize.</p></li>
+<li><p><strong>B4.</strong> Distinguish between frequency locking and phase locking.</p></li>
+<li><p><strong>B5.</strong> Describe examples of synchronization in biological and physical systems.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="c-nonlinear-coupled-oscillators">
+<h3>C. Nonlinear Coupled Oscillators<a class="headerlink" href="#c-nonlinear-coupled-oscillators" title="Link to this heading">#</a></h3>
+<p><em>Extends coupled oscillations beyond the linear regime.</em></p>
+<ul class="simple">
+<li><p><strong>C1.</strong> Describe the behavior of nonlinear coupled oscillators.</p></li>
+<li><p><strong>C2.</strong> Explain how energy may be exchanged between different oscillatory modes.</p></li>
+<li><p><strong>C3.</strong> Analyze the spring-pendulum system and identify its coupled degrees of freedom.</p></li>
+<li><p><strong>C4.</strong> Describe internal resonance and nonlinear energy transfer.</p></li>
+<li><p><strong>C5.</strong> Recognize how increasing nonlinearity may lead to irregular motion.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="d-chaos-and-sensitive-dependence-on-initial-conditions">
+<h3>D. Chaos and Sensitive Dependence on Initial Conditions<a class="headerlink" href="#d-chaos-and-sensitive-dependence-on-initial-conditions" title="Link to this heading">#</a></h3>
+<p><em>Introduces the transition from regular oscillations to chaotic behavior.</em></p>
+<ul class="simple">
+<li><p><strong>D1.</strong> Describe the behavior of the driven damped pendulum.</p></li>
+<li><p><strong>D2.</strong> Explain period doubling and the onset of chaos.</p></li>
+<li><p><strong>D3.</strong> Describe the behavior of the double pendulum and other chaotic systems.</p></li>
+<li><p><strong>D4.</strong> Explain the meaning of sensitive dependence on initial conditions.</p></li>
+<li><p><strong>D5.</strong> Distinguish between deterministic chaos and randomness.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="e-characterizing-chaotic-motion">
+<h3>E. Characterizing Chaotic Motion<a class="headerlink" href="#e-characterizing-chaotic-motion" title="Link to this heading">#</a></h3>
+<p><em>Introduces tools used to visualize and quantify chaos.</em></p>
+<ul class="simple">
+<li><p><strong>E1.</strong> Interpret phase-space trajectories of nonlinear oscillators.</p></li>
+<li><p><strong>E2.</strong> Describe the purpose and interpretation of Poincaré sections.</p></li>
+<li><p><strong>E3.</strong> Distinguish between periodic, quasi-periodic, and chaotic trajectories.</p></li>
+<li><p><strong>E4.</strong> Explain the physical meaning of strange attractors.</p></li>
+<li><p><strong>E5.</strong> Interpret Lyapunov exponents as measures of chaos and predictability.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="f-applications-and-physical-interpretation">
+<h3>F. Applications and Physical Interpretation<a class="headerlink" href="#f-applications-and-physical-interpretation" title="Link to this heading">#</a></h3>
+<p><em>Connects nonlinear dynamics and chaos to real physical systems.</em></p>
+<ul class="simple">
+<li><p><strong>F1.</strong> Describe examples of nonlinear oscillations in nature and engineering.</p></li>
+<li><p><strong>F2.</strong> Explain synchronization phenomena in systems such as heart cells, fireflies, lasers, and Josephson junctions.</p></li>
+<li><p><strong>F3.</strong> Describe examples of chaotic behavior in mechanical systems, weather, celestial mechanics, and plasma physics.</p></li>
+<li><p><strong>F4.</strong> Explain why long-term prediction becomes impossible in chaotic systems despite deterministic equations.</p></li>
+<li><p><strong>F5.</strong> Recognize the importance of nonlinear dynamics throughout modern physics and engineering.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="g-computational-and-analytical-skills">
+<h3>G. Computational and Analytical Skills<a class="headerlink" href="#g-computational-and-analytical-skills" title="Link to this heading">#</a></h3>
+<p><em>Develops numerical and visualization techniques for nonlinear systems.</em></p>
+<ul class="simple">
+<li><p><strong>G1.</strong> Simulate nonlinear oscillators computationally.</p></li>
+<li><p><strong>G2.</strong> Generate phase portraits and visualize trajectories in phase space.</p></li>
+<li><p><strong>G3.</strong> Model synchronization and energy transfer in coupled nonlinear oscillators.</p></li>
+<li><p><strong>G4.</strong> Simulate chaotic systems and investigate sensitivity to initial conditions.</p></li>
+<li><p><strong>G5.</strong> Use computational tools to gain physical insight into nonlinear and chaotic motion.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="performance-criteria">
+<h3>Performance Criteria<a class="headerlink" href="#performance-criteria" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Linear and nonlinear oscillatory behavior are distinguished correctly.</p></li>
+<li><p>Self-sustained oscillations and synchronization are interpreted physically.</p></li>
+<li><p>Nonlinear coupling and energy transfer are analyzed appropriately.</p></li>
+<li><p>Chaotic motion is recognized and distinguished from random motion.</p></li>
+<li><p>Poincaré sections and Lyapunov exponents are interpreted correctly.</p></li>
+<li><p>Computational methods are used effectively to investigate nonlinear and chaotic systems.</p></li>
+</ul>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-B3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Module-B2/problemsB2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">B2.6 — Problems</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="intro.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">B3.1 Introduction to Nonlinear Oscillations</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-module-matters">Why this module matters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning Outcomes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-nonlinear-oscillators">A. Nonlinear Oscillators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-self-sustained-oscillations-and-synchronization">B. Self-Sustained Oscillations and Synchronization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-nonlinear-coupled-oscillators">C. Nonlinear Coupled Oscillators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-chaos-and-sensitive-dependence-on-initial-conditions">D. Chaos and Sensitive Dependence on Initial Conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-characterizing-chaotic-motion">E. Characterizing Chaotic Motion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-applications-and-physical-interpretation">F. Applications and Physical Interpretation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-computational-and-analytical-skills">G. Computational and Analytical Skills</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-criteria">Performance Criteria</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,938 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>B3.1 Introduction to Nonlinear Oscillations &#8212; A Competency Approach to Classical Mechanics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-B3/intro';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="B3.2 The Duffing Oscillator" href="duffing.html" />
+    <link rel="prev" title="B3.0 Learning Outcomes: Nonlinear Oscillations and Onset of Chaos" href="LOC-B3.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-B.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Home"/>
+    <script>document.write(`<img src="../_static/logo-B.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the B Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://gemini.google.com/gem/10l7TNMxLkYkxP1cGjSu5uEvK_RAC-A9n?usp=sharing">Physics Coding Architect (PyAIGem)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B1 - Advanced Rotational Dynamics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/principal-axes.html">B1.1 Principal Axes in Rotational Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/kinetic-energy.html">B1.2 Kinetic Energy in Rotational Dynamics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/euler-angles.html">B1.3 Euler Angles and Rigid Body Orientation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/body-space-frames.html">B1.4 Body and Space Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/eulers-equations-motion.html">B1.5 Euler’s Equations of Motion for Rigid Bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/euler-angles-equations.html">B1.6 Connecting Euler Angles and Euler’s Equations of Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/quaternions.html">B1.7 Beyond Euler Angles: Quaternions, Axis-Angle, and Rotation Vectors for 3D Orientation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/tennis-racket.html">B1.8 The Tennis Racket Problem and the Intermediate Axis Theorem</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B2 - Extensions of Coupled Oscillations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/LOC-B2.html">B2.0 Learning Outcomes: Extensions of Coupled Oscillations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/oscillator-to-wave.html">B2.1 Oscillator Chains and the Wave Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/construction.html">B2.2 Constructing Lissajous Figures: Two Perpendicular SHM Motions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/frequency-ratios.html">B2.3 Frequency Ratios, Phase Difference, and Closure Conditions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/applications.html">B2.4 Example Applications of Lissajous Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/parametric-resonance.html">B2.5 Parametric Resonance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/problemsB2.html">B2.6 — Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B3 - Nonlinear Oscillations and Onset of Chaos</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-B3.html">B3.0 Learning Outcomes: Nonlinear Oscillations and Onset of Chaos</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">B3.1 Introduction to Nonlinear Oscillations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="duffing.html">B3.2 The Duffing Oscillator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vanderpol.html">B3.3 Self-Sustained Oscillations and the Van der Pol Oscillator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sync.html">B3.4 Synchronization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chaos.html">B3.5 Chaos and Sensitive Dependence on Initial Conditions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spring-pendulum.html">B3.6 The Spring Pendulum: A Capstone Project in Nonlinear Dynamics</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Module-B3/intro.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-B3/intro.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>B3.1 Introduction to Nonlinear Oscillations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-1-1-motivation">B3.1.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-1-2-linear-versus-nonlinear-oscillators">B3.1.2 Linear Versus Nonlinear Oscillators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-1-3-characteristics-of-nonlinear-systems">B3.1.3 Characteristics of Nonlinear Systems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-1-4-the-pendulum-revisited">B3.1.4 The Pendulum Revisited</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-1-5-looking-ahead">B3.1.5 Looking Ahead</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="b3-1-introduction-to-nonlinear-oscillations">
+<h1>B3.1 Introduction to Nonlinear Oscillations<a class="headerlink" href="#b3-1-introduction-to-nonlinear-oscillations" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="b3-1-1-motivation">
+<h2>B3.1.1 Motivation<a class="headerlink" href="#b3-1-1-motivation" title="Link to this heading">#</a></h2>
+<p>Up to this point, we have studied oscillatory systems whose equations of motion are linear. Examples include the simple harmonic oscillator, coupled oscillators, normal modes, and the wave equation.</p>
+<p>Linear systems possess several remarkable properties:</p>
+<ul class="simple">
+<li><p>superposition holds,</p></li>
+<li><p>frequencies are independent of amplitude,</p></li>
+<li><p>solutions are sinusoidal,</p></li>
+<li><p>and the future motion is relatively simple to predict.</p></li>
+</ul>
+<p>However, most physical systems are only approximately linear. As amplitudes become larger or interactions become stronger, nonlinear effects begin to appear. These effects can produce entirely new phenomena:</p>
+<ul class="simple">
+<li><p>amplitude-dependent frequencies,</p></li>
+<li><p>multiple equilibrium positions,</p></li>
+<li><p>self-sustained oscillations,</p></li>
+<li><p>synchronization,</p></li>
+<li><p>period doubling,</p></li>
+<li><p>and ultimately chaos.</p></li>
+</ul>
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Curiosity</strong></p>
+<p>Although linear oscillators occupy much of introductory physics, truly linear systems are rare in nature. Nonlinear behavior appears in systems as diverse as heart cells, lasers, electrical circuits, planetary motion, and weather systems.</p>
+</div>
+<p>Thus, nonlinear oscillations represent not merely a correction to simple harmonic motion but an entirely new world of physical behavior.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b3-1-2-linear-versus-nonlinear-oscillators">
+<h2>B3.1.2 Linear Versus Nonlinear Oscillators<a class="headerlink" href="#b3-1-2-linear-versus-nonlinear-oscillators" title="Link to this heading">#</a></h2>
+<p>In a linear oscillator, the restoring force is proportional to the displacement and Newton’s second law becomes</p>
+<div class="math notranslate nohighlight">
+\[
+m\ddot{x}+kx=0.
+\]</div>
+<p>Its solution is</p>
+<div class="math notranslate nohighlight">
+\[
+x(t)=A\cos(\omega_0t+\phi),
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_0=\sqrt{\frac{k}{m}}
+\]</div>
+<p>is independent of amplitude.</p>
+<p>Because the equation is linear, superposition holds:</p>
+<div class="math notranslate nohighlight">
+\[
+x_1(t)+x_2(t)
+\]</div>
+<p>is also a solution whenever <span class="math notranslate nohighlight">\(x_1(t)\)</span> and <span class="math notranslate nohighlight">\(x_2(t)\)</span> are solutions.</p>
+<hr class="docutils" />
+<p>In contrast, nonlinear oscillators contain terms that are not proportional to displacement or velocity.</p>
+<p>Examples include</p>
+<div class="math notranslate nohighlight">
+\[
+F=-kx-\beta x^3,
+\]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[
+F=-mg\sin\theta.
+\]</div>
+<p>These lead to nonlinear equations such as</p>
+<div class="math notranslate nohighlight">
+\[
+m\ddot{x}+kx+\beta x^3=0,
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{\theta}+\frac{g}{L}\sin\theta=0.
+\]</div>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Linear Oscillator</strong>
+<p>A linear oscillator is one whose equation of motion is linear in the dependent variable and its derivatives. Such systems obey the principle of superposition.</p>
+</div>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Nonlinear Oscillator</strong>
+<p>A nonlinear oscillator is one whose equation of motion contains nonlinear terms. In such systems, superposition generally fails and entirely new behaviors may emerge.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b3-1-3-characteristics-of-nonlinear-systems">
+<h2>B3.1.3 Characteristics of Nonlinear Systems<a class="headerlink" href="#b3-1-3-characteristics-of-nonlinear-systems" title="Link to this heading">#</a></h2>
+<p>Nonlinear oscillators exhibit several behaviors that are absent from simple harmonic motion.</p>
+<p>Some of the most important characteristics of nonlinear systems include:</p>
+<ul>
+<li><p><strong>Amplitude-dependent frequencies</strong></p>
+<p>The oscillation frequency depend on the amplitude. For example, the period of a pendulum increases for sufficiently large angles.</p>
+</li>
+<li><p><strong>Breakdown of superposition</strong></p>
+<p>In general,</p>
+<div class="math notranslate nohighlight">
+\[
+  x_1(t)+x_2(t)
+  \]</div>
+<p>is not a solution, even if both</p>
+<div class="math notranslate nohighlight">
+\[
+  x_1(t)
+  \quad\text{and}\quad
+  x_2(t)
+  \]</div>
+<p>are solutions individually.</p>
+</li>
+<li><p><strong>Multiple equilibria</strong></p>
+<p>Nonlinear systems may possess several equilibrium positions, some stable and some unstable.</p>
+</li>
+<li><p><strong>Self-sustained oscillations</strong></p>
+<p>Some systems are capable of maintaining oscillations without periodic forcing.</p>
+<p>Examples include:</p>
+<ul class="simple">
+<li><p>heart cells,</p></li>
+<li><p>neurons,</p></li>
+<li><p>lasers,</p></li>
+<li><p>and electronic oscillators.</p></li>
+</ul>
+</li>
+<li><p><strong>Chaotic motion</strong></p>
+<p>Under suitable conditions, nonlinear systems may become chaotic, displaying extreme sensitivity to initial conditions.</p>
+</li>
+</ul>
+<div style="background-color:#ffe6e6; border-left:6px solid #cc0000; padding:14px; border-radius:4px;">
+<strong>Danger:</strong><br>
+<p>Chaos should not be confused with randomness.</p>
+<p>Chaotic systems are governed by completely deterministic equations. Their apparent unpredictability arises because tiny differences in initial conditions can grow exponentially with time.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b3-1-4-the-pendulum-revisited">
+<h2>B3.1.4 The Pendulum Revisited<a class="headerlink" href="#b3-1-4-the-pendulum-revisited" title="Link to this heading">#</a></h2>
+<p>One of the simplest examples of a nonlinear oscillator is the pendulum.</p>
+<p>Its exact equation of motion is</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{\theta}
++
+\frac{g}{L}\sin\theta
+=
+0.
+\]</div>
+<p>For sufficiently small angles,</p>
+<div class="math notranslate nohighlight">
+\[
+\sin\theta\approx\theta,
+\]</div>
+<p>giving</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{\theta}
++
+\frac{g}{L}\theta
+=
+0,
+\]</div>
+<p>which is the familiar simple harmonic oscillator.</p>
+<p>However, for larger amplitudes the approximation</p>
+<div class="math notranslate nohighlight">
+\[
+\sin\theta\approx\theta
+\]</div>
+<p>becomes inaccurate, and the oscillation period depends on amplitude.</p>
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Example — Large-Angle Pendulum</h3>
+<p>A pendulum released from a small angle oscillates with approximately constant period independent of amplitude.</p>
+<p>As the amplitude increases, the exact restoring torque</p>
+<div class="math notranslate nohighlight">
+\[
+\tau=-mgL\sin\theta
+\]</div>
+<p>deviates from the linear approximation</p>
+<div class="math notranslate nohighlight">
+\[
+\tau\approx -mgL\theta.
+\]</div>
+<p>Consequently, the oscillation period becomes longer and the motion is no longer perfectly sinusoidal.</p>
+<p>Thus, the simple harmonic oscillator is merely the small-amplitude approximation of a fundamentally nonlinear system.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Numerical Exploration of the Large-Angle Pendulum</h3>
+<p>The exact equation of motion for a pendulum is</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{\theta}
++
+\frac{g}{L}\sin\theta
+=
+0.
+\]</div>
+<p>For small angles, we usually approximate</p>
+<div class="math notranslate nohighlight">
+\[
+\sin\theta\approx\theta,
+\]</div>
+<p>which gives the linear simple harmonic oscillator equation</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{\theta}
++
+\frac{g}{L}\theta
+=
+0.
+\]</div>
+<p>In this activity, you will use Python to compare the exact nonlinear pendulum with the small-angle approximation.</p>
+<p>Your simulation should:</p>
+<ol class="arabic">
+<li><p>Choose values for <span class="math notranslate nohighlight">\(g\)</span>, <span class="math notranslate nohighlight">\(L\)</span>, <span class="math notranslate nohighlight">\(dt\)</span>, and the total simulation time.</p></li>
+<li><p>Simulate the nonlinear pendulum using</p>
+<div class="math notranslate nohighlight">
+\[
+   \alpha
+   =
+   -\frac{g}{L}\sin\theta.
+   \]</div>
+</li>
+<li><p>Simulate the linear approximation using</p>
+<div class="math notranslate nohighlight">
+\[
+   \alpha
+   =
+   -\frac{g}{L}\theta.
+   \]</div>
+</li>
+<li><p>Compare the two models for small initial angles, such as</p>
+<div class="math notranslate nohighlight">
+\[
+   \theta_0=5^\circ.
+   \]</div>
+</li>
+<li><p>Repeat the comparison for larger initial angles, such as</p>
+<div class="math notranslate nohighlight">
+\[
+   \theta_0=60^\circ
+   \]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+   \theta_0=120^\circ.
+   \]</div>
+</li>
+<li><p>Plot <span class="math notranslate nohighlight">\(\theta(t)\)</span> for both models on the same graph.</p></li>
+<li><p>Describe how the nonlinear pendulum differs from the linear approximation as the amplitude increases.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>For small initial angles, the approximation</p>
+<div class="math notranslate nohighlight">
+\[
+\sin\theta\approx\theta
+\]</div>
+<p>is very accurate. The nonlinear and linear models should remain nearly identical.</p>
+<p>For larger initial angles, the approximation becomes less accurate. The nonlinear pendulum has a longer period than the linear prediction. This means the nonlinear solution gradually lags behind the simple harmonic oscillator solution.</p>
+<p>The main observation is:</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\text{The pendulum period increases with amplitude.}
+}
+\]</div>
+<p>This amplitude-dependent period is one of the simplest signatures of nonlinear oscillatory motion.</p>
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># ---------------------------------------------------------</span>
+<span class="c1"># Large-Angle Pendulum: Linear vs. Nonlinear Motion</span>
+<span class="c1"># ---------------------------------------------------------</span>
+
+<span class="c1"># Constants</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>          <span class="c1"># m/s^2</span>
+<span class="n">L</span> <span class="o">=</span> <span class="mf">1.0</span>           <span class="c1"># m</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>         <span class="c1"># s</span>
+<span class="n">t_max</span> <span class="o">=</span> <span class="mi">20</span>        <span class="c1"># s</span>
+
+<span class="c1"># Time array</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_max</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+
+<span class="c1"># Initial angle (change to 5, 60, 120 degrees)</span>
+<span class="n">theta0_deg</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">theta0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">theta0_deg</span><span class="p">)</span>
+
+<span class="c1"># Initial angular velocity</span>
+<span class="n">omega0</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="c1"># Arrays for nonlinear pendulum</span>
+<span class="n">theta_nl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<span class="n">omega_nl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+
+<span class="c1"># Arrays for linear pendulum</span>
+<span class="n">theta_lin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<span class="n">omega_lin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+
+<span class="c1"># Initial conditions</span>
+<span class="n">theta_nl</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">theta0</span>
+<span class="n">theta_lin</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">theta0</span>
+
+<span class="n">omega_nl</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">omega0</span>
+<span class="n">omega_lin</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">omega0</span>
+
+<span class="c1"># Euler-Cromer method</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+
+    <span class="c1"># Nonlinear pendulum</span>
+    <span class="n">alpha_nl</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">g</span><span class="o">/</span><span class="n">L</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta_nl</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">omega_nl</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">omega_nl</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">alpha_nl</span><span class="o">*</span><span class="n">dt</span>
+    <span class="n">theta_nl</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">theta_nl</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">omega_nl</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span>
+
+    <span class="c1"># Linear approximation</span>
+    <span class="n">alpha_lin</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">g</span><span class="o">/</span><span class="n">L</span><span class="p">)</span><span class="o">*</span><span class="n">theta_lin</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">omega_lin</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">omega_lin</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">alpha_lin</span><span class="o">*</span><span class="n">dt</span>
+    <span class="n">theta_lin</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">theta_lin</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">omega_lin</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span>
+
+<span class="c1"># ---------------------------------------------------------</span>
+<span class="c1"># Plot</span>
+<span class="c1"># ---------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span>
+         <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">theta_nl</span><span class="p">),</span>
+         <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Nonlinear pendulum&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span>
+         <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">theta_lin</span><span class="p">),</span>
+         <span class="s2">&quot;--&quot;</span><span class="p">,</span>
+         <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Small-angle approximation&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\theta$ (degrees)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Large-Angle Pendulum ($</span><span class="se">\\</span><span class="s2">theta_0=</span><span class="si">{</span><span class="n">theta0_deg</span><span class="si">}</span><span class="s2">^</span><span class="se">\\</span><span class="s2">circ$)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<img alt="../_images/116dc2925dc1be81e242db02c189e04d0e82b9d61e09d64964d3bcbd707c47fb.png" src="../_images/116dc2925dc1be81e242db02c189e04d0e82b9d61e09d64964d3bcbd707c47fb.png" />
+</div>
+</details>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="b3-1-5-looking-ahead">
+<h2>B3.1.5 Looking Ahead<a class="headerlink" href="#b3-1-5-looking-ahead" title="Link to this heading">#</a></h2>
+<p>In the next sections, we will study several important nonlinear oscillators, including:</p>
+<ul class="simple">
+<li><p>the Duffing oscillator,</p></li>
+<li><p>the Van der Pol oscillator,</p></li>
+<li><p>synchronized oscillators,</p></li>
+<li><p>the spring-pendulum,</p></li>
+<li><p>the driven damped pendulum,</p></li>
+<li><p>and the double pendulum.</p></li>
+</ul>
+<p>These systems will gradually lead us from familiar periodic motion to the remarkable phenomenon of deterministic chaos.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-B3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="LOC-B3.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">B3.0 Learning Outcomes: Nonlinear Oscillations and Onset of Chaos</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="duffing.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">B3.2 The Duffing Oscillator</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-1-1-motivation">B3.1.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-1-2-linear-versus-nonlinear-oscillators">B3.1.2 Linear Versus Nonlinear Oscillators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-1-3-characteristics-of-nonlinear-systems">B3.1.3 Characteristics of Nonlinear Systems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-1-4-the-pendulum-revisited">B3.1.4 The Pendulum Revisited</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-1-5-looking-ahead">B3.1.5 Looking Ahead</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

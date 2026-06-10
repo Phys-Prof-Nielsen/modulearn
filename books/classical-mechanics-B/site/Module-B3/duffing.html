@@ -1,0 +1,2123 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>B3.2 The Duffing Oscillator &#8212; A Competency Approach to Classical Mechanics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-B3/duffing';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="B3.3 Self-Sustained Oscillations and the Van der Pol Oscillator" href="vanderpol.html" />
+    <link rel="prev" title="B3.1 Introduction to Nonlinear Oscillations" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-B.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Home"/>
+    <script>document.write(`<img src="../_static/logo-B.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the B Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://gemini.google.com/gem/10l7TNMxLkYkxP1cGjSu5uEvK_RAC-A9n?usp=sharing">Physics Coding Architect (PyAIGem)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B1 - Advanced Rotational Dynamics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/principal-axes.html">B1.1 Principal Axes in Rotational Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/kinetic-energy.html">B1.2 Kinetic Energy in Rotational Dynamics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/euler-angles.html">B1.3 Euler Angles and Rigid Body Orientation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/body-space-frames.html">B1.4 Body and Space Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/eulers-equations-motion.html">B1.5 Euler’s Equations of Motion for Rigid Bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/euler-angles-equations.html">B1.6 Connecting Euler Angles and Euler’s Equations of Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/quaternions.html">B1.7 Beyond Euler Angles: Quaternions, Axis-Angle, and Rotation Vectors for 3D Orientation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/tennis-racket.html">B1.8 The Tennis Racket Problem and the Intermediate Axis Theorem</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B2 - Extensions of Coupled Oscillations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/LOC-B2.html">B2.0 Learning Outcomes: Extensions of Coupled Oscillations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/oscillator-to-wave.html">B2.1 Oscillator Chains and the Wave Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/construction.html">B2.2 Constructing Lissajous Figures: Two Perpendicular SHM Motions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/frequency-ratios.html">B2.3 Frequency Ratios, Phase Difference, and Closure Conditions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/applications.html">B2.4 Example Applications of Lissajous Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/parametric-resonance.html">B2.5 Parametric Resonance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/problemsB2.html">B2.6 — Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B3 - Nonlinear Oscillations and Onset of Chaos</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-B3.html">B3.0 Learning Outcomes: Nonlinear Oscillations and Onset of Chaos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">B3.1 Introduction to Nonlinear Oscillations</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">B3.2 The Duffing Oscillator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vanderpol.html">B3.3 Self-Sustained Oscillations and the Van der Pol Oscillator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sync.html">B3.4 Synchronization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chaos.html">B3.5 Chaos and Sensitive Dependence on Initial Conditions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spring-pendulum.html">B3.6 The Spring Pendulum: A Capstone Project in Nonlinear Dynamics</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Module-B3/duffing.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-B3/duffing.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>B3.2 The Duffing Oscillator</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-2-1-motivation">B3.2.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-2-2-the-duffing-equation">B3.2.2 The Duffing Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-2-3-potential-energy-and-equilibrium-points">B3.2.3 Potential Energy and Equilibrium Points</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-2-4-hardening-and-softening-springs">B3.2.4 Hardening and Softening Springs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-2-5-phase-space-and-phase-portraits">B3.2.5 Phase Space and Phase Portraits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-2-6-the-driven-duffing-oscillator">B3.2.6 The Driven Duffing Oscillator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-2-7-applications-of-the-duffing-oscillator">B3.2.7 Applications of the Duffing Oscillator</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mechanical-structures">Mechanical Structures</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mems-and-nanomechanical-devices">MEMS and Nanomechanical Devices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nonlinear-electrical-circuits">Nonlinear Electrical Circuits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optical-systems-and-lasers">Optical Systems and Lasers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plasma-physics">Plasma Physics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#molecular-and-condensed-matter-physics">Molecular and Condensed Matter Physics</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-2-8-looking-ahead">B3.2.8 Looking Ahead</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="b3-2-the-duffing-oscillator">
+<h1>B3.2 The Duffing Oscillator<a class="headerlink" href="#b3-2-the-duffing-oscillator" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="b3-2-1-motivation">
+<h2>B3.2.1 Motivation<a class="headerlink" href="#b3-2-1-motivation" title="Link to this heading">#</a></h2>
+<p>Real springs obey Hooke’s law only approximately. For sufficiently small displacements, the restoring force is proportional to the displacement:</p>
+<div class="math notranslate nohighlight">
+\[
+F=-kx,
+\]</div>
+<p>which leads to simple harmonic motion with a frequency independent of amplitude.</p>
+<p>However, as the oscillation amplitude becomes larger, real systems often deviate from this ideal behavior. The restoring force may become stronger or weaker than predicted by Hooke’s law, producing nonlinear effects that cannot be explained using the theory of simple harmonic motion.</p>
+<p>Examples of such nonlinear oscillators include:</p>
+<ul class="simple">
+<li><p>large-amplitude pendulums,</p></li>
+<li><p>stretched strings,</p></li>
+<li><p>vibrating beams,</p></li>
+<li><p>MEMS devices,</p></li>
+<li><p>nanomechanical resonators,</p></li>
+<li><p>Josephson junctions,</p></li>
+<li><p>and many electronic circuits.</p></li>
+</ul>
+<p>One of the simplest and most important models describing these effects is the <strong>Duffing oscillator</strong>, whose restoring force contains an additional cubic term.</p>
+<p>This system exhibits several phenomena that are impossible in linear oscillators:</p>
+<ul class="simple">
+<li><p>amplitude-dependent frequencies,</p></li>
+<li><p>hardening and softening behavior,</p></li>
+<li><p>multiple equilibrium positions,</p></li>
+<li><p>bistability,</p></li>
+<li><p>hysteresis,</p></li>
+<li><p>and, under sufficiently strong driving, chaotic motion.</p></li>
+</ul>
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Curiosity</strong></p>
+<p>The Duffing oscillator was introduced by the German engineer Georg Duffing in 1918 while studying vibrating mechanical systems. More than a century later, the same equation appears in subjects ranging from structural engineering and microelectromechanical systems (MEMS) to quantum circuits and nonlinear optics.</p>
+</div>
+<p>The Duffing oscillator serves as one of the simplest examples of how nonlinear systems can produce rich and sometimes surprising behavior. It provides an important stepping stone between the familiar world of simple harmonic motion and the onset of chaos that we will encounter later in this module.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b3-2-2-the-duffing-equation">
+<h2>B3.2.2 The Duffing Equation<a class="headerlink" href="#b3-2-2-the-duffing-equation" title="Link to this heading">#</a></h2>
+<p>The Duffing oscillator is obtained by extending Hooke’s law to include a nonlinear restoring force. Instead of</p>
+<div class="math notranslate nohighlight">
+\[
+F=-kx,
+\]</div>
+<p>we assume</p>
+<div class="math notranslate nohighlight">
+\[
+F=-kx-\beta x^3,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\beta\)</span> is a constant that determines the strength of the nonlinearity.</p>
+<p>Applying Newton’s second law gives</p>
+<div class="math notranslate nohighlight">
+\[
+m\ddot{x}+kx+\beta x^3=0.
+\]</div>
+<p>More generally, the Duffing oscillator may include damping and an external driving force:</p>
+<div class="math notranslate nohighlight">
+\[
+m\ddot{x}
++b\dot{x}
++kx
++\beta x^3
+=
+F_0\cos(\omega t).
+\]</div>
+<p>Dividing by the mass, this equation is often written in the form</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{x}
++\delta\dot{x}
++\alpha x
++\beta x^3
+=
+\gamma\cos(\omega t),
+\]</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\delta\)</span> represents damping,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha\)</span> determines the linear restoring force,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta\)</span> determines the nonlinear restoring force,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\gamma\)</span> is the driving amplitude,</p></li>
+<li><p>and <span class="math notranslate nohighlight">\(\omega\)</span> is the driving frequency.</p></li>
+</ul>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Duffing Oscillator</strong>
+<p>The Duffing oscillator is a nonlinear oscillator whose restoring force contains both a linear term and a cubic term.</p>
+<p>Its equation of motion is</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{x}
++\delta\dot{x}
++\alpha x
++\beta x^3
+=
+\gamma\cos(\omega t).
+\]</div>
+</div>
+<p>Notice that the familiar damped-driven harmonic oscillator is recovered when</p>
+<div class="math notranslate nohighlight">
+\[
+\beta=0,
+\]</div>
+<p>giving</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{x}
++\delta\dot{x}
++\alpha x
+=
+\gamma\cos(\omega t).
+\]</div>
+<p>Thus, the Duffing oscillator may be viewed as a natural extension of the harmonic oscillator that incorporates nonlinear restoring forces.</p>
+<div style="background-color:#ffe6e6; border-left:6px solid #cc0000; padding:14px; border-radius:4px;">
+<strong>Danger:</strong><br>
+<p>Because the equation contains the nonlinear term</p>
+<div class="math notranslate nohighlight">
+\[
+\beta x^3,
+\]</div>
+<p>the principle of superposition no longer applies. If two functions are solutions individually, their sum is generally <em>not</em> a solution.</p>
+</div>
+<p>In the next section, we will investigate how the sign of <span class="math notranslate nohighlight">\(\beta\)</span> affects the potential energy and gives rise to single-well and double-well oscillators.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b3-2-3-potential-energy-and-equilibrium-points">
+<h2>B3.2.3 Potential Energy and Equilibrium Points<a class="headerlink" href="#b3-2-3-potential-energy-and-equilibrium-points" title="Link to this heading">#</a></h2>
+<p>To better understand the behavior of the Duffing oscillator, it is useful to consider its potential energy.</p>
+<p>For the moment, we consider the undamped and unforced Duffing equation</p>
+<div class="math notranslate nohighlight">
+\[
+m\ddot{x}
++
+\alpha x
++
+\beta x^3
+=
+0,
+\]</div>
+<p>whose restoring force is</p>
+<div class="math notranslate nohighlight">
+\[
+F
+=
+-\alpha x
+-
+\beta x^3.
+\]</div>
+<p>Since this force depends only on position, it is conservative and can therefore be written in terms of a potential energy function:</p>
+<div class="math notranslate nohighlight">
+\[
+F
+=
+-\frac{dU}{dx}.
+\]</div>
+<p>Integrating gives</p>
+<div class="math notranslate nohighlight">
+\[
+U(x)
+=
+\frac12\alpha x^2
++
+\frac14\beta x^4.
+\]</div>
+<p>Thus, the qualitative behavior of the Duffing oscillator is determined by the shape of its potential energy.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Potential Energy of the Duffing Oscillator</strong>
+<p>For the conservative Duffing oscillator,</p>
+<div class="math notranslate nohighlight">
+\[
+F=-\alpha x-\beta x^3,
+\]</div>
+<p>the corresponding potential energy is</p>
+<div class="math notranslate nohighlight">
+\[
+U(x)
+=
+\frac12\alpha x^2
++
+\frac14\beta x^4.
+\]</div>
+<p>Equilibrium points occur wherever</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dU}{dx}=0,
+\]</div>
+<p>or equivalently where the net force vanishes.</p>
+</div>
+<hr class="docutils" />
+<p>When</p>
+<div class="math notranslate nohighlight">
+\[
+\alpha&gt;0
+\qquad\text{and}\qquad
+\beta&gt;0,
+\]</div>
+<p>the potential energy has a single minimum at</p>
+<div class="math notranslate nohighlight">
+\[
+x=0.
+\]</div>
+<p>The oscillator behaves similarly to a simple harmonic oscillator, although its frequency becomes amplitude dependent.</p>
+<hr class="docutils" />
+<p>More interesting behavior occurs when</p>
+<div class="math notranslate nohighlight">
+\[
+\alpha&lt;0
+\qquad\text{and}\qquad
+\beta&gt;0.
+\]</div>
+<p>The potential energy remains</p>
+<div class="math notranslate nohighlight">
+\[
+U(x)
+=
+\frac12\alpha x^2
++
+\frac14\beta x^4,
+\]</div>
+<p>but because the quadratic coefficient is negative, the origin becomes a local maximum and two minima emerge, producing the characteristic <strong>double-well potential</strong>.</p>
+<p>The equilibrium points are found from</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dU}{dx}=0,
+\]</div>
+<p>which gives</p>
+<div class="math notranslate nohighlight">
+\[
+\alpha x+\beta x^3=0.
+\]</div>
+<p>Factoring out <span class="math notranslate nohighlight">\(x\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+x\left(\alpha+\beta x^2\right)=0,
+\]</div>
+<p>yielding three equilibrium points:</p>
+<div class="math notranslate nohighlight">
+\[
+x=0,
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+x=\pm\sqrt{-\frac{\alpha}{\beta}}.
+\]</div>
+<p>The equilibrium point</p>
+<div class="math notranslate nohighlight">
+\[
+x=0
+\]</div>
+<p>corresponds to a local maximum of the potential energy and is therefore unstable.</p>
+<p>The two outer equilibrium points</p>
+<div class="math notranslate nohighlight">
+\[
+x=\pm\sqrt{-\frac{\alpha}{\beta}}
+\]</div>
+<p>correspond to minima of the potential energy and are stable.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Physical Meaning of $\alpha$</strong>
+<p>Unlike the spring constant in Hooke’s law,</p>
+<div class="math notranslate nohighlight">
+\[
+F=-kx,
+\qquad k&gt;0,
+\]</div>
+<p>the parameter</p>
+<div class="math notranslate nohighlight">
+\[
+\alpha
+\]</div>
+<p>is simply a coefficient that determines the curvature of the potential energy near the origin.</p>
+<p>When</p>
+<div class="math notranslate nohighlight">
+\[
+\alpha&gt;0,
+\]</div>
+<p>the origin is a stable equilibrium point.</p>
+<p>When</p>
+<div class="math notranslate nohighlight">
+\[
+\alpha&lt;0,
+\]</div>
+<p>the origin becomes unstable and two new stable equilibrium positions emerge.</p>
+<p>Thus, a negative value of</p>
+<div class="math notranslate nohighlight">
+\[
+\alpha
+\]</div>
+<p>does not imply a negative spring constant. Instead, it indicates that the system possesses a double-well potential.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#ffe6e6; border-left:6px solid #cc0000; padding:14px; border-radius:4px;">
+<strong>What Does k<0 Mean?</strong><br>
+<p>For an ordinary spring obeying Hooke’s law,</p>
+<div class="math notranslate nohighlight">
+\[
+F=-kx,
+\]</div>
+<p>the spring constant satisfies</p>
+<div class="math notranslate nohighlight">
+\[
+k&gt;0,
+\]</div>
+<p>by definition. A literal spring with</p>
+<div class="math notranslate nohighlight">
+\[
+k&lt;0
+\]</div>
+<p>would be unstable and therefore does not represent a physically realizable spring.</p>
+<p>However, many systems that are <em>not</em> springs can behave <em>as if</em> they possess an effective negative spring constant near certain equilibrium configurations. In such cases, the restoring force may be approximated by</p>
+<div class="math notranslate nohighlight">
+\[
+F\approx -kx,
+\]</div>
+<p>with</p>
+<div class="math notranslate nohighlight">
+\[
+k&lt;0,
+\]</div>
+<p>indicating that the equilibrium point is unstable rather than stable.</p>
+<p>Examples include:</p>
+<ul class="simple">
+<li><p><strong>Buckled beams and compressed columns:</strong> after buckling, the straight configuration becomes unstable and two new stable configurations appear.</p></li>
+<li><p><strong>Magnetic systems near phase transitions:</strong> the symmetric state may become unstable, producing two preferred orientations.</p></li>
+<li><p><strong>Molecular inversion potentials:</strong> molecules such as ammonia possess double-well potentials with two equivalent configurations.</p></li>
+<li><p><strong>Superconducting circuits and Josephson junctions:</strong> effective double-well potentials arise naturally and are used in quantum computing.</p></li>
+<li><p><strong>Landau theory of phase transitions:</strong> the coefficient of the quadratic term may change sign as temperature changes, signaling the onset of spontaneous symmetry breaking.</p></li>
+</ul>
+<p>Thus, a negative coefficient in the Duffing potential should not be interpreted as a negative spring constant of a literal spring. Rather, it indicates that the system has undergone a change in stability, causing the original equilibrium point to become unstable and new stable equilibria to emerge.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Example — Double-Well Potential</h3>
+<p>Suppose</p>
+<div class="math notranslate nohighlight">
+\[
+\alpha=-1
+\qquad\text{and}\qquad
+\beta=1.
+\]</div>
+<p>Then</p>
+<div class="math notranslate nohighlight">
+\[
+U(x)
+=
+-\frac12x^2
++
+\frac14x^4.
+\]</div>
+<p>The equilibrium points are</p>
+<div class="math notranslate nohighlight">
+\[
+x=0,
+\qquad
+x=\pm1.
+\]</div>
+<p>The point</p>
+<div class="math notranslate nohighlight">
+\[
+x=0
+\]</div>
+<p>is unstable, while</p>
+<div class="math notranslate nohighlight">
+\[
+x=\pm1
+\]</div>
+<p>are stable equilibrium positions.</p>
+<p>A particle with sufficiently low energy will oscillate within one of the wells. If its energy becomes large enough, it may cross the central barrier and move between the two wells.</p>
+</div><div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Visualizing the Duffing Potential</h3>
+<p>For the conservative Duffing oscillator,</p>
+<div class="math notranslate nohighlight">
+\[
+U(x)=\frac12\alpha x^2+\frac14\beta x^4.
+\]</div>
+<p>In this activity, you will use Python to plot the potential energy and identify the equilibrium points.</p>
+<p>Your script should:</p>
+<ol class="arabic">
+<li><p>Plot <span class="math notranslate nohighlight">\(U(x)\)</span> for a single-well case, such as</p>
+<div class="math notranslate nohighlight">
+\[
+   \alpha=1,\qquad \beta=1.
+   \]</div>
+</li>
+<li><p>Plot <span class="math notranslate nohighlight">\(U(x)\)</span> for a double-well case, such as</p>
+<div class="math notranslate nohighlight">
+\[
+   \alpha=-1,\qquad \beta=1.
+   \]</div>
+</li>
+<li><p>Mark the equilibrium points where</p>
+<div class="math notranslate nohighlight">
+\[
+   \frac{dU}{dx}=0.
+   \]</div>
+</li>
+<li><p>Label stable equilibrium points and unstable equilibrium points.</p></li>
+<li><p>Explain how the sign of <span class="math notranslate nohighlight">\(\alpha\)</span> changes the shape of the potential.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>For</p>
+<div class="math notranslate nohighlight">
+\[
+\alpha&gt;0,\qquad \beta&gt;0,
+\]</div>
+<p>the potential has one stable equilibrium point at</p>
+<div class="math notranslate nohighlight">
+\[
+x=0.
+\]</div>
+<p>For</p>
+<div class="math notranslate nohighlight">
+\[
+\alpha&lt;0,\qquad \beta&gt;0,
+\]</div>
+<p>the potential has three equilibrium points:</p>
+<div class="math notranslate nohighlight">
+\[
+x=0,
+\qquad
+x=\pm\sqrt{-\frac{\alpha}{\beta}}.
+\]</div>
+<p>The point <span class="math notranslate nohighlight">\(x=0\)</span> is unstable, while the two outer points are stable.</p>
+</div>
+</details>
+</div><div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Duffing potential energy</span>
+<span class="c1"># U(x) = (1/2) alpha x^2 + (1/4) beta x^4</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">U</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">alpha</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">0.25</span><span class="o">*</span><span class="n">beta</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">4</span>
+
+<span class="c1"># Position range</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="c1"># Parameters for double-well case</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+<span class="c1"># Potential energy</span>
+<span class="n">Ux</span> <span class="o">=</span> <span class="n">U</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">)</span>
+
+<span class="c1"># Equilibrium points</span>
+<span class="n">x_unstable</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">x_stable_1</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">alpha</span><span class="o">/</span><span class="n">beta</span><span class="p">)</span>
+<span class="n">x_stable_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">alpha</span><span class="o">/</span><span class="n">beta</span><span class="p">)</span>
+
+<span class="n">U_unstable</span> <span class="o">=</span> <span class="n">U</span><span class="p">(</span><span class="n">x_unstable</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">)</span>
+<span class="n">U_stable_1</span> <span class="o">=</span> <span class="n">U</span><span class="p">(</span><span class="n">x_stable_1</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">)</span>
+<span class="n">U_stable_2</span> <span class="o">=</span> <span class="n">U</span><span class="p">(</span><span class="n">x_stable_2</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">)</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Plot</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">Ux</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$U(x)=\frac</span><span class="si">{1}{2}</span><span class="s2">\alpha x^2+\frac</span><span class="si">{1}{4}</span><span class="s2">\beta x^4$&quot;</span><span class="p">)</span>
+
+<span class="c1"># Mark equilibrium points</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_unstable</span><span class="p">,</span> <span class="n">U_unstable</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Unstable equilibrium&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x_stable_1</span><span class="p">,</span> <span class="n">x_stable_2</span><span class="p">],</span>
+         <span class="p">[</span><span class="n">U_stable_1</span><span class="p">,</span> <span class="n">U_stable_2</span><span class="p">],</span>
+         <span class="s2">&quot;o&quot;</span><span class="p">,</span>
+         <span class="n">markersize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+         <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Stable equilibria&quot;</span><span class="p">)</span>
+
+<span class="c1"># Labels</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;unstable&quot;</span><span class="p">,</span>
+             <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">x_unstable</span><span class="p">,</span> <span class="n">U_unstable</span><span class="p">),</span>
+             <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">U_unstable</span> <span class="o">+</span> <span class="mf">0.25</span><span class="p">),</span>
+             <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;stable&quot;</span><span class="p">,</span>
+             <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">x_stable_1</span><span class="p">,</span> <span class="n">U_stable_1</span><span class="p">),</span>
+             <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">1.75</span><span class="p">,</span> <span class="n">U_stable_1</span> <span class="o">+</span> <span class="mf">0.35</span><span class="p">),</span>
+             <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;stable&quot;</span><span class="p">,</span>
+             <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">x_stable_2</span><span class="p">,</span> <span class="n">U_stable_2</span><span class="p">),</span>
+             <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">1.25</span><span class="p">,</span> <span class="n">U_stable_2</span> <span class="o">+</span> <span class="mf">0.35</span><span class="p">),</span>
+             <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Position $x$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Potential energy $U(x)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Duffing Double-Well Potential: $\alpha=-1$, $\beta=1$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<img alt="../_images/3e89d7391089eef3f883ef422f7b5ab1dee5c95c8469d78710e4bcf270e97428.png" src="../_images/3e89d7391089eef3f883ef422f7b5ab1dee5c95c8469d78710e4bcf270e97428.png" />
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Curiosity</strong></p>
+<p>Double-well potentials appear throughout physics. They are used to model buckled beams, molecular vibrations, magnetic systems, superconducting circuits, and quantum tunneling phenomena.</p>
+<p>In quantum mechanics, a particle trapped in one well may tunnel through the barrier and appear in the other well, even if its classical energy is insufficient to cross it.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b3-2-4-hardening-and-softening-springs">
+<h2>B3.2.4 Hardening and Softening Springs<a class="headerlink" href="#b3-2-4-hardening-and-softening-springs" title="Link to this heading">#</a></h2>
+<p>One of the most important consequences of nonlinear restoring forces is that the oscillation frequency is no longer constant. Instead, the frequency may depend on the amplitude of the motion.</p>
+<p>For the conservative Duffing oscillator,</p>
+<div class="math notranslate nohighlight">
+\[
+m\ddot{x}+kx+\beta x^3=0,
+\]</div>
+<p>the cubic term becomes increasingly important as the amplitude grows.</p>
+<p>Depending on the sign of</p>
+<div class="math notranslate nohighlight">
+\[
+\beta,
+\]</div>
+<p>the oscillator may become effectively stiffer or softer.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Hardening and Softening Springs</strong>
+<p>The sign of the nonlinear coefficient</p>
+<div class="math notranslate nohighlight">
+\[
+\beta
+\]</div>
+<p>determines how the oscillation frequency changes with amplitude.</p>
+<ul>
+<li><p>If</p>
+<div class="math notranslate nohighlight">
+\[
+  \beta&gt;0,
+  \]</div>
+<p>the oscillator becomes progressively stiffer and the frequency increases with amplitude.</p>
+</li>
+<li><p>If</p>
+<div class="math notranslate nohighlight">
+\[
+  \beta&lt;0,
+  \]</div>
+<p>the oscillator becomes progressively softer and the frequency decreases with amplitude.</p>
+</li>
+</ul>
+</div>
+<hr class="docutils" />
+<p>When</p>
+<div class="math notranslate nohighlight">
+\[
+\beta&gt;0,
+\]</div>
+<p>the restoring force</p>
+<div class="math notranslate nohighlight">
+\[
+F=-kx-\beta x^3
+\]</div>
+<p>grows faster than Hooke’s law predicts.</p>
+<p>Consequently, the system behaves like an increasingly stiff spring for large displacements.</p>
+<p>This type of behavior is called a <strong>hardening spring</strong>.</p>
+<hr class="docutils" />
+<p>When</p>
+<div class="math notranslate nohighlight">
+\[
+\beta&lt;0,
+\]</div>
+<p>the cubic term partially opposes the linear restoring force,</p>
+<div class="math notranslate nohighlight">
+\[
+F=-kx+|\beta|x^3,
+\]</div>
+<p>causing the system to become less stiff as the amplitude increases.</p>
+<p>Such systems are known as <strong>softening springs</strong>.</p>
+<hr class="docutils" />
+<p>Unlike simple harmonic motion, where</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_0=\sqrt{\frac{k}{m}}
+\]</div>
+<p>is independent of amplitude, the Duffing oscillator exhibits amplitude-dependent frequencies:</p>
+<ul class="simple">
+<li><p>larger amplitudes correspond to higher frequencies for hardening systems,</p></li>
+<li><p>larger amplitudes correspond to lower frequencies for softening systems.</p></li>
+</ul>
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Example — Hardening Spring</h3>
+<p>Suppose</p>
+<div class="math notranslate nohighlight">
+\[
+k=1
+\qquad\text{and}\qquad
+\beta=0.5.
+\]</div>
+<p>For small oscillations, the cubic term is negligible and the motion resembles simple harmonic motion.</p>
+<p>As the amplitude increases, however, the term</p>
+<div class="math notranslate nohighlight">
+\[
+\beta x^3
+\]</div>
+<p>becomes increasingly important, making the restoring force stronger than predicted by Hooke’s law.</p>
+<p>Consequently, larger-amplitude oscillations occur at higher frequencies.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Amplitude-Dependent Frequency in the Duffing Oscillator</h3>
+<p>For a simple harmonic oscillator, the oscillation frequency is independent of amplitude. The motion</p>
+<div class="math notranslate nohighlight">
+\[
+m\ddot{x}+kx=0
+\]</div>
+<p>has angular frequency</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_0=\sqrt{\frac{k}{m}},
+\]</div>
+<p>no matter how large the initial displacement is.</p>
+<p>The Duffing oscillator behaves differently. Consider the conservative hardening Duffing oscillator</p>
+<div class="math notranslate nohighlight">
+\[
+m\ddot{x}+kx+\beta x^3=0,
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+k&gt;0,
+\qquad
+\beta&gt;0.
+\]</div>
+<p>In this case, the cubic restoring force becomes more important as the amplitude increases. The oscillator becomes effectively stiffer at larger amplitudes, so the oscillation frequency increases.</p>
+<p>In this activity, you will write a Python script to solve the Duffing equation numerically and plot <span class="math notranslate nohighlight">\(x(t)\)</span> for several initial amplitudes.</p>
+<p>Your script should:</p>
+<ol class="arabic">
+<li><p>Choose values for <span class="math notranslate nohighlight">\(m\)</span>, <span class="math notranslate nohighlight">\(k\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span>, <span class="math notranslate nohighlight">\(dt\)</span>, and the total simulation time.</p></li>
+<li><p>Use the acceleration</p>
+<div class="math notranslate nohighlight">
+\[
+   a_x
+   =
+   -\frac{kx+\beta x^3}{m}.
+   \]</div>
+</li>
+<li><p>Solve the equation using Euler-Cromer or another numerical method.</p></li>
+<li><p>Compare at least three initial amplitudes, such as</p>
+<div class="math notranslate nohighlight">
+\[
+   x_0=0.2,
+   \qquad
+   x_0=1.0,
+   \qquad
+   x_0=2.0.
+   \]</div>
+</li>
+<li><p>Use the same initial velocity for each case, such as</p>
+<div class="math notranslate nohighlight">
+\[
+   v_0=0.
+   \]</div>
+</li>
+<li><p>Plot <span class="math notranslate nohighlight">\(x(t)\)</span> for all three cases on the same graph.</p></li>
+<li><p>Observe whether the larger-amplitude oscillations complete more cycles in the same amount of time.</p></li>
+<li><p>Explain why this behavior does not occur for the simple harmonic oscillator.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>For the hardening Duffing oscillator,</p>
+<div class="math notranslate nohighlight">
+\[
+\beta&gt;0.
+\]</div>
+<p>The restoring force is</p>
+<div class="math notranslate nohighlight">
+\[
+F=-kx-\beta x^3.
+\]</div>
+<p>At small amplitudes, the cubic term is small and the oscillator behaves approximately like a simple harmonic oscillator.</p>
+<p>At larger amplitudes, the cubic term becomes significant and increases the magnitude of the restoring force. The oscillator is pulled back more strongly at large displacement, so it completes oscillations more quickly.</p>
+<p>Thus, the larger-amplitude curves should have a shorter period and higher frequency.</p>
+<p>This demonstrates one of the most important signatures of nonlinear oscillatory motion:</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\text{The oscillation frequency depends on amplitude.}
+}
+\]</div>
+</div>
+</details>
+</div><div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Duffing oscillator: amplitude-dependent frequency</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="c1"># Parameters</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+<span class="c1"># Time settings</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.001</span>
+<span class="n">t_max</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_max</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+
+<span class="c1"># Initial amplitudes to compare</span>
+<span class="n">x0_values</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">]</span>
+<span class="n">v0</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">x0</span> <span class="ow">in</span> <span class="n">x0_values</span><span class="p">:</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+
+    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
+    <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">v0</span>
+
+    <span class="c1"># Euler-Cromer integration</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+
+        <span class="c1"># m x&#39;&#39; + kx + beta x^3 = 0</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">beta</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="n">m</span>
+
+        <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="o">*</span><span class="n">dt</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">rf</span><span class="s2">&quot;$x_0=</span><span class="si">{</span><span class="n">x0</span><span class="si">}</span><span class="s2">$&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Position $x(t)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Amplitude-Dependent Frequency in the Duffing Oscillator&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<img alt="../_images/5d2ccb56e555771ec5f0c785f659de0c6c849a38bd766fdada6c1e4abb41aca3.png" src="../_images/5d2ccb56e555771ec5f0c785f659de0c6c849a38bd766fdada6c1e4abb41aca3.png" />
+</div>
+</details>
+</div>
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Curiosity</strong></p>
+<p>Hardening and softening behavior occur in many physical systems.</p>
+<p>Examples of hardening systems include</p>
+<ul class="simple">
+<li><p>stretched strings,</p></li>
+<li><p>vibrating beams,</p></li>
+<li><p>and many MEMS devices.</p></li>
+</ul>
+<p>Examples of softening systems include</p>
+<ul class="simple">
+<li><p>certain suspension systems,</p></li>
+<li><p>flexible structures,</p></li>
+<li><p>and some biological tissues.</p></li>
+</ul>
+<p>Because the frequency depends on amplitude, nonlinear oscillators can exhibit resonance curves and hysteresis phenomena that are impossible in simple harmonic motion.</p>
+</div>
+<p>In the next section, we will visualize nonlinear oscillators in phase space and compare their trajectories with those of the simple harmonic oscillator.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b3-2-5-phase-space-and-phase-portraits">
+<h2>B3.2.5 Phase Space and Phase Portraits<a class="headerlink" href="#b3-2-5-phase-space-and-phase-portraits" title="Link to this heading">#</a></h2>
+<p>In University Physics I, we described oscillatory motion by plotting the displacement as a function of time. While such plots are useful, they often hide important information about the underlying dynamics.</p>
+<p>A more powerful approach, as briefly mentioned in Phase D, is to examine the motion in <strong>phase space</strong>, where each point represents the instantaneous state of the system.</p>
+<p>For a one-dimensional oscillator, the phase-space coordinates are</p>
+<div class="math notranslate nohighlight">
+\[
+(x,\dot{x}),
+\]</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x\)</span> is the displacement,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\dot{x}\)</span> is the velocity.</p></li>
+</ul>
+<p>As the oscillator evolves, the point</p>
+<div class="math notranslate nohighlight">
+\[
+(x,\dot{x})
+\]</div>
+<p>moves through phase space, tracing out a curve known as a <strong>phase portrait</strong>.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Phase Portrait</strong>
+<p>A phase portrait is a graph of velocity versus displacement,</p>
+<div class="math notranslate nohighlight">
+\[
+(\dot{x}\text{ versus }x),
+\]</div>
+<p>that provides a geometric representation of the motion of a dynamical system.</p>
+</div>
+<hr class="docutils" />
+<p>For the simple harmonic oscillator,</p>
+<div class="math notranslate nohighlight">
+\[
+m\ddot{x}+kx=0,
+\]</div>
+<p>the total energy</p>
+<div class="math notranslate nohighlight">
+\[
+E
+=
+\frac12m\dot{x}^2
++
+\frac12kx^2
+\]</div>
+<p>is constant.</p>
+<p>Consequently, the phase portrait consists of closed ellipses centered on the origin.</p>
+<p>Every initial condition corresponds to a different ellipse, but all trajectories are periodic.</p>
+<hr class="docutils" />
+<p>For the Duffing oscillator,</p>
+<div class="math notranslate nohighlight">
+\[
+m\ddot{x}
++
+kx
++
+\beta x^3
+=
+0,
+\]</div>
+<p>the phase portraits are still closed curves because the system is conservative.</p>
+<p>However, unlike the harmonic oscillator, the trajectories are generally no longer perfect ellipses.</p>
+<p>Their shapes depend on:</p>
+<ul>
+<li><p>the oscillation amplitude,</p></li>
+<li><p>the sign of</p>
+<div class="math notranslate nohighlight">
+\[
+  \beta,
+  \]</div>
+</li>
+<li><p>and the total energy of the system.</p></li>
+</ul>
+<hr class="docutils" />
+<p>When</p>
+<div class="math notranslate nohighlight">
+\[
+\beta&gt;0,
+\]</div>
+<p>the phase curves become increasingly distorted as the amplitude grows.</p>
+<p>Large-amplitude trajectories differ significantly from the ellipses of simple harmonic motion, reflecting the amplitude dependence of the oscillation frequency.</p>
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Example — Comparing SHM and the Duffing Oscillator</h3>
+<p>For a harmonic oscillator, the phase portrait consists of concentric ellipses.</p>
+<p>For a Duffing oscillator with</p>
+<div class="math notranslate nohighlight">
+\[
+\beta&gt;0,
+\]</div>
+<p>the phase curves become progressively distorted as the amplitude increases.</p>
+<p>Thus, phase space immediately reveals that the motion is nonlinear, even though the displacement-versus-time plots may still appear nearly sinusoidal.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Comparing SHM and Duffing Phase Portraits</h3>
+<p>For a harmonic oscillator, the phase portrait consists of closed ellipses in the <span class="math notranslate nohighlight">\((x,\dot{x})\)</span> plane.</p>
+<p>For the Duffing oscillator,</p>
+<div class="math notranslate nohighlight">
+\[
+m\ddot{x}+kx+\beta x^3=0,
+\]</div>
+<p>the phase curves are still closed when the system is conservative, but they are no longer perfect ellipses.</p>
+<p>In this activity, you will write a Python script to compare phase portraits for:</p>
+<div class="math notranslate nohighlight">
+\[
+m\ddot{x}+kx=0
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+m\ddot{x}+kx+\beta x^3=0.
+\]</div>
+<p>Your script should:</p>
+<ol class="arabic simple">
+<li><p>Choose values for <span class="math notranslate nohighlight">\(m\)</span>, <span class="math notranslate nohighlight">\(k\)</span>, and <span class="math notranslate nohighlight">\(\beta\)</span>.</p></li>
+<li><p>Simulate both systems using the same initial conditions.</p></li>
+<li><p>Plot <span class="math notranslate nohighlight">\(\dot{x}\)</span> versus <span class="math notranslate nohighlight">\(x\)</span> for each system.</p></li>
+<li><p>Repeat the simulation for several initial amplitudes.</p></li>
+<li><p>Observe how the Duffing phase portrait changes as amplitude increases.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>For SHM, the phase portraits are ellipses because the total energy is</p>
+<div class="math notranslate nohighlight">
+\[
+E=\frac12m\dot{x}^2+\frac12kx^2.
+\]</div>
+<p>For the Duffing oscillator, the total energy is</p>
+<div class="math notranslate nohighlight">
+\[
+E=\frac12m\dot{x}^2+\frac12kx^2+\frac14\beta x^4.
+\]</div>
+<p>When <span class="math notranslate nohighlight">\(\beta&gt;0\)</span>, the quartic term becomes more important at large amplitudes. Therefore, the phase curves become increasingly distorted from ellipses.</p>
+<p>This shows that phase space can reveal nonlinear behavior even when <span class="math notranslate nohighlight">\(x(t)\)</span> still appears nearly sinusoidal.</p>
+</div>
+</details>
+</div><div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Phase portraits: SHM vs Duffing oscillator</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">t_max</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_max</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+
+<span class="n">x0_values</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">]</span>
+<span class="n">v0</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">x0</span> <span class="ow">in</span> <span class="n">x0_values</span><span class="p">:</span>
+
+    <span class="c1"># SHM arrays</span>
+    <span class="n">x_shm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+    <span class="n">v_shm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+
+    <span class="c1"># Duffing arrays</span>
+    <span class="n">x_duff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+    <span class="n">v_duff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+
+    <span class="n">x_shm</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
+    <span class="n">x_duff</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
+    <span class="n">v_shm</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">v0</span>
+    <span class="n">v_duff</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">v0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+
+        <span class="c1"># SHM: m x&#39;&#39; + kx = 0</span>
+        <span class="n">a_shm</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">x_shm</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">/</span><span class="n">m</span>
+        <span class="n">v_shm</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">v_shm</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">a_shm</span><span class="o">*</span><span class="n">dt</span>
+        <span class="n">x_shm</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x_shm</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">v_shm</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span>
+
+        <span class="c1"># Duffing: m x&#39;&#39; + kx + beta x^3 = 0</span>
+        <span class="n">a_duff</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">x_duff</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">beta</span><span class="o">*</span><span class="n">x_duff</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="n">m</span>
+        <span class="n">v_duff</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">v_duff</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">a_duff</span><span class="o">*</span><span class="n">dt</span>
+        <span class="n">x_duff</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x_duff</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">v_duff</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_shm</span><span class="p">,</span> <span class="n">v_shm</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">rf</span><span class="s2">&quot;SHM, $x_0=</span><span class="si">{</span><span class="n">x0</span><span class="si">}</span><span class="s2">$&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_duff</span><span class="p">,</span> <span class="n">v_duff</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">rf</span><span class="s2">&quot;Duffing, $x_0=</span><span class="si">{</span><span class="n">x0</span><span class="si">}</span><span class="s2">$&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Position $x$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Velocity $\dot</span><span class="si">{x}</span><span class="s2">$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Phase Portraits: SHM vs Duffing Oscillator&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<img alt="../_images/7be1dcf94da5099e5e1271179da04b181f199b5a42f16e9736c66c1019ed154a.png" src="../_images/7be1dcf94da5099e5e1271179da04b181f199b5a42f16e9736c66c1019ed154a.png" />
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Curiosity</strong></p>
+<p>Phase portraits provide one of the most important tools in nonlinear dynamics.</p>
+<p>Later in this module, we will encounter:</p>
+<ul class="simple">
+<li><p>limit cycles,</p></li>
+<li><p>strange attractors,</p></li>
+<li><p>Poincaré sections,</p></li>
+<li><p>and chaotic trajectories,</p></li>
+</ul>
+<p>all of which are naturally visualized in phase space.</p>
+<p>In many cases, phase portraits reveal patterns that are almost impossible to recognize from ordinary plots of position versus time.</p>
+</div>
+<p>In the next section, we will introduce damping and external forcing, leading to bistability, hysteresis, and some of the first indications of chaotic behavior.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b3-2-6-the-driven-duffing-oscillator">
+<h2>B3.2.6 The Driven Duffing Oscillator<a class="headerlink" href="#b3-2-6-the-driven-duffing-oscillator" title="Link to this heading">#</a></h2>
+<p>So far, we have considered the conservative Duffing oscillator, in which energy is conserved and the motion is confined to closed curves in phase space.</p>
+<p>Real systems, however, are often subject to both damping and external forcing. Including these effects leads to the <strong>driven Duffing oscillator</strong>,</p>
+<div class="math notranslate nohighlight">
+\[
+m\ddot{x}
++
+b\dot{x}
++
+kx
++
+\beta x^3
+=
+F_0\cos(\omega t),
+\]</div>
+<p>or, after dividing by the mass,</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{x}
++
+\delta\dot{x}
++
+\alpha x
++
+\beta x^3
+=
+\gamma\cos(\omega t).
+\]</div>
+<p>This equation combines several competing effects:</p>
+<ul class="simple">
+<li><p>the restoring force,</p></li>
+<li><p>nonlinear corrections,</p></li>
+<li><p>energy dissipation through damping,</p></li>
+<li><p>and continuous energy input from the driving force.</p></li>
+</ul>
+<p>The resulting behavior can be extraordinarily rich.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Driven Duffing Oscillator</strong>
+<p>The driven Duffing oscillator is governed by</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{x}
++
+\delta\dot{x}
++
+\alpha x
++
+\beta x^3
+=
+\gamma\cos(\omega t).
+\]</div>
+<p>The competition between damping, driving, and nonlinear restoring forces gives rise to phenomena such as</p>
+<ul class="simple">
+<li><p>amplitude-dependent resonance,</p></li>
+<li><p>multiple steady states,</p></li>
+<li><p>hysteresis,</p></li>
+<li><p>period doubling,</p></li>
+<li><p>and chaos.</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<p>Unlike the simple harmonic oscillator, the response of the Duffing oscillator is not uniquely determined by the driving frequency.</p>
+<p>For certain parameter values, the system may possess several possible steady-state oscillations.</p>
+<p>Consequently, two oscillators with identical parameters but different initial conditions may settle into entirely different motions.</p>
+<blockquote>
+<div><p>This phenomenon is known as <strong>bistability</strong>.</p>
+</div></blockquote>
+<hr class="docutils" />
+<p>Because of the nonlinear restoring force, the resonance frequency depends on amplitude.</p>
+<p>As the driving frequency is slowly varied, the oscillation amplitude may change smoothly for a while and then suddenly jump to a completely different value.</p>
+<blockquote>
+<div><p>This phenomenon is called <strong>jump resonance</strong>.</p>
+</div></blockquote>
+<hr class="docutils" />
+<p>If the driving frequency is subsequently swept in the opposite direction, the transition occurs at a different frequency.</p>
+<p>As a result, the system follows a different path than before.</p>
+<blockquote>
+<div><p>This memory effect is known as <strong>hysteresis</strong>.</p>
+</div></blockquote>
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Example — Jump Resonance</h3>
+<p>Suppose the driving frequency of a hardening Duffing oscillator is gradually increased.</p>
+<p>Initially, the oscillation amplitude increases smoothly.</p>
+<p>However, at a critical frequency the system suddenly jumps to a much smaller amplitude branch.</p>
+<p>If the frequency is then decreased, the reverse transition occurs at a different frequency.</p>
+<p>Thus, the amplitude-versus-frequency curve forms a loop rather than a single-valued function.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Curiosity</strong></p>
+<p>Hysteresis appears throughout physics.</p>
+<p>Examples include</p>
+<ul class="simple">
+<li><p>ferromagnets,</p></li>
+<li><p>superconductors,</p></li>
+<li><p>structural instabilities,</p></li>
+<li><p>lasers,</p></li>
+<li><p>and phase transitions.</p></li>
+</ul>
+<p>In all these systems, the current state depends not only on the present conditions but also on the history of the system.</p>
+</div>
+<p>As the driving strength increases further, the motion may become increasingly complicated. Period doubling, irregular oscillations, and eventually chaotic motion may appear.</p>
+<p>Thus, the driven Duffing oscillator serves as one of the simplest systems capable of exhibiting deterministic chaos.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Exploring Bistability in the Driven Duffing Oscillator</h3>
+<p>One of the most remarkable features of nonlinear systems is that the same physical system may possess multiple stable motions under identical external conditions.</p>
+<p>Consider the driven Duffing oscillator</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{x}
++
+\delta\dot{x}
++
+\alpha x
++
+\beta x^3
+=
+\gamma\cos(\omega t).
+\]</div>
+<p>In this activity, use the following parameter values:</p>
+<div class="math notranslate nohighlight">
+\[
+\alpha=-1.0,
+\qquad
+\beta=1.0,
+\qquad
+\delta=0.20,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\gamma=0.30,
+\qquad
+\omega=1.20.
+\]</div>
+<p>These values produce a nonlinear double-well system with damping and periodic driving.</p>
+<p>Your script should:</p>
+<ol class="arabic">
+<li><p>Solve the Duffing equation numerically using the parameter values listed above.</p></li>
+<li><p>Use two different initial conditions:</p>
+<div class="math notranslate nohighlight">
+\[
+   x_0=-1.0,
+   \qquad
+   v_0=0.0,
+   \]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+   x_0=1.0,
+   \qquad
+   v_0=0.0.
+   \]</div>
+</li>
+<li><p>Plot <span class="math notranslate nohighlight">\(x(t)\)</span> for both initial conditions on the same graph.</p></li>
+<li><p>Create a phase-space plot of <span class="math notranslate nohighlight">\(\dot{x}\)</span> versus <span class="math notranslate nohighlight">\(x\)</span> for both initial conditions.</p></li>
+<li><p>Ignore the early transient behavior in the phase-space plot so that the long-term motion is easier to compare.</p></li>
+<li><p>Determine whether the two motions eventually converge to the same long-term motion or remain distinct.</p></li>
+<li><p>Explain why the existence of two different long-term motions under the same system parameters is called <strong>bistability</strong>.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>Using the same parameters,</p>
+<div class="math notranslate nohighlight">
+\[
+\alpha=-1.0,
+\qquad
+\beta=1.0,
+\qquad
+\delta=0.20,
+\qquad
+\gamma=0.30,
+\qquad
+\omega=1.20,
+\]</div>
+<p>the system may settle into different long-term motions depending on the initial condition.</p>
+<p>An initial condition near the left well,</p>
+<div class="math notranslate nohighlight">
+\[
+x_0=-1.0,
+\qquad
+v_0=0.0,
+\]</div>
+<p>can remain associated with one attractor, while an initial condition near the right well,</p>
+<div class="math notranslate nohighlight">
+\[
+x_0=1.0,
+\qquad
+v_0=0.0,
+\]</div>
+<p>can remain associated with another.</p>
+<p>Thus, even though the equation and all parameters are identical, the long-term motion can depend on the initial state.</p>
+<p>This is called</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{\text{bistability}}
+\]</div>
+<p>because the system possesses two stable long-term behaviors.</p>
+<p>This phenomenon is impossible for the simple harmonic oscillator but common in nonlinear systems.</p>
+</div>
+</details>
+</div><div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Bistability in the driven Duffing oscillator</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="c1"># Duffing parameters</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">delta</span> <span class="o">=</span> <span class="mf">0.20</span>
+<span class="n">gamma</span> <span class="o">=</span> <span class="mf">0.30</span>
+<span class="n">omega_drive</span> <span class="o">=</span> <span class="mf">1.20</span>
+
+<span class="c1"># Time settings</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">t_max</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_max</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+
+<span class="c1"># Two different initial conditions</span>
+<span class="n">initial_conditions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">&quot;Initial condition near left well&quot;</span><span class="p">),</span>
+    <span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">&quot;Initial condition near right well&quot;</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">x0</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">initial_conditions</span><span class="p">:</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+
+    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
+    <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">v0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+
+        <span class="c1"># x&#39;&#39; + delta x&#39; + alpha x + beta x^3 = gamma cos(omega t)</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">gamma</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">omega_drive</span><span class="o">*</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="o">-</span> <span class="n">delta</span><span class="o">*</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="o">-</span> <span class="n">alpha</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="o">-</span> <span class="n">beta</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">3</span>
+        <span class="p">)</span>
+
+        <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="o">*</span><span class="n">dt</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Position $x(t)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Bistability in the Driven Duffing Oscillator&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<img alt="../_images/6f21b41148137c1a5f17041a42d6b82c03451dd32d640aba7b6b3adb7c0fca39.png" src="../_images/6f21b41148137c1a5f17041a42d6b82c03451dd32d640aba7b6b3adb7c0fca39.png" />
+</div>
+</details>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Phase-space view of bistability</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="c1"># Duffing parameters</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">delta</span> <span class="o">=</span> <span class="mf">0.20</span>
+<span class="n">gamma</span> <span class="o">=</span> <span class="mf">0.30</span>
+<span class="n">omega_drive</span> <span class="o">=</span> <span class="mf">1.20</span>
+
+<span class="c1"># Time settings</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">t_max</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_max</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+
+<span class="c1"># Ignore early transient behavior</span>
+<span class="n">transient_time</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">transient_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">transient_time</span><span class="o">/</span><span class="n">dt</span><span class="p">)</span>
+
+<span class="c1"># Two different initial conditions</span>
+<span class="n">initial_conditions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">&quot;Attractor from left well&quot;</span><span class="p">),</span>
+    <span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">&quot;Attractor from right well&quot;</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">x0</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">initial_conditions</span><span class="p">:</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+
+    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
+    <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">v0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+
+        <span class="c1"># x&#39;&#39; + delta x&#39; + alpha x + beta x^3 = gamma cos(omega t)</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">gamma</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">omega_drive</span><span class="o">*</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="o">-</span> <span class="n">delta</span><span class="o">*</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="o">-</span> <span class="n">alpha</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="o">-</span> <span class="n">beta</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">3</span>
+        <span class="p">)</span>
+
+        <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="o">*</span><span class="n">dt</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">transient_index</span><span class="p">:],</span>
+        <span class="n">v</span><span class="p">[</span><span class="n">transient_index</span><span class="p">:],</span>
+        <span class="n">label</span><span class="o">=</span><span class="n">label</span>
+    <span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Position $x$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Velocity $\dot</span><span class="si">{x}</span><span class="s2">$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Phase Portrait Showing Bistability&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<img alt="../_images/edb60898ac1cc109af801b4840c63f3704e57c2c539dd0536db33c625fbd8542.png" src="../_images/edb60898ac1cc109af801b4840c63f3704e57c2c539dd0536db33c625fbd8542.png" />
+</div>
+</details>
+</div>
+</section>
+<section id="interpretation">
+<h2>Interpretation<a class="headerlink" href="#interpretation" title="Link to this heading">#</a></h2>
+<p>The phase-space plot reveals an important feature of nonlinear systems: <strong>the long-term behavior may depend on the initial conditions</strong>.</p>
+<p>In the present example, the two trajectories begin in different wells of the potential and eventually settle into different steady motions, even though the governing equation and all parameter values are identical.</p>
+<p>Thus, the system possesses two distinct stable long-term states.</p>
+<p>This phenomenon is known as <strong>bistability</strong>.</p>
+<p>In contrast, a damped simple harmonic oscillator has only one stable equilibrium point. Regardless of the initial conditions, every trajectory eventually approaches the same final state.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Attractors</strong>
+<p>An <strong>attractor</strong> is a state or set of states toward which a system naturally evolves after sufficient time has passed.</p>
+<p>Different initial conditions may lead to different attractors.</p>
+<p>Examples include:</p>
+<ul>
+<li>a stable equilibrium point,</li>
+<li>a periodic orbit (limit cycle),</li>
+<li>quasi-periodic motion,</li>
+<li>or even a chaotic attractor.</li>
+</ul>
+<p>Once transients have died away, the system remains close to the attractor unless it is subjected to a sufficiently large disturbance.</p>
+</div>
+<p>In the driven Duffing oscillator, the phase-space trajectories do not wander randomly. Instead, they approach one of two stable attractors.</p>
+<p>Consequently, two systems having identical parameters may exhibit different long-term motions simply because they started from different initial conditions.</p>
+<p>This sensitivity to initial conditions and the existence of multiple attractors are hallmarks of nonlinear dynamics and have no counterpart in the simple harmonic oscillator.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b3-2-7-applications-of-the-duffing-oscillator">
+<h2>B3.2.7 Applications of the Duffing Oscillator<a class="headerlink" href="#b3-2-7-applications-of-the-duffing-oscillator" title="Link to this heading">#</a></h2>
+<p>Although the Duffing oscillator was originally introduced as a model for vibrating mechanical systems, its applications extend throughout modern science and engineering.</p>
+<p>Whenever restoring forces become nonlinear, the Duffing equation often provides an excellent approximation to the motion.</p>
+<hr class="docutils" />
+<section id="mechanical-structures">
+<h3>Mechanical Structures<a class="headerlink" href="#mechanical-structures" title="Link to this heading">#</a></h3>
+<p>Large-amplitude vibrations of beams, plates, and suspension systems often exhibit nonlinear behavior.</p>
+<p>Examples include:</p>
+<ul class="simple">
+<li><p>bridges,</p></li>
+<li><p>aircraft wings,</p></li>
+<li><p>skyscrapers,</p></li>
+<li><p>and mechanical resonators.</p></li>
+</ul>
+<p>Understanding these nonlinear oscillations is essential for avoiding structural instabilities and mechanical failures.</p>
+</section>
+<hr class="docutils" />
+<section id="mems-and-nanomechanical-devices">
+<h3>MEMS and Nanomechanical Devices<a class="headerlink" href="#mems-and-nanomechanical-devices" title="Link to this heading">#</a></h3>
+<p>Microelectromechanical systems (MEMS) and nanomechanical resonators frequently operate in regimes where the restoring force is nonlinear.</p>
+<p>Examples include:</p>
+<ul class="simple">
+<li><p>accelerometers,</p></li>
+<li><p>gyroscopes,</p></li>
+<li><p>pressure sensors,</p></li>
+<li><p>and resonators used in communication devices.</p></li>
+</ul>
+<p>In these systems, Duffing nonlinearities can shift resonance frequencies and produce hysteresis.</p>
+</section>
+<hr class="docutils" />
+<section id="nonlinear-electrical-circuits">
+<h3>Nonlinear Electrical Circuits<a class="headerlink" href="#nonlinear-electrical-circuits" title="Link to this heading">#</a></h3>
+<p>Electronic circuits containing nonlinear components may behave like Duffing oscillators.</p>
+<p>Examples include:</p>
+<ul class="simple">
+<li><p>nonlinear RLC circuits,</p></li>
+<li><p>Josephson junctions,</p></li>
+<li><p>and superconducting devices.</p></li>
+</ul>
+<p>Such systems may exhibit multiple stable states, making them useful for memory devices and quantum technologies.</p>
+</section>
+<hr class="docutils" />
+<section id="optical-systems-and-lasers">
+<h3>Optical Systems and Lasers<a class="headerlink" href="#optical-systems-and-lasers" title="Link to this heading">#</a></h3>
+<p>Nonlinear optics provides another important application.</p>
+<p>Duffing-type equations arise in:</p>
+<ul class="simple">
+<li><p>laser cavities,</p></li>
+<li><p>optical resonators,</p></li>
+<li><p>and nonlinear waveguides.</p></li>
+</ul>
+<p>These systems may display bistability, synchronization, and chaotic behavior.</p>
+</section>
+<hr class="docutils" />
+<section id="plasma-physics">
+<h3>Plasma Physics<a class="headerlink" href="#plasma-physics" title="Link to this heading">#</a></h3>
+<p>Nonlinear oscillations are common in plasma systems.</p>
+<p>Examples include:</p>
+<ul class="simple">
+<li><p>charged particles trapped in electromagnetic fields,</p></li>
+<li><p>nonlinear plasma waves,</p></li>
+<li><p>and instabilities in fusion devices.</p></li>
+</ul>
+<p>Understanding these oscillations is crucial for controlled nuclear fusion and space plasma physics.</p>
+</section>
+<hr class="docutils" />
+<section id="molecular-and-condensed-matter-physics">
+<h3>Molecular and Condensed Matter Physics<a class="headerlink" href="#molecular-and-condensed-matter-physics" title="Link to this heading">#</a></h3>
+<p>Duffing-like potentials appear in:</p>
+<ul class="simple">
+<li><p>molecular vibrations,</p></li>
+<li><p>superconductors,</p></li>
+<li><p>magnetic materials,</p></li>
+<li><p>and phase transitions.</p></li>
+</ul>
+<p>Double-well potentials are particularly important in describing spontaneous symmetry breaking and quantum tunneling phenomena.</p>
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Example — A Guitar String</h3>
+<p>A vibrating guitar string behaves approximately like a simple harmonic oscillator for small amplitudes.</p>
+<p>However, at larger amplitudes the tension in the string increases slightly, causing the restoring force to become nonlinear.</p>
+<p>As a result, the oscillation frequency increases with amplitude, producing hardening behavior that is well described by the Duffing oscillator.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Curiosity</strong></p>
+<p>The Duffing oscillator is often called the “hydrogen atom of nonlinear dynamics.”</p>
+<p>Just as the hydrogen atom provides one of the simplest systems for understanding quantum mechanics, the Duffing oscillator provides one of the simplest systems for exploring nonlinear phenomena, including bistability, hysteresis, and chaos.</p>
+</div>
+<p>Because of its simplicity and extraordinary richness, the Duffing oscillator has become one of the most important models in nonlinear dynamics.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="b3-2-8-looking-ahead">
+<h2>B3.2.8 Looking Ahead<a class="headerlink" href="#b3-2-8-looking-ahead" title="Link to this heading">#</a></h2>
+<p>The Duffing oscillator illustrates how even a seemingly modest modification to Hooke’s law can produce remarkably rich behavior.</p>
+<p>We have seen that nonlinear restoring forces lead to:</p>
+<ul class="simple">
+<li><p>amplitude-dependent frequencies,</p></li>
+<li><p>hardening and softening springs,</p></li>
+<li><p>distorted phase portraits,</p></li>
+<li><p>multiple equilibrium points,</p></li>
+<li><p>bistability,</p></li>
+<li><p>and hysteresis.</p></li>
+</ul>
+<p>These phenomena have no counterparts in the simple harmonic oscillator and demonstrate that nonlinear systems can exhibit behavior far more complicated than their linear counterparts.</p>
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Curiosity</strong></p>
+<p>Many of the characteristic features of nonlinear dynamics first appear in the Duffing oscillator. For this reason, the Duffing oscillator is often regarded as one of the fundamental model systems of nonlinear physics, much like the harmonic oscillator plays a central role in linear dynamics.</p>
+</div>
+<p>Although the Duffing oscillator already exhibits remarkable complexity, it is only the beginning of our journey into nonlinear dynamics.</p>
+<p>In the next section, we shall encounter another important nonlinear oscillator: the <strong>Van der Pol oscillator</strong>. Unlike the Duffing oscillator, which requires external driving to sustain its motion, the Van der Pol oscillator can maintain oscillations by itself through nonlinear damping.</p>
+<p>This introduces several entirely new ideas:</p>
+<ul class="simple">
+<li><p>self-sustained oscillations,</p></li>
+<li><p>stable limit cycles,</p></li>
+<li><p>insensitivity to initial conditions,</p></li>
+<li><p>and, ultimately, synchronization between coupled oscillators.</p></li>
+</ul>
+<p>These concepts will provide a bridge between nonlinear oscillations and the collective phenomena that eventually lead us toward chaos.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-B3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">B3.1 Introduction to Nonlinear Oscillations</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="vanderpol.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">B3.3 Self-Sustained Oscillations and the Van der Pol Oscillator</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-2-1-motivation">B3.2.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-2-2-the-duffing-equation">B3.2.2 The Duffing Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-2-3-potential-energy-and-equilibrium-points">B3.2.3 Potential Energy and Equilibrium Points</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-2-4-hardening-and-softening-springs">B3.2.4 Hardening and Softening Springs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-2-5-phase-space-and-phase-portraits">B3.2.5 Phase Space and Phase Portraits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-2-6-the-driven-duffing-oscillator">B3.2.6 The Driven Duffing Oscillator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-2-7-applications-of-the-duffing-oscillator">B3.2.7 Applications of the Duffing Oscillator</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mechanical-structures">Mechanical Structures</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mems-and-nanomechanical-devices">MEMS and Nanomechanical Devices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nonlinear-electrical-circuits">Nonlinear Electrical Circuits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optical-systems-and-lasers">Optical Systems and Lasers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plasma-physics">Plasma Physics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#molecular-and-condensed-matter-physics">Molecular and Condensed Matter Physics</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-2-8-looking-ahead">B3.2.8 Looking Ahead</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

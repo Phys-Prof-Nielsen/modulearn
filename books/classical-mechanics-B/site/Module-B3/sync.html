@@ -1,0 +1,1238 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>B3.4 Synchronization &#8212; A Competency Approach to Classical Mechanics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-B3/sync';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="B3.5 Chaos and Sensitive Dependence on Initial Conditions" href="chaos.html" />
+    <link rel="prev" title="B3.3 Self-Sustained Oscillations and the Van der Pol Oscillator" href="vanderpol.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-B.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Home"/>
+    <script>document.write(`<img src="../_static/logo-B.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the B Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://gemini.google.com/gem/10l7TNMxLkYkxP1cGjSu5uEvK_RAC-A9n?usp=sharing">Physics Coding Architect (PyAIGem)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B1 - Advanced Rotational Dynamics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/principal-axes.html">B1.1 Principal Axes in Rotational Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/kinetic-energy.html">B1.2 Kinetic Energy in Rotational Dynamics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/euler-angles.html">B1.3 Euler Angles and Rigid Body Orientation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/body-space-frames.html">B1.4 Body and Space Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/eulers-equations-motion.html">B1.5 Euler’s Equations of Motion for Rigid Bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/euler-angles-equations.html">B1.6 Connecting Euler Angles and Euler’s Equations of Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/quaternions.html">B1.7 Beyond Euler Angles: Quaternions, Axis-Angle, and Rotation Vectors for 3D Orientation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/tennis-racket.html">B1.8 The Tennis Racket Problem and the Intermediate Axis Theorem</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B2 - Extensions of Coupled Oscillations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/LOC-B2.html">B2.0 Learning Outcomes: Extensions of Coupled Oscillations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/oscillator-to-wave.html">B2.1 Oscillator Chains and the Wave Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/construction.html">B2.2 Constructing Lissajous Figures: Two Perpendicular SHM Motions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/frequency-ratios.html">B2.3 Frequency Ratios, Phase Difference, and Closure Conditions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/applications.html">B2.4 Example Applications of Lissajous Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/parametric-resonance.html">B2.5 Parametric Resonance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/problemsB2.html">B2.6 — Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B3 - Nonlinear Oscillations and Onset of Chaos</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-B3.html">B3.0 Learning Outcomes: Nonlinear Oscillations and Onset of Chaos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">B3.1 Introduction to Nonlinear Oscillations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="duffing.html">B3.2 The Duffing Oscillator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vanderpol.html">B3.3 Self-Sustained Oscillations and the Van der Pol Oscillator</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">B3.4 Synchronization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chaos.html">B3.5 Chaos and Sensitive Dependence on Initial Conditions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spring-pendulum.html">B3.6 The Spring Pendulum: A Capstone Project in Nonlinear Dynamics</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Module-B3/sync.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-B3/sync.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>B3.4 Synchronization</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-4-1-motivation">B3.4.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-4-2-huygens-and-the-discovery-of-synchronization">B3.4.2 Huygens and the Discovery of Synchronization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-4-3-phase-and-frequency">B3.4.3 Phase and Frequency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-4-4-frequency-entrainment">B3.4.4 Frequency Entrainment</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-coupling">Weak Coupling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stronger-coupling">Stronger Coupling</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-4-5-the-kuramoto-model">B3.4.5 The Kuramoto Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Weak Coupling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strong-coupling">Strong Coupling</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-4-6-measuring-synchronization">B3.4.6 Measuring Synchronization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#completely-disordered-oscillators">Completely Disordered Oscillators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-synchronization">Partial Synchronization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-synchronization">Complete Synchronization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-4-7-applications-of-synchronization">B3.4.7 Applications of Synchronization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#biological-systems">Biological Systems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-systems">Physical Systems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineering-systems">Engineering Systems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#human-behavior">Human Behavior</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="b3-4-synchronization">
+<h1>B3.4 Synchronization<a class="headerlink" href="#b3-4-synchronization" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="b3-4-1-motivation">
+<h2>B3.4.1 Motivation<a class="headerlink" href="#b3-4-1-motivation" title="Link to this heading">#</a></h2>
+<p>Throughout this chapter, we have studied oscillators primarily in isolation. Real systems, however, rarely exist independently. Oscillators often interact with one another through weak couplings that allow energy or information to be exchanged.</p>
+<p>One of the most remarkable discoveries of nonlinear dynamics is that interacting oscillators frequently organize themselves into a common rhythm. This phenomenon is known as <strong>synchronization</strong>.</p>
+<p>Synchronization appears in an astonishing variety of systems, including:</p>
+<ul class="simple">
+<li><p>pendulum clocks,</p></li>
+<li><p>metronomes mounted on a moving platform,</p></li>
+<li><p>flashing fireflies,</p></li>
+<li><p>cardiac pacemaker cells,</p></li>
+<li><p>neurons,</p></li>
+<li><p>applauding audiences,</p></li>
+<li><p>circadian rhythms,</p></li>
+<li><p>electrical power grids.</p></li>
+</ul>
+<p>Although these systems differ enormously in their physical nature, they share a common mathematical behavior.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Synchronization</strong>
+<p>Synchronization occurs when interacting oscillators adjust their motions so that they oscillate with a common frequency and maintain a constant phase relationship.</p>
+<p>The oscillators need not move in phase. Any constant phase difference corresponds to synchronized motion.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Coupled Oscillators versus Synchronization</strong>
+<p>In Module B2, we studied coupled oscillators such as two masses connected by springs or coupled pendulums. Those systems were typically linear, and their motion could be understood in terms of normal modes and superposition.</p>
+<p>Synchronization concerns a different class of systems: interacting <em>self-sustained oscillators</em>. Rather than decomposing the motion into normal modes, these oscillators gradually adjust their frequencies and phases until a common rhythm emerges.</p>
+<p>Thus,</p>
+<ul>
+<li><strong>Linear coupled oscillators</strong> → normal modes and superposition.</li>
+<li><strong>Nonlinear self-sustained oscillators</strong> → synchronization and phase locking.</li>
+</ul>
+<p>Synchronization may therefore be viewed as the nonlinear counterpart of normal-mode behavior.</p>
+</div>
+<hr class="docutils" />
+<p>At first glance, synchronization may seem surprising. One might expect a collection of oscillators with different initial conditions to remain disordered forever.</p>
+<p>Instead, weak interactions often cause the oscillators to gradually coordinate their motions and develop a common rhythm. This spontaneous emergence of order is one of the most beautiful examples of <strong>collective behavior</strong> in physics.</p>
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Example — Metronomes Synchronizing</h3>
+<p>Suppose several metronomes are placed on a board supported by rollers.</p>
+<p>Initially, the metronomes are started with random phases and appear completely uncoordinated.</p>
+<p>Because the board is free to move, however, the motion of each metronome slightly influences the others through the common support.</p>
+<p>After some time, the metronomes spontaneously synchronize and swing together with a common rhythm.</p>
+<p>This striking demonstration illustrates how weak coupling can transform disorder into coordinated motion.</p>
+<p><a class="reference external" href="https://youtu.be/T58lGKREubo?si=6x0mZAAlS9QspHof">Here is a UCLA video demo</a></p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Curiosity</strong></p>
+<p>Synchronization is not limited to physics.</p>
+<p>Biologists study synchronized flashing of fireflies and synchronized firing of neurons. Physicians investigate synchronization among cardiac pacemaker cells, while engineers analyze synchronization in electrical power grids and communication networks.</p>
+<p>Thus, synchronization represents one of the most universal phenomena in science.</p>
+</div>
+<p>In the next section, we will examine the historical discovery of synchronization by Christiaan Huygens and his famous observation of the “sympathy of clocks.”</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b3-4-2-huygens-and-the-discovery-of-synchronization">
+<h2>B3.4.2 Huygens and the Discovery of Synchronization<a class="headerlink" href="#b3-4-2-huygens-and-the-discovery-of-synchronization" title="Link to this heading">#</a></h2>
+<p>The phenomenon of synchronization was first studied scientifically by the Dutch mathematician and physicist <strong>Christiaan Huygens</strong> in 1665.</p>
+<p>While recovering from an illness, Huygens noticed an unusual behavior involving two pendulum clocks mounted on the same wooden support. Even when the clocks were started with different phases, they eventually settled into a coordinated motion.</p>
+<p>He described this remarkable behavior as the <strong>“sympathy of clocks.”</strong></p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Huygens' Observation</strong>
+<p>Two pendulum clocks mounted on the same support gradually adjusted their motions and eventually oscillated with a fixed phase relationship.</p>
+<p>This discovery represents the first documented observation of synchronization.</p>
+</div>
+<hr class="docutils" />
+<p>Initially, Huygens believed that the synchronization arose from air currents. Later investigations showed that the coupling actually occurs through tiny vibrations transmitted by the common support.</p>
+<p>As one clock swings, it imparts small forces to the supporting beam. These vibrations are transmitted to the other clock, providing a weak interaction between the two oscillators.</p>
+<p>Over time, this weak coupling causes the clocks to adjust their motions until a stable synchronized state is reached.</p>
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Example — Anti-Phase Synchronization</h3>
+<p>Suppose two identical pendulum clocks are mounted on the same beam.</p>
+<p>Initially, their phases are arbitrary. As the clocks interact through small vibrations of the support, energy is exchanged between the oscillators.</p>
+<p>After sufficient time, the clocks often settle into a state in which one pendulum reaches its maximum displacement while the other reaches its minimum displacement.</p>
+<p>The phase difference between the clocks is then approximately</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta\phi=\pi,
+\]</div>
+<p>corresponding to anti-phase synchronization.</p>
+<p>This configuration minimizes the motion of the supporting beam and is therefore particularly stable.</p>
+</div>
+<p>Unlike the coupled pendulums studied in Module B2, Huygens’ clocks are self-sustained oscillators. Each clock continually receives energy from its escapement mechanism, compensating for frictional losses and maintaining nearly constant amplitude.</p>
+<p>Consequently, the synchronization involves not only energy exchange but also the adjustment of frequencies and phases.</p>
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Curiosity</strong></p>
+<p>Modern experiments have confirmed Huygens’ observations using pendulum clocks, metronomes, lasers, and even microscopic oscillators.</p>
+<p>The same principles discovered more than 350 years ago now play important roles in neuroscience, cardiology, chemistry, and electrical engineering.</p>
+</div>
+<p>Huygens’ clocks illustrate an important principle: synchronization does not require strong interactions. Even extremely weak coupling can eventually produce coordinated motion.</p>
+<p>In the next section, we will introduce the concepts of phase and frequency and develop the language needed to describe synchronization quantitatively.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b3-4-3-phase-and-frequency">
+<h2>B3.4.3 Phase and Frequency<a class="headerlink" href="#b3-4-3-phase-and-frequency" title="Link to this heading">#</a></h2>
+<p>To understand synchronization quantitatively, we need a language for describing the state of an oscillator. For self-sustained oscillators, the most important quantities are the <strong>frequency</strong> and the <strong>phase</strong>.</p>
+<p>Recall that a sinusoidal oscillation may be written as</p>
+<div class="math notranslate nohighlight">
+\[
+x(t)=A\cos(\omega t+\phi),
+\]</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(A\)</span> is the amplitude,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\omega\)</span> is the angular frequency,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\phi\)</span> is the phase constant.</p></li>
+</ul>
+<p>The phase determines where the oscillator is within its cycle at a particular instant.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Phase</strong>
+<p>The phase of an oscillator specifies its position within the oscillation cycle.</p>
+<p>Oscillators having the same frequency may nevertheless be separated by a phase difference.</p>
+</div>
+<hr class="docutils" />
+<p>Suppose two oscillators are described by</p>
+<div class="math notranslate nohighlight">
+\[
+x_1(t)=A_1\cos(\omega_1t+\phi_1),
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+x_2(t)=A_2\cos(\omega_2t+\phi_2).
+\]</div>
+<p>The quantity</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta\phi=\phi_2-\phi_1
+\]</div>
+<p>is called the <strong>phase difference</strong>.</p>
+<p>If the oscillators have different frequencies,</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_1\neq\omega_2,
+\]</div>
+<p>the phase difference changes continuously with time and the oscillators gradually drift apart.</p>
+<p>However, if the frequencies become equal,</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_1=\omega_2,
+\]</div>
+<p>the phase difference may become constant. In this case, the oscillators are said to be <strong>phase locked</strong>.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Phase Locking</strong>
+<p>Two oscillators are phase locked when they oscillate with the same frequency and maintain a constant phase difference,</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta\phi=\text{constant}.
+\]</div>
+<p>The phase difference need not be zero.</p>
+</div>
+<hr class="docutils" />
+<p>Several forms of synchronized motion are possible.</p>
+<p>If</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta\phi=0,
+\]</div>
+<p>the oscillators reach their maxima and minima simultaneously. This is called <strong>in-phase synchronization</strong>.</p>
+<p>If</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta\phi=\pi,
+\]</div>
+<p>one oscillator reaches its maximum displacement when the other reaches its minimum. This is called <strong>anti-phase synchronization</strong>.</p>
+<p>More generally, any constant value of</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta\phi
+\]</div>
+<p>corresponds to synchronized motion.</p>
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Curiosity</strong></p>
+<p>Synchronization is fundamentally a phenomenon of phases rather than amplitudes.</p>
+<p>In many applications, the amplitudes remain nearly constant while the phases evolve and eventually lock together. Consequently, many mathematical models of synchronization focus exclusively on phase variables.</p>
+</div>
+<p>In the next section, we will examine how oscillators with slightly different natural frequencies can nevertheless synchronize through the phenomenon of frequency entrainment.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b3-4-4-frequency-entrainment">
+<h2>B3.4.4 Frequency Entrainment<a class="headerlink" href="#b3-4-4-frequency-entrainment" title="Link to this heading">#</a></h2>
+<p>In the previous section, we saw that synchronized oscillators maintain a constant phase difference. An even more surprising phenomenon occurs when oscillators with slightly different natural frequencies interact.</p>
+<p>Rather than continuing to drift apart, the oscillators may gradually adjust their frequencies until they oscillate together with a common frequency. This phenomenon is known as <strong>frequency entrainment</strong>.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Frequency Entrainment</strong>
+<p>Frequency entrainment occurs when interacting oscillators having different natural frequencies adjust their motions and eventually oscillate at a common frequency.</p>
+</div>
+<hr class="docutils" />
+<p>To understand this behavior, suppose two oscillators have natural frequencies</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_1
+\quad\text{and}\quad
+\omega_2,
+\]</div>
+<p>with</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_1\neq\omega_2.
+\]</div>
+<p>If the oscillators are uncoupled, their phase difference changes continuously with time and the oscillators gradually drift out of sync.</p>
+<p>However, if a weak coupling is introduced, the oscillators may influence one another. When the difference between their natural frequencies is sufficiently small, the coupling can overcome the tendency to drift apart and force the oscillators to adopt a common frequency.</p>
+<p>Once this occurs, the phase difference becomes constant and synchronization is achieved.</p>
+<section id="weak-coupling">
+<h3>Weak Coupling<a class="headerlink" href="#weak-coupling" title="Link to this heading">#</a></h3>
+<p>If the interaction between the oscillators is too weak, the coupling is unable to compensate for the frequency mismatch.</p>
+<p>Consequently, the oscillators continue to drift relative to one another and no synchronization occurs.</p>
+</section>
+<section id="stronger-coupling">
+<h3>Stronger Coupling<a class="headerlink" href="#stronger-coupling" title="Link to this heading">#</a></h3>
+<p>As the coupling strength increases, the oscillators begin to influence each other more strongly.</p>
+<p>Eventually, the frequencies lock together and the phase difference approaches a constant value. The oscillators are then said to be entrained.</p>
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Example — Circadian Rhythms</h3>
+<p>Human beings possess an internal biological clock whose natural period is slightly longer than 24 hours.</p>
+<p>Exposure to sunlight acts as a weak external coupling that continually adjusts the body’s rhythm.</p>
+<p>As a result, the biological clock becomes entrained to the 24-hour cycle of day and night.</p>
+<p>Without this entrainment, our sleep-wake cycle would gradually drift relative to the Earth’s rotation.</p>
+</div>
+<p>Other examples of frequency entrainment include:</p>
+<ul class="simple">
+<li><p>metronomes mounted on a movable platform,</p></li>
+<li><p>cardiac pacemaker cells,</p></li>
+<li><p>fireflies flashing in unison,</p></li>
+<li><p>neural oscillations,</p></li>
+<li><p>electrical power grids,</p></li>
+<li><p>and driven pendulums.</p></li>
+</ul>
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Curiosity</strong></p>
+<p>The term “entrainment” comes from the French word meaning “to draw along.”</p>
+<p>Indeed, one oscillator effectively pulls another oscillator into a common rhythm.</p>
+<p>This phenomenon is so widespread that entire populations containing thousands or even millions of oscillators can synchronize through surprisingly weak interactions.</p>
+</div>
+<p>The examples considered so far involve only a few oscillators. In the next section, we shall develop a mathematical model capable of describing synchronization in large populations of interacting oscillators.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="b3-4-5-the-kuramoto-model">
+<h2>B3.4.5 The Kuramoto Model<a class="headerlink" href="#b3-4-5-the-kuramoto-model" title="Link to this heading">#</a></h2>
+<p>The examples considered so far involve only a few interacting oscillators. In many physical, biological, and engineering systems, however, synchronization occurs among hundreds, thousands, or even millions of oscillators.</p>
+<p>To describe such systems, the Japanese physicist <strong>Yoshiki Kuramoto</strong> introduced a remarkably simple mathematical model in the 1970s.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Kuramoto Model</strong>
+<p>The Kuramoto model describes a collection of interacting oscillators using only their phases.</p>
+<p>For a system containing</p>
+<div class="math notranslate nohighlight">
+\[
+N
+\]</div>
+<p>oscillators, the phase of oscillator</p>
+<div class="math notranslate nohighlight">
+\[
+i
+\]</div>
+<p>is denoted by</p>
+<div class="math notranslate nohighlight">
+\[
+\theta_i,
+\]</div>
+<p>and its evolution is governed by</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{\theta}_i
+=
+\omega_i
++
+\frac{K}{N}
+\sum_{j=1}^{N}
+\sin(\theta_j-\theta_i),
+\]</div>
+<p>where</p>
+<ul>
+<li>$\omega_i$ is the natural frequency of oscillator $i$,</li>
+<li>$K$ is the coupling strength, and</li>
+<li>the summation represents the influence of all other oscillators.</li>
+</ul>
+<p>The first term causes each oscillator to rotate at its own preferred frequency, while the second term tends to reduce phase differences and promote synchronization.</p>
+<p>Thus, the Kuramoto model describes the competition between the tendency of oscillators to drift apart and the tendency of coupling to bring them into a common rhythm.</p>
+</div>
+<section id="id1">
+<h3>Weak Coupling<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>When</p>
+<div class="math notranslate nohighlight">
+\[
+K
+\]</div>
+<p>is very small, the oscillators behave almost independently.</p>
+<p>Their phases continually drift relative to one another, producing a disordered state.</p>
+</section>
+<section id="strong-coupling">
+<h3>Strong Coupling<a class="headerlink" href="#strong-coupling" title="Link to this heading">#</a></h3>
+<p>As</p>
+<div class="math notranslate nohighlight">
+\[
+K
+\]</div>
+<p>increases, the oscillators exert a stronger influence on one another.</p>
+<p>Eventually, the coupling becomes strong enough to overcome the differences in natural frequencies, and a common rhythm begins to emerge.</p>
+<p>This transition from disorder to synchronization is one of the central ideas of modern nonlinear dynamics.</p>
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Example — Fireflies</h3>
+<p>Imagine a large population of fireflies, each possessing its own natural flashing frequency.</p>
+<p>Initially, the flashes appear random and uncoordinated.</p>
+<p>As the insects observe one another, weak interactions gradually alter their phases. Eventually, the entire population may flash together with a common rhythm.</p>
+<p>The Kuramoto model captures this remarkable collective behavior using only phase variables and simple sinusoidal coupling.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#ffe6e6; border-left:6px solid #cc0000; padding:14px; border-radius:4px;">
+<strong>Important:</strong><br>
+<p>The Kuramoto model does not describe the amplitudes of the oscillators.</p>
+<p>Instead, it assumes that each oscillator already possesses a stable limit cycle and focuses exclusively on the evolution of the phases.</p>
+<p>Consequently, synchronization is fundamentally a phenomenon of phase dynamics.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Curiosity</strong></p>
+<p>One of the most surprising discoveries associated with the Kuramoto model is that complete synchronization can emerge even when every oscillator has a different natural frequency.</p>
+<p>Order can therefore arise spontaneously from disorder through the action of weak interactions.</p>
+</div>
+<p>In the next section, we will introduce a quantitative measure of synchronization and learn how to distinguish between disordered and synchronized populations.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="b3-4-6-measuring-synchronization">
+<h2>B3.4.6 Measuring Synchronization<a class="headerlink" href="#b3-4-6-measuring-synchronization" title="Link to this heading">#</a></h2>
+<p>When studying a large population of oscillators, it is useful to have a quantitative measure of how synchronized the system is.</p>
+<p>At one extreme, the oscillators may have completely random phases and exhibit no collective behavior. At the other extreme, they may oscillate almost perfectly together with a common rhythm.</p>
+<p>To distinguish between these situations, physicists introduce the <strong>order parameter</strong>.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Order Parameter</strong>
+<p>The order parameter</p>
+<div class="math notranslate nohighlight">
+\[
+r
+\]</div>
+<p>provides a measure of the degree of synchronization within a population of oscillators.</p>
+<p>Its value lies between</p>
+<div class="math notranslate nohighlight">
+\[
+0\le r\le1.
+\]</div>
+<p>Values near</p>
+<div class="math notranslate nohighlight">
+\[
+r=0
+\]</div>
+<p>correspond to disordered motion, whereas values near</p>
+<div class="math notranslate nohighlight">
+\[
+r=1
+\]</div>
+<p>indicate strong synchronization.</p>
+</div>
+<hr class="docutils" />
+<section id="completely-disordered-oscillators">
+<h3>Completely Disordered Oscillators<a class="headerlink" href="#completely-disordered-oscillators" title="Link to this heading">#</a></h3>
+<p>Suppose the phases are randomly distributed around the circle.</p>
+<p>In this case, the oscillators point in many different directions and their collective behavior averages out.</p>
+<p>Consequently,</p>
+<div class="math notranslate nohighlight">
+\[
+r\approx0,
+\]</div>
+<p>indicating the absence of synchronization.</p>
+</section>
+<section id="partial-synchronization">
+<h3>Partial Synchronization<a class="headerlink" href="#partial-synchronization" title="Link to this heading">#</a></h3>
+<p>As the coupling strength increases, some oscillators begin to lock together.</p>
+<p>A common rhythm gradually emerges, and the order parameter takes intermediate values,</p>
+<div class="math notranslate nohighlight">
+\[
+0&lt;r&lt;1.
+\]</div>
+<p>The system is then partially synchronized.</p>
+</section>
+<section id="complete-synchronization">
+<h3>Complete Synchronization<a class="headerlink" href="#complete-synchronization" title="Link to this heading">#</a></h3>
+<p>When nearly all oscillators oscillate with the same frequency and maintain fixed phase relationships, the order parameter approaches</p>
+<div class="math notranslate nohighlight">
+\[
+r\approx1.
+\]</div>
+<p>The population behaves as a coherent whole.</p>
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Example — Fireflies Flashing Together</h3>
+<p>Consider a large population of fireflies.</p>
+<p>Initially, each insect flashes independently, producing a random pattern. The corresponding order parameter is close to zero.</p>
+<p>As the fireflies interact with one another, groups begin to synchronize. The value of</p>
+<div class="math notranslate nohighlight">
+\[
+r
+\]</div>
+<p>gradually increases.</p>
+<p>Eventually, the entire population flashes almost simultaneously, corresponding to</p>
+<div class="math notranslate nohighlight">
+\[
+r\approx1.
+\]</div>
+<p>Thus, the order parameter provides a quantitative measure of the emergence of collective behavior.</p>
+</div><div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Synchronizing 50 Fireflies</h3>
+<p>In this activity, you will model a population of 50 fireflies using the Kuramoto model,</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{\theta}_i
+=
+\omega_i
++
+\frac{K}{N}
+\sum_{j=1}^{N}
+\sin(\theta_j-\theta_i).
+\]</div>
+<p>Each firefly is represented by a phase angle</p>
+<div class="math notranslate nohighlight">
+\[
+\theta_i.
+\]</div>
+<p>When the phases are random, the fireflies flash independently. When the phases become aligned, the fireflies flash together.</p>
+<p>Your script should:</p>
+<ol class="arabic">
+<li><p>Use</p>
+<div class="math notranslate nohighlight">
+\[
+   N=50
+   \]</div>
+<p>oscillators.</p>
+</li>
+<li><p>Assign each firefly a slightly different natural frequency</p>
+<div class="math notranslate nohighlight">
+\[
+   \omega_i.
+   \]</div>
+</li>
+<li><p>Start the fireflies with random initial phases.</p></li>
+<li><p>Choose a coupling strength</p>
+<div class="math notranslate nohighlight">
+\[
+   K
+   \]</div>
+<p>large enough to produce synchronization.</p>
+</li>
+<li><p>Numerically evolve the phases using the Kuramoto model.</p></li>
+<li><p>Plot the phases as a function of time.</p></li>
+<li><p>Compute and plot the order parameter</p>
+<div class="math notranslate nohighlight">
+\[
+   r(t),
+   \]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+   r\approx0
+   \]</div>
+<p>indicates disorder and</p>
+<div class="math notranslate nohighlight">
+\[
+   r\approx1
+   \]</div>
+<p>indicates synchronization.</p>
+</li>
+<li><p>Explain how the plot shows the emergence of collective behavior.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>At early times, the phases are randomly distributed, so the order parameter should be small:</p>
+<div class="math notranslate nohighlight">
+\[
+r(t)\approx0.
+\]</div>
+<p>As the fireflies interact through the coupling term, their phases begin to align. The order parameter then increases.</p>
+<p>When the fireflies become synchronized,</p>
+<div class="math notranslate nohighlight">
+\[
+r(t)
+\]</div>
+<p>approaches a value near</p>
+<div class="math notranslate nohighlight">
+\[
+1.
+\]</div>
+<p>This demonstrates that weak interactions can transform a disordered collection of oscillators into an organized collective rhythm.</p>
+</div>
+</details>
+</div><div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Kuramoto model: synchronizing 50 fireflies</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="c1"># Number of fireflies</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">50</span>
+
+<span class="c1"># Coupling strength</span>
+<span class="n">K</span> <span class="o">=</span> <span class="mf">2.0</span>
+
+<span class="c1"># Time settings</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">t_max</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_max</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+
+<span class="c1"># Random seed for reproducibility</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="c1"># Natural frequencies</span>
+<span class="c1"># Fireflies have slightly different natural flashing rates</span>
+<span class="n">omega</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
+
+<span class="c1"># Initial phases randomly distributed from 0 to 2pi</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
+
+<span class="c1"># Store phase history and order parameter</span>
+<span class="n">theta_history</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">N</span><span class="p">))</span>
+<span class="n">r_history</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Time evolution</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)):</span>
+    
+    <span class="c1"># Store current phases</span>
+    <span class="n">theta_history</span><span class="p">[</span><span class="n">n</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">theta</span>
+    
+    <span class="c1"># Compute order parameter</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">theta</span><span class="p">))</span>
+    <span class="n">r_history</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+    
+    <span class="c1"># Kuramoto coupling term</span>
+    <span class="n">coupling</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">coupling</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span> <span class="o">-</span> <span class="n">theta</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+    
+    <span class="c1"># Euler update</span>
+    <span class="n">theta_dot</span> <span class="o">=</span> <span class="n">omega</span> <span class="o">+</span> <span class="p">(</span><span class="n">K</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">*</span><span class="n">coupling</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">theta</span> <span class="o">+</span> <span class="n">theta_dot</span><span class="o">*</span><span class="n">dt</span>
+    
+    <span class="c1"># Keep phases between 0 and 2pi for plotting</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Plot phases versus time</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">theta_history</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Phase $\theta_i$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Phases of 50 Coupled Fireflies&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Plot order parameter</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">r_history</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Order parameter $r(t)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Emergence of Synchronization&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<img alt="../_images/414f6731ed7d73d3637f6fa4489e403f2aef8d24cfdc13a95d9debec36dadfc7.png" src="../_images/414f6731ed7d73d3637f6fa4489e403f2aef8d24cfdc13a95d9debec36dadfc7.png" />
+<img alt="../_images/6005c4cec532fdc1c597ccbcec20fb46751adf5ed28ef894c72226457df868b9.png" src="../_images/6005c4cec532fdc1c597ccbcec20fb46751adf5ed28ef894c72226457df868b9.png" />
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Curiosity</strong></p>
+<p>The concept of an order parameter also appears in many other areas of physics.</p>
+<p>For example, magnetization measures the degree of alignment in a ferromagnet, while density distinguishes liquid and gaseous phases.</p>
+<p>The order parameter for synchronization plays a similar role by measuring the amount of collective order in a population of oscillators.</p>
+</div>
+<p>In the next section, we will explore some of the many physical systems in which synchronization appears, ranging from biology and medicine to engineering and modern technology.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="b3-4-7-applications-of-synchronization">
+<h2>B3.4.7 Applications of Synchronization<a class="headerlink" href="#b3-4-7-applications-of-synchronization" title="Link to this heading">#</a></h2>
+<p>Synchronization appears in systems that look very different on the surface but share a common dynamical structure: many oscillators interact, exchange information or energy, and eventually develop coordinated motion.</p>
+<section id="biological-systems">
+<h3>Biological Systems<a class="headerlink" href="#biological-systems" title="Link to this heading">#</a></h3>
+<p>Synchronization is essential in many living systems. Cardiac pacemaker cells coordinate their electrical activity to produce a regular heartbeat, while neurons can synchronize their firing patterns to generate brain rhythms. Circadian clocks also entrain to environmental cues, especially the day-night cycle.</p>
+<p>Fireflies provide one of the most visually striking biological examples. In some species, large groups gradually adjust their flashing rhythms until entire populations flash together.</p>
+</section>
+<section id="physical-systems">
+<h3>Physical Systems<a class="headerlink" href="#physical-systems" title="Link to this heading">#</a></h3>
+<p>Synchronization also occurs in many physical systems. Josephson junction arrays can phase lock, producing coherent electrical oscillations. Lasers can synchronize their optical fields, and coupled mechanical oscillators can lock into common rhythms.</p>
+<p>These examples show that synchronization is not restricted to biological systems but is a general property of interacting nonlinear oscillators.</p>
+</section>
+<section id="engineering-systems">
+<h3>Engineering Systems<a class="headerlink" href="#engineering-systems" title="Link to this heading">#</a></h3>
+<p>Engineers must often design systems that either promote or prevent synchronization. Electrical power grids require generators to remain synchronized so that power is delivered at a stable frequency. Communication systems use phase locking to synchronize signals, while timing circuits rely on stable oscillatory behavior.</p>
+<p>However, unwanted synchronization can also be dangerous. For example, pedestrians walking on a bridge may unintentionally synchronize their footsteps with the motion of the structure, increasing vibrations.</p>
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Example — When Synchronization Becomes Dangerous</h3>
+<p>In 1831, soldiers marching across the Broughton Suspension Bridge unintentionally synchronized their footsteps with the vibrations of the bridge. The resulting oscillations grew large enough to damage the structure.</p>
+<p>A similar phenomenon occurred in 2000 on London’s Millennium Bridge, where pedestrians unconsciously adjusted their gait to the swaying motion of the bridge. This feedback caused large lateral oscillations and forced the bridge to close temporarily.</p>
+<p>These examples illustrate that synchronization can sometimes produce undesirable or even catastrophic consequences.</p>
+</div>
+</section>
+<section id="human-behavior">
+<h3>Human Behavior<a class="headerlink" href="#human-behavior" title="Link to this heading">#</a></h3>
+<p>Groups of people can also synchronize. Audiences may begin clapping in rhythm, rowers coordinate their strokes, and musicians lock into a shared tempo. These examples demonstrate that synchronization is not merely mechanical but also social and behavioral.</p>
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Curiosity and Looking Ahead</strong></p>
+<p>Synchronization shows how order can emerge spontaneously from interaction.</p>
+<p>However, nonlinear systems do not always settle into orderly motion. Under different conditions, small differences in initial conditions may grow rapidly, causing the motion to become irregular and unpredictable.</p>
+<p>This transition from order to unpredictability leads naturally to the next part of the module: the onset of chaos.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-B3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="vanderpol.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">B3.3 Self-Sustained Oscillations and the Van der Pol Oscillator</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="chaos.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">B3.5 Chaos and Sensitive Dependence on Initial Conditions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-4-1-motivation">B3.4.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-4-2-huygens-and-the-discovery-of-synchronization">B3.4.2 Huygens and the Discovery of Synchronization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-4-3-phase-and-frequency">B3.4.3 Phase and Frequency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-4-4-frequency-entrainment">B3.4.4 Frequency Entrainment</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-coupling">Weak Coupling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stronger-coupling">Stronger Coupling</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-4-5-the-kuramoto-model">B3.4.5 The Kuramoto Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Weak Coupling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strong-coupling">Strong Coupling</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-4-6-measuring-synchronization">B3.4.6 Measuring Synchronization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#completely-disordered-oscillators">Completely Disordered Oscillators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-synchronization">Partial Synchronization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-synchronization">Complete Synchronization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-4-7-applications-of-synchronization">B3.4.7 Applications of Synchronization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#biological-systems">Biological Systems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-systems">Physical Systems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineering-systems">Engineering Systems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#human-behavior">Human Behavior</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

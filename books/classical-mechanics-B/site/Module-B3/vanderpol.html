@@ -1,0 +1,1390 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>B3.3 Self-Sustained Oscillations and the Van der Pol Oscillator &#8212; A Competency Approach to Classical Mechanics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-B3/vanderpol';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="B3.4 Synchronization" href="sync.html" />
+    <link rel="prev" title="B3.2 The Duffing Oscillator" href="duffing.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-B.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Home"/>
+    <script>document.write(`<img src="../_static/logo-B.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the B Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://gemini.google.com/gem/10l7TNMxLkYkxP1cGjSu5uEvK_RAC-A9n?usp=sharing">Physics Coding Architect (PyAIGem)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B1 - Advanced Rotational Dynamics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/principal-axes.html">B1.1 Principal Axes in Rotational Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/kinetic-energy.html">B1.2 Kinetic Energy in Rotational Dynamics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/euler-angles.html">B1.3 Euler Angles and Rigid Body Orientation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/body-space-frames.html">B1.4 Body and Space Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/eulers-equations-motion.html">B1.5 Euler’s Equations of Motion for Rigid Bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/euler-angles-equations.html">B1.6 Connecting Euler Angles and Euler’s Equations of Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/quaternions.html">B1.7 Beyond Euler Angles: Quaternions, Axis-Angle, and Rotation Vectors for 3D Orientation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/tennis-racket.html">B1.8 The Tennis Racket Problem and the Intermediate Axis Theorem</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B2 - Extensions of Coupled Oscillations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/LOC-B2.html">B2.0 Learning Outcomes: Extensions of Coupled Oscillations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/oscillator-to-wave.html">B2.1 Oscillator Chains and the Wave Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/construction.html">B2.2 Constructing Lissajous Figures: Two Perpendicular SHM Motions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/frequency-ratios.html">B2.3 Frequency Ratios, Phase Difference, and Closure Conditions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/applications.html">B2.4 Example Applications of Lissajous Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/parametric-resonance.html">B2.5 Parametric Resonance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/problemsB2.html">B2.6 — Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B3 - Nonlinear Oscillations and Onset of Chaos</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-B3.html">B3.0 Learning Outcomes: Nonlinear Oscillations and Onset of Chaos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">B3.1 Introduction to Nonlinear Oscillations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="duffing.html">B3.2 The Duffing Oscillator</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">B3.3 Self-Sustained Oscillations and the Van der Pol Oscillator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sync.html">B3.4 Synchronization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chaos.html">B3.5 Chaos and Sensitive Dependence on Initial Conditions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spring-pendulum.html">B3.6 The Spring Pendulum: A Capstone Project in Nonlinear Dynamics</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Module-B3/vanderpol.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-B3/vanderpol.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>B3.3 Self-Sustained Oscillations and the Van der Pol Oscillator</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-3-1-motivation">B3.3.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-3-2-negative-damping-and-self-sustained-motion">B3.3.2 Negative Damping and Self-Sustained Motion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-3-3-the-van-der-pol-equation">B3.3.3 The Van der Pol Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-3-4-energy-flow-and-nonlinear-damping">B3.3.4 Energy Flow and Nonlinear Damping</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-3-5-phase-portraits-of-the-van-der-pol-oscillator">B3.3.5 Phase Portraits of the Van der Pol Oscillator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-3-6-limit-cycles">B3.3.6 Limit Cycles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-3-7-relaxation-oscillations">B3.3.7 Relaxation Oscillations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#small-values-of-mu">Small Values of <span class="math notranslate nohighlight">\(\mu\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moderate-values-of-mu">Moderate Values of <span class="math notranslate nohighlight">\(\mu\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#large-values-of-mu">Large Values of <span class="math notranslate nohighlight">\(\mu\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-3-8-applications-of-self-sustained-oscillators">B3.3.8 Applications of Self-Sustained Oscillators</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#biological-oscillators">Biological Oscillators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#electronic-oscillators">Electronic Oscillators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optical-systems">Optical Systems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chemical-oscillators">Chemical Oscillators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geophysical-systems">Geophysical Systems</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="b3-3-self-sustained-oscillations-and-the-van-der-pol-oscillator">
+<h1>B3.3 Self-Sustained Oscillations and the Van der Pol Oscillator<a class="headerlink" href="#b3-3-self-sustained-oscillations-and-the-van-der-pol-oscillator" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="b3-3-1-motivation">
+<h2>B3.3.1 Motivation<a class="headerlink" href="#b3-3-1-motivation" title="Link to this heading">#</a></h2>
+<p>In all of our previous examples, oscillations either arose from initial conditions or were maintained by an external periodic force. A pendulum swings because it is initially displaced. A driven oscillator continues oscillating because energy is supplied by an external driving force.</p>
+<p>Many systems in nature, however, are capable of sustaining oscillations by themselves.</p>
+<p>Examples include:</p>
+<ul class="simple">
+<li><p>heart pacemaker cells,</p></li>
+<li><p>neurons,</p></li>
+<li><p>laser cavities,</p></li>
+<li><p>electronic oscillators,</p></li>
+<li><p>circadian rhythms,</p></li>
+<li><p>and certain chemical reactions.</p></li>
+</ul>
+<p>These systems do not require an external periodic force to maintain their motion. Instead, energy is supplied internally, while nonlinear effects regulate the amplitude and prevent unlimited growth.</p>
+<p>Such systems are known as <strong>self-sustained oscillators</strong>.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Self-Sustained Oscillation</strong>
+<p>A self-sustained oscillator is a system that maintains periodic motion without requiring an external periodic driving force.</p>
+<p>Energy is continually supplied and dissipated within the system itself, producing oscillations of nearly constant amplitude.</p>
+</div>
+<p>Unlike simple harmonic oscillators, self-sustained oscillators possess an intrinsic mechanism that balances energy gain and energy loss.</p>
+<p>As we shall see, one of the simplest mathematical models exhibiting this behavior is the <strong>Van der Pol oscillator</strong>, which introduces a nonlinear damping mechanism that automatically stabilizes the oscillation amplitude.</p>
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Curiosity</strong></p>
+<p>Self-sustained oscillations are everywhere in nature. Your heartbeat, breathing cycle, sleep-wake rhythm, and even the flashing of fireflies are examples of systems that continue oscillating without being periodically driven from the outside.</p>
+<p>Understanding how such oscillations arise is one of the central goals of nonlinear dynamics.</p>
+</div>
+<p>In the next section, we will investigate the surprising idea that damping does not always remove energy. Under certain conditions, damping can actually inject energy into a system and sustain oscillatory motion.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b3-3-2-negative-damping-and-self-sustained-motion">
+<h2>B3.3.2 Negative Damping and Self-Sustained Motion<a class="headerlink" href="#b3-3-2-negative-damping-and-self-sustained-motion" title="Link to this heading">#</a></h2>
+<p>Ordinary damping removes energy from a system.</p>
+<p>For example, a damped harmonic oscillator obeys</p>
+<div class="math notranslate nohighlight">
+\[
+m\ddot{x}+b\dot{x}+kx=0,
+\]</div>
+<p>where the damping force</p>
+<div class="math notranslate nohighlight">
+\[
+F_d=-b\dot{x}
+\]</div>
+<p>always acts opposite to the direction of motion.</p>
+<p>As a result, mechanical energy is continuously dissipated and the oscillations gradually decay.</p>
+<hr class="docutils" />
+<p>At first sight, it may seem impossible for a system to maintain oscillations without external periodic forcing. However, some systems are capable of supplying energy to themselves.</p>
+<p>In such systems, the damping force may actually reinforce the motion rather than oppose it.</p>
+<p>This phenomenon is called <strong>negative damping</strong>.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Negative Damping</strong>
+<p>Negative damping occurs when the damping force adds energy to the system instead of removing it.</p>
+<p>Instead of causing oscillations to decay, negative damping causes their amplitude to increase.</p>
+</div>
+<p>For example, if the damping force were</p>
+<div class="math notranslate nohighlight">
+\[
+F_d=+b\dot{x},
+\]</div>
+<p>then the equation of motion would become</p>
+<div class="math notranslate nohighlight">
+\[
+m\ddot{x}-b\dot{x}+kx=0.
+\]</div>
+<p>In this case, the amplitude would grow exponentially because energy is continually injected into the system.</p>
+<div style="background-color:#ffe6e6; border-left:6px solid #cc0000; padding:14px; border-radius:4px;">
+<strong>Danger:</strong><br>
+<p>Pure negative damping does not produce stable oscillations.</p>
+<p>Instead, the amplitude grows without bound, eventually causing the model to break down.</p>
+<p>To obtain self-sustained oscillations, a mechanism must exist that limits the amplitude and balances the energy gain with energy loss.</p>
+</div>
+<p>Nature accomplishes this balance through nonlinear effects.</p>
+<p>At small amplitudes, energy may be supplied to the system.</p>
+<p>At larger amplitudes, dissipative effects become dominant and remove excess energy.</p>
+<p>The competition between these two processes causes the oscillation amplitude to settle to a nearly constant value.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Where Does the Energy Come From?</strong>
+<p>Negative damping does <em>not</em> imply that energy is created from nothing.</p>
+<p>In every physical system exhibiting negative damping, energy is supplied by an external source. The role of the negative damping term is simply to describe how that energy is transferred into the oscillation.</p>
+<p>Examples include:</p>
+<ul>
+<li><strong>Heart cells:</strong> chemical energy from metabolism drives the electrical oscillations.</li>
+<li><strong>Lasers:</strong> energy is supplied by an external power source that pumps atoms into excited states.</li>
+<li><strong>Electronic oscillators:</strong> batteries or power supplies continuously provide energy.</li>
+<li><strong>Clocks:</strong> a spring or falling weight compensates for energy lost to friction.</li>
+<li><strong>Neurons:</strong> ionic concentration gradients maintained by cellular metabolism supply the energy.</li>
+</ul>
+<p>Thus, negative damping should be viewed as an <em>effective description</em> of energy transfer from an external reservoir into the oscillation.</p>
+<p>Ultimately, conservation of energy is never violated.</p>
+</div>
+<hr class="docutils" />
+<p>Examples of self-sustained oscillators include:</p>
+<ul class="simple">
+<li><p>heart pacemaker cells,</p></li>
+<li><p>neurons,</p></li>
+<li><p>laser cavities,</p></li>
+<li><p>vacuum-tube circuits,</p></li>
+<li><p>clocks,</p></li>
+<li><p>and many biological rhythms.</p></li>
+</ul>
+<p>In all these systems, energy is continually supplied and dissipated in such a way that stable oscillations are maintained.</p>
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Curiosity</strong></p>
+<p>One of the earliest examples of self-sustained oscillations was discovered by Balthasar van der Pol while studying electrical circuits containing vacuum tubes in the 1920s. He observed that these circuits produced stable oscillations even without periodic forcing, leading to the development of the famous Van der Pol equation.</p>
+<p>While the Van der Pol oscillator was originally developed to describe vacuum-tube circuits, the same equation appears in fields ranging from biology and neuroscience to lasers and chemical reactions. It is one of the most important models in nonlinear dynamics because it exhibits self-sustained oscillations and stable limit cycles.</p>
+</div>
+<p>In the next section, we will introduce the Van der Pol oscillator and see how nonlinear damping naturally gives rise to self-sustained motion.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b3-3-3-the-van-der-pol-equation">
+<h2>B3.3.3 The Van der Pol Equation<a class="headerlink" href="#b3-3-3-the-van-der-pol-equation" title="Link to this heading">#</a></h2>
+<p>In the previous section, we saw that ordinary damping removes energy from a system, while negative damping injects energy into the motion.</p>
+<p>Pure negative damping, however, is unstable because it causes the amplitude to grow without bound. A realistic self-sustained oscillator must therefore possess a mechanism that limits the growth and stabilizes the oscillation.</p>
+<p>One of the simplest mathematical models exhibiting this behavior is the <strong>Van der Pol oscillator</strong>.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Van der Pol Oscillator</strong>
+<p>The Van der Pol oscillator is a nonlinear oscillator whose damping depends on the amplitude:</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{x}
+-
+\mu(1-x^2)\dot{x}
++
+\omega_0^2x
+=
+0.
+\]</div>
+<p>This amplitude-dependent damping allows the system to sustain oscillations without external periodic forcing.</p>
+</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\omega_0\)</span> is the natural angular frequency,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mu\)</span> determines the strength of the nonlinear damping.</p></li>
+</ul>
+<p>In the next section, we will examine how energy flows into and out of the oscillator and see how nonlinear damping stabilizes the amplitude.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b3-3-4-energy-flow-and-nonlinear-damping">
+<h2>B3.3.4 Energy Flow and Nonlinear Damping<a class="headerlink" href="#b3-3-4-energy-flow-and-nonlinear-damping" title="Link to this heading">#</a></h2>
+<p>The remarkable feature of the Van der Pol oscillator is that it automatically regulates its own amplitude.</p>
+<p>Unlike ordinary damping, which always removes energy, the nonlinear damping term in the Van der Pol equation</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{x}
+-
+\mu(1-x^2)\dot{x}
++
+\omega_0^2x
+=
+0
+\]</div>
+<p>may either add energy to the motion or remove energy from it, depending on the amplitude.</p>
+<p>This continuous exchange of energy gives rise to stable, self-sustained oscillations.</p>
+<hr class="docutils" />
+<p>For small amplitudes,</p>
+<div class="math notranslate nohighlight">
+\[
+|x|&lt;1,
+\]</div>
+<p>we have</p>
+<div class="math notranslate nohighlight">
+\[
+1-x^2&gt;0.
+\]</div>
+<p>The damping term then becomes</p>
+<div class="math notranslate nohighlight">
+\[
+-\mu(1-x^2)\dot{x}
+\approx
+-\mu\dot{x},
+\]</div>
+<p>which corresponds to negative damping.</p>
+<p>Consequently, energy is transferred into the oscillation, causing the amplitude to increase.</p>
+<hr class="docutils" />
+<p>For large amplitudes,</p>
+<div class="math notranslate nohighlight">
+\[
+|x|&gt;1,
+\]</div>
+<p>the factor</p>
+<div class="math notranslate nohighlight">
+\[
+1-x^2
+\]</div>
+<p>becomes negative.</p>
+<p>The damping term then behaves like ordinary damping and removes energy from the motion.</p>
+<p>Thus, large oscillations are suppressed.</p>
+<hr class="docutils" />
+<p>The competition between these two effects produces a natural balance:</p>
+<ul class="simple">
+<li><p>small oscillations grow,</p></li>
+<li><p>large oscillations decay,</p></li>
+<li><p>intermediate oscillations remain stable.</p></li>
+</ul>
+<p>Eventually, the system settles into a periodic motion of nearly constant amplitude.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Self-Regulation of the Amplitude</strong>
+<p>The Van der Pol oscillator continuously adjusts its own amplitude.</p>
+<p>Small oscillations gain energy, while large oscillations lose energy.</p>
+<p>As a result, the amplitude automatically approaches a stable value, independent of the initial conditions.</p>
+</div>
+<p>This behavior is fundamentally different from that of the simple harmonic oscillator.</p>
+<p>For a simple harmonic oscillator,</p>
+<div class="math notranslate nohighlight">
+\[
+m\ddot{x}+kx=0,
+\]</div>
+<p>the amplitude is determined entirely by the initial conditions.</p>
+<p>If the initial amplitude is doubled, the oscillation remains twice as large forever.</p>
+<p>In contrast, the Van der Pol oscillator tends to “forget” its initial conditions and evolves toward a preferred oscillation.</p>
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — How Does the Parameter $\mu$ Affect the Motion?</h3>
+<p>The parameter</p>
+<div class="math notranslate nohighlight">
+\[
+\mu
+\]</div>
+<p>controls the strength of the nonlinear damping in the Van der Pol oscillator,</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{x}
+-
+\mu(1-x^2)\dot{x}
++
+x
+=
+0.
+\]</div>
+<p>As <span class="math notranslate nohighlight">\(\mu\)</span> increases, the character of the oscillation changes from nearly sinusoidal motion to strongly nonlinear relaxation oscillations.</p>
+<p>In this activity, you will use a numerical method to investigate how the waveform changes as the parameter</p>
+<div class="math notranslate nohighlight">
+\[
+\mu
+\]</div>
+<p>is varied.</p>
+<p>Your script should:</p>
+<ol class="arabic">
+<li><p>Solve the Van der Pol equation numerically using Euler-Cromer or another suitable method.</p></li>
+<li><p>Use the same initial conditions for every simulation, for example,</p>
+<div class="math notranslate nohighlight">
+\[
+   x_0=1,
+   \qquad
+   v_0=0.
+   \]</div>
+</li>
+<li><p>Plot the displacement</p>
+<div class="math notranslate nohighlight">
+\[
+   x(t)
+   \]</div>
+<p>for the three values</p>
+<div class="math notranslate nohighlight">
+\[
+   \mu=0.1,
+   \qquad
+   \mu=2,
+   \qquad
+   \mu=10.
+   \]</div>
+</li>
+<li><p>Compare the waveforms and identify how the shape changes as</p>
+<div class="math notranslate nohighlight">
+\[
+   \mu
+   \]</div>
+<p>increases.</p>
+</li>
+<li><p>Determine which value of</p>
+<div class="math notranslate nohighlight">
+\[
+   \mu
+   \]</div>
+<p>produces motion that most closely resembles simple harmonic motion and which produces relaxation oscillations.</p>
+</li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>For</p>
+<div class="math notranslate nohighlight">
+\[
+\mu=0.1,
+\]</div>
+<p>the nonlinear damping is weak and the oscillation is nearly sinusoidal.</p>
+<p>For</p>
+<div class="math notranslate nohighlight">
+\[
+\mu=2,
+\]</div>
+<p>nonlinear effects become noticeable and the waveform begins to deviate from a sine wave.</p>
+<p>For</p>
+<div class="math notranslate nohighlight">
+\[
+\mu=10,
+\]</div>
+<p>the system spends long intervals evolving slowly, interrupted by rapid transitions. The resulting motion is strongly non-sinusoidal and represents a relaxation oscillation (more about that later).</p>
+<p>Thus, increasing</p>
+<div class="math notranslate nohighlight">
+\[
+\mu
+\]</div>
+<p>gradually transforms the motion from nearly simple harmonic motion into a sequence of slow and fast stages characteristic of nonlinear systems.</p>
+</div>
+</details>
+</div><div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Van der Pol oscillator</span>
+<span class="c1"># x&#39;&#39; - mu(1-x^2)x&#39; + x = 0</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="c1"># Time settings</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">t_max</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_max</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+
+<span class="c1"># Initial conditions</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">v0</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="c1"># Values of mu</span>
+<span class="n">mu_values</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">mu</span> <span class="ow">in</span> <span class="n">mu_values</span><span class="p">:</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+
+    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
+    <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">v0</span>
+
+    <span class="c1"># Euler-Cromer integration</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+
+        <span class="c1"># x&#39;&#39; = mu(1-x^2)x&#39; - x</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">mu</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+        <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="o">*</span><span class="n">dt</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">rf</span><span class="s2">&quot;$\mu=</span><span class="si">{</span><span class="n">mu</span><span class="si">}</span><span class="s2">$&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$x(t)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Van der Pol Oscillator for Different Values of $\mu$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<img alt="../_images/c41dc9ef2d501f225a3068c666e4e2d4574969b4cf0c7023f0a9321082552cfb.png" src="../_images/c41dc9ef2d501f225a3068c666e4e2d4574969b4cf0c7023f0a9321082552cfb.png" />
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Curiosity</strong></p>
+<p>This type of self-regulation appears throughout nature.</p>
+<p>Examples include:</p>
+<ul>
+<li>the heartbeat,</li>
+<li>neuronal firing,</li>
+<li>circadian rhythms,</li>
+<li>chemical oscillations,</li>
+<li>and certain laser systems.</li>
+</ul>
+<p>In each case, energy is continuously supplied and dissipated in such a way that the oscillation remains stable.</p>
+</div>
+<p>In the next section, we will introduce one of the most important concepts in nonlinear dynamics: the <strong>limit cycle</strong>, a stable closed trajectory in phase space toward which neighboring trajectories converge.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b3-3-5-phase-portraits-of-the-van-der-pol-oscillator">
+<h2>B3.3.5 Phase Portraits of the Van der Pol Oscillator<a class="headerlink" href="#b3-3-5-phase-portraits-of-the-van-der-pol-oscillator" title="Link to this heading">#</a></h2>
+<p>In Section B3.2.5, we introduced phase portraits as graphical representations of trajectories in phase space. We now revisit this idea to visualize the behavior of the Van der Pol oscillator.</p>
+<p>Recall that for a one-dimensional oscillator, the phase space coordinates are</p>
+<div class="math notranslate nohighlight">
+\[
+(x,\dot{x}),
+\]</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x\)</span> represents the displacement,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\dot{x}\)</span> represents the velocity.</p></li>
+</ul>
+<p>As the system evolves, the point</p>
+<div class="math notranslate nohighlight">
+\[
+(x,\dot{x})
+\]</div>
+<p>moves through phase space, tracing out a trajectory. The collection of such trajectories forms the <strong>phase portrait</strong> of the system.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Phase Portrait</strong>
+<p>Phase space is the space whose coordinates are the dynamical variables of the system.</p>
+<p>A phase portrait is a graphical representation of trajectories in phase space.</p>
+<p>For a one-dimensional oscillator, the phase portrait is obtained by plotting</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{x}
+\text{ versus }
+x.
+\]</div>
+</div>
+<hr class="docutils" />
+<p>For the simple harmonic oscillator,</p>
+<div class="math notranslate nohighlight">
+\[
+m\ddot{x}+kx=0,
+\]</div>
+<p>each initial condition produces a different elliptical trajectory in phase space. These ellipses correspond to different energies, and neighboring trajectories neither attract nor repel one another.</p>
+<p>The Van der Pol oscillator behaves very differently. Because of its nonlinear damping, trajectories starting from different initial conditions do not remain on separate closed curves. Instead, they gradually approach a preferred long-term motion.</p>
+<p>Small-amplitude trajectories experience negative damping and therefore gain energy, causing them to spiral outward in phase space. Large-amplitude trajectories, on the other hand, experience positive damping and lose energy, causing them to spiral inward. Consequently, trajectories starting from very different initial conditions tend to approach the same closed curve.</p>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Inward and Outward Spirals Toward a Limit Cycle</h3>
+<p>Consider the Van der Pol oscillator</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{x}
+-
+\mu(1-x^2)\dot{x}
++
+x
+=
+0.
+\]</div>
+<p>In this activity, you will use numerical methods to explore how different initial conditions evolve in phase space.</p>
+<p>Use the same value of</p>
+<div class="math notranslate nohighlight">
+\[
+\mu
+\]</div>
+<p>for every simulation, but choose different initial conditions.</p>
+<p>Your script should:</p>
+<ol class="arabic">
+<li><p>Set</p>
+<div class="math notranslate nohighlight">
+\[
+   \mu=2.
+   \]</div>
+</li>
+<li><p>Simulate several initial conditions, including small-amplitude and large-amplitude cases, such as</p>
+<div class="math notranslate nohighlight">
+\[
+   (x_0,\dot{x}_0)=(0.1,0),
+   \]</div>
+<div class="math notranslate nohighlight">
+\[
+   (x_0,\dot{x}_0)=(1,0),
+   \]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+   (x_0,\dot{x}_0)=(4,0).
+   \]</div>
+</li>
+<li><p>Plot the trajectories in phase space as</p>
+<div class="math notranslate nohighlight">
+\[
+   \dot{x}
+   \text{ versus }
+   x.
+   \]</div>
+</li>
+<li><p>Identify which trajectories initially spiral outward and which initially spiral inward.</p></li>
+<li><p>Explain why all trajectories eventually approach the same closed curve.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>Small-amplitude trajectories experience negative damping, so energy is supplied to the motion and the phase-space trajectory spirals outward.</p>
+<p>Large-amplitude trajectories experience positive damping, so energy is removed and the trajectory spirals inward.</p>
+<p>Despite starting from different initial conditions, all trajectories approach the same closed curve in phase space. This closed curve is the stable limit cycle of the Van der Pol oscillator.</p>
+<p>Thus, the long-term motion is determined by the system parameters rather than by the initial conditions.</p>
+</div>
+</details>
+</div><div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Van der Pol oscillator: inward and outward spirals</span>
+<span class="c1"># x&#39;&#39; - mu(1 - x^2)x&#39; + x = 0</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="c1"># Parameter</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="mf">2.0</span>
+
+<span class="c1"># Time settings</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">t_max</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_max</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+
+<span class="c1"># Initial conditions: small, moderate, and large amplitude</span>
+<span class="n">initial_conditions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$(x_0,\dot</span><span class="si">{x}</span><span class="s2">_0)=(0.1,0)$&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$(x_0,\dot</span><span class="si">{x}</span><span class="s2">_0)=(1.0,0)$&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$(x_0,\dot</span><span class="si">{x}</span><span class="s2">_0)=(4.0,0)$&quot;</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">x0</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">initial_conditions</span><span class="p">:</span>
+    
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+    
+    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
+    <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">v0</span>
+    
+    <span class="c1"># Euler-Cromer integration</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        
+        <span class="c1"># x&#39;&#39; = mu(1 - x^2)x&#39; - x</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">mu</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        
+        <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="o">*</span><span class="n">dt</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Position $x$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Velocity $\dot</span><span class="si">{x}</span><span class="s2">$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Van der Pol Phase Portraits: Spiraling Toward a Limit Cycle&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<img alt="../_images/7205deaa446c3e7dff5d9f882fcf4854761f04c626f60c8868cc7021d8550dad.png" src="../_images/7205deaa446c3e7dff5d9f882fcf4854761f04c626f60c8868cc7021d8550dad.png" />
+</div>
+</details>
+</div>
+<p>Unlike the infinitely many elliptical trajectories of the simple harmonic oscillator, the Van der Pol oscillator possesses a preferred periodic motion. The existence of this distinguished trajectory is one of the most important characteristics of self-sustained oscillators.</p>
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Curiosity</strong></p>
+<p>Phase portraits often reveal features that are difficult to recognize from plots of displacement versus time. In nonlinear dynamics, many important concepts—including limit cycles, bifurcations, and chaotic attractors—are most naturally understood geometrically through phase space.</p>
+</div>
+<p>In the next section, we will give a name to the preferred closed trajectory toward which neighboring trajectories converge and introduce one of the central concepts of nonlinear dynamics: <strong>the limit cycle</strong>.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b3-3-6-limit-cycles">
+<h2>B3.3.6 Limit Cycles<a class="headerlink" href="#b3-3-6-limit-cycles" title="Link to this heading">#</a></h2>
+<p>The phase portraits of the Van der Pol oscillator reveal a remarkable feature: trajectories starting from very different initial conditions eventually approach the same closed curve. This special trajectory plays a fundamental role in nonlinear dynamics and is known as a <strong>limit cycle</strong>.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Limit Cycle</strong>
+<p>A limit cycle is an isolated closed trajectory in phase space toward which neighboring trajectories converge.</p>
+<p>A stable limit cycle acts as an attractor and determines the long-term oscillatory behavior of the system.</p>
+</div>
+<p>Because nearby trajectories are drawn toward the limit cycle, the long-term motion becomes largely independent of the initial conditions. Instead, the amplitude and period of the oscillation are determined primarily by the properties of the system itself.</p>
+<p>This behavior stands in sharp contrast to the simple harmonic oscillator. There, every initial condition produces a different periodic orbit corresponding to a different energy. Although these trajectories are stable in the sense that nearby trajectories remain nearby, they do not attract one another.</p>
+<p>Consequently, a limit cycle represents much more than a closed trajectory. It is an example of an <strong>attractor</strong>, meaning that it governs the long-term behavior of a large family of initial conditions.</p>
+<div style="background-color:#ffe6e6; border-left:6px solid #cc0000; padding:14px; border-radius:4px;">
+<strong>Important Difference from SHM</strong><br>
+<p>Closed trajectories do not necessarily represent limit cycles.</p>
+<p>For the simple harmonic oscillator, there are infinitely many closed trajectories, but none of them attract neighboring trajectories.</p>
+<p>A limit cycle is distinguished by its ability to attract nearby trajectories and thereby determine the long-term behavior of the system.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Curiosity</strong></p>
+<p>Limit cycles occur in many natural systems, including:</p>
+<ul>
+<li>heart pacemaker cells,</li>
+<li>neurons,</li>
+<li>chemical oscillations,</li>
+<li>biological rhythms,</li>
+<li>electronic oscillators,</li>
+<li>and certain predator-prey systems.</li>
+</ul>
+<p>Their discovery played a major role in the development of modern dynamical systems theory and helped establish the modern concept of attractors.</p>
+</div>
+<p>In the next section, we will investigate what happens when the nonlinear damping becomes strong and the oscillations are no longer nearly sinusoidal, leading to the phenomenon of relaxation oscillations.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b3-3-7-relaxation-oscillations">
+<h2>B3.3.7 Relaxation Oscillations<a class="headerlink" href="#b3-3-7-relaxation-oscillations" title="Link to this heading">#</a></h2>
+<p>The parameter</p>
+<div class="math notranslate nohighlight">
+\[
+\mu
+\]</div>
+<p>controls the strength of the nonlinear damping in the Van der Pol oscillator.</p>
+<p>For small values of</p>
+<div class="math notranslate nohighlight">
+\[
+\mu,
+\]</div>
+<p>the motion closely resembles simple harmonic motion. As</p>
+<div class="math notranslate nohighlight">
+\[
+\mu
+\]</div>
+<p>increases, however, the oscillations become increasingly distorted and eventually develop into a qualitatively different form known as a <strong>relaxation oscillation</strong>.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Relaxation Oscillation</strong>
+<p>A relaxation oscillation consists of alternating periods of slow evolution and rapid transitions.</p>
+<p>Consequently, the motion is strongly non-sinusoidal and often resembles a sequence of pulses or sawtooth-like oscillations.</p>
+</div>
+<section id="small-values-of-mu">
+<h3>Small Values of <span class="math notranslate nohighlight">\(\mu\)</span><a class="headerlink" href="#small-values-of-mu" title="Link to this heading">#</a></h3>
+<p>When</p>
+<div class="math notranslate nohighlight">
+\[
+\mu\ll1,
+\]</div>
+<p>the nonlinear damping is weak and the motion is nearly sinusoidal. In this regime, the Van der Pol oscillator closely resembles a simple harmonic oscillator and the distinction between the two systems is relatively minor.</p>
+</section>
+<section id="moderate-values-of-mu">
+<h3>Moderate Values of <span class="math notranslate nohighlight">\(\mu\)</span><a class="headerlink" href="#moderate-values-of-mu" title="Link to this heading">#</a></h3>
+<p>As</p>
+<div class="math notranslate nohighlight">
+\[
+\mu
+\]</div>
+<p>increases, nonlinear effects become more pronounced. The waveform begins to deviate from a pure sine wave, and the differences between the slow and fast portions of the motion become increasingly apparent.</p>
+<p>Although the oscillations remain smooth, higher harmonics become important and the motion acquires a distinctly nonlinear character.</p>
+</section>
+<section id="large-values-of-mu">
+<h3>Large Values of <span class="math notranslate nohighlight">\(\mu\)</span><a class="headerlink" href="#large-values-of-mu" title="Link to this heading">#</a></h3>
+<p>For sufficiently large values of</p>
+<div class="math notranslate nohighlight">
+\[
+\mu,
+\]</div>
+<p>the oscillation changes qualitatively. The system spends most of its time evolving slowly before undergoing a rapid transition to another part of its cycle. This sequence of slow motion and sudden jumps repeats indefinitely, producing a relaxation oscillation.</p>
+<p>Because the waveform is far from sinusoidal, the motion contains many higher harmonics and can no longer be characterized by a single frequency in the same way as simple harmonic motion.</p>
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Example — Increasing the Nonlinearity Parameter</h3>
+<p>In the first box activity of this section, we numerically investigated how the parameter</p>
+<div class="math notranslate nohighlight">
+\[
+\mu
+\]</div>
+<p>affects the motion of the Van der Pol oscillator by plotting</p>
+<div class="math notranslate nohighlight">
+\[
+x(t)
+\]</div>
+<p>for several values of</p>
+<div class="math notranslate nohighlight">
+\[
+\mu.
+\]</div>
+<p>We found that for</p>
+<div class="math notranslate nohighlight">
+\[
+\mu=0.1,
+\]</div>
+<p>the oscillation is nearly sinusoidal and closely resembles simple harmonic motion.</p>
+<p>As the parameter is increased to</p>
+<div class="math notranslate nohighlight">
+\[
+\mu=2,
+\]</div>
+<p>nonlinear effects become more pronounced and the waveform begins to deviate noticeably from a pure sine wave.</p>
+<p>For sufficiently large values such as</p>
+<div class="math notranslate nohighlight">
+\[
+\mu=10,
+\]</div>
+<p>the motion changes qualitatively. The system spends long intervals evolving slowly before undergoing rapid transitions to another part of the cycle. The resulting waveform resembles a sequence of pulses rather than a smooth oscillation.</p>
+<p>Thus, increasing</p>
+<div class="math notranslate nohighlight">
+\[
+\mu
+\]</div>
+<p>gradually transforms the motion from nearly harmonic behavior to the strongly nonlinear regime of relaxation oscillations.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Curiosity</strong></p>
+<p>Relaxation oscillations occur throughout nature and engineering. Examples include</p>
+<ul>
+<li>the firing of neurons,</li>
+<li>heartbeat rhythms,</li>
+<li>blinking lights,</li>
+<li>volcanic eruptions and geysers,</li>
+<li>electronic timing circuits,</li>
+<li>and certain chemical reactions.</li>
+</ul>
+<p>Although these systems appear very different, they are all characterized by alternating periods of slow change and rapid transitions.</p>
+</div>
+<p>In the next section, we will examine some of the many physical systems in which self-sustained oscillations and limit cycles arise.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="b3-3-8-applications-of-self-sustained-oscillators">
+<h2>B3.3.8 Applications of Self-Sustained Oscillators<a class="headerlink" href="#b3-3-8-applications-of-self-sustained-oscillators" title="Link to this heading">#</a></h2>
+<p>Self-sustained oscillations occur throughout nature and technology. Although the underlying physical mechanisms may differ greatly, all of these systems possess a common feature: energy is continually supplied and dissipated in such a way that a stable periodic motion is maintained.</p>
+<p>Because of this remarkable universality, the Van der Pol oscillator serves as a prototype for understanding many physical, biological, and engineering systems.</p>
+<section id="biological-oscillators">
+<h3>Biological Oscillators<a class="headerlink" href="#biological-oscillators" title="Link to this heading">#</a></h3>
+<p>Living organisms contain numerous self-sustained oscillators.</p>
+<p>Examples include:</p>
+<ul class="simple">
+<li><p>heart pacemaker cells,</p></li>
+<li><p>neural circuits,</p></li>
+<li><p>respiratory rhythms,</p></li>
+<li><p>circadian clocks,</p></li>
+<li><p>populations of flashing fireflies.</p></li>
+</ul>
+<p>These systems maintain rhythmic behavior without requiring external periodic forcing.</p>
+</section>
+<section id="electronic-oscillators">
+<h3>Electronic Oscillators<a class="headerlink" href="#electronic-oscillators" title="Link to this heading">#</a></h3>
+<p>Many electronic devices rely on self-sustained oscillations.</p>
+<p>Examples include:</p>
+<ul class="simple">
+<li><p>vacuum-tube circuits,</p></li>
+<li><p>quartz clocks,</p></li>
+<li><p>radio transmitters,</p></li>
+<li><p>phase-locked loops,</p></li>
+<li><p>electronic timing circuits.</p></li>
+</ul>
+<p>In these systems, energy supplied by batteries or power supplies compensates for energy losses and maintains a stable oscillation.</p>
+</section>
+<section id="optical-systems">
+<h3>Optical Systems<a class="headerlink" href="#optical-systems" title="Link to this heading">#</a></h3>
+<p>Lasers are another example of self-sustained oscillators.</p>
+<p>Energy supplied through optical or electrical pumping continuously replenishes the oscillating electromagnetic field inside the cavity. As a result, the laser produces a nearly periodic electromagnetic wave with a stable amplitude.</p>
+</section>
+<section id="chemical-oscillators">
+<h3>Chemical Oscillators<a class="headerlink" href="#chemical-oscillators" title="Link to this heading">#</a></h3>
+<p>Certain chemical reactions exhibit periodic behavior.</p>
+<p>Examples include:</p>
+<ul class="simple">
+<li><p>the Belousov-Zhabotinsky reaction,</p></li>
+<li><p>oscillatory catalytic reactions,</p></li>
+<li><p>biochemical feedback networks.</p></li>
+</ul>
+<p>These systems demonstrate that oscillations are not limited to mechanical or electrical systems.</p>
+</section>
+<section id="geophysical-systems">
+<h3>Geophysical Systems<a class="headerlink" href="#geophysical-systems" title="Link to this heading">#</a></h3>
+<p>Relaxation oscillations also appear on much larger scales.</p>
+<p>Examples include:</p>
+<ul class="simple">
+<li><p>geysers,</p></li>
+<li><p>volcanic eruptions,</p></li>
+<li><p>climate cycles,</p></li>
+<li><p>some ocean-atmosphere interactions.</p></li>
+</ul>
+<p>Although these systems involve enormous spatial and temporal scales, the underlying dynamics often resemble those of simpler nonlinear oscillators.</p>
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Example — The Human Heart</h3>
+<p>Specialized pacemaker cells within the heart generate electrical impulses that repeat periodically without requiring external forcing.</p>
+<p>The oscillation is maintained by metabolic energy and regulated by nonlinear feedback mechanisms. Consequently, the heartbeat represents a natural example of a self-sustained oscillator and a stable limit cycle.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Curiosity and Looking Ahead</strong></p>
+<p>The remarkable diversity of self-sustained oscillators led scientists to realize that systems as different as hearts, neurons, lasers, and chemical reactions share a common mathematical structure.</p>
+<p>An even more surprising phenomenon emerges when two or more self-sustained oscillators are allowed to interact. Under suitable conditions, oscillators having different initial conditions may gradually adjust their rhythms and eventually oscillate together.</p>
+<p>Examples include:</p>
+<ul>
+<li>pendulum clocks mounted on the same wall,</li>
+<li>fireflies flashing in unison,</li>
+<li>groups of applauding spectators,</li>
+<li>neurons in the brain,</li>
+<li>cardiac pacemaker cells,</li>
+<li>and Josephson junction arrays.</li>
+</ul>
+<p>This spontaneous emergence of a common rhythm is known as <strong>synchronization</strong>, one of the most beautiful and surprising phenomena in nonlinear dynamics.</p>
+<p>In the next module, we shall investigate how coupled oscillators synchronize and discover why collective rhythms appear throughout nature.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-B3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="duffing.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">B3.2 The Duffing Oscillator</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="sync.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">B3.4 Synchronization</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-3-1-motivation">B3.3.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-3-2-negative-damping-and-self-sustained-motion">B3.3.2 Negative Damping and Self-Sustained Motion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-3-3-the-van-der-pol-equation">B3.3.3 The Van der Pol Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-3-4-energy-flow-and-nonlinear-damping">B3.3.4 Energy Flow and Nonlinear Damping</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-3-5-phase-portraits-of-the-van-der-pol-oscillator">B3.3.5 Phase Portraits of the Van der Pol Oscillator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-3-6-limit-cycles">B3.3.6 Limit Cycles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-3-7-relaxation-oscillations">B3.3.7 Relaxation Oscillations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#small-values-of-mu">Small Values of <span class="math notranslate nohighlight">\(\mu\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moderate-values-of-mu">Moderate Values of <span class="math notranslate nohighlight">\(\mu\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#large-values-of-mu">Large Values of <span class="math notranslate nohighlight">\(\mu\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-3-8-applications-of-self-sustained-oscillators">B3.3.8 Applications of Self-Sustained Oscillators</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#biological-oscillators">Biological Oscillators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#electronic-oscillators">Electronic Oscillators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optical-systems">Optical Systems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chemical-oscillators">Chemical Oscillators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geophysical-systems">Geophysical Systems</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

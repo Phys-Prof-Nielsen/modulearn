@@ -1,0 +1,2773 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>B3.6 The Spring Pendulum: A Capstone Project in Nonlinear Dynamics &#8212; A Competency Approach to Classical Mechanics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-B3/spring-pendulum';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="B3.5 Chaos and Sensitive Dependence on Initial Conditions" href="chaos.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-B.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Home"/>
+    <script>document.write(`<img src="../_static/logo-B.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the B Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://gemini.google.com/gem/10l7TNMxLkYkxP1cGjSu5uEvK_RAC-A9n?usp=sharing">Physics Coding Architect (PyAIGem)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B1 - Advanced Rotational Dynamics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/principal-axes.html">B1.1 Principal Axes in Rotational Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/kinetic-energy.html">B1.2 Kinetic Energy in Rotational Dynamics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/euler-angles.html">B1.3 Euler Angles and Rigid Body Orientation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/body-space-frames.html">B1.4 Body and Space Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/eulers-equations-motion.html">B1.5 Euler’s Equations of Motion for Rigid Bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/euler-angles-equations.html">B1.6 Connecting Euler Angles and Euler’s Equations of Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/quaternions.html">B1.7 Beyond Euler Angles: Quaternions, Axis-Angle, and Rotation Vectors for 3D Orientation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B1/tennis-racket.html">B1.8 The Tennis Racket Problem and the Intermediate Axis Theorem</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B2 - Extensions of Coupled Oscillations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/LOC-B2.html">B2.0 Learning Outcomes: Extensions of Coupled Oscillations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/oscillator-to-wave.html">B2.1 Oscillator Chains and the Wave Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/construction.html">B2.2 Constructing Lissajous Figures: Two Perpendicular SHM Motions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/frequency-ratios.html">B2.3 Frequency Ratios, Phase Difference, and Closure Conditions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/applications.html">B2.4 Example Applications of Lissajous Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/parametric-resonance.html">B2.5 Parametric Resonance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Module-B2/problemsB2.html">B2.6 — Problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B3 - Nonlinear Oscillations and Onset of Chaos</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-B3.html">B3.0 Learning Outcomes: Nonlinear Oscillations and Onset of Chaos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">B3.1 Introduction to Nonlinear Oscillations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="duffing.html">B3.2 The Duffing Oscillator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vanderpol.html">B3.3 Self-Sustained Oscillations and the Van der Pol Oscillator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sync.html">B3.4 Synchronization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chaos.html">B3.5 Chaos and Sensitive Dependence on Initial Conditions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">B3.6 The Spring Pendulum: A Capstone Project in Nonlinear Dynamics</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Module-B3/spring-pendulum.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-B3/spring-pendulum.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>B3.6 The Spring Pendulum: A Capstone Project in Nonlinear Dynamics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-6-1-motivation">B3.6.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-6-2-building-the-model">B3.6.2 Building the Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-6-3-equations-of-motion">B3.6.3 Equations of Motion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-6-4-numerical-solution-and-motion-in-physical-space">B3.6.4 Numerical Solution and Motion in Physical Space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-6-5-energy-exchange-between-radial-and-angular-motion">B3.6.5 Energy Exchange Between Radial and Angular Motion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-6-6-internal-resonance-and-autoparametric-resonance">B3.6.6 Internal Resonance and Autoparametric Resonance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-6-7-numerical-exploration-of-autoparametric-resonance">B3.6.7 Numerical Exploration of Autoparametric Resonance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-6-8-phase-portraits-of-the-spring-pendulum">B3.6.8 Phase Portraits of the Spring Pendulum</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-i-away-from-resonance">Case I — Away from Resonance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-ii-near-autoparametric-resonance">Case II — Near Autoparametric Resonance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-6-9-sensitivity-to-initial-conditions">B3.6.9 Sensitivity to Initial Conditions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-a">Case A</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-b">Case B</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-6-10-poincare-sections-of-the-spring-pendulum">B3.6.10 Poincaré Sections of the Spring Pendulum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-6-11-summary-and-reflection">B3.6.11 Summary and Reflection</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="b3-6-the-spring-pendulum-a-capstone-project-in-nonlinear-dynamics">
+<h1>B3.6 The Spring Pendulum: A Capstone Project in Nonlinear Dynamics<a class="headerlink" href="#b3-6-the-spring-pendulum-a-capstone-project-in-nonlinear-dynamics" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="b3-6-1-motivation">
+<h2>B3.6.1 Motivation<a class="headerlink" href="#b3-6-1-motivation" title="Link to this heading">#</a></h2>
+<p>The spring pendulum is one of the richest systems in classical mechanics. It consists of a mass attached to a spring, where the mass is free both to stretch the spring and to swing like a pendulum.</p>
+<p>At first glance, this system appears simple. It is just a mass, a spring, and gravity. However, its motion can exhibit an extraordinary range of behavior:</p>
+<ul class="simple">
+<li><p>nearly independent spring and pendulum motion,</p></li>
+<li><p>energy exchange between radial and angular motion,</p></li>
+<li><p>internal resonance,</p></li>
+<li><p>autoparametric resonance,</p></li>
+<li><p>phase locking between modes,</p></li>
+<li><p>complicated trajectories in the <span class="math notranslate nohighlight">\((x,y)\)</span> plane,</p></li>
+<li><p>Poincaré sections,</p></li>
+<li><p>and chaotic motion.</p></li>
+</ul>
+<p>In this capstone project, we will use the spring pendulum as a miniature laboratory for nonlinear dynamics. The goal is not simply to solve one problem, but to investigate a system the way a physicist would: by deriving a model, simulating the equations, visualizing the motion, and interpreting the results.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Spring Pendulum</strong>
+<p>A spring pendulum is a system in which a mass attached to a spring can move both radially and angularly.</p>
+<p>The radial coordinate describes stretching of the spring, while the angular coordinate describes swinging motion.</p>
+<p>Because these two motions are coupled, the system can exhibit nonlinear energy exchange, resonance, and chaos.</p>
+</div>
+<p>This project brings together many ideas developed earlier in the module:</p>
+<ul>
+<li>Lagrangian mechanics,</li>
+<li>coupled oscillators,</li>
+<li>normal modes,</li>
+<li>parametric resonance,</li>
+<li>nonlinear oscillations,</li>
+<li>phase portraits,</li>
+<li>Poincaré sections,</li>
+<li>and chaos.</li>
+</ul>
+<p>A particularly important feature of this system is that the motion can be visualized directly in physical space. If the spring length is</p>
+<div class="math notranslate nohighlight">
+\[
+r(t),
+\]</div>
+<p>and the angle from the vertical is</p>
+<div class="math notranslate nohighlight">
+\[
+\theta(t),
+\]</div>
+<p>then the Cartesian coordinates of the mass are</p>
+<div class="math notranslate nohighlight">
+\[
+x(t)=r(t)\sin\theta(t),
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+y(t)=-r(t)\cos\theta(t).
+\]</div>
+<p>The resulting <span class="math notranslate nohighlight">\((x,y)\)</span> trajectory often reveals beautiful geometric patterns, ranging from nearly regular curves to complicated irregular motion.</p>
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Capstone Perspective</strong></p>
+<p>The spring pendulum is not merely another example. It is a system where many of the central ideas of nonlinear dynamics appear naturally in one physical model.</p>
+<p>By the end of this project, we will have used analytical mechanics, numerical methods, and visualization to understand how a deceptively simple mechanical system can produce remarkably complex motion.</p>
+</div>
+<p>In the next section, we will build the model by choosing generalized coordinates and deriving the Lagrangian.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b3-6-2-building-the-model">
+<h2>B3.6.2 Building the Model<a class="headerlink" href="#b3-6-2-building-the-model" title="Link to this heading">#</a></h2>
+<p>To analyze the spring pendulum, we must first choose a set of generalized coordinates that completely specify the position of the mass.</p>
+<p>Because the mass can both stretch the spring and swing about the pivot, two coordinates are required. Our goal is to derive the Lagrangian</p>
+<div class="math notranslate nohighlight">
+\[
+L=T-U
+\]</div>
+<p>for this system.</p>
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Constructing the Lagrangian of a Spring Pendulum</h3>
+<p>Consider a mass</p>
+<div class="math notranslate nohighlight">
+\[
+m
+=
+0.50~\mathrm{kg}
+\]</div>
+<p>attached to a spring having spring constant</p>
+<div class="math notranslate nohighlight">
+\[
+k
+=
+20~\mathrm{N/m}
+\]</div>
+<p>and unstretched length</p>
+<div class="math notranslate nohighlight">
+\[
+\ell_0
+=
+0.30~\mathrm{m}.
+\]</div>
+<p>Use the generalized coordinates</p>
+<div class="math notranslate nohighlight">
+\[
+r
+\qquad\text{and}\qquad
+\theta,
+\]</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(r\)</span> is the instantaneous spring length,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\theta\)</span> is measured from the downward vertical.</p></li>
+</ul>
+<p>Work through the following steps.</p>
+<ol class="arabic simple">
+<li><p>Determine the kinetic energy</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+T.
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p>Determine the elastic potential energy stored in the spring.</p></li>
+<li><p>Determine the gravitational potential energy.</p></li>
+<li><p>Construct the total potential energy</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+U.
+\]</div>
+<ol class="arabic simple" start="5">
+<li><p>Obtain the Lagrangian</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+L=T-U.
+\]</div>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>Since</p>
+<div class="math notranslate nohighlight">
+\[
+v^2
+=
+\dot r^2+r^2\dot\theta^2,
+\]</div>
+<p>the kinetic energy is</p>
+<div class="math notranslate nohighlight">
+\[
+T
+=
+\frac12m
+\left(
+\dot r^2+r^2\dot\theta^2
+\right).
+\]</div>
+<p>The elastic potential energy of the spring is</p>
+<div class="math notranslate nohighlight">
+\[
+U_s
+=
+\frac12k(r-\ell_0)^2.
+\]</div>
+<p>Because the angle is measured from the downward vertical, the gravitational potential energy is</p>
+<div class="math notranslate nohighlight">
+\[
+U_g
+=
+-mgr\cos\theta.
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+U
+=
+\frac12k(r-\ell_0)^2
+-
+mgr\cos\theta.
+\]</div>
+<p>The Lagrangian becomes</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+L
+=
+\frac12m
+\left(
+\dot r^2+r^2\dot\theta^2
+\right)
+-
+\frac12k(r-\ell_0)^2
++
+mgr\cos\theta
+}
+\]</div>
+<p>This Lagrangian contains all the information needed to determine the motion of the spring pendulum.</p>
+</div>
+</details>
+</div>
+<p>In the next section, we will use this Lagrangian to derive the coupled nonlinear equations of motion.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b3-6-3-equations-of-motion">
+<h2>B3.6.3 Equations of Motion<a class="headerlink" href="#b3-6-3-equations-of-motion" title="Link to this heading">#</a></h2>
+<p>Having constructed the Lagrangian, our next goal is to determine the equations governing the motion of the spring pendulum.</p>
+<p>Because the coordinates</p>
+<div class="math notranslate nohighlight">
+\[
+r
+\qquad\text{and}\qquad
+\theta
+\]</div>
+<p>are coupled, we expect to obtain two nonlinear differential equations. These equations form the mathematical model that will be used throughout the remainder of this project.</p>
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Deriving the Equations of Motion</h3>
+<p>Starting from the Lagrangian</p>
+<div class="math notranslate nohighlight">
+\[
+L
+=
+\frac12m
+\left(
+\dot r^2+r^2\dot\theta^2
+\right)
+-
+\frac12k(r-\ell_0)^2
++
+mgr\cos\theta,
+\]</div>
+<p>apply Lagrange’s equations</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dt}
+\left(
+\frac{\partial L}{\partial \dot q_i}
+\right)
+-
+\frac{\partial L}{\partial q_i}
+=
+0
+\]</div>
+<p>to each generalized coordinate.</p>
+<p>Work through the following steps.</p>
+<ol class="arabic simple">
+<li><p>Apply Lagrange’s equation to the coordinate</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+r.
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p>Simplify the resulting expression to obtain the radial equation of motion.</p></li>
+<li><p>Apply Lagrange’s equation to the coordinate</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\theta.
+\]</div>
+<ol class="arabic simple" start="4">
+<li><p>Simplify the resulting expression to obtain the angular equation of motion.</p></li>
+<li><p>Verify that the two equations are coupled.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>For the radial coordinate,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial L}{\partial\dot r}
+=
+m\dot r,
+\]</div>
+<p>so that</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dt}
+\left(
+\frac{\partial L}{\partial\dot r}
+\right)
+=
+m\ddot r.
+\]</div>
+<p>Furthermore,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial L}{\partial r}
+=
+mr\dot\theta^2
+-k(r-\ell_0)
++mg\cos\theta.
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+m\ddot r
+-
+mr\dot\theta^2
++
+k(r-\ell_0)
+-
+mg\cos\theta
+=
+0,
+\]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\ddot r
+=
+r\dot\theta^2
+-
+\frac{k}{m}(r-\ell_0)
++
+g\cos\theta
+}
+\]</div>
+<p>For the angular coordinate,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial L}{\partial\dot\theta}
+=
+mr^2\dot\theta,
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dt}
+\left(
+mr^2\dot\theta
+\right)
+=
+mr^2\ddot\theta
++
+2mr\dot r\dot\theta.
+\]</div>
+<p>Also,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial L}{\partial\theta}
+=
+-mgr\sin\theta.
+\]</div>
+<p>Hence,</p>
+<div class="math notranslate nohighlight">
+\[
+mr^2\ddot\theta
++
+2mr\dot r\dot\theta
++
+mgr\sin\theta
+=
+0,
+\]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\ddot\theta
+=
+-\frac{2\dot r\dot\theta}{r}
+-
+\frac{g}{r}\sin\theta
+}
+\]</div>
+<p>These coupled nonlinear equations govern the motion of the spring pendulum.</p>
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<p>To solve these equations numerically, it is convenient to rewrite them as a system of first-order differential equations.</p>
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Converting to a First-Order System</h3>
+<p>Introduce the state variables</p>
+<div class="math notranslate nohighlight">
+\[
+x_1=r,
+\qquad
+x_2=\dot r,
+\qquad
+x_3=\theta,
+\qquad
+x_4=\dot\theta.
+\]</div>
+<ol class="arabic simple">
+<li><p>Express</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\dot x_1
+\]</div>
+<p>through</p>
+<div class="math notranslate nohighlight">
+\[
+\dot x_4
+\]</div>
+<p>in terms of</p>
+<div class="math notranslate nohighlight">
+\[
+x_1,x_2,x_3,x_4.
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p>Verify that the spring pendulum is described by four coupled first-order differential equations.</p></li>
+<li><p>Explain why this form is particularly useful for numerical methods such as Euler-Cromer and Runge-Kutta.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>Defining</p>
+<div class="math notranslate nohighlight">
+\[
+x_1=r,
+\qquad
+x_2=\dot r,
+\qquad
+x_3=\theta,
+\qquad
+x_4=\dot\theta,
+\]</div>
+<p>gives</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\dot x_1=x_2
+}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\dot x_2
+=
+x_1x_4^2
+-
+\frac{k}{m}(x_1-\ell_0)
++
+g\cos x_3
+}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\dot x_3=x_4
+}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\dot x_4
+=
+-\frac{2x_2x_4}{x_1}
+-
+\frac{g}{x_1}\sin x_3
+}
+\]</div>
+<p>These four first-order equations are ideally suited for numerical integration and will form the basis for all subsequent simulations in this capstone project.</p>
+</div>
+</details>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b3-6-4-numerical-solution-and-motion-in-physical-space">
+<h2>B3.6.4 Numerical Solution and Motion in Physical Space<a class="headerlink" href="#b3-6-4-numerical-solution-and-motion-in-physical-space" title="Link to this heading">#</a></h2>
+<p>The coupled equations derived in the previous section are too complicated to solve analytically. Fortunately, they are ideally suited for numerical integration.</p>
+<p>Our strategy will be to:</p>
+<ol class="arabic simple">
+<li><p>integrate the four first-order equations numerically,</p></li>
+<li><p>compute the Cartesian coordinates</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+x=r\sin\theta,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+y=-r\cos\theta,
+\]</div>
+<ol class="arabic simple" start="3">
+<li><p>visualize the motion of the mass in physical space.</p></li>
+</ol>
+<p>The <span class="math notranslate nohighlight">\((x,y)\)</span> trajectory often reveals beautiful geometric patterns and provides an intuitive picture of the dynamics.</p>
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Simulating the Spring Pendulum</h3>
+<p>Consider a spring pendulum having</p>
+<div class="math notranslate nohighlight">
+\[
+m=0.50~\mathrm{kg},
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+k=20.0~\mathrm{N/m},
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\ell_0=0.30~\mathrm{m},
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+g=9.81~\mathrm{m/s^2}.
+\]</div>
+<p>Use the initial conditions</p>
+<div class="math notranslate nohighlight">
+\[
+r(0)=0.40~\mathrm{m},
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\dot r(0)=0,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\theta(0)=20^\circ,
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\dot\theta(0)=0.
+\]</div>
+<p>Using the first-order equations derived in the previous section:</p>
+<ol class="arabic simple">
+<li><p>Write a Python function that returns</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\dot x_1,\dot x_2,\dot x_3,\dot x_4.
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p>Use the fourth-order Runge-Kutta method to integrate the equations.</p></li>
+<li><p>Plot</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+r(t)
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\theta(t)
+\]</div>
+<p>as functions of time.</p>
+<ol class="arabic simple" start="4">
+<li><p>Compute</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+x(t)=r(t)\sin\theta(t),
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+y(t)=-r(t)\cos\theta(t).
+\]</div>
+<ol class="arabic simple" start="5">
+<li><p>Plot the trajectory in the</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+(x,y)
+\]</div>
+<p>plane.</p>
+<ol class="arabic simple" start="6">
+<li><p>Describe the resulting motion.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>The numerical solution shows that the radial and angular motions are coupled.</p>
+<p>The graph of</p>
+<div class="math notranslate nohighlight">
+\[
+r(t)
+\]</div>
+<p>reveals oscillations in the spring length, while</p>
+<div class="math notranslate nohighlight">
+\[
+\theta(t)
+\]</div>
+<p>describes the swinging motion.</p>
+<p>Transforming to Cartesian coordinates produces the trajectory</p>
+<div class="math notranslate nohighlight">
+\[
+(x(t),y(t)).
+\]</div>
+<p>Unlike the circular orbit of a simple pendulum, the spring pendulum exhibits a much richer motion because both the radius and the angle vary with time.</p>
+<p>Consequently, the path traced by the mass may resemble a distorted ellipse, a flower-like pattern, or more complicated curves depending on the parameters and initial conditions.</p>
+<p>This geometric viewpoint provides one of the most intuitive ways to understand the dynamics of the system.</p>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Spring pendulum simulation</span>
+<span class="c1">#</span>
+<span class="c1"># State vector:</span>
+<span class="c1"># y = [r, r_dot, theta, theta_dot]</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="c1"># Physical parameters</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mf">0.50</span>          <span class="c1"># kg</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mf">20.0</span>          <span class="c1"># N/m</span>
+<span class="n">L0</span> <span class="o">=</span> <span class="mf">0.30</span>         <span class="c1"># m</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>          <span class="c1"># m/s^2</span>
+
+<span class="c1"># Time settings</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.001</span>
+<span class="n">t_max</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_max</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+
+<span class="c1"># Initial conditions</span>
+<span class="n">r0</span> <span class="o">=</span> <span class="mf">0.40</span>
+<span class="n">r_dot0</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">theta0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mf">20.0</span><span class="p">)</span>
+<span class="n">theta_dot0</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">derivatives</span><span class="p">(</span><span class="n">state</span><span class="p">):</span>
+    <span class="n">r</span><span class="p">,</span> <span class="n">r_dot</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">theta_dot</span> <span class="o">=</span> <span class="n">state</span>
+
+    <span class="n">r_ddot</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">r</span><span class="o">*</span><span class="n">theta_dot</span><span class="o">**</span><span class="mi">2</span>
+        <span class="o">-</span> <span class="p">(</span><span class="n">k</span><span class="o">/</span><span class="n">m</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">L0</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">g</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="n">theta_ddot</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">r_dot</span><span class="o">*</span><span class="n">theta_dot</span><span class="o">/</span><span class="n">r</span>
+        <span class="o">-</span> <span class="p">(</span><span class="n">g</span><span class="o">/</span><span class="n">r</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">r_dot</span><span class="p">,</span> <span class="n">r_ddot</span><span class="p">,</span> <span class="n">theta_dot</span><span class="p">,</span> <span class="n">theta_ddot</span><span class="p">])</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">rk4_step</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+    <span class="n">k1</span> <span class="o">=</span> <span class="n">derivatives</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+    <span class="n">k2</span> <span class="o">=</span> <span class="n">derivatives</span><span class="p">(</span><span class="n">state</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="n">k1</span><span class="p">)</span>
+    <span class="n">k3</span> <span class="o">=</span> <span class="n">derivatives</span><span class="p">(</span><span class="n">state</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="n">k2</span><span class="p">)</span>
+    <span class="n">k4</span> <span class="o">=</span> <span class="n">derivatives</span><span class="p">(</span><span class="n">state</span> <span class="o">+</span> <span class="n">dt</span><span class="o">*</span><span class="n">k3</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">state</span> <span class="o">+</span> <span class="p">(</span><span class="n">dt</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">k1</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">k2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">k3</span> <span class="o">+</span> <span class="n">k4</span><span class="p">)</span>
+
+<span class="c1"># Arrays</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<span class="n">r_dot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<span class="n">theta_dot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+
+<span class="c1"># Initial state</span>
+<span class="n">state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">r0</span><span class="p">,</span> <span class="n">r_dot0</span><span class="p">,</span> <span class="n">theta0</span><span class="p">,</span> <span class="n">theta_dot0</span><span class="p">])</span>
+
+<span class="c1"># Numerical integration</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)):</span>
+    <span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">r_dot</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">theta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">theta_dot</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+
+    <span class="n">state</span> <span class="o">=</span> <span class="n">rk4_step</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Plot r(t)</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$r(t)$ (m)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Spring Pendulum: Radial Motion&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Plot theta(t)</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">theta</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\theta(t)$ (degrees)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Spring Pendulum: Angular Motion&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<img alt="../_images/b8ae48afee08f01e90e84e26d22012c2ea7e096f37241152d3c2724a2e12ea22.png" src="../_images/b8ae48afee08f01e90e84e26d22012c2ea7e096f37241152d3c2724a2e12ea22.png" />
+<img alt="../_images/46af000b3ea408364438386a860730c9df65d1860b93aba065219b20a54d82e4.png" src="../_images/46af000b3ea408364438386a860730c9df65d1860b93aba065219b20a54d82e4.png" />
+</div>
+</details>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Motion in physical space</span>
+<span class="c1">#</span>
+<span class="c1"># Convert from polar-like coordinates to Cartesian coordinates:</span>
+<span class="c1">#</span>
+<span class="c1"># x = r sin(theta)</span>
+<span class="c1"># y = -r cos(theta)</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Plot x(t) and y(t)</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$x(t)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$y(t)$&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Position (m)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Spring Pendulum: Cartesian Coordinates&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Plot trajectory in the x-y plane</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$x$ (m)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$y$ (m)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Spring Pendulum Trajectory in Physical Space&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<img alt="../_images/93a37303badbe6a612bd342fbf698327b78b6f62f4fd551343d7de9fe838fec2.png" src="../_images/93a37303badbe6a612bd342fbf698327b78b6f62f4fd551343d7de9fe838fec2.png" />
+<img alt="../_images/c9b55dbda16615631b0e5aa24a81b31058d46e158c190b014fcd540e0205aa2a.png" src="../_images/c9b55dbda16615631b0e5aa24a81b31058d46e158c190b014fcd540e0205aa2a.png" />
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Curiosity</strong></p>
+<p>Although the equations of the spring pendulum are deterministic, the resulting trajectories can appear surprisingly intricate. Many students are astonished that such complicated patterns arise from nothing more than a mass, a spring, and gravity.</p>
+<p>Indeed, the spring pendulum is often used as a laboratory model for nonlinear dynamics and chaos.</p>
+</div>
+<p>In the next section, we will investigate one of the most remarkable properties of the spring pendulum: the exchange of energy between radial and angular motion.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b3-6-5-energy-exchange-between-radial-and-angular-motion">
+<h2>B3.6.5 Energy Exchange Between Radial and Angular Motion<a class="headerlink" href="#b3-6-5-energy-exchange-between-radial-and-angular-motion" title="Link to this heading">#</a></h2>
+<p>The spring pendulum has two types of motion:</p>
+<ul class="simple">
+<li><p>radial motion, associated with stretching and compressing the spring,</p></li>
+<li><p>angular motion, associated with swinging back and forth.</p></li>
+</ul>
+<p>Because these motions are coupled, energy can flow between them. A motion that begins primarily as spring oscillation may gradually excite pendulum motion, and a motion that begins primarily as pendulum motion may excite radial oscillation.</p>
+<p>This exchange of energy is one of the most important signatures of nonlinear coupling.</p>
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Tracking Energy Exchange</h3>
+<p>Using the spring-pendulum simulation from the previous section, compute and plot the energy of the system.</p>
+<p>The kinetic energy is</p>
+<div class="math notranslate nohighlight">
+\[
+T=
+\frac12m\dot r^2
++
+\frac12mr^2\dot\theta^2.
+\]</div>
+<p>The potential energy is</p>
+<div class="math notranslate nohighlight">
+\[
+U=
+\frac12k(r-\ell_0)^2
+-
+mgr\cos\theta.
+\]</div>
+<p>The total energy is</p>
+<div class="math notranslate nohighlight">
+\[
+E=T+U.
+\]</div>
+<p>Your script should:</p>
+<ol class="arabic simple">
+<li><p>Compute the radial kinetic energy</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+T_r=\frac12m\dot r^2.
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p>Compute the angular kinetic energy</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+T_\theta=\frac12mr^2\dot\theta^2.
+\]</div>
+<ol class="arabic simple" start="3">
+<li><p>Compute the spring potential energy</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+U_s=\frac12k(r-\ell_0)^2.
+\]</div>
+<ol class="arabic simple" start="4">
+<li><p>Compute the gravitational potential energy</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+U_g=-mgr\cos\theta.
+\]</div>
+<ol class="arabic simple" start="5">
+<li><p>Plot</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+T_r,
+\qquad
+T_\theta,
+\qquad
+U_s,
+\qquad
+U_g,
+\qquad
+E
+\]</div>
+<p>as functions of time.</p>
+<ol class="arabic simple" start="6">
+<li><p>Explain how the energy moves between radial and angular motion.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>The total energy</p>
+<div class="math notranslate nohighlight">
+\[
+E=T+U
+\]</div>
+<p>should remain approximately constant if the numerical method and time step are appropriate.</p>
+<p>However, the individual energy terms generally change with time. The radial kinetic energy, angular kinetic energy, spring potential energy, and gravitational potential energy exchange energy with one another.</p>
+<p>This behavior shows that the spring and pendulum motions are not independent. The nonlinear coupling allows energy to flow between the radial and angular degrees of freedom.</p>
+<p>A good numerical simulation should show significant variation in the individual energy components while keeping the total energy nearly constant.</p>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Energy exchange in the spring pendulum</span>
+<span class="c1">#</span>
+<span class="c1"># This code assumes the previous simulation cell has already created:</span>
+<span class="c1">#</span>
+<span class="c1"># t, r, r_dot, theta, theta_dot, m, k, L0, g</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="c1"># Radial kinetic energy</span>
+<span class="n">T_r</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">m</span><span class="o">*</span><span class="n">r_dot</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="c1"># Angular kinetic energy</span>
+<span class="n">T_theta</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">m</span><span class="o">*</span><span class="n">r</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">theta_dot</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="c1"># Spring potential energy</span>
+<span class="n">U_s</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">k</span><span class="o">*</span><span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">L0</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="c1"># Gravitational potential energy</span>
+<span class="n">U_g</span> <span class="o">=</span> <span class="o">-</span><span class="n">m</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+
+<span class="c1"># Total energy</span>
+<span class="n">E</span> <span class="o">=</span> <span class="n">T_r</span> <span class="o">+</span> <span class="n">T_theta</span> <span class="o">+</span> <span class="n">U_s</span> <span class="o">+</span> <span class="n">U_g</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Plot energy components</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">T_r</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$T_r$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">T_theta</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$T_\theta$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">U_s</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$U_s$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">U_g</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$U_g$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="s2">&quot;k--&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$E_{\mathrm</span><span class="si">{total}</span><span class="s2">}$&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Energy (J)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Energy Exchange in the Spring Pendulum&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<img alt="../_images/25bcbc843121e96b1c23868e79f0eb2a71bbc82661a2907f96342948967df478.png" src="../_images/25bcbc843121e96b1c23868e79f0eb2a71bbc82661a2907f96342948967df478.png" />
+</div>
+</details>
+</div>
+<p>In the next section, we will examine a particularly strong form of energy exchange known as internal resonance or autoparametric resonance.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b3-6-6-internal-resonance-and-autoparametric-resonance">
+<h2>B3.6.6 Internal Resonance and Autoparametric Resonance<a class="headerlink" href="#b3-6-6-internal-resonance-and-autoparametric-resonance" title="Link to this heading">#</a></h2>
+<p>The spring pendulum becomes especially interesting when the radial and angular motions influence one another strongly.</p>
+<p>For small oscillations, the system has two approximate frequencies:</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_r
+\approx
+\sqrt{\frac{k}{m}},
+\]</div>
+<p>for radial spring motion, and</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_\theta
+\approx
+\sqrt{\frac{g}{r_{\mathrm{eq}}}},
+\]</div>
+<p>for angular pendulum motion, where</p>
+<div class="math notranslate nohighlight">
+\[
+r_{\mathrm{eq}}
+=
+\ell_0+\frac{mg}{k}.
+\]</div>
+<p>A particularly strong energy exchange occurs when these frequencies satisfy approximately</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_r
+\approx
+2\omega_\theta.
+\]</div>
+<p>This condition is known as an <strong>internal resonance</strong> because the resonance occurs between two modes of the same system.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Autoparametric Resonance</strong>
+<p>Autoparametric resonance occurs when one mode of a system parametrically excites another mode of the same system.</p>
+<p>For the spring pendulum, strong energy exchange occurs when the radial oscillation frequency is approximately twice the angular oscillation frequency:</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_r
+\approx
+2\omega_\theta.
+\]</div>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Finding the Internal Resonance Condition</h3>
+<p>Using</p>
+<div class="math notranslate nohighlight">
+\[
+m=0.50~\mathrm{kg},
+\qquad
+\ell_0=0.30~\mathrm{m},
+\qquad
+g=9.81~\mathrm{m/s^2},
+\]</div>
+<p>find the spring constant</p>
+<div class="math notranslate nohighlight">
+\[
+k
+\]</div>
+<p>that approximately satisfies</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_r
+=
+2\omega_\theta.
+\]</div>
+<p>Use</p>
+<div class="math notranslate nohighlight">
+\[
+r_{\mathrm{eq}}
+=
+\ell_0+\frac{mg}{k},
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\omega_r
+=
+\sqrt{\frac{k}{m}},
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_\theta
+=
+\sqrt{\frac{g}{r_{\mathrm{eq}}}}.
+\]</div>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>The resonance condition is</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_r=2\omega_\theta.
+\]</div>
+<p>Substituting the approximate frequencies gives</p>
+<div class="math notranslate nohighlight">
+\[
+\sqrt{\frac{k}{m}}
+=
+2\sqrt{\frac{g}{r_{\mathrm{eq}}}}.
+\]</div>
+<p>Squaring both sides,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{k}{m}
+=
+\frac{4g}{r_{\mathrm{eq}}}.
+\]</div>
+<p>Using</p>
+<div class="math notranslate nohighlight">
+\[
+r_{\mathrm{eq}}
+=
+\ell_0+\frac{mg}{k},
+\]</div>
+<p>we obtain</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{k}{m}
+=
+\frac{4g}{\ell_0+\frac{mg}{k}}.
+\]</div>
+<p>Multiplying both sides by</p>
+<div class="math notranslate nohighlight">
+\[
+\ell_0+\frac{mg}{k}
+\]</div>
+<p>gives</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{k\ell_0}{m}
++
+g
+=
+4g.
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{k\ell_0}{m}
+=
+3g,
+\]</div>
+<p>so</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+k
+=
+\frac{3mg}{\ell_0}
+}
+\]</div>
+<p>Using the given values,</p>
+<div class="math notranslate nohighlight">
+\[
+k
+=
+\frac{3(0.50)(9.81)}{0.30}
+=
+49.05~\mathrm{N/m}.
+\]</div>
+<p>Thus, a spring constant near</p>
+<div class="math notranslate nohighlight">
+\[
+k\approx49~\mathrm{N/m}
+\]</div>
+<p>should place the system close to the internal resonance condition.</p>
+</div>
+</details>
+</div>
+<p>In the next activity, we will use numerical simulations to compare motion away from resonance with motion near the autoparametric resonance condition.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b3-6-7-numerical-exploration-of-autoparametric-resonance">
+<h2>B3.6.7 Numerical Exploration of Autoparametric Resonance<a class="headerlink" href="#b3-6-7-numerical-exploration-of-autoparametric-resonance" title="Link to this heading">#</a></h2>
+<p>The previous section showed that strong internal resonance is expected when</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_r
+\approx
+2\omega_\theta.
+\]</div>
+<p>For the parameters</p>
+<div class="math notranslate nohighlight">
+\[
+m=0.50~\mathrm{kg},
+\qquad
+\ell_0=0.30~\mathrm{m},
+\]</div>
+<p>this occurs near</p>
+<div class="math notranslate nohighlight">
+\[
+k\approx49~\mathrm{N/m}.
+\]</div>
+<p>We now test this prediction numerically by comparing two spring pendulums:</p>
+<ul class="simple">
+<li><p>one away from resonance,</p></li>
+<li><p>one near the internal resonance condition.</p></li>
+</ul>
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Comparing Motion Away From and Near Resonance</h3>
+<p>Use the spring-pendulum simulation from earlier and compare two cases.</p>
+<p><strong>Case I — Away From Resonance</strong></p>
+<div class="math notranslate nohighlight">
+\[
+k=20~\mathrm{N/m}.
+\]</div>
+<p><strong>Case II — Near Autoparametric Resonance</strong></p>
+<div class="math notranslate nohighlight">
+\[
+k=49~\mathrm{N/m}.
+\]</div>
+<p>Use</p>
+<div class="math notranslate nohighlight">
+\[
+m=0.50~\mathrm{kg},
+\qquad
+\ell_0=0.30~\mathrm{m},
+\qquad
+g=9.81~\mathrm{m/s^2},
+\]</div>
+<p>with initial conditions</p>
+<div class="math notranslate nohighlight">
+\[
+r(0)=r_{\mathrm{eq}},
+\qquad
+\dot r(0)=0,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\theta(0)=20^\circ,
+\qquad
+\dot\theta(0)=0.
+\]</div>
+<p>Your script should:</p>
+<ol class="arabic simple">
+<li><p>Compute</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+r_{\mathrm{eq}}=\ell_0+\frac{mg}{k}
+\]</div>
+<p>for each value of <span class="math notranslate nohighlight">\(k\)</span>.</p>
+<ol class="arabic simple" start="2">
+<li><p>Solve the equations of motion for both cases.</p></li>
+<li><p>Plot</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+r(t)
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\theta(t)
+\]</div>
+<p>for both values of <span class="math notranslate nohighlight">\(k\)</span>.</p>
+<ol class="arabic simple" start="4">
+<li><p>Plot the trajectory in the</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+(x,y)
+\]</div>
+<p>plane for both cases.</p>
+<ol class="arabic simple" start="5">
+<li><p>Compare how strongly energy transfers between radial and angular motion.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>Away from resonance, the radial and angular motions are still coupled, but the energy exchange is relatively weak. The spring length may oscillate, but the angular motion remains comparatively regular.</p>
+<p>Near</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_r\approx2\omega_\theta,
+\]</div>
+<p>the coupling becomes much more efficient. Energy initially placed mostly in the angular motion can strongly excite radial motion. As a result, the spring length oscillates more noticeably, and the</p>
+<div class="math notranslate nohighlight">
+\[
+(x,y)
+\]</div>
+<p>trajectory becomes more complicated.</p>
+<p>This behavior is called autoparametric resonance because one mode of the same system acts like a parametric excitation for the other mode.</p>
+</div>
+</details>
+</div>
+<p>This comparison illustrates why the spring pendulum is such a powerful capstone system: the resonance condition can be estimated analytically and then tested directly through numerical simulation.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Spring pendulum: away from and near autoparametric resonance</span>
+<span class="c1">#</span>
+<span class="c1"># State vector:</span>
+<span class="c1"># y = [r, r_dot, theta, theta_dot]</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="c1"># Physical parameters</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mf">0.50</span>
+<span class="n">L0</span> <span class="o">=</span> <span class="mf">0.30</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>
+
+<span class="c1"># Time settings</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.001</span>
+<span class="n">t_max</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_max</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+
+<span class="c1"># Initial angular displacement</span>
+<span class="n">theta0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mf">20.0</span><span class="p">)</span>
+<span class="n">theta_dot0</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">r_dot0</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">derivatives</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="n">r</span><span class="p">,</span> <span class="n">r_dot</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">theta_dot</span> <span class="o">=</span> <span class="n">state</span>
+
+    <span class="n">r_ddot</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">r</span><span class="o">*</span><span class="n">theta_dot</span><span class="o">**</span><span class="mi">2</span>
+        <span class="o">-</span> <span class="p">(</span><span class="n">k</span><span class="o">/</span><span class="n">m</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">L0</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">g</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="n">theta_ddot</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">r_dot</span><span class="o">*</span><span class="n">theta_dot</span><span class="o">/</span><span class="n">r</span>
+        <span class="o">-</span> <span class="p">(</span><span class="n">g</span><span class="o">/</span><span class="n">r</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">r_dot</span><span class="p">,</span> <span class="n">r_ddot</span><span class="p">,</span> <span class="n">theta_dot</span><span class="p">,</span> <span class="n">theta_ddot</span><span class="p">])</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">rk4_step</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="n">k1</span> <span class="o">=</span> <span class="n">derivatives</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+    <span class="n">k2</span> <span class="o">=</span> <span class="n">derivatives</span><span class="p">(</span><span class="n">state</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="n">k1</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+    <span class="n">k3</span> <span class="o">=</span> <span class="n">derivatives</span><span class="p">(</span><span class="n">state</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="n">k2</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+    <span class="n">k4</span> <span class="o">=</span> <span class="n">derivatives</span><span class="p">(</span><span class="n">state</span> <span class="o">+</span> <span class="n">dt</span><span class="o">*</span><span class="n">k3</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">state</span> <span class="o">+</span> <span class="p">(</span><span class="n">dt</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">k1</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">k2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">k3</span> <span class="o">+</span> <span class="n">k4</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">simulate_spring_pendulum</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+    <span class="n">r_eq</span> <span class="o">=</span> <span class="n">L0</span> <span class="o">+</span> <span class="n">m</span><span class="o">*</span><span class="n">g</span><span class="o">/</span><span class="n">k</span>
+
+    <span class="n">state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="n">r_eq</span><span class="p">,</span>
+        <span class="n">r_dot0</span><span class="p">,</span>
+        <span class="n">theta0</span><span class="p">,</span>
+        <span class="n">theta_dot0</span>
+    <span class="p">])</span>
+
+    <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+    <span class="n">r_dot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+    <span class="n">theta_dot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)):</span>
+        <span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">r_dot</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">theta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">theta_dot</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+
+        <span class="n">state</span> <span class="o">=</span> <span class="n">rk4_step</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">r</span><span class="p">,</span> <span class="n">r_dot</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">theta_dot</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">r_eq</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Compare two spring constants</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">k_values</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mf">20.0</span><span class="p">,</span> <span class="s2">&quot;Away from resonance&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="mf">49.0</span><span class="p">,</span> <span class="s2">&quot;Near autoparametric resonance&quot;</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">k_values</span><span class="p">:</span>
+    <span class="n">results</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="n">simulate_spring_pendulum</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Plot r(t)</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">k_values</span><span class="p">:</span>
+    <span class="n">r</span><span class="p">,</span> <span class="n">r_dot</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">theta_dot</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">r_eq</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="n">label</span><span class="p">]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">, $k=</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">$ N/m&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$r(t)$ (m)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Radial Motion&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Plot theta(t)</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">k_values</span><span class="p">:</span>
+    <span class="n">r</span><span class="p">,</span> <span class="n">r_dot</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">theta_dot</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">r_eq</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="n">label</span><span class="p">]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">, $k=</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">$ N/m&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\theta(t)$ (degrees)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Angular Motion&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Plot trajectories in physical space</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">k_values</span><span class="p">:</span>
+    <span class="n">r</span><span class="p">,</span> <span class="n">r_dot</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">theta_dot</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">r_eq</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="n">label</span><span class="p">]</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$x$ (m)&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$y$ (m)&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;$(x,y)$ Trajectory: </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">, $k=</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">$ N/m&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<img alt="../_images/0a03e333f34b3410c79a10d0cb86f51fb566e1eadb42aca2eaba229ff9b5059a.png" src="../_images/0a03e333f34b3410c79a10d0cb86f51fb566e1eadb42aca2eaba229ff9b5059a.png" />
+<img alt="../_images/ebde943ae037509841c7e07b68fd92ddb131df29484472102f0dba110cea63b7.png" src="../_images/ebde943ae037509841c7e07b68fd92ddb131df29484472102f0dba110cea63b7.png" />
+<img alt="../_images/bb7498a245d792d6e1c9f79cc6645b6b54e95f22430b21a4749cd42ca24f6594.png" src="../_images/bb7498a245d792d6e1c9f79cc6645b6b54e95f22430b21a4749cd42ca24f6594.png" />
+<img alt="../_images/4cf1878365d38b0d12b3a5337790e6a7fd2d691adb4ae82b29fdd9fe6daf8f70.png" src="../_images/4cf1878365d38b0d12b3a5337790e6a7fd2d691adb4ae82b29fdd9fe6daf8f70.png" />
+</div>
+</details>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b3-6-8-phase-portraits-of-the-spring-pendulum">
+<h2>B3.6.8 Phase Portraits of the Spring Pendulum<a class="headerlink" href="#b3-6-8-phase-portraits-of-the-spring-pendulum" title="Link to this heading">#</a></h2>
+<p>The motion of the spring pendulum can be viewed from several perspectives.</p>
+<p>Plots of</p>
+<div class="math notranslate nohighlight">
+\[
+r(t),
+\qquad
+\theta(t),
+\]</div>
+<p>and the trajectory in the</p>
+<div class="math notranslate nohighlight">
+\[
+(x,y)
+\]</div>
+<p>plane describe how the mass moves in physical space. Another useful viewpoint is provided by phase space.</p>
+<p>For the spring pendulum, each degree of freedom possesses its own phase portrait:</p>
+<ul class="simple">
+<li><p>radial phase space</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+(r,\dot r),
+\]</div>
+<ul class="simple">
+<li><p>angular phase space</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+(\theta,\dot\theta).
+\]</div>
+<p>These phase portraits reveal how the energy and geometry of the motion evolve and can provide clues about the onset of more complicated behavior.</p>
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Phase Portraits of the Spring Pendulum</h3>
+<p>Using the numerical simulations from the previous section, investigate the phase portraits corresponding to the two cases</p>
+<section id="case-i-away-from-resonance">
+<h3>Case I — Away from Resonance<a class="headerlink" href="#case-i-away-from-resonance" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+k=20~\mathrm{N/m},
+\]</div>
+</section>
+<section id="case-ii-near-autoparametric-resonance">
+<h3>Case II — Near Autoparametric Resonance<a class="headerlink" href="#case-ii-near-autoparametric-resonance" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+k=49~\mathrm{N/m}.
+\]</div>
+<p>For each case:</p>
+<ol class="arabic simple">
+<li><p>Plot the radial phase portrait</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\dot r
+\text{ versus }
+r.
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p>Plot the angular phase portrait</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\dot\theta
+\text{ versus }
+\theta.
+\]</div>
+<ol class="arabic simple" start="3">
+<li><p>Compare the phase portraits obtained for the two values of</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+k.
+\]</div>
+<ol class="arabic simple" start="4">
+<li><p>Determine which degree of freedom appears to be affected most strongly by the internal resonance.</p></li>
+<li><p>Compare the phase portraits with the corresponding</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+(x,y)
+\]</div>
+<p>trajectories from the previous activity.</p>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>For</p>
+<div class="math notranslate nohighlight">
+\[
+k=20~\mathrm{N/m},
+\]</div>
+<p>the phase portraits are relatively regular and resemble distorted closed curves. Although the radial and angular motions are coupled, the energy exchange remains modest.</p>
+<p>Near the internal resonance condition,</p>
+<div class="math notranslate nohighlight">
+\[
+k=49~\mathrm{N/m},
+\]</div>
+<p>the coupling between the two modes becomes much stronger. The radial phase portrait generally exhibits larger excursions and a more complicated structure because energy is transferred more efficiently between the radial and angular motions.</p>
+<p>The angular phase portrait also changes, although the effect is often less dramatic than in the radial motion.</p>
+<p>Comparing these phase portraits with the corresponding</p>
+<div class="math notranslate nohighlight">
+\[
+(x,y)
+\]</div>
+<p>trajectories illustrates an important lesson: two motions that may look similar in physical space can have very different structures in phase space.</p>
+<p>Thus, phase portraits provide information about the dynamics that is not always apparent from ordinary position plots.</p>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Phase portraits of the spring pendulum</span>
+<span class="c1">#</span>
+<span class="c1"># This code assumes the previous simulation has already created:</span>
+<span class="c1">#</span>
+<span class="c1"># t, k_values, results</span>
+<span class="c1">#</span>
+<span class="c1"># where each entry in results contains:</span>
+<span class="c1">#</span>
+<span class="c1"># r, r_dot, theta, theta_dot, x, y, r_eq</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Radial phase portrait: r_dot versus r</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">k_values</span><span class="p">:</span>
+    <span class="n">r</span><span class="p">,</span> <span class="n">r_dot</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">theta_dot</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">r_eq</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="n">label</span><span class="p">]</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="n">r</span><span class="p">,</span>
+        <span class="n">r_dot</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">, $k=</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">$ N/m&quot;</span>
+    <span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$r$ (m)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\dot r$ (m/s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Spring Pendulum: Radial Phase Portrait&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Angular phase portrait: theta_dot versus theta</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">k_values</span><span class="p">:</span>
+    <span class="n">r</span><span class="p">,</span> <span class="n">r_dot</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">theta_dot</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">r_eq</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="n">label</span><span class="p">]</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">theta_dot</span><span class="p">),</span>
+        <span class="n">label</span><span class="o">=</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">, $k=</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">$ N/m&quot;</span>
+    <span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\theta$ (degrees)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\dot\theta$ (degrees/s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Spring Pendulum: Angular Phase Portrait&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<img alt="../_images/bb7c80bd13fa07325687bb1b4c94ca3f18285dd4080a147ebaceac7e6cf82222.png" src="../_images/bb7c80bd13fa07325687bb1b4c94ca3f18285dd4080a147ebaceac7e6cf82222.png" />
+<img alt="../_images/fe1d7901150a6f14cfa28d60bbc71ac306ceb5f664126d1cc4acdc85583a8d11.png" src="../_images/fe1d7901150a6f14cfa28d60bbc71ac306ceb5f664126d1cc4acdc85583a8d11.png" />
+</div>
+</details>
+</div>
+<p>In the next section, we will investigate how the spring pendulum behaves when the amplitudes become sufficiently large and the motion begins to exhibit sensitivity to initial conditions and chaos.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="b3-6-9-sensitivity-to-initial-conditions">
+<h2>B3.6.9 Sensitivity to Initial Conditions<a class="headerlink" href="#b3-6-9-sensitivity-to-initial-conditions" title="Link to this heading">#</a></h2>
+<p>The previous activities showed that the spring pendulum can produce rich trajectories, strong energy exchange, and complicated phase portraits. We now ask whether the system can also exhibit one of the defining signatures of chaos: sensitivity to initial conditions.</p>
+<p>Rather than changing the physical parameters, we will keep the same system and make only a tiny change to the initial angle.</p>
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Sensitive Dependence in the Spring Pendulum</h3>
+<p>Use the spring pendulum with</p>
+<div class="math notranslate nohighlight">
+\[
+m=0.50~\mathrm{kg},
+\qquad
+\ell_0=0.30~\mathrm{m},
+\qquad
+g=9.81~\mathrm{m/s^2},
+\]</div>
+<p>and choose the near-resonance value</p>
+<div class="math notranslate nohighlight">
+\[
+k=49~\mathrm{N/m}.
+\]</div>
+<p>Compare two simulations.</p>
+<section id="case-a">
+<h3>Case A<a class="headerlink" href="#case-a" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+r(0)=r_{\mathrm{eq}},
+\qquad
+\dot r(0)=0,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\theta(0)=20.000^\circ,
+\qquad
+\dot\theta(0)=0.
+\]</div>
+</section>
+<section id="case-b">
+<h3>Case B<a class="headerlink" href="#case-b" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+r(0)=r_{\mathrm{eq}},
+\qquad
+\dot r(0)=0,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\theta(0)=20.001^\circ,
+\qquad
+\dot\theta(0)=0.
+\]</div>
+<p>Your script should:</p>
+<ol class="arabic simple">
+<li><p>Solve the equations of motion for both initial conditions.</p></li>
+<li><p>Plot both versions of</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\theta(t)
+\]</div>
+<p>on the same graph.</p>
+<ol class="arabic simple" start="3">
+<li><p>Plot the difference</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+|\Delta\theta(t)|
+=
+|\theta_B(t)-\theta_A(t)|.
+\]</div>
+<ol class="arabic simple" start="4">
+<li><p>Plot both trajectories in the</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+(x,y)
+\]</div>
+<p>plane.</p>
+<ol class="arabic simple" start="5">
+<li><p>Determine whether the two motions remain close together or eventually separate.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>At early times, the two simulations should be nearly indistinguishable because their initial angles differ by only</p>
+<div class="math notranslate nohighlight">
+\[
+0.001^\circ.
+\]</div>
+<p>If the motion remains regular, the difference</p>
+<div class="math notranslate nohighlight">
+\[
+|\Delta\theta(t)|
+\]</div>
+<p>will remain small or grow only modestly.</p>
+<p>If the motion is chaotic, the small initial difference may grow substantially with time. The two trajectories may eventually appear unrelated, even though the equations and parameters are identical.</p>
+<p>This does not mean the system is random. The spring pendulum is still governed by deterministic equations. The apparent unpredictability arises because tiny differences in initial conditions can be amplified by the nonlinear dynamics.</p>
+<p>For the parameter values used here, the two trajectories may remain close for the duration of the simulation. In that case, the conclusion is not that the spring pendulum is chaotic, but rather that this particular motion is regular or only weakly sensitive to the chosen perturbation.</p>
+<p>This is an important lesson: nonlinear does not automatically mean chaotic. Chaos depends on the energy, parameters, and initial conditions.</p>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Spring pendulum: sensitive dependence on initial conditions</span>
+<span class="c1">#</span>
+<span class="c1"># Compare two simulations that differ only by 0.001 degrees</span>
+<span class="c1"># in the initial angle.</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="c1"># Physical parameters</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mf">0.50</span>
+<span class="n">L0</span> <span class="o">=</span> <span class="mf">0.30</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mf">49.0</span>
+
+<span class="c1"># Equilibrium length</span>
+<span class="n">r_eq</span> <span class="o">=</span> <span class="n">L0</span> <span class="o">+</span> <span class="n">m</span><span class="o">*</span><span class="n">g</span><span class="o">/</span><span class="n">k</span>
+
+<span class="c1"># Time settings</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.001</span>
+<span class="n">t_max</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_max</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">derivatives</span><span class="p">(</span><span class="n">state</span><span class="p">):</span>
+    <span class="n">r</span><span class="p">,</span> <span class="n">r_dot</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">theta_dot</span> <span class="o">=</span> <span class="n">state</span>
+
+    <span class="n">r_ddot</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">r</span><span class="o">*</span><span class="n">theta_dot</span><span class="o">**</span><span class="mi">2</span>
+        <span class="o">-</span> <span class="p">(</span><span class="n">k</span><span class="o">/</span><span class="n">m</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">L0</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">g</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="n">theta_ddot</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">r_dot</span><span class="o">*</span><span class="n">theta_dot</span><span class="o">/</span><span class="n">r</span>
+        <span class="o">-</span> <span class="p">(</span><span class="n">g</span><span class="o">/</span><span class="n">r</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">r_dot</span><span class="p">,</span> <span class="n">r_ddot</span><span class="p">,</span> <span class="n">theta_dot</span><span class="p">,</span> <span class="n">theta_ddot</span><span class="p">])</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">rk4_step</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+    <span class="n">k1</span> <span class="o">=</span> <span class="n">derivatives</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+    <span class="n">k2</span> <span class="o">=</span> <span class="n">derivatives</span><span class="p">(</span><span class="n">state</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="n">k1</span><span class="p">)</span>
+    <span class="n">k3</span> <span class="o">=</span> <span class="n">derivatives</span><span class="p">(</span><span class="n">state</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="n">k2</span><span class="p">)</span>
+    <span class="n">k4</span> <span class="o">=</span> <span class="n">derivatives</span><span class="p">(</span><span class="n">state</span> <span class="o">+</span> <span class="n">dt</span><span class="o">*</span><span class="n">k3</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">state</span> <span class="o">+</span> <span class="p">(</span><span class="n">dt</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">k1</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">k2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">k3</span> <span class="o">+</span> <span class="n">k4</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">simulate</span><span class="p">(</span><span class="n">theta0_deg</span><span class="p">):</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="n">r_eq</span><span class="p">,</span>
+        <span class="mf">0.0</span><span class="p">,</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">theta0_deg</span><span class="p">),</span>
+        <span class="mf">0.0</span>
+    <span class="p">])</span>
+
+    <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+    <span class="n">r_dot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+    <span class="n">theta_dot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)):</span>
+        <span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">r_dot</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">theta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">theta_dot</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+
+        <span class="n">state</span> <span class="o">=</span> <span class="n">rk4_step</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">r</span><span class="p">,</span> <span class="n">r_dot</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">theta_dot</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Case A and Case B</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">r_A</span><span class="p">,</span> <span class="n">rdot_A</span><span class="p">,</span> <span class="n">theta_A</span><span class="p">,</span> <span class="n">thetadot_A</span><span class="p">,</span> <span class="n">x_A</span><span class="p">,</span> <span class="n">y_A</span> <span class="o">=</span> <span class="n">simulate</span><span class="p">(</span><span class="mf">20.000</span><span class="p">)</span>
+<span class="n">r_B</span><span class="p">,</span> <span class="n">rdot_B</span><span class="p">,</span> <span class="n">theta_B</span><span class="p">,</span> <span class="n">thetadot_B</span><span class="p">,</span> <span class="n">x_B</span><span class="p">,</span> <span class="n">y_B</span> <span class="o">=</span> <span class="n">simulate</span><span class="p">(</span><span class="mf">20.001</span><span class="p">)</span>
+
+<span class="n">delta_theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">theta_B</span> <span class="o">-</span> <span class="n">theta_A</span><span class="p">)</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Plot theta(t)</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">theta_A</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;Case A: $\theta(0)=20.000^\circ$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">theta_B</span><span class="p">),</span> <span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;Case B: $\theta(0)=20.001^\circ$&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\theta(t)$ (degrees)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Spring Pendulum: Tiny Change in Initial Angle&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Plot |Delta theta(t)|</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">delta_theta</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$|\Delta\theta(t)|$ (degrees)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Growth of Initial Difference: $|\theta_B(t)-\theta_A(t)|$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Semilog plot of |Delta theta(t)|</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">delta_theta</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1e-12</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$|\Delta\theta(t)|$ (degrees)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Sensitive Dependence in the Spring Pendulum&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Plot both trajectories in physical space</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_A</span><span class="p">,</span> <span class="n">y_A</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Case A&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_B</span><span class="p">,</span> <span class="n">y_B</span><span class="p">,</span> <span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Case B&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$x$ (m)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$y$ (m)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Spring Pendulum Trajectories in Physical Space&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<img alt="../_images/60638c6b3a317b4477c540083e0eeafaeb23871391efa6013c217182c556af21.png" src="../_images/60638c6b3a317b4477c540083e0eeafaeb23871391efa6013c217182c556af21.png" />
+<img alt="../_images/8e19f7547bc5b219da4d06cb70197eea495e9eddc706e2cbb22b46884d0d08ac.png" src="../_images/8e19f7547bc5b219da4d06cb70197eea495e9eddc706e2cbb22b46884d0d08ac.png" />
+<img alt="../_images/b4f9e4ca0ae6843baab18e0712d4248e9655cd56a93a5078ddb4454a623bb4ae.png" src="../_images/b4f9e4ca0ae6843baab18e0712d4248e9655cd56a93a5078ddb4454a623bb4ae.png" />
+<img alt="../_images/adb48e163532e2f91508f4a176e9339f632547dbe52fa777192db7dadb0219f5.png" src="../_images/adb48e163532e2f91508f4a176e9339f632547dbe52fa777192db7dadb0219f5.png" />
+</div>
+</details>
+</div>
+<p>In the next section, we will use a Poincaré section to obtain a more compact view of the spring pendulum’s long-term motion.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="b3-6-10-poincare-sections-of-the-spring-pendulum">
+<h2>B3.6.10 Poincaré Sections of the Spring Pendulum<a class="headerlink" href="#b3-6-10-poincare-sections-of-the-spring-pendulum" title="Link to this heading">#</a></h2>
+<p>As the motion of the spring pendulum becomes increasingly complicated, ordinary trajectories and phase portraits may become difficult to interpret.</p>
+<p>A powerful way to simplify the dynamics is to construct a <strong>Poincaré section</strong>. Rather than displaying the entire trajectory, we record the state of the system whenever a specified condition is satisfied.</p>
+<p>For the spring pendulum, one convenient choice is to record the radial state</p>
+<div class="math notranslate nohighlight">
+\[
+(r,\dot r)
+\]</div>
+<p>whenever</p>
+<div class="math notranslate nohighlight">
+\[
+\theta=0
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\dot\theta&gt;0.
+\]</div>
+<p>Thus, each point corresponds to a crossing of the downward vertical with the mass moving in the same direction.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Poincaré Section of the Spring Pendulum</strong>
+<p>A Poincaré section for the spring pendulum may be constructed by recording</p>
+<div class="math notranslate nohighlight">
+\[
+(r,\dot r)
+\]</div>
+<p>whenever</p>
+<div class="math notranslate nohighlight">
+\[
+\theta=0
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\dot\theta&gt;0.
+\]</div>
+<p>The resulting pattern provides a compact description of the long-term dynamics.</p>
+</div>
+<p>Because the spring pendulum is not externally driven, there is no natural driving period. Instead, the section is defined geometrically by choosing a surface in phase space.</p>
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Constructing a Poincaré Section</h3>
+<p>Using the spring-pendulum simulation developed earlier, consider the near-resonance case</p>
+<div class="math notranslate nohighlight">
+\[
+k=49~\mathrm{N/m}.
+\]</div>
+<p>Construct a Poincaré section by recording</p>
+<div class="math notranslate nohighlight">
+\[
+(r,\dot r)
+\]</div>
+<p>whenever</p>
+<div class="math notranslate nohighlight">
+\[
+\theta
+\]</div>
+<p>passes through zero with</p>
+<div class="math notranslate nohighlight">
+\[
+\dot\theta&gt;0.
+\]</div>
+<p>Your script should:</p>
+<ol class="arabic simple">
+<li><p>Detect upward crossings of</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\theta=0.
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p>Record the corresponding values of</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+r
+\qquad\text{and}\qquad
+\dot r.
+\]</div>
+<ol class="arabic simple" start="3">
+<li><p>Plot</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\dot r
+\text{ versus }
+r.
+\]</div>
+<ol class="arabic simple" start="4">
+<li><p>Compare the resulting pattern with the ordinary radial phase portrait.</p></li>
+<li><p>Determine whether the section consists primarily of isolated points, closed curves, or a scattered cloud of points.</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p>For the parameter values used here, the Poincaré section typically consists of a relatively simple collection of points or smooth curves rather than a complicated cloud.</p>
+<p>This indicates that the motion remains largely regular, even though the system is highly nonlinear and exhibits strong energy exchange between radial and angular motion.</p>
+<p>A truly chaotic motion would produce a much more complicated structure containing a broad cloud of points rather than smooth curves.</p>
+<p>This illustrates an important lesson of nonlinear dynamics:</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Nonlinear Does Not Necessarily Mean Chaotic</strong>
+<p>Nonlinearity can produce complicated trajectories, internal resonance, and strong coupling without leading to chaos.</p>
+<p>Chaos depends not only on the form of the equations but also on the parameters, energy, and initial conditions.</p>
+</div>
+<p>Thus, the Poincaré section provides a powerful tool for distinguishing regular motion from chaotic motion.</p>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Poincaré section of the spring pendulum</span>
+<span class="c1">#</span>
+<span class="c1"># Record (r, r_dot) whenever:</span>
+<span class="c1">#</span>
+<span class="c1">#     theta crosses 0 upward</span>
+<span class="c1">#     theta_dot &gt; 0</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="c1"># Physical parameters</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mf">0.50</span>
+<span class="n">L0</span> <span class="o">=</span> <span class="mf">0.30</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mf">49.0</span>
+
+<span class="c1"># Equilibrium length</span>
+<span class="n">r_eq</span> <span class="o">=</span> <span class="n">L0</span> <span class="o">+</span> <span class="n">m</span><span class="o">*</span><span class="n">g</span><span class="o">/</span><span class="n">k</span>
+
+<span class="c1"># Time settings</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.001</span>
+<span class="n">t_max</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_max</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+
+<span class="c1"># Initial conditions</span>
+<span class="n">r0</span> <span class="o">=</span> <span class="n">r_eq</span>
+<span class="n">r_dot0</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">theta0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mf">20.0</span><span class="p">)</span>
+<span class="n">theta_dot0</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">derivatives</span><span class="p">(</span><span class="n">state</span><span class="p">):</span>
+    <span class="n">r</span><span class="p">,</span> <span class="n">r_dot</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">theta_dot</span> <span class="o">=</span> <span class="n">state</span>
+
+    <span class="n">r_ddot</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">r</span><span class="o">*</span><span class="n">theta_dot</span><span class="o">**</span><span class="mi">2</span>
+        <span class="o">-</span> <span class="p">(</span><span class="n">k</span><span class="o">/</span><span class="n">m</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">L0</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">g</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="n">theta_ddot</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">r_dot</span><span class="o">*</span><span class="n">theta_dot</span><span class="o">/</span><span class="n">r</span>
+        <span class="o">-</span> <span class="p">(</span><span class="n">g</span><span class="o">/</span><span class="n">r</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">r_dot</span><span class="p">,</span> <span class="n">r_ddot</span><span class="p">,</span> <span class="n">theta_dot</span><span class="p">,</span> <span class="n">theta_ddot</span><span class="p">])</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">rk4_step</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+    <span class="n">k1</span> <span class="o">=</span> <span class="n">derivatives</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+    <span class="n">k2</span> <span class="o">=</span> <span class="n">derivatives</span><span class="p">(</span><span class="n">state</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="n">k1</span><span class="p">)</span>
+    <span class="n">k3</span> <span class="o">=</span> <span class="n">derivatives</span><span class="p">(</span><span class="n">state</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="n">k2</span><span class="p">)</span>
+    <span class="n">k4</span> <span class="o">=</span> <span class="n">derivatives</span><span class="p">(</span><span class="n">state</span> <span class="o">+</span> <span class="n">dt</span><span class="o">*</span><span class="n">k3</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">state</span> <span class="o">+</span> <span class="p">(</span><span class="n">dt</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">k1</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">k2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">k3</span> <span class="o">+</span> <span class="n">k4</span><span class="p">)</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Numerical integration</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<span class="n">r_dot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<span class="n">theta_dot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+
+<span class="n">state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">r0</span><span class="p">,</span> <span class="n">r_dot0</span><span class="p">,</span> <span class="n">theta0</span><span class="p">,</span> <span class="n">theta_dot0</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)):</span>
+    <span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">r_dot</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">theta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">theta_dot</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+
+    <span class="n">state</span> <span class="o">=</span> <span class="n">rk4_step</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Construct Poincaré section</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">r_section</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">r_dot_section</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+
+    <span class="c1"># Upward crossing of theta = 0</span>
+    <span class="k">if</span> <span class="n">theta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">theta</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">theta_dot</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+
+        <span class="c1"># Linear interpolation for a cleaner crossing estimate</span>
+        <span class="n">frac</span> <span class="o">=</span> <span class="o">-</span><span class="n">theta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">theta</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">theta</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+        <span class="n">r_cross</span> <span class="o">=</span> <span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">frac</span><span class="o">*</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">r_dot_cross</span> <span class="o">=</span> <span class="n">r_dot</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">frac</span><span class="o">*</span><span class="p">(</span><span class="n">r_dot</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">r_dot</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+        <span class="n">r_section</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r_cross</span><span class="p">)</span>
+        <span class="n">r_dot_section</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r_dot_cross</span><span class="p">)</span>
+
+<span class="n">r_section</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">r_section</span><span class="p">)</span>
+<span class="n">r_dot_section</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">r_dot_section</span><span class="p">)</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Plot radial phase portrait</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">r_dot</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$r$ (m)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\dot r$ (m/s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Spring Pendulum: Radial Phase Portrait&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># ------------------------------------------------------------</span>
+<span class="c1"># Plot Poincaré section</span>
+<span class="c1"># ------------------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_section</span><span class="p">,</span> <span class="n">r_dot_section</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$r$ (m)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\dot r$ (m/s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Poincaré Section: $(r,\dot r)$ at $\theta=0$, $\dot\theta&gt;0$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<img alt="../_images/72bcb77f04b1546ffc8e850b96ebe619613670ef44f3946b0d01c8e4516e6aa0.png" src="../_images/72bcb77f04b1546ffc8e850b96ebe619613670ef44f3946b0d01c8e4516e6aa0.png" />
+<img alt="../_images/cf1548398c7b9cd365c4d34c6a131aaf09f3e77982fa461f508da10855add786.png" src="../_images/cf1548398c7b9cd365c4d34c6a131aaf09f3e77982fa461f508da10855add786.png" />
+</div>
+</details>
+</div>
+<p>In the final section, we will reflect on how the spring pendulum brings together many of the central ideas developed throughout the study of nonlinear dynamics.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b3-6-11-summary-and-reflection">
+<h2>B3.6.11 Summary and Reflection<a class="headerlink" href="#b3-6-11-summary-and-reflection" title="Link to this heading">#</a></h2>
+<p>The spring pendulum provides a remarkable example of how rich behavior can arise from a deceptively simple mechanical system. Beginning with a mass attached to a spring, we developed a mathematical model using Lagrangian mechanics and used numerical methods to explore its motion.</p>
+<p>Along the way, we encountered many of the themes that have appeared throughout this module:</p>
+<ul class="simple">
+<li><p>generalized coordinates,</p></li>
+<li><p>Lagrange’s equations,</p></li>
+<li><p>coupled oscillators,</p></li>
+<li><p>numerical integration,</p></li>
+<li><p>trajectories in physical space,</p></li>
+<li><p>phase portraits,</p></li>
+<li><p>energy exchange,</p></li>
+<li><p>internal resonance,</p></li>
+<li><p>and Poincaré sections.</p></li>
+</ul>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>The Spring Pendulum as a Microcosm of Nonlinear Dynamics</strong>
+<p>The spring pendulum illustrates many of the key ideas of nonlinear dynamics within a single physical system.</p>
+<p>These include</p>
+<ul>
+<li>coupled motion,</li>
+<li>nonlinear interactions,</li>
+<li>energy transfer between modes,</li>
+<li>autoparametric resonance,</li>
+<li>phase-space methods,</li>
+<li>and the possibility of chaotic behavior.</li>
+</ul>
+<p>In this sense, the spring pendulum serves as a miniature laboratory for modern dynamical systems.</p>
+</div>
+<p>One of the most important lessons of this project is that nonlinear systems need not be chaotic. Throughout our investigation, we found complicated trajectories, strong energy exchange, and intricate phase portraits. Yet these features alone do not imply chaos.</p>
+<p>Instead, chaos is only one possible outcome of nonlinear dynamics. Many nonlinear systems exhibit rich and beautiful behavior while remaining largely regular.</p>
+<div style="background-color:#ffe6e6; border-left:6px solid #cc0000; padding:14px; border-radius:4px;">
+<strong>Important Lesson</strong><br>
+<p>Complicated behavior does not necessarily imply chaos.</p>
+<p>Nonlinear systems may display resonance, energy exchange, and intricate trajectories while remaining regular and predictable.</p>
+<p>Chaos depends not only on the equations themselves, but also on the parameters, energy, and initial conditions.</p>
+</div>
+<p>Throughout this chapter, we approached the spring pendulum not as a single end-of-chapter problem but as a scientific investigation. We derived the equations, developed numerical models, visualized the motion, and interpreted the results. In doing so, we followed many of the same steps used by physicists and engineers when studying real systems.</p>
+<div style="background-color:#fff8e1; border-left:6px solid #ffcc00; padding:14px; border-radius:4px;">
+<p><strong>Looking Beyond This Module</strong></p>
+<p>The ideas encountered throughout this chapter represent only a small glimpse into the broader world of nonlinear dynamics.</p>
+<p>Modern research continues to explore</p>
+<ul>
+<li>chaos and strange attractors,</li>
+<li>pattern formation,</li>
+<li>network synchronization,</li>
+<li>biological oscillations,</li>
+<li>nonlinear waves and solitons,</li>
+<li>turbulence,</li>
+<li>complex systems,</li>
+<li>and the dynamics of coupled mechanical systems.</li>
+</ul>
+<p>Many of these topics remain active areas of research and continue to reveal unexpected connections between mathematics, physics, engineering, and the natural world.</p>
+</div>
+<p>The study of classical mechanics often begins with idealized systems and simple equations. Yet, as we have seen, even Newton’s laws can lead to an astonishing richness of behavior. From simple harmonic motion to synchronization and chaos, classical mechanics provides a gateway to some of the most beautiful and profound ideas in all of physics.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-B3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="chaos.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">B3.5 Chaos and Sensitive Dependence on Initial Conditions</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-6-1-motivation">B3.6.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-6-2-building-the-model">B3.6.2 Building the Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-6-3-equations-of-motion">B3.6.3 Equations of Motion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-6-4-numerical-solution-and-motion-in-physical-space">B3.6.4 Numerical Solution and Motion in Physical Space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-6-5-energy-exchange-between-radial-and-angular-motion">B3.6.5 Energy Exchange Between Radial and Angular Motion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-6-6-internal-resonance-and-autoparametric-resonance">B3.6.6 Internal Resonance and Autoparametric Resonance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-6-7-numerical-exploration-of-autoparametric-resonance">B3.6.7 Numerical Exploration of Autoparametric Resonance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-6-8-phase-portraits-of-the-spring-pendulum">B3.6.8 Phase Portraits of the Spring Pendulum</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-i-away-from-resonance">Case I — Away from Resonance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-ii-near-autoparametric-resonance">Case II — Near Autoparametric Resonance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-6-9-sensitivity-to-initial-conditions">B3.6.9 Sensitivity to Initial Conditions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-a">Case A</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-b">Case B</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-6-10-poincare-sections-of-the-spring-pendulum">B3.6.10 Poincaré Sections of the Spring Pendulum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b3-6-11-summary-and-reflection">B3.6.11 Summary and Reflection</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
