@@ -1,0 +1,1742 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>A1.4 Phase Space and Hamiltonian Flow &#8212; A Competency Approach to Classical Mechanics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/save_cell.css?v=43dd4451" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-A1/phase-space';</script>
+    <script src="../_static/save_cell.js?v=d135a7b8"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="A1.5 Liouville’s Theorem: Volume Preservation in Phase Space" href="liouville.html" />
+    <link rel="prev" title="A1.3 From the Lagrangian to the Hamiltonian: The Legendre Transform" href="legendre.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-A.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Home"/>
+    <script>document.write(`<img src="../_static/logo-A.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the B Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://gemini.google.com/gem/10l7TNMxLkYkxP1cGjSu5uEvK_RAC-A9n?usp=sharing">Physics Coding Architect (PyAIGem)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module A1 - Hamiltonian Dynamics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-A1.html">A1.0 Learning Outcomes: Hamiltonian Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro-hamiltonian.html">A1.1 Introduction to the Hamiltonian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Hamiltonian.html">A1.2 Connecting Lagrange Multipliers to the Hamiltonian Formalism</a></li>
+<li class="toctree-l1"><a class="reference internal" href="legendre.html">A1.3 From the Lagrangian to the Hamiltonian: The Legendre Transform</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">A1.4 Phase Space and Hamiltonian Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="liouville.html">A1.5 Liouville’s Theorem: Volume Preservation in Phase Space</a></li>
+<li class="toctree-l1"><a class="reference internal" href="canonical-transformations.html">A1.6 Canonical Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poison-brackets.html">A1.7 Poisson Brackets</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Module-A1/phase-space.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-A1/phase-space.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>A1.4 Phase Space and Hamiltonian Flow</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-4-1-motivation-why-phase-space">A1.4.1 Motivation: Why Phase Space?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-4-2-configuration-space-vs-phase-space">A1.4.2 Configuration Space vs. Phase Space</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-space">Configuration Space</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-space">Phase Space</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-4-3-hamiltonian-flow-trajectories-in-phase-space">A1.4.3 Hamiltonian Flow: Trajectories in Phase Space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-4-4-fixed-points-and-stability-in-phase-space">A1.4.4 Fixed Points and Stability in Phase Space</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-fixed-point">What is a Fixed Point?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-fixed-points-matter">Why Fixed Points Matter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linearization-near-a-fixed-point">Linearization Near a Fixed Point</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-types-in-1-degree-of-freedom">Stability Types in 1 Degree of Freedom</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#stable-center">Stable Center</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unstable-saddle">Unstable Saddle</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-hamiltonian-systems-never-have-attractors">Why Hamiltonian Systems Never Have Attractors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#separatrices-the-boundaries-of-motion">Separatrices: The Boundaries of Motion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-summary">Geometric Summary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-4-5-why-phase-space-matters">A1.4.5 Why Phase Space Matters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-section-liouvilles-theorem">Next Section → Liouville’s Theorem</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="a1-4-phase-space-and-hamiltonian-flow">
+<h1>A1.4 Phase Space and Hamiltonian Flow<a class="headerlink" href="#a1-4-phase-space-and-hamiltonian-flow" title="Link to this heading">#</a></h1>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"><section id="a1-4-1-motivation-why-phase-space">
+<h2>A1.4.1 Motivation: Why Phase Space?<a class="headerlink" href="#a1-4-1-motivation-why-phase-space" title="Link to this heading">#</a></h2>
+<p>In the Lagrangian picture, the state of a system is described by its <strong>positions</strong> alone; the velocities are implicitly determined by motion. But in Hamiltonian mechanics, the natural object is <strong>phase space</strong> — a space constructed from both positions and momenta.</p>
+<p>Phase space is powerful because:</p>
+<ul class="simple">
+<li><p>It captures <strong>all possible states</strong> of a system in a single geometric picture.</p></li>
+<li><p>It turns motion into <strong>curves traced out</strong> by a point moving through this space.</p></li>
+<li><p>It reveals structures like fixed points, separatrices, stability, and closed orbits.</p></li>
+<li><p>It allows us to understand phenomena such as <strong>resonance</strong>, <strong>nonlinear oscillations</strong>, and eventually <strong>chaos</strong>.</p></li>
+<li><p>It gives us tools to think about <strong>probability distributions</strong>, <strong>density evolution</strong>, and <strong>Liouville’s theorem</strong>.</p></li>
+</ul>
+<p>Most importantly:</p>
+<blockquote>
+<div><p><strong>Phase space turns classical mechanics into geometry.</strong><br />
+You are no longer pushing symbols — you are watching trajectories evolve in a multi-dimensional space of states.</p>
+</div></blockquote>
+<p>The shift from configuration space to phase space is one of the biggest conceptual upgrades in classical mechanics.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"></section>
+<section id="a1-4-2-configuration-space-vs-phase-space">
+<h2>A1.4.2 Configuration Space vs. Phase Space<a class="headerlink" href="#a1-4-2-configuration-space-vs-phase-space" title="Link to this heading">#</a></h2>
+<section id="configuration-space">
+<h3>Configuration Space<a class="headerlink" href="#configuration-space" title="Link to this heading">#</a></h3>
+<p>This is the space of all possible positions:</p>
+<ul class="simple">
+<li><p>A particle in 1D → <span class="math notranslate nohighlight">\(Q = \mathbb{R}\)</span></p></li>
+<li><p>A particle in 3D → <span class="math notranslate nohighlight">\(Q = \mathbb{R}^3\)</span></p></li>
+<li><p>A double pendulum → <span class="math notranslate nohighlight">\(Q = S^1 \times S^1\)</span></p></li>
+<li><p>A rigid body → <span class="math notranslate nohighlight">\(Q =\)</span> the rotation group <span class="math notranslate nohighlight">\(\mathrm{SO}(3)\)</span></p></li>
+</ul>
+<p>A point in <span class="math notranslate nohighlight">\(Q\)</span> tells you <em>where</em> the system is, but not where it is going.</p>
+</section>
+<section id="phase-space">
+<h3>Phase Space<a class="headerlink" href="#phase-space" title="Link to this heading">#</a></h3>
+<p>Phase space is:</p>
+<div class="math notranslate nohighlight">
+\[
+\Gamma = \{ (q_1, \ldots, q_n; \ p_1, \ldots, p_n) \}
+\]</div>
+<p>Dimension: <strong><span class="math notranslate nohighlight">\(2n\)</span></strong>, one position and one momentum for each coordinate.</p>
+<p>A point in <span class="math notranslate nohighlight">\(\Gamma\)</span> contains full dynamical information: positions <strong>and</strong> momenta → <strong>state = initial condition</strong>.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="a1-4-3-hamiltonian-flow-trajectories-in-phase-space">
+<h2>A1.4.3 Hamiltonian Flow: Trajectories in Phase Space<a class="headerlink" href="#a1-4-3-hamiltonian-flow-trajectories-in-phase-space" title="Link to this heading">#</a></h2>
+<p>Hamilton’s equations:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{q}_i = \frac{\partial H}{\partial p_i}, \qquad
+\dot{p}_i = -\frac{\partial H}{\partial q_i},
+\]</div>
+<p>describe a <strong>velocity field</strong> in phase space:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{v}(q,p) = (\dot{q}_1,\ldots,\dot{q}_n,\dot{p}_1,\ldots,\dot{p}_n)
+\]</div>
+<p>The solution curves of this vector field are the <strong>trajectories</strong> or <strong>orbits</strong> in phase space. A single point moving through phase space <em>is</em> the evolution of the system.</p>
+<p>This geometric interpretation is the key to understanding stability, periodic motion, and ultimately Liouville’s theorem and chaos.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:14px; border-radius:4px;">
+<p><strong>Concept Highlight: Hamilton’s Equations Define a Vector Field</strong></p>
+<blockquote>
+<div><p><strong>Every point in phase space has a little arrow attached to it showing the system’s instantaneous direction of motion.</strong></p>
+</div></blockquote>
+<p>Trajectories are then <strong>integral curves</strong> of this vector field, forming the geometric picture at the heart of Hamiltonian mechanics.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<p><strong>Example: Phase Space of a Harmonic Oscillator</strong></p>
+<p>For the harmonic oscillator,</p>
+<div class="math notranslate nohighlight">
+\[
+H = \frac{p^2}{2m} + \frac12 k x^2,
+\]</div>
+<p>Hamilton’s equations give</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{x} = \frac{p}{m}, \qquad 
+\dot{p} = -kx.
+\]</div>
+<hr class="docutils" />
+<p><strong>Energy Curve (Ellipse)</strong><br />
+Eliminating <span class="math notranslate nohighlight">\(t\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dp}{dx} = \frac{\dot{p}}{\dot{x}} = -\frac{km}{p}x,
+\]</div>
+<p>which integrates to the energy condition</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{p^2}{2m} + \frac12 kx^2 = E.
+\]</div>
+<p>This is the equation of an <strong>ellipse</strong> in the <span class="math notranslate nohighlight">\((x,p)\)</span>-plane.<br />
+Every initial condition with energy <span class="math notranslate nohighlight">\(E\)</span> lies on this ellipse.</p>
+<hr class="docutils" />
+<p><strong>Where the Phase-Space Trajectory Comes From</strong></p>
+<p>A single point in phase space, such as <span class="math notranslate nohighlight">\((x_0, p_0)\)</span>, represents the <strong>complete state</strong> of the oscillator. Hamilton’s equations tell us how that state evolves in time:</p>
+<ul>
+<li><p>at <span class="math notranslate nohighlight">\((x_0, p_0)\)</span> the system has a definite velocity</p>
+<div class="math notranslate nohighlight">
+\[
+  \mathbf{v}(x_0,p_0) = 
+  \left(\frac{p_0}{m},\, -k x_0\right),
+  \]</div>
+</li>
+<li><p>which determines the next point in phase space,</p></li>
+<li><p>which determines the next, and so on.</p></li>
+</ul>
+<p>Thus the <strong>trajectory</strong> in phase space is the curve traced out by the evolving state</p>
+<div class="math notranslate nohighlight">
+\[
+(x(t), p(t)).
+\]</div>
+<p>Because the energy <span class="math notranslate nohighlight">\(E\)</span> is constant for all time,</p>
+<div class="math notranslate nohighlight">
+\[
+H(x(t), p(t)) = E,
+\]</div>
+<p>the entire trajectory must lie <strong>exactly on the energy ellipse</strong>.</p>
+<p><strong>So in this example:</strong></p>
+<ul class="simple">
+<li><p>The <strong>energy ellipse</strong> shows all allowed states of energy <span class="math notranslate nohighlight">\(E\)</span>.</p></li>
+<li><p>The <strong>trajectory curve</strong> shows how the system <em>moves along</em> that ellipse as time progresses.</p></li>
+<li><p>Both consist of the same set of points, but the trajectory carries <em>direction</em>, <em>orientation</em>, and <em>speed</em> information that the ellipse alone does not.</p></li>
+</ul>
+</div><div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Phase-space example: 1D harmonic oscillator</span>
+
+<span class="sd">This script:</span>
+<span class="sd">- defines the harmonic oscillator Hamiltonian</span>
+<span class="sd">- integrates Hamilton’s equations</span>
+<span class="sd">- plots the trajectory in phase space</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">solve_ivp</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s2">&quot;This script requires scipy. Please install it with `pip install scipy`.&quot;</span><span class="p">)</span>
+
+<span class="c1"># -------------------------------</span>
+<span class="c1"># Parameters and Hamiltonian</span>
+<span class="c1"># -------------------------------</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mf">4.0</span>     <span class="c1"># choose k != m so ellipse isn&#39;t circular</span>
+<span class="n">omega</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">k</span><span class="o">/</span><span class="n">m</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">H</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">p</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">k</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="c1"># -------------------------------</span>
+<span class="c1"># Hamilton&#39;s equations</span>
+<span class="c1"># -------------------------------</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">hamiltonian_system</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">z</span>
+    <span class="n">dxdt</span> <span class="o">=</span> <span class="n">p</span><span class="o">/</span><span class="n">m</span>
+    <span class="n">dpdt</span> <span class="o">=</span> <span class="o">-</span><span class="n">k</span><span class="o">*</span><span class="n">x</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">dxdt</span><span class="p">,</span> <span class="n">dpdt</span><span class="p">]</span>
+
+<span class="c1"># -------------------------------</span>
+<span class="c1"># Initial condition &amp; integrate</span>
+<span class="c1"># -------------------------------</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">p0</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">E</span> <span class="o">=</span> <span class="n">H</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">p0</span><span class="p">)</span>
+
+<span class="n">n_periods</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">omega</span>
+<span class="n">t_max</span> <span class="o">=</span> <span class="n">n_periods</span><span class="o">*</span><span class="n">T</span>
+<span class="n">t_eval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_max</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+
+<span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span>
+    <span class="n">hamiltonian_system</span><span class="p">,</span>
+    <span class="n">t_span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_max</span><span class="p">),</span>
+    <span class="n">y0</span><span class="o">=</span><span class="p">[</span><span class="n">x0</span><span class="p">,</span> <span class="n">p0</span><span class="p">],</span>
+    <span class="n">t_eval</span><span class="o">=</span><span class="n">t_eval</span><span class="p">,</span>
+    <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-9</span><span class="p">,</span>
+    <span class="n">atol</span><span class="o">=</span><span class="mf">1e-9</span>
+<span class="p">)</span>
+
+<span class="n">x_traj</span> <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">p_traj</span> <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># -------------------------------</span>
+<span class="c1"># Energy ellipse</span>
+<span class="c1"># -------------------------------</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+<span class="n">x_ellipse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">E</span><span class="o">/</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+<span class="n">p_ellipse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">E</span><span class="o">*</span><span class="n">m</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+
+<span class="c1"># -------------------------------</span>
+<span class="c1"># Vector field (optional)</span>
+<span class="c1"># -------------------------------</span>
+<span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span> <span class="o">=</span> <span class="mf">1.2</span><span class="o">*</span><span class="n">x_ellipse</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="mf">1.2</span><span class="o">*</span><span class="n">x_ellipse</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">p_min</span><span class="p">,</span> <span class="n">p_max</span> <span class="o">=</span> <span class="mf">1.2</span><span class="o">*</span><span class="n">p_ellipse</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="mf">1.2</span><span class="o">*</span><span class="n">p_ellipse</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+<span class="n">nx</span> <span class="o">=</span> <span class="n">np_points</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">x_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>
+<span class="n">p_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">p_min</span><span class="p">,</span> <span class="n">p_max</span><span class="p">,</span> <span class="n">np_points</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x_grid</span><span class="p">,</span> <span class="n">p_grid</span><span class="p">)</span>
+
+<span class="n">DX</span> <span class="o">=</span> <span class="n">P</span><span class="o">/</span><span class="n">m</span>
+<span class="n">DP</span> <span class="o">=</span> <span class="o">-</span><span class="n">k</span><span class="o">*</span><span class="n">X</span>
+
+<span class="n">speed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">DX</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">DP</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">speed</span><span class="p">[</span><span class="n">speed</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">DXn</span> <span class="o">=</span> <span class="n">DX</span><span class="o">/</span><span class="n">speed</span>
+<span class="n">DPn</span> <span class="o">=</span> <span class="n">DP</span><span class="o">/</span><span class="n">speed</span>
+
+<span class="c1"># -------------------------------</span>
+<span class="c1"># Plot</span>
+<span class="c1"># -------------------------------</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># vector field</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">DXn</span><span class="p">,</span> <span class="n">DPn</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.35</span><span class="p">,</span> <span class="n">pivot</span><span class="o">=</span><span class="s2">&quot;mid&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+
+<span class="c1"># Energy ellipse (solid navy)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">x_ellipse</span><span class="p">,</span> <span class="n">p_ellipse</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;navy&quot;</span><span class="p">,</span>
+    <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Energy ellipse (H = E)&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Trajectory as sparse orange markers</span>
+<span class="n">step</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># subsample so markers are clearly separated</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+    <span class="n">x_traj</span><span class="p">[::</span><span class="n">step</span><span class="p">],</span>
+    <span class="n">p_traj</span><span class="p">[::</span><span class="n">step</span><span class="p">],</span>
+    <span class="n">s</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkorange&quot;</span><span class="p">,</span>
+    <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Trajectory samples&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Initial point</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="n">x0</span><span class="p">],</span> <span class="p">[</span><span class="n">p0</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Initial condition&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x (position)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;p (momentum)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Phase-Space Trajectory of a 1D Harmonic Oscillator&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">,</span> <span class="n">adjustable</span><span class="o">=</span><span class="s2">&quot;box&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Legend outside the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">right</span><span class="o">=</span><span class="mf">0.78</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span>
+    <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">,</span>
+    <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.02</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+    <span class="n">borderaxespad</span><span class="o">=</span><span class="mf">0.0</span>
+<span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/06347c12bb77bfc4713f5a51e32ca56ac8d61f42e655fc234c42e8bb92dd11da.png" src="../_images/06347c12bb77bfc4713f5a51e32ca56ac8d61f42e655fc234c42e8bb92dd11da.png" />
+</div>
+</div>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="a1-4-4-fixed-points-and-stability-in-phase-space">
+<h2>A1.4.4 Fixed Points and Stability in Phase Space<a class="headerlink" href="#a1-4-4-fixed-points-and-stability-in-phase-space" title="Link to this heading">#</a></h2>
+<p>Phase space is more than a place to draw curves — it is a geometric laboratory for understanding <strong>qualitative behavior</strong> of dynamical systems. One of its most powerful tools is the study of <strong>fixed points</strong> and their <strong>stability</strong>.</p>
+<hr class="docutils" />
+<section id="what-is-a-fixed-point">
+<h3>What is a Fixed Point?<a class="headerlink" href="#what-is-a-fixed-point" title="Link to this heading">#</a></h3>
+<p>A fixed point (also called an <em>equilibrium point</em>) is a state where the system does <strong>not</strong> move:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{q}_i = 0, \qquad \dot{p}_i = 0.
+\]</div>
+<p>In phase space, this corresponds to a <strong>single point</strong> where the vector field</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{v}(q,p) = (\dot{q},\dot{p})
+\]</div>
+<p>is exactly zero — no arrow, no motion.</p>
+<p>Examples:</p>
+<ul class="simple">
+<li><p>A mass at the bottom of a bowl (stable).</p></li>
+<li><p>A mass balanced at the top of a hill (unstable).</p></li>
+<li><p>A double-well potential has two stable points and one unstable one.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="why-fixed-points-matter">
+<h3>Why Fixed Points Matter<a class="headerlink" href="#why-fixed-points-matter" title="Link to this heading">#</a></h3>
+<p>Fixed points are the “anchors” of phase space.<br />
+They determine the <strong>local geometry</strong> and organize the global structure of trajectories.</p>
+<p>Near a fixed point:</p>
+<ul class="simple">
+<li><p>trajectories may circulate (stable center)</p></li>
+<li><p>trajectories may diverge (unstable saddle)</p></li>
+<li><p>separatrices may emerge (boundaries between qualitatively different motions)</p></li>
+<li><p>even chaotic behavior can occur in nonlinear systems</p></li>
+</ul>
+<p>Understanding fixed points is the first step toward understanding stability, oscillations, bifurcations, and eventually chaos.</p>
+</section>
+<hr class="docutils" />
+<section id="linearization-near-a-fixed-point">
+<h3>Linearization Near a Fixed Point<a class="headerlink" href="#linearization-near-a-fixed-point" title="Link to this heading">#</a></h3>
+<p>To study stability, we <strong>linearize</strong> the equations of motion near a fixed point:</p>
+<p>Let <span class="math notranslate nohighlight">\((q^*, p^*)\)</span> be a fixed point.<br />
+Expand the Hamiltonian to quadratic order:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+H(q,p) \approx H(q^*, p^*) 
++ \frac12 
+\begin{pmatrix}
+\delta q &amp; \delta p
+\end{pmatrix}
+A
+\begin{pmatrix}
+\delta q \\ \delta p
+\end{pmatrix},
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(A\)</span> is the matrix of second derivatives (the Hessian of <span class="math notranslate nohighlight">\(H\)</span>).</p>
+<p>Linearizing Hamilton’s equations gives:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\frac{d}{dt} 
+\begin{pmatrix}
+\delta q \\ \delta p
+\end{pmatrix}
+= J A
+\begin{pmatrix}
+\delta q \\ \delta p
+\end{pmatrix},
+\end{split}\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+J =
+\begin{pmatrix}
+0 &amp; 1 \\ -1 &amp; 0
+\end{pmatrix}
+\end{split}\]</div>
+<p>is the <strong>symplectic matrix</strong>, and the eigenvalues of the matrix <span class="math notranslate nohighlight">\(JA\)</span> determine stability.</p>
+<div style="background-color:#fff8e1; border-left:5px solid #ffc20e; padding:12px; border-radius:4px;">
+<p><strong>What “Symplectic” Means</strong></p>
+<p>A matrix is called <strong>symplectic</strong> when it preserves the fundamental pairing between coordinates and their conjugate momenta, ensuring that the geometric structure of phase space—and in particular its area—is left unchanged.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:14px; border-radius:4px;">
+<p><strong>Concept Highlight: Why Eigenvalues Determine Stability</strong></p>
+<p>For a linearized system</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{\mathbf{z}} = M\,\mathbf{z}, \qquad M = JA,
+\]</div>
+<p>the solution has the general form</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{z}(t) = c_1 e^{\lambda_1 t}\mathbf{v}_1 
+               + c_2 e^{\lambda_2 t}\mathbf{v}_2,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\lambda_1\)</span> and <span class="math notranslate nohighlight">\(\lambda_2\)</span> are the eigenvalues of <span class="math notranslate nohighlight">\(M\)</span>.<br />
+Thus the <strong>sign and type</strong> of the eigenvalues govern how nearby trajectories behave.</p>
+<hr class="docutils" />
+<p><strong>Imaginary Eigenvalues → Stable Center</strong></p>
+<p>If</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda = \pm i\omega,
+\]</div>
+<p>then</p>
+<div class="math notranslate nohighlight">
+\[
+e^{\lambda t} = e^{\pm i\omega t} = \cos(\omega t) \pm i \sin(\omega t).
+\]</div>
+<p>This means:</p>
+<ul class="simple">
+<li><p>no exponential growth or decay</p></li>
+<li><p>solutions are <strong>pure oscillations</strong></p></li>
+<li><p>trajectories trace <strong>closed loops</strong> in phase space</p></li>
+<li><p>nearby trajectories stay near the equilibrium forever</p></li>
+</ul>
+<p>This is the mathematical reason a <strong>potential minimum</strong> gives a <strong>stable oscillation</strong>.</p>
+<hr class="docutils" />
+<p><strong>Real Eigenvalues with Opposite Signs → Saddle Point</strong></p>
+<p>If</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda_1 = +\gamma, \qquad \lambda_2 = -\gamma,
+\]</div>
+<p>then</p>
+<div class="math notranslate nohighlight">
+\[
+e^{\gamma t} \to \infty, \qquad e^{-\gamma t} \to 0.
+\]</div>
+<p>So:</p>
+<ul class="simple">
+<li><p>one direction <strong>expands exponentially</strong></p></li>
+<li><p>the other direction <strong>contracts exponentially</strong></p></li>
+<li><p>trajectories are repelled along one axis and attracted along the other</p></li>
+<li><p>the equilibrium is <strong>unstable</strong></p></li>
+<li><p>the special trajectories that follow the stable/unstable directions form the <strong>separatrices</strong></p></li>
+</ul>
+<p>This behavior creates the characteristic <strong>saddle structure</strong> in phase space — the hallmark of an unstable equilibrium (e.g., a ball balanced atop a hill).</p>
+<hr class="docutils" />
+<p><strong>Why Hamiltonian Systems Have Only These Two Cases</strong></p>
+<p>For any Hamiltonian system:</p>
+<ul class="simple">
+<li><p>the stability matrix is <span class="math notranslate nohighlight">\(M = JA\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(J\)</span> is traceless</p></li>
+<li><p><span class="math notranslate nohighlight">\(A\)</span> is symmetric</p></li>
+<li><p>therefore <strong>the trace of <span class="math notranslate nohighlight">\(M\)</span> is zero</strong></p></li>
+</ul>
+<p>This forces the eigenvalues to come in <strong>pairs that sum to zero</strong>, meaning:</p>
+<ul class="simple">
+<li><p><strong>they cannot both be negative</strong> → no stable attractors</p></li>
+<li><p><strong>they cannot both be positive</strong> → no repellers</p></li>
+<li><p><strong>no spirals</strong> → Hamiltonian systems do not have damping</p></li>
+</ul>
+<p>Thus the only possibilities are:</p>
+<ul class="simple">
+<li><p><strong>pure imaginary pair</strong> → stable center</p></li>
+<li><p><strong>real opposite-sign pair</strong> → saddle</p></li>
+</ul>
+<p>This is a direct consequence of <strong>Liouville’s theorem</strong> (volume-preserving flow) and the symplectic structure of Hamiltonian mechanics.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:12px; border-radius:4px;">
+<p><strong>Box Activity 1: Expand the Hamiltonian Near a Fixed Point and Identify the Hessian Matrix</strong></p>
+<p>Let <span class="math notranslate nohighlight">\((q^*, p^*)\)</span> be a fixed point of a 1D Hamiltonian system, so that</p>
+<div class="math notranslate nohighlight">
+\[
+\left.\frac{\partial H}{\partial q}\right|_* = 0,
+\qquad
+\left.\frac{\partial H}{\partial p}\right|_* = 0.
+\]</div>
+<p>We now expand the Hamiltonian to second order in small deviations<br />
+<span class="math notranslate nohighlight">\(\delta q = q - q^*\)</span> and <span class="math notranslate nohighlight">\(\delta p = p - p^*\)</span>.</p>
+<p><strong>Your task:</strong> Show that the Taylor expansion of <span class="math notranslate nohighlight">\(H(q,p)\)</span> around the fixed point can be written in compact matrix form involving the <strong>Hessian matrix</strong>.</p>
+<hr class="docutils" />
+<p><strong>Steps</strong></p>
+<p><strong>(a)</strong> Write the second-order Taylor expansion of <span class="math notranslate nohighlight">\(H(q,p)\)</span> around <span class="math notranslate nohighlight">\((q^*,p^*)\)</span>.<br />
+(Remember: all first-order terms vanish because this is a fixed point.)</p>
+<p><strong>(b)</strong> Identify the second derivatives:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(a = \left.\frac{\partial^2 H}{\partial q^2}\right|_*\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(b = \left.\frac{\partial^2 H}{\partial q \partial p}\right|_*\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(c = \left.\frac{\partial^2 H}{\partial p^2}\right|_*\)</span></p></li>
+</ul>
+<p><strong>(c)</strong> Assemble these into the <strong>Hessian matrix</strong>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A =
+\begin{pmatrix}
+a &amp; b \\
+b &amp; c
+\end{pmatrix}.
+\end{split}\]</div>
+<p><strong>(d)</strong> Show that the quadratic expansion can be written in matrix form as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+H(q,p) \approx H^* +
+\frac12
+\begin{pmatrix}
+\delta q &amp; \delta p
+\end{pmatrix}
+A
+\begin{pmatrix}
+\delta q \\[4pt] \delta p
+\end{pmatrix}.
+\end{split}\]</div>
+<p>This compact expression is the starting point for linearizing Hamilton’s equations.</p>
+<hr class="docutils" />
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Detailed Solution
+</summary>
+<div style="background-color:#e8f5e9; padding:12px; border-radius:4px; margin-top:6px;">
+<p><strong>(a) Taylor expansion</strong></p>
+<p>Because <span class="math notranslate nohighlight">\((q^*,p^*)\)</span> is a fixed point, all first derivatives vanish:</p>
+<div class="math notranslate nohighlight">
+\[
+\left.\frac{\partial H}{\partial q}\right|_*=0,
+\qquad
+\left.\frac{\partial H}{\partial p}\right|_*=0.
+\]</div>
+<p>Thus the Taylor expansion to second order is</p>
+<div class="math notranslate nohighlight">
+\[
+H(q,p) \approx 
+H^* 
++ \frac12 \left.\frac{\partial^2 H}{\partial q^2}\right|_*\,\delta q^2
++ \left.\frac{\partial^2 H}{\partial q \partial p}\right|_*\,\delta q\,\delta p
++ \frac12 \left.\frac{\partial^2 H}{\partial p^2}\right|_*\,\delta p^2.
+\]</div>
+<hr class="docutils" />
+<p><strong>(b) Second derivatives</strong></p>
+<p>Identify:</p>
+<div class="math notranslate nohighlight">
+\[
+a=\left.\frac{\partial^2 H}{\partial q^2}\right|_*,
+\qquad
+b=\left.\frac{\partial^2 H}{\partial q\,\partial p}\right|_*,
+\qquad
+c=\left.\frac{\partial^2 H}{\partial p^2}\right|_*.
+\]</div>
+<hr class="docutils" />
+<p><strong>(c) Form the Hessian</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A =
+\begin{pmatrix}
+a &amp; b \\
+b &amp; c
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Note: <span class="math notranslate nohighlight">\(A\)</span> is symmetric because mixed partials commute<br />
+<span class="math notranslate nohighlight">\(\displaystyle \frac{\partial^2 H}{\partial q\,\partial p}
+= \frac{\partial^2 H}{\partial p\,\partial q}\)</span>.</p>
+<hr class="docutils" />
+<p><strong>(d) Matrix form of the expansion</strong></p>
+<p>Write the quadratic form compactly, and write it out to show it is identical to your expansion terms in part (a):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\frac12
+\begin{pmatrix}
+\delta q &amp; \delta p
+\end{pmatrix}
+\begin{pmatrix}
+a &amp; b\\
+b &amp; c
+\end{pmatrix}
+\begin{pmatrix}
+\delta q \\[4pt] \delta p
+\end{pmatrix}
+=
+\frac12 a\,\delta q^2
++ b\,\delta q\,\delta p
++ \frac12 c\,\delta p^2.
+\end{split}\]</div>
+<p>Thus:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+H(q,p) \approx H^* +
+\frac12
+\begin{pmatrix}
+\delta q &amp; \delta p
+\end{pmatrix}
+A
+\begin{pmatrix}
+\delta q \\[4pt] \delta p
+\end{pmatrix}
+}
+\end{split}\]</div>
+<p>which is the quadratic Hamiltonian used for linear stability analysis.</p>
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:12px; border-radius:4px;">
+<p><strong>Box Activity 2: Linearizing Hamilton’s Equations Near a Fixed Point</strong></p>
+<p>Consider a 1D Hamiltonian expanded to quadratic order around a fixed point <span class="math notranslate nohighlight">\((q^*, p^*)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+H(q,p) \approx H^* 
++ \tfrac12\, a\, (\delta q)^2 
++ b\, (\delta q)(\delta p) 
++ \tfrac12\, c\, (\delta p)^2,
+\]</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\delta q = q - q^*\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\delta p = p - p^*\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(a = \left.\frac{\partial^2 H}{\partial q^2}\right|_*\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(b = \left.\frac{\partial^2 H}{\partial q\,\partial p}\right|_*\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(c = \left.\frac{\partial^2 H}{\partial p^2}\right|_*\)</span></p></li>
+</ul>
+<p>Hamilton’s equations are:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{q} = \frac{\partial H}{\partial p}, 
+\qquad
+\dot{p} = -\frac{\partial H}{\partial q}.
+\]</div>
+<p>Your task: <strong>derive the linearized evolution equations</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\frac{d}{dt} 
+\begin{pmatrix}
+\delta q \\[6pt] \delta p
+\end{pmatrix} =
+JA
+\begin{pmatrix}
+\delta q \\[6pt] \delta p
+\end{pmatrix},
+\end{split}\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+J =
+\begin{pmatrix}
+0 &amp; 1\\
+-1 &amp; 0
+\end{pmatrix},
+\qquad
+A =
+\begin{pmatrix}
+a &amp; b\\ 
+b &amp; c
+\end{pmatrix}.
+\end{split}\]</div>
+<hr class="docutils" />
+<p><strong>Steps</strong></p>
+<p><strong>(a)</strong> Compute<br />
+<span class="math notranslate nohighlight">\(\displaystyle \frac{\partial H}{\partial q}, \quad \frac{\partial H}{\partial p}\)</span><br />
+from the quadratic Hamiltonian.</p>
+<p><strong>(b)</strong> Write the linearized Hamilton’s equations:<br />
+<span class="math notranslate nohighlight">\(\dot{\delta q} = \frac{\partial H}{\partial p}\)</span>,<br />
+<span class="math notranslate nohighlight">\(\dot{\delta p} = -\frac{\partial H}{\partial q}\)</span>.</p>
+<p><strong>(c)</strong> Express these as a matrix equation</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\dot{\mathbf{z}} = M\,\mathbf{z},
+\qquad
+\mathbf{z} = 
+\begin{pmatrix}
+\delta q \\[3pt] \delta p
+\end{pmatrix}.
+\end{split}\]</div>
+<p><strong>(d)</strong> Show that <span class="math notranslate nohighlight">\(M = JA\)</span>, proving that the stability is determined by the eigenvalues of <span class="math notranslate nohighlight">\(JA\)</span>.</p>
+<hr class="docutils" />
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Detailed Solution
+</summary>
+<div style="background-color:#e8f5e9; padding:12px; border-radius:4px; margin-top:6px;">
+<p><strong>(a) Compute partial derivatives</strong></p>
+<p>From</p>
+<div class="math notranslate nohighlight">
+\[
+H \approx H^* + \tfrac12 a\,\delta q^2 + b\,\delta q\,\delta p + \tfrac12 c\,\delta p^2,
+\]</div>
+<p>we get:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial H}{\partial q}
+= a\,\delta q + b\,\delta p,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial H}{\partial p}
+= b\,\delta q + c\,\delta p.
+\]</div>
+<hr class="docutils" />
+<p><strong>(b) Linearized Hamilton’s equations</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\dot{\delta q} = b\,\delta q + c\,\delta p,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\dot{\delta p} = -a\,\delta q - b\,\delta p.
+\]</div>
+<hr class="docutils" />
+<p><strong>(c) Matrix form</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\frac{d}{dt}
+\begin{pmatrix}
+\delta q \\[6pt] \delta p
+\end{pmatrix}
+=
+\begin{pmatrix}
+b &amp; c\\
+-a &amp; -b
+\end{pmatrix}
+\begin{pmatrix}
+\delta q \\[6pt] \delta p
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Thus</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+M =
+\begin{pmatrix}
+b &amp; c\\
+-a &amp; -b
+\end{pmatrix}.
+\end{split}\]</div>
+<hr class="docutils" />
+<p><strong>(d) Show that <span class="math notranslate nohighlight">\(M = JA\)</span></strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+J A =
+\begin{pmatrix}
+0 &amp; 1\\
+-1 &amp; 0
+\end{pmatrix}
+\begin{pmatrix}
+a &amp; b\\
+b &amp; c
+\end{pmatrix}
+=
+\begin{pmatrix}
+b &amp; c\\
+-a &amp; -b
+\end{pmatrix}
+= M.
+\end{split}\]</div>
+<p>Thus:</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\dot{\mathbf{z}} = J A\,\mathbf{z}
+}
+\]</div>
+<p>and the eigenvalues of <span class="math notranslate nohighlight">\(JA\)</span> determine the stability:</p>
+<ul class="simple">
+<li><p>imaginary → <strong>stable center</strong></p></li>
+<li><p>real, opposite signs → <strong>saddle point</strong></p></li>
+</ul>
+</div>
+</details>
+</div>
+</section>
+<hr class="docutils" />
+<section id="stability-types-in-1-degree-of-freedom">
+<h3>Stability Types in 1 Degree of Freedom<a class="headerlink" href="#stability-types-in-1-degree-of-freedom" title="Link to this heading">#</a></h3>
+<p>For 1D Hamiltonian systems, fixed points fall into two universal categories:</p>
+<hr class="docutils" />
+<section id="stable-center">
+<h4>Stable Center<a class="headerlink" href="#stable-center" title="Link to this heading">#</a></h4>
+<p>Occurs when the potential has a <strong>local minimum</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+U''(q^*) &gt; 0.
+\]</div>
+<p>Eigenvalues are <strong>purely imaginary</strong>.</p>
+<p><strong>Phase space view:</strong></p>
+<ul class="simple">
+<li><p>Trajectories are <strong>closed loops</strong> around the fixed point</p></li>
+<li><p>Energy contours are nested ellipses</p></li>
+<li><p>The oscillator (harmonic or not) repeatedly returns near the equilibrium</p></li>
+</ul>
+<p><strong>Physical picture:</strong><br />
+A mass at the bottom of a bowl.</p>
+</section>
+<hr class="docutils" />
+<section id="unstable-saddle">
+<h4>Unstable Saddle<a class="headerlink" href="#unstable-saddle" title="Link to this heading">#</a></h4>
+<p>Occurs when the potential has a <strong>local maximum</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+U''(q^*) &lt; 0.
+\]</div>
+<p>Eigenvalues are <strong>real and opposite in sign</strong>.</p>
+<p><strong>Phase space view:</strong></p>
+<ul class="simple">
+<li><p>Trajectories diverge exponentially from the fixed point</p></li>
+<li><p>Two special trajectories pass through the fixed point: the <strong>separatrices</strong></p></li>
+<li><p>They divide phase space into regions with qualitatively different behavior</p></li>
+</ul>
+<p><strong>Physical picture:</strong><br />
+A mass balanced at the top of a hill.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="why-hamiltonian-systems-never-have-attractors">
+<h3>Why Hamiltonian Systems Never Have Attractors<a class="headerlink" href="#why-hamiltonian-systems-never-have-attractors" title="Link to this heading">#</a></h3>
+<p>A crucial fact:</p>
+<blockquote>
+<div><p><strong>Hamiltonian flow preserves phase-space volume (Liouville’s theorem).</strong></p>
+</div></blockquote>
+<p>This means:</p>
+<ul class="simple">
+<li><p>trajectories cannot converge to a point or orbit</p></li>
+<li><p>no spirals inward or outward</p></li>
+<li><p>no sinks or sources</p></li>
+<li><p>no damping</p></li>
+<li><p>no attractors or repellers</p></li>
+</ul>
+<p>Thus the only possible fixed points are:</p>
+<ul class="simple">
+<li><p><strong>centers</strong> (neutrally stable)</p></li>
+<li><p><strong>saddles</strong> (unstable)</p></li>
+</ul>
+<p>This is a major difference between Hamiltonian systems and dissipative systems (like damped oscillators).</p>
+</section>
+<hr class="docutils" />
+<section id="separatrices-the-boundaries-of-motion">
+<h3>Separatrices: The Boundaries of Motion<a class="headerlink" href="#separatrices-the-boundaries-of-motion" title="Link to this heading">#</a></h3>
+<p>Unstable saddles generate <strong>separatrices</strong> — special trajectories that pass through the saddle and divide phase space into distinct regions:</p>
+<ul class="simple">
+<li><p>bounded oscillations</p></li>
+<li><p>unbounded motion</p></li>
+<li><p>trapped vs escaping trajectories</p></li>
+</ul>
+<p>Separatrices often create dramatic, easily visible structures (e.g., the classic pendulum phase portrait) and are foundational for understanding the onset of <strong>chaos</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="geometric-summary">
+<h3>Geometric Summary<a class="headerlink" href="#geometric-summary" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>A fixed point is where the motion freezes.</p></li>
+<li><p>Linearization reveals whether nearby motion is oscillatory or divergent.</p></li>
+<li><p>Stable centers give closed orbits.</p></li>
+<li><p>Saddles give separatrices.</p></li>
+<li><p>No attractors exist because phase space volume is preserved.</p></li>
+</ul>
+<p>Phase space reveals the hidden architecture of dynamics — long before one solves the equations explicitly.</p>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:12px; border-radius:4px;">
+<p><strong>Box Activity 3: Stability Analysis of a Double-Well Hamiltonian</strong></p>
+<p>Consider the Hamiltonian</p>
+<div class="math notranslate nohighlight">
+\[
+H(x,p) = \frac{p^2}{2m} \;+\; \frac14 x^4 \;-\; \frac12 x^2.
+\]</div>
+<p>This is the <strong>double-well potential</strong>, often used in molecular physics, field theory, and nonlinear dynamics.</p>
+<p>Your tasks:</p>
+<hr class="docutils" />
+<p><strong>(a) Identify all fixed points</strong><br />
+Solve for <span class="math notranslate nohighlight">\((x^*,p^*)\)</span> such that</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{x}=0, \qquad \dot{p}=0.
+\]</div>
+<hr class="docutils" />
+<p><strong>(b) Determine their stability</strong><br />
+Using the formulas</p>
+<div class="math notranslate nohighlight">
+\[
+a = \left.\frac{\partial^2 H}{\partial x^2}\right|_*, 
+\qquad
+c = \left.\frac{\partial^2 H}{\partial p^2}\right|_* = \frac{1}{m},
+\qquad
+b = \left.\frac{\partial^2 H}{\partial x \partial p}\right|_* = 0,
+\]</div>
+<p>form the Hessian</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A =
+\begin{pmatrix}
+a &amp; 0\\[4pt]
+0 &amp; 1/m
+\end{pmatrix}
+\end{split}\]</div>
+<p>and classify each fixed point using the eigenvalues of <span class="math notranslate nohighlight">\(M = JA\)</span>.</p>
+<hr class="docutils" />
+<p><strong>(c) Sketch or plot the phase portrait</strong><br />
+On the <span class="math notranslate nohighlight">\((x,p)\)</span> plane:</p>
+<ul class="simple">
+<li><p>show the fixed points</p></li>
+<li><p>draw the closed orbits around stable centers</p></li>
+<li><p>sketch the separatrix loops passing through the unstable saddle</p></li>
+<li><p>clearly identify the “figure-eight” structure</p></li>
+</ul>
+<p>If you prefer, generate the plot in Python using your own script.</p>
+<hr class="docutils" />
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Detailed Solution
+</summary>
+<div style="background-color:#e8f5e9; padding:12px; border-radius:4px; margin-top:6px;">
+<hr class="docutils" />
+<p><strong>(a) Fixed points</strong></p>
+<p>Hamilton’s equations:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{x} = \frac{\partial H}{\partial p} = \frac{p}{m},
+\qquad
+\dot{p} = -\frac{\partial H}{\partial x}.
+\]</div>
+<p>Setting <span class="math notranslate nohighlight">\(\dot{x}=0\)</span> gives <span class="math notranslate nohighlight">\(p^*=0\)</span>.</p>
+<p>Compute<br />
+$<span class="math notranslate nohighlight">\(
+\frac{\partial H}{\partial x} = x^3 - x.
+\)</span>$</p>
+<p>Setting <span class="math notranslate nohighlight">\(\dot{p}=0\)</span> gives:</p>
+<div class="math notranslate nohighlight">
+\[
+x^3 - x = 0
+\quad\Rightarrow\quad
+x(x^2 - 1)=0.
+\]</div>
+<p>Thus:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\((x^*,p^*) = (0,0)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\((x^*,p^*) = (+1,0)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\((x^*,p^*) = (-1,0)\)</span></p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>(b) Stability</strong></p>
+<p>Second derivatives:</p>
+<div class="math notranslate nohighlight">
+\[
+a = \left.\frac{\partial^2 H}{\partial x^2}\right|_*
+= \left.(3x^2 - 1)\right|_*,
+\qquad
+c = \frac{\partial^2 H}{\partial p^2} = \frac{1}{m},
+\qquad
+b = 0.
+\]</div>
+<p><strong>At <span class="math notranslate nohighlight">\(x^*=0\)</span></strong></p>
+<div class="math notranslate nohighlight">
+\[
+a = 3(0)^2 - 1 = -1 &lt; 0.
+\]</div>
+<p>Thus the Hessian is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A =
+\begin{pmatrix}
+-1 &amp; 0\\[4pt]
+0 &amp; 1/m
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Then</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+M = JA =
+\begin{pmatrix}
+0 &amp; 1\\
+-1 &amp; 0
+\end{pmatrix}
+\begin{pmatrix}
+-1 &amp; 0\\
+0 &amp; 1/m
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 &amp; 1/m\\
+1 &amp; 0
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Eigenvalues satisfy:</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda^2 = +\frac{1}{m}.
+\]</div>
+<p>Thus</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda = \pm \frac{1}{\sqrt{m}}
+\]</div>
+<p>→ <strong>real, opposite signs</strong> → <strong>saddle (unstable)</strong>.</p>
+<hr class="docutils" />
+<p><strong>At <span class="math notranslate nohighlight">\(x^* = \pm 1\)</span></strong></p>
+<div class="math notranslate nohighlight">
+\[
+a = 3(1)^2 - 1 = 2 &gt; 0.
+\]</div>
+<p>Thus</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A =
+\begin{pmatrix}
+2 &amp; 0\\[4pt]
+0 &amp; 1/m
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Then</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+JA =
+\begin{pmatrix}
+0 &amp; 1\\
+-1 &amp; 0
+\end{pmatrix}
+\begin{pmatrix}
+2 &amp; 0\\
+0 &amp; 1/m
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 &amp; 1/m\\
+-2 &amp; 0
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Eigenvalues satisfy:</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda^2 = -\frac{2}{m}.
+\]</div>
+<p>Thus:</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda = \pm i \sqrt{\frac{2}{m}}.
+\]</div>
+<p>→ <strong>pure imaginary</strong> → <strong>stable centers</strong>.</p>
+<hr class="docutils" />
+<p><strong>(c) Phase portrait structure</strong></p>
+<ul class="simple">
+<li><p>Two <strong>stable centers</strong> at <span class="math notranslate nohighlight">\((x,p) = (\pm 1, 0)\)</span></p></li>
+<li><p>One <strong>unstable saddle</strong> at <span class="math notranslate nohighlight">\((0,0)\)</span></p></li>
+<li><p>A pair of <strong>separatrix curves</strong> form a “figure-eight” loop around the two wells</p></li>
+<li><p>Small oscillations around each stable point occur on nested closed orbits</p></li>
+<li><p>Large enough energies cross the separatrix and move between wells</p></li>
+</ul>
+<p>This is one of the most important canonical examples of nonlinear dynamics.</p>
+</div>
+</details>
+</div><div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Double-well Hamiltonian: side-by-side configuration and phase-space plots.</span>
+
+<span class="sd">H(x,p) = p^2/(2m) + (1/4) x^4 - (1/2) x^2</span>
+
+<span class="sd">Left:  U(x) vs x  (configuration space)</span>
+<span class="sd">Right: Phase-space energy contours with separatrix and fixed points</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># -------------------------------</span>
+<span class="c1"># Parameters and definitions</span>
+<span class="c1"># -------------------------------</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">U</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Potential for the double-well.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="mf">0.25</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">4</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">H</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Double-well Hamiltonian.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">p</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">)</span> <span class="o">+</span> <span class="n">U</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># -------------------------------</span>
+<span class="c1"># x-range for configuration plot</span>
+<span class="c1"># -------------------------------</span>
+<span class="n">x_conf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+<span class="n">U_conf</span> <span class="o">=</span> <span class="n">U</span><span class="p">(</span><span class="n">x_conf</span><span class="p">)</span>
+
+<span class="c1"># Fixed points in configuration space (x positions)</span>
+<span class="n">fixed_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+<span class="n">fixed_U</span> <span class="o">=</span> <span class="n">U</span><span class="p">(</span><span class="n">fixed_x</span><span class="p">)</span>  <span class="c1"># potential values at fixed points</span>
+
+<span class="c1"># -------------------------------</span>
+<span class="c1"># Grid for phase space</span>
+<span class="c1"># -------------------------------</span>
+<span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span>
+<span class="n">p_min</span><span class="p">,</span> <span class="n">p_max</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span>
+
+<span class="n">nx</span><span class="p">,</span> <span class="n">np_points</span> <span class="o">=</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">400</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">p_min</span><span class="p">,</span> <span class="n">p_max</span><span class="p">,</span> <span class="n">np_points</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+
+<span class="n">H_grid</span> <span class="o">=</span> <span class="n">H</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">P</span><span class="p">)</span>
+
+<span class="c1"># Energy at minima: H(±1, 0) = U(±1) = -1/4</span>
+<span class="c1"># Energy at saddle: H(0, 0) = U(0) = 0 (separatrix)</span>
+<span class="n">E_min</span> <span class="o">=</span> <span class="n">U</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>  <span class="c1"># should be -0.25</span>
+
+<span class="c1"># Contour levels</span>
+<span class="n">levels</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.24</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.20</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.15</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.10</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.10</span><span class="p">,</span> <span class="mf">0.20</span><span class="p">]</span>
+
+<span class="c1"># -------------------------------</span>
+<span class="c1"># Plotting: side-by-side</span>
+<span class="c1"># -------------------------------</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">ax_conf</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ax_phase</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># ===== Left: U(x) vs x =====</span>
+<span class="n">ax_conf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_conf</span><span class="p">,</span> <span class="n">U_conf</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax_conf</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">ax_conf</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">fixed_x</span><span class="p">,</span> <span class="n">fixed_U</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Fixed points&quot;</span><span class="p">)</span>
+
+<span class="c1"># Label fixed points</span>
+<span class="k">for</span> <span class="n">x0</span><span class="p">,</span> <span class="n">U0</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">fixed_x</span><span class="p">,</span> <span class="n">fixed_U</span><span class="p">):</span>
+    <span class="n">ax_conf</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">U0</span> <span class="o">+</span> <span class="mf">0.05</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;x = </span><span class="si">{</span><span class="n">x0</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">)</span>
+
+<span class="n">ax_conf</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x (position)&quot;</span><span class="p">)</span>
+<span class="n">ax_conf</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;U(x) (potential energy)&quot;</span><span class="p">)</span>
+<span class="n">ax_conf</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Configuration Space: Double-Well Potential&quot;</span><span class="p">)</span>
+<span class="n">ax_conf</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">ax_conf</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper center&quot;</span><span class="p">)</span>
+
+<span class="c1"># ===== Right: Phase-space plot =====</span>
+<span class="c1"># Filled contours (optional, for background structure)</span>
+<span class="n">cf</span> <span class="o">=</span> <span class="n">ax_phase</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">H_grid</span><span class="p">,</span>
+    <span class="n">levels</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span>
+<span class="p">)</span>
+
+<span class="c1"># Energy contours</span>
+<span class="n">cs</span> <span class="o">=</span> <span class="n">ax_phase</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">H_grid</span><span class="p">,</span>
+    <span class="n">levels</span><span class="o">=</span><span class="n">levels</span><span class="p">,</span>
+    <span class="n">linewidths</span><span class="o">=</span><span class="mf">1.0</span>
+<span class="p">)</span>
+
+<span class="c1"># Highlight the separatrix H = 0</span>
+<span class="n">separatrix</span> <span class="o">=</span> <span class="n">ax_phase</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">H_grid</span><span class="p">,</span>
+    <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">],</span>
+    <span class="n">colors</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
+    <span class="n">linewidths</span><span class="o">=</span><span class="mf">2.0</span>
+<span class="p">)</span>
+
+<span class="c1"># Fixed points in phase space: (x, p) = (-1,0), (0,0), (1,0)</span>
+<span class="n">ax_phase</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">fixed_x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">fixed_x</span><span class="p">),</span>
+                 <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Fixed points&quot;</span><span class="p">)</span>
+
+<span class="n">ax_phase</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x (position)&quot;</span><span class="p">)</span>
+<span class="n">ax_phase</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;p (momentum)&quot;</span><span class="p">)</span>
+<span class="n">ax_phase</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Phase Space: Double-Well Hamiltonian&quot;</span><span class="p">)</span>
+<span class="n">ax_phase</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">)</span>
+<span class="n">ax_phase</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">p_min</span><span class="p">,</span> <span class="n">p_max</span><span class="p">)</span>
+<span class="n">ax_phase</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">,</span> <span class="n">adjustable</span><span class="o">=</span><span class="s2">&quot;box&quot;</span><span class="p">)</span>
+<span class="n">ax_phase</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">ax_phase</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+
+<span class="c1"># Colorbar for phase-space energy</span>
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cf</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_phase</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;H(x, p)&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/6444047a71fd3078944420b52d43f781aa102de9f7fdae66208abc827e7745fa.png" src="../_images/6444047a71fd3078944420b52d43f781aa102de9f7fdae66208abc827e7745fa.png" />
+</div>
+</div>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="a1-4-5-why-phase-space-matters">
+<h2>A1.4.5 Why Phase Space Matters<a class="headerlink" href="#a1-4-5-why-phase-space-matters" title="Link to this heading">#</a></h2>
+<p>Phase space:</p>
+<ul class="simple">
+<li><p>reveals stability without solving differential equations</p></li>
+<li><p>exposes hidden structure (invariants, symmetries, conserved quantities)</p></li>
+<li><p>leads naturally to <strong>Liouville’s theorem</strong></p></li>
+<li><p>makes <strong>canonical transformations</strong> geometrically meaningful</p></li>
+<li><p>provides the bridge to <strong>chaos theory</strong>, where trajectories stretch and fold in intricate patterns</p></li>
+</ul>
+<p>Hamiltonian mechanics is most powerful when students see motion <strong>geometrically</strong>, not just algebraically.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="next-section-liouvilles-theorem">
+<h2>Next Section → Liouville’s Theorem<a class="headerlink" href="#next-section-liouvilles-theorem" title="Link to this heading">#</a></h2>
+<p>Here we show that Hamiltonian flow preserves phase-space volume — a key feature distinguishing Hamiltonian systems from dissipative ones, and an essential foundation for understanding chaos and statistical mechanics.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-A1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="legendre.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">A1.3 From the Lagrangian to the Hamiltonian: The Legendre Transform</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="liouville.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">A1.5 Liouville’s Theorem: Volume Preservation in Phase Space</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-4-1-motivation-why-phase-space">A1.4.1 Motivation: Why Phase Space?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-4-2-configuration-space-vs-phase-space">A1.4.2 Configuration Space vs. Phase Space</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-space">Configuration Space</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-space">Phase Space</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-4-3-hamiltonian-flow-trajectories-in-phase-space">A1.4.3 Hamiltonian Flow: Trajectories in Phase Space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-4-4-fixed-points-and-stability-in-phase-space">A1.4.4 Fixed Points and Stability in Phase Space</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-fixed-point">What is a Fixed Point?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-fixed-points-matter">Why Fixed Points Matter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linearization-near-a-fixed-point">Linearization Near a Fixed Point</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-types-in-1-degree-of-freedom">Stability Types in 1 Degree of Freedom</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#stable-center">Stable Center</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unstable-saddle">Unstable Saddle</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-hamiltonian-systems-never-have-attractors">Why Hamiltonian Systems Never Have Attractors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#separatrices-the-boundaries-of-motion">Separatrices: The Boundaries of Motion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-summary">Geometric Summary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-4-5-why-phase-space-matters">A1.4.5 Why Phase Space Matters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-section-liouvilles-theorem">Next Section → Liouville’s Theorem</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

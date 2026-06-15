@@ -1,0 +1,762 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>A1.1 Introduction to the Hamiltonian &#8212; A Competency Approach to Classical Mechanics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/save_cell.css?v=43dd4451" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-A1/intro-hamiltonian';</script>
+    <script src="../_static/save_cell.js?v=d135a7b8"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="A1.2 Connecting Lagrange Multipliers to the Hamiltonian Formalism" href="Hamiltonian.html" />
+    <link rel="prev" title="A1.0 Learning Outcomes: Hamiltonian Mechanics" href="LOC-A1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-A.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Home"/>
+    <script>document.write(`<img src="../_static/logo-A.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the B Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://gemini.google.com/gem/10l7TNMxLkYkxP1cGjSu5uEvK_RAC-A9n?usp=sharing">Physics Coding Architect (PyAIGem)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module A1 - Hamiltonian Dynamics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-A1.html">A1.0 Learning Outcomes: Hamiltonian Mechanics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">A1.1 Introduction to the Hamiltonian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Hamiltonian.html">A1.2 Connecting Lagrange Multipliers to the Hamiltonian Formalism</a></li>
+<li class="toctree-l1"><a class="reference internal" href="legendre.html">A1.3 From the Lagrangian to the Hamiltonian: The Legendre Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase-space.html">A1.4 Phase Space and Hamiltonian Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="liouville.html">A1.5 Liouville’s Theorem: Volume Preservation in Phase Space</a></li>
+<li class="toctree-l1"><a class="reference internal" href="canonical-transformations.html">A1.6 Canonical Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poison-brackets.html">A1.7 Poisson Brackets</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Module-A1/intro-hamiltonian.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-A1/intro-hamiltonian.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>A1.1 Introduction to the Hamiltonian</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-1-1-motivation">A1.1.1 Motivation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-the-hamiltonian">Introduction to the Hamiltonian</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-with-the-lagrangian">Comparison with the Lagrangian</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-of-the-hamiltonian">Importance of the Hamiltonian</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-1-2-hamiltonian">A1.1.2 Hamiltonian</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-the-hamiltonian-and-how-to-find-it">Definition of the Hamiltonian and How to Find It</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-to-find-the-hamiltonian">Steps to Find the Hamiltonian</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-1-2-hamilton-s-equations-and-how-to-apply-them">A1.1.2 Hamilton’s Equations and How to Apply Them</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-to-apply-hamiltons-equations">Steps to Apply Hamilton’s Equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-hamiltons-equations">Compute Hamilton’s Equations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-the-system">Solve the System</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="a1-1-introduction-to-the-hamiltonian">
+<h1>A1.1 Introduction to the Hamiltonian<a class="headerlink" href="#a1-1-introduction-to-the-hamiltonian" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><section id="a1-1-1-motivation">
+<h2>A1.1.1 Motivation<a class="headerlink" href="#a1-1-1-motivation" title="Link to this heading">#</a></h2>
+<section id="introduction-to-the-hamiltonian">
+<h3>Introduction to the Hamiltonian<a class="headerlink" href="#introduction-to-the-hamiltonian" title="Link to this heading">#</a></h3>
+<p>The Hamiltonian is one of the most profound ideas in physics, reshaping how we understand motion and laying the groundwork for modern theories in mechanics, quantum physics, and beyond. Its origins trace back to the 19th century, when Sir William Rowan Hamilton sought a more elegant and general way to describe mechanical systems. Building on the work of Joseph-Louis Lagrange, Hamilton reformulated classical mechanics in terms of energy rather than force, providing a new perspective that would prove to be incredibly powerful.</p>
+</section>
+<section id="comparison-with-the-lagrangian">
+<h3>Comparison with the Lagrangian<a class="headerlink" href="#comparison-with-the-lagrangian" title="Link to this heading">#</a></h3>
+<p>Both the Hamiltonian and the Lagrangian formulations provide alternatives to Newton’s laws, but they differ in focus and application. The Lagrangian approach, introduced by Lagrange in the 18th century, is based on the principle of least action, where the equations of motion are derived by finding paths that minimize (or extremize) a quantity called the action. The Lagrangian is typically expressed as the difference between kinetic and potential energy, and it naturally leads to equations of motion that depend only on generalized coordinates and their time derivatives. This makes it particularly useful when dealing with complex constraints and symmetries, as seen in fields like theoretical mechanics and field theory.</p>
+<p>The Hamiltonian, in contrast, recasts mechanics in terms of energy and phase space, introducing a framework where positions and momenta evolve according to a set of first-order differential equations. Unlike the Lagrangian formulation, which focuses on trajectories in configuration space, the Hamiltonian approach provides a deeper insight into conserved quantities, stability, and dynamical evolution. It also establishes a direct link between classical and quantum mechanics, as the Hamiltonian function in classical physics corresponds to the Hamiltonian operator in quantum mechanics.</p>
+<p>One of the key conceptual shifts in Hamiltonian mechanics is that it treats positions and momenta on equal footing, allowing for a more symmetrical and general description of motion. This makes it particularly valuable in areas like statistical mechanics, where ensembles of systems are studied in phase space, and in celestial mechanics, where long-term behavior of planetary motion can be analyzed efficiently. While the Lagrangian is often more convenient for deriving equations of motion, the Hamiltonian provides a clearer picture of energy conservation, stability, and deeper theoretical structures, such as Poisson brackets and canonical transformations.</p>
+</section>
+<section id="importance-of-the-hamiltonian">
+<h3>Importance of the Hamiltonian<a class="headerlink" href="#importance-of-the-hamiltonian" title="Link to this heading">#</a></h3>
+<p>By introducing the Hamiltonian early in a student’s physics education, we gain not only a powerful method for solving classical problems but also a deeper appreciation for the unity of physics. The same function that describes a simple pendulum also governs the behavior of electrons in an atom and even the evolution of the universe itself. This broader perspective is what makes the Hamiltonian such a crucial and enduring concept in physics.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="a1-1-2-hamiltonian">
+<h2>A1.1.2 Hamiltonian<a class="headerlink" href="#a1-1-2-hamiltonian" title="Link to this heading">#</a></h2>
+</section>
+<section id="definition-of-the-hamiltonian-and-how-to-find-it">
+<h2>Definition of the Hamiltonian and How to Find It<a class="headerlink" href="#definition-of-the-hamiltonian-and-how-to-find-it" title="Link to this heading">#</a></h2>
+<p>The Hamiltonian, typically denoted as <span class="math notranslate nohighlight">\(\mathcal{H}\)</span>, is a function that represents the total energy of a system in terms of its generalized coordinates <span class="math notranslate nohighlight">\(q_i\)</span> and conjugate momenta <span class="math notranslate nohighlight">\(p_i\)</span>. It is defined as</p>
+<div class="alert alert-success">
+<div class="math notranslate nohighlight">
+\[ \mathcal{H}(q_i, p_i) = \sum_i p_i \dot{q}_i - \mathcal{L} \]</div>
+</div>
+<p>where <span class="math notranslate nohighlight">\(\mathcal{L}\)</span> is the Lagrangian of the system, given by the difference between kinetic and potential energy:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{L} = K - U.
+\]</div>
+<p>The Hamiltonian is often just the total energy, <span class="math notranslate nohighlight">\( \mathcal{H} = K+ U\)</span>, but this is not always the case, especially in more advanced systems.</p>
+<section id="steps-to-find-the-hamiltonian">
+<h3>Steps to Find the Hamiltonian<a class="headerlink" href="#steps-to-find-the-hamiltonian" title="Link to this heading">#</a></h3>
+<p>To construct the Hamiltonian for a given system, follow these steps:</p>
+<ol class="arabic">
+<li><p><strong>Write down the Lagrangian</strong></p>
+<ul class="simple">
+<li><p>Identify the generalized coordinates <span class="math notranslate nohighlight">\(q_i\)</span> that describe the system.</p></li>
+<li><p>Express the kinetic energy <span class="math notranslate nohighlight">\(K\)</span> and potential energy <span class="math notranslate nohighlight">\(U\)</span> in terms of these coordinates and their time derivatives.</p></li>
+<li><p>Form the Lagrangian as <span class="math notranslate nohighlight">\(\mathcal{L} = K - U\)</span>.</p></li>
+</ul>
+</li>
+<li><p><strong>Determine the conjugate momenta</strong></p>
+<ul>
+<li><p>Compute the conjugate momentum for each coordinate:</p>
+<div class="math notranslate nohighlight">
+\[
+     p_i = \frac{\partial \mathcal{L}}{\partial \dot{q}_i}.
+     \]</div>
+</li>
+<li><p>If the system consists of a single particle, the momentum is usually given by <span class="math notranslate nohighlight">\( p = m \dot{q} \)</span>, but more complex systems may have different expressions.</p></li>
+</ul>
+</li>
+<li><p><strong>Construct the Hamiltonian</strong></p>
+<ul>
+<li><p>Express <span class="math notranslate nohighlight">\( \dot{q}_i \)</span> in terms of <span class="math notranslate nohighlight">\( p_i \)</span> if necessary.</p></li>
+<li><p>Substitute the momenta into the Hamiltonian definition:</p>
+<div class="math notranslate nohighlight">
+\[
+     \mathcal{H} = \sum_i p_i \dot{q}_i - \mathcal{L}.
+     \]</div>
+</li>
+<li><p>Rewrite <span class="math notranslate nohighlight">\( \mathcal{H} \)</span> entirely in terms of <span class="math notranslate nohighlight">\( q_i\)</span> and <span class="math notranslate nohighlight">\(p_i \)</span>, eliminating <span class="math notranslate nohighlight">\( \dot{q}_i \)</span> where possible.</p></li>
+</ul>
+</li>
+</ol>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div style="background-color: #D0D0D0 ; padding: 10px; border: 1px solid black;">       
+<header>
+<h3> Example 1</h3>
+    </header>
+<p>For a simple 1D harmonic oscillator on a horizontal surface without friction with mass <span class="math notranslate nohighlight">\( m \)</span> and spring constant <span class="math notranslate nohighlight">\( k \)</span>, the generalized coordinate is <span class="math notranslate nohighlight">\(x\)</span> .</p>
+<p><strong>Solution</strong></p>
+<ol class="arabic">
+<li><p><strong>Write the Lagrangian:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+   \mathcal{L} = \frac{1}{2} m \dot{x}^2 - \frac{1}{2} k x^2.
+   \]</div>
+</li>
+<li><p><strong>Find the conjugate momentum:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+   p = \frac{\partial \mathcal{L}}{\partial \dot{x}} = m \dot{x}.
+  \]</div>
+</li>
+<li><p><strong>Construct the Hamiltonian:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+   \mathcal{H} = p \dot{x} - \mathcal{L} = p \frac{p}{m} - \left(\frac{1}{2} m \dot{x}^2 - \frac{1}{2} k x^2 \right).
+   \]</div>
+<p>Substituting <span class="math notranslate nohighlight">\( \dot{x} = p/m \)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+   \mathcal{H} = \frac{p^2}{2m} + \frac{1}{2} k x^2.
+   \]</div>
+</li>
+</ol>
+<p>This is the familiar total energy expression for a harmonic oscillator.</p>
+<p>By following this systematic approach, we can construct the Hamiltonian for a wide range of physical systems, allowing us to apply Hamilton’s equations and gain deeper insights into the dynamics of the system.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="a1-1-2-hamilton-s-equations-and-how-to-apply-them">
+<h2>A1.1.2 Hamilton’s Equations and How to Apply Them<a class="headerlink" href="#a1-1-2-hamilton-s-equations-and-how-to-apply-them" title="Link to this heading">#</a></h2>
+<p>Once we have the Hamiltonian of a system, we can use <strong>Hamilton’s equations</strong> to determine how the system evolves over time. These equations describe how the generalized coordinates <span class="math notranslate nohighlight">\(q_i\)</span> and conjugate momenta <span class="math notranslate nohighlight">\(p_i\)</span> change and are given by:</p>
+<div class="alert alert-success">
+<div class="math notranslate nohighlight">
+\[\dot{q_i} = \frac{\partial H}{\partial p_i}, \quad \dot{p_i} = -\frac{\partial H}{\partial q_i}.\]</div>
+</div>
+<p>These two first-order differential equations replace Newton’s second law, providing an equivalent but often more powerful method for solving problems in mechanics. The first equation tells us how the generalized coordinates evolve, while the second describes how the momenta change over time.</p>
+<section id="steps-to-apply-hamiltons-equations">
+<h3>Steps to Apply Hamilton’s Equations<a class="headerlink" href="#steps-to-apply-hamiltons-equations" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Write down the Hamiltonian</strong></p>
+<ul class="simple">
+<li><p>Express <span class="math notranslate nohighlight">\( H(q_i, p_i) \)</span> in terms of generalized coordinates and momenta.</p></li>
+</ul>
+</li>
+<li><p><strong>Compute Hamilton’s equations</strong></p></li>
+<li><p><strong>Solve the resulting system of equations</strong></p>
+<ul class="simple">
+<li><p>The equations typically form a set of coupled differential equations that can be solved analytically or numerically.</p></li>
+</ul>
+</li>
+</ol>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><div style="background-color: #D0D0D0 ; padding: 10px; border: 1px solid black;">       
+<header>
+<h3> Example 2</h3>
+    </header>
+<p>For a simple harmonic oscillator with mass <span class="math notranslate nohighlight">\( m \)</span> and spring constant <span class="math notranslate nohighlight">\( k \)</span>, we previously found that the Hamiltonian is</p>
+<div class="math notranslate nohighlight">
+\[
+H = \frac{p^2}{2m} + \frac{1}{2} k x^2.
+\]</div>
+<section id="compute-hamiltons-equations">
+<h4>Compute Hamilton’s Equations<a class="headerlink" href="#compute-hamiltons-equations" title="Link to this heading">#</a></h4>
+<p>Using the general form:</p>
+<ul>
+<li><p><strong>Equation for <span class="math notranslate nohighlight">\( \dot{x} \)</span></strong></p>
+<div class="math notranslate nohighlight">
+\[
+  \dot{x} = \frac{\partial H}{\partial p} = \frac{p}{m}.
+  \]</div>
+</li>
+<li><p><strong>Equation for <span class="math notranslate nohighlight">\( \dot{p} \)</span></strong></p>
+<div class="math notranslate nohighlight">
+\[
+  \dot{p} = -\frac{\partial H}{\partial x} = -kx.
+  \]</div>
+</li>
+</ul>
+</section>
+<section id="solve-the-system">
+<h4>Solve the System<a class="headerlink" href="#solve-the-system" title="Link to this heading">#</a></h4>
+<p>We now have the system:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{x} = \frac{p}{m}, \quad \dot{x} = -kx.
+\]</div>
+<p>Taking the derivative of the first equation:</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{x} = \frac{\dot{p}}{m} = -\frac{k}{m} x.
+\]</div>
+<p>This is the familiar equation for simple harmonic motion:</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{x} + \frac{k}{m} x = 0.
+\]</div>
+<p>The general solution is:</p>
+<div class="math notranslate nohighlight">
+\[
+x(t) = A \cos(\omega t) + B \sin(\omega t),
+\]</div>
+<p>where <span class="math notranslate nohighlight">\( \omega = \sqrt{k/m} \)</span> is the angular frequency of oscillation.</p>
+<p>Since <span class="math notranslate nohighlight">\( p = m \dot{x} \)</span>, we find</p>
+<div class="math notranslate nohighlight">
+\[
+p(t) = -m A \omega \sin(\omega t) + m B \omega \cos(\omega t).
+\]</div>
+</section>
+<section id="interpretation">
+<h4>Interpretation<a class="headerlink" href="#interpretation" title="Link to this heading">#</a></h4>
+<p>These equations describe simple harmonic motion, just as we would expect from Newtonian mechanics. However, the Hamiltonian approach provides a systematic and generalizable framework that extends to more complex systems, including those in quantum mechanics and statistical physics.</p>
+<p>By using Hamilton’s equations, we can describe motion in terms of energy, revealing deeper insights into conserved quantities, symmetries, and phase space dynamics.</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-A1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="LOC-A1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">A1.0 Learning Outcomes: Hamiltonian Mechanics</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Hamiltonian.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">A1.2 Connecting Lagrange Multipliers to the Hamiltonian Formalism</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-1-1-motivation">A1.1.1 Motivation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-the-hamiltonian">Introduction to the Hamiltonian</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-with-the-lagrangian">Comparison with the Lagrangian</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-of-the-hamiltonian">Importance of the Hamiltonian</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-1-2-hamiltonian">A1.1.2 Hamiltonian</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-the-hamiltonian-and-how-to-find-it">Definition of the Hamiltonian and How to Find It</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-to-find-the-hamiltonian">Steps to Find the Hamiltonian</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-1-2-hamilton-s-equations-and-how-to-apply-them">A1.1.2 Hamilton’s Equations and How to Apply Them</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-to-apply-hamiltons-equations">Steps to Apply Hamilton’s Equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-hamiltons-equations">Compute Hamilton’s Equations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-the-system">Solve the System</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

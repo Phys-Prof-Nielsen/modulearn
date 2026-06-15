@@ -1,0 +1,859 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>A1.7 Poisson Brackets &#8212; A Competency Approach to Classical Mechanics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/save_cell.css?v=43dd4451" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-A1/poison-brackets';</script>
+    <script src="../_static/save_cell.js?v=d135a7b8"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="A1.6 Canonical Transformations" href="canonical-transformations.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-A.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Home"/>
+    <script>document.write(`<img src="../_static/logo-A.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the B Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://gemini.google.com/gem/10l7TNMxLkYkxP1cGjSu5uEvK_RAC-A9n?usp=sharing">Physics Coding Architect (PyAIGem)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module A1 - Hamiltonian Dynamics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-A1.html">A1.0 Learning Outcomes: Hamiltonian Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro-hamiltonian.html">A1.1 Introduction to the Hamiltonian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Hamiltonian.html">A1.2 Connecting Lagrange Multipliers to the Hamiltonian Formalism</a></li>
+<li class="toctree-l1"><a class="reference internal" href="legendre.html">A1.3 From the Lagrangian to the Hamiltonian: The Legendre Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase-space.html">A1.4 Phase Space and Hamiltonian Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="liouville.html">A1.5 Liouville’s Theorem: Volume Preservation in Phase Space</a></li>
+<li class="toctree-l1"><a class="reference internal" href="canonical-transformations.html">A1.6 Canonical Transformations</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">A1.7 Poisson Brackets</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Module-A1/poison-brackets.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-A1/poison-brackets.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>A1.7 Poisson Brackets</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-7-1-motivation">A1.7.1 Motivation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-we-need-poisson-brackets">Why We Need Poisson Brackets</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-7-2-definition-of-the-poisson-bracket">A1.7.2 Definition of the Poisson Bracket</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-7-3-time-evolution-via-poisson-brackets">A1.7.3 Time Evolution via Poisson Brackets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-7-4-fundamental-poisson-brackets">A1.7.4 Fundamental Poisson Brackets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-7-5-poisson-brackets-as-generators-of-canonical-transformations">A1.7.5 Poisson Brackets as Generators of Canonical Transformations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-7-6-algebraic-properties-of-poisson-brackets">A1.7.6 Algebraic Properties of Poisson Brackets</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linearity">1. <strong>Linearity</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#antisymmetry">2. <strong>Antisymmetry</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#leibniz-rule-derivation-property">3. <strong>Leibniz Rule (Derivation Property)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jacobi-identity">4. <strong>Jacobi Identity</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-7-7-bridge-to-hamiltonjacobi-theory">A1.7.7 Bridge to Hamilton–Jacobi Theory</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="a1-7-poisson-brackets">
+<h1>A1.7 Poisson Brackets<a class="headerlink" href="#a1-7-poisson-brackets" title="Link to this heading">#</a></h1>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+<section id="a1-7-1-motivation">
+<h2>A1.7.1 Motivation<a class="headerlink" href="#a1-7-1-motivation" title="Link to this heading">#</a></h2>
+<p>After studying canonical transformations and their generating functions, we now introduce the central algebraic structure of Hamiltonian mechanics: the <strong>Poisson bracket</strong>. It plays two crucial roles:</p>
+<ol class="arabic simple">
+<li><p>It provides the <strong>compact expression for the time evolution</strong> of any dynamical quantity.</p></li>
+<li><p>It encodes the <strong>infinitesimal canonical transformations</strong> that generate symmetries and conserved quantities.</p></li>
+</ol>
+<p>In many ways, Poisson brackets are to classical mechanics what commutators are to quantum mechanics.</p>
+<section id="why-we-need-poisson-brackets">
+<h3>Why We Need Poisson Brackets<a class="headerlink" href="#why-we-need-poisson-brackets" title="Link to this heading">#</a></h3>
+<p>Up to now, we have seen that:</p>
+<ul class="simple">
+<li><p>canonical transformations preserve the form of Hamilton’s equations,</p></li>
+<li><p>generating functions <span class="math notranslate nohighlight">\(F\)</span> produce these transformations,</p></li>
+<li><p>Noether’s theorem links invariance under such transformations to conservation laws.</p></li>
+</ul>
+<p>But we still lack a <strong>single algebraic tool</strong> that:</p>
+<ul class="simple">
+<li><p>expresses how any function of phase-space variables evolves in time,</p></li>
+<li><p>tells us when two quantities are “canonically conjugate,”</p></li>
+<li><p>generates infinitesimal canonical transformations,</p></li>
+<li><p>encodes symmetries and conserved quantities,</p></li>
+<li><p>mirrors the role of commutators in quantum mechanics.</p></li>
+</ul>
+<p>The Poisson bracket accomplishes all of these in one structure.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="a1-7-2-definition-of-the-poisson-bracket">
+<h2>A1.7.2 Definition of the Poisson Bracket<a class="headerlink" href="#a1-7-2-definition-of-the-poisson-bracket" title="Link to this heading">#</a></h2>
+<p>For any two sufficiently smooth functions <span class="math notranslate nohighlight">\(f(q,p,t)\)</span> and <span class="math notranslate nohighlight">\(g(q,p,t)\)</span> on phase space, the <strong>Poisson bracket</strong> is defined by:</p>
+<div class="math notranslate nohighlight">
+\[
+\{ f , g \}
+=
+\sum_{i=1}^n
+\left(
+\frac{\partial f}{\partial q_i} \frac{\partial g}{\partial p_i}
+-
+\frac{\partial f}{\partial p_i} \frac{\partial g}{\partial q_i}
+\right).
+\]</div>
+<p>In vector-matrix form:</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\{f,g\} = (\nabla f)^{\mathrm{T}} J (\nabla g)
+}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(J\)</span> is the symplectic matrix introduced earlier.</p>
+<p>This form makes the geometry of Poisson brackets explicit and shows that they arise naturally from the symplectic structure.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="a1-7-3-time-evolution-via-poisson-brackets">
+<h2>A1.7.3 Time Evolution via Poisson Brackets<a class="headerlink" href="#a1-7-3-time-evolution-via-poisson-brackets" title="Link to this heading">#</a></h2>
+<p>Hamilton’s equations imply that the time evolution of any function <span class="math notranslate nohighlight">\(f(q,p,t)\)</span> is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{df}{dt}
+= 
+\{ f, H \}
++ \frac{\partial f}{\partial t}.
+\]</div>
+<p>This single formula contains all of classical mechanics:</p>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(f = q_i\)</span>, it gives <span class="math notranslate nohighlight">\(\dot{q}_i = \partial H/\partial p_i\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(f = p_i\)</span>, it gives <span class="math notranslate nohighlight">\(\dot{p}_i = -\partial H/\partial q_i\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(f = H\)</span>, it gives <span class="math notranslate nohighlight">\(\dot{H} = \{H,H\} = 0\)</span> (energy conservation for time-independent <span class="math notranslate nohighlight">\(H\)</span>).</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(f\)</span> generates a symmetry, then <span class="math notranslate nohighlight">\(\{f,H\}=0\)</span> is the condition for a conserved quantity.</p></li>
+</ul>
+<p>Thus the Poisson bracket provides the <strong>dynamical law</strong> of Hamiltonian mechanics in its most compact and powerful form.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="a1-7-4-fundamental-poisson-brackets">
+<h2>A1.7.4 Fundamental Poisson Brackets<a class="headerlink" href="#a1-7-4-fundamental-poisson-brackets" title="Link to this heading">#</a></h2>
+<p>Canonical coordinates satisfy:</p>
+<div class="math notranslate nohighlight">
+\[
+\{ q_i, p_j \} = \delta_{ij},
+\qquad
+\{ q_i, q_j \} = 0,
+\qquad
+\{ p_i, p_j \} = 0.
+\]</div>
+<p>These relations express the <strong>canonical symplectic structure</strong> in algebraic form and are preserved under all canonical transformations.</p>
+<p>This mirrors the quantum commutators:</p>
+<div class="math notranslate nohighlight">
+\[
+[\hat{q}_i, \hat{p}_j] = i\hbar\,\delta_{ij}.
+\]</div>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="a1-7-5-poisson-brackets-as-generators-of-canonical-transformations">
+<h2>A1.7.5 Poisson Brackets as Generators of Canonical Transformations<a class="headerlink" href="#a1-7-5-poisson-brackets-as-generators-of-canonical-transformations" title="Link to this heading">#</a></h2>
+<p>If a function <span class="math notranslate nohighlight">\(G(q,p)\)</span> is used as a generating function for an <strong>infinitesimal</strong> canonical transformation, then the change in any function <span class="math notranslate nohighlight">\(f\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[
+\delta f = \epsilon \{f, G\},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\epsilon\)</span> is a small parameter.</p>
+<p>This statement is the classical version of:</p>
+<ul class="simple">
+<li><p>unitary transformations in quantum mechanics</p></li>
+<li><p>gauge transformations in electromagnetism</p></li>
+<li><p>the Noether correspondence between symmetries and conserved quantities</p></li>
+</ul>
+<p>Thus the Poisson bracket provides the <strong>mechanism</strong> by which symmetries act on phase-space variables.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"><div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<p><strong>Example: Poisson Brackets in the 2D Harmonic Oscillator</strong></p>
+<p>Consider the Hamiltonian</p>
+<div class="math notranslate nohighlight">
+\[
+H = \frac{1}{2m}(p_1^2 + p_2^2) + \frac{k}{2}(q_1^2 + q_2^2).
+\]</div>
+<p>Compute:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(\{q_i , H\}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\{p_i , H\}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\{L_z , H\}\)</span> where <span class="math notranslate nohighlight">\(L_z = q_1 p_2 - q_2 p_1\)</span>.</p></li>
+</ol>
+<hr class="docutils" />
+<p><strong>1. Compute <span class="math notranslate nohighlight">\(\{q_i, H\}\)</span></strong></p>
+<p>Using the definition,</p>
+<div class="math notranslate nohighlight">
+\[
+\{q_i, H\} = \frac{\partial q_i}{\partial q_j}\frac{\partial H}{\partial p_j}
+              -\frac{\partial q_i}{\partial p_j}\frac{\partial H}{\partial q_j}.
+\]</div>
+<p>Since<br />
+<span class="math notranslate nohighlight">\(\partial q_i/\partial q_j = \delta_{ij}\)</span>  and <span class="math notranslate nohighlight">\(\partial q_i/\partial p_j = 0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\{q_i, H\} = \frac{\partial H}{\partial p_i} = \frac{p_i}{m}.
+\]</div>
+<p>Which reproduces <span class="math notranslate nohighlight">\(\dot{q}_i\)</span>.</p>
+<hr class="docutils" />
+<p><strong>2. Compute <span class="math notranslate nohighlight">\(\{p_i, H\}\)</span></strong></p>
+<p>Similarly,</p>
+<div class="math notranslate nohighlight">
+\[
+\{p_i, H\}
+= - \frac{\partial H}{\partial q_i}
+= - k q_i,
+\]</div>
+<p>which is exactly <span class="math notranslate nohighlight">\(\dot{p}_i\)</span>.</p>
+<hr class="docutils" />
+<p><strong>3. Compute the conserved quantity <span class="math notranslate nohighlight">\(\{L_z, H\}\)</span></strong></p>
+<p>First compute derivatives:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial L_z}{\partial q_1}=p_2,\qquad 
+\frac{\partial L_z}{\partial q_2}=-p_1,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial L_z}{\partial p_1}=-q_2,\qquad
+\frac{\partial L_z}{\partial p_2}=q_1.
+\]</div>
+<p>Now evaluate:</p>
+<div class="math notranslate nohighlight">
+\[
+\{L_z,H\}
+=
+\sum_{i=1}^2
+\left(
+\frac{\partial L_z}{\partial q_i}\frac{\partial H}{\partial p_i}
+- 
+\frac{\partial L_z}{\partial p_i}\frac{\partial H}{\partial q_i}
+\right).
+\]</div>
+<p>Compute each term:</p>
+<ul>
+<li><p>For <span class="math notranslate nohighlight">\(i=1\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+  p_2\frac{p_1}{m} - (-q_2)(kq_1)
+  = \frac{p_1p_2}{m} + k q_1 q_2
+  \]</div>
+</li>
+<li><p>For <span class="math notranslate nohighlight">\(i=2\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+  (-p_1)\frac{p_2}{m} - (q_1)(kq_2)
+  = -\frac{p_1p_2}{m} - k q_1 q_2
+  \]</div>
+</li>
+</ul>
+<p>Adding them:</p>
+<div class="math notranslate nohighlight">
+\[
+\{L_z,H\} = 0.
+\]</div>
+<p>Thus <strong><span class="math notranslate nohighlight">\(L_z\)</span> is conserved</strong> due to rotational symmetry.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:12px; border-radius:4px;">
+<p><strong>Box Activity 1: Show That Poisson Brackets Are Preserved by Canonical Transformations</strong></p>
+<p>Let <span class="math notranslate nohighlight">\(z = (q,p)\)</span> and <span class="math notranslate nohighlight">\(Z=(Q,P)\)</span> be related by a canonical transformation.<br />
+Show that for any functions <span class="math notranslate nohighlight">\(f\)</span> and <span class="math notranslate nohighlight">\(g\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+\{f,g\} = \{f,g\}' ,
+\]</div>
+<p>where the prime denotes Poisson brackets computed in <span class="math notranslate nohighlight">\((Q,P)\)</span>.</p>
+<hr class="docutils" />
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Detailed Solution
+</summary>
+<div style="background-color:#e8f5e9; padding:12px; border-radius:4px; margin-top:6px;">
+<p>We use the matrix form:</p>
+<div class="math notranslate nohighlight">
+\[
+\{f,g\} = (\nabla f)^{\mathrm{T}} J (\nabla g).
+\]</div>
+<p>Under a canonical transformation:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(\nabla f = M^{\mathrm{T}} \nabla_Z f\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\nabla g = M^{\mathrm{T}} \nabla_Z g\)</span>,</p></li>
+<li><p>and the defining symplectic condition is</p>
+<div class="math notranslate nohighlight">
+\[
+  M^{\mathrm{T}} J M = J.
+  \]</div>
+</li>
+</ul>
+<p>Compute:</p>
+<div class="math notranslate nohighlight">
+\[
+\{f,g\}
+= (\nabla f)^{\mathrm{T}}J(\nabla g)
+= (M^{\mathrm{T}}\nabla_Z f)^{\mathrm{T}}J(M^{\mathrm{T}}\nabla_Z g).
+\]</div>
+<p>Transpose the left term:</p>
+<div class="math notranslate nohighlight">
+\[
+= (\nabla_Z f)^{\mathrm{T}} M J M^{\mathrm{T}} \nabla_Z g.
+\]</div>
+<p>Use the symplectic identity <span class="math notranslate nohighlight">\(MJM^{\mathrm{T}} = J\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\{f,g\}
+= (\nabla_Z f)^{\mathrm{T}} J (\nabla_Z g)
+= \{f,g\}'.
+\]</div>
+<p>Thus Poisson brackets are <strong>invariant</strong> under canonical transformations.</p>
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<div style="background-color:#fff8e1; border-left:5px solid #ffc20e; padding:12px; border-radius:4px;">
+<p><strong>Poisson Brackets as Classical Commutators</strong></p>
+<p>Poisson brackets encode how dynamical quantities generate transformations in phase space, exactly as commutators encode how observables generate transformations in quantum mechanics.</p>
+<p>The correspondence rule</p>
+<div class="math notranslate nohighlight">
+\[
+\{f,g\} \;\longrightarrow\; \frac{1}{i\hbar}[\hat{f},\hat{g}]
+\]</div>
+<p>shows that quantum mechanics preserves the same algebraic structure:<br />
+<strong>symmetry → generator → conservation law</strong>, with commutators playing the role of quantum Poisson brackets.</p>
+</div>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="a1-7-6-algebraic-properties-of-poisson-brackets">
+<h2>A1.7.6 Algebraic Properties of Poisson Brackets<a class="headerlink" href="#a1-7-6-algebraic-properties-of-poisson-brackets" title="Link to this heading">#</a></h2>
+<p>Poisson brackets satisfy four key properties that make them a <strong>Lie algebra</strong>:</p>
+<section id="linearity">
+<h3>1. <strong>Linearity</strong><a class="headerlink" href="#linearity" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+\{af + bg, h\} = a\{f,h\} + b\{g,h\}.
+\]</div>
+</section>
+<section id="antisymmetry">
+<h3>2. <strong>Antisymmetry</strong><a class="headerlink" href="#antisymmetry" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+\{f,g\} = -\{g,f\}.
+\]</div>
+</section>
+<section id="leibniz-rule-derivation-property">
+<h3>3. <strong>Leibniz Rule (Derivation Property)</strong><a class="headerlink" href="#leibniz-rule-derivation-property" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+\{fg, h\} = f\{g,h\} + g\{f,h\}.
+\]</div>
+<p>This shows PBs act like derivatives.</p>
+</section>
+<section id="jacobi-identity">
+<h3>4. <strong>Jacobi Identity</strong><a class="headerlink" href="#jacobi-identity" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+\{f,\{g,h\}\} + \{g,\{h,f\}\} + \{h,\{f,g\}\} = 0.
+\]</div>
+<p>The Jacobi identity is essential: it guarantees that Poisson brackets form a <strong>Lie algebra</strong>, enabling the elegant algebraic treatment of symmetries.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="a1-7-7-bridge-to-hamiltonjacobi-theory">
+<h2>A1.7.7 Bridge to Hamilton–Jacobi Theory<a class="headerlink" href="#a1-7-7-bridge-to-hamiltonjacobi-theory" title="Link to this heading">#</a></h2>
+<p>Poisson brackets turn the space of dynamical quantities into a Lie algebra where each quantity generates a flow in phase space.</p>
+<p>Hamilton–Jacobi theory takes the next step: instead of tracking flows generated by all variables, it looks for a <em>single</em> function <span class="math notranslate nohighlight">\(S(q,t)\)</span> whose derivatives generate a full canonical transformation sending the Hamiltonian to a constant.</p>
+<p>This transformation straightens out the flow, reducing the dynamics to a trivial evolution in the new coordinates.</p>
+<p>In this way, Poisson brackets (infinitesimal canonical transformations) naturally lead to Hamilton–Jacobi theory (a global canonical transformation generated by the action function <span class="math notranslate nohighlight">\(S\)</span>).</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-A1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="canonical-transformations.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">A1.6 Canonical Transformations</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-7-1-motivation">A1.7.1 Motivation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-we-need-poisson-brackets">Why We Need Poisson Brackets</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-7-2-definition-of-the-poisson-bracket">A1.7.2 Definition of the Poisson Bracket</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-7-3-time-evolution-via-poisson-brackets">A1.7.3 Time Evolution via Poisson Brackets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-7-4-fundamental-poisson-brackets">A1.7.4 Fundamental Poisson Brackets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-7-5-poisson-brackets-as-generators-of-canonical-transformations">A1.7.5 Poisson Brackets as Generators of Canonical Transformations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-7-6-algebraic-properties-of-poisson-brackets">A1.7.6 Algebraic Properties of Poisson Brackets</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linearity">1. <strong>Linearity</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#antisymmetry">2. <strong>Antisymmetry</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#leibniz-rule-derivation-property">3. <strong>Leibniz Rule (Derivation Property)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jacobi-identity">4. <strong>Jacobi Identity</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-7-7-bridge-to-hamiltonjacobi-theory">A1.7.7 Bridge to Hamilton–Jacobi Theory</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

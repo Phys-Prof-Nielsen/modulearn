@@ -1,0 +1,703 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>A1.2 Connecting Lagrange Multipliers to the Hamiltonian Formalism &#8212; A Competency Approach to Classical Mechanics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/save_cell.css?v=43dd4451" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-A1/Hamiltonian';</script>
+    <script src="../_static/save_cell.js?v=d135a7b8"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="A1.3 From the Lagrangian to the Hamiltonian: The Legendre Transform" href="legendre.html" />
+    <link rel="prev" title="A1.1 Introduction to the Hamiltonian" href="intro-hamiltonian.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-A.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Home"/>
+    <script>document.write(`<img src="../_static/logo-A.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the B Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://gemini.google.com/gem/10l7TNMxLkYkxP1cGjSu5uEvK_RAC-A9n?usp=sharing">Physics Coding Architect (PyAIGem)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module A1 - Hamiltonian Dynamics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-A1.html">A1.0 Learning Outcomes: Hamiltonian Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro-hamiltonian.html">A1.1 Introduction to the Hamiltonian</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">A1.2 Connecting Lagrange Multipliers to the Hamiltonian Formalism</a></li>
+<li class="toctree-l1"><a class="reference internal" href="legendre.html">A1.3 From the Lagrangian to the Hamiltonian: The Legendre Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase-space.html">A1.4 Phase Space and Hamiltonian Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="liouville.html">A1.5 Liouville’s Theorem: Volume Preservation in Phase Space</a></li>
+<li class="toctree-l1"><a class="reference internal" href="canonical-transformations.html">A1.6 Canonical Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poison-brackets.html">A1.7 Poisson Brackets</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Module-A1/Hamiltonian.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-A1/Hamiltonian.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>A1.2 Connecting Lagrange Multipliers to the Hamiltonian Formalism</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-2-1-motivation">A1.2.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-2-2-the-hamiltonian-recap">A1.2.2 The Hamiltonian Recap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-2-3-incorporating-constraints-with-lagrange-multipliers">A1.2.3 Incorporating Constraints with Lagrange Multipliers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c4-7-4-example-block-on-an-inclined-plane-hamiltonian-approach">C4.7.4 Example: Block on an Inclined Plane (Hamiltonian Approach)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conjugate-momenta"><strong>Conjugate Momenta</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constraint-equation-in-phase-space"><strong>Constraint Equation in Phase Space</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modified-hamiltonian-with-lagrange-multipliers"><strong>Modified Hamiltonian with Lagrange Multipliers</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-2-5-physical-interpretation-in-hamiltonian-mechanics">A1.2.5 Physical Interpretation in Hamiltonian Mechanics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-2-6-key-takeaways">A1.2.6 Key Takeaways</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="a1-2-connecting-lagrange-multipliers-to-the-hamiltonian-formalism">
+<h1>A1.2 Connecting Lagrange Multipliers to the Hamiltonian Formalism<a class="headerlink" href="#a1-2-connecting-lagrange-multipliers-to-the-hamiltonian-formalism" title="Link to this heading">#</a></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<section id="a1-2-1-motivation">
+<h2>A1.2.1 Motivation<a class="headerlink" href="#a1-2-1-motivation" title="Link to this heading">#</a></h2>
+<p>So far, we have seen how <strong>Lagrange multipliers</strong> enforce constraints in the Lagrangian framework while also revealing constraint forces. Now, we extend this idea to <strong>Hamiltonian mechanics</strong>, where constraints play an even more fundamental role in determining phase space dynamics.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="a1-2-2-the-hamiltonian-recap">
+<h2>A1.2.2 The Hamiltonian Recap<a class="headerlink" href="#a1-2-2-the-hamiltonian-recap" title="Link to this heading">#</a></h2>
+<p>The Hamiltonian is defined as the <strong>Legendre transform</strong> of the Lagrangian:</p>
+<div class="math notranslate nohighlight">
+\[
+H = \sum_i p_i \dot{q}_i - L
+\]</div>
+<p>where the <strong>conjugate momenta</strong> are given by:</p>
+<div class="math notranslate nohighlight">
+\[
+p_i = \frac{\partial L}{\partial \dot{q}_i}
+\]</div>
+<p>In an unconstrained system, <strong>Hamilton’s equations</strong> govern the time evolution:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{q}_i = \frac{\partial H}{\partial p_i}, \quad \dot{p}_i = -\frac{\partial H}{\partial q_i}
+\]</div>
+<p>However, when constraints are present, not all generalized coordinates <span class="math notranslate nohighlight">\( q_i \)</span> are independent, meaning that the momenta <strong>must satisfy additional conditions</strong>. This is where Lagrange multipliers reappear in the Hamiltonian formulation.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="a1-2-3-incorporating-constraints-with-lagrange-multipliers">
+<h2>A1.2.3 Incorporating Constraints with Lagrange Multipliers<a class="headerlink" href="#a1-2-3-incorporating-constraints-with-lagrange-multipliers" title="Link to this heading">#</a></h2>
+<p>In Hamiltonian mechanics, constraints can be classified as:</p>
+<ul class="simple">
+<li><p><strong>Holonomic constraints</strong>: Constraints purely in terms of coordinates (e.g., <span class="math notranslate nohighlight">\( g(q_1, q_2, \dots, t) = 0 \)</span>).</p></li>
+<li><p><strong>Non-holonomic constraints</strong>: Constraints that involve velocities or momenta (e.g., rolling motion).</p></li>
+</ul>
+<p>Instead of modifying the Lagrangian as:</p>
+<div class="math notranslate nohighlight">
+\[
+L' = L + \lambda g(q, t)
+\]</div>
+<p>we introduce a <strong>constraint function in phase space</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+\phi(q, p, t) = 0
+\]</div>
+<p>and enforce it by adding a <strong>Lagrange multiplier term</strong> to the Hamiltonian:</p>
+<div class="math notranslate nohighlight">
+\[
+H' = H + \lambda \phi(q, p, t)
+\]</div>
+<p>where <span class="math notranslate nohighlight">\( \lambda \)</span> is now an <strong>unknown function of time</strong> that ensures the constraint is satisfied dynamically.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="c4-7-4-example-block-on-an-inclined-plane-hamiltonian-approach">
+<h2>C4.7.4 Example: Block on an Inclined Plane (Hamiltonian Approach)<a class="headerlink" href="#c4-7-4-example-block-on-an-inclined-plane-hamiltonian-approach" title="Link to this heading">#</a></h2>
+<p>We revisit the <strong>block on a frictionless incline</strong> with the constraint:</p>
+<div class="math notranslate nohighlight">
+\[
+g(x, y) = y - H + x \tan\theta = 0
+\]</div>
+<section id="conjugate-momenta">
+<h3><strong>Conjugate Momenta</strong><a class="headerlink" href="#conjugate-momenta" title="Link to this heading">#</a></h3>
+<p>The unconstrained Lagrangian is:</p>
+<div class="math notranslate nohighlight">
+\[
+L = \frac{1}{2} m (\dot{x}^2 + \dot{y}^2) - mg y
+\]</div>
+<p>The conjugate momenta are:</p>
+<div class="math notranslate nohighlight">
+\[
+p_x = \frac{\partial L}{\partial \dot{x}} = m \dot{x}, \quad p_y = \frac{\partial L}{\partial \dot{y}} = m \dot{y}
+\]</div>
+<p>The Hamiltonian is:</p>
+<div class="math notranslate nohighlight">
+\[
+H = \frac{p_x^2}{2m} + \frac{p_y^2}{2m} + mg y
+\]</div>
+</section>
+<section id="constraint-equation-in-phase-space">
+<h3><strong>Constraint Equation in Phase Space</strong><a class="headerlink" href="#constraint-equation-in-phase-space" title="Link to this heading">#</a></h3>
+<p>Since the block is confined to the incline, the constraint in terms of coordinates is:</p>
+<div class="math notranslate nohighlight">
+\[
+y - H + x \tan\theta = 0
+\]</div>
+<p>Taking the time derivative:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{y} + \dot{x} \tan\theta = 0
+\]</div>
+<p>Rewriting in terms of momenta:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{p_y}{m} + \frac{p_x}{m} \tan\theta = 0
+\]</div>
+<p>or equivalently:</p>
+<div class="math notranslate nohighlight">
+\[
+\phi(q, p) = p_y + p_x \tan\theta = 0
+\]</div>
+<p>This is a <strong>primary constraint in phase space</strong>, which must hold at all times.</p>
+</section>
+<section id="modified-hamiltonian-with-lagrange-multipliers">
+<h3><strong>Modified Hamiltonian with Lagrange Multipliers</strong><a class="headerlink" href="#modified-hamiltonian-with-lagrange-multipliers" title="Link to this heading">#</a></h3>
+<p>To enforce the constraint dynamically, we introduce a <strong>Lagrange multiplier <span class="math notranslate nohighlight">\( \lambda \)</span></strong> in the Hamiltonian:</p>
+<div class="math notranslate nohighlight">
+\[
+H' = H + \lambda (p_y + p_x \tan\theta)
+\]</div>
+<p>Applying <strong>Hamilton’s equations</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{q}_i = \frac{\partial H'}{\partial p_i}, \quad \dot{p}_i = -\frac{\partial H'}{\partial q_i}
+\]</div>
+<p>we obtain equations that enforce the motion along the incline, and solving for <span class="math notranslate nohighlight">\( \lambda \)</span> allows us to find the <strong>normal force</strong> that maintains the constraint.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="a1-2-5-physical-interpretation-in-hamiltonian-mechanics">
+<h2>A1.2.5 Physical Interpretation in Hamiltonian Mechanics<a class="headerlink" href="#a1-2-5-physical-interpretation-in-hamiltonian-mechanics" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Lagrange multipliers enforce constraints dynamically</strong>:</p>
+<ul class="simple">
+<li><p>Instead of reducing degrees of freedom, we introduce <span class="math notranslate nohighlight">\( \lambda \)</span> as an unknown force-related factor in phase space.</p></li>
+<li><p>The system evolves subject to this constraint, ensuring the motion remains physically valid.</p></li>
+</ul>
+</li>
+<li><p><strong>Constraint forces correspond to Lagrange multipliers</strong>:</p>
+<ul class="simple">
+<li><p>In Hamiltonian mechanics, the constraint force <strong>does not appear explicitly</strong> in the equations of motion.</p></li>
+<li><p>Instead, it manifests through the presence of the multiplier term.</p></li>
+</ul>
+</li>
+<li><p><strong>Connection to More Advanced Topics</strong>:</p>
+<ul class="simple">
+<li><p><strong>Gauge theories</strong>: In electromagnetism and quantum mechanics, constraints like the Gauss law are enforced using Hamiltonian multipliers.</p></li>
+<li><p><strong>General relativity</strong>: Constraints in Einstein’s equations are often handled through Hamiltonian formulations with multipliers.</p></li>
+<li><p><strong>Symplectic geometry</strong>: Constraints define submanifolds in phase space, leading to powerful geometric interpretations.</p></li>
+</ul>
+</li>
+</ol>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="a1-2-6-key-takeaways">
+<h2>A1.2.6 Key Takeaways<a class="headerlink" href="#a1-2-6-key-takeaways" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Lagrange multipliers in Hamiltonian mechanics enforce phase space constraints</strong>, just as they do in Lagrangian mechanics for coordinate constraints.</p></li>
+<li><p><strong>Constraint forces emerge naturally from the multiplier terms</strong>, even though they do not appear explicitly in Hamilton’s equations.</p></li>
+<li><p>This formulation extends to <strong>electrodynamics, relativity, and quantum mechanics</strong>, where constraints play a fundamental role in defining physical laws.</p></li>
+</ul>
+<p>Understanding Lagrange multipliers in both <strong>Lagrangian and Hamiltonian</strong> mechanics provides a deeper insight into <strong>constrained motion</strong>, preparing students for advanced theoretical physics and applied mechanics.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-A1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro-hamiltonian.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">A1.1 Introduction to the Hamiltonian</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="legendre.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">A1.3 From the Lagrangian to the Hamiltonian: The Legendre Transform</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-2-1-motivation">A1.2.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-2-2-the-hamiltonian-recap">A1.2.2 The Hamiltonian Recap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-2-3-incorporating-constraints-with-lagrange-multipliers">A1.2.3 Incorporating Constraints with Lagrange Multipliers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c4-7-4-example-block-on-an-inclined-plane-hamiltonian-approach">C4.7.4 Example: Block on an Inclined Plane (Hamiltonian Approach)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conjugate-momenta"><strong>Conjugate Momenta</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constraint-equation-in-phase-space"><strong>Constraint Equation in Phase Space</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modified-hamiltonian-with-lagrange-multipliers"><strong>Modified Hamiltonian with Lagrange Multipliers</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-2-5-physical-interpretation-in-hamiltonian-mechanics">A1.2.5 Physical Interpretation in Hamiltonian Mechanics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-2-6-key-takeaways">A1.2.6 Key Takeaways</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1140 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>A1.5 Liouville’s Theorem: Volume Preservation in Phase Space &#8212; A Competency Approach to Classical Mechanics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/save_cell.css?v=43dd4451" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-A1/liouville';</script>
+    <script src="../_static/save_cell.js?v=d135a7b8"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="A1.6 Canonical Transformations" href="canonical-transformations.html" />
+    <link rel="prev" title="A1.4 Phase Space and Hamiltonian Flow" href="phase-space.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-A.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Home"/>
+    <script>document.write(`<img src="../_static/logo-A.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the B Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://gemini.google.com/gem/10l7TNMxLkYkxP1cGjSu5uEvK_RAC-A9n?usp=sharing">Physics Coding Architect (PyAIGem)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module A1 - Hamiltonian Dynamics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-A1.html">A1.0 Learning Outcomes: Hamiltonian Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro-hamiltonian.html">A1.1 Introduction to the Hamiltonian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Hamiltonian.html">A1.2 Connecting Lagrange Multipliers to the Hamiltonian Formalism</a></li>
+<li class="toctree-l1"><a class="reference internal" href="legendre.html">A1.3 From the Lagrangian to the Hamiltonian: The Legendre Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase-space.html">A1.4 Phase Space and Hamiltonian Flow</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">A1.5 Liouville’s Theorem: Volume Preservation in Phase Space</a></li>
+<li class="toctree-l1"><a class="reference internal" href="canonical-transformations.html">A1.6 Canonical Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poison-brackets.html">A1.7 Poisson Brackets</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Module-A1/liouville.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-A1/liouville.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>A1.5 Liouville’s Theorem: Volume Preservation in Phase Space</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-5-1-motivation">A1.5.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-5-2-the-hamiltonian-vector-field">A1.5.2 The Hamiltonian Vector Field</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-5-3-statement-of-liouvilles-theorem">A1.5.3 Statement of Liouville’s Theorem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-5-4-geometric-picture-phase-space-as-an-incompressible-fluid">A1.5.4 Geometric Picture: Phase Space as an Incompressible Fluid</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-5-5-liouvilles-equation-as-a-continuity-equation-for-probability">A1.5.5 Liouville’s Equation as a Continuity Equation for Probability</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-conservation-the-continuity-equation">Probability Conservation: The Continuity Equation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-incompressibility">Using Incompressibility</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-space-advection-form">Phase-Space Advection Form</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#poisson-bracket-form-standard-in-mechanics">Poisson Bracket Form (standard in mechanics)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-5-6-example-harmonic-oscillator">A1.5.6 Example: Harmonic Oscillator</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="a1-5-liouvilles-theorem-volume-preservation-in-phase-space">
+<h1>A1.5 Liouville’s Theorem: Volume Preservation in Phase Space<a class="headerlink" href="#a1-5-liouvilles-theorem-volume-preservation-in-phase-space" title="Link to this heading">#</a></h1>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+<section id="a1-5-1-motivation">
+<h2>A1.5.1 Motivation<a class="headerlink" href="#a1-5-1-motivation" title="Link to this heading">#</a></h2>
+<p>So far we have seen that Hamiltonian systems:</p>
+<ul class="simple">
+<li><p>move along contours of constant energy</p></li>
+<li><p>have fixed points that are either <strong>centers</strong> or <strong>saddles</strong></p></li>
+<li><p>define a smooth vector field in phase space</p></li>
+</ul>
+<p>But we have not yet uncovered the most important structural property:</p>
+<blockquote>
+<div><p><strong>Hamiltonian flow preserves phase-space volume.</strong></p>
+</div></blockquote>
+<p>This is known as <strong>Liouville’s theorem</strong>, and it has profound consequences:</p>
+<ul class="simple">
+<li><p>Hamiltonian systems can <strong>never</strong> have attractors or spirals.</p></li>
+<li><p>Volume elements in phase space behave like <strong>fluid particles in an incompressible flow</strong>.</p></li>
+<li><p>Probability densities evolve by <strong>shearing</strong>, not compression.</p></li>
+<li><p>It is a key ingredient in <strong>statistical mechanics</strong> and <strong>chaos theory</strong>.</p></li>
+</ul>
+<p>Before proving it, we first observe the structure of Hamiltonian flow.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="a1-5-2-the-hamiltonian-vector-field">
+<h2>A1.5.2 The Hamiltonian Vector Field<a class="headerlink" href="#a1-5-2-the-hamiltonian-vector-field" title="Link to this heading">#</a></h2>
+<p>A Hamiltonian system defines the vector field</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{v}(q,p)
+=
+\left(
+\frac{\partial H}{\partial p_1},
+\ldots,
+\frac{\partial H}{\partial p_n},
+-\frac{\partial H}{\partial q_1},
+\ldots,
+-\frac{\partial H}{\partial q_n}
+\right).
+\]</div>
+<p>A point in phase space flows along this vector field like a particle in a fluid.</p>
+<p>To understand volume preservation, we compute the <strong>divergence</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+\nabla \cdot \mathbf{v}
+=
+\sum_{i=1}^n
+\left(
+\frac{\partial}{\partial q_i}\dot{q}_i
++
+\frac{\partial}{\partial p_i}\dot{p}_i
+\right).
+\]</div>
+<p>with the result that</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\nabla \cdot \mathbf{v} = 0
+}
+\]</div>
+<p>→ <strong>phase-space flow is incompressible</strong>.</p>
+<div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:12px; border-radius:4px;">
+<p><strong>Box Activity 1: Show That Hamiltonian Flow Is Incompressible</strong></p>
+<p>In this section we defined the Hamiltonian vector field</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{v}(q,p)
+=
+\left(
+\dot{q}_1, \ldots, \dot{q}_n,\;
+\dot{p}_1, \ldots, \dot{p}_n
+\right)
+=
+\left(
+\frac{\partial H}{\partial p_1}, \ldots, \frac{\partial H}{\partial p_n},
+-\frac{\partial H}{\partial q_1}, \ldots, -\frac{\partial H}{\partial q_n}
+\right).
+\]</div>
+<p>The divergence of this vector field is</p>
+<div class="math notranslate nohighlight">
+\[
+\nabla\!\cdot\!\mathbf{v}
+=
+\sum_{i=1}^n
+\left(
+\frac{\partial}{\partial q_i}\dot{q}_i
++
+\frac{\partial}{\partial p_i}\dot{p}_i
+\right).
+\]</div>
+<p><strong>Your task:</strong> Work through the steps to show that this divergence is <strong>zero</strong>, which proves that Hamiltonian flow preserves phase-space volume.</p>
+<hr class="docutils" />
+<p><strong>Fill in the missing steps</strong></p>
+<p><strong>(a)</strong> Substitute the Hamiltonian expressions<br />
+<span class="math notranslate nohighlight">\(\dot{q}_i = \frac{\partial H}{\partial p_i}\)</span><br />
+<span class="math notranslate nohighlight">\(\dot{p}_i = -\frac{\partial H}{\partial q_i}\)</span><br />
+into the divergence.</p>
+<p><strong>(b)</strong> Compute each partial derivative explicitly:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\displaystyle \frac{\partial}{\partial q_i}\left(\frac{\partial H}{\partial p_i}\right)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\displaystyle \frac{\partial}{\partial p_i}\left(-\frac{\partial H}{\partial q_i}\right)\)</span></p></li>
+</ul>
+<p><strong>(c)</strong> Show that each pair of terms cancels because <strong>mixed partial derivatives commute</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial^2 H}{\partial q_i \partial p_i}
+=
+\frac{\partial^2 H}{\partial p_i \partial q_i}.
+\]</div>
+<p><strong>(d)</strong> Conclude that <span class="math notranslate nohighlight">\(\nabla\!\cdot\!\mathbf{v} = 0\)</span>.</p>
+<hr class="docutils" />
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Detailed Solution
+</summary>
+<div style="background-color:#e8f5e9; padding:12px; border-radius:4px; margin-top:6px;">
+<p><strong>(a) Substitute Hamilton’s equations</strong></p>
+<p>Start with</p>
+<div class="math notranslate nohighlight">
+\[
+\nabla\!\cdot\!\mathbf{v}
+=
+\sum_{i=1}^n
+\left(
+\frac{\partial}{\partial q_i}\dot{q}_i
++
+\frac{\partial}{\partial p_i}\dot{p}_i
+\right).
+\]</div>
+<p>Insert<br />
+<span class="math notranslate nohighlight">\(\dot{q}_i = \frac{\partial H}{\partial p_i}\)</span><br />
+<span class="math notranslate nohighlight">\(\dot{p}_i = -\frac{\partial H}{\partial q_i}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\nabla\!\cdot\!\mathbf{v}
+=
+\sum_{i=1}^n
+\left(
+\frac{\partial}{\partial q_i}
+\frac{\partial H}{\partial p_i}
+-
+\frac{\partial}{\partial p_i}
+\frac{\partial H}{\partial q_i}
+\right).
+\]</div>
+<hr class="docutils" />
+<p><strong>(b) Compute each term</strong></p>
+<p>These are mixed second partial derivatives:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial}{\partial q_i}
+\left(\frac{\partial H}{\partial p_i}\right)
+=
+\frac{\partial^2 H}{\partial q_i \partial p_i},
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial}{\partial p_i}
+\left(-\frac{\partial H}{\partial q_i}\right)
+=
+-
+\frac{\partial^2 H}{\partial p_i \partial q_i}.
+\]</div>
+<hr class="docutils" />
+<p><strong>(c) Use equality of mixed partials</strong></p>
+<p>For sufficiently smooth <span class="math notranslate nohighlight">\(H\)</span> (all classical systems):</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial^2 H}{\partial q_i \partial p_i}
+=
+\frac{\partial^2 H}{\partial p_i \partial q_i}.
+\]</div>
+<p>Thus the two terms cancel <em>for each <span class="math notranslate nohighlight">\(i\)</span></em>:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial^2 H}{\partial q_i \partial p_i}
+-
+\frac{\partial^2 H}{\partial p_i \partial q_i}
+= 0.
+\]</div>
+<hr class="docutils" />
+<p><strong>(d) Final result</strong></p>
+<p>Adding over all <span class="math notranslate nohighlight">\(n\)</span> degrees of freedom:</p>
+<div class="math notranslate nohighlight">
+\[
+\nabla\!\cdot\!\mathbf{v}
+= \sum_{i=1}^n 0 = 0.
+\]</div>
+<p>Therefore:</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\nabla\!\cdot\!\mathbf{v} = 0
+\quad\Longrightarrow\quad
+\text{Hamiltonian flow preserves phase-space volume}.
+}
+\]</div>
+<p>This is the core of <strong>Liouville’s theorem</strong>.</p>
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e3f2fd; border-left:5px solid #1565c0; padding:12px; border-radius:4px;">
+<p><strong>Concept Highlight: Why Does Zero Divergence Mean Incompressible Flow?</strong></p>
+<p>The result</p>
+<div class="math notranslate nohighlight">
+\[
+\nabla\!\cdot\!\mathbf{v} = 0
+\]</div>
+<p>means that the Hamiltonian velocity field has <strong>no net expansion or contraction</strong> at any point in phase space.</p>
+<p>Here’s why that matters:</p>
+<hr class="docutils" />
+<p><strong>1. Local Interpretation: No Squeezing or Stretching of Volume</strong></p>
+<p>In fluid mechanics, <span class="math notranslate nohighlight">\(\nabla\!\cdot\!\mathbf{v}\)</span> measures how much a tiny fluid element expands or contracts.</p>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(\nabla\!\cdot\!\mathbf{v} &gt; 0\)</span> → local expansion</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\nabla\!\cdot\!\mathbf{v} &lt; 0\)</span> → local compression</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\nabla\!\cdot\!\mathbf{v} = 0\)</span> → <strong>incompressible flow</strong></p></li>
+</ul>
+<p>Hamiltonian phase-space flow behaves exactly like an incompressible fluid.</p>
+<p>So a small phase-space “blob” cannot:</p>
+<ul class="simple">
+<li><p>shrink,</p></li>
+<li><p>collapse,</p></li>
+<li><p>or spiral inward.</p></li>
+</ul>
+<p>It can only <strong>stretch</strong> and <strong>shear</strong>.</p>
+<hr class="docutils" />
+<p><strong>2. Global Interpretation: Phase-Space Volume Is Preserved</strong></p>
+<p>Consider any region <span class="math notranslate nohighlight">\(\Omega(t)\)</span> carried along by the flow.<br />
+The divergence theorem tells us:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dt} \text{Vol}[\Omega(t)]
+=
+\int_{\Omega(t)} \nabla\!\cdot\!\mathbf{v} \; d\Gamma.
+\]</div>
+<p>If <span class="math notranslate nohighlight">\(\nabla\!\cdot\!\mathbf{v}=0\)</span> everywhere, then:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dt} \text{Vol}[\Omega(t)] = 0.
+\]</div>
+<p>This is exactly <strong>Liouville’s theorem</strong>.</p>
+<hr class="docutils" />
+<p><strong>3. Consequence: Hamiltonian Systems Cannot Have Attractors</strong></p>
+<p>Attractors require <strong>volume contraction</strong>, because trajectories must be “pulled together” over time.</p>
+<p>But in Hamiltonian mechanics:</p>
+<ul class="simple">
+<li><p>no point can suck in nearby trajectories</p></li>
+<li><p>no orbit can attract a neighborhood</p></li>
+<li><p>no stable spirals can exist</p></li>
+</ul>
+<p>This rules out:</p>
+<ul class="simple">
+<li><p>sinks</p></li>
+<li><p>stable spirals</p></li>
+<li><p>limit cycles</p></li>
+<li><p>damped oscillations</p></li>
+<li><p>long-term collapse toward an equilibrium</p></li>
+</ul>
+<p>The only possible fixed points are:</p>
+<ul class="simple">
+<li><p><strong>stable centers</strong> (neutral, no volume change)</p></li>
+<li><p><strong>saddles</strong> (volume preserved but stretched + compressed equally)</p></li>
+</ul>
+<p><strong>Hamiltonian Systems Can Have Unstable Fixed Points</strong></p>
+<p>Liouville’s theorem forbids <strong>attractors</strong>, not <strong>instability</strong>.</p>
+<ul class="simple">
+<li><p><strong>Centers</strong> (pure imaginary eigenvalues) are neutrally stable.</p></li>
+<li><p><strong>Saddles</strong> (real opposite-sign eigenvalues) are unstable.</p></li>
+</ul>
+<p>What Hamiltonian systems can <em>never</em> have are:</p>
+<ul class="simple">
+<li><p>sinks</p></li>
+<li><p>stable spirals</p></li>
+<li><p>limit cycles</p></li>
+<li><p>any fixed point that attracts a region of initial conditions</p></li>
+</ul>
+<p>In other words:</p>
+<blockquote>
+<div><p>Hamiltonian fixed points may be <strong>stable or unstable</strong>,<br />
+but they are never <strong>attracting</strong>.</p>
+</div></blockquote>
+<p>The instability of saddle points is fully compatible with volume preservation.</p>
+<hr class="docutils" />
+<p><strong>4. Geometric Summary</strong></p>
+<p>Hamiltonian evolution acts like:</p>
+<blockquote>
+<div><p>a perfectly incompressible, infinitely thin fluid moving in phase space,<br />
+twisting, folding, and stretching — but never changing volume.</p>
+</div></blockquote>
+<p>This underlies:</p>
+<ul class="simple">
+<li><p>the structure of phase portraits</p></li>
+<li><p>the onset of chaos via stretching &amp; folding</p></li>
+<li><p>the foundation of statistical mechanics</p></li>
+<li><p>the reversibility of Hamiltonian dynamics</p></li>
+</ul>
+</div>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="a1-5-3-statement-of-liouvilles-theorem">
+<h2>A1.5.3 Statement of Liouville’s Theorem<a class="headerlink" href="#a1-5-3-statement-of-liouvilles-theorem" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><strong>The phase-space volume of any region is preserved under Hamiltonian time evolution.</strong></p>
+</div></blockquote>
+<p>If <span class="math notranslate nohighlight">\(\Omega(t)\)</span> is a region transported along the Hamiltonian flow, then</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dt} \text{Vol}[\Omega(t)] = 0.
+\]</div>
+<p>In other words, blobs of initial conditions:</p>
+<ul class="simple">
+<li><p>stretch,</p></li>
+<li><p>twist,</p></li>
+<li><p>shear,</p></li>
+<li><p>fold,</p></li>
+</ul>
+<p>but <strong>never shrink or grow</strong>.</p>
+<hr class="docutils" />
+<div style="background-color:#e3f2fd; border-left:5px solid #1565c0; padding:12px; border-radius:4px;">
+<p><strong>Concept Highlight: Why This Matters</strong></p>
+<ol class="arabic simple">
+<li><p><strong>No attractors</strong><br />
+Volume cannot contract → no trajectory can pull neighbors into a point or limit cycle.</p></li>
+<li><p><strong>Centers, not spirals</strong><br />
+Linearized Hamiltonian systems only give centers or saddles:<br />
+spirals require contraction/expansion, which is forbidden.</p></li>
+<li><p><strong>Reversibility of physics</strong><br />
+Volume preservation reflects the time-reversible nature of Hamilton’s equations.</p></li>
+<li><p><strong>Chaos (later)</strong><br />
+Even chaotic Hamiltonian systems preserve volume globally.<br />
+Chaos arises from <strong>stretching and folding</strong>, not compression.</p></li>
+<li><p><strong>Statistical mechanics</strong><br />
+Evolution of probability densities uses Liouville’s equation, a direct consequence of this theorem.</p></li>
+</ol>
+</div>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="a1-5-4-geometric-picture-phase-space-as-an-incompressible-fluid">
+<h2>A1.5.4 Geometric Picture: Phase Space as an Incompressible Fluid<a class="headerlink" href="#a1-5-4-geometric-picture-phase-space-as-an-incompressible-fluid" title="Link to this heading">#</a></h2>
+<p>Imagine filling phase space with an ideal fluid.<br />
+Each “fluid element” represents an infinitesimal bundle of initial conditions.</p>
+<p>Under Hamiltonian time evolution:</p>
+<ul class="simple">
+<li><p>fluid elements move along the flow lines,</p></li>
+<li><p>shapes distort dramatically,</p></li>
+<li><p>but <strong>their volume never changes</strong>.</p></li>
+</ul>
+<p>Even though a distribution can become thinner than paper in one direction, it must grow correspondingly in others.</p>
+<p>This stretching and folding is the root of <strong>chaotic mixing</strong>.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="a1-5-5-liouvilles-equation-as-a-continuity-equation-for-probability">
+<h2>A1.5.5 Liouville’s Equation as a Continuity Equation for Probability<a class="headerlink" href="#a1-5-5-liouvilles-equation-as-a-continuity-equation-for-probability" title="Link to this heading">#</a></h2>
+<p>Up to this point, Liouville’s theorem has been discussed in terms of <strong>volume preservation</strong>.<br />
+But there is a deeper and more powerful interpretation:</p>
+<blockquote>
+<div><p><strong>Liouville’s theorem is the continuity equation for probability in phase space.</strong></p>
+</div></blockquote>
+<p>In other words, it expresses <strong>conservation of probability density</strong> as initial conditions flow under Hamilton’s equations.</p>
+<p>Let <span class="math notranslate nohighlight">\(\rho(q,p,t)\)</span> be a probability density on phase space.<br />
+This density satisfies the normalization:</p>
+<div class="math notranslate nohighlight">
+\[
+\int \rho(q,p,t)\, d\Gamma = 1,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(d\Gamma = dq_1 \cdots dq_n\, dp_1 \cdots dp_n\)</span> is the volume element.</p>
+<hr class="docutils" />
+<section id="probability-conservation-the-continuity-equation">
+<h3>Probability Conservation: The Continuity Equation<a class="headerlink" href="#probability-conservation-the-continuity-equation" title="Link to this heading">#</a></h3>
+<p>As <span class="math notranslate nohighlight">\(\rho\)</span> moves along the Hamiltonian flow, probability cannot be created or destroyed.<br />
+Thus <span class="math notranslate nohighlight">\(\rho\)</span> must satisfy the <strong>continuity equation</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \rho}{\partial t}
++
+\nabla\!\cdot(\rho\,\mathbf{v}) = 0,
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{v}(q,p) = (\dot{q}_1,\ldots,\dot{q}_n,\;\dot{p}_1,\ldots,\dot{p}_n)
+\]</div>
+<p>is the Hamiltonian vector field.</p>
+<p>This equation says:</p>
+<ul class="simple">
+<li><p>the time-change of density inside a region</p></li>
+<li><p>equals the flux of probability across its boundary</p></li>
+</ul>
+<p>Exactly the same structure holds for mass in a fluid or charge in electrodynamics.</p>
+</section>
+<hr class="docutils" />
+<section id="using-incompressibility">
+<h3>Using Incompressibility<a class="headerlink" href="#using-incompressibility" title="Link to this heading">#</a></h3>
+<p>We can expand:</p>
+<div class="math notranslate nohighlight">
+\[
+\nabla\!\cdot(\rho\,\mathbf{v})
+=
+(\nabla\rho)\cdot\mathbf{v}
++
+\rho\,(\nabla\!\cdot\!\mathbf{v}).
+\]</div>
+<p>But Liouville’s theorem already told us:</p>
+<div class="math notranslate nohighlight">
+\[
+\nabla\!\cdot\mathbf{v} = 0.
+\]</div>
+<p>Thus the continuity equation simplifies to:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \rho}{\partial t}
++
+\mathbf{v}\cdot\nabla\rho = 0.
+\]</div>
+<p>This has an important interpretation:</p>
+<blockquote>
+<div><p><strong>The probability density is constant along each trajectory.</strong></p>
+</div></blockquote>
+<p>This is sometimes called <strong>“convective invariance.”</strong></p>
+</section>
+<hr class="docutils" />
+<section id="phase-space-advection-form">
+<h3>Phase-Space Advection Form<a class="headerlink" href="#phase-space-advection-form" title="Link to this heading">#</a></h3>
+<p>Since along the flow,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dt} = \frac{\partial}{\partial t} + \mathbf{v}\cdot\nabla,
+\]</div>
+<p>we obtain:</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\frac{d\rho}{dt} = 0
+}
+\]</div>
+<p>→ The density of initial conditions is simply <strong>advected</strong> by the Hamiltonian flow.</p>
+<p>This is exactly what happens in an incompressible fluid:<br />
+the density is carried along without compression or expansion.</p>
+</section>
+<hr class="docutils" />
+<section id="poisson-bracket-form-standard-in-mechanics">
+<h3>Poisson Bracket Form (standard in mechanics)<a class="headerlink" href="#poisson-bracket-form-standard-in-mechanics" title="Link to this heading">#</a></h3>
+<p>Using Hamilton’s equations one can show:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{v}\cdot\nabla\rho = \{\rho, H\},
+\]</div>
+<p>so the continuity equation becomes:</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\frac{\partial \rho}{\partial t} + \{\rho, H\} = 0
+}
+\]</div>
+<p>This is the <strong>Liouville equation</strong> — the Hamiltonian version of the continuity equation.</p>
+</section>
+<hr class="docutils" />
+<section id="interpretation">
+<h3>Interpretation<a class="headerlink" href="#interpretation" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\rho\)</span> behaves like the density of tiny tracers in an incompressible fluid.</p></li>
+<li><p>They move and stretch and fold with the flow.</p></li>
+<li><p>The number of tracers in any region is preserved.</p></li>
+<li><p>No density pile-up is allowed (no attractors).</p></li>
+<li><p>No density depletion is allowed (no repellers).</p></li>
+</ul>
+<p>This prepares us conceptually for:</p>
+<ul class="simple">
+<li><p>Hamilton–Jacobi theory</p></li>
+<li><p>Poisson brackets</p></li>
+<li><p>canonical transformations</p></li>
+<li><p>phase mixing</p></li>
+<li><p>and the onset of <strong>Hamiltonian chaos</strong>, where stretching &amp; folding of probability densities becomes dramatic.</p></li>
+</ul>
+<hr class="docutils" />
+<div style="background-color:#e3f2fd; border-left:5px solid #1565c0; padding:12px; border-radius:4px;">
+<p><strong>Concept Highlight: How Liouville’s Equation Connects to Quantum Probability</strong></p>
+<p>In classical mechanics, Liouville’s theorem tells us that a probability density<br />
+<span class="math notranslate nohighlight">\(\rho(q,p,t)\)</span> in phase space obeys the continuity equation</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \rho}{\partial t} + \{\rho, H\} = 0,
+\]</div>
+<p>expressing that probability is <strong>conserved</strong> and simply <strong>advected</strong> by the Hamiltonian flow.</p>
+<p>Quantum mechanics preserves probability too — but with very different mathematical objects.</p>
+<hr class="docutils" />
+<p><strong>1. Classical: Probability Density in Phase Space</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\rho(q,p,t)\)</span> is a <em>real-valued</em> probability density.</p></li>
+<li><p>It evolves deterministically via Liouville’s equation.</p></li>
+<li><p>Probability flows like an <strong>incompressible fluid</strong> in phase space.</p></li>
+<li><p>Volume preservation is guaranteed by Hamiltonian structure.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>2. Quantum: Probability Amplitude in Hilbert Space</strong></p>
+<p>In quantum mechanics the wavefunction</p>
+<div class="math notranslate nohighlight">
+\[
+\psi(x,t)
+\]</div>
+<p>encodes probability through</p>
+<div class="math notranslate nohighlight">
+\[
+|\psi(x,t)|^2.
+\]</div>
+<p>The Schrödinger equation,</p>
+<div class="math notranslate nohighlight">
+\[
+i\hbar\frac{\partial \psi}{\partial t} = \hat{H}\psi,
+\]</div>
+<p>leads to the quantum continuity equation:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial |\psi|^2}{\partial t}
++ \nabla\cdot \mathbf{j} = 0,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{j}\)</span> is the <strong>probability current</strong>.</p>
+<p>Thus probability is conserved — just like in the classical Liouville equation.</p>
+<hr class="docutils" />
+<p><strong>3. Structural Bridge: Poisson Brackets → Commutators</strong></p>
+<p>Classical Liouville equation:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \rho}{\partial t} = -\{\rho, H\}.
+\]</div>
+<p>Quantum von Neumann equation for the density matrix:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \hat{\rho}}{\partial t}
+= -\frac{i}{\hbar} [\hat{H}, \hat{\rho}].
+\]</div>
+<p>These match under the correspondence:</p>
+<div class="math notranslate nohighlight">
+\[
+\{\, ,\,\} \quad \longrightarrow \quad \frac{1}{i\hbar}[\, ,\,].
+\]</div>
+<p>So:</p>
+<blockquote>
+<div><p><strong>Liouville’s equation is the classical limit of quantum probability evolution.</strong></p>
+</div></blockquote>
+<hr class="docutils" />
+<p><strong>4. Wigner Function: Quantum Probability in Phase Space</strong></p>
+<p>The <strong>Wigner function</strong> <span class="math notranslate nohighlight">\(W(q,p)\)</span> is a quasi-probability distribution in phase space.</p>
+<p>In the limit <span class="math notranslate nohighlight">\(\hbar \to 0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+W(q,p,t) \;\longrightarrow\; \rho(q,p,t),
+\]</div>
+<p>and its evolution reduces to Liouville’s equation.</p>
+<p>This forms a direct bridge between:</p>
+<ul class="simple">
+<li><p>classical probability densities, and</p></li>
+<li><p>quantum probability amplitudes.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>5. Summary</strong></p>
+<ul class="simple">
+<li><p>Both classical and quantum mechanics use <strong>continuity equations</strong> to express probability conservation.</p></li>
+<li><p>Liouville’s equation ↔ Schrödinger/von Neumann equations share the same structural form.</p></li>
+<li><p>Poisson brackets become commutators.</p></li>
+<li><p>Wigner functions provide a phase-space formulation of quantum mechanics.</p></li>
+</ul>
+<p>Together these show that <em>probability conservation is a unifying structural principle across classical and quantum dynamics</em>.</p>
+</div>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="a1-5-6-example-harmonic-oscillator">
+<h2>A1.5.6 Example: Harmonic Oscillator<a class="headerlink" href="#a1-5-6-example-harmonic-oscillator" title="Link to this heading">#</a></h2>
+<p>For the harmonic oscillator:</p>
+<div class="math notranslate nohighlight">
+\[
+H = \frac{p^2}{2m} + \frac12 k x^2,
+\]</div>
+<p>a small circular blob of initial conditions:</p>
+<ul class="simple">
+<li><p>becomes an ellipse</p></li>
+<li><p>rotates rigidly in phase space</p></li>
+<li><p>never changes area</p></li>
+</ul>
+<p>This is the simplest visualization of Liouville’s theorem.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-A1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="phase-space.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">A1.4 Phase Space and Hamiltonian Flow</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="canonical-transformations.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">A1.6 Canonical Transformations</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-5-1-motivation">A1.5.1 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-5-2-the-hamiltonian-vector-field">A1.5.2 The Hamiltonian Vector Field</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-5-3-statement-of-liouvilles-theorem">A1.5.3 Statement of Liouville’s Theorem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-5-4-geometric-picture-phase-space-as-an-incompressible-fluid">A1.5.4 Geometric Picture: Phase Space as an Incompressible Fluid</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-5-5-liouvilles-equation-as-a-continuity-equation-for-probability">A1.5.5 Liouville’s Equation as a Continuity Equation for Probability</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-conservation-the-continuity-equation">Probability Conservation: The Continuity Equation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-incompressibility">Using Incompressibility</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-space-advection-form">Phase-Space Advection Form</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#poisson-bracket-form-standard-in-mechanics">Poisson Bracket Form (standard in mechanics)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-5-6-example-harmonic-oscillator">A1.5.6 Example: Harmonic Oscillator</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

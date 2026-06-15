@@ -1,0 +1,2178 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>A1.6 Canonical Transformations &#8212; A Competency Approach to Classical Mechanics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/save_cell.css?v=43dd4451" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-A1/canonical-transformations';</script>
+    <script src="../_static/save_cell.js?v=d135a7b8"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="A1.7 Poisson Brackets" href="poison-brackets.html" />
+    <link rel="prev" title="A1.5 Liouville’s Theorem: Volume Preservation in Phase Space" href="liouville.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-A.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Home"/>
+    <script>document.write(`<img src="../_static/logo-A.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the B Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://gemini.google.com/gem/10l7TNMxLkYkxP1cGjSu5uEvK_RAC-A9n?usp=sharing">Physics Coding Architect (PyAIGem)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module A1 - Hamiltonian Dynamics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-A1.html">A1.0 Learning Outcomes: Hamiltonian Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro-hamiltonian.html">A1.1 Introduction to the Hamiltonian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Hamiltonian.html">A1.2 Connecting Lagrange Multipliers to the Hamiltonian Formalism</a></li>
+<li class="toctree-l1"><a class="reference internal" href="legendre.html">A1.3 From the Lagrangian to the Hamiltonian: The Legendre Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase-space.html">A1.4 Phase Space and Hamiltonian Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="liouville.html">A1.5 Liouville’s Theorem: Volume Preservation in Phase Space</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">A1.6 Canonical Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poison-brackets.html">A1.7 Poisson Brackets</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Module-A1/canonical-transformations.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-A1/canonical-transformations.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>A1.6 Canonical Transformations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-6-1-motivation-why-do-we-change-coordinates-in-hamiltonian-mechanics">A1.6.1 Motivation: Why Do We Change Coordinates in Hamiltonian Mechanics?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-6-2-hamiltons-equations-in-vector-form-and-the-symplectic-matrix">A1.6.2 Hamilton’s Equations in Vector Form and the Symplectic Matrix</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hamiltons-equations-in-standard-component-form">Hamilton’s Equations in Standard Component Form</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#packaging-variables-into-a-single-phasespace-vector">Packaging Variables Into a Single Phase–Space Vector</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enter-the-symplectic-matrix-j">Enter the Symplectic Matrix <span class="math notranslate nohighlight">\(J\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-form-is-significant">Why This Form Is Significant</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-the-point">Summary of the Point</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-6-3-the-symplectic-condition-and-the-structure-of-canonical-transformations">A1.6.3 The Symplectic Condition and the Structure of Canonical Transformations**</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-the-symplectic-condition-really-says">What the Symplectic Condition Really Says</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-j-must-be-preserved">Why <span class="math notranslate nohighlight">\(J\)</span> Must Be Preserved</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-meaning-preserving-the-symplectic-2form">Geometric Meaning: Preserving the Symplectic 2–Form</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connection-to-the-symplectic-group-mathrm-sp-2n">Connection to the Symplectic Group <span class="math notranslate nohighlight">\(\mathrm{Sp}(2n)\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-we-used-this-condition-above">Why We Used This Condition Above</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-6-4-generating-functions">A1.6.4 Generating Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-function-of-type-f-2-q-p">Generating Function of Type <span class="math notranslate nohighlight">\(F_2(q,P)\)</span></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="a1-6-canonical-transformations">
+<h1>A1.6 Canonical Transformations<a class="headerlink" href="#a1-6-canonical-transformations" title="Link to this heading">#</a></h1>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+<section id="a1-6-1-motivation-why-do-we-change-coordinates-in-hamiltonian-mechanics">
+<h2>A1.6.1 Motivation: Why Do We Change Coordinates in Hamiltonian Mechanics?<a class="headerlink" href="#a1-6-1-motivation-why-do-we-change-coordinates-in-hamiltonian-mechanics" title="Link to this heading">#</a></h2>
+<p>Hamiltonian mechanics is powerful not because of the variables we start with,<br />
+but because <strong>we can change variables freely</strong> — <em>as long as the new variables preserve Hamilton’s structure.</em></p>
+<p>Examples where new coordinates are dramatically easier:</p>
+<ul class="simple">
+<li><p>the harmonic oscillator in <strong>action–angle</strong> variables</p></li>
+<li><p>a rotating system in <strong>polar–momentum</strong> variables</p></li>
+<li><p>charged particles in electromagnetic fields using <strong>guiding-center variables</strong></p></li>
+<li><p>central-force motion using <strong><span class="math notranslate nohighlight">\((r,p_r)\)</span> and <span class="math notranslate nohighlight">\((\theta, L)\)</span></strong></p></li>
+</ul>
+<p>In Lagrangian mechanics, coordinate changes are straightforward: <span class="math notranslate nohighlight">\(q \to Q(q)\)</span> with no real restrictions.</p>
+<p>In Hamiltonian mechanics, momentum variables are present too:</p>
+<ul class="simple">
+<li><p>Coordinates: <span class="math notranslate nohighlight">\(q_i\)</span></p></li>
+<li><p>Momenta: <span class="math notranslate nohighlight">\(p_i\)</span></p></li>
+</ul>
+<p>So we ask:</p>
+<blockquote>
+<div><p><strong>What transformations <span class="math notranslate nohighlight">\((q,p) \mapsto (Q,P)\)</span> preserve Hamilton’s equations?</strong></p>
+<p>Those transformations are called <strong>canonical transformations</strong>.</p>
+</div></blockquote>
+<hr class="docutils" />
+<div style="background-color:#e3f2fd; border-left:5px solid #1565c0; padding:12px; border-radius:4px;">
+<p><strong>Concept Highlight: What Makes a Transformation “Canonical”?</strong></p>
+<p>A transformation</p>
+<div class="math notranslate nohighlight">
+\[
+(q,p) \;\longrightarrow\; (Q,P)
+\]</div>
+<p>is <strong>canonical</strong> if it preserves the form of Hamilton’s equations:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{Q}_i = \frac{\partial K}{\partial P_i},
+\qquad
+\dot{P}_i = -\frac{\partial K}{\partial Q_i},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(K(Q,P,t)\)</span> is the transformed Hamiltonian.</p>
+<p>Equivalently:</p>
+<blockquote>
+<div><p><strong>Canonical transformations preserve the symplectic geometry of phase space.</strong></p>
+</div></blockquote>
+<p>This is the classical analogue of unitary transformations in quantum mechanics.</p>
+</div>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="a1-6-2-hamiltons-equations-in-vector-form-and-the-symplectic-matrix">
+<h2>A1.6.2 Hamilton’s Equations in Vector Form and the Symplectic Matrix<a class="headerlink" href="#a1-6-2-hamiltons-equations-in-vector-form-and-the-symplectic-matrix" title="Link to this heading">#</a></h2>
+<p>To understand what a <em>canonical</em> transformation really preserves, we must first rewrite Hamilton’s equations in a compact vector form.<br />
+This reveals the geometric structure underlying all Hamiltonian dynamics.</p>
+<hr class="docutils" />
+<section id="hamiltons-equations-in-standard-component-form">
+<h3>Hamilton’s Equations in Standard Component Form<a class="headerlink" href="#hamiltons-equations-in-standard-component-form" title="Link to this heading">#</a></h3>
+<p>For a system with <span class="math notranslate nohighlight">\(n\)</span> degrees of freedom:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{q}_i = \frac{\partial H}{\partial p_i},
+\qquad
+\dot{p}_i = -\frac{\partial H}{\partial q_i}
+\quad (i=1,\ldots,n).
+\]</div>
+<p>These form <span class="math notranslate nohighlight">\(2n\)</span> first-order ODEs.</p>
+</section>
+<hr class="docutils" />
+<section id="packaging-variables-into-a-single-phasespace-vector">
+<h3>Packaging Variables Into a Single Phase–Space Vector<a class="headerlink" href="#packaging-variables-into-a-single-phasespace-vector" title="Link to this heading">#</a></h3>
+<p>Define the <span class="math notranslate nohighlight">\(2n\)</span>-dimensional phase–space coordinate:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+z =
+\begin{pmatrix}
+q_1 \\ \vdots \\ q_n \\[4pt]
+p_1 \\ \vdots \\ p_n
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Then its time derivative is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\dot{z} =
+\begin{pmatrix}
+\dot{q}_1 \\ \vdots \\ \dot{q}_n \\[4pt]
+\dot{p}_1 \\ \vdots \\ \dot{p}_n
+\end{pmatrix}.
+\end{split}\]</div>
+<p>We also bundle all partial derivatives of <span class="math notranslate nohighlight">\(H\)</span> into a gradient vector:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\nabla H =
+\begin{pmatrix}
+\frac{\partial H}{\partial q_1} \\ \vdots \\ \frac{\partial H}{\partial q_n} \\[4pt]
+\frac{\partial H}{\partial p_1} \\ \vdots \\ \frac{\partial H}{\partial p_n}
+\end{pmatrix}.
+\end{split}\]</div>
+<p>But now we have a small problem:</p>
+<ul class="simple">
+<li><p>In Hamilton’s equations, <span class="math notranslate nohighlight">\(\dot{q}\)</span> depends on <span class="math notranslate nohighlight">\(\partial H / \partial p\)</span>.</p></li>
+<li><p>But in <span class="math notranslate nohighlight">\(\nabla H\)</span>, the <span class="math notranslate nohighlight">\(p\)</span>-derivatives live in the <em>bottom half</em> of the vector.</p></li>
+</ul>
+<p>So we need a <span class="math notranslate nohighlight">\(2n\times 2n\)</span> matrix that swaps these halves <em>and</em> introduces a minus sign.</p>
+</section>
+<hr class="docutils" />
+<section id="enter-the-symplectic-matrix-j">
+<h3>Enter the Symplectic Matrix <span class="math notranslate nohighlight">\(J\)</span><a class="headerlink" href="#enter-the-symplectic-matrix-j" title="Link to this heading">#</a></h3>
+<p>We define:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+J =
+\begin{pmatrix}
+0 &amp; I \\
+-I &amp; 0
+\end{pmatrix},
+\end{split}\]</div>
+<p>where each block is an <span class="math notranslate nohighlight">\(n\times n\)</span> matrix.</p>
+<p>Acting <span class="math notranslate nohighlight">\(J\)</span> on <span class="math notranslate nohighlight">\(\nabla H\)</span> produces exactly the pattern of Hamilton’s equations:</p>
+<ul class="simple">
+<li><p>top half picks up <span class="math notranslate nohighlight">\(+\partial H/\partial p\)</span></p></li>
+<li><p>bottom half picks up <span class="math notranslate nohighlight">\(-\partial H/\partial q\)</span></p></li>
+</ul>
+<p>Thus we can write Hamilton’s equations compactly as:</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\dot{z} = J\, \nabla H.
+}
+\]</div>
+<p>This equation reveals the <strong>geometric backbone</strong> of Hamiltonian mechanics.</p>
+<hr class="docutils" />
+<div style="background-color:#e3f2fd; border-left:5px solid #1565c0; padding:12px; border-radius:4px;">
+<p><strong>Concept Highlight: What Makes <span class="math notranslate nohighlight">\(J\)</span> “Symplectic”?</strong></p>
+<p>The matrix <span class="math notranslate nohighlight">\(J\)</span> is called <strong>symplectic</strong> because it encodes the fundamental geometric structure of Hamiltonian mechanics—the pairing of each coordinate with its conjugate momentum—so that writing Hamilton’s equations as <span class="math notranslate nohighlight">\(\dot{z} = J\nabla H\)</span> automatically preserves phase-space area and the canonical form of the dynamics.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:12px; border-radius:4px;">
+<p><strong>Box Activity 1: Derive the Compact Vector Form of Hamilton’s Equations</strong></p>
+<p>Hamilton’s equations are</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{q}_i = \frac{\partial H}{\partial p_i},
+\qquad
+\dot{p}_i = -\frac{\partial H}{\partial q_i}
+\qquad (i = 1,\dots,n).
+\]</div>
+<p>In this activity you will show that these <span class="math notranslate nohighlight">\(2n\)</span> equations can be written as a single compact vector equation:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{z} = J \nabla H.
+\]</div>
+<hr class="docutils" />
+<p><strong>Tasks</strong></p>
+<p><strong>(a)</strong> Form the <span class="math notranslate nohighlight">\(2n\)</span>–vector</p>
+<div class="math notranslate nohighlight">
+\[
+z = (q_1,\ldots,q_n,\, p_1,\ldots,p_n)^{\mathrm{T}}.
+\]</div>
+<p>Write down the corresponding vector for <span class="math notranslate nohighlight">\(\dot{z}\)</span>.</p>
+<hr class="docutils" />
+<p><strong>(b)</strong> Form the gradient vector</p>
+<div class="math notranslate nohighlight">
+\[
+\nabla H = 
+\left(
+\frac{\partial H}{\partial q_1},\ldots,\frac{\partial H}{\partial q_n},\;
+\frac{\partial H}{\partial p_1},\ldots,\frac{\partial H}{\partial p_n}
+\right)^{\mathrm{T}}.
+\]</div>
+<p>Identify which halves correspond to <span class="math notranslate nohighlight">\(q\)</span>-derivatives and which correspond to <span class="math notranslate nohighlight">\(p\)</span>-derivatives.</p>
+<hr class="docutils" />
+<p><strong>(c)</strong> Using the component equations, write <span class="math notranslate nohighlight">\(\dot{z}\)</span> in block form:</p>
+<ul class="simple">
+<li><p>What should the top half of <span class="math notranslate nohighlight">\(\dot{z}\)</span> look like in terms of <span class="math notranslate nohighlight">\(\nabla H\)</span>?</p></li>
+<li><p>What should the bottom half look like?</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>(d)</strong> Construct a <span class="math notranslate nohighlight">\(2n\times 2n\)</span> matrix that:</p>
+<ul class="simple">
+<li><p>extracts the <span class="math notranslate nohighlight">\(p\)</span>-derivatives and places them in the top half,</p></li>
+<li><p>extracts the <span class="math notranslate nohighlight">\(q\)</span>-derivatives and places them (with a minus sign) in the bottom half.</p></li>
+</ul>
+<p>(Hint: this matrix has four blocks; two are zeros and two involve <span class="math notranslate nohighlight">\(\pm I\)</span>.)</p>
+<hr class="docutils" />
+<p><strong>(e)</strong> Show that your matrix is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+J=
+\begin{pmatrix}
+0 &amp; I \\
+-I &amp; 0
+\end{pmatrix},
+\end{split}\]</div>
+<p>and conclude that Hamilton’s equations can be written as</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{z} = J\nabla H.
+\]</div>
+<hr class="docutils" />
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Detailed Solution
+</summary>
+<div style="background-color:#e8f5e9; padding:12px; border-radius:4px; margin-top:6px;">
+<p><strong>(a) Constructing <span class="math notranslate nohighlight">\(z\)</span> and <span class="math notranslate nohighlight">\(\dot{z}\)</span></strong></p>
+<p>Define</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+z =
+\begin{pmatrix}
+q_1 \\ \vdots \\ q_n \\[4pt]
+p_1 \\ \vdots \\ p_n
+\end{pmatrix},
+\qquad
+\dot{z} =
+\begin{pmatrix}
+\dot{q}_1 \\ \vdots \\ \dot{q}_n \\[4pt]
+\dot{p}_1 \\ \vdots \\ \dot{p}_n
+\end{pmatrix}.
+\end{split}\]</div>
+<hr class="docutils" />
+<p><strong>(b) Gradient vector</strong></p>
+<p>By definition:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\nabla H =
+\begin{pmatrix}
+\frac{\partial H}{\partial q_1} \\[2pt]
+\vdots \\[2pt]
+\frac{\partial H}{\partial q_n} \\[6pt]
+\frac{\partial H}{\partial p_1} \\[2pt]
+\vdots \\[2pt]
+\frac{\partial H}{\partial p_n}
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Top half: <span class="math notranslate nohighlight">\(q\)</span>-derivatives<br />
+Bottom half: <span class="math notranslate nohighlight">\(p\)</span>-derivatives</p>
+<hr class="docutils" />
+<p><strong>(c) Using Hamilton’s equations</strong></p>
+<p>Hamilton’s equations say:</p>
+<ul>
+<li><p>The top half of <span class="math notranslate nohighlight">\(\dot{z}\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[\dot{q}_i = \frac{\partial H}{\partial p_i}.\]</div>
+</li>
+<li><p>The bottom half is</p>
+<div class="math notranslate nohighlight">
+\[\dot{p}_i = -\frac{\partial H}{\partial q_i}.\]</div>
+</li>
+</ul>
+<p>So in block form:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\dot{z}
+=
+\begin{pmatrix}
+\partial H/\partial p \\[4pt]
+-\partial H/\partial q
+\end{pmatrix}.
+\end{split}\]</div>
+<hr class="docutils" />
+<p><strong>(d) Find the matrix that does this</strong></p>
+<p>We want a matrix <span class="math notranslate nohighlight">\(J\)</span> that multiplies the gradient as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+J
+\begin{pmatrix}
+\partial H/\partial q \\[4pt]
+\partial H/\partial p
+\end{pmatrix}
+=
+\begin{pmatrix}
+\partial H/\partial p \\[4pt]
+-\partial H/\partial q
+\end{pmatrix}.
+\end{split}\]</div>
+<p>This requires:</p>
+<ul class="simple">
+<li><p>The top block extracts the bottom half of the gradient → a block <span class="math notranslate nohighlight">\(I\)</span>.</p></li>
+<li><p>The bottom block extracts the top half of the gradient and flips its sign → a block <span class="math notranslate nohighlight">\(-I\)</span>.</p></li>
+</ul>
+<p>So:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+J=
+\begin{pmatrix}
+0 &amp; I \\
+-I &amp; 0
+\end{pmatrix}.
+\end{split}\]</div>
+<hr class="docutils" />
+<p><strong>(e) Final compact form</strong></p>
+<p>Thus:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{z} = J\nabla H.
+\]</div>
+<p>This single equation reproduces all of Hamilton’s equations in a beautiful and compact geometric form.</p>
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<p><strong>Example: Compact Form of Hamilton’s Equations for a 2D Harmonic Oscillator</strong></p>
+<p>Consider a <strong>2D harmonic oscillator</strong> with two degrees of freedom:</p>
+<ul class="simple">
+<li><p>coordinates: <span class="math notranslate nohighlight">\(q_1, q_2\)</span></p></li>
+<li><p>momenta: <span class="math notranslate nohighlight">\(p_1, p_2\)</span></p></li>
+</ul>
+<p>Hamiltonian:</p>
+<div class="math notranslate nohighlight">
+\[
+H(q_1,q_2,p_1,p_2)
+=
+\frac{1}{2m}\left(p_1^2 + p_2^2\right)
++
+\frac{k}{2}\left(q_1^2 + q_2^2\right).
+\]</div>
+<p>We will show explicitly that</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{z} = J \nabla H
+\]</div>
+<p>reproduces all four Hamilton equations.</p>
+<hr class="docutils" />
+<p><strong>Step 1: Define the phase-space vector</strong></p>
+<p>Group all coordinates and momenta into</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+z =
+\begin{pmatrix}
+q_1 \\ q_2 \\[4pt]
+p_1 \\ p_2
+\end{pmatrix},
+\qquad
+\dot{z} =
+\begin{pmatrix}
+\dot{q}_1 \\ \dot{q}_2 \\[4pt]
+\dot{p}_1 \\ \dot{p}_2
+\end{pmatrix}.
+\end{split}\]</div>
+<hr class="docutils" />
+<p><strong>Step 2: Compute the gradient of <span class="math notranslate nohighlight">\(H\)</span></strong></p>
+<p>First the partial derivatives:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial H}{\partial q_1} = k q_1,
+\qquad
+\frac{\partial H}{\partial q_2} = k q_2,
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial H}{\partial p_1} = \frac{p_1}{m},
+\qquad
+\frac{\partial H}{\partial p_2} = \frac{p_2}{m}.
+\]</div>
+<p>So the gradient vector is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\nabla H =
+\begin{pmatrix}
+k q_1 \\ k q_2 \\[4pt]
+p_1/m \\ p_2/m
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Top half: <span class="math notranslate nohighlight">\(q\)</span>-derivatives.<br />
+Bottom half: <span class="math notranslate nohighlight">\(p\)</span>-derivatives.</p>
+<hr class="docutils" />
+<p><strong>Step 3: Write down the symplectic matrix <span class="math notranslate nohighlight">\(J\)</span></strong></p>
+<p>For two degrees of freedom (<span class="math notranslate nohighlight">\(n=2\)</span>),</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+J =
+\begin{pmatrix}
+0 &amp; I_2 \\
+-I_2 &amp; 0
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1 \\
+-1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; -1 &amp; 0 &amp; 0
+\end{pmatrix}.
+\end{split}\]</div>
+<p>By construction:</p>
+<ul class="simple">
+<li><p>the top block picks up the <span class="math notranslate nohighlight">\(p\)</span>-derivatives,</p></li>
+<li><p>the bottom block picks up the <span class="math notranslate nohighlight">\(q\)</span>-derivatives with a minus sign.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Step 4: Compute <span class="math notranslate nohighlight">\(J \nabla H\)</span></strong></p>
+<p>Multiply:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+J \nabla H
+=
+\begin{pmatrix}
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1 \\
+-1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; -1 &amp; 0 &amp; 0
+\end{pmatrix}
+\begin{pmatrix}
+k q_1 \\ k q_2 \\[4pt]
+p_1/m \\ p_2/m
+\end{pmatrix}
+=
+\begin{pmatrix}
+p_1/m \\[4pt]
+p_2/m \\[4pt]
+- k q_1 \\[4pt]
+- k q_2
+\end{pmatrix}.
+\end{split}\]</div>
+<p>So</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+J \nabla H =
+\begin{pmatrix}
+\dot{q}_1 \\ \dot{q}_2 \\[4pt]
+\dot{p}_1 \\ \dot{p}_2
+\end{pmatrix}
+\equiv
+\dot{z}.
+\end{split}\]</div>
+<p>This reproduces the four Hamilton equations:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{q}_1 = \frac{\partial H}{\partial p_1} = \frac{p_1}{m},
+\qquad
+\dot{q}_2 = \frac{\partial H}{\partial p_2} = \frac{p_2}{m},
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\dot{p}_1 = -\frac{\partial H}{\partial q_1} = -k q_1,
+\qquad
+\dot{p}_2 = -\frac{\partial H}{\partial q_2} = -k q_2.
+\]</div>
+<hr class="docutils" />
+<p><strong>Conclusion</strong></p>
+<p>For the 2D harmonic oscillator, we have explicitly verified that</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\dot{z} = J \nabla H
+}
+\]</div>
+<p>is completely equivalent to the usual set of Hamilton’s equations.<br />
+This compact form works for <strong>any</strong> Hamiltonian and is the starting point for understanding symplectic (canonical) transformations.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e3f2fd; border-left:5px solid #1565c0; padding:12px; border-radius:4px;">
+<p><strong>Concept Highlight: How the Symplectic Matrix <span class="math notranslate nohighlight">\(J\)</span> Acts Geometrically</strong></p>
+<p>The matrix <span class="math notranslate nohighlight">\(J\)</span> performs a quarter-turn (90°) rotation in each <span class="math notranslate nohighlight">\((q_i,p_i)\)</span> plane — sending gradients of the Hamiltonian into the direction of motion — so Hamiltonian flow always moves perpendicular to energy contours, preserving phase-space area and the canonical structure.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:12px; border-radius:4px;">
+<p><strong>Box Activity 2: Show That Canonical Transformations Preserve the Form <span class="math notranslate nohighlight">\(\dot{z} = J\nabla H\)</span></strong></p>
+<p>Let <span class="math notranslate nohighlight">\((q,p)\)</span> be the old canonical coordinates and<br />
+<span class="math notranslate nohighlight">\((Q,P)\)</span> the new coordinates obtained via a canonical transformation.</p>
+<p>Let <span class="math notranslate nohighlight">\(z = (q,p)^{\mathrm{T}}\)</span> and <span class="math notranslate nohighlight">\(Z = (Q,P)^{\mathrm{T}}\)</span>.</p>
+<p>A canonical transformation is defined so that its Jacobian matrix <span class="math notranslate nohighlight">\(M\)</span> satisfies the <strong>symplectic condition</strong></p>
+<div class="math notranslate nohighlight">
+\[
+M^{\mathrm{T}} J M = J.
+\]</div>
+<p>Your task is to verify that if the old Hamilton equations can be written as</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{z} = J \nabla H,
+\]</div>
+<p>then in the new variables the equations take <strong>exactly the same form</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{Z} = J \nabla_Z K,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(K(Q,P,t)\)</span> is the transformed Hamiltonian.</p>
+<hr class="docutils" />
+<p><strong>Steps</strong></p>
+<p><strong>(a)</strong> Write <span class="math notranslate nohighlight">\(Z\)</span> in terms of <span class="math notranslate nohighlight">\(z\)</span> and compute</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{Z} = M \dot{z}.
+\]</div>
+<p><strong>(b)</strong> Substitute the old Hamiltonian form</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{z} = J \nabla H.
+\]</div>
+<p><strong>(c)</strong> Use the chain rule to relate <span class="math notranslate nohighlight">\(\nabla H\)</span> in the old variables to<br />
+<span class="math notranslate nohighlight">\(\nabla_Z K\)</span> in the new variables.</p>
+<p><strong>(d)</strong> Use the symplectic condition</p>
+<div class="math notranslate nohighlight">
+\[
+M^{\mathrm{T}} J M = J
+\]</div>
+<p>to simplify your expression.</p>
+<p><strong>(e)</strong> Show that the final result becomes</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{Z} = J \nabla_Z K,
+\]</div>
+<p>demonstrating that <strong>Hamilton’s form is preserved</strong>.</p>
+<hr class="docutils" />
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Detailed Solution (with indices and matrix steps)
+</summary>
+<div style="background-color:#e8f5e9; padding:12px; border-radius:4px; margin-top:6px;">
+<p>We will go slowly and use both <strong>vector</strong> and <strong>index</strong> notation.</p>
+<hr class="docutils" />
+<p><strong>(a) Time derivative of the transformed coordinates</strong></p>
+<p>The canonical transformation is a change of variables</p>
+<div class="math notranslate nohighlight">
+\[
+Z = Z(z), \quad \text{with components } Z_\alpha = Z_\alpha(z),
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\alpha = 1, \dots, 2n\)</span> runs over all <span class="math notranslate nohighlight">\(Q\)</span>’s and <span class="math notranslate nohighlight">\(P\)</span>’s.</p>
+<p>The Jacobian matrix <span class="math notranslate nohighlight">\(M\)</span> has components</p>
+<div class="math notranslate nohighlight">
+\[
+M_{\alpha\beta} = \frac{\partial Z_\alpha}{\partial z_\beta}.
+\]</div>
+<p>By the chain rule for time derivatives:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{Z}_\alpha
+= \sum_{\beta} \frac{\partial Z_\alpha}{\partial z_\beta} \dot{z}_\beta
+= \sum_{\beta} M_{\alpha\beta} \dot{z}_\beta.
+\]</div>
+<p>In matrix form:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{Z} = M \dot{z}.
+\]</div>
+<p>This is exactly what we needed for step (a).</p>
+<hr class="docutils" />
+<p><strong>(b) Substitute the compact form of Hamilton’s equations</strong></p>
+<p>We are given that in the old variables:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{z} = J \nabla H.
+\]</div>
+<p>Substitute this into <span class="math notranslate nohighlight">\(\dot{Z} = M \dot{z}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{Z} = M \, \dot{z}
+= M \, (J \nabla H).
+\]</div>
+<p>So for now we have:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{Z} = M J \nabla H.
+\]</div>
+<p>We now need to rewrite <span class="math notranslate nohighlight">\(\nabla H\)</span> in terms of derivatives in the new variables.</p>
+<hr class="docutils" />
+<p><strong>(c) Relating <span class="math notranslate nohighlight">\(\nabla H\)</span> and <span class="math notranslate nohighlight">\(\nabla_Z K\)</span> via the chain rule</strong></p>
+<p>The new Hamiltonian <span class="math notranslate nohighlight">\(K(Q,P,t)\)</span> is defined by expressing <span class="math notranslate nohighlight">\(H\)</span> in the new variables:</p>
+<div class="math notranslate nohighlight">
+\[
+K(Q,P,t) = H(q,p,t)
+\]</div>
+<p>with <span class="math notranslate nohighlight">\((q,p)\)</span> understood as functions of <span class="math notranslate nohighlight">\((Q,P)\)</span> (i.e., the inverse transformation).</p>
+<p>Think of <span class="math notranslate nohighlight">\(H\)</span> as <span class="math notranslate nohighlight">\(H(z,t)\)</span> and <span class="math notranslate nohighlight">\(K\)</span> as <span class="math notranslate nohighlight">\(K(Z,t)\)</span>, with the relation <span class="math notranslate nohighlight">\(H(z,t) = K(Z(z),t)\)</span>.</p>
+<p>Use the chain rule for partial derivatives:</p>
+<p>For each old component <span class="math notranslate nohighlight">\(z_\beta\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial H}{\partial z_\beta}
+=
+\sum_{\alpha}
+\frac{\partial K}{\partial Z_\alpha}
+\frac{\partial Z_\alpha}{\partial z_\beta}.
+\]</div>
+<p>In index notation:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\beta\)</span> labels <span class="math notranslate nohighlight">\(q\)</span>’s and <span class="math notranslate nohighlight">\(p\)</span>’s (old variables)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha\)</span> labels <span class="math notranslate nohighlight">\(Q\)</span>’s and <span class="math notranslate nohighlight">\(P\)</span>’s (new variables)</p></li>
+</ul>
+<p>Recognize that</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\displaystyle \frac{\partial K}{\partial Z_\alpha}\)</span> are components of <span class="math notranslate nohighlight">\(\nabla_Z K\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\displaystyle \frac{\partial Z_\alpha}{\partial z_\beta} = M_{\alpha\beta}\)</span> are components of <span class="math notranslate nohighlight">\(M\)</span>.</p></li>
+</ul>
+<p>So:</p>
+<div class="math notranslate nohighlight">
+\[
+\left( \nabla H \right)_\beta
+=
+\frac{\partial H}{\partial z_\beta}
+=
+\sum_{\alpha}
+\frac{\partial K}{\partial Z_\alpha} M_{\alpha\beta}.
+\]</div>
+<p>In matrix form, this says:</p>
+<div class="math notranslate nohighlight">
+\[
+\nabla H = M^{\mathrm{T}} \nabla_Z K.
+\]</div>
+<p><strong>Explanation:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\((\nabla H)_\beta = \sum_\alpha M_{\alpha\beta} (\nabla_Z K)_\alpha\)</span></p></li>
+<li><p>This is exactly the matrix product <span class="math notranslate nohighlight">\((M^{\mathrm{T}} \nabla_Z K)_\beta\)</span>.</p></li>
+</ul>
+<p>So we now have the key relation:</p>
+<div class="math notranslate nohighlight">
+\[
+\nabla H = M^{\mathrm{T}} \nabla_Z K.
+\]</div>
+<hr class="docutils" />
+<p><strong>(d) Substitute this relation into <span class="math notranslate nohighlight">\(\dot{Z}\)</span></strong></p>
+<p>We had:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{Z} = M J \nabla H.
+\]</div>
+<p>Replace <span class="math notranslate nohighlight">\(\nabla H\)</span> by <span class="math notranslate nohighlight">\(M^{\mathrm{T}} \nabla_Z K\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{Z} = M J \big(M^{\mathrm{T}} \nabla_Z K \big)
+= (M J M^{\mathrm{T}}) \nabla_Z K.
+\]</div>
+<p>So the transformed equation has the form:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{Z} = (M J M^{\mathrm{T}})\, \nabla_Z K.
+\]</div>
+<p>To recover the <strong>canonical form</strong>, we need to show that</p>
+<div class="math notranslate nohighlight">
+\[
+M J M^{\mathrm{T}} = J.
+\]</div>
+<p>This is where the <strong>symplectic condition</strong> enters.</p>
+<hr class="docutils" />
+<p><strong>(e) Using the symplectic condition</strong></p>
+<p>The symplectic (canonical) condition is:</p>
+<div class="math notranslate nohighlight">
+\[
+M^{\mathrm{T}} J M = J.
+\]</div>
+<p>Take the transpose of both sides:</p>
+<p>Left-hand side:</p>
+<div class="math notranslate nohighlight">
+\[
+(M^{\mathrm{T}} J M)^{\mathrm{T}}
+= M^{\mathrm{T}\,\mathrm{T}} J^{\mathrm{T}} M^{\mathrm{T}}
+= M J^{\mathrm{T}} M^{\mathrm{T}}.
+\]</div>
+<p>Right-hand side:</p>
+<div class="math notranslate nohighlight">
+\[
+J^{\mathrm{T}} = -J
+\]</div>
+<p>because <span class="math notranslate nohighlight">\(J\)</span> is antisymmetric.</p>
+<p>So:</p>
+<div class="math notranslate nohighlight">
+\[
+(M^{\mathrm{T}} J M)^{\mathrm{T}} = J^{\mathrm{T}} = -J.
+\]</div>
+<p>But the left-hand side is also:</p>
+<div class="math notranslate nohighlight">
+\[
+M J^{\mathrm{T}} M^{\mathrm{T}}
+= M (-J) M^{\mathrm{T}}
+= - M J M^{\mathrm{T}}.
+\]</div>
+<p>Thus:</p>
+<div class="math notranslate nohighlight">
+\[
+- M J M^{\mathrm{T}} = -J
+\quad \Longrightarrow \quad
+M J M^{\mathrm{T}} = J.
+\]</div>
+<p>So we have shown:</p>
+<div class="math notranslate nohighlight">
+\[
+M J M^{\mathrm{T}} = J.
+\]</div>
+<p>Substitute this back into our expression for <span class="math notranslate nohighlight">\(\dot{Z}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{Z}
+= (M J M^{\mathrm{T}})\, \nabla_Z K
+= J \nabla_Z K.
+\]</div>
+<p>This is <strong>exactly</strong> the same structural form as the original Hamilton equation <span class="math notranslate nohighlight">\(\dot{z} = J \nabla H\)</span>.</p>
+<p>So in the new variables:</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\dot{Z} = J \nabla_Z K
+}
+\]</div>
+<p>with the <strong>same</strong> symplectic matrix <span class="math notranslate nohighlight">\(J\)</span>.</p>
+<hr class="docutils" />
+<p><strong>Conclusion</strong></p>
+<p>We started from</p>
+<ul class="simple">
+<li><p>old variables: <span class="math notranslate nohighlight">\(\dot{z} = J \nabla H\)</span></p></li>
+<li><p>a canonical transformation with <span class="math notranslate nohighlight">\(M^{\mathrm{T}} J M = J\)</span></p></li>
+</ul>
+<p>and we derived</p>
+<ul class="simple">
+<li><p>new variables: <span class="math notranslate nohighlight">\(\dot{Z} = J \nabla_Z K\)</span></p></li>
+</ul>
+<p>Therefore:</p>
+<blockquote>
+<div><p>A transformation is <strong>canonical</strong> precisely because it preserves the compact Hamiltonian form <span class="math notranslate nohighlight">\(\dot{z} = J \nabla H\)</span> (with the same <span class="math notranslate nohighlight">\(J\)</span>), just written in new variables.</p>
+</div></blockquote>
+<p>This is why canonical transformations are the classical analogue of unitary transformations in quantum mechanics: <strong>they preserve the structure of the equations of motion.</strong></p>
+</div>
+</details>
+</div>
+</section>
+<hr class="docutils" />
+<section id="why-this-form-is-significant">
+<h3>Why This Form Is Significant<a class="headerlink" href="#why-this-form-is-significant" title="Link to this heading">#</a></h3>
+<p>Writing <span class="math notranslate nohighlight">\(\dot{z} = J\nabla H\)</span> makes several deep ideas transparent:</p>
+<ol class="arabic">
+<li><p><strong>Hamiltonian mechanics has a built-in geometric structure</strong><br />
+The matrix <span class="math notranslate nohighlight">\(J\)</span> defines the “shape” of phase space.</p></li>
+<li><p><strong>Phase–space area/volume is automatically preserved</strong><br />
+Because <span class="math notranslate nohighlight">\(J\)</span> is antisymmetric and invertible.</p></li>
+<li><p><strong>Canonical transformations become linear maps that preserve <span class="math notranslate nohighlight">\(J\)</span></strong><br />
+A transformation <span class="math notranslate nohighlight">\(z \mapsto Z\)</span> is canonical when:</p>
+<div class="math notranslate nohighlight">
+\[
+   \boxed{
+   M^{\mathrm{T}} J M = J
+   }
+   \]</div>
+<p>where <span class="math notranslate nohighlight">\(M\)</span> is the Jacobian of the transformation.</p>
+</li>
+<li><p><strong>Poisson brackets appear naturally from <span class="math notranslate nohighlight">\(J\)</span></strong><br />
+Later we will see:</p>
+<div class="math notranslate nohighlight">
+\[
+   \{f, g\} = (\nabla f)^{\mathrm{T}} J (\nabla g).
+   \]</div>
+</li>
+<li><p><strong>This formulation generalizes to more advanced frameworks</strong><br />
+including:</p>
+<ul class="simple">
+<li><p>Hamilton–Jacobi theory</p></li>
+<li><p>symplectic integrators</p></li>
+<li><p>canonical perturbation theory</p></li>
+<li><p>KAM (Kolmogorov–Arnold–Moser Theory) theory</p></li>
+<li><p>geometric quantization</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="summary-of-the-point">
+<h3>Summary of the Point<a class="headerlink" href="#summary-of-the-point" title="Link to this heading">#</a></h3>
+<p>Rewriting Hamilton’s equations as</p>
+<div class="math notranslate nohighlight">
+\[\dot{z}=J\nabla H\]</div>
+<p>shows that the dynamics depend not only on <span class="math notranslate nohighlight">\(H\)</span> but on the <strong>symplectic structure</strong> encoded by the matrix <span class="math notranslate nohighlight">\(J\)</span>.<br />
+Canonical transformations are exactly the transformations that preserve this structure.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="a1-6-3-the-symplectic-condition-and-the-structure-of-canonical-transformations">
+<h2>A1.6.3 The Symplectic Condition and the Structure of Canonical Transformations**<a class="headerlink" href="#a1-6-3-the-symplectic-condition-and-the-structure-of-canonical-transformations" title="Link to this heading">#</a></h2>
+<p>In the previous section, we <em>used</em> the symplectic condition</p>
+<div class="math notranslate nohighlight">
+\[
+M^{\mathrm{T}} J M = J,
+\]</div>
+<p>to show that a canonical transformation preserves the compact Hamiltonian form</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{z} = J \nabla H.
+\]</div>
+<p>We now pause to understand <strong>why</strong> this condition is fundamental.<br />
+This subsection gives the deeper meaning behind what we already used above.</p>
+<hr class="docutils" />
+<section id="what-the-symplectic-condition-really-says">
+<h3>What the Symplectic Condition Really Says<a class="headerlink" href="#what-the-symplectic-condition-really-says" title="Link to this heading">#</a></h3>
+<p>A transformation of phase–space coordinates</p>
+<div class="math notranslate nohighlight">
+\[
+z = (q,p)^{\mathrm{T}}
+\quad \longrightarrow \quad
+Z = (Q,P)^{\mathrm{T}}
+\]</div>
+<p>has Jacobian matrix</p>
+<div class="math notranslate nohighlight">
+\[
+M_{\alpha\beta} = \frac{\partial Z_\alpha}{\partial z_\beta}.
+\]</div>
+<p>The condition</p>
+<div class="math notranslate nohighlight">
+\[
+M^{\mathrm{T}} J M = J
+\]</div>
+<p>means:</p>
+<ul class="simple">
+<li><p>the <strong>new</strong> coordinate–momentum pairs <span class="math notranslate nohighlight">\((Q_i, P_i)\)</span></p></li>
+<li><p>have the <strong>same structural relationships</strong></p></li>
+<li><p>as the <strong>old</strong> coordinate–momentum pairs <span class="math notranslate nohighlight">\((q_i,p_i)\)</span>.</p></li>
+</ul>
+<p>In other words:</p>
+<blockquote>
+<div><p>The symplectic condition is the mathematical statement that the transformation preserves the fundamental pairing of each coordinate with its conjugate momentum.</p>
+</div></blockquote>
+<p>This is what makes a transformation <strong>canonical</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="why-j-must-be-preserved">
+<h3>Why <span class="math notranslate nohighlight">\(J\)</span> Must Be Preserved<a class="headerlink" href="#why-j-must-be-preserved" title="Link to this heading">#</a></h3>
+<p>Earlier, we wrote Hamilton’s equations in compact form:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{z} = J \nabla H.
+\]</div>
+<p>This form only works because <span class="math notranslate nohighlight">\(J\)</span> has a very specific block structure:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+J = 
+\begin{pmatrix}
+0 &amp; I \\
+-I &amp; 0
+\end{pmatrix},
+\end{split}\]</div>
+<p>which encodes:</p>
+<ul class="simple">
+<li><p>the sign flip in the momentum equations</p></li>
+<li><p>the matching of <span class="math notranslate nohighlight">\(q_i\)</span> with <span class="math notranslate nohighlight">\(p_i\)</span></p></li>
+<li><p>the fact that phase–space flow is a 90° rotation of the energy gradient</p></li>
+</ul>
+<p>If we change variables but want Hamilton’s equations to <strong>still</strong> be written as</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{Z} = J \nabla_Z K,
+\]</div>
+<p>then the new coordinates must be arranged so that <span class="math notranslate nohighlight">\(J\)</span> retains its form.<br />
+That is exactly what</p>
+<div class="math notranslate nohighlight">
+\[
+M^{\mathrm{T}} J M = J
+\]</div>
+<p>guarantees.</p>
+</section>
+<hr class="docutils" />
+<section id="geometric-meaning-preserving-the-symplectic-2form">
+<h3>Geometric Meaning: Preserving the Symplectic 2–Form<a class="headerlink" href="#geometric-meaning-preserving-the-symplectic-2form" title="Link to this heading">#</a></h3>
+<p>Hamiltonian mechanics is built on the geometric object:</p>
+<div class="math notranslate nohighlight">
+\[
+\omega = \sum_i dq_i \wedge dp_i,
+\]</div>
+<p>the <strong>symplectic 2–form</strong>.</p>
+<p>A transformation is canonical when it preserves <span class="math notranslate nohighlight">\(\omega\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\omega = \sum_i dQ_i \wedge dP_i.
+\]</div>
+<p>In matrix language, this preservation condition is exactly</p>
+<div class="math notranslate nohighlight">
+\[
+M^{\mathrm{T}} J M = J.
+\]</div>
+<p>Thus the symplectic condition is the algebraic expression of a geometric idea:</p>
+<blockquote>
+<div><p>Canonical transformations preserve the “area element” of each <span class="math notranslate nohighlight">\((q_i,p_i)\)</span> plane.</p>
+</div></blockquote>
+<p>This is why Hamiltonian flow preserves phase–space area (Liouville’s theorem).</p>
+<div style="background-color:#fff8e1; border-left:5px solid #ffc20e; padding:12px; border-radius:4px;">
+<p><strong>What the Wedge Product Means</strong></p>
+<p>The wedge product <span class="math notranslate nohighlight">\(dq \wedge dp\)</span> represents the oriented area element in the <span class="math notranslate nohighlight">\((q,p)\)</span> plane; preserving this area is exactly what makes a transformation canonical.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#f3e5f5; border-left:5px solid #7b1fa2; padding:12px; border-radius:4px;">
+<p><strong>Side Note: Dot Product vs. Cross Product vs. Wedge Product</strong></p>
+<p>These three operations from calculus and linear algebra all measure geometric quantities:</p>
+<ul class="simple">
+<li><p><strong>Dot product</strong><br />
+<span class="math notranslate nohighlight">\(A \cdot B\)</span><br />
+→ measures <strong>length</strong> and <strong>projection</strong><br />
+→ symmetric: <span class="math notranslate nohighlight">\(A \cdot B = B \cdot A\)</span></p></li>
+<li><p><strong>Cross product</strong> (in 3D only)<br />
+<span class="math notranslate nohighlight">\(A \times B\)</span><br />
+→ measures <strong>area with direction</strong> (normal vector)<br />
+→ antisymmetric: <span class="math notranslate nohighlight">\(A \times B = -\,B \times A\)</span></p></li>
+<li><p><strong>Wedge product</strong> (all dimensions)<br />
+<span class="math notranslate nohighlight">\(A \wedge B\)</span><br />
+→ measures <strong>oriented area</strong> spanned by <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span><br />
+→ antisymmetric: <span class="math notranslate nohighlight">\(A \wedge B = -\,B \wedge A\)</span></p></li>
+</ul>
+<p>In Hamiltonian mechanics, the wedge product <span class="math notranslate nohighlight">\(dq \wedge dp\)</span> plays the same geometric role as an oriented area element: it tells us that canonical transformations must preserve the “shape” and orientation of each <span class="math notranslate nohighlight">\((q,p)\)</span> plane.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="connection-to-the-symplectic-group-mathrm-sp-2n">
+<h3>Connection to the Symplectic Group <span class="math notranslate nohighlight">\(\mathrm{Sp}(2n)\)</span><a class="headerlink" href="#connection-to-the-symplectic-group-mathrm-sp-2n" title="Link to this heading">#</a></h3>
+<p>All matrices that satisfy</p>
+<div class="math notranslate nohighlight">
+\[
+M^{\mathrm{T}} J M = J
+\]</div>
+<p>form the <strong>symplectic group</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{Sp}(2n,\mathbb{R}).
+\]</div>
+<p>This is not group theory for its own sake—it tells us two important things:</p>
+<ol class="arabic simple">
+<li><p><strong>Canonical transformations form a group.</strong><br />
+You can compose them, invert them, and the result is still canonical.</p></li>
+<li><p><strong>There is a geometry underlying Hamiltonian mechanics.</strong><br />
+Just as rotations preserve dot products in Euclidean space,<br />
+canonical transformations preserve the symplectic structure in phase space.</p></li>
+</ol>
+<p>Students do <strong>not</strong> need the formal machinery, but knowing the analogy is powerful:</p>
+<ul class="simple">
+<li><p>orthogonal matrices preserve distances</p></li>
+<li><p>symplectic matrices preserve the <span class="math notranslate nohighlight">\(dq \wedge dp\)</span> area structure</p></li>
+</ul>
+<p>This helps them understand why canonical transformations are “legal moves” in Hamiltonian mechanics.</p>
+</section>
+<hr class="docutils" />
+<section id="why-we-used-this-condition-above">
+<h3>Why We Used This Condition Above<a class="headerlink" href="#why-we-used-this-condition-above" title="Link to this heading">#</a></h3>
+<p>When we showed that a transformation preserves the structure:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{z} = J \nabla H,
+\]</div>
+<p>we used the fact that:</p>
+<div class="math notranslate nohighlight">
+\[
+M J M^{\mathrm{T}} = J.
+\]</div>
+<p>This was <strong>not</strong> an arbitrary trick—the reason it works is because canonical transformations belong to <span class="math notranslate nohighlight">\(\mathrm{Sp}(2n)\)</span>.</p>
+<p>Thus, Section 3.1.2 introduced the compact Hamiltonian form,<br />
+and this section explains the <strong>deep reason</strong> why that compact form survives under canonical changes of variables.</p>
+<hr class="docutils" />
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:14px; border-radius:4px;">
+<p><strong>Concept Highlight: What the Symplectic Condition Really Means</strong></p>
+<p>The condition <span class="math notranslate nohighlight">\(M^{\mathrm{T}} J M = J\)</span> ensures that a transformation preserves the fundamental coordinate–momentum pairing and the phase–space area element, making it the mathematical signature of a canonical transformation.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:14px; border-radius:4px;">
+<p><strong>Concept Highlight: Symplectic Transformations Preserve Area</strong>
+In 1D:</p>
+<ul class="simple">
+<li><p>The symplectic condition reduces to <span class="math notranslate nohighlight">\(\det(M)=1\)</span>.</p></li>
+<li><p>This means <strong>area in phase space is preserved</strong>.</p></li>
+<li><p>That is exactly what Liouville’s theorem requires.</p></li>
+</ul>
+<p>A canonical transformation is any change of variables that continues to treat<br />
+phase space as an <strong>incompressible fluid</strong>.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<p><strong>Example: A Phase–Space Rotation as a Canonical Transformation</strong></p>
+<p>Consider the transformation</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+Q \\ P
+\end{pmatrix}
+=
+\begin{pmatrix}
+\cos\theta &amp; \sin\theta \\
+-\sin\theta &amp; \cos\theta
+\end{pmatrix}
+\begin{pmatrix}
+q \\ p
+\end{pmatrix}.
+\end{split}\]</div>
+<p>This resembles a rotation in the <span class="math notranslate nohighlight">\((q,p)\)</span> plane, but with a sign flip to ensure it preserves the canonical structure.<br />
+We will verify that it satisfies the symplectic condition</p>
+<div class="math notranslate nohighlight">
+\[
+M^{\mathrm{T}} J M = J,
+\]</div>
+<p>with</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+J = 
+\begin{pmatrix}
+0 &amp; 1 \\
+-1 &amp; 0
+\end{pmatrix}.
+\end{split}\]</div>
+<hr class="docutils" />
+<p><strong>Step 1: Identify the Jacobian matrix</strong></p>
+<p>Because the transformation is linear,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+M =
+\begin{pmatrix}
+\cos\theta &amp; \sin\theta \\
+-\sin\theta &amp; \cos\theta
+\end{pmatrix}.
+\end{split}\]</div>
+<hr class="docutils" />
+<p><strong>Step 2: Compute <span class="math notranslate nohighlight">\(M^{\mathrm{T}}\)</span></strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+M^{\mathrm{T}}=
+\begin{pmatrix}
+\cos\theta &amp; -\sin\theta \\
+\sin\theta &amp; \cos\theta
+\end{pmatrix}.
+\end{split}\]</div>
+<hr class="docutils" />
+<p><strong>Step 3: Compute <span class="math notranslate nohighlight">\(M^{\mathrm{T}} J\)</span></strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+M^{\mathrm{T}} J =
+\begin{pmatrix}
+\cos\theta &amp; -\sin\theta \\
+\sin\theta &amp; \cos\theta
+\end{pmatrix}
+\begin{pmatrix}
+0 &amp; 1 \\
+-1 &amp; 0
+\end{pmatrix}
+=
+\begin{pmatrix}
+\sin\theta &amp; \cos\theta \\
+-\cos\theta &amp; \sin\theta
+\end{pmatrix}.
+\end{split}\]</div>
+<hr class="docutils" />
+<p><strong>Step 4: Compute <span class="math notranslate nohighlight">\((M^{\mathrm{T}} J) M\)</span></strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+(M^{\mathrm{T}} J) M
+=
+\begin{pmatrix}
+\sin\theta &amp; \cos\theta \\
+-\cos\theta &amp; \sin\theta
+\end{pmatrix}
+\begin{pmatrix}
+\cos\theta &amp; \sin\theta \\
+-\sin\theta &amp; \cos\theta
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Compute each component:</p>
+<ul>
+<li><p>top-left:</p>
+<div class="math notranslate nohighlight">
+\[\sin\theta \cos\theta - \cos\theta \sin\theta = 0\]</div>
+</li>
+<li><p>top-right:</p>
+<div class="math notranslate nohighlight">
+\[\sin^2\theta + \cos^2\theta = 1\]</div>
+</li>
+<li><p>bottom-left:</p>
+<div class="math notranslate nohighlight">
+\[-\cos^2\theta - \sin^2\theta = -1\]</div>
+</li>
+<li><p>bottom-right:</p>
+<div class="math notranslate nohighlight">
+\[-\cos\theta \sin\theta + \sin\theta \cos\theta = 0\]</div>
+</li>
+</ul>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+M^{\mathrm{T}} J M =
+\begin{pmatrix}
+0 &amp; 1 \\
+-1 &amp; 0
+\end{pmatrix}
+= J.
+\end{split}\]</div>
+<p>This confirms that the transformation is <strong>symplectic</strong> and therefore <strong>canonical</strong>.</p>
+<hr class="docutils" />
+<p><strong>Interpretation</strong></p>
+<ul class="simple">
+<li><p>The map is an area-preserving rotation in phase space.</p></li>
+<li><p>It preserves the structure of Hamilton’s equations.</p></li>
+<li><p>It is an example of a matrix in the symplectic group <span class="math notranslate nohighlight">\(\mathrm{Sp}(2,\mathbb{R})\)</span>.</p></li>
+<li><p>It keeps the wedge product area element <span class="math notranslate nohighlight">\(dq \wedge dp\)</span> unchanged.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Conclusion</strong></p>
+<p>This rotation is a canonical transformation because it preserves the fundamental symplectic structure of Hamiltonian mechanics.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:12px; border-radius:4px;">
+<p><strong>Box Activity 3: Is the Scaling Transformation Canonical?</strong></p>
+<p>Consider the transformation:</p>
+<div class="math notranslate nohighlight">
+\[
+Q = a\, q,
+\qquad
+P = \frac{p}{a}
+\]</div>
+<p>with <span class="math notranslate nohighlight">\(a\)</span> a nonzero constant.</p>
+<p>Determine whether this transformation is canonical.</p>
+<hr class="docutils" />
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Detailed Solution
+</summary>
+<div style="background-color:#e8f5e9; padding:12px; border-radius:4px; margin-top:6px;">
+<p>Matrix form:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+M =
+\begin{pmatrix}
+a &amp; 0 \\
+0 &amp; \frac{1}{a}
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Compute:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+M^{\mathrm{T}} J M
+=
+\begin{pmatrix}
+a &amp; 0 \\
+0 &amp; \frac{1}{a}
+\end{pmatrix}
+\begin{pmatrix}
+0 &amp; 1\\
+-1 &amp; 0
+\end{pmatrix}
+\begin{pmatrix}
+a &amp; 0 \\
+0 &amp; \frac{1}{a}
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 &amp; 1\\
+-1 &amp; 0
+\end{pmatrix}
+= J.
+\end{split}\]</div>
+<p>Thus:</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\text{The scaling transformation is canonical.}
+}
+\]</div>
+<p>Intuition:<br />
+Stretch <span class="math notranslate nohighlight">\(q\)</span> by a factor <span class="math notranslate nohighlight">\(a\)</span> → compress <span class="math notranslate nohighlight">\(p\)</span> by factor <span class="math notranslate nohighlight">\(1/a\)</span> → area is preserved.</p>
+</div>
+</details>
+</div>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="a1-6-4-generating-functions">
+<h2>A1.6.4 Generating Functions<a class="headerlink" href="#a1-6-4-generating-functions" title="Link to this heading">#</a></h2>
+<p>Canonical transformations are easiest to construct using <strong>generating functions</strong>.</p>
+<p>The idea is elegant:</p>
+<blockquote>
+<div><p>Instead of guessing <span class="math notranslate nohighlight">\((Q,P)\)</span> directly,<br />
+define a function <span class="math notranslate nohighlight">\(F\)</span> whose derivatives produce the transformation.</p>
+</div></blockquote>
+<p>There are four standard types:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(F_1(q,Q)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(F_2(q,P)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(F_3(p,Q)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(F_4(p,P)\)</span></p></li>
+</ul>
+<p>Each type produces a valid symplectic transformation.</p>
+<hr class="docutils" />
+<section id="generating-function-of-type-f-2-q-p">
+<h3>Generating Function of Type <span class="math notranslate nohighlight">\(F_2(q,P)\)</span><a class="headerlink" href="#generating-function-of-type-f-2-q-p" title="Link to this heading">#</a></h3>
+<p>This is the most commonly used:</p>
+<div class="math notranslate nohighlight">
+\[
+F_2 = F_2(q,P,t).
+\]</div>
+<p>The canonical transformation is defined by:</p>
+<div class="math notranslate nohighlight">
+\[
+p = \frac{\partial F_2}{\partial q},
+\qquad
+Q = \frac{\partial F_2}{\partial P},
+\]</div>
+<p>and the transformed Hamiltonian is:</p>
+<div class="math notranslate nohighlight">
+\[
+K = H + \frac{\partial F_2}{\partial t}.
+\]</div>
+<div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:14px; border-radius:4px;">
+<p><strong>Box Activity 4: Why a Time-Dependent Canonical Transformation Gives <span class="math notranslate nohighlight">\(K = H + \frac{\partial F_2}{\partial t}\)</span></strong></p>
+<p>In this activity you will show, step-by-step, that for a type–2 generating function<br />
+<span class="math notranslate nohighlight">\(F_2(q,P,t)\)</span>, the transformed Hamiltonian is</p>
+<div class="math notranslate nohighlight">
+\[
+K(q,p,t) = H(q,p,t) + \frac{\partial F_2}{\partial t}.
+\]</div>
+<p>This is the key identity that explains how <strong>time-dependent</strong> canonical transformations modify the Hamiltonian.</p>
+<hr class="docutils" />
+<p><strong>Tasks</strong></p>
+<ol class="arabic">
+<li><p>Start from the canonical action</p>
+<div class="math notranslate nohighlight">
+\[
+   S = \int (p\,dq - H\,dt).
+   \]</div>
+<p>Rewrite <span class="math notranslate nohighlight">\(p\,dq\)</span> using the relation</p>
+<div class="math notranslate nohighlight">
+\[
+   p = \frac{\partial F_2}{\partial q}.
+   \]</div>
+</li>
+<li><p>Compute the total differential</p>
+<div class="math notranslate nohighlight">
+\[
+   dF_2
+   \]</div>
+</li>
+<li><p>Replace</p>
+<div class="math notranslate nohighlight">
+\[
+   \frac{\partial F_2}{\partial q} = p,
+   \qquad
+   \frac{\partial F_2}{\partial P} = Q
+   \]</div>
+<p>and rewrite <span class="math notranslate nohighlight">\(dF_2\)</span> entirely in terms of <span class="math notranslate nohighlight">\((p,q)\)</span> and <span class="math notranslate nohighlight">\((P,Q)\)</span>.</p>
+</li>
+<li><p>Rearrange the expression so that <strong><span class="math notranslate nohighlight">\(p\,dq\)</span></strong> and <strong><span class="math notranslate nohighlight">\(P\,dQ\)</span></strong> appear explicitly.</p></li>
+<li><p>Show that</p>
+<div class="math notranslate nohighlight">
+\[
+   p\,dq - H\,dt
+   =
+   P\,dQ - K\,dt
+   + \frac{\partial F_2}{\partial t} dt
+   + d(\text{something}).
+  
+   \]</div>
+<p>(The “something” is an exact differential that does not affect the equations of motion.)</p>
+</li>
+<li><p>Conclude that the transformed Hamiltonian must satisfy</p>
+<div class="math notranslate nohighlight">
+\[
+   K = H + \frac{\partial F_2}{\partial t}.
+   \]</div>
+</li>
+</ol>
+<hr class="docutils" />
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Detailed Solution
+</summary>
+<div style="background-color:#e8f5e9; padding:12px; border-radius:4px; margin-top:6px;">
+<p><strong>1. Start with the canonical action</strong></p>
+<div class="math notranslate nohighlight">
+\[
+S = \int (p\,dq - H\,dt).
+\]</div>
+<p>Substitute the transformation rule:</p>
+<div class="math notranslate nohighlight">
+\[
+p = \frac{\partial F_2}{\partial q}.
+\]</div>
+<hr class="docutils" />
+<p><strong>2. Compute the differential of <span class="math notranslate nohighlight">\(F_2\)</span></strong></p>
+<div class="math notranslate nohighlight">
+\[
+dF_2
+= \frac{\partial F_2}{\partial q}dq
++ \frac{\partial F_2}{\partial P}dP
++ \frac{\partial F_2}{\partial t}dt.
+\]</div>
+<hr class="docutils" />
+<p><strong>3. Replace derivatives with canonical variables</strong></p>
+<p>Use the definitions of the type–2 generating function:</p>
+<div class="math notranslate nohighlight">
+\[
+p = \frac{\partial F_2}{\partial q},
+\qquad
+Q = \frac{\partial F_2}{\partial P}.
+\]</div>
+<p>Thus</p>
+<div class="math notranslate nohighlight">
+\[
+dF_2 = p\,dq + Q\,dP + \frac{\partial F_2}{\partial t}dt.
+\]</div>
+<hr class="docutils" />
+<p><strong>4. Rearrange to isolate <span class="math notranslate nohighlight">\(p\,dq\)</span></strong></p>
+<p>Solve this expression for <span class="math notranslate nohighlight">\(p\,dq\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+p\,dq
+= dF_2 - Q\,dP - \frac{\partial F_2}{\partial t}dt.
+\]</div>
+<p>Substitute into the action:</p>
+<div class="math notranslate nohighlight">
+\[
+p\,dq - H\,dt
+= dF_2 - Q\,dP - \frac{\partial F_2}{\partial t}dt - H\,dt.
+\]</div>
+<hr class="docutils" />
+<p><strong>5. Introduce the target form <span class="math notranslate nohighlight">\(P\,dQ - K\,dt\)</span></strong></p>
+<p>We want the new action to look like</p>
+<div class="math notranslate nohighlight">
+\[
+P\,dQ - K\,dt.
+\]</div>
+<p>But from the definition of the transformation:</p>
+<div class="math notranslate nohighlight">
+\[
+Q = \frac{\partial F_2}{\partial P},
+\qquad
+P = P.
+\]</div>
+<p>And since <span class="math notranslate nohighlight">\(Q\)</span> and <span class="math notranslate nohighlight">\(P\)</span> are independent variables, a total derivative like</p>
+<div class="math notranslate nohighlight">
+\[
+d(PQ) = P\,dQ + Q\,dP
+\]</div>
+<p>lets us swap between mixed terms.<br />
+(Adding/subtracting exact differentials doesn’t affect the equations of motion.)</p>
+<p>Compute:</p>
+<div class="math notranslate nohighlight">
+\[
+P\,dQ = d(PQ) - Q\,dP.
+\]</div>
+<p>Substitute this into our expression:</p>
+<div class="math notranslate nohighlight">
+\[
+p\,dq - H\,dt
+= dF_2 - \left[d(PQ) - P\,dQ\right]
+    - \frac{\partial F_2}{\partial t}dt - H\,dt.
+\]</div>
+<p>Simplify:</p>
+<div class="math notranslate nohighlight">
+\[
+p\,dq - H\,dt
+= P\,dQ
+  - \left(H + \frac{\partial F_2}{\partial t}\right)dt
+  + dF_2 - d(PQ).
+\]</div>
+<p>The last two terms are exact differentials and <strong>do not affect</strong> the variational principle.</p>
+<p>Thus the transformed integrand is:</p>
+<div class="math notranslate nohighlight">
+\[
+P\,dQ - K\,dt,
+\]</div>
+<p>with</p>
+<div class="math notranslate nohighlight">
+\[
+K = H + \frac{\partial F_2}{\partial t}.
+\]</div>
+<hr class="docutils" />
+<p><strong>6. Final statement</strong></p>
+<p>The new Hamiltonian always picks up an extra term equal to the explicit time derivative of the generating function:</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{K = H + \frac{\partial F_2}{\partial t}}.
+\]</div>
+<p>This is the hallmark of <strong>time-dependent</strong> canonical transformations.</p>
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e0f7fa; border-left:6px solid #006a80; padding:14px; border-radius:4px;">
+<p><strong>Example: Momentum Shift</strong></p>
+<p>Define:</p>
+<div class="math notranslate nohighlight">
+\[
+F_2(q,P) = q(P + \alpha)
+\]</div>
+<p>with constant <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+<p>Then:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(p = \partial F_2/\partial q = P + \alpha\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Q = \partial F_2/\partial P = q\)</span></p></li>
+</ul>
+<p>Thus:</p>
+<div class="math notranslate nohighlight">
+\[
+Q = q, \qquad P = p - \alpha.
+\]</div>
+<p>This describes adding a <em>constant vector potential</em> in electromagnetism.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:12px; border-radius:4px;">
+<p><strong>Box Activity 5: Use <span class="math notranslate nohighlight">\(F_2\)</span> to Construct a Simple Transformation</strong></p>
+<p>Let</p>
+<div class="math notranslate nohighlight">
+\[
+F_2(q,P) = \tfrac12 a\, q^2 P
+\]</div>
+<p>with constant <span class="math notranslate nohighlight">\(a\)</span>.</p>
+<p><strong>Tasks:</strong></p>
+<ol class="arabic">
+<li><p>Compute <span class="math notranslate nohighlight">\(p = \partial F_2/\partial q\)</span>.</p></li>
+<li><p>Compute <span class="math notranslate nohighlight">\(Q = \partial F_2/\partial P\)</span>.</p></li>
+<li><p>Express <span class="math notranslate nohighlight">\((Q,P)\)</span> in terms of <span class="math notranslate nohighlight">\((q,p)\)</span> and compute the Jacobian matrix</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+   M = 
+   \begin{pmatrix}
+   \dfrac{\partial Q}{\partial q} &amp; \dfrac{\partial Q}{\partial p} \\[6pt]
+   \dfrac{\partial P}{\partial q} &amp; \dfrac{\partial P}{\partial p}
+   \end{pmatrix},
+   \end{split}\]</div>
+<p>then verify that <span class="math notranslate nohighlight">\(\det(M)=1\)</span> in 1D.</p>
+</li>
+</ol>
+<hr class="docutils" />
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Detailed Solution
+</summary>
+<div style="background-color:#e8f5e9; padding:12px; border-radius:4px; margin-top:6px;">
+<p>We use the standard rules for a generating function of type <span class="math notranslate nohighlight">\(F_2(q,P)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+p = \frac{\partial F_2}{\partial q},
+\qquad
+Q = \frac{\partial F_2}{\partial P}.
+\]</div>
+<hr class="docutils" />
+<p><strong>1. Compute <span class="math notranslate nohighlight">\(p = \partial F_2/\partial q\)</span></strong></p>
+<p>Given</p>
+<div class="math notranslate nohighlight">
+\[
+F_2(q,P) = \tfrac12 a q^2 P,
+\]</div>
+<p>differentiate with respect to <span class="math notranslate nohighlight">\(q\)</span> (holding <span class="math notranslate nohighlight">\(P\)</span> fixed):</p>
+<div class="math notranslate nohighlight">
+\[
+p = \frac{\partial F_2}{\partial q}
+  = \tfrac12 a \cdot 2 q \cdot P
+  = a q P.
+\]</div>
+<p>So we have the relation</p>
+<div class="math notranslate nohighlight">
+\[
+p = a q P.
+\]</div>
+<hr class="docutils" />
+<p><strong>2. Compute <span class="math notranslate nohighlight">\(Q = \partial F_2/\partial P\)</span></strong></p>
+<p>Differentiate <span class="math notranslate nohighlight">\(F_2\)</span> with respect to <span class="math notranslate nohighlight">\(P\)</span> (holding <span class="math notranslate nohighlight">\(q\)</span> fixed):</p>
+<div class="math notranslate nohighlight">
+\[
+Q = \frac{\partial F_2}{\partial P}
+  = \tfrac12 a q^2.
+\]</div>
+<p>Notice:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Q\)</span> depends only on <span class="math notranslate nohighlight">\(q\)</span>, not on <span class="math notranslate nohighlight">\(P\)</span> or <span class="math notranslate nohighlight">\(p\)</span>.</p></li>
+</ul>
+<p>So the transformation between old and new variables is given implicitly by</p>
+<div class="math notranslate nohighlight">
+\[
+p = a q P,
+\qquad
+Q = \tfrac12 a q^2.
+\]</div>
+<hr class="docutils" />
+<p><strong>3. Express <span class="math notranslate nohighlight">\((Q,P)\)</span> in terms of <span class="math notranslate nohighlight">\((q,p)\)</span></strong></p>
+<p>To compute the Jacobian <span class="math notranslate nohighlight">\(M = \partial(Q,P)/\partial(q,p)\)</span>, we need <span class="math notranslate nohighlight">\(Q(q,p)\)</span> and <span class="math notranslate nohighlight">\(P(q,p)\)</span>.</p>
+<p>From</p>
+<div class="math notranslate nohighlight">
+\[
+p = a q P
+\quad\Rightarrow\quad
+P = \frac{p}{a q},
+\]</div>
+<p>provided <span class="math notranslate nohighlight">\(q \neq 0\)</span> (we can treat <span class="math notranslate nohighlight">\(q=0\)</span> separately, but that is a measure-zero set in phase space).</p>
+<p>We already have</p>
+<div class="math notranslate nohighlight">
+\[
+Q(q,p) = \tfrac12 a q^2.
+\]</div>
+<p>Thus:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Q\)</span> is a function of <span class="math notranslate nohighlight">\(q\)</span> only,</p></li>
+<li><p><span class="math notranslate nohighlight">\(P\)</span> depends on both <span class="math notranslate nohighlight">\(q\)</span> and <span class="math notranslate nohighlight">\(p\)</span>.</p></li>
+</ul>
+<p>So the transformation in explicit form is</p>
+<div class="math notranslate nohighlight">
+\[
+Q(q,p) = \tfrac12 a q^2,
+\qquad
+P(q,p) = \frac{p}{a q}.
+\]</div>
+<hr class="docutils" />
+<p><strong>4. Compute the Jacobian matrix <span class="math notranslate nohighlight">\(M\)</span></strong></p>
+<p>The Jacobian matrix in 1D phase space is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+M =
+\begin{pmatrix}
+\dfrac{\partial Q}{\partial q} &amp; \dfrac{\partial Q}{\partial p} \\[6pt]
+\dfrac{\partial P}{\partial q} &amp; \dfrac{\partial P}{\partial p}
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Compute each entry:</p>
+<ul>
+<li><p>Top-left:</p>
+<div class="math notranslate nohighlight">
+\[
+  \frac{\partial Q}{\partial q}
+  = \frac{\partial}{\partial q}\left( \tfrac12 a q^2 \right)
+  = a q.
+  \]</div>
+</li>
+<li><p>Top-right:</p>
+<div class="math notranslate nohighlight">
+\[
+  \frac{\partial Q}{\partial p}
+  = 0
+  \]</div>
+<p>because <span class="math notranslate nohighlight">\(Q\)</span> does not depend on <span class="math notranslate nohighlight">\(p\)</span>.</p>
+</li>
+<li><p>Bottom-left:</p>
+<div class="math notranslate nohighlight">
+\[
+  \frac{\partial P}{\partial q}
+  = \frac{\partial}{\partial q} \left( \frac{p}{a q} \right)
+  = \frac{p}{a} \frac{\partial}{\partial q}\left( \frac{1}{q} \right)
+  = \frac{p}{a} \left( -\frac{1}{q^2} \right)
+  = -\frac{p}{a q^2}.
+  \]</div>
+<p>(Here we treat <span class="math notranslate nohighlight">\(p\)</span> as independent of <span class="math notranslate nohighlight">\(q\)</span> when differentiating.)</p>
+</li>
+<li><p>Bottom-right:</p>
+<div class="math notranslate nohighlight">
+\[
+  \frac{\partial P}{\partial p}
+  = \frac{\partial}{\partial p} \left( \frac{p}{a q} \right)
+  = \frac{1}{a q},
+  \]</div>
+<p>since <span class="math notranslate nohighlight">\(q\)</span> and <span class="math notranslate nohighlight">\(a\)</span> are constant with respect to <span class="math notranslate nohighlight">\(p\)</span>.</p>
+</li>
+</ul>
+<p>So the Jacobian is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+M =
+\begin{pmatrix}
+a q &amp; 0 \\[6pt]
+-\dfrac{p}{a q^2} &amp; \dfrac{1}{a q}
+\end{pmatrix}.
+\end{split}\]</div>
+<hr class="docutils" />
+<p><strong>5. Compute the determinant <span class="math notranslate nohighlight">\(\det(M)\)</span></strong></p>
+<p>Recall that for a <span class="math notranslate nohighlight">\(2\times 2\)</span> matrix</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+A &amp; B \\
+C &amp; D
+\end{pmatrix}
+\quad\text{we have}\quad
+\det =
+AD - BC.
+\end{split}\]</div>
+<p>Here:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(A = a q\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(B = 0\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(C = -\dfrac{p}{a q^2}\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(D = \dfrac{1}{a q}\)</span>.</p></li>
+</ul>
+<p>So:</p>
+<div class="math notranslate nohighlight">
+\[
+\det(M) = (a q)\left(\frac{1}{a q}\right) - 0 \cdot \left(-\frac{p}{a q^2}\right)
+= 1 - 0 = 1.
+\]</div>
+<p>Thus:</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{\det(M) = 1.}
+\]</div>
+<p>In 1D phase space, <span class="math notranslate nohighlight">\(\det(M) = 1\)</span> means:</p>
+<ul class="simple">
+<li><p>local phase–space area elements <span class="math notranslate nohighlight">\(dq\,dp\)</span> are preserved,</p></li>
+<li><p>which is the hallmark of a <strong>canonical (symplectic) transformation</strong>.</p></li>
+</ul>
+<p><strong>6. Conceptual wrap-up</strong></p>
+<ul>
+<li><p>Starting from a generating function of type <span class="math notranslate nohighlight">\(F_2(q,P)\)</span>, we derived the transformation rules</p>
+<div class="math notranslate nohighlight">
+\[
+  p = \frac{\partial F_2}{\partial q}, \qquad
+  Q = \frac{\partial F_2}{\partial P}.
+  \]</div>
+</li>
+<li><p>We solved for <span class="math notranslate nohighlight">\((Q,P)\)</span> in terms of <span class="math notranslate nohighlight">\((q,p)\)</span> and computed the Jacobian.</p></li>
+<li><p>The determinant <span class="math notranslate nohighlight">\(\det(M) = 1\)</span> shows that this transformation preserves phase–space area in 1D.</p></li>
+<li><p>This explicitly confirms that generating functions of type <span class="math notranslate nohighlight">\(F_2\)</span> <strong>produce canonical transformations</strong>.</p></li>
+</ul>
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<div style="background-color:#fff8e1; border-left:5px solid #ffc20e; padding:12px; border-radius:4px;">
+<p><strong>Generating Functions as the Classical Ancestors of Gauge and Unitary Transformations</strong></p>
+<p>Generating functions produce canonical transformations that preserve the symplectic structure of Hamiltonian mechanics; this is the classical analog of gauge transformations in electromagnetism (which preserve the fields) and unitary transformations in quantum mechanics (which preserve probability amplitudes).<br />
+All three express the same underlying principle: <strong>the physics is unchanged when we transform variables in a way that preserves the fundamental structure of the theory.</strong></p>
+</div>
+<hr class="docutils" />
+<p>With generating functions we now understand how canonical transformations arise, how they preserve the symplectic structure, and how they connect directly to symmetry and invariance through Noether’s theorem.<br />
+The natural next step is to introduce <strong>Poisson brackets</strong>, the algebraic language that describes how quantities transform under canonical maps and how conserved quantities generate symmetries in Hamiltonian mechanics.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-A1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="liouville.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">A1.5 Liouville’s Theorem: Volume Preservation in Phase Space</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="poison-brackets.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">A1.7 Poisson Brackets</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-6-1-motivation-why-do-we-change-coordinates-in-hamiltonian-mechanics">A1.6.1 Motivation: Why Do We Change Coordinates in Hamiltonian Mechanics?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-6-2-hamiltons-equations-in-vector-form-and-the-symplectic-matrix">A1.6.2 Hamilton’s Equations in Vector Form and the Symplectic Matrix</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hamiltons-equations-in-standard-component-form">Hamilton’s Equations in Standard Component Form</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#packaging-variables-into-a-single-phasespace-vector">Packaging Variables Into a Single Phase–Space Vector</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enter-the-symplectic-matrix-j">Enter the Symplectic Matrix <span class="math notranslate nohighlight">\(J\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-form-is-significant">Why This Form Is Significant</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-the-point">Summary of the Point</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-6-3-the-symplectic-condition-and-the-structure-of-canonical-transformations">A1.6.3 The Symplectic Condition and the Structure of Canonical Transformations**</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-the-symplectic-condition-really-says">What the Symplectic Condition Really Says</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-j-must-be-preserved">Why <span class="math notranslate nohighlight">\(J\)</span> Must Be Preserved</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-meaning-preserving-the-symplectic-2form">Geometric Meaning: Preserving the Symplectic 2–Form</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connection-to-the-symplectic-group-mathrm-sp-2n">Connection to the Symplectic Group <span class="math notranslate nohighlight">\(\mathrm{Sp}(2n)\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-we-used-this-condition-above">Why We Used This Condition Above</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-6-4-generating-functions">A1.6.4 Generating Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-function-of-type-f-2-q-p">Generating Function of Type <span class="math notranslate nohighlight">\(F_2(q,P)\)</span></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

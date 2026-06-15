@@ -1,0 +1,1112 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>A1.3 From the Lagrangian to the Hamiltonian: The Legendre Transform &#8212; A Competency Approach to Classical Mechanics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/save_cell.css?v=43dd4451" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module-A1/legendre';</script>
+    <script src="../_static/save_cell.js?v=d135a7b8"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="A1.4 Phase Space and Hamiltonian Flow" href="phase-space.html" />
+    <link rel="prev" title="A1.2 Connecting Lagrange Multipliers to the Hamiltonian Formalism" href="Hamiltonian.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-A.png" class="logo__image only-light" alt="A Competency Approach to Classical Mechanics - Home"/>
+    <script>document.write(`<img src="../_static/logo-A.png" class="logo__image only-dark" alt="A Competency Approach to Classical Mechanics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    A Competency Approach to Classical Mechanics: A Compendium to the B Exam
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/classical-mechanics/classical-mechanics.html">Classical Mechanics Main Page</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://gemini.google.com/gem/10l7TNMxLkYkxP1cGjSu5uEvK_RAC-A9n?usp=sharing">Physics Coding Architect (PyAIGem)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module A1 - Hamiltonian Dynamics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LOC-A1.html">A1.0 Learning Outcomes: Hamiltonian Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro-hamiltonian.html">A1.1 Introduction to the Hamiltonian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Hamiltonian.html">A1.2 Connecting Lagrange Multipliers to the Hamiltonian Formalism</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">A1.3 From the Lagrangian to the Hamiltonian: The Legendre Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase-space.html">A1.4 Phase Space and Hamiltonian Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="liouville.html">A1.5 Liouville’s Theorem: Volume Preservation in Phase Space</a></li>
+<li class="toctree-l1"><a class="reference internal" href="canonical-transformations.html">A1.6 Canonical Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poison-brackets.html">A1.7 Poisson Brackets</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Module-A1/legendre.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Module-A1/legendre.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>A1.3 From the Lagrangian to the Hamiltonian: The Legendre Transform</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-the-lagrangian-hamiltonian-step-must-be-a-legendre-transform">Why the Lagrangian → Hamiltonian step must be a Legendre transform</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-3-1-why-a-transformation-is-needed">A1.3.1 Why a transformation is needed</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-3-2-the-mathematical-legendre-transform">A1.3.2 The mathematical Legendre transform</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-3-3-applying-the-legendre-transform-to-the-lagrangian">A1.3.3 Applying the Legendre transform to the Lagrangian</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-define-the-generalized-momentum">Step 1: Define the generalized momentum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-solve-for-dot-q-i-in-terms-of-q-p-and-why-the-hessian-matters">Step 2: Solve for <span class="math notranslate nohighlight">\(\dot{q}_i\)</span> in terms of <span class="math notranslate nohighlight">\((q,p)\)</span> — and why the Hessian matters</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#why-we-must-invert-the-momentumvelocity-map">Why we must invert the momentum–velocity map</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#why-the-hessian-must-be-invertible">Why the Hessian must be invertible</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-meaning-non-degenerate-kinetic-energy">Physical meaning: non-degenerate kinetic energy</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-why-step-2-is-required">Summary of why Step 2 is required</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-construct-the-hamiltonian">Step 3: Construct the Hamiltonian</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-3-4-deriving-hamiltons-equations-from-the-legendre-transform">A1.3.4 Deriving Hamilton’s equations from the Legendre transform</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-3-5-interpretation-why-the-legendre-transform-is-switching-variables">A1.3.5 Interpretation: Why the Legendre transform is “switching variables”</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-section-phase-space-and-hamiltonian-flow">Next Section → Phase Space and Hamiltonian Flow</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="a1-3-from-the-lagrangian-to-the-hamiltonian-the-legendre-transform">
+<h1>A1.3 From the Lagrangian to the Hamiltonian: The Legendre Transform<a class="headerlink" href="#a1-3-from-the-lagrangian-to-the-hamiltonian-the-legendre-transform" title="Link to this heading">#</a></h1>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+<p>The Hamiltonian formulation of mechanics emerges naturally when we “switch variables’’ from velocities <span class="math notranslate nohighlight">\(\dot{q}_i\)</span> to momenta <span class="math notranslate nohighlight">\(p_i\)</span>.<br />
+This switch is mathematically implemented using a <strong>Legendre transform</strong>, a tool that converts functions of one variable into functions of its conjugate variable.</p>
+<p>In mechanics, the Lagrangian <span class="math notranslate nohighlight">\(L(q,\dot{q},t)\)</span> depends on <strong>generalized positions</strong> and <strong>generalized velocities</strong>. But the Hamiltonian <span class="math notranslate nohighlight">\(H(q,p,t)\)</span> must instead depend on <strong>positions</strong> and <strong>generalized momenta</strong>. So we must convert from a function of <span class="math notranslate nohighlight">\((q,\dot{q})\)</span> to a function of <span class="math notranslate nohighlight">\((q,p)\)</span>.</p>
+<p>The Legendre transform is the precise tool that makes this possible.</p>
+<section id="why-the-lagrangian-hamiltonian-step-must-be-a-legendre-transform">
+<h2>Why the Lagrangian → Hamiltonian step must be a Legendre transform<a class="headerlink" href="#why-the-lagrangian-hamiltonian-step-must-be-a-legendre-transform" title="Link to this heading">#</a></h2>
+<p>The short answer is:</p>
+<blockquote>
+<div><p>Because the Legendre transform is the unique transformation that exchanges a function’s dependence on one set of variables (velocities) with the conjugate set (momenta), while preserving the variational structure of mechanics. <em>The Legendre transform is by mathematical definition the process of exchanging one variable for its conjugate variable</em>.</p>
+</div></blockquote>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="a1-3-1-why-a-transformation-is-needed">
+<h2>A1.3.1 Why a transformation is needed<a class="headerlink" href="#a1-3-1-why-a-transformation-is-needed" title="Link to this heading">#</a></h2>
+<p>The Lagrangian formalism gives us the equations of motion via</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{q}_i}\right) - \frac{\partial L}{\partial q_i} = 0.
+\]</div>
+<p>However, these equations are <strong>second-order</strong> and involve accelerations. In contrast, Hamilton’s formulation gives a <strong>first-order system</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{q}_i = \frac{\partial H}{\partial p_i}, 
+\qquad
+\dot{p}_i = -\,\frac{\partial H}{\partial q_i}.
+\]</div>
+<p>To get there, we must express the dynamics in terms of <span class="math notranslate nohighlight">\((q_i,p_i)\)</span> only. But the Lagrangian is written in terms of <span class="math notranslate nohighlight">\((q_i,\dot{q}_i)\)</span>. Thus we need a variable change:</p>
+<div class="math notranslate nohighlight">
+\[
+(q_i,\dot{q}_i) \quad \longrightarrow \quad (q_i,p_i),
+\]</div>
+<p>and that is exactly the purpose of the Legendre transform.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="a1-3-2-the-mathematical-legendre-transform">
+<h2>A1.3.2 The mathematical Legendre transform<a class="headerlink" href="#a1-3-2-the-mathematical-legendre-transform" title="Link to this heading">#</a></h2>
+<p>For a function of one variable, <span class="math notranslate nohighlight">\(f(x)\)</span>, its Legendre transform is</p>
+<div class="math notranslate nohighlight">
+\[
+g(p) = p x - f(x), \qquad p = f'(x).
+\]</div>
+<p>This construct does three things:</p>
+<ol class="arabic simple">
+<li><p>Defines a new variable <span class="math notranslate nohighlight">\(p = f'(x)\)</span></p></li>
+<li><p>Solves for <span class="math notranslate nohighlight">\(x\)</span> in terms of <span class="math notranslate nohighlight">\(p\)</span></p></li>
+<li><p>Rewrites the function using the new variable via<br />
+<span class="math notranslate nohighlight">\(g = p x - f\)</span></p></li>
+</ol>
+<p>In classical mechanics, we simply apply this idea <strong>one coordinate at a time</strong>.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="a1-3-3-applying-the-legendre-transform-to-the-lagrangian">
+<h2>A1.3.3 Applying the Legendre transform to the Lagrangian<a class="headerlink" href="#a1-3-3-applying-the-legendre-transform-to-the-lagrangian" title="Link to this heading">#</a></h2>
+<section id="step-1-define-the-generalized-momentum">
+<h3>Step 1: Define the generalized momentum<a class="headerlink" href="#step-1-define-the-generalized-momentum" title="Link to this heading">#</a></h3>
+<p>For each coordinate <span class="math notranslate nohighlight">\(q_i\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+p_i = \frac{\partial L}{\partial \dot{q}_i}.
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="step-2-solve-for-dot-q-i-in-terms-of-q-p-and-why-the-hessian-matters">
+<h3>Step 2: Solve for <span class="math notranslate nohighlight">\(\dot{q}_i\)</span> in terms of <span class="math notranslate nohighlight">\((q,p)\)</span> — and why the Hessian matters<a class="headerlink" href="#step-2-solve-for-dot-q-i-in-terms-of-q-p-and-why-the-hessian-matters" title="Link to this heading">#</a></h3>
+<p>After defining the momenta,</p>
+<div class="math notranslate nohighlight">
+\[
+p_i = \frac{\partial L}{\partial \dot{q}_i},
+\]</div>
+<p>we must <strong>invert these relations</strong> to write the velocities <span class="math notranslate nohighlight">\(\dot{q}_i\)</span> in terms of the new variables <span class="math notranslate nohighlight">\((q_i,p_i,t)\)</span>.</p>
+<p>This step is essential because the Hamiltonian must ultimately be a function</p>
+<div class="math notranslate nohighlight">
+\[
+H = H(q,p,t)
+\]</div>
+<p>with <strong>no remaining <span class="math notranslate nohighlight">\(\dot{q}_i\)</span></strong>. Hamilton’s equations <strong>cannot</strong> be derived unless the Hamiltonian has this form.</p>
+<hr class="docutils" />
+<section id="why-we-must-invert-the-momentumvelocity-map">
+<h4>Why we must invert the momentum–velocity map<a class="headerlink" href="#why-we-must-invert-the-momentumvelocity-map" title="Link to this heading">#</a></h4>
+<p>The relations</p>
+<div class="math notranslate nohighlight">
+\[
+p_i = p_i(q,\dot{q},t)
+\]</div>
+<p>define a map</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{q} \;\longrightarrow\; p.
+\]</div>
+<p>To construct the Hamiltonian, we need the <em>inverse map</em>:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{q}_i = \dot{q}_i(q,p,t).
+\]</div>
+<p>Without this, the expression</p>
+<div class="math notranslate nohighlight">
+\[
+H = \sum_i p_i\dot{q}_i - L(q,\dot{q},t)
+\]</div>
+<p>would still contain <span class="math notranslate nohighlight">\(\dot{q}_i\)</span>, and <strong>would not yet be a Hamiltonian</strong>.</p>
+<p>This inversion step is entirely algebraic — <strong>no equations of motion are used</strong>.</p>
+<p>Hamilton’s equation</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{q}_i = \frac{\partial H}{\partial p_i}
+\]</div>
+<p>only becomes true <strong>after</strong> <span class="math notranslate nohighlight">\(H(q,p,t)\)</span> is constructed.</p>
+</section>
+<hr class="docutils" />
+<section id="why-the-hessian-must-be-invertible">
+<h4>Why the Hessian must be invertible<a class="headerlink" href="#why-the-hessian-must-be-invertible" title="Link to this heading">#</a></h4>
+<p>The momentum definitions involve derivatives of <span class="math notranslate nohighlight">\(L\)</span> with respect to the velocities:</p>
+<div class="math notranslate nohighlight">
+\[
+p_i = \frac{\partial L}{\partial \dot{q}_i}.
+\]</div>
+<p>To solve for the <span class="math notranslate nohighlight">\(\dot{q}_i\)</span>, the map must be locally invertible. By the <strong>multivariable inverse function theorem</strong>, this requires that the Jacobian determinant</p>
+<div class="math notranslate nohighlight">
+\[
+\det\!\left[\frac{\partial^2 L}{\partial \dot{q}_i \partial \dot{q}_j}\right] \neq 0.
+\]</div>
+<p>This matrix is often called the <strong>Hessian with respect to velocities</strong> or the <strong>mass matrix</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="physical-meaning-non-degenerate-kinetic-energy">
+<h4>Physical meaning: non-degenerate kinetic energy<a class="headerlink" href="#physical-meaning-non-degenerate-kinetic-energy" title="Link to this heading">#</a></h4>
+<p>For most mechanical systems,</p>
+<div class="math notranslate nohighlight">
+\[
+L = T(\dot{q}) - U(q),
+\]</div>
+<p>and the second derivative matrix of <span class="math notranslate nohighlight">\(T\)</span> determines the effective mass matrix.</p>
+<ul class="simple">
+<li><p>If this matrix is <strong>invertible</strong>, then velocities uniquely determine momenta.</p></li>
+<li><p>If this matrix is <strong>singular</strong>, then some momenta do <strong>not</strong> depend on velocities → constraints or gauge freedoms exist.</p></li>
+</ul>
+<p>Examples where the Hessian is singular:</p>
+<ul class="simple">
+<li><p>Lagrangians with gauge symmetry (electromagnetism)</p></li>
+<li><p>Systems with non-holonomic constraints</p></li>
+<li><p>Reparameterization-invariant systems</p></li>
+<li><p>General relativity in Arnowitt–Deser–Misner (ADM) form</p></li>
+</ul>
+<p>In such cases, the Legendre transform is <strong>not</strong> valid globally, and special methods (Dirac–Bergmann constrained Hamiltonian mechanics) are required.</p>
+<p>But for ordinary mechanical systems in classical mechanics:</p>
+<ul class="simple">
+<li><p>masses are non-zero</p></li>
+<li><p>kinetic energy is quadratic and positive definite</p></li>
+<li><p>the Hessian is invertible</p></li>
+</ul>
+<p>Thus, the usual Legendre transform works smoothly.</p>
+</section>
+<hr class="docutils" />
+<section id="summary-of-why-step-2-is-required">
+<h4>Summary of why Step 2 is required<a class="headerlink" href="#summary-of-why-step-2-is-required" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>The Hamiltonian must be a function of <span class="math notranslate nohighlight">\((q,p,t)\)</span>, not <span class="math notranslate nohighlight">\((q,\dot{q},t)\)</span>.</p></li>
+<li><p>To eliminate <span class="math notranslate nohighlight">\(\dot{q}\)</span>, we must invert <span class="math notranslate nohighlight">\(p_i(q,\dot{q},t)\)</span> for <span class="math notranslate nohighlight">\(\dot{q}_i(q,p,t)\)</span>.</p></li>
+<li><p>This inversion requires the Hessian of <span class="math notranslate nohighlight">\(L\)</span> with respect to velocities to be non-singular.</p></li>
+<li><p>Only after this inversion can we build the Hamiltonian and derive Hamilton’s equations.</p></li>
+</ul>
+<p>This is why Step 2 is not optional — it is the lynchpin that makes the Legendre transform work.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="step-3-construct-the-hamiltonian">
+<h3>Step 3: Construct the Hamiltonian<a class="headerlink" href="#step-3-construct-the-hamiltonian" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+H(q,p,t) = \sum_i p_i \dot{q}_i - L(q,\dot{q},t)
+}
+\]</div>
+<p>The key point:</p>
+<blockquote>
+<div><p><strong><span class="math notranslate nohighlight">\(\dot{q}_i\)</span> must be replaced by their expressions in terms of <span class="math notranslate nohighlight">\((q,p)\)</span></strong> obtained in Step 2.</p>
+</div></blockquote>
+<p>When this is done, <span class="math notranslate nohighlight">\(H\)</span> becomes a function of <span class="math notranslate nohighlight">\((q,p,t)\)</span> only.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</section>
+</section>
+<section id="a1-3-4-deriving-hamiltons-equations-from-the-legendre-transform">
+<h2>A1.3.4 Deriving Hamilton’s equations from the Legendre transform<a class="headerlink" href="#a1-3-4-deriving-hamiltons-equations-from-the-legendre-transform" title="Link to this heading">#</a></h2>
+<p>Start from</p>
+<div class="math notranslate nohighlight">
+\[
+H = \sum_i p_i \dot{q}_i - L.
+\]</div>
+<p>Take differentials:</p>
+<div class="math notranslate nohighlight">
+\[
+dH = \sum_i \dot{q}_i\,dp_i + \sum_i p_i\,d\dot{q}_i
+ -\left(
+\sum_i \frac{\partial L}{\partial q_i} dq_i 
++ \sum_i \frac{\partial L}{\partial \dot{q}_i} d\dot{q}_i
++ \frac{\partial L}{\partial t} dt
+\right).
+\]</div>
+<p>Use <span class="math notranslate nohighlight">\(p_i = \partial L/\partial \dot{q}_i\)</span> to cancel the <span class="math notranslate nohighlight">\(d\dot{q}_i\)</span> terms:</p>
+<div class="math notranslate nohighlight">
+\[
+dH 
+= \sum_i \dot{q}_i\,dp_i 
+- \sum_i \frac{\partial L}{\partial q_i} dq_i 
+- \frac{\partial L}{\partial t} dt.
+\]</div>
+<p>But Euler–Lagrange gives</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial L}{\partial q_i} = -\,\dot{p}_i.
+\]</div>
+<p>Thus:</p>
+<div class="math notranslate nohighlight">
+\[
+dH = \sum_i \dot{q}_i\,dp_i + \sum_i \dot{p}_i\,dq_i - \frac{\partial L}{\partial t}dt.
+\]</div>
+<p>Identify:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial H}{\partial p_i} = \dot{q}_i,
+\qquad
+\frac{\partial H}{\partial q_i} = -\,\dot{p}_i,
+\qquad
+\frac{\partial H}{\partial t} = -\,\frac{\partial L}{\partial t}.
+\]</div>
+<p>And we arrive at <strong>Hamilton’s equations</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{q}_i = \frac{\partial H}{\partial p_i}, 
+\qquad
+\dot{p}_i = -\,\frac{\partial H}{\partial q_i}.
+\]</div>
+<div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:12px; border-radius:4px;">
+<p><strong>Box Activity 1: Full Differential Derivation of Hamilton’s Equations</strong></p>
+<p>Work through the <strong>complete derivation</strong> of Hamilton’s equations starting from</p>
+<div class="math notranslate nohighlight">
+\[
+H(q,p,t) = \sum_i p_i\,\dot{q}_i - L(q,\dot{q},t).
+\]</div>
+<p>Your steps:</p>
+<p><strong>(a)</strong> Compute the full differential</p>
+<div class="math notranslate nohighlight">
+\[
+dH = d\left(\sum_i p_i\dot{q}_i - L\right)
+\]</div>
+<p>and expand completely using the product rule.</p>
+<p><strong>(b)</strong> Identify and cancel all <span class="math notranslate nohighlight">\(d\dot{q}_i\)</span> terms using</p>
+<div class="math notranslate nohighlight">
+\[
+p_i = \frac{\partial L}{\partial \dot{q}_i}.
+\]</div>
+<p><strong>(c)</strong> Replace <span class="math notranslate nohighlight">\(\frac{\partial L}{\partial q_i}\)</span> using the Euler–Lagrange equation.</p>
+<p><strong>(d)</strong> Show that the resulting expression becomes</p>
+<div class="math notranslate nohighlight">
+\[
+dH = \sum_i \dot{q}_i\,dp_i 
+     + \sum_i \dot{p}_i\,dq_i
+     - \frac{\partial L}{\partial t}\, dt.
+\]</div>
+<p><strong>(e)</strong> Compare this with</p>
+<div class="math notranslate nohighlight">
+\[
+dH = 
+\sum_i \frac{\partial H}{\partial p_i} dp_i
++ \sum_i \frac{\partial H}{\partial q_i} dq_i
++ \frac{\partial H}{\partial t} dt
+\]</div>
+<p>to read off the partial derivatives and recover Hamilton’s equations:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{q}_i = \frac{\partial H}{\partial p_i},
+\qquad
+\dot{p}_i = -\frac{\partial H}{\partial q_i}.
+\]</div>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Box Activity 1 Solution
+</summary>
+<div style="background-color:#e8f5e9; padding:12px; border-radius:4px; margin-top:6px;">
+<p><strong>Step (a): Compute the differential</strong></p>
+<p>Starting from</p>
+<div class="math notranslate nohighlight">
+\[
+H = \sum_i p_i\dot{q}_i - L(q,\dot{q},t),
+\]</div>
+<p>differentiate:</p>
+<div class="math notranslate nohighlight">
+\[
+dH = \sum_i (\dot{q}_i\,dp_i + p_i\,d\dot{q}_i)
+ - \left(
+\sum_i \frac{\partial L}{\partial q_i} dq_i
++ \sum_i \frac{\partial L}{\partial \dot{q}_i} d\dot{q}_i
++ \frac{\partial L}{\partial t} dt
+\right).
+\]</div>
+<hr class="docutils" />
+<p><strong>Step (b): Cancel <span class="math notranslate nohighlight">\(d\dot{q}_i\)</span> terms</strong></p>
+<p>Because</p>
+<div class="math notranslate nohighlight">
+\[
+p_i = \frac{\partial L}{\partial \dot{q}_i},
+\]</div>
+<p>the terms</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(p_i d\dot{q}_i\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\left(\frac{\partial L}{\partial \dot{q}_i}\right)d\dot{q}_i\)</span></p></li>
+</ul>
+<p>cancel exactly.</p>
+<p>Result:</p>
+<div class="math notranslate nohighlight">
+\[
+dH = \sum_i \dot{q}_i\,dp_i 
+     - \sum_i \frac{\partial L}{\partial q_i} dq_i 
+     - \frac{\partial L}{\partial t} dt.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step (c): Use Euler–Lagrange</strong></p>
+<p>Euler–Lagrange gives</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial L}{\partial q_i} = -\dot{p}_i.
+\]</div>
+<p>Substitute:</p>
+<div class="math notranslate nohighlight">
+\[
+dH = \sum_i \dot{q}_i\,dp_i + \sum_i \dot{p}_i\,dq_i - \frac{\partial L}{\partial t} dt.
+\]</div>
+<hr class="docutils" />
+<p><strong>Step (d): Compare to the total differential of <span class="math notranslate nohighlight">\(H\)</span></strong></p>
+<p>For any function <span class="math notranslate nohighlight">\(H(q,p,t)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+dH = 
+\sum_i \frac{\partial H}{\partial p_i} dp_i +
+\sum_i \frac{\partial H}{\partial q_i} dq_i +
+\frac{\partial H}{\partial t} dt.
+\]</div>
+<p>Match terms:</p>
+<ul class="simple">
+<li><p>Coefficient of <span class="math notranslate nohighlight">\(dp_i\)</span>: <span class="math notranslate nohighlight">\(\dot{q}_i = \frac{\partial H}{\partial p_i}\)</span></p></li>
+<li><p>Coefficient of <span class="math notranslate nohighlight">\(dq_i\)</span>: <span class="math notranslate nohighlight">\(\dot{p}_i = -\frac{\partial H}{\partial q_i}\)</span></p></li>
+<li><p>Coefficient of <span class="math notranslate nohighlight">\(dt\)</span>: <span class="math notranslate nohighlight">\(\frac{\partial H}{\partial t} = -\frac{\partial L}{\partial t}\)</span></p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Step (e): Hamilton’s Equations</strong></p>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{\dot{q}_i = \frac{\partial H}{\partial p_i}}
+\qquad\text{and}\qquad
+\boxed{\dot{p}_i = -\frac{\partial H}{\partial q_i}}.
+\]</div>
+<p>These are <strong>Hamilton’s equations</strong>, obtained directly from the Legendre transform.</p>
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e6f7f7; border-left:5px solid #006633; padding:12px; border-radius:4px;">
+<p><strong>Example: Legendre Transform for a 1D Free Particle</strong></p>
+<p>Consider</p>
+<div class="math notranslate nohighlight">
+\[
+L = \tfrac12 m \dot{x}^2.
+\]</div>
+<p><strong>1. Compute the momentum</strong></p>
+<div class="math notranslate nohighlight">
+\[
+p = \frac{\partial L}{\partial \dot{x}} = m\dot{x}.
+\]</div>
+<p><strong>2. Solve for the velocity</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\dot{x} = \frac{p}{m}.
+\]</div>
+<p><strong>3. Build the Hamiltonian</strong></p>
+<div class="math notranslate nohighlight">
+\[
+H = p\dot{x} - L 
+= p\left(\frac{p}{m}\right) - \frac12 m \left(\frac{p}{m}\right)^2
+= \frac{p^2}{2m}.
+\]</div>
+<p>So the Hamiltonian is the familiar kinetic energy:</p>
+<div class="math notranslate nohighlight">
+\[
+H = \frac{p^2}{2m}.
+\]</div>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:5px solid #006633; padding:12px; border-radius:4px;">
+<p><strong>Box Activity 1: Legendre Transform for the Harmonic Oscillator</strong></p>
+<p>Consider the harmonic oscillator:</p>
+<div class="math notranslate nohighlight">
+\[
+L = \frac12 m \dot{x}^2 - \frac12 k x^2.
+\]</div>
+<p><strong>(a)</strong> Compute the generalized momentum <span class="math notranslate nohighlight">\(p\)</span>.<br />
+<strong>(b)</strong> Solve for <span class="math notranslate nohighlight">\(\dot{x}\)</span> in terms of <span class="math notranslate nohighlight">\(p\)</span>.<br />
+<strong>(c)</strong> Construct</p>
+<div class="math notranslate nohighlight">
+\[
+H = p\dot{x} - L
+\]</div>
+<p>and simplify it to a function of <span class="math notranslate nohighlight">\((x,p)\)</span> only.</p>
+<p><strong>(d)</strong> Check that Hamilton’s equations reproduce</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{x} + \omega^2 x = 0, \qquad \omega = \sqrt{\frac{k}{m}}.
+\]</div>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Harmonic Oscillator Activity – Detailed Solution
+</summary>
+<div style="background-color:#e8f5e9; padding:10px; border-radius:4px; margin-top:6px;">
+<p><strong>(a) Generalized momentum</strong></p>
+<p>Start from</p>
+<div class="math notranslate nohighlight">
+\[
+L = \frac12 m \dot{x}^2 - \frac12 k x^2.
+\]</div>
+<p>The momentum conjugate to <span class="math notranslate nohighlight">\(x\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+p = \frac{\partial L}{\partial \dot{x}} = m\dot{x}.
+\]</div>
+<hr class="docutils" />
+<p><strong>(b) Solve for <span class="math notranslate nohighlight">\(\dot{x}\)</span> in terms of <span class="math notranslate nohighlight">\(p\)</span></strong></p>
+<p>From <span class="math notranslate nohighlight">\(p = m\dot{x}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{x} = \frac{p}{m}.
+\]</div>
+<hr class="docutils" />
+<p><strong>(c) Construct the Hamiltonian</strong></p>
+<p>By definition:</p>
+<div class="math notranslate nohighlight">
+\[
+H = p\dot{x} - L.
+\]</div>
+<p>Substitute <span class="math notranslate nohighlight">\(\dot{x} = p/m\)</span> and the expression for <span class="math notranslate nohighlight">\(L\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+H = p\left(\frac{p}{m}\right)
+   - \left[\frac12 m\left(\frac{p}{m}\right)^2 - \frac12 k x^2\right].
+\]</div>
+<p>Simplify term by term:</p>
+<div class="math notranslate nohighlight">
+\[
+p\left(\frac{p}{m}\right) = \frac{p^2}{m},
+\qquad
+\frac12 m\left(\frac{p}{m}\right)^2
+= \frac12 m \frac{p^2}{m^2}
+= \frac{p^2}{2m}.
+\]</div>
+<p>So</p>
+<div class="math notranslate nohighlight">
+\[
+H = \frac{p^2}{m} - \left( \frac{p^2}{2m} - \frac12 k x^2 \right)
+  = \frac{p^2}{m} - \frac{p^2}{2m} + \frac12 k x^2
+  = \frac{p^2}{2m} + \frac12 k x^2.
+\]</div>
+<p>Thus</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+H(x,p) = \frac{p^2}{2m} + \frac12 k x^2
+}
+\]</div>
+<p>which is the familiar sum of kinetic and potential energy.</p>
+<hr class="docutils" />
+<p><strong>(d) Check Hamilton’s equations</strong></p>
+<p>Hamilton’s equations are:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{x} = \frac{\partial H}{\partial p},
+\qquad
+\dot{p} = -\frac{\partial H}{\partial x}.
+\]</div>
+<p>Compute the derivatives:</p>
+<ol class="arabic simple">
+<li></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial H}{\partial p}
+= \frac{\partial}{\partial p}\left( \frac{p^2}{2m} + \frac12 k x^2 \right)
+= \frac{p}{m}.
+\]</div>
+<p>So</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{x} = \frac{p}{m},
+\]</div>
+<p>which is consistent with <span class="math notranslate nohighlight">\(p = m\dot{x}\)</span>.</p>
+<ol class="arabic simple" start="2">
+<li></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial H}{\partial x}
+= \frac{\partial}{\partial x}\left( \frac{p^2}{2m} + \frac12 k x^2 \right)
+= kx.
+\]</div>
+<p>So</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{p} = -\frac{\partial H}{\partial x} = -kx.
+\]</div>
+<p>Now differentiate <span class="math notranslate nohighlight">\(\dot{x}\)</span> with respect to time:</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{x} = \frac{d}{dt}\left(\frac{p}{m}\right)
+= \frac{1}{m}\dot{p}
+= \frac{1}{m}(-kx)
+= -\frac{k}{m}x.
+\]</div>
+<p>Define <span class="math notranslate nohighlight">\(\omega^2 = k/m\)</span>. Then</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{x} + \omega^2 x = 0,
+\qquad
+\omega = \sqrt{\frac{k}{m}}.
+\]</div>
+<p>This matches the standard harmonic oscillator equation, so the Hamiltonian formulation reproduces the expected dynamics.</p>
+</div>
+</details>
+</div>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="a1-3-5-interpretation-why-the-legendre-transform-is-switching-variables">
+<h2>A1.3.5 Interpretation: Why the Legendre transform is “switching variables”<a class="headerlink" href="#a1-3-5-interpretation-why-the-legendre-transform-is-switching-variables" title="Link to this heading">#</a></h2>
+<p>The Lagrangian uses velocities as its fundamental dynamical variables; the Hamiltonian uses momenta instead.<br />
+The Legendre transform is the mathematical engine that replaces:</p>
+<ul class="simple">
+<li><p>slope with coordinate,</p></li>
+<li><p>conjugate momentum with velocity,</p></li>
+<li><p>tangent-space representation <span class="math notranslate nohighlight">\((q,\dot{q})\)</span> with cotangent-space representation <span class="math notranslate nohighlight">\((q,p)\)</span>.</p></li>
+</ul>
+<p>This shift turns second-order ODEs into first-order systems and reveals the geometric structure of dynamics in phase space.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</section>
+<section id="next-section-phase-space-and-hamiltonian-flow">
+<h2>Next Section → Phase Space and Hamiltonian Flow<a class="headerlink" href="#next-section-phase-space-and-hamiltonian-flow" title="Link to this heading">#</a></h2>
+<p>We now interpret Hamilton’s equations geometrically as a flow in phase space and build the intuition necessary for Liouville’s theorem.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Module-A1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Hamiltonian.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">A1.2 Connecting Lagrange Multipliers to the Hamiltonian Formalism</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="phase-space.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">A1.4 Phase Space and Hamiltonian Flow</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-the-lagrangian-hamiltonian-step-must-be-a-legendre-transform">Why the Lagrangian → Hamiltonian step must be a Legendre transform</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-3-1-why-a-transformation-is-needed">A1.3.1 Why a transformation is needed</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-3-2-the-mathematical-legendre-transform">A1.3.2 The mathematical Legendre transform</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-3-3-applying-the-legendre-transform-to-the-lagrangian">A1.3.3 Applying the Legendre transform to the Lagrangian</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-define-the-generalized-momentum">Step 1: Define the generalized momentum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-solve-for-dot-q-i-in-terms-of-q-p-and-why-the-hessian-matters">Step 2: Solve for <span class="math notranslate nohighlight">\(\dot{q}_i\)</span> in terms of <span class="math notranslate nohighlight">\((q,p)\)</span> — and why the Hessian matters</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#why-we-must-invert-the-momentumvelocity-map">Why we must invert the momentum–velocity map</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#why-the-hessian-must-be-invertible">Why the Hessian must be invertible</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-meaning-non-degenerate-kinetic-energy">Physical meaning: non-degenerate kinetic energy</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-why-step-2-is-required">Summary of why Step 2 is required</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-construct-the-hamiltonian">Step 3: Construct the Hamiltonian</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-3-4-deriving-hamiltons-equations-from-the-legendre-transform">A1.3.4 Deriving Hamilton’s equations from the Legendre transform</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a1-3-5-interpretation-why-the-legendre-transform-is-switching-variables">A1.3.5 Interpretation: Why the Legendre transform is “switching variables”</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-section-phase-space-and-hamiltonian-flow">Next Section → Phase Space and Hamiltonian Flow</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
