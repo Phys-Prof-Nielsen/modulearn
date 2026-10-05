@@ -1,0 +1,2185 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>PHYS 2215 — Introduction to Error Propagation &#8212; A Note to University Physics I Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lab-MC/intro-error-propagation';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="A Note to University Physics I Lab - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="A Note to University Physics I Lab - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Notes for University Physics I Lab
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://phys-prof-nielsen.github.io/modulearn/spheres/physics/physics-labs/physics-lab.html">Physics Labs Main Page</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 1 - Report Writing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab1/lab1.html">Lab 1 (Synthetic): Hooke’s Law &amp; Writing a Professional Jupyter Report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab1/lab1-template.html">Template Lab 1: Hooke’s Law Report</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 2 - Error Analysis and Measurements</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab2/analysis-measurements.html">Measurement &amp; Uncertainty</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab2/lab2.html">Lab 2 — Reaction-Time Ruler Drop (Measurement &amp; Uncertainty)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 3 - Newton’s Second Law Lab</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab3/lab3.html">Newton’s Second Law Lab: Friction-Limited Acceleration of a Cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab3/helpful-code.html">Helpful Code Note: Analyzing Phyphox Data in Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 4 - 1D Collision</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab4/lab4.html">Lab 4: 1D Collision</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 5 - Ballistic Pendulum</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab5/lab5.html">Lab 5: Ballistic Pendulum - Pizza Prize</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 6 - Air Drag - Numerical Simulation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab6/lab6.html">Lab 6: Realistic Projectile Motion Simulation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 7 - Spring Systems</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab7/lab7.html">Lab 7: Exploring the Spring Constant and Equivalent Springs</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 8 - Heat Transfer</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab8/lab8.html">Lab 8 — Heat Transfer with a Thermal Camera</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 9 - Thermospheroic Processses</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab9/lab9.html">Lab 9: Investigating Thermodynamic Processes with a Fire Syringe</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 10 - Error Propagation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab10/lab10.html">Lab 10 — Uncertainty and Error Propagation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 11 - Pendulum and Polar Coordinates</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab11/lab11.html">Lab 11: Polar Coordinates with a Simple Pendulum — Measuring <span class="math notranslate nohighlight">\(v\)</span> from <span class="math notranslate nohighlight">\(\omega\)</span></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 12 - Simple Harmonic Motion</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lab12/lab12.html">Lab 12: Simple Harmonic Motion with a Phone Pendulum</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Phys-Prof-Nielsen/modulearn/blob/main/books/university-physics-I-lab/lab-MC/intro-error-propagation.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lab-MC/intro-error-propagation.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>PHYS 2215 — Introduction to Error Propagation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-analytical-methods-to-monte-carlo-simulations">From Analytical Methods to Monte Carlo Simulations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning Outcomes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-need-error-propagation">1. Why Do We Need Error Propagation?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-important-types-of-uncertainty">Two Important Types of Uncertainty</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-measurement-does-not-need-to-be-repeated-to-have-uncertainty">A Measurement Does Not Need to Be Repeated to Have Uncertainty</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-analytical-error-propagation">2. First-Order Analytical Error Propagation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#propagating-the-variance">Propagating the Variance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#important-assumptions">Important Assumptions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-example-measuring-gravity-with-a-pendulum">3. Worked Example: Measuring Gravity with a Pendulum</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-calculate-the-partial-derivatives">Step 1 — Calculate the Partial Derivatives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-apply-the-propagation-formula">Step 2 — Apply the Propagation Formula</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#think-about-it">Think About It</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#describing-experimental-uncertainty">4. Describing Experimental Uncertainty</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measurement-bounds-half-width">Measurement Bounds (Half-Width)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation-sigma">Standard Deviation (<span class="math notranslate nohighlight">\(\sigma\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-68-mean">What Does 68% Mean?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#length-a-single-measurement">4.1 Length: A Single Measurement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#period-repeated-measurements">4.2 Period: Repeated Measurements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#important-distinction">Important Distinction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analytical-uncertainty-propagation">Analytical Uncertainty Propagation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-introduce-monte-carlo-methods">5. Why Introduce Monte Carlo Methods?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-additional-advantage">An Additional Advantage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-monte-carlo-idea">The Monte Carlo Idea</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Important Distinction</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-a-monte-carlo-simulation">6. Implementing a Monte Carlo Simulation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithm">Algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-random-sampling">Why Use Random Sampling?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-the-input-distributions">Interpreting the Input Distributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#questions">Questions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-analytical-and-monte-carlo-results">7. Comparing Analytical and Monte Carlo Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analytical-method">Analytical Method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monte-carlo-method">Monte Carlo Method</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#which-measurement-contributes-most-to-the-uncertainty">8. Which Measurement Contributes Most to the Uncertainty?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-word-of-caution">A Word of Caution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-the-results">Interpreting the Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-the-analytical-and-monte-carlo-results-slightly-different">Why Are the Analytical and Monte Carlo Results Slightly Different?</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Questions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-monte-carlo-cannot-tell-us">9. What Monte Carlo Cannot Tell Us</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-versus-systematic-effects">Random Versus Systematic Effects</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaway">Key Takeaway</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#independent-application-kinetic-energy">10. Independent Application: Kinetic Energy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem">The Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-a-analytical-propagation">Part A — Analytical Propagation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-b-monte-carlo-propagation">Part B — Monte Carlo Propagation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-c-exploring-nonlinearity">Part C — Exploring Nonlinearity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Questions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-reflection">11. Final Reflection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptual-understanding">Conceptual Understanding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computational-understanding">Computational Understanding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-interpretation">Physical Interpretation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="phys-2215-introduction-to-error-propagation">
+<h1>PHYS 2215 — Introduction to Error Propagation<a class="headerlink" href="#phys-2215-introduction-to-error-propagation" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="from-analytical-methods-to-monte-carlo-simulations">
+<h2>From Analytical Methods to Monte Carlo Simulations<a class="headerlink" href="#from-analytical-methods-to-monte-carlo-simulations" title="Link to this heading">#</a></h2>
+<p>In experimental physics, measured quantities are never known with
+perfect precision. When these quantities are used to calculate another
+physical quantity, their uncertainties must also be considered.</p>
+<p>In this activity, we explore two approaches to uncertainty propagation:</p>
+<ol class="arabic simple">
+<li><p><strong>First-order analytical propagation</strong>, using partial derivatives.</p></li>
+<li><p><strong>Monte Carlo (MC) propagation</strong>, using probability distributions
+and repeated numerical calculations.</p></li>
+</ol>
+<p>We will use a simple pendulum as our primary example.</p>
+<hr class="docutils" />
+<section id="learning-outcomes">
+<h3>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Link to this heading">#</a></h3>
+<p>By completing this activity, you should be able to:</p>
+<p><strong>LO1 — Measurement and Uncertainty</strong></p>
+<p>Interpret measurement uncertainty and distinguish random variability
+from systematic effects.</p>
+<p><strong>LO2 — Analytical Propagation</strong></p>
+<p>Explain how uncertainty in measured input quantities influences a
+derived physical quantity and apply first-order uncertainty propagation.</p>
+<p><strong>LO3 — Probability Distributions</strong></p>
+<p>Represent measurement uncertainty using probability distributions
+and recognize how nonlinear transformations can affect their shape.</p>
+<p><strong>LO4 — Monte Carlo Propagation</strong></p>
+<p>Implement a Monte Carlo simulation and distinguish simulated values
+from actual experimental measurements.</p>
+<p><strong>LO5 — Physical Interpretation</strong></p>
+<p>Interpret propagated uncertainty, identify dominant uncertainty
+contributions, and evaluate agreement between experimental results
+and theoretical predictions.</p>
+</section>
+<hr class="docutils" />
+<section id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Basic algebra and functions.</p></li>
+<li><p>Introductory differentiation.</p></li>
+<li><p>Basic familiarity with Python (helpful but not required).</p></li>
+<li><p>No prior Monte Carlo experience is assumed.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="why-do-we-need-error-propagation">
+<h2>1. Why Do We Need Error Propagation?<a class="headerlink" href="#why-do-we-need-error-propagation" title="Link to this heading">#</a></h2>
+<p>In experimental physics, we rarely measure the quantity of interest
+directly.</p>
+<p>Instead, we often measure several physical quantities and combine
+them using a mathematical model.</p>
+<p>Consider a physical quantity</p>
+<div class="math notranslate nohighlight">
+\[
+q=f(x,y),
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are experimentally measured quantities.</p>
+<p>Because measurements have uncertainty, we generally report</p>
+<div class="math notranslate nohighlight">
+\[
+x=x_0\pm\sigma_x
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+y=y_0\pm\sigma_y.
+\]</div>
+<p>Here, <span class="math notranslate nohighlight">\(\sigma_x\)</span> and <span class="math notranslate nohighlight">\(\sigma_y\)</span> represent the standard uncertainties
+associated with the measurements.</p>
+<p>The central question is:</p>
+<blockquote>
+<div><p>How do the uncertainties in <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> affect the uncertainty
+in the calculated quantity <span class="math notranslate nohighlight">\(q\)</span>?</p>
+</div></blockquote>
+<p>This is the purpose of <strong>uncertainty propagation</strong>.</p>
+<section id="two-important-types-of-uncertainty">
+<h3>Two Important Types of Uncertainty<a class="headerlink" href="#two-important-types-of-uncertainty" title="Link to this heading">#</a></h3>
+<p><strong>Random uncertainty</strong></p>
+<p>Random variability produces differences between repeated measurements.
+For independent measurements, collecting more data can improve the
+precision of an estimated mean.</p>
+<p><strong>Systematic uncertainty</strong></p>
+<p>Systematic effects can shift measurements consistently in one direction.
+Examples include an incorrectly calibrated ruler or an offset in a
+timing device.</p>
+<p>Repeating measurements does not necessarily eliminate systematic effects.</p>
+</section>
+<section id="a-measurement-does-not-need-to-be-repeated-to-have-uncertainty">
+<h3>A Measurement Does Not Need to Be Repeated to Have Uncertainty<a class="headerlink" href="#a-measurement-does-not-need-to-be-repeated-to-have-uncertainty" title="Link to this heading">#</a></h3>
+<p>Suppose a pendulum length is measured once:</p>
+<div class="math notranslate nohighlight">
+\[
+L=(0.850\pm0.005)\ \mathrm{m}.
+\]</div>
+<p>The uncertainty may arise from ruler resolution, the location of
+the pivot, or uncertainty in identifying the center of mass.</p>
+<p>Even though the length was measured only once, our knowledge of its
+actual value is still uncertain.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="first-order-analytical-error-propagation">
+<h2>2. First-Order Analytical Error Propagation<a class="headerlink" href="#first-order-analytical-error-propagation" title="Link to this heading">#</a></h2>
+<p>Consider a function of two variables:</p>
+<div class="math notranslate nohighlight">
+\[
+q=f(x,y).
+\]</div>
+<p>For small changes in <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, we can approximate the corresponding
+change in <span class="math notranslate nohighlight">\(q\)</span> using a first-order Taylor expansion:</p>
+<div class="math notranslate nohighlight">
+\[
+f(x+\delta x,y+\delta y)
+\approx
+f(x,y)
++
+\frac{\partial f}{\partial x}\delta x
++
+\frac{\partial f}{\partial y}\delta y.
+\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[
+\delta q\approx
+\frac{\partial f}{\partial x}\delta x
++
+\frac{\partial f}{\partial y}\delta y.
+\]</div>
+<section id="propagating-the-variance">
+<h3>Propagating the Variance<a class="headerlink" href="#propagating-the-variance" title="Link to this heading">#</a></h3>
+<p>For independent measurements, the variance of the sum is the sum of
+the individual variances.</p>
+<p>Consequently,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\sigma_q^2=
+\left(\frac{\partial f}{\partial x}\right)^2\sigma_x^2+
+\left(\frac{\partial f}{\partial y}\right)^2\sigma_y^2
+}
+\]</div>
+<p>or, equivalently,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\sigma_q=
+\sqrt{
+\left(\frac{\partial f}{\partial x}\sigma_x\right)^2+
+\left(\frac{\partial f}{\partial y}\sigma_y\right)^2
+}
+}
+\]</div>
+<p>This is the <strong>standard (first-order) error propagation formula</strong> commonly used in experimental physics laboratories to estimate the uncertainty in a calculated quantity from the uncertainties in its independently measured input variables.</p>
+</section>
+<section id="important-assumptions">
+<h3>Important Assumptions<a class="headerlink" href="#important-assumptions" title="Link to this heading">#</a></h3>
+<p>This expression assumes:</p>
+<ul class="simple">
+<li><p>The uncertainties are sufficiently small for a first-order Taylor
+approximation to be appropriate.</p></li>
+<li><p>The two measured quantities are statistically independent.</p></li>
+<li><p>The standard uncertainties of the input measurements are known or estimated.</p></li>
+</ul>
+<p>If the measurements are correlated, we must include an additional term:</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma_q^2=
+\left(\frac{\partial f}{\partial x}\right)^2\sigma_x^2+
+\left(\frac{\partial f}{\partial y}\right)^2\sigma_y^2+
+2\frac{\partial f}{\partial x}
+\frac{\partial f}{\partial y}\operatorname{Cov}(x,y).
+\]</div>
+<p>Here, <span class="math notranslate nohighlight">\(\operatorname{Cov}(x,y)\)</span> is the <strong>covariance</strong> between <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, which describes how their variations are related; it is zero when the two measurements are statistically independent.</p>
+<p><strong>Note:</strong> First-order propagation does not require the input
+distributions to be Gaussian.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="worked-example-measuring-gravity-with-a-pendulum">
+<h2>3. Worked Example: Measuring Gravity with a Pendulum<a class="headerlink" href="#worked-example-measuring-gravity-with-a-pendulum" title="Link to this heading">#</a></h2>
+<p>For a simple pendulum undergoing small-amplitude oscillations,</p>
+<div class="math notranslate nohighlight">
+\[
+T=2\pi\sqrt{\frac{L}{g}}.
+\]</div>
+<p>Rearranging to calculate gravitational acceleration gives</p>
+<div class="math notranslate nohighlight">
+\[
+g(L,T)=\frac{4\pi^2L}{T^2}.
+\]</div>
+<p>We measure the pendulum length <span class="math notranslate nohighlight">\(L\)</span> and period <span class="math notranslate nohighlight">\(T\)</span>.</p>
+<section id="step-1-calculate-the-partial-derivatives">
+<h3>Step 1 — Calculate the Partial Derivatives<a class="headerlink" href="#step-1-calculate-the-partial-derivatives" title="Link to this heading">#</a></h3>
+<p>The relevant partial derivatives are</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial g}{\partial L}=\frac{4\pi^2}{T^2}
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial g}{\partial T}=-\frac{8\pi^2L}{T^3}.
+\]</div>
+</section>
+<section id="step-2-apply-the-propagation-formula">
+<h3>Step 2 — Apply the Propagation Formula<a class="headerlink" href="#step-2-apply-the-propagation-formula" title="Link to this heading">#</a></h3>
+<p>Substituting into the first-order propagation equation gives</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma_g=
+\sqrt{
+\left(\frac{4\pi^2}{T^2}\sigma_L\right)^2+
+\left(\frac{8\pi^2L}{T^3}\sigma_T\right)^2
+}.
+\]</div>
+<p>Dividing by <span class="math notranslate nohighlight">\(g\)</span>, we obtain the relative uncertainty:</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\frac{\sigma_g}{g}=
+\sqrt{
+\left(\frac{\sigma_L}{L}\right)^2+
+\left(2\frac{\sigma_T}{T}\right)^2
+}
+}
+\]</div>
+</section>
+<section id="think-about-it">
+<h3>Think About It<a class="headerlink" href="#think-about-it" title="Link to this heading">#</a></h3>
+<p>Why does the relative uncertainty in the period have a factor of two,
+while the relative uncertainty in the length does not?</p>
+<p>What does this tell us about the sensitivity of the calculated
+gravitational acceleration to each measurement?</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="describing-experimental-uncertainty">
+<h2>4. Describing Experimental Uncertainty<a class="headerlink" href="#describing-experimental-uncertainty" title="Link to this heading">#</a></h2>
+<p>Consider the following illustrative pendulum measurements:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Quantity</p></th>
+<th class="head text-right"><p>Measured value</p></th>
+<th class="head"><p>Uncertainty information</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Pendulum length</p></td>
+<td class="text-right"><p>0.850 m</p></td>
+<td><p>±0.005 m measurement bounds</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mean period</p></td>
+<td class="text-right"><p>1.850 s</p></td>
+<td><p>Obtained from 10 independent trials</p></td>
+</tr>
+<tr class="row-even"><td><p>Standard deviation of period trials</p></td>
+<td class="text-right"><p>0.020 s</p></td>
+<td><p>Trial-to-trial variability</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The uncertainties associated with length and period arise from
+different measurement processes.</p>
+<p>Before assigning probability distributions to our measurements,
+we need to distinguish three important concepts.</p>
+<section id="measurement-bounds-half-width">
+<h3>Measurement Bounds (Half-Width)<a class="headerlink" href="#measurement-bounds-half-width" title="Link to this heading">#</a></h3>
+<p>Suppose we report a measured length as</p>
+<div class="math notranslate nohighlight">
+\[
+L=(0.850\pm0.005)\ \mathrm{m}.
+\]</div>
+<p>If the <span class="math notranslate nohighlight">\(\pm0.005\)</span> m represents our estimated measurement bounds,
+we are assuming that the actual length lies somewhere between
+0.845 m and 0.855 m.</p>
+<p>The value 0.005 m is called the <strong>half-width</strong> (<span class="math notranslate nohighlight">\(a\)</span>) because it
+represents half of the total interval:</p>
+<div class="math notranslate nohighlight">
+\[
+a=\frac{0.855-0.845}{2}=0.005\ \mathrm{m}.
+\]</div>
+</section>
+<section id="standard-deviation-sigma">
+<h3>Standard Deviation (<span class="math notranslate nohighlight">\(\sigma\)</span>)<a class="headerlink" href="#standard-deviation-sigma" title="Link to this heading">#</a></h3>
+<p>The standard deviation describes the spread of a probability
+distribution around its mean.</p>
+<p>Unlike the half-width, the standard deviation depends on how
+probability is distributed within the interval.</p>
+</section>
+<section id="what-does-68-mean">
+<h3>What Does 68% Mean?<a class="headerlink" href="#what-does-68-mean" title="Link to this heading">#</a></h3>
+<p>For a <strong>normal (Gaussian) distribution</strong>, approximately 68% of
+the probability lies within one standard deviation of the mean:</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{\mu-\sigma\leq x\leq\mu+\sigma}.
+\]</div>
+<p>This is commonly called the <em>68% interval</em> or <em>one-sigma interval</em>.</p>
+<p>However, this relationship is specific to the normal distribution.
+For other distributions, the interval containing 68% of the
+probability may be different.</p>
+<p>For example, in a uniform distribution, the central 68% interval
+extends only 68% of the way from the mean to each measurement bound.</p>
+<p><strong>Important:</strong> A central 68% interval contains 68% of the total
+probability, not necessarily 68% of the distribution’s width.</p>
+<p>For a uniform distribution, these percentages coincide because
+probability is distributed equally across the interval. For a
+normal distribution, probability is concentrated near the mean,
+so approximately 68% lies within <span class="math notranslate nohighlight">\(\mu\pm\sigma\)</span>.</p>
+</section>
+<section id="length-a-single-measurement">
+<h3>4.1 Length: A Single Measurement<a class="headerlink" href="#length-a-single-measurement" title="Link to this heading">#</a></h3>
+<p>Suppose we measure the pendulum length once:</p>
+<div class="math notranslate nohighlight">
+\[
+L=(0.850\pm0.005)\ \mathrm{m}.
+\]</div>
+<p>Here, we interpret <span class="math notranslate nohighlight">\(\pm0.005\)</span> m as the estimated measurement
+bounds. In other words, we assume the actual length lies somewhere
+between 0.845 m and 0.855 m.</p>
+<p>Since we have no reason to favor one value within this interval
+over another, we assign a <strong>uniform probability distribution</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+L\sim U(0.845,0.855)\ \mathrm{m}.
+\]</div>
+<p>A uniform distribution assigns equal probability density to
+all values within its specified interval.</p>
+<p>However, the half-width of a distribution is not the same as its
+standard deviation. For a uniform distribution extending from
+<span class="math notranslate nohighlight">\(a\)</span> to <span class="math notranslate nohighlight">\(b\)</span>, the standard deviation is given by</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{\sigma=\frac{b-a}{\sqrt{12}}}.
+\]</div>
+<p>Applying this expression to our length measurement gives</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma_L=
+\frac{0.855-0.845}{\sqrt{12}}
+=
+\boxed{0.00289\ \mathrm{m}}.
+\]</div>
+<p>This is the <strong>standard uncertainty</strong> we will use in our analytical
+error propagation calculation.</p>
+<p><strong>Note:</strong> If the original <span class="math notranslate nohighlight">\(\pm0.005\)</span> m had already represented
+one standard uncertainty rather than measurement bounds, this
+conversion would not be necessary.</p>
+</section>
+<section id="period-repeated-measurements">
+<h3>4.2 Period: Repeated Measurements<a class="headerlink" href="#period-repeated-measurements" title="Link to this heading">#</a></h3>
+<p>The period is determined from repeated timing trials.</p>
+<p>Suppose the sample standard deviation of the individual period
+measurements is</p>
+<div class="math notranslate nohighlight">
+\[
+s_T=0.020\ \mathrm{s}.
+\]</div>
+<p>For <span class="math notranslate nohighlight">\(n=10\)</span> independent trials, the estimated standard uncertainty
+of the mean is</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\sigma_{\bar T}=\frac{s_T}{\sqrt{n}}
+}
+\]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma_{\bar T}=\frac{0.020}{\sqrt{10}}\ \mathrm{s}.
+\]</div>
+<p>For this introductory example, we model uncertainty in the mean
+period using an approximately normal distribution:</p>
+<div class="math notranslate nohighlight">
+\[
+T\sim N\left(1.850,\frac{0.020}{\sqrt{10}}\right).
+\]</div>
+<p>Here, the second parameter represents the standard deviation.</p>
+<p>This is a simplifying approximation. In particular, it assumes
+independent trials and no significant unaccounted-for systematic
+timing bias.</p>
+<p><strong>Why a normal distribution?</strong></p>
+<p>Unlike the pendulum length, the period is estimated from repeated
+independent measurements. We assume that the random timing errors
+arise from several small contributions, making an approximately
+normal distribution a reasonable model.</p>
+<p>Furthermore, according to the <strong>Central Limit Theorem</strong>, the
+sampling distribution of the mean approaches a normal distribution
+as the number of independent measurements increases (provided
+the underlying distribution has finite variance).</p>
+<p>Thus, for this introductory example, we model our uncertainty
+in the mean period as</p>
+<div class="math notranslate nohighlight">
+\[
+T\sim N\left(\bar T,\frac{s_T}{\sqrt{n}}\right),
+\]</div>
+<p>where the second parameter denotes the standard deviation.</p>
+<p>With only 10 trials, this is an approximation rather than a
+guarantee of normality.</p>
+</section>
+<section id="important-distinction">
+<h3>Important Distinction<a class="headerlink" href="#important-distinction" title="Link to this heading">#</a></h3>
+<p>The standard deviation of repeated measurements describes their
+trial-to-trial variability.</p>
+<p>The standard uncertainty of the mean describes our uncertainty
+in the estimated average.</p>
+<p>These are not interchangeable.</p>
+</section>
+<section id="analytical-uncertainty-propagation">
+<h3>Analytical Uncertainty Propagation<a class="headerlink" href="#analytical-uncertainty-propagation" title="Link to this heading">#</a></h3>
+<p>In the Python script below, we calculate the gravitational acceleration and its standard uncertainty using the first-order analytical error propagation formula derived above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># --------------------------------------------------</span>
+<span class="c1"># Experimental inputs</span>
+<span class="c1"># --------------------------------------------------</span>
+
+<span class="n">L0</span> <span class="o">=</span> <span class="mf">0.850</span>                  <span class="c1"># Measured length (m)</span>
+<span class="n">dL</span> <span class="o">=</span> <span class="mf">0.005</span>                  <span class="c1"># Half-width of uniform length distribution (m)</span>
+
+<span class="n">T0</span> <span class="o">=</span> <span class="mf">1.850</span>                  <span class="c1"># Mean period (s)</span>
+<span class="n">s_T</span> <span class="o">=</span> <span class="mf">0.020</span>                 <span class="c1"># Sample standard deviation of period trials (s)</span>
+<span class="n">n_trials</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="c1"># --------------------------------------------------</span>
+<span class="c1"># Standard uncertainties</span>
+<span class="c1"># --------------------------------------------------</span>
+
+<span class="n">sigma_L</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">dL</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="c1">#total width is 2xdL</span>
+<span class="n">sigma_T</span> <span class="o">=</span> <span class="n">s_T</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n_trials</span><span class="p">)</span>
+
+<span class="c1"># --------------------------------------------------</span>
+<span class="c1"># Physical model</span>
+<span class="c1"># --------------------------------------------------</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">gravity</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">T</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">L</span> <span class="o">/</span> <span class="n">T</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="c1"># --------------------------------------------------</span>
+<span class="c1"># Analytical uncertainty propagation</span>
+<span class="c1"># --------------------------------------------------</span>
+
+<span class="n">g0</span> <span class="o">=</span> <span class="n">gravity</span><span class="p">(</span><span class="n">L0</span><span class="p">,</span> <span class="n">T0</span><span class="p">)</span>
+
+<span class="n">sigma_g</span> <span class="o">=</span> <span class="n">g0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">sigma_L</span> <span class="o">/</span> <span class="n">L0</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span>
+    <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sigma_T</span> <span class="o">/</span> <span class="n">T0</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;FIRST-ORDER ANALYTICAL PROPAGATION&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;----------------------------------&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;g = </span><span class="si">{</span><span class="n">g0</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> m/s²&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Standard uncertainty = </span><span class="si">{</span><span class="n">sigma_g</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> m/s²&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Relative uncertainty = </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">sigma_g</span><span class="o">/</span><span class="n">g0</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIRST-ORDER ANALYTICAL PROPAGATION
+----------------------------------
+g = 9.8047 m/s²
+Standard uncertainty = 0.0749 m/s²
+Relative uncertainty = 0.763%
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="why-introduce-monte-carlo-methods">
+<h2>5. Why Introduce Monte Carlo Methods?<a class="headerlink" href="#why-introduce-monte-carlo-methods" title="Link to this heading">#</a></h2>
+<p>The standard analytical error propagation formula is a powerful
+mathematical tool, but it presents two challenges in an introductory
+physics laboratory.</p>
+<p>First, it requires <strong>partial derivatives</strong>, a topic from multivariable
+calculus that many introductory physics students have not yet studied.</p>
+<p>Second, the mathematical procedure can distract from an important
+underlying concept: <strong>uncertainty analysis is fundamentally statistical</strong>.
+We are not simply manipulating error terms in an equation; we are
+investigating how uncertainty in our experimental measurements
+influences our knowledge of a calculated physical quantity.</p>
+<p>Monte Carlo (MC) methods offer a more intuitive computational
+approach. Rather than starting with partial derivatives, we represent
+our uncertain measurements using probability distributions, randomly
+sample possible values, and propagate those values directly through
+the physical model.</p>
+<p>In this way, Monte Carlo makes the statistical nature of uncertainty
+propagation more visible while requiring only basic algebra,
+probability concepts, and introductory Python.</p>
+<section id="an-additional-advantage">
+<h3>An Additional Advantage<a class="headerlink" href="#an-additional-advantage" title="Link to this heading">#</a></h3>
+<p>First-order analytical propagation approximates the physical model
+as locally linear. This approximation may become less reliable when:</p>
+<ul class="simple">
+<li><p>Measurement uncertainties are relatively large.</p></li>
+<li><p>The physical model is strongly nonlinear.</p></li>
+<li><p>Input probability distributions are asymmetric or non-Gaussian.</p></li>
+<li><p>We want to examine the complete distribution of a calculated
+quantity rather than only its standard uncertainty.</p></li>
+</ul>
+</section>
+<section id="the-monte-carlo-idea">
+<h3>The Monte Carlo Idea<a class="headerlink" href="#the-monte-carlo-idea" title="Link to this heading">#</a></h3>
+<p>Instead of propagating uncertainty using partial derivatives, we
+propagate randomly sampled values through the original physical model.</p>
+<p>Suppose</p>
+<div class="math notranslate nohighlight">
+\[
+q=f(x,y).
+\]</div>
+<p>We generate many possible values of <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> according to their
+assigned probability distributions:</p>
+<div class="math notranslate nohighlight">
+\[
+x_1,x_2,\ldots,x_N
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+y_1,y_2,\ldots,y_N.
+\]</div>
+<p>For each pair, we calculate</p>
+<div class="math notranslate nohighlight">
+\[
+q_i=f(x_i,y_i).
+\]</div>
+<p>After repeating this process many times, we obtain a distribution
+of possible values of <span class="math notranslate nohighlight">\(q\)</span>.</p>
+<p>From this distribution, we can determine:</p>
+<ul class="simple">
+<li><p>The mean or median.</p></li>
+<li><p>The standard deviation.</p></li>
+<li><p>The shape and symmetry of the distribution.</p></li>
+<li><p>Probability intervals (e.g., central 68% and 95% intervals).</p></li>
+</ul>
+</section>
+<section id="id1">
+<h3>Important Distinction<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Monte Carlo simulations do not create additional experimental
+measurements.</p>
+<p>Generating 10,000 simulated values does not mean that we performed
+10,000 physical experiments.</p>
+<p>Increasing the number of simulations improves the numerical precision
+of the simulated distribution. It does not automatically improve the
+accuracy or precision of the original experimental measurements.</p>
+<p>Monte Carlo propagates the uncertainty model we assign to our inputs.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="implementing-a-monte-carlo-simulation">
+<h2>6. Implementing a Monte Carlo Simulation<a class="headerlink" href="#implementing-a-monte-carlo-simulation" title="Link to this heading">#</a></h2>
+<p>We will now calculate gravitational acceleration using Monte Carlo
+uncertainty propagation.</p>
+<p>Our physical model remains</p>
+<div class="math notranslate nohighlight">
+\[
+g=\frac{4\pi^2L}{T^2}.
+\]</div>
+<section id="algorithm">
+<h3>Algorithm<a class="headerlink" href="#algorithm" title="Link to this heading">#</a></h3>
+<p><strong>Step 1:</strong> Choose the number of simulations, <span class="math notranslate nohighlight">\(N\)</span>.</p>
+<p><strong>Step 2:</strong> Generate <span class="math notranslate nohighlight">\(N\)</span> possible pendulum lengths from the assigned
+uniform probability distribution.</p>
+<p><strong>Step 3:</strong> Generate <span class="math notranslate nohighlight">\(N\)</span> possible mean periods from the assigned
+normal probability distribution.</p>
+<p><strong>Step 4:</strong> For each simulated pair <span class="math notranslate nohighlight">\((L_i,T_i)\)</span>, calculate</p>
+<div class="math notranslate nohighlight">
+\[
+g_i=\frac{4\pi^2L_i}{T_i^2}.
+\]</div>
+<p><strong>Step 5:</strong> Examine the resulting distribution of calculated
+gravitational accelerations.</p>
+<p>For this example, we will use</p>
+<div class="math notranslate nohighlight">
+\[
+N=10,000.
+\]</div>
+</section>
+<section id="why-use-random-sampling">
+<h3>Why Use Random Sampling?<a class="headerlink" href="#why-use-random-sampling" title="Link to this heading">#</a></h3>
+<p>Each simulated pair represents one possible combination of input
+values consistent with our measurement uncertainty model.</p>
+<p>By repeating the calculation thousands of times, we approximate
+how uncertainty in the inputs propagates through the physical model.</p>
+<p>For this introductory example, length and period are treated as
+statistically independent.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --------------------------------------------------</span>
+<span class="c1"># Monte Carlo setup</span>
+<span class="c1"># --------------------------------------------------</span>
+
+<span class="c1"># Reproducible random number generator</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">2215</span><span class="p">)</span>
+
+<span class="c1"># Number of simulations</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">10_000</span>
+
+<span class="c1"># --------------------------------------------------</span>
+<span class="c1"># Generate random input values</span>
+<span class="c1"># --------------------------------------------------</span>
+
+<span class="c1"># Length: uniform distribution</span>
+<span class="n">L_samples</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span>
+    <span class="n">L0</span> <span class="o">-</span> <span class="n">dL</span><span class="p">,</span>
+    <span class="n">L0</span> <span class="o">+</span> <span class="n">dL</span><span class="p">,</span>
+    <span class="n">size</span><span class="o">=</span><span class="n">N</span>
+<span class="p">)</span>
+
+<span class="c1"># Mean period: normal distribution</span>
+<span class="n">T_samples</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span>
+    <span class="n">T0</span><span class="p">,</span>
+    <span class="n">sigma_T</span><span class="p">,</span>
+    <span class="n">size</span><span class="o">=</span><span class="n">N</span>
+<span class="p">)</span>
+
+<span class="c1"># --------------------------------------------------</span>
+<span class="c1"># Propagate through the physical model</span>
+<span class="c1"># --------------------------------------------------</span>
+
+<span class="n">g_samples</span> <span class="o">=</span> <span class="n">gravity</span><span class="p">(</span><span class="n">L_samples</span><span class="p">,</span> <span class="n">T_samples</span><span class="p">)</span>
+
+<span class="c1"># --------------------------------------------------</span>
+<span class="c1"># Calculate Monte Carlo statistics</span>
+<span class="c1"># --------------------------------------------------</span>
+
+<span class="n">g_mc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">g_samples</span><span class="p">)</span>
+
+<span class="n">sigma_mc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">g_samples</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">lower_68</span><span class="p">,</span> <span class="n">upper_68</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span>
+    <span class="n">g_samples</span><span class="p">,</span> <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">84</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">lower_95</span><span class="p">,</span> <span class="n">upper_95</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span>
+    <span class="n">g_samples</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">97.5</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MONTE CARLO RESULTS&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-------------------&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mean g = </span><span class="si">{</span><span class="n">g_mc</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> m/s²&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Standard uncertainty = </span><span class="si">{</span><span class="n">sigma_mc</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> m/s²&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;Central 68% interval: &quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">lower_68</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">upper_68</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">] m/s²&quot;</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;Central 95% interval: &quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">lower_95</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">upper_95</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">] m/s²&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MONTE CARLO RESULTS
+-------------------
+Mean g = 9.8040 m/s²
+Standard uncertainty = 0.0748 m/s²
+Central 68% interval: [9.7293, 9.8779] m/s²
+Central 95% interval: [9.6568, 9.9509] m/s²
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --------------------------------------------------</span>
+<span class="c1"># Visualize the sampled input distributions</span>
+<span class="c1"># --------------------------------------------------</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="c1"># Length distribution</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span>
+    <span class="n">L_samples</span><span class="p">,</span>
+    <span class="n">bins</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
+    <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span>
+<span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span>
+    <span class="n">L0</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
+    <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Measured length&quot;</span>
+<span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Length Uncertainty&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Pendulum length (m)&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Probability density&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># Period distribution</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span>
+    <span class="n">T_samples</span><span class="p">,</span>
+    <span class="n">bins</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
+    <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span>
+<span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span>
+    <span class="n">T0</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
+    <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Mean period&quot;</span>
+<span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Period Uncertainty&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Mean period (s)&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Probability density&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f3ca72df337a9408862e15cdc408ddc4f6b09faff656c570073358d2ff1215ad.png" src="../_images/f3ca72df337a9408862e15cdc408ddc4f6b09faff656c570073358d2ff1215ad.png" />
+</div>
+</div>
+</section>
+<section id="interpreting-the-input-distributions">
+<h3>Interpreting the Input Distributions<a class="headerlink" href="#interpreting-the-input-distributions" title="Link to this heading">#</a></h3>
+<p>Notice that the two distributions have different shapes.</p>
+<p>The length distribution is approximately uniform because we assumed
+that every value within the measurement bounds is equally plausible.</p>
+<p>The period distribution is approximately Gaussian because we
+modeled uncertainty in the mean period using a normal distribution.</p>
+<p>These choices should be based on our knowledge of the measurement
+process—not simply on convenience.</p>
+</section>
+<section id="questions">
+<h3>Questions<a class="headerlink" href="#questions" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Why does the length distribution appear approximately rectangular?</p></li>
+<li><p>Why does the period distribution have a central peak?</p></li>
+<li><p>Would the period distribution become narrower if we increased
+the number of independent timing trials?</p></li>
+<li><p>Would increasing the number of timing trials change the uncertainty
+associated with our measurement of the pendulum length?</p></li>
+<li><p>Why is it important to justify the input distributions before
+performing a Monte Carlo simulation?</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --------------------------------------------------</span>
+<span class="c1"># Monte Carlo output distribution</span>
+<span class="c1"># --------------------------------------------------</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span>
+    <span class="n">g_samples</span><span class="p">,</span>
+    <span class="n">bins</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span>
+    <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.70</span><span class="p">,</span>
+    <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Monte Carlo distribution&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Analytical central value</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span>
+    <span class="n">g0</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
+    <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span>
+    <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Analytical central value&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Monte Carlo mean</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span>
+    <span class="n">g_mc</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkred&quot;</span><span class="p">,</span>
+    <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Monte Carlo mean&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Central 68% probability interval</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span>
+    <span class="n">lower_68</span><span class="p">,</span>
+    <span class="n">upper_68</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.20</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Central 68</span><span class="si">% i</span><span class="s2">nterval&quot;</span>
+<span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Gravitational acceleration (m/s²)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Probability density&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Monte Carlo Propagation of Pendulum Uncertainty&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4fd1050c1be5868bbe25898772588105386b38b27de28bf32c4eb57dc8129718.png" src="../_images/4fd1050c1be5868bbe25898772588105386b38b27de28bf32c4eb57dc8129718.png" />
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="comparing-analytical-and-monte-carlo-results">
+<h2>7. Comparing Analytical and Monte Carlo Results<a class="headerlink" href="#comparing-analytical-and-monte-carlo-results" title="Link to this heading">#</a></h2>
+<p>We have now calculated gravitational acceleration using two
+different approaches.</p>
+<section id="analytical-method">
+<h3>Analytical Method<a class="headerlink" href="#analytical-method" title="Link to this heading">#</a></h3>
+<p>First-order analytical propagation provides an estimate of the
+standard uncertainty based on the local behavior of the function.</p>
+<p>For the pendulum,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\sigma_g}{g}=
+\sqrt{
+\left(\frac{\sigma_L}{L}\right)^2+
+\left(2\frac{\sigma_T}{T}\right)^2
+}.
+\]</div>
+</section>
+<section id="monte-carlo-method">
+<h3>Monte Carlo Method<a class="headerlink" href="#monte-carlo-method" title="Link to this heading">#</a></h3>
+<p>Monte Carlo propagation provides an approximation to the complete
+output distribution.</p>
+<p>This allows us to investigate:</p>
+<ul class="simple">
+<li><p>The mean and median of the calculated quantity.</p></li>
+<li><p>The standard deviation.</p></li>
+<li><p>The shape and symmetry of the distribution.</p></li>
+<li><p>Central probability intervals.</p></li>
+</ul>
+<p>For sufficiently small input uncertainties, the analytical and
+Monte Carlo standard uncertainties should generally agree closely.</p>
+<p>However, close agreement does not establish that the experimental
+measurements are accurate or free of systematic effects.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --------------------------------------------------</span>
+<span class="c1"># Compare analytical and Monte Carlo results</span>
+<span class="c1"># --------------------------------------------------</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ANALYTICAL VS. MONTE CARLO&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">62</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;Quantity&#39;</span><span class="si">:</span><span class="s2">&lt;28</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;Analytical&#39;</span><span class="si">:</span><span class="s2">&gt;16</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;Monte Carlo&#39;</span><span class="si">:</span><span class="s2">&gt;16</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">62</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;Central value (m/s²)&#39;</span><span class="si">:</span><span class="s2">&lt;28</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">g0</span><span class="si">:</span><span class="s2">&gt;16.5f</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">g_mc</span><span class="si">:</span><span class="s2">&gt;16.5f</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;Std. uncertainty (m/s²)&#39;</span><span class="si">:</span><span class="s2">&lt;28</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">sigma_g</span><span class="si">:</span><span class="s2">&gt;16.5f</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">sigma_mc</span><span class="si">:</span><span class="s2">&gt;16.5f</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">)</span>
+
+<span class="n">difference</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="p">(</span><span class="n">sigma_mc</span> <span class="o">-</span> <span class="n">sigma_g</span><span class="p">)</span> <span class="o">/</span> <span class="n">sigma_g</span>
+
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;Relative difference in standard uncertainty: &quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">difference</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">%&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ANALYTICAL VS. MONTE CARLO
+--------------------------------------------------------------
+Quantity                          Analytical     Monte Carlo
+--------------------------------------------------------------
+Central value (m/s²)                 9.80472         9.80403
+Std. uncertainty (m/s²)              0.07485         0.07482
+
+Relative difference in standard uncertainty: -0.043%
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="which-measurement-contributes-most-to-the-uncertainty">
+<h2>8. Which Measurement Contributes Most to the Uncertainty?<a class="headerlink" href="#which-measurement-contributes-most-to-the-uncertainty" title="Link to this heading">#</a></h2>
+<p>The calculated gravitational acceleration depends on two measured
+quantities:</p>
+<div class="math notranslate nohighlight">
+\[
+g=\frac{4\pi^2L}{T^2}.
+\]</div>
+<p>We can use Monte Carlo simulations to investigate their individual
+contributions.</p>
+<p>We will perform three simulations:</p>
+<p><strong>Simulation A — Length Only</strong></p>
+<p>Vary the length while keeping the period fixed.</p>
+<div class="math notranslate nohighlight">
+\[
+g_i=\frac{4\pi^2L_i}{T_0^2}
+\]</div>
+<p><strong>Simulation B — Period Only</strong></p>
+<p>Vary the period while keeping the length fixed.</p>
+<div class="math notranslate nohighlight">
+\[
+g_i=\frac{4\pi^2L_0}{T_i^2}
+\]</div>
+<p><strong>Simulation C — Combined</strong></p>
+<p>Vary both quantities simultaneously.</p>
+<div class="math notranslate nohighlight">
+\[
+g_i=\frac{4\pi^2L_i}{T_i^2}
+\]</div>
+<section id="a-word-of-caution">
+<h3>A Word of Caution<a class="headerlink" href="#a-word-of-caution" title="Link to this heading">#</a></h3>
+<p>Because the input distributions have different shapes, simply
+comparing the apparent widths or heights of their histograms can
+be misleading.</p>
+<p>Instead, we should compare their <strong>standard uncertainties</strong>.</p>
+<p>For the analytical method, the individual relative contributions are</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\left(\frac{\sigma_g}{g}\right)_L
+=
+\frac{\sigma_L}{L}
+}
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\left(\frac{\sigma_g}{g}\right)_T
+=
+2\frac{\sigma_T}{T}.
+}
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ==========================================================</span>
+<span class="c1"># SECTION 8 — COMPARING UNCERTAINTY CONTRIBUTIONS</span>
+<span class="c1"># ==========================================================</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># ----------------------------------------------------------</span>
+<span class="c1"># Experimental measurements</span>
+<span class="c1"># ----------------------------------------------------------</span>
+
+<span class="n">L0</span> <span class="o">=</span> <span class="mf">0.850</span>                 <span class="c1"># Pendulum length (m)</span>
+<span class="n">dL</span> <span class="o">=</span> <span class="mf">0.005</span>                 <span class="c1"># Half-width of length uncertainty (m)</span>
+
+<span class="n">T0</span> <span class="o">=</span> <span class="mf">1.850</span>                 <span class="c1"># Mean period (s)</span>
+<span class="n">s_T</span> <span class="o">=</span> <span class="mf">0.020</span>                <span class="c1"># Standard deviation of timing trials (s)</span>
+<span class="n">n_trials</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="c1"># Standard uncertainties</span>
+<span class="n">sigma_L</span> <span class="o">=</span> <span class="n">dL</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">sigma_T</span> <span class="o">=</span> <span class="n">s_T</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n_trials</span><span class="p">)</span>
+
+<span class="c1"># Physical model</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">gravity</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">T</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">L</span> <span class="o">/</span> <span class="n">T</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">g0</span> <span class="o">=</span> <span class="n">gravity</span><span class="p">(</span><span class="n">L0</span><span class="p">,</span> <span class="n">T0</span><span class="p">)</span>
+
+<span class="c1"># ----------------------------------------------------------</span>
+<span class="c1"># 1. Analytical relative standard uncertainties (%)</span>
+<span class="c1"># ----------------------------------------------------------</span>
+
+<span class="n">analytical_L</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">sigma_L</span> <span class="o">/</span> <span class="n">L0</span>
+
+<span class="n">analytical_T</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">sigma_T</span> <span class="o">/</span> <span class="n">T0</span>
+
+<span class="n">analytical_combined</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+    <span class="n">analytical_L</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">analytical_T</span><span class="o">**</span><span class="mi">2</span>
+<span class="p">)</span>
+
+<span class="c1"># ----------------------------------------------------------</span>
+<span class="c1"># 2. Monte Carlo relative standard uncertainties (%)</span>
+<span class="c1"># ----------------------------------------------------------</span>
+
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">2215</span><span class="p">)</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">100_000</span>
+
+<span class="c1"># Generate possible input values</span>
+<span class="n">L_samples</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span>
+    <span class="n">L0</span> <span class="o">-</span> <span class="n">dL</span><span class="p">,</span>
+    <span class="n">L0</span> <span class="o">+</span> <span class="n">dL</span><span class="p">,</span>
+    <span class="n">size</span><span class="o">=</span><span class="n">N</span>
+<span class="p">)</span>
+
+<span class="n">T_samples</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span>
+    <span class="n">T0</span><span class="p">,</span>
+    <span class="n">sigma_T</span><span class="p">,</span>
+    <span class="n">size</span><span class="o">=</span><span class="n">N</span>
+<span class="p">)</span>
+
+<span class="c1"># Individual and combined simulations</span>
+<span class="n">g_length_only</span> <span class="o">=</span> <span class="n">gravity</span><span class="p">(</span><span class="n">L_samples</span><span class="p">,</span> <span class="n">T0</span><span class="p">)</span>
+
+<span class="n">g_period_only</span> <span class="o">=</span> <span class="n">gravity</span><span class="p">(</span><span class="n">L0</span><span class="p">,</span> <span class="n">T_samples</span><span class="p">)</span>
+
+<span class="n">g_combined</span> <span class="o">=</span> <span class="n">gravity</span><span class="p">(</span><span class="n">L_samples</span><span class="p">,</span> <span class="n">T_samples</span><span class="p">)</span>
+
+<span class="c1"># Relative standard uncertainties (%)</span>
+<span class="n">mc_L</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">g_length_only</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">g0</span>
+
+<span class="n">mc_T</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">g_period_only</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">g0</span>
+
+<span class="n">mc_combined</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">g_combined</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">g0</span>
+
+<span class="c1"># ----------------------------------------------------------</span>
+<span class="c1"># 3. Numerical comparison</span>
+<span class="c1"># ----------------------------------------------------------</span>
+
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;Length only&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Period only&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Combined&quot;</span>
+<span class="p">]</span>
+
+<span class="n">analytical</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">analytical_L</span><span class="p">,</span>
+    <span class="n">analytical_T</span><span class="p">,</span>
+    <span class="n">analytical_combined</span>
+<span class="p">]</span>
+
+<span class="n">monte_carlo</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">mc_L</span><span class="p">,</span>
+    <span class="n">mc_T</span><span class="p">,</span>
+    <span class="n">mc_combined</span>
+<span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;UNCERTAINTY CONTRIBUTIONS&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">53</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;Source&#39;</span><span class="si">:</span><span class="s2">&lt;18</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;Analytical (%)&#39;</span><span class="si">:</span><span class="s2">&gt;18</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;MC (%)&#39;</span><span class="si">:</span><span class="s2">&gt;15</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">53</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">mc</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">analytical</span><span class="p">,</span> <span class="n">monte_carlo</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">:</span><span class="s2">&lt;18</span><span class="si">}{</span><span class="n">a</span><span class="si">:</span><span class="s2">&gt;18.4f</span><span class="si">}{</span><span class="n">mc</span><span class="si">:</span><span class="s2">&gt;15.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># ----------------------------------------------------------</span>
+<span class="c1"># 4. Visualization: Analytical vs. Monte Carlo</span>
+<span class="c1"># ----------------------------------------------------------</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span>
+<span class="n">width</span> <span class="o">=</span> <span class="mf">0.35</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># Analytical bars</span>
+<span class="n">bars1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">-</span> <span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">analytical</span><span class="p">,</span>
+    <span class="n">width</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Analytical&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Monte Carlo bars</span>
+<span class="n">bars2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">+</span> <span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">monte_carlo</span><span class="p">,</span>
+    <span class="n">width</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Monte Carlo&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Display numerical values above each bar</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span>
+    <span class="n">bars1</span><span class="p">,</span>
+    <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%.3f%%</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">padding</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+    <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span>
+<span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span>
+    <span class="n">bars2</span><span class="p">,</span>
+    <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%.3f%%</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">padding</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+    <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span>
+<span class="p">)</span>
+
+<span class="c1"># Axis formatting</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Relative standard uncertainty (%)&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span>
+    <span class="s2">&quot;Analytical vs. Monte Carlo Uncertainty Contributions&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Set y-axis to 0–1%</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>UNCERTAINTY CONTRIBUTIONS
+-----------------------------------------------------
+Source                Analytical (%)         MC (%)
+-----------------------------------------------------
+Length only                   0.3396         0.3395
+Period only                   0.6837         0.6837
+Combined                      0.7634         0.7653
+</pre></div>
+</div>
+<img alt="../_images/b3612540930f95b1c11008eb88c6f9f9493f1f0729d850ca2f132fa7903de803.png" src="../_images/b3612540930f95b1c11008eb88c6f9f9493f1f0729d850ca2f132fa7903de803.png" />
+</div>
+</div>
+</section>
+<section id="interpreting-the-results">
+<h3>Interpreting the Results<a class="headerlink" href="#interpreting-the-results" title="Link to this heading">#</a></h3>
+<p>The table below summarizes the expected <strong>first-order analytical
+relative standard uncertainty contributions</strong> for our pendulum.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Source</p></th>
+<th class="head text-right"><p>Analytical relative standard uncertainty</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Length only</p></td>
+<td class="text-right"><p>0.340%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Period only</p></td>
+<td class="text-right"><p>0.684%</p></td>
+</tr>
+<tr class="row-even"><td><p>Combined</p></td>
+<td class="text-right"><p>0.763%</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Notice that the period contributes approximately twice as much
+relative standard uncertainty as the length measurement.</p>
+<p>This is partly because gravitational acceleration depends on
+the inverse square of the period:</p>
+<div class="math notranslate nohighlight">
+\[
+g\propto T^{-2}.
+\]</div>
+<p>The combined standard uncertainty is obtained by adding the
+independent contributions in quadrature:</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\left(\frac{\sigma_g}{g}\right)_{\mathrm{combined}}
+=
+\sqrt{(0.340\%)^2+(0.684\%)^2}
+\approx 0.763\%.
+}
+\]</div>
+<p>The Monte Carlo results should be close to these analytical
+predictions, although small differences arise from finite random
+sampling and the nonlinear physical model.</p>
+<section id="why-are-the-analytical-and-monte-carlo-results-slightly-different">
+<h4>Why Are the Analytical and Monte Carlo Results Slightly Different?<a class="headerlink" href="#why-are-the-analytical-and-monte-carlo-results-slightly-different" title="Link to this heading">#</a></h4>
+<p>The individual length and period contributions should agree very
+closely between the two methods.</p>
+<p>However, the combined uncertainty may show a small difference
+because:</p>
+<ol class="arabic">
+<li><p><strong>Analytical propagation is a first-order approximation.</strong>
+It approximates the physical model as locally linear, whereas
+Monte Carlo evaluates the original nonlinear relationship:</p>
+<div class="math notranslate nohighlight">
+\[
+   g=\frac{4\pi^2L}{T^2}.
+   \]</div>
+</li>
+<li><p><strong>Monte Carlo uses finite random samples.</strong> Even when the input
+distributions are specified as independent, the generated samples
+may exhibit small accidental correlations and sampling
+fluctuations.</p></li>
+</ol>
+<p>Increasing the number of simulations generally reduces sampling
+fluctuations, but it does not eliminate differences arising from
+the first-order approximation itself.</p>
+</section>
+</section>
+<section id="id2">
+<h3>Questions<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Which input contributes most to the uncertainty in gravitational
+acceleration?</p></li>
+<li><p>Why are the analytical and Monte Carlo contributions nearly
+identical for the individual measurements?</p></li>
+<li><p>Why might the combined Monte Carlo uncertainty differ slightly
+from the analytical result?</p></li>
+<li><p>What happens to the Monte Carlo results if we increase the
+number of simulations from 10,000 to 1,000,000?</p></li>
+<li><p>What would happen to the combined uncertainty if we doubled
+the number of independent timing trials while leaving the
+length measurement unchanged?</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="what-monte-carlo-cannot-tell-us">
+<h2>9. What Monte Carlo Cannot Tell Us<a class="headerlink" href="#what-monte-carlo-cannot-tell-us" title="Link to this heading">#</a></h2>
+<p>Monte Carlo simulations provide a powerful approach to uncertainty
+propagation, but they have limitations.</p>
+<p>The output distribution depends on:</p>
+<ol class="arabic simple">
+<li><p>The physical model being used.</p></li>
+<li><p>The input values and their assigned probability distributions.</p></li>
+<li><p>Any correlations between input quantities.</p></li>
+<li><p>The assumptions used to describe the measurement process.</p></li>
+</ol>
+<section id="random-versus-systematic-effects">
+<h3>Random Versus Systematic Effects<a class="headerlink" href="#random-versus-systematic-effects" title="Link to this heading">#</a></h3>
+<p>Suppose our ruler has an unknown calibration offset.</p>
+<p>Repeatedly sampling from a narrow distribution centered on an
+incorrect length will not automatically correct this bias.</p>
+<p>Likewise, if the pendulum oscillates at a sufficiently large angle,
+the small-angle model</p>
+<div class="math notranslate nohighlight">
+\[
+T=2\pi\sqrt{\frac{L}{g}}
+\]</div>
+<p>may no longer describe the experiment adequately.</p>
+<p>Increasing the number of Monte Carlo simulations will not correct
+an incomplete physical model.</p>
+</section>
+<section id="key-takeaway">
+<h3>Key Takeaway<a class="headerlink" href="#key-takeaway" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><p>Monte Carlo propagates our knowledge of the inputs through a
+physical model. The reliability of the result depends on the
+quality of both the input uncertainty model and the physics.</p>
+</div></blockquote>
+</section>
+</section>
+<hr class="docutils" />
+<section id="independent-application-kinetic-energy">
+<h2>10. Independent Application: Kinetic Energy<a class="headerlink" href="#independent-application-kinetic-energy" title="Link to this heading">#</a></h2>
+<p>We will now apply the same uncertainty-propagation methodology
+to a different physical problem.</p>
+<p>This exercise is intended to test whether you can transfer the
+method to a new physical context.</p>
+<section id="the-problem">
+<h3>The Problem<a class="headerlink" href="#the-problem" title="Link to this heading">#</a></h3>
+<p>The kinetic energy of a moving object is</p>
+<div class="math notranslate nohighlight">
+\[
+K=\frac12mv^2.
+\]</div>
+<p>Suppose we obtain the following experimental measurements:</p>
+<div class="math notranslate nohighlight">
+\[
+m=(0.250\pm0.005)\ \mathrm{kg}
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+v=(2.00\pm0.10)\ \mathrm{m/s}.
+\]</div>
+<p>For this exercise, treat the stated uncertainties as standard
+uncertainties and assume that mass and velocity are independent
+and normally distributed.</p>
+</section>
+<section id="part-a-analytical-propagation">
+<h3>Part A — Analytical Propagation<a class="headerlink" href="#part-a-analytical-propagation" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Calculate the nominal kinetic energy.</p></li>
+<li><p>Determine the partial derivatives</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial K}{\partial m}
+\qquad\text{and}\qquad
+\frac{\partial K}{\partial v}.
+\]</div>
+<ol class="arabic simple" start="3">
+<li><p>Show that the relative first-order uncertainty is</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\frac{\sigma_K}{K}=
+\sqrt{
+\left(\frac{\sigma_m}{m}\right)^2+
+\left(2\frac{\sigma_v}{v}\right)^2
+}
+}.
+\]</div>
+<ol class="arabic simple" start="4">
+<li><p>Calculate the analytical standard uncertainty in kinetic energy.</p></li>
+</ol>
+</section>
+<section id="part-b-monte-carlo-propagation">
+<h3>Part B — Monte Carlo Propagation<a class="headerlink" href="#part-b-monte-carlo-propagation" title="Link to this heading">#</a></h3>
+<p>Using Python:</p>
+<ol class="arabic simple">
+<li><p>Generate 10,000 possible mass measurements.</p></li>
+<li><p>Generate 10,000 possible velocity measurements.</p></li>
+<li><p>Calculate the kinetic energy for each simulated pair.</p></li>
+<li><p>Plot a histogram of the resulting kinetic-energy distribution.</p></li>
+<li><p>Calculate the mean, standard deviation, and central 68% interval.</p></li>
+<li><p>Compare the result with the analytical calculation.</p></li>
+</ol>
+</section>
+<section id="part-c-exploring-nonlinearity">
+<h3>Part C — Exploring Nonlinearity<a class="headerlink" href="#part-c-exploring-nonlinearity" title="Link to this heading">#</a></h3>
+<p>Increase the uncertainty in velocity from</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma_v=0.10\ \mathrm{m/s}
+\]</div>
+<p>to</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma_v=0.50\ \mathrm{m/s}.
+\]</div>
+<p>Repeat the Monte Carlo simulation.</p>
+</section>
+<section id="id3">
+<h3>Questions<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Does the resulting kinetic-energy distribution remain symmetric?</p></li>
+<li><p>How does the agreement between analytical and Monte Carlo
+propagation change?</p></li>
+<li><p>Why does increasing the velocity uncertainty have a particularly
+significant effect on the calculated kinetic energy?</p></li>
+<li><p>Which method provides more information about the shape of
+the resulting uncertainty distribution?</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ==================================================</span>
+<span class="c1"># INDEPENDENT EXERCISE: KINETIC ENERGY</span>
+<span class="c1"># ==================================================</span>
+
+<span class="c1"># Experimental measurements</span>
+<span class="n">m0</span> <span class="o">=</span> <span class="mf">0.250</span>
+<span class="n">sigma_m</span> <span class="o">=</span> <span class="mf">0.005</span>
+
+<span class="n">v0</span> <span class="o">=</span> <span class="mf">2.00</span>
+<span class="n">sigma_v</span> <span class="o">=</span> <span class="mf">0.10</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">10_000</span>
+
+<span class="c1"># --------------------------------------------------</span>
+<span class="c1"># PART A: Analytical propagation</span>
+<span class="c1"># --------------------------------------------------</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">kinetic_energy</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">m</span> <span class="o">*</span> <span class="n">v</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">K0</span> <span class="o">=</span> <span class="n">kinetic_energy</span><span class="p">(</span><span class="n">m0</span><span class="p">,</span> <span class="n">v0</span><span class="p">)</span>
+
+<span class="c1"># TODO: Calculate the analytical standard uncertainty</span>
+
+<span class="n">sigma_K_analytical</span> <span class="o">=</span> <span class="o">...</span>
+
+
+<span class="c1"># --------------------------------------------------</span>
+<span class="c1"># PART B: Monte Carlo propagation</span>
+<span class="c1"># --------------------------------------------------</span>
+
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">2215</span><span class="p">)</span>
+
+<span class="c1"># TODO: Generate random mass and velocity samples</span>
+
+<span class="n">m_samples</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="n">v_samples</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="c1"># TODO: Calculate the kinetic-energy distribution</span>
+
+<span class="n">K_samples</span> <span class="o">=</span> <span class="o">...</span>
+
+
+<span class="c1"># --------------------------------------------------</span>
+<span class="c1"># PART C: Calculate summary statistics</span>
+<span class="c1"># --------------------------------------------------</span>
+
+<span class="n">K_mean</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">K_std</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="c1"># TODO: Calculate the central 68% interval</span>
+
+
+<span class="c1"># --------------------------------------------------</span>
+<span class="c1"># PART D: Visualization</span>
+<span class="c1"># --------------------------------------------------</span>
+
+<span class="c1"># TODO: Plot the kinetic-energy distribution</span>
+
+
+<span class="c1"># --------------------------------------------------</span>
+<span class="c1"># PART E: Investigating nonlinearity</span>
+<span class="c1"># --------------------------------------------------</span>
+
+<span class="c1"># Increase the velocity uncertainty to 0.50 m/s</span>
+<span class="c1"># and repeat the simulation.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="final-reflection">
+<h2>11. Final Reflection<a class="headerlink" href="#final-reflection" title="Link to this heading">#</a></h2>
+<p>Answer the following questions in your own words.</p>
+<section id="conceptual-understanding">
+<h3>Conceptual Understanding<a class="headerlink" href="#conceptual-understanding" title="Link to this heading">#</a></h3>
+<p><strong>1.</strong> Explain the difference between measurement variability and
+uncertainty in an estimated mean.</p>
+<p><strong>2.</strong> What assumptions are made when using first-order analytical
+uncertainty propagation?</p>
+<p><strong>3.</strong> Why can nonlinear physical relationships produce asymmetric
+output distributions, even when the input distributions are symmetric?</p>
+</section>
+<section id="computational-understanding">
+<h3>Computational Understanding<a class="headerlink" href="#computational-understanding" title="Link to this heading">#</a></h3>
+<p><strong>4.</strong> Describe the basic steps involved in a Monte Carlo uncertainty
+propagation simulation.</p>
+<p><strong>5.</strong> Why does generating 10,000 simulated values not mean that we
+have performed 10,000 experimental measurements?</p>
+<p><strong>6.</strong> What happens when we increase the number of simulations from
+10,000 to 100,000? Does this necessarily improve our knowledge
+of the original experimental measurements?</p>
+</section>
+<section id="physical-interpretation">
+<h3>Physical Interpretation<a class="headerlink" href="#physical-interpretation" title="Link to this heading">#</a></h3>
+<p><strong>7.</strong> Why is it important to justify the input probability
+distributions before performing a simulation?</p>
+<p><strong>8.</strong> How can we identify which experimental measurement contributes
+most to the uncertainty in a calculated quantity?</p>
+<p><strong>9.</strong> If an experimental result agrees with a theoretical value
+within its reported uncertainty, does this prove that the physical
+model is correct? Explain.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>First-order analytical uncertainty propagation uses partial
+derivatives to approximate how input uncertainties influence a
+calculated physical quantity.</p>
+<p>Monte Carlo propagation instead samples possible input values
+from assigned probability distributions and repeatedly evaluates
+the original physical model.</p>
+<p>Both methods provide valuable information.</p>
+<p>Analytical propagation offers a convenient mathematical estimate
+when the local linear approximation is adequate.</p>
+<p>Monte Carlo provides an approximation to the complete output
+distribution and is particularly useful when dealing with
+nonlinear models, non-Gaussian inputs, or asymmetric results.</p>
+<p><strong>Neither method replaces careful experimentation or a physically
+justified measurement model.</strong></p>
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lab-MC"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-analytical-methods-to-monte-carlo-simulations">From Analytical Methods to Monte Carlo Simulations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning Outcomes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-need-error-propagation">1. Why Do We Need Error Propagation?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-important-types-of-uncertainty">Two Important Types of Uncertainty</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-measurement-does-not-need-to-be-repeated-to-have-uncertainty">A Measurement Does Not Need to Be Repeated to Have Uncertainty</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-analytical-error-propagation">2. First-Order Analytical Error Propagation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#propagating-the-variance">Propagating the Variance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#important-assumptions">Important Assumptions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-example-measuring-gravity-with-a-pendulum">3. Worked Example: Measuring Gravity with a Pendulum</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-calculate-the-partial-derivatives">Step 1 — Calculate the Partial Derivatives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-apply-the-propagation-formula">Step 2 — Apply the Propagation Formula</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#think-about-it">Think About It</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#describing-experimental-uncertainty">4. Describing Experimental Uncertainty</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measurement-bounds-half-width">Measurement Bounds (Half-Width)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation-sigma">Standard Deviation (<span class="math notranslate nohighlight">\(\sigma\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-68-mean">What Does 68% Mean?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#length-a-single-measurement">4.1 Length: A Single Measurement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#period-repeated-measurements">4.2 Period: Repeated Measurements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#important-distinction">Important Distinction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analytical-uncertainty-propagation">Analytical Uncertainty Propagation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-introduce-monte-carlo-methods">5. Why Introduce Monte Carlo Methods?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-additional-advantage">An Additional Advantage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-monte-carlo-idea">The Monte Carlo Idea</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Important Distinction</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-a-monte-carlo-simulation">6. Implementing a Monte Carlo Simulation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithm">Algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-random-sampling">Why Use Random Sampling?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-the-input-distributions">Interpreting the Input Distributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#questions">Questions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-analytical-and-monte-carlo-results">7. Comparing Analytical and Monte Carlo Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analytical-method">Analytical Method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monte-carlo-method">Monte Carlo Method</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#which-measurement-contributes-most-to-the-uncertainty">8. Which Measurement Contributes Most to the Uncertainty?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-word-of-caution">A Word of Caution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-the-results">Interpreting the Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-the-analytical-and-monte-carlo-results-slightly-different">Why Are the Analytical and Monte Carlo Results Slightly Different?</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Questions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-monte-carlo-cannot-tell-us">9. What Monte Carlo Cannot Tell Us</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-versus-systematic-effects">Random Versus Systematic Effects</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaway">Key Takeaway</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#independent-application-kinetic-energy">10. Independent Application: Kinetic Energy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem">The Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-a-analytical-propagation">Part A — Analytical Propagation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-b-monte-carlo-propagation">Part B — Monte Carlo Propagation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-c-exploring-nonlinearity">Part C — Exploring Nonlinearity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Questions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-reflection">11. Final Reflection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptual-understanding">Conceptual Understanding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computational-understanding">Computational Understanding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-interpretation">Physical Interpretation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kim Nielsen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
