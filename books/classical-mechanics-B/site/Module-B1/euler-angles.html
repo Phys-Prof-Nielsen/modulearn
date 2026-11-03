@@ -199,8 +199,8 @@
 <li class="toctree-l1"><a class="reference internal" href="body-space-frames.html">B1.4 Body and Space Frames</a></li>
 <li class="toctree-l1"><a class="reference internal" href="eulers-equations-motion.html">B1.5 Euler’s Equations of Motion for Rigid Bodies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="euler-angles-equations.html">B1.6 Connecting Euler Angles and Euler’s Equations of Motion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="quaternions.html">B1.7 Beyond Euler Angles: Quaternions, Axis-Angle, and Rotation Vectors for 3D Orientation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tennis-racket.html">B1.8 The Tennis Racket Problem and the Intermediate Axis Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quaternions.html">B1.7 Beyond Euler Angles: Quaternions, Axis-Angle, and Rotation Vectors for 3D Orientation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Module B2 - Extensions of Coupled Oscillations</span></p>
 <ul class="nav bd-sidenav">
@@ -428,31 +428,35 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-1-motivation-why-do-we-need-euler-angles">B1.3.1 Motivation: Why Do We Need Euler Angles?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-1-motivation-why-do-we-need-euler-angles">B1.3.1 Motivation — Why Do We Need Euler Angles?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-2-learning-objectives">B1.3.2 Learning Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-3-what-are-euler-angles">B1.3.3 What Are Euler Angles?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-4-euler-rotation-sequence-zxz-convention">B1.3.4 Euler Rotation Sequence (ZXZ Convention)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-5-clarifying-the-z-axes-in-euler-angles-zxz-convention">B1.3.5 Clarifying the Z-Axes in Euler Angles (ZXZ Convention)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#whats-actually-happening">What’s Actually Happening?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-reuse-z">Why Reuse “Z”?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tip-for-clarity">Tip for Clarity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-4-finding-the-three-rotation-axes">B1.3.4 Finding the Three Rotation Axes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-the-space-and-body-directions">Choose the space and body directions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#construct-the-intermediate-axis">Construct the intermediate axis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-the-angles-from-the-axes">Read the angles from the axes</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-6-interpreting-the-euler-angles-physically">B1.3.6 Interpreting the Euler Angles Physically</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-7-gimbal-lock">B1.3.7 Gimbal Lock</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-8-angular-velocity-in-terms-of-euler-angles">B1.3.8 Angular Velocity in Terms of Euler Angles</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-9-summary">B1.3.9 Summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detailed-solutions-to-boxes">Detailed Solutions to Boxes</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#box-1">Box 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#box-2">Box 2</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-rotation-by-phi-about-the-fixed-z-axis">Step 1: Rotation by <span class="math notranslate nohighlight">\( \phi \)</span> about the fixed Z-axis</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-rotation-by-theta-about-the-new-x-axis">Step 2: Rotation by <span class="math notranslate nohighlight">\( \theta \)</span> about the new X-axis</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-rotation-by-psi-about-the-new-z-axis">Step 3: Rotation by <span class="math notranslate nohighlight">\( \psi \)</span> about the new Z-axis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-5-box-activity-find-the-euler-axes-of-a-gyroscope">B1.3.5 Box Activity — Find the Euler Axes of a Gyroscope</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-6-the-zxz-rotation-matrix">B1.3.6 The ZXZ Rotation Matrix</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-7-precession-nutation-and-spin">B1.3.7 Precession, Nutation, and Spin</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precession-changes-the-direction-around-the-vertical">Precession changes the direction around the vertical</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nutation-changes-the-tilt">Nutation changes the tilt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spin-turns-the-wheel-about-the-shaft">Spin turns the wheel about the shaft</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#box-3">Box 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-8-angular-velocity-in-space-and-body-coordinates">B1.3.8 Angular Velocity in Space and Body Coordinates</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-the-three-instantaneous-rotations">Add the three instantaneous rotations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#express-angular-velocity-in-space-coordinates">Express angular velocity in space coordinates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#express-angular-velocity-in-body-coordinates">Express angular velocity in body coordinates</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-9-gimbal-lock-when-two-angle-changes-share-an-axis">B1.3.9 Gimbal Lock — When Two Angle Changes Share an Axis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shaft-pointing-up-only-the-sum-determines-the-orientation">Shaft pointing up — only the sum determines the orientation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shaft-pointing-down-only-the-difference-determines-the-orientation">Shaft pointing down — only the difference determines the orientation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-10-summary">B1.3.10 Summary</a></li>
 </ul>
             </nav>
         </div>
@@ -466,432 +470,674 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="b1-3-euler-angles-and-rigid-body-orientation">
 <h1>B1.3 Euler Angles and Rigid Body Orientation<a class="headerlink" href="#b1-3-euler-angles-and-rigid-body-orientation" title="Link to this heading">#</a></h1>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray">
-<section id="b1-3-1-motivation-why-do-we-need-euler-angles">
-<h2>B1.3.1 Motivation: Why Do We Need Euler Angles?<a class="headerlink" href="#b1-3-1-motivation-why-do-we-need-euler-angles" title="Link to this heading">#</a></h2>
-<p>In classical mechanics and aerospace engineering, understanding how a <strong>rigid body rotates in 3D</strong> is crucial. Imagine a satellite, a robot arm, or even a spinning top — to fully describe how the body <strong>is oriented in space</strong>, we need more than just angular velocity:</p>
-<ul class="simple">
-<li><p>Vectors like angular velocity <span class="math notranslate nohighlight">\( \vec{\omega} \)</span> or angular momentum <span class="math notranslate nohighlight">\( \vec{L} \)</span> describe <strong>rates of change</strong>, not orientation.</p></li>
-<li><p>The <strong>rotation matrix</strong> tells us how the body is oriented relative to a fixed coordinate system, but it’s often too abstract or difficult to interpret physically.</p></li>
-<li><p>We need a <strong>minimal, interpretable way</strong> to describe orientation that aligns with real-world intuition (e.g. “pitch,” “yaw,” “roll”).</p></li>
-</ul>
-<p><strong>Euler angles</strong> provide exactly this:<br />
-A systematic way to express the orientation of a rigid body using just <strong>three angles</strong>, corresponding to <strong>three sequential rotations</strong>.</p>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray">
-</section>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><section id="b1-3-1-motivation-why-do-we-need-euler-angles">
+<h2>B1.3.1 Motivation — Why Do We Need Euler Angles?<a class="headerlink" href="#b1-3-1-motivation-why-do-we-need-euler-angles" title="Link to this heading">#</a></h2>
+<p>Imagine taking a photograph of a spinning gyroscope. The direction of the shaft tells you how the wheel is tilted, but you also need to see a mark on the rim to tell how far the wheel has turned about the shaft. Those observations describe its <strong>orientation</strong> at the instant of the photograph. A sequence of photographs lets you determine how that orientation is changing.</p>
+<p>A rotation matrix describes the orientation by giving the directions of the body axes in the space frame. <strong>Euler angles</strong> describe the same orientation using three successive rotations. For a gyroscope, these rotations have a geometric interpretation: turn around the vertical, tilt the shaft, then turn the wheel about the shaft.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
 <section id="b1-3-2-learning-objectives">
 <h2>B1.3.2 Learning Objectives<a class="headerlink" href="#b1-3-2-learning-objectives" title="Link to this heading">#</a></h2>
 <p>By the end of this lesson, you should be able to:</p>
 <ul class="simple">
-<li><p>Define Euler angles and explain the purpose of each.</p></li>
-<li><p>Understand the difference between <strong>intrinsic</strong> and <strong>extrinsic</strong> rotations.</p></li>
-<li><p>Derive the full rotation matrix from Euler angles.</p></li>
-<li><p>Apply Euler angles to describe body orientation in dynamics problems.</p></li>
-<li><p>Recognize gimbal lock and interpret its meaning.</p></li>
+<li><p>Identify the space, intermediate, and body axes used in the intrinsic <span class="math notranslate nohighlight">\(ZXZ\)</span> convention.</p></li>
+<li><p>Construct the line of nodes and use measured body directions to determine the Euler angles.</p></li>
+<li><p>Build the body-to-space rotation matrix and use it to express a vector in either frame.</p></li>
+<li><p>Distinguish steady precession, nutation, and spin by describing what happens to the shaft and a mark on the wheel.</p></li>
+<li><p>Express angular velocity in terms of the Euler-angle rates and resolve it into body components.</p></li>
+<li><p>Explain what becomes redundant at gimbal lock and identify the angle combination that still determines the orientation.</p></li>
 </ul>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray">
-</section>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
 <section id="b1-3-3-what-are-euler-angles">
 <h2>B1.3.3 What Are Euler Angles?<a class="headerlink" href="#b1-3-3-what-are-euler-angles" title="Link to this heading">#</a></h2>
-<p>Euler angles describe the orientation of a rigid body using <strong>three sequential rotations</strong> about specified axes. There are several conventions, but the most common (used in physics) is the <strong>ZXZ convention</strong>:</p>
-<ol class="arabic simple">
-<li><p><strong><span class="math notranslate nohighlight">\( \phi \)</span></strong> (phi): rotate about the <strong>Z-axis</strong> (precession)</p></li>
-<li><p><strong><span class="math notranslate nohighlight">\( \theta \)</span></strong> (theta): rotate about the <strong>new X-axis</strong> (nutation)</p></li>
-<li><p><strong><span class="math notranslate nohighlight">\( \psi \)</span></strong> (psi): rotate about the <strong>new Z-axis</strong> (spin)</p></li>
-</ol>
-<p>Each of these angles corresponds to a physically meaningful motion:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\( \phi \)</span>: Orientation of the body around the fixed vertical axis.</p></li>
-<li><p><span class="math notranslate nohighlight">\( \theta \)</span>: Tilt angle from the vertical (zenith angle).</p></li>
-<li><p><span class="math notranslate nohighlight">\( \psi \)</span>: Rotation about the body’s own symmetry axis.</p></li>
-</ul>
-<img src="fig1-A2.3.png"  width="800"/>
-<p>Figure taken from <a class="reference external" href="https://mathworld.wolfram.com/EulerAngles.html">Wolfram Alpha</a></p>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray">
-</section>
-<section id="b1-3-4-euler-rotation-sequence-zxz-convention">
-<h2>B1.3.4 Euler Rotation Sequence (ZXZ Convention)<a class="headerlink" href="#b1-3-4-euler-rotation-sequence-zxz-convention" title="Link to this heading">#</a></h2>
-<p>Let’s define each step of the rotation:</p>
-<ol class="arabic simple">
-<li><p><strong>Rotate by <span class="math notranslate nohighlight">\( \phi \)</span> about the fixed Z-axis</strong>:</p></li>
-</ol>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-R_z(\phi) =
-\begin{bmatrix}
-\cos \phi &amp; -\sin \phi &amp; 0 \\
-\sin \phi &amp; \cos \phi &amp; 0 \\
-0 &amp; 0 &amp; 1
-\end{bmatrix}
-\end{split}\]</div>
-<ol class="arabic simple" start="2">
-<li><p><strong>Rotate by <span class="math notranslate nohighlight">\( \theta \)</span> about the new X-axis</strong>:</p></li>
-</ol>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-R_x(\theta) =
-\begin{bmatrix}
-1 &amp; 0 &amp; 0 \\
-0 &amp; \cos \theta &amp; -\sin \theta \\
-0 &amp; \sin \theta &amp; \cos \theta
-\end{bmatrix}
-\end{split}\]</div>
-<ol class="arabic simple" start="3">
-<li><p><strong>Rotate by <span class="math notranslate nohighlight">\( \psi \)</span> about the new Z-axis</strong>:</p></li>
-</ol>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-R_z(\psi) =
-\begin{bmatrix}
-\cos \psi &amp; -\sin \psi &amp; 0 \\
-\sin \psi &amp; \cos \psi &amp; 0 \\
-0 &amp; 0 &amp; 1
-\end{bmatrix}
-\end{split}\]</div>
-<p>The total rotation matrix is:</p>
-<div class="math notranslate nohighlight">
-\[
-R = R_z(\phi) \cdot R_x(\theta) \cdot R_z(\psi)
-\]</div>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray">
-</section>
-<section id="b1-3-5-clarifying-the-z-axes-in-euler-angles-zxz-convention">
-<h2>B1.3.5 Clarifying the Z-Axes in Euler Angles (ZXZ Convention)<a class="headerlink" href="#b1-3-5-clarifying-the-z-axes-in-euler-angles-zxz-convention" title="Link to this heading">#</a></h2>
-<p>Euler angles can be confusing — especially because in the <strong>ZXZ</strong> convention, we use the <strong>Z-axis twice</strong>: once as a fixed axis and once as a body axis.</p>
+<p>Choose a right-handed <strong>space frame</strong> <span class="math notranslate nohighlight">\((x_S,y_S,z_S)\)</span> fixed in the laboratory and a right-handed <strong>body frame</strong> <span class="math notranslate nohighlight">\((x_B,y_B,z_B)\)</span> attached to the rigid body. For a gyroscope, we can take <span class="math notranslate nohighlight">\(z_S\)</span> vertically upward, <span class="math notranslate nohighlight">\(z_B\)</span> along the shaft toward a marked end, and <span class="math notranslate nohighlight">\(x_B\)</span> from the center of the wheel toward a mark on the rim. Then <span class="math notranslate nohighlight">\(\hat{\mathbf y}_B=\hat{\mathbf z}_B\times\hat{\mathbf x}_B\)</span>.</p>
+<p>To construct the body orientation, start with the moving axes aligned with the space axes and apply three positive right-hand rotations in the order below. A negative angle reverses the corresponding rotation.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Step</p></th>
-<th class="head"><p>Axis Rotated About</p></th>
-<th class="head"><p>Type of Axis</p></th>
 <th class="head"><p>Angle</p></th>
+<th class="head"><p>Rotation axis</p></th>
+<th class="head"><p>What the rotation sets</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>1</p></td>
-<td><p>Fixed Z</p></td>
-<td><p>Space frame axis</p></td>
-<td><p><span class="math notranslate nohighlight">\( \phi \)</span> (precession)</p></td>
+<td><p><span class="math notranslate nohighlight">\(\phi\)</span></p></td>
+<td><p>Fixed vertical <span class="math notranslate nohighlight">\(z_S\)</span></p></td>
+<td><p>The direction of the intermediate axis <span class="math notranslate nohighlight">\(x'\)</span> in the lab horizontal plane (Precession)</p></td>
 </tr>
 <tr class="row-odd"><td><p>2</p></td>
-<td><p>New X</p></td>
-<td><p>Intermediate frame</p></td>
-<td><p><span class="math notranslate nohighlight">\( \theta \)</span> (tilt)</p></td>
+<td><p><span class="math notranslate nohighlight">\(\theta\)</span></p></td>
+<td><p>Intermediate axis <span class="math notranslate nohighlight">\(x'\)</span></p></td>
+<td><p>The tilt of the shaft <span class="math notranslate nohighlight">\(z_B\)</span> from the vertical (Nutation)</p></td>
 </tr>
 <tr class="row-even"><td><p>3</p></td>
-<td><p>New Z (body Z)</p></td>
-<td><p>Body frame axis</p></td>
-<td><p><span class="math notranslate nohighlight">\( \psi \)</span> (spin)</p></td>
+<td><p><span class="math notranslate nohighlight">\(\psi\)</span></p></td>
+<td><p>Final shaft axis <span class="math notranslate nohighlight">\(z_B\)</span></p></td>
+<td><p>The direction of <span class="math notranslate nohighlight">\(x_B\)</span> around the shaft (Spin)</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<section id="whats-actually-happening">
-<h3>What’s Actually Happening?<a class="headerlink" href="#whats-actually-happening" title="Link to this heading">#</a></h3>
-<p>Euler angles describe how the <strong>coordinate system rotates</strong>. So at each step, the rotation axis may belong to a different frame:</p>
-<ul class="simple">
-<li><p><strong><span class="math notranslate nohighlight">\( \phi \)</span></strong>: Rotation about the <strong>fixed Z-axis</strong> in the space frame.</p></li>
-<li><p><strong><span class="math notranslate nohighlight">\( \theta \)</span></strong>: Rotation about the <strong>new X-axis</strong> (after the first rotation).</p></li>
-<li><p><strong><span class="math notranslate nohighlight">\( \psi \)</span></strong>: Rotation about the <strong>new Z-axis</strong>, which is now aligned with the <strong>body’s own axis</strong>.</p></li>
-</ul>
-<p>While these axes are all labeled “Z” or “X”, they <strong>represent different directions</strong> at different stages of rotation.</p>
+<p>This sequence is <strong>intrinsic</strong> because each rotation uses the axes as they stand at that stage. The first rotation carries the moving <span class="math notranslate nohighlight">\(x\)</span> axis to <span class="math notranslate nohighlight">\(x'\)</span>. The second leaves <span class="math notranslate nohighlight">\(x'\)</span> in place and carries the moving <span class="math notranslate nohighlight">\(z\)</span> axis to <span class="math notranslate nohighlight">\(z_B\)</span>. The third leaves <span class="math notranslate nohighlight">\(z_B\)</span> in place and carries the moving <span class="math notranslate nohighlight">\(x\)</span> axis from <span class="math notranslate nohighlight">\(x'\)</span> to <span class="math notranslate nohighlight">\(x_B\)</span>. In an <strong>extrinsic</strong> description, each rotation is about an axis fixed in space. The choice of axes and their order are both part of the convention.</p>
+<img src="fig1-A2.3.png" width="800" alt="Space and body frames with the Euler rotation axes"/>
+<p>Figure taken from <a class="reference external" href="https://mathworld.wolfram.com/EulerAngles.html">Wolfram Alpha</a></p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b1-3-4-finding-the-three-rotation-axes">
+<h2>B1.3.4 Finding the Three Rotation Axes<a class="headerlink" href="#b1-3-4-finding-the-three-rotation-axes" title="Link to this heading">#</a></h2>
+<section id="choose-the-space-and-body-directions">
+<h3>Choose the space and body directions<a class="headerlink" href="#choose-the-space-and-body-directions" title="Link to this heading">#</a></h3>
+<p>The first axis, <span class="math notranslate nohighlight">\(\hat{\mathbf z}_S\)</span>, comes from the choice of laboratory frame. The third axis, <span class="math notranslate nohighlight">\(\hat{\mathbf z}_B\)</span>, comes from the choice of body frame and the body’s observed orientation. For the gyroscope, these directions are vertical and along the shaft, respectively.</p>
 </section>
-<section id="why-reuse-z">
-<h3>Why Reuse “Z”?<a class="headerlink" href="#why-reuse-z" title="Link to this heading">#</a></h3>
-<p>We reuse the letter “Z” because:</p>
-<ul class="simple">
-<li><p>In <strong>step 1</strong>, the Z-axis is part of the <strong>inertial space frame</strong>.</p></li>
-<li><p>In <strong>step 3</strong>, the Z-axis is part of the <strong>rotated body frame</strong>.</p></li>
-<li><p>The axes share a name because they are <strong>both aligned with Z at the start</strong>, but diverge after rotation.</p></li>
-</ul>
-</section>
-<section id="tip-for-clarity">
-<h3>Tip for Clarity<a class="headerlink" href="#tip-for-clarity" title="Link to this heading">#</a></h3>
-<p>To avoid confusion:</p>
-<ul class="simple">
-<li><p>Explicitly label the axes: <span class="math notranslate nohighlight">\( Z_{\text{space}} \)</span>, <span class="math notranslate nohighlight">\( X_{\text{intermediate}} \)</span>, <span class="math notranslate nohighlight">\( Z_{\text{body}} \)</span></p></li>
-<li><p>Visualize the process step-by-step:</p>
-<ul>
-<li><p>Start with the fixed (space) frame.</p></li>
-<li><p>Apply each rotation and track how the axes move.</p></li>
-</ul>
-</li>
-<li><p>Emphasize that <strong>the axes themselves rotate</strong> in intrinsic conventions.</p></li>
-</ul>
-<p>This distinction is crucial for understanding angular velocity decomposition and preventing mistakes in coordinate transformations.</p>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray">
-</section>
-</section>
-<section id="b1-3-6-interpreting-the-euler-angles-physically">
-<h2>B1.3.6 Interpreting the Euler Angles Physically<a class="headerlink" href="#b1-3-6-interpreting-the-euler-angles-physically" title="Link to this heading">#</a></h2>
-<p>Euler angles provide a way to describe <strong>attitude</strong>:</p>
-<ul class="simple">
-<li><p>A <strong>gyroscope</strong> spinning on its own axis exhibits all three:</p>
-<ul>
-<li><p><span class="math notranslate nohighlight">\( \phi \)</span>: how the base spins on the table (precession)</p></li>
-<li><p><span class="math notranslate nohighlight">\( \theta \)</span>: the lean angle</p></li>
-<li><p><span class="math notranslate nohighlight">\( \psi \)</span>: spin around its own shaft</p></li>
-</ul>
-</li>
-</ul>
-<p>In spacecraft dynamics:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\( \phi \)</span>: yaw (azimuth)</p></li>
-<li><p><span class="math notranslate nohighlight">\( \theta \)</span>: pitch (elevation)</p></li>
-<li><p><span class="math notranslate nohighlight">\( \psi \)</span>: roll (axial spin)</p></li>
-</ul>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray">
-</section>
-<section id="b1-3-7-gimbal-lock">
-<h2>B1.3.7 Gimbal Lock<a class="headerlink" href="#b1-3-7-gimbal-lock" title="Link to this heading">#</a></h2>
-<p><strong>Gimbal lock</strong> occurs when two axes in the rotation sequence align, causing a loss of one degree of freedom.</p>
-<ul class="simple">
-<li><p>For ZXZ, this happens when <span class="math notranslate nohighlight">\( \theta = 0 \)</span> or <span class="math notranslate nohighlight">\( \pi \)</span>: the first and third rotations happen about the same axis.</p></li>
-<li><p>Physically, this means we cannot distinguish between changes in <span class="math notranslate nohighlight">\( \phi \)</span> and <span class="math notranslate nohighlight">\( \psi \)</span>.</p></li>
-</ul>
-<p>➡️ In such cases, alternative representations like <strong>quaternions</strong> are used in robotics and aerospace.</p>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray">
-</section>
-<section id="b1-3-8-angular-velocity-in-terms-of-euler-angles">
-<h2>B1.3.8 Angular Velocity in Terms of Euler Angles<a class="headerlink" href="#b1-3-8-angular-velocity-in-terms-of-euler-angles" title="Link to this heading">#</a></h2>
-<p>In the body-fixed frame, the angular velocity vector <span class="math notranslate nohighlight">\( \vec{\omega} \)</span> can be written as:</p>
+<section id="construct-the-intermediate-axis">
+<h3>Construct the intermediate axis<a class="headerlink" href="#construct-the-intermediate-axis" title="Link to this heading">#</a></h3>
+<p>Draw the lab horizontal plane and the plane of the wheel through a common origin at the wheel center. The two planes have normals <span class="math notranslate nohighlight">\(\hat{\mathbf z}_S\)</span> and <span class="math notranslate nohighlight">\(\hat{\mathbf z}_B\)</span>. Their intersection is the <strong>line of nodes</strong>. Its direction lies in both planes, so it is perpendicular to both normals.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Positive direction of the line of nodes</strong>
+<p>For <span class="math notranslate nohighlight">\(0&lt;\theta&lt;\pi\)</span>, the intrinsic <span class="math notranslate nohighlight">\(ZXZ\)</span> convention takes</p>
 <div class="math notranslate nohighlight">
 \[
-\vec{\omega} = \dot{\phi} \, \hat{z} + \dot{\theta} \, \hat{x}' + \dot{\psi} \, \hat{z}''
+\boxed{
+\hat{\mathbf n}=\hat{\mathbf x}'
+=\frac{\hat{\mathbf z}_S\times\hat{\mathbf z}_B}
+{\left|\hat{\mathbf z}_S\times\hat{\mathbf z}_B\right|}.
+}
 \]</div>
-<p>More precisely (in body coordinates):</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\vec{\omega} =
-\begin{bmatrix}
-\dot{\theta} \cos \psi + \dot{\phi} \sin \theta \sin \psi \\
-\dot{\theta} \sin \psi - \dot{\phi} \sin \theta \cos \psi \\
-\dot{\psi} + \dot{\phi} \cos \theta
-\end{bmatrix}
-\end{split}\]</div>
-<p>This is crucial for expressing <strong>rotational kinetic energy</strong> and deriving <strong>Euler’s equations of motion</strong> in rigid body dynamics.</p>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<p>The cross product sets the sign so that a positive rotation about <span class="math notranslate nohighlight">\(\hat{\mathbf n}\)</span> carries <span class="math notranslate nohighlight">\(\hat{\mathbf z}_S\)</span> toward <span class="math notranslate nohighlight">\(\hat{\mathbf z}_B\)</span> through the tilt angle <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+</div>
+<p>Although <span class="math notranslate nohighlight">\(\hat{\mathbf n}\)</span> is perpendicular to both <span class="math notranslate nohighlight">\(z\)</span> directions, those two directions make an angle <span class="math notranslate nohighlight">\(\theta\)</span> with each other. The three Euler rotation axes therefore form an orthogonal set only when <span class="math notranslate nohighlight">\(\theta=90^\circ\)</span>.</p>
 </section>
-<section id="b1-3-9-summary">
-<h2>B1.3.9 Summary<a class="headerlink" href="#b1-3-9-summary" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Symbol</p></th>
-<th class="head"><p>Meaning in ZXZ Convention</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><span class="math notranslate nohighlight">\( \phi \)</span></p></td>
-<td><p>Rotation about fixed <strong>Z-axis</strong> (precession)</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\( \theta \)</span></p></td>
-<td><p>Rotation about new <strong>X-axis</strong> (tilt/nutation)</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="math notranslate nohighlight">\( \psi \)</span></p></td>
-<td><p>Rotation about new <strong>Z-axis</strong> (body spin)</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\( R \)</span></p></td>
-<td><p>Total rotation matrix from Euler angles</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="math notranslate nohighlight">\( \vec{\omega} \)</span></p></td>
-<td><p>Angular velocity in terms of <span class="math notranslate nohighlight">\( \phi, \theta, \psi \)</span></p></td>
-</tr>
-<tr class="row-odd"><td><p>Gimbal Lock</p></td>
-<td><p>Loss of one degree of freedom when axes align</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray">
-<div class="alert alert-warning">
-<p><strong>Box 1</strong></p>
-<p>Explain the physical meaning of the Euler angles <span class="math notranslate nohighlight">\( \phi \)</span>, <span class="math notranslate nohighlight">\( \theta \)</span>, and <span class="math notranslate nohighlight">\( \psi \)</span> in the ZXZ convention.</p>
-</div>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray">
-<div class="alert alert-warning">
-<p><strong>Box 2</strong></p>
-<p>Write the total rotation matrix <span class="math notranslate nohighlight">\( R \)</span> for the Euler angle sequence ZXZ, using symbolic matrix multiplication of the three individual rotations.</p>
-</div>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray">
-<div class="alert alert-warning">
-<p><strong>Box 3</strong></p>
-<p>A spinning top is precessing about a fixed vertical axis. Identify which Euler angle corresponds to:</p>
+<section id="read-the-angles-from-the-axes">
+<h3>Read the angles from the axes<a class="headerlink" href="#read-the-angles-from-the-axes" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p>The spin of the top about its own axis.</p></li>
-<li><p>The cone-shaped precession of the axis.</p></li>
-<li><p>The lean angle of the axis.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(\phi\)</span></strong> is the signed angle from <span class="math notranslate nohighlight">\(\hat{\mathbf x}_S\)</span> to <span class="math notranslate nohighlight">\(\hat{\mathbf n}\)</span> about <span class="math notranslate nohighlight">\(\hat{\mathbf z}_S\)</span>.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(\theta\)</span></strong> is the angle from <span class="math notranslate nohighlight">\(\hat{\mathbf z}_S\)</span> to <span class="math notranslate nohighlight">\(\hat{\mathbf z}_B\)</span>, with <span class="math notranslate nohighlight">\(\cos\theta=\hat{\mathbf z}_S\cdot\hat{\mathbf z}_B\)</span>. Measure <span class="math notranslate nohighlight">\(\phi\)</span> to the line of nodes. The horizontal projection of the shaft points <span class="math notranslate nohighlight">\(90^\circ\)</span> clockwise from that line’s positive direction when viewed from above.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(\psi\)</span></strong> is the signed angle from <span class="math notranslate nohighlight">\(\hat{\mathbf n}\)</span> to <span class="math notranslate nohighlight">\(\hat{\mathbf x}_B\)</span> about <span class="math notranslate nohighlight">\(\hat{\mathbf z}_B\)</span>, measured in the wheel plane.</p></li>
 </ul>
+<p>When the shaft is vertical, the two planes coincide and the cross product vanishes. In that orientation, the geometry leaves the line of nodes undetermined.</p>
+<hr class="docutils" />
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.lines</span><span class="w"> </span><span class="kn">import</span> <span class="n">Line2D</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.patches</span><span class="w"> </span><span class="kn">import</span> <span class="n">Patch</span>
+
+<span class="c1"># B1.3.4 — Construct the intermediate axis and show the line of nodes.</span>
+<span class="c1"># The default angles give a shaft tilted 45° from vertical toward east.</span>
+<span class="n">phi_deg</span> <span class="o">=</span> <span class="mi">90</span>
+<span class="n">theta_deg</span> <span class="o">=</span> <span class="mi">45</span>
+<span class="n">phi</span><span class="p">,</span> <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">([</span><span class="n">phi_deg</span><span class="p">,</span> <span class="n">theta_deg</span><span class="p">])</span>
+
+<span class="n">z_space</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+<span class="n">z_body</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span>
+    <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span>
+<span class="p">])</span>
+
+<span class="c1"># The cross product lies in both planes and selects the positive x′ direction.</span>
+<span class="n">cross</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">z_space</span><span class="p">,</span> <span class="n">z_body</span><span class="p">)</span>
+<span class="n">cross_length</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">cross</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">cross_length</span> <span class="o">&lt;</span> <span class="mf">1e-10</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+        <span class="s2">&quot;The two planes coincide at this tilt. The line of nodes is undefined.&quot;</span>
+    <span class="p">)</span>
+
+<span class="n">node</span> <span class="o">=</span> <span class="n">cross</span> <span class="o">/</span> <span class="n">cross_length</span>
+
+<span class="c1"># Each plane contains the line of nodes and a second in-plane direction.</span>
+<span class="n">horizontal_side</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">z_space</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
+<span class="n">wheel_side</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">z_body</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
+
+<span class="n">radius</span> <span class="o">=</span> <span class="mf">1.05</span>
+<span class="n">r</span><span class="p">,</span> <span class="n">angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+<span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;constrained&quot;</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s2">&quot;3d&quot;</span><span class="p">)</span>
+
+<span class="n">lab_color</span> <span class="o">=</span> <span class="s2">&quot;#3978b5&quot;</span>
+<span class="n">wheel_color</span> <span class="o">=</span> <span class="s2">&quot;#e59138&quot;</span>
+<span class="n">node_color</span> <span class="o">=</span> <span class="s2">&quot;#16764b&quot;</span>
+
+<span class="c1"># Draw the lab horizontal plane and wheel plane as translucent disks.</span>
+<span class="k">for</span> <span class="n">side</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="p">[(</span><span class="n">horizontal_side</span><span class="p">,</span> <span class="n">lab_color</span><span class="p">),</span> <span class="p">(</span><span class="n">wheel_side</span><span class="p">,</span> <span class="n">wheel_color</span><span class="p">)]:</span>
+    <span class="n">disk</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="p">(</span><span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">))[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">node</span>
+        <span class="o">+</span> <span class="p">(</span><span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">))[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">side</span>
+    <span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span>
+        <span class="n">disk</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="n">disk</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="n">disk</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+        <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+        <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>
+        <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">shade</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span>
+
+<span class="c1"># The dashed line shows the intersection in both directions.</span>
+<span class="n">line</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1.23</span><span class="p">,</span> <span class="mf">1.23</span><span class="p">])[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">node</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">*</span><span class="n">line</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">node_color</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># The arrows show the two plane normals and the positive x′ direction.</span>
+<span class="k">for</span> <span class="n">direction</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="p">[</span>
+    <span class="p">(</span><span class="n">z_space</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$\hat</span><span class="si">{z}</span><span class="s2">_S$&quot;</span><span class="p">,</span> <span class="n">lab_color</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">z_body</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$\hat</span><span class="si">{z}</span><span class="s2">_B$&quot;</span><span class="p">,</span> <span class="n">wheel_color</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$+\hat</span><span class="si">{x}</span><span class="s2">&#39;=\hat</span><span class="si">{n}</span><span class="s2">$&quot;</span><span class="p">,</span> <span class="n">node_color</span><span class="p">),</span>
+<span class="p">]:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span>
+        <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">*</span><span class="n">direction</span><span class="p">,</span>
+        <span class="n">length</span><span class="o">=</span><span class="mf">1.15</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+        <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.8</span><span class="p">,</span>
+        <span class="n">arrow_length_ratio</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="mf">1.30</span> <span class="o">*</span> <span class="n">direction</span><span class="p">),</span> <span class="n">label</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+
+<span class="c1"># Draw the tilt angle from the lab vertical toward the shaft.</span>
+<span class="n">toward_shaft</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">z_space</span><span class="p">)</span>
+<span class="n">arc_angles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+<span class="n">arc</span> <span class="o">=</span> <span class="mf">0.59</span> <span class="o">*</span> <span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">arc_angles</span><span class="p">)[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">z_space</span>
+    <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">arc_angles</span><span class="p">)[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">toward_shaft</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">*</span><span class="n">arc</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#333333&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="mf">1.16</span> <span class="o">*</span> <span class="n">arc</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">arc</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]),</span> <span class="sa">r</span><span class="s2">&quot;$\theta$&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+    <span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">1.35</span><span class="p">,</span> <span class="mf">1.35</span><span class="p">),</span>
+    <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">1.35</span><span class="p">,</span> <span class="mf">1.35</span><span class="p">),</span>
+    <span class="n">zlim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">1.35</span><span class="p">,</span> <span class="mf">1.35</span><span class="p">),</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$x_S$ (east)&quot;</span><span class="p">,</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$y_S$ (north)&quot;</span><span class="p">,</span>
+    <span class="n">zlabel</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$z_S$ (up)&quot;</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;The line of nodes is the intersection of the two planes&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_box_aspect</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_proj_type</span><span class="p">(</span><span class="s2">&quot;ortho&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">view_init</span><span class="p">(</span><span class="n">elev</span><span class="o">=</span><span class="mi">24</span><span class="p">,</span> <span class="n">azim</span><span class="o">=-</span><span class="mi">55</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span>
+    <span class="n">handles</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">Patch</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">lab_color</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Lab horizontal plane&quot;</span><span class="p">),</span>
+        <span class="n">Patch</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">wheel_color</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Wheel plane&quot;</span><span class="p">),</span>
+        <span class="n">Line2D</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">node_color</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Line of nodes&quot;</span><span class="p">),</span>
+    <span class="p">],</span>
+    <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Suppress signed zeros when displaying the rounded components.</span>
+<span class="n">node_display</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Positive x′ direction in lab coordinates:&quot;</span><span class="p">,</span> <span class="n">node_display</span><span class="p">)</span>
+</pre></div>
 </div>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray">
-</section>
-<section id="detailed-solutions-to-boxes">
-<h2>Detailed Solutions to Boxes<a class="headerlink" href="#detailed-solutions-to-boxes" title="Link to this heading">#</a></h2>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray">
-<section id="box-1">
-<h3>Box 1<a class="headerlink" href="#box-1" title="Link to this heading">#</a></h3>
-<p><strong>Solution</strong>:</p>
-<p>In the <strong>ZXZ Euler angle convention</strong>, the orientation of a rigid body is described by three successive rotations:</p>
-<ol class="arabic simple">
-<li><p><strong><span class="math notranslate nohighlight">\( \phi \)</span> — Precession</strong>:</p>
-<ul class="simple">
-<li><p>This is a rotation about the <strong>fixed Z-axis</strong>.</p></li>
-<li><p>It describes how the body turns horizontally in space — for example, the circular motion of a spinning top’s axis.</p></li>
-<li><p>Often associated with “yaw” in aerospace.</p></li>
-</ul>
-</li>
-<li><p><strong><span class="math notranslate nohighlight">\( \theta \)</span> — Nutation (Tilt)</strong>:</p>
-<ul class="simple">
-<li><p>This is a rotation about the <strong>new X-axis</strong> after the first rotation.</p></li>
-<li><p>It sets the tilt angle between the body’s symmetry axis and the vertical.</p></li>
-<li><p>Often interpreted as “pitch” — it tilts the axis away from vertical.</p></li>
-</ul>
-</li>
-<li><p><strong><span class="math notranslate nohighlight">\( \psi \)</span> — Spin</strong>:</p>
-<ul class="simple">
-<li><p>This is a rotation about the <strong>new Z-axis</strong> (now aligned with the body’s axis).</p></li>
-<li><p>It represents the body’s own rotation about its axis — for instance, how a top spins on itself.</p></li>
-<li><p>In aerospace, this is typically associated with “roll.”</p></li>
-</ul>
-</li>
-</ol>
-<p><strong>Summary</strong>:</p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Angle</p></th>
-<th class="head"><p>Axis Rotated About</p></th>
-<th class="head"><p>Physical Interpretation</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><span class="math notranslate nohighlight">\( \phi \)</span></p></td>
-<td><p>Fixed Z-axis</p></td>
-<td><p>Precession (azimuth)</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\( \theta \)</span></p></td>
-<td><p>New X-axis after <span class="math notranslate nohighlight">\( \phi \)</span></p></td>
-<td><p>Tilt/Nutation (inclination)</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="math notranslate nohighlight">\( \psi \)</span></p></td>
-<td><p>New Z-axis after <span class="math notranslate nohighlight">\( \theta \)</span></p></td>
-<td><p>Spin (axial rotation)</p></td>
-</tr>
-</tbody>
-</table>
 </div>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/4de4b9cee92319f55c28cae120239f9de6da68597e58a3ef16561d2b76c2b033.png" src="../_images/4de4b9cee92319f55c28cae120239f9de6da68597e58a3ef16561d2b76c2b033.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Positive x′ direction in lab coordinates: [0. 1. 0.]
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><strong>Check your reasoning.</strong> Both directions along the dashed line lie in both planes. Which direction does <span class="math notranslate nohighlight">\(\hat{\mathbf z}_S\times\hat{\mathbf z}_B\)</span> select? Use the right-hand rule to check that a positive rotation about that direction carries <span class="math notranslate nohighlight">\(\hat{\mathbf z}_S\)</span> toward <span class="math notranslate nohighlight">\(\hat{\mathbf z}_B\)</span>.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
 </section>
-<section id="box-2">
-<h3>Box 2<a class="headerlink" href="#box-2" title="Link to this heading">#</a></h3>
-<p><strong>Solution</strong>:</p>
-<p>We apply three successive rotations in the <strong>ZXZ</strong> convention:</p>
-<section id="step-1-rotation-by-phi-about-the-fixed-z-axis">
-<h4>Step 1: Rotation by <span class="math notranslate nohighlight">\( \phi \)</span> about the fixed Z-axis<a class="headerlink" href="#step-1-rotation-by-phi-about-the-fixed-z-axis" title="Link to this heading">#</a></h4>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-R_z(\phi) =
-\begin{bmatrix}
-\cos \phi &amp; -\sin \phi &amp; 0 \\
-\sin \phi &amp; \cos \phi &amp; 0 \\
-0 &amp; 0 &amp; 1
-\end{bmatrix}
-\end{split}\]</div>
-</section>
-<section id="step-2-rotation-by-theta-about-the-new-x-axis">
-<h4>Step 2: Rotation by <span class="math notranslate nohighlight">\( \theta \)</span> about the new X-axis<a class="headerlink" href="#step-2-rotation-by-theta-about-the-new-x-axis" title="Link to this heading">#</a></h4>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-R_x(\theta) =
-\begin{bmatrix}
-1 &amp; 0 &amp; 0 \\
-0 &amp; \cos \theta &amp; -\sin \theta \\
-0 &amp; \sin \theta &amp; \cos \theta
-\end{bmatrix}
-\end{split}\]</div>
-</section>
-<section id="step-3-rotation-by-psi-about-the-new-z-axis">
-<h4>Step 3: Rotation by <span class="math notranslate nohighlight">\( \psi \)</span> about the new Z-axis<a class="headerlink" href="#step-3-rotation-by-psi-about-the-new-z-axis" title="Link to this heading">#</a></h4>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-R_z(\psi) =
-\begin{bmatrix}
-\cos \psi &amp; -\sin \psi &amp; 0 \\
-\sin \psi &amp; \cos \psi &amp; 0 \\
-0 &amp; 0 &amp; 1
-\end{bmatrix}
-\end{split}\]</div>
-<p>The total rotation matrix is:</p>
+<section id="b1-3-5-box-activity-find-the-euler-axes-of-a-gyroscope">
+<h2>B1.3.5 Box Activity — Find the Euler Axes of a Gyroscope<a class="headerlink" href="#b1-3-5-box-activity-find-the-euler-axes-of-a-gyroscope" title="Link to this heading">#</a></h2>
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Reconstruct the orientation from a camera snapshot</h3>
+<p>A camera measures the direction toward the marked end of a gyroscope shaft and the direction from the center of the wheel to a painted dot on its rim. Take the fixed lab axes to be <span class="math notranslate nohighlight">\(x_S\)</span> east, <span class="math notranslate nohighlight">\(y_S\)</span> north, and <span class="math notranslate nohighlight">\(z_S\)</span> up. The measured body directions in lab coordinates are</p>
 <div class="math notranslate nohighlight">
 \[
-R = R_z(\phi) \cdot R_x(\theta) \cdot R_z(\psi)
+[\hat{\mathbf z}_B]_S=\frac{1}{\sqrt{2}}(1,0,1),
+\qquad
+[\hat{\mathbf x}_B]_S=\frac{1}{\sqrt{2}}(-1,0,1).
 \]</div>
-<p>Performing the matrix multiplication gives:</p>
+<p>Use the intrinsic <span class="math notranslate nohighlight">\(z_S\)</span>–<span class="math notranslate nohighlight">\(x'\)</span>–<span class="math notranslate nohighlight">\(z_B\)</span> convention.</p>
+<ol class="arabic simple">
+<li><p>Sketch the shaft, the plane of the wheel, and the lab horizontal plane through the center of the wheel. Along which lab axis do the planes intersect?</p></li>
+<li><p>Find all three Euler rotation axes as unit vectors in lab coordinates. Use a cross product to choose the positive direction of the line of nodes.</p></li>
+<li><p>Starting with the body and lab axes aligned, find the three successive rotations <span class="math notranslate nohighlight">\((\phi,\theta,\psi)\)</span> that reproduce the snapshot. Explain how you know the sign of <span class="math notranslate nohighlight">\(\psi\)</span>.</p></li>
+<li><p>Suppose the painted dot is hidden. Which angles can you still recover from the shaft direction? What motion could a video of the shaft alone miss?</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<p><strong>1. Find the intersection.</strong> The shaft lies in the east–up plane. The north–south direction is horizontal and perpendicular to the shaft, so it lies in both planes. The line of nodes is along the <span class="math notranslate nohighlight">\(y_S\)</span> axis.</p>
+<p><strong>2. Choose the positive axes.</strong> The cross product <span class="math notranslate nohighlight">\(\hat{\mathbf z}_S\times\hat{\mathbf z}_B\)</span> gives <span class="math notranslate nohighlight">\((0,1,0)/\sqrt{2}\)</span> in lab coordinates. The positive line of nodes points north. The three unit directions in lab coordinates are</p>
+<div class="math notranslate nohighlight">
+\[
+[\hat{\mathbf z}_S]_S=(0,0,1),\qquad
+[\hat{\mathbf n}]_S=(0,1,0),\qquad
+[\hat{\mathbf z}_B]_S=\frac{1}{\sqrt{2}}(1,0,1).
+\]</div>
+<p><strong>3. Recover the angles.</strong> Turn from east to north about the upward vertical, giving <span class="math notranslate nohighlight">\(\phi=90^\circ\)</span>. Then turn about the northward axis to tilt the shaft toward east. Since <span class="math notranslate nohighlight">\(\hat{\mathbf z}_S\cdot\hat{\mathbf z}_B=1/\sqrt{2}\)</span>, the tilt is <span class="math notranslate nohighlight">\(\theta=45^\circ\)</span>. This second rotation leaves the intermediate <span class="math notranslate nohighlight">\(x\)</span> axis pointing north. For the final turn, use the right-hand rule about the shaft:</p>
+<div class="math notranslate nohighlight">
+\[
+[\hat{\mathbf z}_B\times\hat{\mathbf n}]_S
+=\frac{1}{\sqrt{2}}(-1,0,1)
+=[\hat{\mathbf x}_B]_S.
+\]</div>
+<p>The dot is exactly one positive quarter turn from the line of nodes in the wheel plane. Therefore <span class="math notranslate nohighlight">\(\psi=+90^\circ\)</span>, giving</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{(\phi,\theta,\psi)=(90^\circ,45^\circ,90^\circ).}
+\]</div>
+<p><strong>4. Hide the dot.</strong> In this orientation, the shaft direction fixes the tilt <span class="math notranslate nohighlight">\(\theta\)</span> and the line of nodes, which gives <span class="math notranslate nohighlight">\(\phi\)</span>. The position of the dot around the shaft fixes <span class="math notranslate nohighlight">\(\psi\)</span>. The wheel can spin while its shaft points in a constant direction, so a video that tracks only the shaft can miss that spin entirely.</p>
+</details>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b1-3-6-the-zxz-rotation-matrix">
+<h2>B1.3.6 The ZXZ Rotation Matrix<a class="headerlink" href="#b1-3-6-the-zxz-rotation-matrix" title="Link to this heading">#</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(R\)</span> map the components of a vector from the body frame to the space frame. Its columns are the three body unit axes expressed in the space frame:</p>
+<div class="math notranslate nohighlight">
+\[
+R=
+\begin{bmatrix}
+[\hat{\mathbf x}_B]_S &amp; [\hat{\mathbf y}_B]_S &amp; [\hat{\mathbf z}_B]_S
+\end{bmatrix},
+\qquad
+[\mathbf v]_S=R[\mathbf v]_B,
+\qquad
+[\mathbf v]_B=R^T[\mathbf v]_S.
+\]</div>
+<p>The elementary right-hand rotation matrices are</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-R =
+R_z(\alpha)=
 \begin{bmatrix}
-\cos \phi \cos \psi - \sin \phi \cos \theta \sin \psi &amp;
-- \cos \phi \sin \psi - \sin \phi \cos \theta \cos \psi &amp;
-\sin \phi \sin \theta \\
-\sin \phi \cos \psi + \cos \phi \cos \theta \sin \psi &amp;
-- \sin \phi \sin \psi + \cos \phi \cos \theta \cos \psi &amp;
-- \cos \phi \sin \theta \\
-\sin \theta \sin \psi &amp; \sin \theta \cos \psi &amp; \cos \theta
-\end{bmatrix}
+\cos\alpha&amp;-\sin\alpha&amp;0\\
+\sin\alpha&amp;\cos\alpha&amp;0\\
+0&amp;0&amp;1
+\end{bmatrix},
+\qquad
+R_x(\beta)=
+\begin{bmatrix}
+1&amp;0&amp;0\\
+0&amp;\cos\beta&amp;-\sin\beta\\
+0&amp;\sin\beta&amp;\cos\beta
+\end{bmatrix}.
 \end{split}\]</div>
-<p><strong>This matrix</strong> transforms coordinates from the <strong>body frame to the fixed space frame</strong> using ZXZ Euler angles.</p>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray">
-</section>
-</section>
-<section id="box-3">
-<h3>Box 3<a class="headerlink" href="#box-3" title="Link to this heading">#</a></h3>
-<p><strong>Solution</strong>:</p>
-<p>We analyze the motion of a spinning top:</p>
+<p>Starting at <span class="math notranslate nohighlight">\(R=I\)</span>, the first rotation sets the frame orientation to <span class="math notranslate nohighlight">\(R_z(\phi)\)</span>. Each later rotation is specified in the current moving frame, so its matrix multiplies on the right. Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{R=R_z(\phi)R_x(\theta)R_z(\psi).}
+\]</div>
+<p><strong>Which rotation comes first?</strong> In the intrinsic <span class="math notranslate nohighlight">\(ZXZ\)</span> construction, <span class="math notranslate nohighlight">\(\phi\)</span> comes first because we are building the orientation of the moving frame. We turn by <span class="math notranslate nohighlight">\(\phi\)</span> about <span class="math notranslate nohighlight">\(z_S\)</span>, then by <span class="math notranslate nohighlight">\(\theta\)</span> about the newly positioned <span class="math notranslate nohighlight">\(x'\)</span>, and finally by <span class="math notranslate nohighlight">\(\psi\)</span> about the shaft <span class="math notranslate nohighlight">\(z_B\)</span>. When we evaluate the matrix product <span class="math notranslate nohighlight">\(R\mathbf v=R_z(\phi)R_x(\theta)R_z(\psi)\mathbf v\)</span>, however, the rightmost factor <span class="math notranslate nohighlight">\(R_z(\psi)\)</span> acts on the column vector first. If we interpret that multiplication as an active rotation with all axes held fixed, the equivalent sequence is <span class="math notranslate nohighlight">\(\psi\)</span> about <span class="math notranslate nohighlight">\(z_S\)</span>, then <span class="math notranslate nohighlight">\(\theta\)</span> about <span class="math notranslate nohighlight">\(x_S\)</span>, then <span class="math notranslate nohighlight">\(\phi\)</span> about <span class="math notranslate nohighlight">\(z_S\)</span>. Both sequences produce the same final rotation because reversing the order here goes together with switching from moving axes to fixed axes.</p>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Check the matrix against the gyroscope geometry</h3>
+<p>Multiply the three matrices. Use the third column to explain why the shaft direction is independent of <span class="math notranslate nohighlight">\(\psi\)</span>. Then substitute the angles from the camera snapshot and check the first and third columns.</p>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<p>With <span class="math notranslate nohighlight">\(c_\alpha=\cos\alpha\)</span> and <span class="math notranslate nohighlight">\(s_\alpha=\sin\alpha\)</span>, the product is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+R=
+\begin{bmatrix}
+c_\phi c_\psi-s_\phi c_\theta s_\psi &amp;
+-c_\phi s_\psi-s_\phi c_\theta c_\psi &amp;
+s_\phi s_\theta\\
+s_\phi c_\psi+c_\phi c_\theta s_\psi &amp;
+-s_\phi s_\psi+c_\phi c_\theta c_\psi &amp;
+-c_\phi s_\theta\\
+s_\theta s_\psi &amp; s_\theta c_\psi &amp; c_\theta
+\end{bmatrix}.
+\end{split}\]</div>
+<p>The third column depends only on <span class="math notranslate nohighlight">\(\phi\)</span> and <span class="math notranslate nohighlight">\(\theta\)</span>. Geometrically, the last rotation turns the wheel about its own shaft and leaves the shaft direction unchanged. For <span class="math notranslate nohighlight">\((90^\circ,45^\circ,90^\circ)\)</span>, the first and third columns are <span class="math notranslate nohighlight">\((-1,0,1)^T/\sqrt{2}\)</span> and <span class="math notranslate nohighlight">\((1,0,1)^T/\sqrt{2}\)</span>, matching the measured dot and shaft directions.</p>
+</details>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Where Does the Robot’s Laser Hit?</h3>
+<p>A robot wrist carries a laser rangefinder that checks the position of a part on an assembly table. The laser points along the wrist’s positive <span class="math notranslate nohighlight">\(x_B\)</span> axis and reports a range of <span class="math notranslate nohighlight">\(2.00\,\mathrm{m}\)</span>. The beam starts at the wrist origin, whose lab coordinates are <span class="math notranslate nohighlight">\((1.00,0.50,1.00)\,\mathrm{m}\)</span>. The lab axes point east (<span class="math notranslate nohighlight">\(x_S\)</span>), north (<span class="math notranslate nohighlight">\(y_S\)</span>), and up (<span class="math notranslate nohighlight">\(z_S\)</span>).</p>
+<p>The wrist’s orientation is given by the intrinsic <span class="math notranslate nohighlight">\(ZXZ\)</span> Euler angles</p>
+<div class="math notranslate nohighlight">
+\[
+(\phi,\theta,\psi)=(90^\circ,30^\circ,-90^\circ),
+\qquad
+R=R_z(\phi)R_x(\theta)R_z(\psi).
+\]</div>
 <ol class="arabic simple">
-<li><p><strong>Spin about its own axis</strong>:</p>
-<ul class="simple">
-<li><p>This corresponds to <strong><span class="math notranslate nohighlight">\( \psi \)</span></strong>.</p></li>
-<li><p>It describes how the top rotates around its own symmetry axis, which is not necessarily vertical.</p></li>
-</ul>
-</li>
-<li><p><strong>Cone-shaped precession</strong>:</p>
-<ul class="simple">
-<li><p>This corresponds to <strong><span class="math notranslate nohighlight">\( \phi \)</span></strong>.</p></li>
-<li><p>The top’s axis traces a cone as it rotates around the vertical (fixed Z-axis) — this is <strong>precession</strong>.</p></li>
-</ul>
-</li>
-<li><p><strong>Lean angle of the axis</strong>:</p>
-<ul class="simple">
-<li><p>This is the <strong>tilt</strong> of the top away from vertical and corresponds to <strong><span class="math notranslate nohighlight">\( \theta \)</span></strong>.</p></li>
-<li><p>It measures the angle between the symmetry axis of the top and the vertical axis.</p></li>
-</ul>
-</li>
+<li><p>Write the displacement vector from the laser to the hit point in <strong>wrist coordinates</strong>.</p></li>
+<li><p>Compute that displacement in <strong>lab coordinates</strong>. Apply one matrix at a time and record the intermediate column vectors. Which factor acts first?</p></li>
+<li><p>Find the lab coordinates of the hit point. The assembly table is at <span class="math notranslate nohighlight">\(z_S=0\)</span>. Is the reading consistent with a hit on the tabletop?</p></li>
+<li><p>The robot constructs the wrist orientation by turning through <span class="math notranslate nohighlight">\(\phi\)</span> first. Explain why your calculation starts with the <span class="math notranslate nohighlight">\(\psi\)</span> factor.</p></li>
 </ol>
-<p><strong>Angle Interpretations</strong>:</p>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<p><strong>1. Write the measured displacement.</strong> The beam travels <span class="math notranslate nohighlight">\(2.00\,\mathrm{m}\)</span> along positive <span class="math notranslate nohighlight">\(x_B\)</span>, so</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+[\Delta\mathbf r]_B=
+\begin{bmatrix}2\\0\\0\end{bmatrix}\mathrm{m}.
+\end{split}\]</div>
+<p><strong>2. Apply the rotation matrix one factor at a time.</strong> The rightmost factor acts first on the column vector. The intermediate columns below are in meters.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}2\\0\\0\end{bmatrix}
+\xrightarrow{\ R_z(-90^\circ)\ }
+\begin{bmatrix}0\\-2\\0\end{bmatrix}
+\xrightarrow{\ R_x(30^\circ)\ }
+\begin{bmatrix}0\\-\sqrt{3}\\-1\end{bmatrix}
+\xrightarrow{\ R_z(90^\circ)\ }
+\begin{bmatrix}\sqrt{3}\\0\\-1\end{bmatrix}.
+\end{split}\]</div>
+<p>The beam therefore travels about <span class="math notranslate nohighlight">\(1.73\,\mathrm{m}\)</span> east and <span class="math notranslate nohighlight">\(1.00\,\mathrm{m}\)</span> down. Its displacement still has magnitude <span class="math notranslate nohighlight">\(\sqrt{3+1}\,\mathrm{m}=2.00\,\mathrm{m}\)</span>, as expected for a rotation.</p>
+<p><strong>3. Locate the hit.</strong> Add the rotated displacement to the laser’s lab position:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+[\mathbf r_{\mathrm{hit}}]_S
+=
+\begin{bmatrix}1.00\\0.50\\1.00\end{bmatrix}\mathrm{m}
++
+\begin{bmatrix}\sqrt{3}\\0\\-1\end{bmatrix}\mathrm{m}
+\approx
+\boxed{\begin{bmatrix}2.73\\0.50\\0.00\end{bmatrix}\mathrm{m}}.
+\end{split}\]</div>
+<p>The hit point is at tabletop height, so the reading is consistent with a hit on the tabletop.</p>
+<p><strong>4. Explain the two orders.</strong> The wrist orientation is constructed by turning through <span class="math notranslate nohighlight">\(\phi\)</span> about the lab vertical, then through <span class="math notranslate nohighlight">\(\theta\)</span> about the moved <span class="math notranslate nohighlight">\(x'\)</span> axis, and finally through <span class="math notranslate nohighlight">\(\psi\)</span> about the wrist’s final <span class="math notranslate nohighlight">\(z_B\)</span> axis. In the calculation, we start with components in the <strong>finished wrist frame</strong> and use <span class="math notranslate nohighlight">\(R\)</span> to express the same beam displacement in the lab frame. The rightmost factor acts first because it takes us from the final wrist basis back to the basis just before the last turn.</p>
+</details>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+<section id="b1-3-7-precession-nutation-and-spin">
+<h2>B1.3.7 Precession, Nutation, and Spin<a class="headerlink" href="#b1-3-7-precession-nutation-and-spin" title="Link to this heading">#</a></h2>
+<section id="precession-changes-the-direction-around-the-vertical">
+<h3>Precession changes the direction around the vertical<a class="headerlink" href="#precession-changes-the-direction-around-the-vertical" title="Link to this heading">#</a></h3>
+<p>When <span class="math notranslate nohighlight">\(\phi(t)\)</span> changes, the shaft sweeps around the fixed vertical. The shaft’s horizontal projection and the line of nodes turn together. If <span class="math notranslate nohighlight">\(\theta\)</span> stays constant, the tip of the shaft direction traces a circle on the unit sphere and the shaft sweeps out a cone. When <span class="math notranslate nohighlight">\(\dot\phi\)</span> is constant as well, the precession is uniform.</p>
+</section>
+<section id="nutation-changes-the-tilt">
+<h3>Nutation changes the tilt<a class="headerlink" href="#nutation-changes-the-tilt" title="Link to this heading">#</a></h3>
+<p>The angle <span class="math notranslate nohighlight">\(\theta\)</span> measures the tilt at an instant. <strong>Nutation</strong> is the variation of that tilt over time, often an oscillation in which the shaft alternately leans farther from the vertical and comes closer to it. The instantaneous rotation that changes the tilt is about the line of nodes, with rate <span class="math notranslate nohighlight">\(\dot\theta\)</span>.</p>
+<p>For example, suppose a video gives</p>
+<div class="math notranslate nohighlight">
+\[
+\phi(t)=\Omega t,
+\qquad
+\theta(t)=30^\circ+5^\circ\cos(\nu t),
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Omega\)</span> is the precession rate and <span class="math notranslate nohighlight">\(\nu\)</span> is the angular frequency of the tilt oscillation. The shaft sweeps around the vertical while its tilt varies between <span class="math notranslate nohighlight">\(25^\circ\)</span> and <span class="math notranslate nohighlight">\(35^\circ\)</span>. At each extreme, <span class="math notranslate nohighlight">\(\dot\theta=0\)</span> for an instant while precession continues. A video can therefore show nutation even when a single frame taken at a turning point gives no instantaneous change in tilt.</p>
+</section>
+<section id="spin-turns-the-wheel-about-the-shaft">
+<h3>Spin turns the wheel about the shaft<a class="headerlink" href="#spin-turns-the-wheel-about-the-shaft" title="Link to this heading">#</a></h3>
+<p>The angle <span class="math notranslate nohighlight">\(\psi\)</span> locates the painted dot relative to the line of nodes in the wheel plane. Changing <span class="math notranslate nohighlight">\(\psi\)</span> turns the wheel about <span class="math notranslate nohighlight">\(z_B\)</span> and leaves the shaft direction fixed for that contribution. When precession occurs at the same time, the total angular velocity along the shaft also contains the projection <span class="math notranslate nohighlight">\(\dot\phi\cos\theta\)</span>. We derive that projection below.</p>
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Diagnose the motion from a video</h3>
+<p>A gyroscope’s shaft sweeps around the vertical. Its tilt repeats the sequence <span class="math notranslate nohighlight">\(25^\circ\)</span>, <span class="math notranslate nohighlight">\(35^\circ\)</span>, <span class="math notranslate nohighlight">\(25^\circ\)</span>. A dot on the rim also makes repeated turns relative to the line of nodes. Which Euler angles are changing? What happens to the nutation contribution to angular velocity when the tilt reaches <span class="math notranslate nohighlight">\(35^\circ\)</span>?</p>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<p>The sweep around the vertical means <span class="math notranslate nohighlight">\(\phi\)</span> changes. The repeated change in tilt means <span class="math notranslate nohighlight">\(\theta\)</span> changes, so the shaft nutates as it precesses. The dot turning relative to the line of nodes means <span class="math notranslate nohighlight">\(\psi\)</span> changes. At a smooth maximum of the tilt, <span class="math notranslate nohighlight">\(\dot\theta=0\)</span>, so the instantaneous nutation contribution vanishes. Precession and spin can continue through that instant.</p>
+</details>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="b1-3-8-angular-velocity-in-space-and-body-coordinates">
+<h2>B1.3.8 Angular Velocity in Space and Body Coordinates<a class="headerlink" href="#b1-3-8-angular-velocity-in-space-and-body-coordinates" title="Link to this heading">#</a></h2>
+<section id="add-the-three-instantaneous-rotations">
+<h3>Add the three instantaneous rotations<a class="headerlink" href="#add-the-three-instantaneous-rotations" title="Link to this heading">#</a></h3>
+<p>During a short time interval <span class="math notranslate nohighlight">\(dt\)</span>, the Euler angles change by <span class="math notranslate nohighlight">\(d\phi\)</span>, <span class="math notranslate nohighlight">\(d\theta\)</span>, and <span class="math notranslate nohighlight">\(d\psi\)</span>. Each change contributes a small rotation about its own instantaneous axis. To first order in <span class="math notranslate nohighlight">\(dt\)</span>, these small rotation vectors add. Dividing by <span class="math notranslate nohighlight">\(dt\)</span> gives</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{
+\boldsymbol{\omega}
+=
+\dot{\phi}\,\hat{\mathbf z}_S
++
+\dot{\theta}\,\hat{\mathbf n}
++
+\dot{\psi}\,\hat{\mathbf z}_B.
+}
+\]</div>
+<p>The three terms are the contributions from precession about the lab vertical, nutation about the line of nodes, and spin about the shaft. Evaluate all three axis directions at the same instant.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>Axis names and component labels</strong>
+<p>The boxed equation is a geometric vector equation. The subscript in <span class="math notranslate nohighlight">\(\hat{\mathbf z}_S\)</span> identifies the <strong>lab vertical</strong>, and the subscript in <span class="math notranslate nohighlight">\(\hat{\mathbf z}_B\)</span> identifies the <strong>shaft direction</strong>. Either direction can be expressed in either basis. The subscript outside the brackets tells you which basis you are using. For example, <span class="math notranslate nohighlight">\([\hat{\mathbf z}_S]_B\)</span> means the lab vertical expressed in body coordinates. To add component columns, first express all three directions in the same basis.</p>
+</div>
+</section>
+<section id="express-angular-velocity-in-space-coordinates">
+<h3>Express angular velocity in space coordinates<a class="headerlink" href="#express-angular-velocity-in-space-coordinates" title="Link to this heading">#</a></h3>
+<p>In the lab basis, the vertical is <span class="math notranslate nohighlight">\((0,0,1)^T\)</span>. The line of nodes lies in the horizontal plane and makes a signed angle <span class="math notranslate nohighlight">\(\phi\)</span> with <span class="math notranslate nohighlight">\(x_S\)</span>. The shaft direction is the third column of the body-to-space matrix <span class="math notranslate nohighlight">\(R\)</span> from B1.3.6. Thus,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+[\boldsymbol{\omega}]_S
+=
+\dot{\phi}
+\begin{bmatrix}0\\0\\1\end{bmatrix}
++
+\dot{\theta}
+\begin{bmatrix}\cos\phi\\\sin\phi\\0\end{bmatrix}
++
+\dot{\psi}
+\begin{bmatrix}
+\sin\phi\sin\theta\\
+-\cos\phi\sin\theta\\
+\cos\theta
+\end{bmatrix}.
+\end{split}\]</div>
+<p>For example, the vertical component is <span class="math notranslate nohighlight">\(\omega_{z_S}=\dot{\phi}+\dot{\psi}\cos\theta\)</span>. The spin term contributes to this component because the shaft has a projection along the vertical.</p>
+</section>
+<section id="express-angular-velocity-in-body-coordinates">
+<h3>Express angular velocity in body coordinates<a class="headerlink" href="#express-angular-velocity-in-body-coordinates" title="Link to this heading">#</a></h3>
+<p>We can obtain <span class="math notranslate nohighlight">\([\boldsymbol{\omega}]_B\)</span> by applying <span class="math notranslate nohighlight">\(R^T\)</span> to the space components. We can also project each rotation axis directly onto the body axes. The second approach makes the signs and the axial projection easier to see.</p>
+<ul class="simple">
+<li><p><strong>Shaft axis.</strong> The shaft defines the body’s positive <span class="math notranslate nohighlight">\(z\)</span> axis, so <span class="math notranslate nohighlight">\([\hat{\mathbf z}_B]_B=(0,0,1)^T\)</span>.</p></li>
+<li><p><strong>Line of nodes.</strong> The final rotation carries <span class="math notranslate nohighlight">\(\hat{\mathbf n}\)</span> to <span class="math notranslate nohighlight">\(\hat{\mathbf x}_B\)</span> through <span class="math notranslate nohighlight">\(+\psi\)</span> about <span class="math notranslate nohighlight">\(\hat{\mathbf z}_B\)</span>. To locate <span class="math notranslate nohighlight">\(\hat{\mathbf n}\)</span> in the finished body frame, start at <span class="math notranslate nohighlight">\(\hat{\mathbf x}_B\)</span> and turn back through <span class="math notranslate nohighlight">\(-\psi\)</span>. This gives <span class="math notranslate nohighlight">\([\hat{\mathbf n}]_B=(\cos\psi,-\sin\psi,0)^T\)</span>.</p></li>
+<li><p><strong>Lab vertical.</strong> Since <span class="math notranslate nohighlight">\(R\)</span> maps body components to space components, <span class="math notranslate nohighlight">\(R^T(0,0,1)^T\)</span> gives the lab vertical in body coordinates. This selects the third row of <span class="math notranslate nohighlight">\(R\)</span> and writes it as a column. Its last entry is <span class="math notranslate nohighlight">\(\hat{\mathbf z}_S\cdot\hat{\mathbf z}_B=\cos\theta\)</span>.</p></li>
+</ul>
+<p>Combining the three contributions gives</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+[\boldsymbol{\omega}]_B
+=
+\begin{bmatrix}
+\dot{\theta}\cos\psi+\dot{\phi}\sin\theta\sin\psi\\
+-\dot{\theta}\sin\psi+\dot{\phi}\sin\theta\cos\psi\\
+\dot{\psi}+\dot{\phi}\cos\theta
+\end{bmatrix}.
+}
+\end{split}\]</div>
+<p>The axial component <span class="math notranslate nohighlight">\(\omega_{z_B}\)</span> includes both the spin rate <span class="math notranslate nohighlight">\(\dot{\psi}\)</span> and the projection of the precession contribution onto the shaft. The nutation contribution has zero projection along the shaft because the line of nodes is perpendicular to it.</p>
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Fill In the Gaps in the Body-Frame Calculation</h3>
+<p>A gyroscope is precessing, nutating, and spinning. At one instant, <span class="math notranslate nohighlight">\(\theta=60^\circ\)</span> and <span class="math notranslate nohighlight">\(\psi=90^\circ\)</span>. The measured Euler-angle rates are</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{\phi}=2\,\mathrm{rad/s},
+\qquad
+\dot{\theta}=1\,\mathrm{rad/s},
+\qquad
+\dot{\psi}=5\,\mathrm{rad/s}.
+\]</div>
+<ol class="arabic simple">
+<li><p>Use the geometry to fill in the <strong>body components</strong> of the shaft and the line of nodes. Sketch the wheel plane and explain the sign of the nonzero component of <span class="math notranslate nohighlight">\(\hat{\mathbf n}\)</span>.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+[\hat{\mathbf z}_B]_B=
+\begin{bmatrix}\square\\\square\\\square\end{bmatrix},
+\qquad
+[\hat{\mathbf n}]_B=
+\begin{bmatrix}\square\\\square\\\square\end{bmatrix}.
+\end{split}\]</div>
+<ol class="arabic simple" start="2">
+<li><p>Read the third row of <span class="math notranslate nohighlight">\(R\)</span> from B1.3.6 and substitute the given angles to fill in the lab vertical in body coordinates.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+[\hat{\mathbf z}_S]_B=
+\begin{bmatrix}\square\\\square\\\square\end{bmatrix}.
+\end{split}\]</div>
+<ol class="arabic simple" start="3">
+<li><p>Multiply each direction by its corresponding Euler-angle rate. Fill in the contribution from each rotation and add the columns.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+[\boldsymbol{\omega}]_B
+=
+\underbrace{\begin{bmatrix}\square\\\square\\\square\end{bmatrix}}_{\text{precession}}
++
+\underbrace{\begin{bmatrix}\square\\\square\\\square\end{bmatrix}}_{\text{nutation}}
++
+\underbrace{\begin{bmatrix}\square\\\square\\\square\end{bmatrix}}_{\text{spin}}
+=
+\begin{bmatrix}\square\\\square\\\square\end{bmatrix}
+\mathrm{rad/s}.
+\end{split}\]</div>
+<ol class="arabic simple" start="4">
+<li><p>Your axial component should differ from <span class="math notranslate nohighlight">\(5\,\mathrm{rad/s}\)</span>. Which rotation supplies the difference, and why?</p></li>
+</ol>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<p><strong>1. Locate the shaft and the line of nodes.</strong> The shaft is the positive body <span class="math notranslate nohighlight">\(z\)</span> axis. Since <span class="math notranslate nohighlight">\(\psi=90^\circ\)</span>, a positive quarter turn about the shaft carries <span class="math notranslate nohighlight">\(\hat{\mathbf n}\)</span> into <span class="math notranslate nohighlight">\(\hat{\mathbf x}_B\)</span>. Starting at <span class="math notranslate nohighlight">\(\hat{\mathbf x}_B\)</span> and reversing that turn points along <span class="math notranslate nohighlight">\(-\hat{\mathbf y}_B\)</span>. Therefore,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+[\hat{\mathbf z}_B]_B=
+\begin{bmatrix}0\\0\\1\end{bmatrix},
+\qquad
+[\hat{\mathbf n}]_B=
+\begin{bmatrix}0\\-1\\0\end{bmatrix}.
+\end{split}\]</div>
+<p><strong>2. Project the lab vertical onto the body axes.</strong> The third row of <span class="math notranslate nohighlight">\(R\)</span> contains the vertical component of each body axis. Those three projections are also the body components of the lab vertical:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+[\hat{\mathbf z}_S]_B
+=
+\begin{bmatrix}
+\sin 60^\circ\sin 90^\circ\\
+\sin 60^\circ\cos 90^\circ\\
+\cos 60^\circ
+\end{bmatrix}
+=
+\begin{bmatrix}\sqrt{3}/2\\0\\1/2\end{bmatrix}.
+\end{split}\]</div>
+<p><strong>3. Add the contributions in a common basis.</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+[\boldsymbol{\omega}]_B
+=
+\left(
+\begin{bmatrix}\sqrt{3}\\0\\1\end{bmatrix}
++
+\begin{bmatrix}0\\-1\\0\end{bmatrix}
++
+\begin{bmatrix}0\\0\\5\end{bmatrix}
+\right)\mathrm{rad/s}
+=
+\boxed{
+\begin{bmatrix}\sqrt{3}\\-1\\6\end{bmatrix}\mathrm{rad/s}
+}.
+\end{split}\]</div>
+<p><strong>4. Explain the extra axial angular velocity.</strong> Precession contributes <span class="math notranslate nohighlight">\(\dot{\phi}\cos\theta=(2)(1/2)=1\,\mathrm{rad/s}\)</span> along the shaft. Together with the <span class="math notranslate nohighlight">\(5\,\mathrm{rad/s}\)</span> from spin, this gives <span class="math notranslate nohighlight">\(\omega_{z_B}=6\,\mathrm{rad/s}\)</span>. Nutation acts along the line of nodes and contributes only in the wheel plane.</p>
+</details>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="b1-3-9-gimbal-lock-when-two-angle-changes-share-an-axis">
+<h2>B1.3.9 Gimbal Lock — When Two Angle Changes Share an Axis<a class="headerlink" href="#b1-3-9-gimbal-lock-when-two-angle-changes-share-an-axis" title="Link to this heading">#</a></h2>
+<p>In the <span class="math notranslate nohighlight">\(ZXZ\)</span> convention, gimbal lock occurs at <span class="math notranslate nohighlight">\(\theta=0\)</span> and <span class="math notranslate nohighlight">\(\theta=\pi\)</span>. The first and third rotation axes lie on the same line. Changing <span class="math notranslate nohighlight">\(\phi\)</span> or <span class="math notranslate nohighlight">\(\psi\)</span> produces rotation about that common axis line, so the two angle changes cease to provide independent instantaneous rotation directions. The line of nodes also becomes undetermined because <span class="math notranslate nohighlight">\(\hat{\mathbf z}_S\times\hat{\mathbf z}_B=\mathbf 0\)</span>.</p>
+<section id="shaft-pointing-up-only-the-sum-determines-the-orientation">
+<h3>Shaft pointing up — only the sum determines the orientation<a class="headerlink" href="#shaft-pointing-up-only-the-sum-determines-the-orientation" title="Link to this heading">#</a></h3>
+<p>At <span class="math notranslate nohighlight">\(\theta=0\)</span>, the shaft and the lab vertical point in the same direction. The middle rotation is the identity, and the two turns about the vertical add:</p>
+<div class="math notranslate nohighlight">
+\[
+R(\phi,0,\psi)=R_z(\phi)R_z(\psi)=R_z(\phi+\psi).
+\]</div>
+<p>The three angle triples from the slide discussion,</p>
+<div class="math notranslate nohighlight">
+\[
+(35^\circ,0^\circ,15^\circ),\qquad
+(30^\circ,0^\circ,20^\circ),\qquad
+(40^\circ,0^\circ,10^\circ),
+\]</div>
+<p>all give <span class="math notranslate nohighlight">\(R=R_z(50^\circ)\)</span>. In every case the shaft points up and the dot ends up <span class="math notranslate nohighlight">\(50^\circ\)</span> counterclockwise from east when viewed from above. You can move <span class="math notranslate nohighlight">\(5^\circ\)</span> from one angle to the other and get exactly the same photograph.</p>
+</section>
+<section id="shaft-pointing-down-only-the-difference-determines-the-orientation">
+<h3>Shaft pointing down — only the difference determines the orientation<a class="headerlink" href="#shaft-pointing-down-only-the-difference-determines-the-orientation" title="Link to this heading">#</a></h3>
+<p>At <span class="math notranslate nohighlight">\(\theta=\pi\)</span>, the shaft and the lab vertical point in opposite directions. A positive turn about the downward shaft has the opposite sense to a positive turn about the upward vertical. Using <span class="math notranslate nohighlight">\(R_x(\pi)R_z(\psi)=R_z(-\psi)R_x(\pi)\)</span> gives</p>
+<div class="math notranslate nohighlight">
+\[
+R(\phi,\pi,\psi)=R_z(\phi-\psi)R_x(\pi).
+\]</div>
+<p>The orientation therefore depends on <span class="math notranslate nohighlight">\(\phi-\psi\)</span>. Adding the same amount to both angles leaves the orientation unchanged.</p>
+<div style="background-color:#ffe6e6; border-left:6px solid #cc0000; padding:14px; border-radius:4px;">
+<strong>Danger — The Euler-angle coordinates become singular</strong>
+<p>A freely rotating body retains its physical rotational freedom. The singularity lies in the angle description. For a fixed choice of angle triple at the pole, <span class="math notranslate nohighlight">\(\dot\phi\)</span> and <span class="math notranslate nohighlight">\(\dot\psi\)</span> give only one independent direction, and <span class="math notranslate nohighlight">\(\dot\theta\)</span> supplies one transverse direction. The rate-to-angular-velocity map therefore has rank two there. Rotation matrices and unit quaternions can describe the orientation through these poses without this Euler-angle singularity.</p>
+</div>
+<hr class="docutils" />
+<div style="background-color:#e8f5e9; border-left:6px solid #006633; padding:14px; border-radius:4px;">
+<h3 style="margin-top:0;">Box Activity — Make two angle changes cancel</h3>
+<p>Hold <span class="math notranslate nohighlight">\(\theta=0\)</span>. Starting at <span class="math notranslate nohighlight">\((\phi,\psi)=(35^\circ,15^\circ)\)</span>, increase <span class="math notranslate nohighlight">\(\phi\)</span> by <span class="math notranslate nohighlight">\(5^\circ\)</span> while decreasing <span class="math notranslate nohighlight">\(\psi\)</span> by <span class="math notranslate nohighlight">\(5^\circ\)</span>. Where do the shaft and the dot end up? Would the same changes cancel if you held the shaft at <span class="math notranslate nohighlight">\(\theta=45^\circ\)</span>?</p>
+<details>
+<summary style="background-color:#006633; color:white; padding:8px; border-radius:4px; cursor:pointer;">
+Activity solution
+</summary>
+<p>At <span class="math notranslate nohighlight">\(\theta=0\)</span>, the shaft remains vertical and the dot remains <span class="math notranslate nohighlight">\(50^\circ\)</span> from east. The two turns act about the same axis in opposite senses. Equivalently, the angular velocity during the adjustment is <span class="math notranslate nohighlight">\((\dot\phi+\dot\psi)\hat{\mathbf z}_S=\mathbf 0\)</span> if the changes are made at equal and opposite rates.</p>
+<p>At <span class="math notranslate nohighlight">\(\theta=45^\circ\)</span>, changing <span class="math notranslate nohighlight">\(\phi\)</span> sweeps the tilted shaft around the vertical. Changing <span class="math notranslate nohighlight">\(\psi\)</span> turns the wheel about the tilted shaft and leaves that shaft direction fixed. The second change therefore cannot undo the change in shaft direction caused by the first.</p>
+</details>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="b1-3-10-summary">
+<h2>B1.3.10 Summary<a class="headerlink" href="#b1-3-10-summary" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Description</p></th>
-<th class="head"><p>Euler Angle</p></th>
-<th class="head"><p>Axis Rotated About</p></th>
+<tr class="row-odd"><th class="head"><p>Quantity</p></th>
+<th class="head"><p>Axis or frame</p></th>
+<th class="head"><p>What to look for</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Spin of the top</p></td>
-<td><p><span class="math notranslate nohighlight">\( \psi \)</span></p></td>
-<td><p>Body Z-axis</p></td>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\phi\)</span></p></td>
+<td><p>Fixed vertical <span class="math notranslate nohighlight">\(z_S\)</span></p></td>
+<td><p>The line of nodes turns in the horizontal plane as the shaft precesses.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Precession (conical motion)</p></td>
-<td><p><span class="math notranslate nohighlight">\( \phi \)</span></p></td>
-<td><p>Fixed Z-axis</p></td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\theta\)</span></p></td>
+<td><p>Intermediate axis <span class="math notranslate nohighlight">\(x'=\hat{\mathbf n}\)</span></p></td>
+<td><p>The tilt changes when the shaft nutates.</p></td>
 </tr>
-<tr class="row-even"><td><p>Lean or tilt from vertical</p></td>
-<td><p><span class="math notranslate nohighlight">\( \theta \)</span></p></td>
-<td><p>New X-axis after <span class="math notranslate nohighlight">\( \phi \)</span></p></td>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\psi\)</span></p></td>
+<td><p>Body shaft <span class="math notranslate nohighlight">\(z_B\)</span></p></td>
+<td><p>A mark on the wheel turns relative to the line of nodes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(R=R_z(\phi)R_x(\theta)R_z(\psi)\)</span></p></td>
+<td><p>Body to space</p></td>
+<td><p>The columns give the body axes in space components.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\boldsymbol{\omega}=\dot\phi\hat{\mathbf z}_S+\dot\theta\hat{\mathbf n}+\dot\psi\hat{\mathbf z}_B\)</span></p></td>
+<td><p>Resolve all three terms in one basis</p></td>
+<td><p>Each angle rate contributes along its own instantaneous axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gimbal lock</p></td>
+<td><p><span class="math notranslate nohighlight">\(z_S\)</span> and <span class="math notranslate nohighlight">\(z_B\)</span> lie on the same axis line</p></td>
+<td><p>At <span class="math notranslate nohighlight">\(\theta=0\)</span> the orientation depends on <span class="math notranslate nohighlight">\(\phi+\psi\)</span>. At <span class="math notranslate nohighlight">\(\theta=\pi\)</span> it depends on <span class="math notranslate nohighlight">\(\phi-\psi\)</span>.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<hr style="height:2px;border-width:0;color:gray;background-color:gray">
-</section>
-</section>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -958,31 +1204,35 @@ R =
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-1-motivation-why-do-we-need-euler-angles">B1.3.1 Motivation: Why Do We Need Euler Angles?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-1-motivation-why-do-we-need-euler-angles">B1.3.1 Motivation — Why Do We Need Euler Angles?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-2-learning-objectives">B1.3.2 Learning Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-3-what-are-euler-angles">B1.3.3 What Are Euler Angles?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-4-euler-rotation-sequence-zxz-convention">B1.3.4 Euler Rotation Sequence (ZXZ Convention)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-5-clarifying-the-z-axes-in-euler-angles-zxz-convention">B1.3.5 Clarifying the Z-Axes in Euler Angles (ZXZ Convention)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#whats-actually-happening">What’s Actually Happening?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-reuse-z">Why Reuse “Z”?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tip-for-clarity">Tip for Clarity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-4-finding-the-three-rotation-axes">B1.3.4 Finding the Three Rotation Axes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-the-space-and-body-directions">Choose the space and body directions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#construct-the-intermediate-axis">Construct the intermediate axis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-the-angles-from-the-axes">Read the angles from the axes</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-6-interpreting-the-euler-angles-physically">B1.3.6 Interpreting the Euler Angles Physically</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-7-gimbal-lock">B1.3.7 Gimbal Lock</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-8-angular-velocity-in-terms-of-euler-angles">B1.3.8 Angular Velocity in Terms of Euler Angles</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-9-summary">B1.3.9 Summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detailed-solutions-to-boxes">Detailed Solutions to Boxes</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#box-1">Box 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#box-2">Box 2</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-rotation-by-phi-about-the-fixed-z-axis">Step 1: Rotation by <span class="math notranslate nohighlight">\( \phi \)</span> about the fixed Z-axis</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-rotation-by-theta-about-the-new-x-axis">Step 2: Rotation by <span class="math notranslate nohighlight">\( \theta \)</span> about the new X-axis</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-rotation-by-psi-about-the-new-z-axis">Step 3: Rotation by <span class="math notranslate nohighlight">\( \psi \)</span> about the new Z-axis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-5-box-activity-find-the-euler-axes-of-a-gyroscope">B1.3.5 Box Activity — Find the Euler Axes of a Gyroscope</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-6-the-zxz-rotation-matrix">B1.3.6 The ZXZ Rotation Matrix</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-7-precession-nutation-and-spin">B1.3.7 Precession, Nutation, and Spin</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precession-changes-the-direction-around-the-vertical">Precession changes the direction around the vertical</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nutation-changes-the-tilt">Nutation changes the tilt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spin-turns-the-wheel-about-the-shaft">Spin turns the wheel about the shaft</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#box-3">Box 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-8-angular-velocity-in-space-and-body-coordinates">B1.3.8 Angular Velocity in Space and Body Coordinates</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-the-three-instantaneous-rotations">Add the three instantaneous rotations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#express-angular-velocity-in-space-coordinates">Express angular velocity in space coordinates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#express-angular-velocity-in-body-coordinates">Express angular velocity in body coordinates</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-9-gimbal-lock-when-two-angle-changes-share-an-axis">B1.3.9 Gimbal Lock — When Two Angle Changes Share an Axis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shaft-pointing-up-only-the-sum-determines-the-orientation">Shaft pointing up — only the sum determines the orientation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shaft-pointing-down-only-the-difference-determines-the-orientation">Shaft pointing down — only the difference determines the orientation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-10-summary">B1.3.10 Summary</a></li>
 </ul>
   </nav></div>
 
