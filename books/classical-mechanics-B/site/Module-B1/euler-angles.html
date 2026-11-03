@@ -456,7 +456,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shaft-pointing-down-only-the-difference-determines-the-orientation">Shaft pointing down — only the difference determines the orientation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-10-summary">B1.3.10 Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-10-yaw-pitch-and-roll-a-different-rotation-sequence">B1.3.10 Yaw, Pitch, and Roll — A Different Rotation Sequence</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-this-differ-from-zxz">How does this differ from <span class="math notranslate nohighlight">\(ZXZ\)</span>?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-11-summary">B1.3.11 Summary</a></li>
 </ul>
             </nav>
         </div>
@@ -474,6 +478,7 @@ document.write(`
 <h2>B1.3.1 Motivation — Why Do We Need Euler Angles?<a class="headerlink" href="#b1-3-1-motivation-why-do-we-need-euler-angles" title="Link to this heading">#</a></h2>
 <p>Imagine taking a photograph of a spinning gyroscope. The direction of the shaft tells you how the wheel is tilted, but you also need to see a mark on the rim to tell how far the wheel has turned about the shaft. Those observations describe its <strong>orientation</strong> at the instant of the photograph. A sequence of photographs lets you determine how that orientation is changing.</p>
 <p>A rotation matrix describes the orientation by giving the directions of the body axes in the space frame. <strong>Euler angles</strong> describe the same orientation using three successive rotations. For a gyroscope, these rotations have a geometric interpretation: turn around the vertical, tilt the shaft, then turn the wheel about the shaft.</p>
+<img src="fig1.3.1.png" width="1000" alt="Euler Angles in Science"/>
 <hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
 <section id="b1-3-2-learning-objectives">
 <h2>B1.3.2 Learning Objectives<a class="headerlink" href="#b1-3-2-learning-objectives" title="Link to this heading">#</a></h2>
@@ -1100,8 +1105,82 @@ Activity solution
 </div>
 <hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
 </section>
-<section id="b1-3-10-summary">
-<h2>B1.3.10 Summary<a class="headerlink" href="#b1-3-10-summary" title="Link to this heading">#</a></h2>
+<section id="b1-3-10-yaw-pitch-and-roll-a-different-rotation-sequence">
+<h2>B1.3.10 Yaw, Pitch, and Roll — A Different Rotation Sequence<a class="headerlink" href="#b1-3-10-yaw-pitch-and-roll-a-different-rotation-sequence" title="Link to this heading">#</a></h2>
+<p>Imagine an aircraft with its nose pointing north, its right wing pointing east, and its body <span class="math notranslate nohighlight">\(z\)</span> axis pointing down. These directions define a right-handed body frame. Let the fixed space axes point north (<span class="math notranslate nohighlight">\(x_S\)</span>), east (<span class="math notranslate nohighlight">\(y_S\)</span>), and down (<span class="math notranslate nohighlight">\(z_S\)</span>), so the two frames coincide when the aircraft is level and pointing north.</p>
+<p>A common way to describe the aircraft’s orientation is the intrinsic <strong><span class="math notranslate nohighlight">\(ZYX\)</span> yaw–pitch–roll convention</strong>. As in <span class="math notranslate nohighlight">\(ZXZ\)</span>, each turn uses the axes as they stand at that step.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Step</p></th>
+<th class="head"><p>Angle</p></th>
+<th class="head"><p>Rotation axis</p></th>
+<th class="head"><p>Positive rotation from the preceding orientation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Yaw <span class="math notranslate nohighlight">\(\alpha\)</span></p></td>
+<td><p>Fixed vertical <span class="math notranslate nohighlight">\(z_S\)</span></p></td>
+<td><p>Turns the nose toward the right.</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Pitch <span class="math notranslate nohighlight">\(\beta\)</span></p></td>
+<td><p>Intermediate lateral axis <span class="math notranslate nohighlight">\(y'\)</span></p></td>
+<td><p>Raises the nose.</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Roll <span class="math notranslate nohighlight">\(\gamma\)</span></p></td>
+<td><p>Final longitudinal axis <span class="math notranslate nohighlight">\(x_B\)</span></p></td>
+<td><p>Lowers the right wing.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The body-to-space matrix is</p>
+<div class="math notranslate nohighlight">
+\[
+R_{\mathrm{YPR}}=R_z(\alpha)R_y(\beta)R_x(\gamma).
+\]</div>
+<p>Yaw comes first when constructing the moving frame. When evaluating <span class="math notranslate nohighlight">\(R_{\mathrm{YPR}}[\mathbf v]_B\)</span>, the rightmost factor <span class="math notranslate nohighlight">\(R_x(\gamma)\)</span> acts on the component column first.</p>
+<section id="how-does-this-differ-from-zxz">
+<h3>How does this differ from <span class="math notranslate nohighlight">\(ZXZ\)</span>?<a class="headerlink" href="#how-does-this-differ-from-zxz" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Intrinsic <span class="math notranslate nohighlight">\(ZXZ\)</span></p></th>
+<th class="head"><p>Intrinsic <span class="math notranslate nohighlight">\(ZYX\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Successive axes</p></td>
+<td><p><span class="math notranslate nohighlight">\(z_S \rightarrow x' \rightarrow z_B\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(z_S \rightarrow y' \rightarrow x_B\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>What the middle angle measures</p></td>
+<td><p><span class="math notranslate nohighlight">\(\theta\)</span> is the tilt between <span class="math notranslate nohighlight">\(z_S\)</span> and <span class="math notranslate nohighlight">\(z_B\)</span>.</p></td>
+<td><p><span class="math notranslate nohighlight">\(\beta\)</span> is the elevation of the nose above the horizontal.</p></td>
+</tr>
+<tr class="row-even"><td><p>What the final turn leaves fixed</p></td>
+<td><p><span class="math notranslate nohighlight">\(\psi\)</span> turns the wheel around its shaft and leaves <span class="math notranslate nohighlight">\(z_B\)</span> fixed.</p></td>
+<td><p><span class="math notranslate nohighlight">\(\gamma\)</span> banks the aircraft around its nose-to-tail axis and leaves <span class="math notranslate nohighlight">\(x_B\)</span> fixed.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Where gimbal lock occurs</p></td>
+<td><p>At <span class="math notranslate nohighlight">\(\theta=0^\circ\)</span> or <span class="math notranslate nohighlight">\(180^\circ\)</span>, <span class="math notranslate nohighlight">\(z_B\)</span> lies on the same line as <span class="math notranslate nohighlight">\(z_S\)</span>.</p></td>
+<td><p>At <span class="math notranslate nohighlight">\(\beta=\pm90^\circ\)</span>, <span class="math notranslate nohighlight">\(x_B\)</span> lies on the same line as <span class="math notranslate nohighlight">\(z_S\)</span>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Picture the aircraft pointing straight up. Its roll axis is now vertical, so yaw and roll act about the same axis line. This is the same geometry that produced gimbal lock for the vertical gyroscope shaft. The two conventions reach that alignment at different values of their middle angle because their final rotation axes are different.</p>
+<div style="background-color:#e6f0ff; border-left:6px solid #003366; padding:12px; border-radius:4px;">
+<strong>One orientation, two sets of angles</strong>
+<p>Both conventions can describe the same body orientation. To express a <span class="math notranslate nohighlight">\(ZXZ\)</span> orientation in yaw, pitch, and roll, first build its rotation matrix. Then find the <span class="math notranslate nohighlight">\(ZYX\)</span> angles that reproduce that matrix. Simply relabeling <span class="math notranslate nohighlight">\(\phi\)</span>, <span class="math notranslate nohighlight">\(\theta\)</span>, and <span class="math notranslate nohighlight">\(\psi\)</span> as yaw, pitch, and roll generally gives a different orientation.</p>
+</div>
+<p>The intrinsic <span class="math notranslate nohighlight">\(ZYX\)</span> yaw–pitch–roll convention is a <strong>Tait–Bryan</strong> (or <strong>Cardan</strong>) sequence because it uses three distinct axis labels. The <span class="math notranslate nohighlight">\(ZXZ\)</span> convention is a <strong>proper Euler-angle</strong> sequence because it repeats the <span class="math notranslate nohighlight">\(Z\)</span> label, using the space <span class="math notranslate nohighlight">\(z_S\)</span> axis first and the body <span class="math notranslate nohighlight">\(z_B\)</span> axis last.</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"></section>
+</section>
+<section id="b1-3-11-summary">
+<h2>B1.3.11 Summary<a class="headerlink" href="#b1-3-11-summary" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Quantity</p></th>
@@ -1232,7 +1311,11 @@ Activity solution
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shaft-pointing-down-only-the-difference-determines-the-orientation">Shaft pointing down — only the difference determines the orientation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-10-summary">B1.3.10 Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-10-yaw-pitch-and-roll-a-different-rotation-sequence">B1.3.10 Yaw, Pitch, and Roll — A Different Rotation Sequence</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-this-differ-from-zxz">How does this differ from <span class="math notranslate nohighlight">\(ZXZ\)</span>?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b1-3-11-summary">B1.3.11 Summary</a></li>
 </ul>
   </nav></div>
 
