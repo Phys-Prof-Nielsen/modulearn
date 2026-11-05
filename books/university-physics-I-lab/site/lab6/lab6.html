@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Lab 6: Realistic Projectile Motion Simulation &#8212; A Note to University Physics I Lab</title>
+    <title>Lab 6: Ballistic Pendulum - Pizza Prize &#8212; A Note to University Physics I Lab</title>
   
   
   
@@ -63,8 +63,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Lab 7: Exploring the Spring Constant and Equivalent Springs" href="../lab7/lab7.html" />
-    <link rel="prev" title="Lab 5: Ballistic Pendulum - Pizza Prize" href="../lab5/lab5.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -126,6 +124,8 @@
     <div class="bd-container__inner bd-page-width">
       
       
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -208,26 +208,6 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 5 - Propagation of Error Using Monte Carlo Simulation</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../lab-MC/intro-error-propagation.html">PHYS 2215 — Introduction to Error Propagation</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 6 - Ballistic Pendulum</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../lab5/lab5.html">Lab 5: Ballistic Pendulum - Pizza Prize</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 7 - Air Drag - Numerical Simulation</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 6: Realistic Projectile Motion Simulation</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 8 - Spring Systems</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../lab7/lab7.html">Lab 7: Exploring the Spring Constant and Equivalent Springs</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 9 - Heat Transfer</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../lab8/lab8.html">Lab 8 — Heat Transfer with a Thermal Camera</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 10 - Thermospheroic Processses</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../lab9/lab9.html">Lab 9: Investigating Thermodynamic Processes with a Fire Syringe</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 11 - Pendulum and Polar Coordinates</span></p>
 <ul class="nav bd-sidenav">
@@ -405,7 +385,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Lab 6: Realistic Projectile Motion Simulation</h1>
+    <h1>Lab 6: Ballistic Pendulum - Pizza Prize</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -415,18 +395,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theory-and-model">Theory and Model</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#newtons-second-law">Newton’s Second Law</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#no-air-drag">1. No Air Drag</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-air-drag">2. With Air Drag</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-variable-air-density">3. With Variable Air Density</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-and-theory">Introduction and Theory</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-i-ballistic-pendulum">Part I: Ballistic Pendulum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-ii-projectile-prediction-challenge">Part II: Projectile Prediction Challenge</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#general-kinematic-equations">General Kinematic Equations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#special-case-horizontal-launch">Special Case: Horizontal Launch</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-method">Numerical Method</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodology">Methodology</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#template-code">Template Code</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable">Deliverable</a></li>
 </ul>
             </nav>
         </div>
@@ -438,305 +416,128 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="lab-6-realistic-projectile-motion-simulation">
-<h1>Lab 6: Realistic Projectile Motion Simulation<a class="headerlink" href="#lab-6-realistic-projectile-motion-simulation" title="Link to this heading">#</a></h1>
-<section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
-<p>Projectile motion is a classical problem in physics, often simplified by assuming a constant acceleration due to gravity and ignoring the effects of air resistance. However, in realistic scenarios such as the flight of a shell from a howitzer, these simplifications are inadequate. Air drag significantly affects the trajectory, and at high altitudes, the variation of air density with height further modifies the motion.</p>
-<p>In this lab, we will simulate projectile motion in three stages:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-6-ballistic-pendulum-pizza-prize">
+<h1>Lab 6: Ballistic Pendulum - Pizza Prize<a class="headerlink" href="#lab-6-ballistic-pendulum-pizza-prize" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="introduction-and-theory">
+<h2>Introduction and Theory<a class="headerlink" href="#introduction-and-theory" title="Link to this heading">#</a></h2>
+<p>In this lab we will determine the launch speed of a projectile using a ballistic pendulum, then use that speed to predict where the ball will land when fired horizontally from a table. This connects <strong>conservation of momentum</strong>, <strong>work done by gravity</strong>, and <strong>projectile motion</strong>.</p>
+<hr class="docutils" />
+<section id="part-i-ballistic-pendulum">
+<h3>Part I: Ballistic Pendulum<a class="headerlink" href="#part-i-ballistic-pendulum" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>A steel ball of mass <span class="math notranslate nohighlight">\(m\)</span> is fired into a pendulum of mass <span class="math notranslate nohighlight">\(M\)</span>.</p></li>
+<li><p>The ball embeds in the pendulum (perfectly inelastic collision).</p></li>
+<li><p>Momentum conservation during the collision:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+m v = (M + m)V
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(v\)</span> = ball speed before collision, <span class="math notranslate nohighlight">\(V\)</span> = pendulum+ball speed after collision.</p>
+<ul class="simple">
+<li><p>After collision, pendulum+ball swing upward. Kinetic energy is transferred into energy in the pendulum+ball system (known as potential energy) through work done against gravity:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{2}(M+m)V^2 = (M+m) g h
+\]</div>
+<p>which gives</p>
+<div class="math notranslate nohighlight">
+\[
+V = \sqrt{2 g h}
+\]</div>
+<ul class="simple">
+<li><p>Combining both:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+v = \frac{M+m}{m} \sqrt{2 g h}
+\]</div>
+<p>Thus, by measuring the rise height <span class="math notranslate nohighlight">\(h\)</span>, we determine the launch speed <span class="math notranslate nohighlight">\(v\)</span>.</p>
+</section>
+<hr class="docutils" />
+<section id="part-ii-projectile-prediction-challenge">
+<h3>Part II: Projectile Prediction Challenge<a class="headerlink" href="#part-ii-projectile-prediction-challenge" title="Link to this heading">#</a></h3>
+<p>Now, the launcher is aimed horizontally from a tabletop of height <span class="math notranslate nohighlight">\(H\)</span>. Using the speed <span class="math notranslate nohighlight">\(v\)</span> derived above, predict the horizontal distance <span class="math notranslate nohighlight">\(x\)</span> where the ball will land.</p>
+<section id="general-kinematic-equations">
+<h4>General Kinematic Equations<a class="headerlink" href="#general-kinematic-equations" title="Link to this heading">#</a></h4>
+<p>For a projectile launched from the origin at <span class="math notranslate nohighlight">\(t=0\)</span> with initial velocity components (ignoring air drag):</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(v_x = v \cos \theta\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(v_y = v \sin \theta\)</span></p></li>
+</ul>
+<p>the position as a function of time is:</p>
+<div class="math notranslate nohighlight">
+\[
+x(t) = v_x t
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+y(t) = v_y t - \tfrac{1}{2} g t^2
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="special-case-horizontal-launch">
+<h4>Special Case: Horizontal Launch<a class="headerlink" href="#special-case-horizontal-launch" title="Link to this heading">#</a></h4>
+<p>For a horizontal launch, <span class="math notranslate nohighlight">\(\theta = 0^\circ\)</span>, so:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(v_x = v\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(v_y = 0\)</span></p></li>
+</ul>
+<p>Equations simplify to:</p>
+<div class="math notranslate nohighlight">
+\[
+x(t) = v t
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+y(t) = - \tfrac{1}{2} g t^2
+\]</div>
+<p>If the ball is launched from height <span class="math notranslate nohighlight">\(H\)</span> above the floor, then the ball hits the floor when:</p>
+<div class="math notranslate nohighlight">
+\[
+H = \tfrac{1}{2} g t^2
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+t = \sqrt{\tfrac{2H}{g}}
+\]</div>
+<p>At this time, the horizontal displacement is:</p>
+<div class="math notranslate nohighlight">
+\[
+x = v \, t = v \sqrt{\tfrac{2H}{g}}
+\]</div>
+<p>Procedure:</p>
 <ol class="arabic simple">
-<li><p><strong>Ideal Projectile Motion</strong> — without air drag, assuming constant gravitational acceleration.</p></li>
-<li><p><strong>Projectile Motion with Air Drag</strong> — including drag force proportional to the square of velocity.</p></li>
-<li><p><strong>Projectile Motion with Variable Atmospheric Density</strong> — including drag with a density that decreases exponentially with altitude.</p></li>
-</ol>
-<p>The goal is to demonstrate how increasingly realistic assumptions change the trajectory, and to practice numerical integration of Newton’s laws using a finite difference method.</p>
-<hr class="docutils" />
-<p>Explosive cannon shells launched from a small howitzer is a common tool to prevent avalanche danger by intentionally triggering smaller avalanches in areas prone to serious avalanche danger.</p>
-<img src="howitzer1.jpg" width="500">
-<p>Obviously, it is of great interest to make
-sure the cannon shell hits the target area. In fact, Utah is a dangeorus place to live:
-<a class="reference external" href="https://www.deseret.com/2005/3/29/19883755/shell-shocked-errant-avalanche-bomb-rips-pleasant-grove-home">Shell shocked: Errant avalanche bomb rips Pleasant Grove home</a></p>
-</section>
-<hr class="docutils" />
-<section id="theory-and-model">
-<h2>Theory and Model<a class="headerlink" href="#theory-and-model" title="Link to this heading">#</a></h2>
-<section id="newtons-second-law">
-<h3>Newton’s Second Law<a class="headerlink" href="#newtons-second-law" title="Link to this heading">#</a></h3>
-<p>In two dimensions, Newton’s second law for a projectile of mass <span class="math notranslate nohighlight">\(m\)</span> can be written as:</p>
-<div class="math notranslate nohighlight">
-\[
-m \frac{d^2 \vec{r}}{dt^2} = \vec{F}_{\text{gravity}} + \vec{F}_{\text{drag}}
-\]</div>
-<p>where <span class="math notranslate nohighlight">\(\vec{r} = (x, y)\)</span> is the position.</p>
-</section>
-<section id="no-air-drag">
-<h3>1. No Air Drag<a class="headerlink" href="#no-air-drag" title="Link to this heading">#</a></h3>
-<p>For the simplest case (no drag):</p>
+<li><p>Measure the table height <span class="math notranslate nohighlight">\(H\)</span>.</p></li>
+<li><p>Use your calculated <span class="math notranslate nohighlight">\(v\)</span> from Part I.</p></li>
+<li><p>Compute <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\(x\)</span>.</p></li>
+<li><p>Mark the predicted spot <span class="math notranslate nohighlight">\(x\)</span> from the table edge on the floor.</p></li>
+<li><p>Place carbon paper target (“bulls eye”).</p></li>
+<li><p>Fire <strong>one shot</strong>:</p>
 <ul class="simple">
-<li><p>Horizontal direction:</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[
-\frac{d^2 x}{dt^2} = 0
-\]</div>
-<ul class="simple">
-<li><p>Vertical direction:</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[
-\frac{d^2 y}{dt^2} = -g
-\]</div>
-<p>with <span class="math notranslate nohighlight">\(g\)</span> the gravitational acceleration.</p>
-</section>
-<section id="with-air-drag">
-<h3>2. With Air Drag<a class="headerlink" href="#with-air-drag" title="Link to this heading">#</a></h3>
-<p>The drag force for high-speed objects is approximated as quadratic in velocity:</p>
-<div class="math notranslate nohighlight">
-\[
-\vec{F}_{\text{drag}} = -\tfrac{1}{2} C_d \rho A v \vec{v}
-\]</div>
-<p>where:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(C_d\)</span> = drag coefficient (dimensionless),</p></li>
-<li><p><span class="math notranslate nohighlight">\(\rho\)</span> = air density (kg/m³),</p></li>
-<li><p><span class="math notranslate nohighlight">\(A\)</span> = cross-sectional area of projectile (m²),</p></li>
-<li><p><span class="math notranslate nohighlight">\(v = |\vec{v}|\)</span> = speed of projectile.</p></li>
-</ul>
-<p>Thus, the equations of motion become:</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{dv_x}{dt} = - \frac{1}{2m} C_d \rho A v v_x
-\]</div>
-<div class="math notranslate nohighlight">
-\[
-\frac{dv_y}{dt} = -g - \frac{1}{2m} C_d \rho A v v_y
-\]</div>
-</section>
-<section id="with-variable-air-density">
-<h3>3. With Variable Air Density<a class="headerlink" href="#with-variable-air-density" title="Link to this heading">#</a></h3>
-<p>At higher altitudes, air density decreases approximately exponentially:</p>
-<div class="math notranslate nohighlight">
-\[
-\rho(y) = \rho_0 e^{-y / H}
-\]</div>
-<p>where:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\rho_0\)</span> = air density at sea level,</p></li>
-<li><p><span class="math notranslate nohighlight">\(H\)</span> = scale height of the atmosphere (about 8000 m).</p></li>
-</ul>
-<p>Substituting into the drag force:</p>
-<div class="math notranslate nohighlight">
-\[
-\vec{F}_{\text{drag}} = -\tfrac{1}{2} C_d \rho_0 e^{-y/H} A v \vec{v}
-\]</div>
-</section>
-</section>
-<hr class="docutils" />
-<section id="numerical-method">
-<h2>Numerical Method<a class="headerlink" href="#numerical-method" title="Link to this heading">#</a></h2>
-<p>We will solve the equations by converting the second-order differential equations into first-order form.</p>
-<p>Define:</p>
-<ul class="simple">
-<li><p>Position: <span class="math notranslate nohighlight">\(\vec{r} = (x, y)\)</span></p></li>
-<li><p>Velocity: <span class="math notranslate nohighlight">\(\vec{v} = (v_x, v_y)\)</span></p></li>
-<li><p>Acceleration: <span class="math notranslate nohighlight">\(\vec{a} = (a_x, a_y)\)</span></p></li>
-</ul>
-<p>Then:</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{dx}{dt} = v_x, \quad \frac{dy}{dt} = v_y
-\]</div>
-<div class="math notranslate nohighlight">
-\[
-\frac{dv_x}{dt} = a_x(v_x, v_y, y), \quad \frac{dv_y}{dt} = a_y(v_x, v_y, y)
-\]</div>
-<p>These can be solved using a <strong>finite difference method</strong> (Euler’s method):</p>
-<div class="math notranslate nohighlight">
-\[
-x_{n+1} = x_n + v_{x,n} \Delta t
-\]</div>
-<div class="math notranslate nohighlight">
-\[
-y_{n+1} = y_n + v_{y,n} \Delta t
-\]</div>
-<div class="math notranslate nohighlight">
-\[
-v_{x,n+1} = v_{x,n} + a_x(v_{x,n}, v_{y,n}, y_n)\Delta t
-\]</div>
-<div class="math notranslate nohighlight">
-\[
-v_{y,n+1} = v_{y,n} + a_y(v_{x,n}, v_{y,n}, y_n)\Delta t
-\]</div>
-</section>
-<hr class="docutils" />
-<section id="methodology">
-<h2>Methodology<a class="headerlink" href="#methodology" title="Link to this heading">#</a></h2>
-<ol class="arabic">
-<li><p><strong>Common Initial Conditions</strong><br />
-Use the same launch speed for all runs,</p>
-<div class="math notranslate nohighlight">
-\[
-   v_0 = 875~\text{m/s},
-   \]</div>
-<p>and three launch angles,</p>
-<div class="math notranslate nohighlight">
-\[
-   \theta \in \{30^\circ,\;45^\circ,\;60^\circ\}.
-   \]</div>
-<p>For each chosen <span class="math notranslate nohighlight">\(\theta\)</span>, compute initial velocity components</p>
-<div class="math notranslate nohighlight">
-\[
-   v_{x,0} = v_0\cos\theta,\qquad
-   v_{y,0} = v_0\sin\theta,
-   \]</div>
-<p>with initial position <span class="math notranslate nohighlight">\(x_0=0,\; y_0=0\)</span>.</p>
-</li>
-<li><p><strong>Numerical Integration (Euler – first-order finite difference)</strong><br />
-Advance state <span class="math notranslate nohighlight">\((x,y,v_x,v_y)\)</span> with a fixed time step <span class="math notranslate nohighlight">\(\Delta t\)</span> using</p>
-<div class="math notranslate nohighlight">
-\[
-   x_{n+1}=x_n+v_{x,n}\,\Delta t,\qquad y_{n+1}=y_n+v_{y,n}\,\Delta t,
-   \]</div>
-<div class="math notranslate nohighlight">
-\[
-   v_{x,n+1}=v_{x,n}+a_x(v_{x,n},v_{y,n},y_n)\,\Delta t,\qquad
-   v_{y,n+1}=v_{y,n}+a_y(v_{x,n},v_{y,n},y_n)\,\Delta t,
-   \]</div>
-<p>where <span class="math notranslate nohighlight">\(a_x,\;a_y\)</span> depend on the modeling case (below). Choose <span class="math notranslate nohighlight">\(\Delta t\)</span> small enough to give smooth, stable trajectories (e.g., <span class="math notranslate nohighlight">\(\Delta t\!\sim\!10^{-3}\text{–}10^{-2}\ \text{s}\)</span> as a starting point).</p>
-</li>
-<li><p><strong>Three Modeling Cases (run all three for each angle)</strong></p>
-<ul>
-<li><p><strong>Case 1 — No Drag</strong></p>
-<div class="math notranslate nohighlight">
-\[
-     a_x=0,\qquad a_y=-g.
-     \]</div>
-</li>
-<li><p><strong>Case 2 — Quadratic Drag, Constant Density <span class="math notranslate nohighlight">\(\rho_0\)</span></strong><br />
-With <span class="math notranslate nohighlight">\(v=\sqrt{v_x^2+v_y^2}\)</span> and parameters <span class="math notranslate nohighlight">\(C_d,\;A,\;m\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[
-     a_x=-\frac{1}{2m}C_d\rho_0 A\,v\,v_x,\qquad
-     a_y=-g-\frac{1}{2m}C_d\rho_0 A\,v\,v_y.
-     \]</div>
-</li>
-<li><p><strong>Case 3 — Quadratic Drag, Exponential Atmosphere</strong><br />
-With <span class="math notranslate nohighlight">\(\rho(y)=\rho_0 e^{-y/H}\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[
-     a_x=-\frac{1}{2m}C_d\rho_0 e^{-y/H}A\,v\,v_x,\qquad
-     a_y=-g-\frac{1}{2m}C_d\rho_0 e^{-y/H}A\,v\,v_y.
-     \]</div>
-</li>
-</ul>
-</li>
-<li><p><strong>Stopping Criterion &amp; Range Extraction</strong><br />
-For each run, integrate until the projectile returns to the ground (<span class="math notranslate nohighlight">\(y\le 0\)</span> with <span class="math notranslate nohighlight">\(v_y&lt;0\)</span>). To improve range accuracy, linearly interpolate the last step to estimate the impact <span class="math notranslate nohighlight">\(x\)</span> where <span class="math notranslate nohighlight">\(y=0\)</span>.</p></li>
-<li><p><strong>What to Produce for Each Angle <span class="math notranslate nohighlight">\(\theta\in\{30^\circ,45^\circ,60^\circ\}\)</span></strong></p>
-<ul class="simple">
-<li><p>Plot trajectories <span class="math notranslate nohighlight">\(y(x)\)</span> for all launch angles on one plot. Do this for each case.</p></li>
-<li><p>Print time of flight <span class="math notranslate nohighlight">\(T\)</span>, horizontal range <span class="math notranslate nohighlight">\(R\)</span>, peak height <span class="math notranslate nohighlight">\(y_{\max}\)</span>, and impact speed <span class="math notranslate nohighlight">\(v_{\text{impact}}\)</span> for each launch angle and case.</p></li>
+<li><p>If bulls eye is hit → class wins pizza!</p></li>
+<li><p>If missed, record data, adjust prediction, and try again (no pizza).</p></li>
 </ul>
 </li>
 </ol>
+<p>Careful measurement and analysis are crucial!</p>
+</section>
+</section>
 </section>
 <hr class="docutils" />
-<section id="learning-objectives">
-<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
-<p>By the end of this lab, we will be able to:</p>
-<ol class="arabic simple">
-<li><p>Translate Newton’s second law into coupled first-order differential equations.</p></li>
-<li><p>Implement a numerical method (Euler’s method) to solve projectile motion.</p></li>
-<li><p>Compare idealized and realistic projectile trajectories.</p></li>
-<li><p>Understand the impact of air drag and atmospheric density on real-world ballistics.</p></li>
-</ol>
-</section>
-<hr class="docutils" />
-<section id="template-code">
-<h2>Template Code<a class="headerlink" href="#template-code" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-
-<span class="c1"># ---------------------------------------------</span>
-<span class="c1"># Projectile Motion Simulation</span>
-<span class="c1"># ---------------------------------------------</span>
-
-<span class="c1"># Parameters</span>
-<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>                 <span class="c1"># gravitational acceleration (m/s^2)</span>
-<span class="n">v0</span> <span class="o">=</span> <span class="mf">875.0</span>               <span class="c1"># initial launch speed (m/s)</span>
-<span class="n">angles</span> <span class="o">=</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span>    <span class="c1"># launch angles in degrees</span>
-<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>                <span class="c1"># time step (s)</span>
-
-<span class="c1"># Function to simulate trajectory without drag</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">simulate</span><span class="p">(</span><span class="n">v0</span><span class="p">,</span> <span class="n">theta_deg</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
-    <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">theta_deg</span><span class="p">)</span>
-    
-    <span class="c1"># Initial conditions</span>
-    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span>
-    <span class="n">vx</span> <span class="o">=</span> <span class="n">v0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
-    <span class="n">vy</span> <span class="o">=</span> <span class="n">v0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
-    
-    <span class="c1"># Lists to store trajectory</span>
-    <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="p">[</span><span class="n">y</span><span class="p">]</span>
-    <span class="n">t</span> <span class="o">=</span> <span class="mf">0.0</span>
-    
-    <span class="c1"># Track values</span>
-    <span class="n">ymax</span> <span class="o">=</span> <span class="n">y</span>
-    <span class="n">flight_time</span> <span class="o">=</span> <span class="mf">0.0</span>
-    <span class="n">impact_x</span> <span class="o">=</span> <span class="kc">None</span>    
-    <span class="c1"># Integrate until projectile hits ground</span>
-    <span class="k">while</span> <span class="n">y</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
-
-        <span class="c1"># update accelerations here</span>
-        
-        <span class="c1"># Update positions here</span>
-        
-        <span class="c1"># Update velocities here</span>
-
-        <span class="c1"># Update time here</span>
-        
-        <span class="c1"># Track max height</span>
-        <span class="k">if</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="n">ymax</span><span class="p">:</span>
-            <span class="n">ymax</span> <span class="o">=</span> <span class="n">y</span>
-        
-        <span class="c1"># Store trajectory</span>
-        <span class="n">X</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="n">Y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-    
-    <span class="c1"># Interpolate last step for more accurate range and flight time</span>
-    <span class="n">x_last</span><span class="p">,</span> <span class="n">y_last</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">Y</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
-    <span class="n">x_impact</span><span class="p">,</span> <span class="n">y_impact</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">Y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">frac</span> <span class="o">=</span> <span class="n">y_last</span> <span class="o">/</span> <span class="p">(</span><span class="n">y_last</span> <span class="o">-</span> <span class="n">y_impact</span><span class="p">)</span>   <span class="c1"># fraction between last two points where y=0</span>
-    <span class="n">impact_x</span> <span class="o">=</span> <span class="n">x_last</span> <span class="o">+</span> <span class="n">frac</span> <span class="o">*</span> <span class="p">(</span><span class="n">x_impact</span> <span class="o">-</span> <span class="n">x_last</span><span class="p">)</span>
-    <span class="n">flight_time</span> <span class="o">=</span> <span class="n">t</span> <span class="o">-</span> <span class="n">dt</span> <span class="o">+</span> <span class="n">frac</span> <span class="o">*</span> <span class="n">dt</span>
-    
-    <span class="c1"># Impact speed</span>
-    <span class="n">vy_impact</span> <span class="o">=</span> <span class="n">vy</span>  <span class="c1"># last velocity update corresponds to just after passing ground</span>
-    <span class="n">v_impact</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">vx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">vy_impact</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-    
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Y</span><span class="p">),</span> <span class="n">flight_time</span><span class="p">,</span> <span class="n">impact_x</span><span class="p">,</span> <span class="n">ymax</span><span class="p">,</span> <span class="n">v_impact</span>
-
-<span class="k">for</span> <span class="n">theta</span> <span class="ow">in</span> <span class="n">angles</span><span class="p">:</span>
-    <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">Ymax</span><span class="p">,</span> <span class="n">Vimpact</span> <span class="o">=</span> <span class="n">simulate</span><span class="p">(</span><span class="n">v0</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">theta</span><span class="si">}</span><span class="s2">°&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Angle </span><span class="si">{</span><span class="n">theta</span><span class="si">}</span><span class="s2">°:&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Flight time: </span><span class="si">{</span><span class="n">T</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> s&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Range: </span><span class="si">{</span><span class="n">R</span><span class="o">/</span><span class="mi">1000</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> km&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Max height: </span><span class="si">{</span><span class="n">Ymax</span><span class="o">/</span><span class="mi">1000</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> km&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Impact speed: </span><span class="si">{</span><span class="n">Vimpact</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> m/s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Projectile Motion (No Air Drag)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Horizontal Distance x (m)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Vertical Distance y (m)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
+<section id="deliverable">
+<h2>Deliverable<a class="headerlink" href="#deliverable" title="Link to this heading">#</a></h2>
+<p>Well-written lab report in paragraph style. Make sure to include:</p>
+<ul class="simple">
+<li><p>abstract</p></li>
+<li><p>introduction with theory</p></li>
+<li><p>methodology</p></li>
+<li><p>results</p></li>
+<li><p>discussion</p></li>
+<li><p>Summary</p></li>
+</ul>
 <hr class="docutils" />
 </section>
 </section>
@@ -771,24 +572,6 @@ For each run, integrate until the projectile returns to the ground (<span class=
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="../lab5/lab5.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Lab 5: Ballistic Pendulum - Pizza Prize</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="../lab7/lab7.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Lab 7: Exploring the Spring Constant and Equivalent Springs</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -805,18 +588,16 @@ For each run, integrate until the projectile returns to the ground (<span class=
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theory-and-model">Theory and Model</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#newtons-second-law">Newton’s Second Law</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#no-air-drag">1. No Air Drag</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-air-drag">2. With Air Drag</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-variable-air-density">3. With Variable Air Density</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-and-theory">Introduction and Theory</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-i-ballistic-pendulum">Part I: Ballistic Pendulum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-ii-projectile-prediction-challenge">Part II: Projectile Prediction Challenge</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#general-kinematic-equations">General Kinematic Equations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#special-case-horizontal-launch">Special Case: Horizontal Launch</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-method">Numerical Method</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodology">Methodology</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#template-code">Template Code</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable">Deliverable</a></li>
 </ul>
   </nav></div>
 

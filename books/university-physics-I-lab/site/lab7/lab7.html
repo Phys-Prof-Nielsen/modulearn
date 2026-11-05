@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Lab 7: Exploring the Spring Constant and Equivalent Springs &#8212; A Note to University Physics I Lab</title>
+    <title>Lab 6: Realistic Projectile Motion Simulation &#8212; A Note to University Physics I Lab</title>
   
   
   
@@ -63,8 +63,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Lab 8 — Heat Transfer with a Thermal Camera" href="../lab8/lab8.html" />
-    <link rel="prev" title="Lab 6: Realistic Projectile Motion Simulation" href="../lab6/lab6.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -126,6 +124,8 @@
     <div class="bd-container__inner bd-page-width">
       
       
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -208,26 +208,6 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 5 - Propagation of Error Using Monte Carlo Simulation</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../lab-MC/intro-error-propagation.html">PHYS 2215 — Introduction to Error Propagation</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 6 - Ballistic Pendulum</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../lab5/lab5.html">Lab 5: Ballistic Pendulum - Pizza Prize</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 7 - Air Drag - Numerical Simulation</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../lab6/lab6.html">Lab 6: Realistic Projectile Motion Simulation</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 8 - Spring Systems</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 7: Exploring the Spring Constant and Equivalent Springs</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 9 - Heat Transfer</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../lab8/lab8.html">Lab 8 — Heat Transfer with a Thermal Camera</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 10 - Thermospheroic Processses</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../lab9/lab9.html">Lab 9: Investigating Thermodynamic Processes with a Fire Syringe</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab 11 - Pendulum and Polar Coordinates</span></p>
 <ul class="nav bd-sidenav">
@@ -405,7 +385,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Lab 7: Exploring the Spring Constant and Equivalent Springs</h1>
+    <h1>Lab 6: Realistic Projectile Motion Simulation</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -415,24 +395,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives"><strong>Learning Objectives</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction"><strong>Introduction</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theory-and-model"><strong>Theory and Model</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hookes-law"><strong>1. Hooke’s Law</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#springs-in-series"><strong>2. Springs in Series</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#springs-in-parallel"><strong>3. Springs in Parallel</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#electrical-analogy"><strong>4. Electrical Analogy</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theory-and-model">Theory and Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#newtons-second-law">Newton’s Second Law</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#no-air-drag">1. No Air Drag</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-air-drag">2. With Air Drag</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-variable-air-density">3. With Variable Air Density</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodology"><strong>Methodology</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equipment"><strong>Equipment</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-determining-the-spring-constant-of-individual-springs"><strong>Part 1: Determining the Spring Constant of Individual Springs</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-springs-in-series"><strong>Part 2: Springs in Series</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-springs-in-parallel"><strong>Part 3: Springs in Parallel</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-analysis-and-discussion"><strong>Part 4: Analysis and Discussion</strong></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables"><strong>Deliverables</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-method">Numerical Method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodology">Methodology</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#template-code">Template Code</a></li>
 </ul>
             </nav>
         </div>
@@ -444,192 +418,305 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="lab-7-exploring-the-spring-constant-and-equivalent-springs">
-<h1>Lab 7: Exploring the Spring Constant and Equivalent Springs<a class="headerlink" href="#lab-7-exploring-the-spring-constant-and-equivalent-springs" title="Link to this heading">#</a></h1>
-<hr class="docutils" />
-<section id="learning-objectives">
-<h2><strong>Learning Objectives</strong><a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
-<p>By the end of this lab, we will be able to:</p>
-<ol class="arabic simple">
-<li><p>Determine the <strong>spring constant</strong> <span class="math notranslate nohighlight">\(k\)</span> of individual springs using experimental data.</p></li>
-<li><p>Analyze and model <strong>springs connected in series and in parallel</strong>.</p></li>
-<li><p>Compare the <strong>experimental equivalent spring constants</strong> to the <strong>theoretical predictions</strong>.</p></li>
-<li><p>Recognize the <strong>analogy between mechanical spring systems and electrical circuits</strong>, such as resistors and capacitors.</p></li>
-<li><p>Practice graphing and interpreting linear relationships between force and displacement.</p></li>
-</ol>
-</section>
-<hr class="docutils" />
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-6-realistic-projectile-motion-simulation">
+<h1>Lab 6: Realistic Projectile Motion Simulation<a class="headerlink" href="#lab-6-realistic-projectile-motion-simulation" title="Link to this heading">#</a></h1>
 <section id="introduction">
-<h2><strong>Introduction</strong><a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
-<p>In this lab, we explore one of the most fundamental relationships in mechanics — <strong>Hooke’s Law</strong>, which describes how springs respond to applied forces. Springs are simple yet powerful models for understanding oscillations, restoring forces, and energy storage in physical systems.</p>
-<p>When a force <span class="math notranslate nohighlight">\(F\)</span> is applied to stretch or compress a spring, the spring resists deformation with a restoring force that is proportional to the displacement <span class="math notranslate nohighlight">\(x\)</span> from its equilibrium position:</p>
-<div class="math notranslate nohighlight">
-\[
-F = -kx
-\]</div>
-<p>The proportionality constant <span class="math notranslate nohighlight">\(k\)</span> is the <strong>spring constant</strong>, which measures the stiffness of the spring. A large <span class="math notranslate nohighlight">\(k\)</span> indicates a stiffer spring, while a small <span class="math notranslate nohighlight">\(k\)</span> corresponds to a more flexible spring.</p>
-<p>In this experiment, you will first determine the spring constant of several individual springs, then explore how springs behave when combined in <strong>series</strong> and <strong>parallel</strong> configurations. This provides insight into how complex mechanical systems distribute forces and displacements — a principle that has direct analogies in electrical circuits.</p>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>Projectile motion is a classical problem in physics, often simplified by assuming a constant acceleration due to gravity and ignoring the effects of air resistance. However, in realistic scenarios such as the flight of a shell from a howitzer, these simplifications are inadequate. Air drag significantly affects the trajectory, and at high altitudes, the variation of air density with height further modifies the motion.</p>
+<p>In this lab, we will simulate projectile motion in three stages:</p>
+<ol class="arabic simple">
+<li><p><strong>Ideal Projectile Motion</strong> — without air drag, assuming constant gravitational acceleration.</p></li>
+<li><p><strong>Projectile Motion with Air Drag</strong> — including drag force proportional to the square of velocity.</p></li>
+<li><p><strong>Projectile Motion with Variable Atmospheric Density</strong> — including drag with a density that decreases exponentially with altitude.</p></li>
+</ol>
+<p>The goal is to demonstrate how increasingly realistic assumptions change the trajectory, and to practice numerical integration of Newton’s laws using a finite difference method.</p>
+<hr class="docutils" />
+<p>Explosive cannon shells launched from a small howitzer is a common tool to prevent avalanche danger by intentionally triggering smaller avalanches in areas prone to serious avalanche danger.</p>
+<img src="howitzer1.jpg" width="500">
+<p>Obviously, it is of great interest to make
+sure the cannon shell hits the target area. In fact, Utah is a dangeorus place to live:
+<a class="reference external" href="https://www.deseret.com/2005/3/29/19883755/shell-shocked-errant-avalanche-bomb-rips-pleasant-grove-home">Shell shocked: Errant avalanche bomb rips Pleasant Grove home</a></p>
 </section>
 <hr class="docutils" />
 <section id="theory-and-model">
-<h2><strong>Theory and Model</strong><a class="headerlink" href="#theory-and-model" title="Link to this heading">#</a></h2>
-<section id="hookes-law">
-<h3><strong>1. Hooke’s Law</strong><a class="headerlink" href="#hookes-law" title="Link to this heading">#</a></h3>
-<p>When a spring is stretched or compressed by a displacement <span class="math notranslate nohighlight">\(x\)</span>, the restoring force it exerts is given by:</p>
+<h2>Theory and Model<a class="headerlink" href="#theory-and-model" title="Link to this heading">#</a></h2>
+<section id="newtons-second-law">
+<h3>Newton’s Second Law<a class="headerlink" href="#newtons-second-law" title="Link to this heading">#</a></h3>
+<p>In two dimensions, Newton’s second law for a projectile of mass <span class="math notranslate nohighlight">\(m\)</span> can be written as:</p>
 <div class="math notranslate nohighlight">
 \[
-F = kx
+m \frac{d^2 \vec{r}}{dt^2} = \vec{F}_{\text{gravity}} + \vec{F}_{\text{drag}}
 \]</div>
-<p>In equilibrium, the applied force and the spring’s restoring force are equal in magnitude:</p>
+<p>where <span class="math notranslate nohighlight">\(\vec{r} = (x, y)\)</span> is the position.</p>
+</section>
+<section id="no-air-drag">
+<h3>1. No Air Drag<a class="headerlink" href="#no-air-drag" title="Link to this heading">#</a></h3>
+<p>For the simplest case (no drag):</p>
+<ul class="simple">
+<li><p>Horizontal direction:</p></li>
+</ul>
 <div class="math notranslate nohighlight">
 \[
-F_{\text{applied}} = kx
+\frac{d^2 x}{dt^2} = 0
 \]</div>
-<p>If we hang a mass <span class="math notranslate nohighlight">\(m\)</span> from a vertical spring, the equilibrium position occurs when the gravitational force balances the spring force:</p>
+<ul class="simple">
+<li><p>Vertical direction:</p></li>
+</ul>
 <div class="math notranslate nohighlight">
 \[
-mg = kx
+\frac{d^2 y}{dt^2} = -g
 \]</div>
-<p>Thus, the spring constant can be found from the slope of a graph of <strong>force (<span class="math notranslate nohighlight">\(F = mg\)</span>)</strong> versus <strong>displacement (<span class="math notranslate nohighlight">\(x\)</span>)</strong>.</p>
+<p>with <span class="math notranslate nohighlight">\(g\)</span> the gravitational acceleration.</p>
+</section>
+<section id="with-air-drag">
+<h3>2. With Air Drag<a class="headerlink" href="#with-air-drag" title="Link to this heading">#</a></h3>
+<p>The drag force for high-speed objects is approximated as quadratic in velocity:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{F}_{\text{drag}} = -\tfrac{1}{2} C_d \rho A v \vec{v}
+\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(C_d\)</span> = drag coefficient (dimensionless),</p></li>
+<li><p><span class="math notranslate nohighlight">\(\rho\)</span> = air density (kg/m³),</p></li>
+<li><p><span class="math notranslate nohighlight">\(A\)</span> = cross-sectional area of projectile (m²),</p></li>
+<li><p><span class="math notranslate nohighlight">\(v = |\vec{v}|\)</span> = speed of projectile.</p></li>
+</ul>
+<p>Thus, the equations of motion become:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dv_x}{dt} = - \frac{1}{2m} C_d \rho A v v_x
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\frac{dv_y}{dt} = -g - \frac{1}{2m} C_d \rho A v v_y
+\]</div>
+</section>
+<section id="with-variable-air-density">
+<h3>3. With Variable Air Density<a class="headerlink" href="#with-variable-air-density" title="Link to this heading">#</a></h3>
+<p>At higher altitudes, air density decreases approximately exponentially:</p>
+<div class="math notranslate nohighlight">
+\[
+\rho(y) = \rho_0 e^{-y / H}
+\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\rho_0\)</span> = air density at sea level,</p></li>
+<li><p><span class="math notranslate nohighlight">\(H\)</span> = scale height of the atmosphere (about 8000 m).</p></li>
+</ul>
+<p>Substituting into the drag force:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{F}_{\text{drag}} = -\tfrac{1}{2} C_d \rho_0 e^{-y/H} A v \vec{v}
+\]</div>
+</section>
 </section>
 <hr class="docutils" />
-<section id="springs-in-series">
-<h3><strong>2. Springs in Series</strong><a class="headerlink" href="#springs-in-series" title="Link to this heading">#</a></h3>
-<p>When two springs are connected <strong>in series</strong>, the same force acts through each spring. We can understand that by considering static equilibrium (when the system is at rest), the net force on every point in the system must be zero.
-Consider the junction point where the two springs meet:</p>
-<p>The upper spring pulls upward on the junction with a restoring force <span class="math notranslate nohighlight">\(F_1 = k_1 x_1\)</span>.</p>
-<p>The lower spring pulls downward on the same junction with a force <span class="math notranslate nohighlight">\(F_2 = k_2 x_2\)</span>.</p>
-<p>For the junction not to accelerate (Newton’s 2nd law), these two forces must balance. That means the tension (or force) transmitted through the series of springs is the same everywhere — just like the tension in a rope holding a mass.</p>
-<p>The total displacement is the sum of the displacements of each spring:</p>
+<section id="numerical-method">
+<h2>Numerical Method<a class="headerlink" href="#numerical-method" title="Link to this heading">#</a></h2>
+<p>We will solve the equations by converting the second-order differential equations into first-order form.</p>
+<p>Define:</p>
+<ul class="simple">
+<li><p>Position: <span class="math notranslate nohighlight">\(\vec{r} = (x, y)\)</span></p></li>
+<li><p>Velocity: <span class="math notranslate nohighlight">\(\vec{v} = (v_x, v_y)\)</span></p></li>
+<li><p>Acceleration: <span class="math notranslate nohighlight">\(\vec{a} = (a_x, a_y)\)</span></p></li>
+</ul>
+<p>Then:</p>
 <div class="math notranslate nohighlight">
 \[
-x_{\text{total}} = x_1 + x_2 = \frac{F}{k_1} + \frac{F}{k_2}
+\frac{dx}{dt} = v_x, \quad \frac{dy}{dt} = v_y
 \]</div>
-<p>Rearranging gives the <strong>equivalent spring constant</strong> <span class="math notranslate nohighlight">\(k_{\text{series}}\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
-\frac{1}{k_{\text{series}}} = \frac{1}{k_1} + \frac{1}{k_2}
+\frac{dv_x}{dt} = a_x(v_x, v_y, y), \quad \frac{dv_y}{dt} = a_y(v_x, v_y, y)
 \]</div>
-<p>This configuration results in a <strong>softer system</strong> — the equivalent spring constant is <strong>smaller</strong> than either individual spring.</p>
-</section>
-<hr class="docutils" />
-<section id="springs-in-parallel">
-<h3><strong>3. Springs in Parallel</strong><a class="headerlink" href="#springs-in-parallel" title="Link to this heading">#</a></h3>
-<p>For springs in <strong>parallel</strong>, each spring resists that same displacement with its own restoring force according to Hooke’s law. Because both springs pull upward on the same mass, the total upward restoring force is the sum of these individual forces:</p>
+<p>These can be solved using a <strong>finite difference method</strong> (Euler’s method):</p>
 <div class="math notranslate nohighlight">
 \[
-F_{\text{total}} = F_1 + F_2 = k_1x + k_2x
+x_{n+1} = x_n + v_{x,n} \Delta t
 \]</div>
-<p>Therefore, the <strong>equivalent spring constant</strong> <span class="math notranslate nohighlight">\(k_{\text{parallel}}\)</span> is:</p>
 <div class="math notranslate nohighlight">
 \[
-k_{\text{parallel}} = k_1 + k_2
+y_{n+1} = y_n + v_{y,n} \Delta t
 \]</div>
-<p>This configuration creates a <strong>stiffer system</strong>, since the equivalent spring constant is <strong>larger</strong> than that of either individual spring.</p>
-</section>
-<hr class="docutils" />
-<section id="electrical-analogy">
-<h3><strong>4. Electrical Analogy</strong><a class="headerlink" href="#electrical-analogy" title="Link to this heading">#</a></h3>
-<p>The relationships above mirror the way <strong>resistors</strong> and <strong>capacitors</strong> combine in electrical circuits:</p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>System Type</p></th>
-<th class="head"><p>Series Relationship</p></th>
-<th class="head"><p>Parallel Relationship</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><strong>Springs</strong></p></td>
-<td><p><span class="math notranslate nohighlight">\(\dfrac{1}{k_{\text{eq}}} = \dfrac{1}{k_1} + \dfrac{1}{k_2}\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(k_{\text{eq}} = k_1 + k_2\)</span></p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Resistors</strong></p></td>
-<td><p><span class="math notranslate nohighlight">\(R_{\text{eq}} = R_1 + R_2\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(\dfrac{1}{R_{\text{eq}}} = \dfrac{1}{R_1} + \dfrac{1}{R_2}\)</span></p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Capacitors</strong></p></td>
-<td><p><span class="math notranslate nohighlight">\(\dfrac{1}{C_{\text{eq}}} = \dfrac{1}{C_1} + \dfrac{1}{C_2}\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(C_{\text{eq}} = C_1 + C_2\)</span></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>This analogy helps bridge mechanical and electrical systems — both obey similar mathematical structures that govern energy storage and transfer.</p>
-</section>
+<div class="math notranslate nohighlight">
+\[
+v_{x,n+1} = v_{x,n} + a_x(v_{x,n}, v_{y,n}, y_n)\Delta t
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+v_{y,n+1} = v_{y,n} + a_y(v_{x,n}, v_{y,n}, y_n)\Delta t
+\]</div>
 </section>
 <hr class="docutils" />
 <section id="methodology">
-<h2><strong>Methodology</strong><a class="headerlink" href="#methodology" title="Link to this heading">#</a></h2>
-<section id="equipment">
-<h3><strong>Equipment</strong><a class="headerlink" href="#equipment" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>3–4 springs of varying stiffness</p></li>
-<li><p>Stand and clamps</p></li>
-<li><p>Mass hanger and a set of masses</p></li>
-<li><p>Ruler or meter stick</p></li>
-<li><p>Digital balance (optional, to verify mass)</p></li>
-</ul>
-</section>
-<hr class="docutils" />
-<section id="part-1-determining-the-spring-constant-of-individual-springs">
-<h3><strong>Part 1: Determining the Spring Constant of Individual Springs</strong><a class="headerlink" href="#part-1-determining-the-spring-constant-of-individual-springs" title="Link to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>Hang a spring vertically and measure its <strong>initial length</strong> (no mass attached).</p></li>
-<li><p>Add masses incrementally (e.g., 50 g, 100 g, 150 g, …) and record the <strong>elongation <span class="math notranslate nohighlight">\(x\)</span></strong> after each addition.</p></li>
-<li><p>For each trial, calculate the <strong>applied force</strong> using <span class="math notranslate nohighlight">\(F = mg\)</span>.</p></li>
-<li><p>Plot <span class="math notranslate nohighlight">\(F\)</span> (y-axis) vs. <span class="math notranslate nohighlight">\(x\)</span> (x-axis). The slope of the linear fit gives the spring constant <span class="math notranslate nohighlight">\(k\)</span>.</p></li>
-<li><p>Repeat for all springs and tabulate results.</p></li>
-</ol>
-</section>
-<hr class="docutils" />
-<section id="part-2-springs-in-series">
-<h3><strong>Part 2: Springs in Series</strong><a class="headerlink" href="#part-2-springs-in-series" title="Link to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>Connect two springs in series and hang them vertically.</p></li>
-<li><p>Repeat the same measurement process as in Part 1.</p></li>
-<li><p>Determine <span class="math notranslate nohighlight">\(k_{\text{series}}\)</span> experimentally from the slope of the <span class="math notranslate nohighlight">\(F\)</span> vs. <span class="math notranslate nohighlight">\(x\)</span> plot.</p></li>
-<li><p>Compare the result to the theoretical prediction:</p></li>
-</ol>
+<h2>Methodology<a class="headerlink" href="#methodology" title="Link to this heading">#</a></h2>
+<ol class="arabic">
+<li><p><strong>Common Initial Conditions</strong><br />
+Use the same launch speed for all runs,</p>
 <div class="math notranslate nohighlight">
 \[
-\frac{1}{k_{\text{series,th}}} = \frac{1}{k_1} + \frac{1}{k_2}
-\]</div>
-</section>
-<hr class="docutils" />
-<section id="part-3-springs-in-parallel">
-<h3><strong>Part 3: Springs in Parallel</strong><a class="headerlink" href="#part-3-springs-in-parallel" title="Link to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>Connect two springs side by side (in parallel), both supporting the same load.</p></li>
-<li><p>Record elongations for different applied forces.</p></li>
-<li><p>Determine <span class="math notranslate nohighlight">\(k_{\text{parallel}}\)</span> experimentally.</p></li>
-<li><p>Compare to theory:</p></li>
-</ol>
+   v_0 = 875~\text{m/s},
+   \]</div>
+<p>and three launch angles,</p>
 <div class="math notranslate nohighlight">
 \[
-k_{\text{parallel,th}} = k_1 + k_2
-\]</div>
+   \theta \in \{30^\circ,\;45^\circ,\;60^\circ\}.
+   \]</div>
+<p>For each chosen <span class="math notranslate nohighlight">\(\theta\)</span>, compute initial velocity components</p>
+<div class="math notranslate nohighlight">
+\[
+   v_{x,0} = v_0\cos\theta,\qquad
+   v_{y,0} = v_0\sin\theta,
+   \]</div>
+<p>with initial position <span class="math notranslate nohighlight">\(x_0=0,\; y_0=0\)</span>.</p>
+</li>
+<li><p><strong>Numerical Integration (Euler – first-order finite difference)</strong><br />
+Advance state <span class="math notranslate nohighlight">\((x,y,v_x,v_y)\)</span> with a fixed time step <span class="math notranslate nohighlight">\(\Delta t\)</span> using</p>
+<div class="math notranslate nohighlight">
+\[
+   x_{n+1}=x_n+v_{x,n}\,\Delta t,\qquad y_{n+1}=y_n+v_{y,n}\,\Delta t,
+   \]</div>
+<div class="math notranslate nohighlight">
+\[
+   v_{x,n+1}=v_{x,n}+a_x(v_{x,n},v_{y,n},y_n)\,\Delta t,\qquad
+   v_{y,n+1}=v_{y,n}+a_y(v_{x,n},v_{y,n},y_n)\,\Delta t,
+   \]</div>
+<p>where <span class="math notranslate nohighlight">\(a_x,\;a_y\)</span> depend on the modeling case (below). Choose <span class="math notranslate nohighlight">\(\Delta t\)</span> small enough to give smooth, stable trajectories (e.g., <span class="math notranslate nohighlight">\(\Delta t\!\sim\!10^{-3}\text{–}10^{-2}\ \text{s}\)</span> as a starting point).</p>
+</li>
+<li><p><strong>Three Modeling Cases (run all three for each angle)</strong></p>
+<ul>
+<li><p><strong>Case 1 — No Drag</strong></p>
+<div class="math notranslate nohighlight">
+\[
+     a_x=0,\qquad a_y=-g.
+     \]</div>
+</li>
+<li><p><strong>Case 2 — Quadratic Drag, Constant Density <span class="math notranslate nohighlight">\(\rho_0\)</span></strong><br />
+With <span class="math notranslate nohighlight">\(v=\sqrt{v_x^2+v_y^2}\)</span> and parameters <span class="math notranslate nohighlight">\(C_d,\;A,\;m\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+     a_x=-\frac{1}{2m}C_d\rho_0 A\,v\,v_x,\qquad
+     a_y=-g-\frac{1}{2m}C_d\rho_0 A\,v\,v_y.
+     \]</div>
+</li>
+<li><p><strong>Case 3 — Quadratic Drag, Exponential Atmosphere</strong><br />
+With <span class="math notranslate nohighlight">\(\rho(y)=\rho_0 e^{-y/H}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+     a_x=-\frac{1}{2m}C_d\rho_0 e^{-y/H}A\,v\,v_x,\qquad
+     a_y=-g-\frac{1}{2m}C_d\rho_0 e^{-y/H}A\,v\,v_y.
+     \]</div>
+</li>
+</ul>
+</li>
+<li><p><strong>Stopping Criterion &amp; Range Extraction</strong><br />
+For each run, integrate until the projectile returns to the ground (<span class="math notranslate nohighlight">\(y\le 0\)</span> with <span class="math notranslate nohighlight">\(v_y&lt;0\)</span>). To improve range accuracy, linearly interpolate the last step to estimate the impact <span class="math notranslate nohighlight">\(x\)</span> where <span class="math notranslate nohighlight">\(y=0\)</span>.</p></li>
+<li><p><strong>What to Produce for Each Angle <span class="math notranslate nohighlight">\(\theta\in\{30^\circ,45^\circ,60^\circ\}\)</span></strong></p>
+<ul class="simple">
+<li><p>Plot trajectories <span class="math notranslate nohighlight">\(y(x)\)</span> for all launch angles on one plot. Do this for each case.</p></li>
+<li><p>Print time of flight <span class="math notranslate nohighlight">\(T\)</span>, horizontal range <span class="math notranslate nohighlight">\(R\)</span>, peak height <span class="math notranslate nohighlight">\(y_{\max}\)</span>, and impact speed <span class="math notranslate nohighlight">\(v_{\text{impact}}\)</span> for each launch angle and case.</p></li>
+</ul>
+</li>
+</ol>
 </section>
 <hr class="docutils" />
-<section id="part-4-analysis-and-discussion">
-<h3><strong>Part 4: Analysis and Discussion</strong><a class="headerlink" href="#part-4-analysis-and-discussion" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Compare experimental and theoretical values of <span class="math notranslate nohighlight">\(k_{\text{eq}}\)</span> for both series and parallel configurations.</p></li>
-<li><p>Discuss possible sources of error (friction, non-ideal spring behavior, misalignment, etc.).</p></li>
-<li><p>Reflect on how these results illustrate energy sharing and stiffness in combined systems.</p></li>
-<li><p>Finally, discuss the analogy to electrical networks and how similar mathematical structures appear in physics across different domains.</p></li>
-</ul>
-</section>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>By the end of this lab, we will be able to:</p>
+<ol class="arabic simple">
+<li><p>Translate Newton’s second law into coupled first-order differential equations.</p></li>
+<li><p>Implement a numerical method (Euler’s method) to solve projectile motion.</p></li>
+<li><p>Compare idealized and realistic projectile trajectories.</p></li>
+<li><p>Understand the impact of air drag and atmospheric density on real-world ballistics.</p></li>
+</ol>
 </section>
 <hr class="docutils" />
-<section id="deliverables">
-<h2><strong>Deliverables</strong><a class="headerlink" href="#deliverables" title="Link to this heading">#</a></h2>
-<p>A detailed lab report. Pay attention to formatting and structure. Also include:</p>
-<ul class="simple">
-<li><p>Table of raw data for each spring and each configuration</p></li>
-<li><p>Graphs of <span class="math notranslate nohighlight">\(F\)</span> vs. <span class="math notranslate nohighlight">\(x\)</span> with linear fits</p></li>
-<li><p>Calculated <span class="math notranslate nohighlight">\(k\)</span>, <span class="math notranslate nohighlight">\(k_{\text{series}}\)</span>, and <span class="math notranslate nohighlight">\(k_{\text{parallel}}\)</span> (experimental and theoretical)</p></li>
-<li><p>Written discussion comparing mechanical and electrical analogies</p></li>
-</ul>
+<section id="template-code">
+<h2>Template Code<a class="headerlink" href="#template-code" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># ---------------------------------------------</span>
+<span class="c1"># Projectile Motion Simulation</span>
+<span class="c1"># ---------------------------------------------</span>
+
+<span class="c1"># Parameters</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>                 <span class="c1"># gravitational acceleration (m/s^2)</span>
+<span class="n">v0</span> <span class="o">=</span> <span class="mf">875.0</span>               <span class="c1"># initial launch speed (m/s)</span>
+<span class="n">angles</span> <span class="o">=</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span>    <span class="c1"># launch angles in degrees</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>                <span class="c1"># time step (s)</span>
+
+<span class="c1"># Function to simulate trajectory without drag</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">simulate</span><span class="p">(</span><span class="n">v0</span><span class="p">,</span> <span class="n">theta_deg</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">theta_deg</span><span class="p">)</span>
+    
+    <span class="c1"># Initial conditions</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span>
+    <span class="n">vx</span> <span class="o">=</span> <span class="n">v0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="n">vy</span> <span class="o">=</span> <span class="n">v0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    
+    <span class="c1"># Lists to store trajectory</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="p">[</span><span class="n">y</span><span class="p">]</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="mf">0.0</span>
+    
+    <span class="c1"># Track values</span>
+    <span class="n">ymax</span> <span class="o">=</span> <span class="n">y</span>
+    <span class="n">flight_time</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">impact_x</span> <span class="o">=</span> <span class="kc">None</span>    
+    <span class="c1"># Integrate until projectile hits ground</span>
+    <span class="k">while</span> <span class="n">y</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+
+        <span class="c1"># update accelerations here</span>
+        
+        <span class="c1"># Update positions here</span>
+        
+        <span class="c1"># Update velocities here</span>
+
+        <span class="c1"># Update time here</span>
+        
+        <span class="c1"># Track max height</span>
+        <span class="k">if</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="n">ymax</span><span class="p">:</span>
+            <span class="n">ymax</span> <span class="o">=</span> <span class="n">y</span>
+        
+        <span class="c1"># Store trajectory</span>
+        <span class="n">X</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">Y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    
+    <span class="c1"># Interpolate last step for more accurate range and flight time</span>
+    <span class="n">x_last</span><span class="p">,</span> <span class="n">y_last</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">Y</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">x_impact</span><span class="p">,</span> <span class="n">y_impact</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">Y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">frac</span> <span class="o">=</span> <span class="n">y_last</span> <span class="o">/</span> <span class="p">(</span><span class="n">y_last</span> <span class="o">-</span> <span class="n">y_impact</span><span class="p">)</span>   <span class="c1"># fraction between last two points where y=0</span>
+    <span class="n">impact_x</span> <span class="o">=</span> <span class="n">x_last</span> <span class="o">+</span> <span class="n">frac</span> <span class="o">*</span> <span class="p">(</span><span class="n">x_impact</span> <span class="o">-</span> <span class="n">x_last</span><span class="p">)</span>
+    <span class="n">flight_time</span> <span class="o">=</span> <span class="n">t</span> <span class="o">-</span> <span class="n">dt</span> <span class="o">+</span> <span class="n">frac</span> <span class="o">*</span> <span class="n">dt</span>
+    
+    <span class="c1"># Impact speed</span>
+    <span class="n">vy_impact</span> <span class="o">=</span> <span class="n">vy</span>  <span class="c1"># last velocity update corresponds to just after passing ground</span>
+    <span class="n">v_impact</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">vx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">vy_impact</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Y</span><span class="p">),</span> <span class="n">flight_time</span><span class="p">,</span> <span class="n">impact_x</span><span class="p">,</span> <span class="n">ymax</span><span class="p">,</span> <span class="n">v_impact</span>
+
+<span class="k">for</span> <span class="n">theta</span> <span class="ow">in</span> <span class="n">angles</span><span class="p">:</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">Ymax</span><span class="p">,</span> <span class="n">Vimpact</span> <span class="o">=</span> <span class="n">simulate</span><span class="p">(</span><span class="n">v0</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">theta</span><span class="si">}</span><span class="s2">°&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Angle </span><span class="si">{</span><span class="n">theta</span><span class="si">}</span><span class="s2">°:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Flight time: </span><span class="si">{</span><span class="n">T</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> s&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Range: </span><span class="si">{</span><span class="n">R</span><span class="o">/</span><span class="mi">1000</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> km&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Max height: </span><span class="si">{</span><span class="n">Ymax</span><span class="o">/</span><span class="mi">1000</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> km&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Impact speed: </span><span class="si">{</span><span class="n">Vimpact</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> m/s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Projectile Motion (No Air Drag)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Horizontal Distance x (m)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Vertical Distance y (m)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
 <hr class="docutils" />
 </section>
 </section>
@@ -664,24 +751,6 @@ k_{\text{parallel,th}} = k_1 + k_2
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="../lab6/lab6.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Lab 6: Realistic Projectile Motion Simulation</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="../lab8/lab8.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Lab 8 — Heat Transfer with a Thermal Camera</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -698,24 +767,18 @@ k_{\text{parallel,th}} = k_1 + k_2
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives"><strong>Learning Objectives</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction"><strong>Introduction</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theory-and-model"><strong>Theory and Model</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hookes-law"><strong>1. Hooke’s Law</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#springs-in-series"><strong>2. Springs in Series</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#springs-in-parallel"><strong>3. Springs in Parallel</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#electrical-analogy"><strong>4. Electrical Analogy</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theory-and-model">Theory and Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#newtons-second-law">Newton’s Second Law</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#no-air-drag">1. No Air Drag</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-air-drag">2. With Air Drag</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-variable-air-density">3. With Variable Air Density</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodology"><strong>Methodology</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equipment"><strong>Equipment</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-determining-the-spring-constant-of-individual-springs"><strong>Part 1: Determining the Spring Constant of Individual Springs</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-springs-in-series"><strong>Part 2: Springs in Series</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-springs-in-parallel"><strong>Part 3: Springs in Parallel</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-analysis-and-discussion"><strong>Part 4: Analysis and Discussion</strong></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables"><strong>Deliverables</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-method">Numerical Method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodology">Methodology</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#template-code">Template Code</a></li>
 </ul>
   </nav></div>
 
