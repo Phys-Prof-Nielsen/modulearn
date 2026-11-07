@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sentence Garden — Module 1.1</title>
+<style>
+*{box-sizing:border-box}body{margin:0;padding:8px;font:17px/1.6 system-ui,-apple-system,sans-serif;color:#173b25;background:transparent}
+.box{max-width:1000px;margin:auto;background:#e8f5e9;border-left:6px solid #2e7d32;border-radius:12px;padding:22px}
+h2{font-size:1.45rem;margin:0 0 8px}p{margin:10px 0}.small{font-size:.9rem}.bar{display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap;font-weight:650}
+progress{width:100%;height:14px;accent-color:#42794b}hr{border:0;height:4px;background:#6b8e73;margin:22px 0}
+button{font:inherit;color:#173b25;background:white;border:2px solid #83a68b;border-radius:9px;padding:9px 15px;cursor:pointer;min-height:46px}
+button:hover:not(:disabled){background:#d5ead8}button:focus-visible{outline:3px solid #183d7c;outline-offset:3px}button:disabled{opacity:.55;cursor:default}
+.primary{background:#2e6b3c;border-color:#2e6b3c;color:white}.primary:hover:not(:disabled){background:#245730}.options,.actions,.slots{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}
+.options button.selected{background:#214e31;color:white;border-color:#214e31}.sentence{font-size:1.5rem;font-weight:700;line-height:1.6;margin:14px 0}
+.slot{padding:8px 13px;border:2px dashed #8da994;border-radius:8px;min-width:65px;text-align:center;background:#fafffa}.slot.filled{border-style:solid}
+.feedback{background:#f2f2f2;color:#333;border-left:4px solid #b0b0b0;padding:14px 18px;border-radius:8px;margin:16px 0}
+.feedback strong{display:block}.badge{display:inline-block;background:#fff8e4;padding:4px 12px;border-radius:18px;font-weight:bold}.error{color:#8d2626;overflow-wrap:anywhere}
+[hidden]{display:none!important}@media(max-width:500px){.box{padding:15px}body{font-size:16px}.sentence{font-size:1.25rem}}
+</style>
+</head>
+<body>
+<main class="box">
+  <h2>🌱 Sentence Garden — I am / You are</h2>
+  <p>Grow your English, one sentence at a time!<br>１文ずつ、英語の力を育てよう！</p>
+  <p class="small">10 questions · Random vocabulary · No timer<br>全10問・単語はランダム・時間制限なし</p>
+  <div id="loading" role="status">Loading words… / 単語を読み込んでいます…</div>
+  <button id="start" class="primary" hidden>▶ Start / スタート</button>
+  <section id="game" hidden aria-label="Practice quiz">
+    <hr>
+    <div class="bar"><span id="round"></span><span id="score"></span></div>
+    <progress id="progress" max="10" value="0" aria-label="Completed questions / 終わった問題数"></progress>
+    <p id="task" tabindex="-1"></p>
+    <p id="meaning" class="small"></p>
+    <div id="sentence" class="sentence"></div>
+    <div id="slots" class="slots" aria-label="Your sentence / あなたの文" hidden></div>
+    <div id="options" class="options" role="group" aria-label="Answer choices / 選択肢"></div>
+    <div class="actions">
+      <button id="reset" hidden>↶ Clear / やり直す</button>
+      <button id="check" class="primary" disabled>Check answer / 答え合わせ</button>
+    </div>
+    <p id="hint" class="small">Choose an answer first. / 答えを選んでね。</p>
+    <div id="feedback" class="feedback" role="status" aria-live="polite" hidden></div>
+    <div class="actions">
+      <button id="listen" hidden>🔊 Listen / 聞く</button>
+      <button id="next" class="primary" hidden>Next / 次へ →</button>
+    </div>
+    <p id="audio-status" class="small" role="status"></p>
+  </section>
+  <section id="finish" hidden>
+    <hr><p class="badge">🌼 Practice complete! / 練習できました！</p>
+    <p id="result" class="sentence" tabindex="-1"></p>
+    <p>Remember: <b>I → am · You → are</b><br>覚えよう：<b>I には am、You には are。</b></p>
+    <button id="restart" class="primary">Play again / もう一度</button>
+  </section>
+  <noscript>This quiz needs JavaScript enabled. / JavaScriptを有効にしてください。</noscript>
+</main>
+<script>
+(() => {
+  'use strict';
+  // This HTML belongs in module-1, alongside the Module 1.1 notebook.
+  const VOCAB_URL = '../vocabulary/vocabulary.json';
+  const MODULE = '1.1';
+  const TOTAL = 10;
+  const $ = id => document.getElementById(id);
+  let pool = [], questions = [], index = 0, score = 0;
+  let question = null, selected = null, arranged = [], locked = false;
+  let utterance = null;
+  const shuffle = values => {
+    const a = [...values];
+    for (let i=a.length-1; i>0; i--) {
+      const j=Math.floor(Math.random()*(i+1));
+      [a[i],a[j]]=[a[j],a[i]];
+    }
+    return a;
+  };
+  const fullSentence = q => `${q.subject} ${q.be} ${q.word.practice_after_be}.`;
+  const shortSentence = q => `${q.subject==='I' ? "I'm" : "You're"} ${q.word.practice_after_be}.`;
+  const parts = q => [q.subject,q.be,q.word.practice_after_be];
+  const stopAudio = () => {
+    utterance=null;
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+  };
+  function makeQuestions() {
+    const words=shuffle(pool).slice(0,TOTAL);
+    // A mixture of all three activities, in a different order each game.
+    const types=shuffle(Array.from({length:TOTAL},(_,i)=>['be','order','short'][i%3]));
+    return words.map((word,i)=>{
+      const subjects=word.practice_subjects.filter(s=>s==='I'||s==='You');
+      const subject=subjects[Math.floor(Math.random()*subjects.length)];
+      return {word,subject,be:subject==='I'?'am':'are',type:types[i]};
+    });
+  }
+  function start() {
+    stopAudio();questions=makeQuestions();index=0;score=0;
+    $('start').hidden=true;$('finish').hidden=true;$('game').hidden=false;
+    render();
+  }
+  function button(text, action) {
+    const b=document.createElement('button');b.type='button';b.textContent=text;b.onclick=action;
+    return b;
+  }
+  function renderSlots() {
+    $('slots').replaceChildren();
+    for(let i=0;i<3;i++) {
+      const span=document.createElement('span');
+      span.className='slot'+(i<arranged.length?' filled':'');
+      span.textContent='('+(arranged[i]||'_____')+')';$('slots').append(span);
+    }
+    $('check').disabled=arranged.length!==3;
+  }
+  function render() {
+    stopAudio();question=questions[index];selected=null;arranged=[];locked=false;
+    $('round').textContent=`Question ${index+1} / ${TOTAL} · 第${index+1}問`;
+    $('score').textContent=`🌱 ${score} correct / 正解`;
+    $('progress').value=index;
+    $('options').replaceChildren();$('feedback').replaceChildren();
+    $('feedback').hidden=true;$('next').hidden=true;$('listen').hidden=true;
+    $('audio-status').textContent='';$('check').disabled=true;
+    $('hint').textContent='Choose an answer first. / 答えを選んでね。';
+    $('meaning').textContent=`Word / 単語：${question.word.word} — ${question.word.practice_meaning_ja}`;
+    $('slots').hidden=question.type!=='order';$('reset').hidden=question.type!=='order';
+    if(question.type==='order') {
+      $('task').textContent='Put the three parts in order. / ３つのパーツを順番に押して、文を作ろう。';
+      $('sentence').textContent='(Who?) (am / are) (description)';
+      let choices=shuffle(parts(question));
+      // Avoid starting with the answer already in the correct order.
+      if(choices.every((s,i)=>s===parts(question)[i])) choices=[choices[1],choices[2],choices[0]];
+      choices.forEach(text=>{
+        const b=button(text,()=>{if(locked)return;arranged.push(text);b.disabled=true;renderSlots()});
+        $('options').append(b);
+      });
+      renderSlots();
+    } else {
+      const isBe=question.type==='be';
+      $('task').textContent=isBe?'Choose the correct be verb. / 正しいbe動詞を選ぼう。':'Choose the correct short form. / 正しい短縮形を選ぼう。';
+      $('sentence').textContent=isBe?`${question.subject} ( _____ ) ${question.word.practice_after_be}.`:`${fullSentence(question)} → _____ ${question.word.practice_after_be}.`;
+      const choices=isBe?['am','are','is']:["I'm","You're","Your"];
+      shuffle(choices).forEach(text=>{
+        const b=button(text,()=>{
+          if(locked)return;selected=text;
+          [...$('options').children].forEach(el=>{el.classList.remove('selected');el.setAttribute('aria-pressed','false')});
+          b.classList.add('selected');b.setAttribute('aria-pressed','true');$('check').disabled=false;
+        });
+        b.setAttribute('aria-pressed','false');$('options').append(b);
+      });
+    }
+    $('task').focus();
+  }
+  function check() {
+    if(locked||$('check').disabled)return;
+    locked=true;
+    const expected=question.type==='be'?question.be:question.subject==='I'?"I'm":"You're";
+    const correct=question.type==='order'?arranged.every((s,i)=>s===parts(question)[i]):selected===expected;
+    if(correct)score++;
+    $('score').textContent=`🌱 ${score} correct / 正解`;
+    $('progress').value=index+1;
+    [...$('options').children].forEach(b=>b.disabled=true);$('check').disabled=true;$('reset').disabled=true;
+    $('hint').textContent='';
+    const heading=document.createElement('strong');heading.textContent=correct?'🌸 Correct! / 正解！':'🌱 Keep growing! / 答えを見て、覚えよう！';
+    const answer=document.createElement('p');answer.textContent=parts(question).map(s=>'('+s+')').join(' ')+'.';
+    const forms=document.createElement('p');forms.textContent=fullSentence(question)+' → '+shortSentence(question);
+    const why=document.createElement('p');why.textContent=question.subject==='I'?'Use am with I. I am becomes I’m. / I には am。I am の短縮形は I’m です。':'Use are with You. You are becomes You’re. / You には are。You are の短縮形は You’re です。';
+    $('feedback').append(heading,answer,forms,why);
+    if(question.type==='short'){
+      const tip=document.createElement('p');tip.textContent='You’re = you are. Your = あなたの。';$('feedback').append(tip);
+    }
+    if(/^(a|an) /.test(question.word.practice_after_be)) {
+      const tip=document.createElement('p');tip.textContent='Keep the article with the noun: '+question.word.practice_after_be+' / 冠詞 a・an も名詞と同じパーツに入れます。';$('feedback').append(tip);
+    }
+    $('feedback').hidden=false;$('listen').hidden=false;$('next').hidden=false;
+    $('next').textContent=index===TOTAL-1?'See results / 結果を見る':'Next / 次へ →';
+  }
+  function next() {
+    if(!locked)return;
+    stopAudio();index++;
+    if(index<TOTAL){$('reset').disabled=false;render();return}
+    $('game').hidden=true;$('finish').hidden=false;
+    $('result').textContent=`${score} / ${TOTAL} correct · ${TOTAL}問中${score}問正解`;
+    $('result').focus();
+  }
+  function listen() {
+    if(!locked)return;
+    if(!('speechSynthesis' in window)||!('SpeechSynthesisUtterance' in window)) {
+      $('audio-status').textContent='Speech is unavailable here. / このブラウザでは音声を使えません。';return;
+    }
+    const voices=speechSynthesis.getVoices().filter(v=>/^en(?:[-_]|$)/i.test(v.lang));
+    const voice=voices.find(v=>/google/i.test(v.name)&&/^en-US$/i.test(v.lang))||voices.find(v=>/^en-US$/i.test(v.lang))||voices[0];
+    if(!voice){$('audio-status').textContent='No English voice yet. Enable an English voice on your device, then try again. / 端末の英語音声を有効にして、もう一度押してください。';return}
+    stopAudio();const u=new SpeechSynthesisUtterance(fullSentence(question));utterance=u;
+    u.voice=voice;u.lang=voice.lang;u.rate=.85;
+    u.onerror=e=>{if(utterance===u&&!['canceled','interrupted'].includes(e.error))$('audio-status').textContent='Could not play audio / 音声を再生できませんでした。'};
+    speechSynthesis.speak(u);
+  }
+  $('start').onclick=start;$('restart').onclick=start;$('check').onclick=check;$('next').onclick=next;$('listen').onclick=listen;
+  $('reset').onclick=()=>{if(locked)return;arranged=[];[...$('options').children].forEach(b=>b.disabled=false);renderSlots()};
+  fetch(VOCAB_URL).then(response=>{
+    if(!response.ok)throw new Error('HTTP '+response.status);return response.json();
+  }).then(data=>{
+    if(!Array.isArray(data))throw new Error('Expected a JSON array');
+    const seen=new Set();
+    pool=data.filter(w=>{
+      const valid=w&&typeof w.word==='string'&&typeof w.practice_after_be==='string'&&w.practice_after_be.trim()&&typeof w.practice_meaning_ja==='string'&&Array.isArray(w.modules)&&w.modules.includes(MODULE)&&Array.isArray(w.practice_subjects)&&w.practice_subjects.some(s=>s==='I'||s==='You');
+      if(!valid||seen.has(w.word))return false;seen.add(w.word);return true;
+    });
+    if(pool.length<TOTAL)throw new Error('At least '+TOTAL+' suitable words are required');
+    $('loading').textContent='Ready! '+pool.length+' words available. / 準備OK！'+pool.length+'語から出題します。';$('start').hidden=false;
+  }).catch(error=>{
+    $('loading').className='error';
+    $('loading').textContent='Could not load vocabulary. / 単語を読み込めませんでした。 Check that '+new URL(VOCAB_URL,location.href).href+' is published and accessible. ('+error.message+')';
+  });
+})();
+</script>
+</body>
+</html>
