@@ -483,8 +483,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-spatial-translation-linear-momentum">Example 1: Spatial Translation → Linear Momentum</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-time-translation-energy-conservation">Example 2: Time Translation → Energy Conservation</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-identify-the-symmetry-transformation">Step 1: Identify the Symmetry Transformation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-noethers-conserved-quantity-naive-approach">Step 2: Noether’s Conserved Quantity (Naive approach)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-from-noethers-general-form-to-the-hamiltonian">Step 3: From Noether’s General Form to the Hamiltonian</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-compare-the-two-motions-at-the-same-time">Step 2: Compare the Two Motions at the Same Time</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-find-the-conserved-quantity">Step 3: Find the Conserved Quantity</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-physical-interpretation">Step 4: Physical Interpretation</a></li>
 </ul>
 </li>
@@ -1159,116 +1159,88 @@ Q = \frac{\partial L}{\partial \dot{x}}\, \Delta x = m \dot{x} = p \quad (\text{
 <hr class="docutils" />
 <section id="example-2-time-translation-energy-conservation">
 <h3>Example 2: Time Translation → Energy Conservation<a class="headerlink" href="#example-2-time-translation-energy-conservation" title="Link to this heading">#</a></h3>
-<p><strong>Problem:</strong><br />
-Show that if the Lagrangian does not depend explicitly on time (<span class="math notranslate nohighlight">\(\partial L/\partial t = 0\)</span>), energy is conserved.</p>
+<p><strong>Problem</strong><br />
+Show that if the Lagrangian has no explicit time dependence (<span class="math notranslate nohighlight">\(\partial L/\partial t=0\)</span>), energy is conserved.</p>
 <hr class="docutils" />
 <section id="step-1-identify-the-symmetry-transformation">
 <h4>Step 1: Identify the Symmetry Transformation<a class="headerlink" href="#step-1-identify-the-symmetry-transformation" title="Link to this heading">#</a></h4>
-<p>A time translation means:</p>
+<p>A time translation shifts the time label of every point on the motion by the same amount <span class="math notranslate nohighlight">\(\epsilon\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[
-t' = t + \epsilon
+t'=t+\epsilon,
+\qquad
+q_i'(t')=q_i(t).
 \]</div>
-<p>Comparing to the general infinitesimal form <span class="math notranslate nohighlight">\(t' = t + \epsilon\,\Delta t\)</span>:</p>
+<p>In words, the configuration that had time label <span class="math notranslate nohighlight">\(t\)</span> now has time label <span class="math notranslate nohighlight">\(t+\epsilon\)</span>. Comparing with the general infinitesimal transformation gives</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta t=1,
+\qquad
+\Delta q_i=0.
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\(dt'=dt\)</span>, the velocities at corresponding points are also unchanged. With <span class="math notranslate nohighlight">\(\partial L/\partial t=0\)</span>, the action integrand <span class="math notranslate nohighlight">\(L\,dt\)</span> is unchanged, so <span class="math notranslate nohighlight">\(F=0\)</span>.</p>
+</section>
+<section id="step-2-compare-the-two-motions-at-the-same-time">
+<h4>Step 2: Compare the Two Motions at the Same Time<a class="headerlink" href="#step-2-compare-the-two-motions-at-the-same-time" title="Link to this heading">#</a></h4>
+<p>The equation <span class="math notranslate nohighlight">\(q_i'(t+\epsilon)=q_i(t)\)</span> tells us that the shifted motion at time <span class="math notranslate nohighlight">\(t\)</span> has the value the original motion had at time <span class="math notranslate nohighlight">\(t-\epsilon\)</span>. Expanding to first order gives</p>
+<div class="math notranslate nohighlight">
+\[
+q_i'(t)=q_i(t-\epsilon)
+\approx q_i(t)-\epsilon\dot q_i(t).
+\]</div>
+<p>Thus the change <strong>at the same time label</strong> is</p>
+<div class="math notranslate nohighlight">
+\[
+q_i'(t)-q_i(t)\approx-\epsilon\dot q_i(t).
+\]</div>
+<p><strong>Key Point</strong><br />
+The forward difference <span class="math notranslate nohighlight">\(q_i(t+\epsilon)-q_i(t)\approx+\epsilon\dot q_i(t)\)</span> compares two points on the original motion. Here we compare the shifted motion with the original motion at the same time <span class="math notranslate nohighlight">\(t\)</span>. The negative sign comes from the choice <span class="math notranslate nohighlight">\(t'=t+\epsilon\)</span>, which moves each configuration to a later time label.</p>
+</section>
+<section id="step-3-find-the-conserved-quantity">
+<h4>Step 3: Find the Conserved Quantity<a class="headerlink" href="#step-3-find-the-conserved-quantity" title="Link to this heading">#</a></h4>
+<p>With <span class="math notranslate nohighlight">\(p_i=\partial L/\partial\dot q_i\)</span>, Noether’s conserved quantity for a transformation of both <span class="math notranslate nohighlight">\(q_i\)</span> and <span class="math notranslate nohighlight">\(t\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+Q
+=
+\sum_i p_i\bigl(\Delta q_i-\dot q_i\Delta t\bigr)
++L\Delta t-F.
+\]</div>
+<p>The combination <span class="math notranslate nohighlight">\(\Delta q_i-\dot q_i\Delta t\)</span> is the coefficient of <span class="math notranslate nohighlight">\(\epsilon\)</span> in the change at the same time label. For this time translation, it equals <span class="math notranslate nohighlight">\(-\dot q_i\)</span>, as we found in Step 2.</p>
+<p>Substituting <span class="math notranslate nohighlight">\(\Delta q_i=0\)</span>, <span class="math notranslate nohighlight">\(\Delta t=1\)</span>, and <span class="math notranslate nohighlight">\(F=0\)</span> gives</p>
+<div class="math notranslate nohighlight">
+\[
+Q=-\sum_i p_i\dot q_i+L.
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\(Q\)</span> is constant, its negative is also constant. We identify <span class="math notranslate nohighlight">\(-Q\)</span> as the energy.</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{E=\sum_i p_i\dot q_i-L},
+\qquad
+\frac{dE}{dt}=0.
+\]</div>
+<div style="background-color: #eaf4fb; border-left: 5px solid #2b6ca3; padding: 0.9em 1.2em; margin: 1em 0;">
+<p><strong>Key Point — Which Change in <span class="math notranslate nohighlight">\(q_i\)</span> Are We Measuring?</strong></p>
+<p>For a time translation <span class="math notranslate nohighlight">\(t'=t+\epsilon\)</span>, keep track of which points you are comparing.</p>
 <ul class="simple">
-<li><p><strong><span class="math notranslate nohighlight">\(\Delta t = 1\)</span></strong> (the generator is a unit shift in time per unit <span class="math notranslate nohighlight">\(\epsilon\)</span>).</p></li>
+<li><p><strong>Under the symmetry transformation</strong>, compare the original point at <span class="math notranslate nohighlight">\(t\)</span> with its corresponding point at <span class="math notranslate nohighlight">\(t'=t+\epsilon\)</span>. The same configuration gets a new time label, so <span class="math notranslate nohighlight">\(q_i'(t+\epsilon)=q_i(t)\)</span> and <span class="math notranslate nohighlight">\(\Delta q_i=0\)</span>.</p></li>
+<li><p><strong>Along the original motion</strong>, compare the configuration at <span class="math notranslate nohighlight">\(t\)</span> with the configuration at <span class="math notranslate nohighlight">\(t+\epsilon\)</span>. To first order, the change is <span class="math notranslate nohighlight">\(q_i(t+\epsilon)-q_i(t)\approx+\epsilon\dot q_i(t)\)</span>.</p></li>
 </ul>
-<p>The generalized coordinates <span class="math notranslate nohighlight">\(q_i\)</span> do <strong>not</strong> change under a pure time translation:</p>
+<p><strong>How these enter Noether’s theorem.</strong> Compare the two motions at the same time label <span class="math notranslate nohighlight">\(t\)</span>. The shifted motion at <span class="math notranslate nohighlight">\(t\)</span> takes its value from the original motion at <span class="math notranslate nohighlight">\(t-\epsilon\)</span>, so</p>
 <div class="math notranslate nohighlight">
 \[
-\Delta q_i = 0
+q_i'(t)-q_i(t)
+=q_i(t-\epsilon)-q_i(t)
+\approx-\epsilon\dot q_i(t).
 \]</div>
-<p>(<span class="math notranslate nohighlight">\(q_i\)</span> evaluated at a shifted time <span class="math notranslate nohighlight">\(t+\epsilon\)</span> changes only indirectly via the dynamics, not as an explicit transformation).</p>
+<p>The coefficient of <span class="math notranslate nohighlight">\(\epsilon\)</span> in this same-time change is <span class="math notranslate nohighlight">\(\Delta q_i-\dot q_i\Delta t\)</span>. Here <span class="math notranslate nohighlight">\(\Delta q_i=0\)</span> and <span class="math notranslate nohighlight">\(\Delta t=1\)</span>, so the coefficient is <span class="math notranslate nohighlight">\(-\dot q_i\)</span>.</p>
+</div>
 </section>
-<hr class="docutils" />
-<section id="step-2-noethers-conserved-quantity-naive-approach">
-<h4>Step 2: Noether’s Conserved Quantity (Naive approach)<a class="headerlink" href="#step-2-noethers-conserved-quantity-naive-approach" title="Link to this heading">#</a></h4>
-<p>The general Noether conserved quantity (full form) is:</p>
-<div class="math notranslate nohighlight">
-\[
-Q = \sum_i \frac{\partial L}{\partial \dot{q}_i}\,\Delta q_i \;-\;\left(L\,\Delta t - F\right)
-\]</div>
-<p>For this symmetry:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\Delta q_i = 0\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\Delta t = 1\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(F = 0\)</span> (no extra total derivative)</p></li>
-</ul>
-<p>So:</p>
-<div class="math notranslate nohighlight">
-\[
-Q = -\left(L\,\Delta t\right) = -L
-\]</div>
-<blockquote>
-<div><p>Because Noether’s theorem requires the active infinitesimal transformation of every dynamical variable. For time translations, the field shape doesn’t change — but the argument of the function shifts:</p>
-<div class="math notranslate nohighlight">
-\[ q(t) \rightarrow q(t+\epsilon)\]</div>
-<p>This induces a genuine change in q:</p>
-<div class="math notranslate nohighlight">
-\[\Delta q = \epsilon\dot{q}\]</div>
-<p>Failing to include this induced change leads directly to the “wrong” Noether charge.</p>
-<p><strong>If we naively treat a time translation as having <span class="math notranslate nohighlight">\(\Delta q_i = 0\)</span>, Noether’s theorem gives <span class="math notranslate nohighlight">\(Q = -L\)</span>.<br />
-But this ignores the induced variation <span class="math notranslate nohighlight">\(\Delta q_i = \dot{q}_i\,\Delta t\)</span> that arises when the time argument shifts.<br />
-Including this full transformation yields the correct conserved quantity<br />
-<span class="math notranslate nohighlight">\(\displaystyle Q = \sum_i p_i \dot{q}_i - L\)</span>.</strong></p>
-</div></blockquote>
-</section>
-<hr class="docutils" />
-<section id="step-3-from-noethers-general-form-to-the-hamiltonian">
-<h4>Step 3: From Noether’s General Form to the Hamiltonian<a class="headerlink" href="#step-3-from-noethers-general-form-to-the-hamiltonian" title="Link to this heading">#</a></h4>
-<p>The general conserved quantity from Noether’s theorem is:</p>
-<div class="math notranslate nohighlight">
-\[
-Q = \sum_i p_i\,\Delta q_i \;-\;\big(L\,\Delta t - F\big),
-\]</div>
-<p>with <span class="math notranslate nohighlight">\(p_i = \dfrac{\partial L}{\partial \dot{q}_i}\)</span>.</p>
-<p>For a <strong>time translation</strong>:</p>
-<ol class="arabic">
-<li><p><strong>The full transformation affects both <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\(q_i\)</span>:</strong></p>
-<p>Because we shift time <span class="math notranslate nohighlight">\(t \to t + \epsilon\)</span>,
-each generalized coordinate also shifts:</p>
-<div class="math notranslate nohighlight">
-\[
-   q_i(t) \to q_i(t+\epsilon)
-   \approx q_i(t) + \epsilon\,\dot{q}_i
-   \]</div>
-<p>So:</p>
-<div class="math notranslate nohighlight">
-\[
-   \Delta q_i = \dot{q}_i\,\Delta t, \qquad (\Delta t = 1)
-   \]</div>
-</li>
-<li><p><strong>Substitute into <span class="math notranslate nohighlight">\(Q\)</span>:</strong></p>
-<div class="math notranslate nohighlight">
-\[
-   Q = \sum_i p_i(\dot{q}_i\,\Delta t) \;-\; L\,\Delta t
-   \]</div>
-</li>
-<li><p><strong>Factor out <span class="math notranslate nohighlight">\(\Delta t\)</span>:</strong></p>
-<div class="math notranslate nohighlight">
-\[
-   Q = \left(\sum_i p_i\,\dot{q}_i \;-\; L\right)\Delta t
-   \]</div>
-</li>
-<li><p><strong>Choose <span class="math notranslate nohighlight">\(\Delta t = 1\)</span>:</strong></p>
-<div class="math notranslate nohighlight">
-\[
-   \boxed{E \equiv Q = \sum_i p_i\,\dot{q}_i \;-\; L}
-   \]</div>
-</li>
-</ol>
-<p>Thus the conserved Noether charge for time-translation invariance is exactly the <strong>Hamiltonian</strong> <span class="math notranslate nohighlight">\(H\)</span>.</p>
-</section>
-<hr class="docutils" />
 <section id="step-4-physical-interpretation">
 <h4>Step 4: Physical Interpretation<a class="headerlink" href="#step-4-physical-interpretation" title="Link to this heading">#</a></h4>
-<ul class="simple">
-<li><p>The symmetry means the system looks the same at all moments of time — the Lagrangian does not depend explicitly on <span class="math notranslate nohighlight">\(t\)</span>.</p></li>
-<li><p>This invariance implies that the <strong>energy of the system cannot change with time</strong>.</p></li>
-</ul>
+<p>Time-translation symmetry means that the equations of motion are the same whether the experiment starts now or later. For a mass on an ideal spring, the position, speed, kinetic energy, and potential energy all change during the motion. Their kinetic and potential energies add up to the same total energy at every instant.</p>
 </section>
 </section>
-<hr class="docutils" />
 <section id="example-3-rotational-symmetry-angular-momentum">
 <h3>Example 3: Rotational Symmetry → Angular Momentum<a class="headerlink" href="#example-3-rotational-symmetry-angular-momentum" title="Link to this heading">#</a></h3>
 <p>In 2D polar coordinates with a central potential:</p>
@@ -1510,8 +1482,8 @@ The next natural step is to study <strong>Lie groups and Lie algebras</strong>, 
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-spatial-translation-linear-momentum">Example 1: Spatial Translation → Linear Momentum</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-time-translation-energy-conservation">Example 2: Time Translation → Energy Conservation</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-identify-the-symmetry-transformation">Step 1: Identify the Symmetry Transformation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-noethers-conserved-quantity-naive-approach">Step 2: Noether’s Conserved Quantity (Naive approach)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-from-noethers-general-form-to-the-hamiltonian">Step 3: From Noether’s General Form to the Hamiltonian</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-compare-the-two-motions-at-the-same-time">Step 2: Compare the Two Motions at the Same Time</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-find-the-conserved-quantity">Step 3: Find the Conserved Quantity</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-physical-interpretation">Step 4: Physical Interpretation</a></li>
 </ul>
 </li>
